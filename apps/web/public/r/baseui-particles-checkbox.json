@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-checkbox",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-checkbox"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/checkbox/index.tsx",
+			"content": "import {\n\tCheckbox,\n\tCheckIcon,\n\tCheckboxIndicator,\n} from \"@/components/baseui/components/checkbox\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"flex items-center gap-2 cursor-pointer\">\n\t\t\t<Checkbox id=\"notifications\">\n\t\t\t\t<CheckboxIndicator>\n\t\t\t\t\t<CheckIcon />\n\t\t\t\t</CheckboxIndicator>\n\t\t\t\t{/* <CheckboxIndicator /> */}\n\t\t\t</Checkbox>\n\t\t\t<span>Enable notifications</span>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/components/checkbox.tsx"
+		}
+	],
+	"type": "registry:component"
+}

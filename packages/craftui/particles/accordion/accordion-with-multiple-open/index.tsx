@@ -10,7 +10,7 @@ import { ChevronDown } from "lucide-react";
 
 export default function Particle() {
 	return (
-		<Accordion allowMultipleOpen className="w-full md:w-[500px]">
+		<Accordion allowMultipleOpen className="w-full md:w-125">
 			<AccordionItem id="item-1">
 				<AccordionTrigger>
 					What is React?

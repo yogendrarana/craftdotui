@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-collapsible",
+	"type": "registry:component",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-collapsible"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/collapsible/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/components/collapsible.tsx"
+		}
+	]
+}

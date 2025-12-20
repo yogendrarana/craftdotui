@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-collapsible",
+	"type": "registry:component",
+	"description": "A Base UI collapsible component",
+	"dependencies": ["@base-ui/react", "lucide-react"],
+	"registryDependencies": ["@craftdotui/utils"],
+	"files": [
+		{
+			"path": "packages/baseui/components/collapsible/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/components/collapsible.tsx"
+		}
+	]
+}

@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-autocomplete-async-search",
+	"type": "registry:component",
+	"description": "Autocomplete with async search",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/baseui-autocomplete"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/autocomplete/autocomplete-async-search/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/components/autocomplete-async-search.tsx"
+		}
+	]
+}

@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-avatar-group",
+	"type": "registry:component",
+	"description": "Grouped/stacked avatars",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-avatar"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/avatar/avatar-group/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/components/avatar-group.tsx"
+		}
+	]
+}

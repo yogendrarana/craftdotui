@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-button-loading",
+	"type": "registry:component",
+	"description": "Button with loading state",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/baseui-button"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/button/button-loading/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/components/button-loading.tsx"
+		}
+	]
+}

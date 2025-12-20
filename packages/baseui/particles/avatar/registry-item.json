@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-avatar",
+	"type": "registry:component",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-avatar"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/avatar/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/components/avatar.tsx"
+		}
+	]
+}

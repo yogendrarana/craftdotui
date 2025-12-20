@@ -10,7 +10,7 @@ import { ChevronDown } from "lucide-react";
 
 export default function AccordionDemo() {
 	return (
-		<Accordion className="w-full md:w-[500px]">
+		<Accordion className="w-full md:w-125">
 			<AccordionItem id="item-1">
 				<AccordionTrigger>
 					What is React?

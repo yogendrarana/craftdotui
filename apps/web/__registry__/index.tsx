@@ -723,7 +723,7 @@ export const Registry: Record<string, any> = {
 				type: "registry:component",
 				target: "components/craftui/particles/accordion-with-custom-icons.tsx",
 				content:
-					'"use client";\n\nimport {\n\tAccordion,\n\tAccordionItem,\n\tAccordionTrigger,\n\tAccordionContent,\n} from "@/components/craftui/components/accordion";\nimport { Plus } from "lucide-react";\n\nexport default function Particle() {\n\treturn (\n\t\t<Accordion className="w-full md:w-[500px]">\n\t\t\t<AccordionItem id="item-1">\n\t\t\t\t<AccordionTrigger>\n\t\t\t\t\tWhat is React?\n\t\t\t\t\t<Plus className="size-4 shrink-0 transition-all ease-out group-data-[state=open]:rotate-45" />\n\t\t\t\t</AccordionTrigger>\n\t\t\t\t<AccordionContent>\n\t\t\t\t\tReact is a JavaScript library for building user interfaces.\n\t\t\t\t\tIt lets you create reusable UI components.\n\t\t\t\t</AccordionContent>\n\t\t\t</AccordionItem>\n\t\t\t<AccordionItem id="item-2">\n\t\t\t\t<AccordionTrigger>\n\t\t\t\t\t<span>What is Tailwind CSS?</span>\n\t\t\t\t\t<Plus className="size-4 shrink-0 transition-all ease-out group-data-[state=open]:rotate-45" />\n\t\t\t\t</AccordionTrigger>\n\t\t\t\t<AccordionContent>\n\t\t\t\t\tTailwind CSS is a utility-first CSS framework packed with\n\t\t\t\t\tclasses like flex, pt-4, text-center and rotate-90 that can\n\t\t\t\t\tbe composed to build any design, directly in your markup.\n\t\t\t\t</AccordionContent>\n\t\t\t</AccordionItem>\n\n\t\t\t<AccordionItem id="item-3">\n\t\t\t\t<AccordionTrigger>\n\t\t\t\t\tWhy use Framer Motion?\n\t\t\t\t\t<Plus className="size-4 shrink-0 transition-all ease-out group-data-[state=open]:rotate-45" />\n\t\t\t\t</AccordionTrigger>\n\t\t\t\t<AccordionContent>\n\t\t\t\t\tFramer Motion is a motion library for React. It provides a\n\t\t\t\t\tdeclarative, flexible API to add smooth animations and\n\t\t\t\t\tgestures to your components.\n\t\t\t\t</AccordionContent>\n\t\t\t</AccordionItem>\n\t\t</Accordion>\n\t);\n}',
+					'"use client";\n\nimport {\n\tAccordion,\n\tAccordionItem,\n\tAccordionTrigger,\n\tAccordionContent,\n} from "@/components/craftui/components/accordion";\nimport { Plus } from "lucide-react";\n\nexport default function Particle() {\n\treturn (\n\t\t<Accordion className="w-full md:w-125">\n\t\t\t<AccordionItem id="item-1">\n\t\t\t\t<AccordionTrigger>\n\t\t\t\t\tWhat is React?\n\t\t\t\t\t<Plus className="size-4 shrink-0 transition-all ease-out group-data-[state=open]:rotate-45" />\n\t\t\t\t</AccordionTrigger>\n\t\t\t\t<AccordionContent>\n\t\t\t\t\tReact is a JavaScript library for building user interfaces.\n\t\t\t\t\tIt lets you create reusable UI components.\n\t\t\t\t</AccordionContent>\n\t\t\t</AccordionItem>\n\t\t\t<AccordionItem id="item-2">\n\t\t\t\t<AccordionTrigger>\n\t\t\t\t\t<span>What is Tailwind CSS?</span>\n\t\t\t\t\t<Plus className="size-4 shrink-0 transition-all ease-out group-data-[state=open]:rotate-45" />\n\t\t\t\t</AccordionTrigger>\n\t\t\t\t<AccordionContent>\n\t\t\t\t\tTailwind CSS is a utility-first CSS framework packed with\n\t\t\t\t\tclasses like flex, pt-4, text-center and rotate-90 that can\n\t\t\t\t\tbe composed to build any design, directly in your markup.\n\t\t\t\t</AccordionContent>\n\t\t\t</AccordionItem>\n\n\t\t\t<AccordionItem id="item-3">\n\t\t\t\t<AccordionTrigger>\n\t\t\t\t\tWhy use Framer Motion?\n\t\t\t\t\t<Plus className="size-4 shrink-0 transition-all ease-out group-data-[state=open]:rotate-45" />\n\t\t\t\t</AccordionTrigger>\n\t\t\t\t<AccordionContent>\n\t\t\t\t\tFramer Motion is a motion library for React. It provides a\n\t\t\t\t\tdeclarative, flexible API to add smooth animations and\n\t\t\t\t\tgestures to your components.\n\t\t\t\t</AccordionContent>\n\t\t\t</AccordionItem>\n\t\t</Accordion>\n\t);\n}',
 			},
 		],
 		keywords: [],
@@ -772,7 +772,7 @@ export const Registry: Record<string, any> = {
 				type: "registry:component",
 				target: "components/craftui/particles/accordion-with-default-open.tsx",
 				content:
-					'"use client";\n\nimport {\n\tAccordion,\n\tAccordionItem,\n\tAccordionTrigger,\n\tAccordionContent,\n} from "@/components/craftui/components/accordion";\nimport { ChevronDown } from "lucide-react";\n\nexport default function Particle() {\n\treturn (\n\t\t<Accordion defaultOpen={["item-2"]} className="w-full md:w-[500px]">\n\t\t\t<AccordionItem id="item-1">\n\t\t\t\t<AccordionTrigger>\n\t\t\t\t\tWhat is React?\n\t\t\t\t\t<ChevronDown className="mr-2 size-3 shrink-0 transition-all ease-out group-data-[state=open]:rotate-180" />\n\t\t\t\t</AccordionTrigger>\n\t\t\t\t<AccordionContent>\n\t\t\t\t\tReact is a JavaScript library for building user interfaces.\n\t\t\t\t\tIt lets you create reusable UI components.\n\t\t\t\t</AccordionContent>\n\t\t\t</AccordionItem>\n\t\t\t<AccordionItem id="item-2">\n\t\t\t\t<AccordionTrigger>\n\t\t\t\t\tWhat is Tailwind CSS?\n\t\t\t\t\t<ChevronDown className="mr-2 size-3 shrink-0 transition-all ease-out group-data-[state=open]:rotate-180" />\n\t\t\t\t</AccordionTrigger>\n\t\t\t\t<AccordionContent>\n\t\t\t\t\tTailwind CSS is a utility-first CSS framework packed with\n\t\t\t\t\tclasses like flex, pt-4, text-center and rotate-90 that can\n\t\t\t\t\tbe composed to build any design, directly in your markup.\n\t\t\t\t</AccordionContent>\n\t\t\t</AccordionItem>\n\t\t\t<AccordionItem id="item-3">\n\t\t\t\t<AccordionTrigger>\n\t\t\t\t\tWhy use Framer Motion?\n\t\t\t\t\t<ChevronDown className="mr-2 size-3 shrink-0 transition-all ease-out group-data-[state=open]:rotate-180" />\n\t\t\t\t</AccordionTrigger>\n\t\t\t\t<AccordionContent>\n\t\t\t\t\tFramer Motion is a motion library for React. It provides a\n\t\t\t\t\tdeclarative, flexible API to add smooth animations and\n\t\t\t\t\tgestures to your components.\n\t\t\t\t</AccordionContent>\n\t\t\t</AccordionItem>\n\t\t</Accordion>\n\t);\n}',
+					'"use client";\n\nimport {\n\tAccordion,\n\tAccordionItem,\n\tAccordionTrigger,\n\tAccordionContent,\n} from "@/components/craftui/components/accordion";\nimport { ChevronDown } from "lucide-react";\n\nexport default function Particle() {\n\treturn (\n\t\t<Accordion defaultOpen={["item-2"]} className="w-full md:w-125">\n\t\t\t<AccordionItem id="item-1">\n\t\t\t\t<AccordionTrigger>\n\t\t\t\t\tWhat is React?\n\t\t\t\t\t<ChevronDown className="mr-2 size-3 shrink-0 transition-all ease-out group-data-[state=open]:rotate-180" />\n\t\t\t\t</AccordionTrigger>\n\t\t\t\t<AccordionContent>\n\t\t\t\t\tReact is a JavaScript library for building user interfaces.\n\t\t\t\t\tIt lets you create reusable UI components.\n\t\t\t\t</AccordionContent>\n\t\t\t</AccordionItem>\n\t\t\t<AccordionItem id="item-2">\n\t\t\t\t<AccordionTrigger>\n\t\t\t\t\tWhat is Tailwind CSS?\n\t\t\t\t\t<ChevronDown className="mr-2 size-3 shrink-0 transition-all ease-out group-data-[state=open]:rotate-180" />\n\t\t\t\t</AccordionTrigger>\n\t\t\t\t<AccordionContent>\n\t\t\t\t\tTailwind CSS is a utility-first CSS framework packed with\n\t\t\t\t\tclasses like flex, pt-4, text-center and rotate-90 that can\n\t\t\t\t\tbe composed to build any design, directly in your markup.\n\t\t\t\t</AccordionContent>\n\t\t\t</AccordionItem>\n\t\t\t<AccordionItem id="item-3">\n\t\t\t\t<AccordionTrigger>\n\t\t\t\t\tWhy use Framer Motion?\n\t\t\t\t\t<ChevronDown className="mr-2 size-3 shrink-0 transition-all ease-out group-data-[state=open]:rotate-180" />\n\t\t\t\t</AccordionTrigger>\n\t\t\t\t<AccordionContent>\n\t\t\t\t\tFramer Motion is a motion library for React. It provides a\n\t\t\t\t\tdeclarative, flexible API to add smooth animations and\n\t\t\t\t\tgestures to your components.\n\t\t\t\t</AccordionContent>\n\t\t\t</AccordionItem>\n\t\t</Accordion>\n\t);\n}',
 			},
 		],
 		keywords: [],
@@ -821,7 +821,7 @@ export const Registry: Record<string, any> = {
 				type: "registry:component",
 				target: "components/craftui/particles/accordion-with-multiple-open.tsx",
 				content:
-					'"use client";\n\nimport {\n\tAccordion,\n\tAccordionItem,\n\tAccordionTrigger,\n\tAccordionContent,\n} from "@/components/craftui/components/accordion";\nimport { ChevronDown } from "lucide-react";\n\nexport default function Particle() {\n\treturn (\n\t\t<Accordion allowMultipleOpen className="w-full md:w-[500px]">\n\t\t\t<AccordionItem id="item-1">\n\t\t\t\t<AccordionTrigger>\n\t\t\t\t\tWhat is React?\n\t\t\t\t\t<ChevronDown className="mr-2 size-3 shrink-0 transition-all ease-out group-data-[state=open]:rotate-180" />\n\t\t\t\t</AccordionTrigger>\n\t\t\t\t<AccordionContent>\n\t\t\t\t\tReact is a JavaScript library for building user interfaces.\n\t\t\t\t\tIt lets you create reusable UI components.\n\t\t\t\t</AccordionContent>\n\t\t\t</AccordionItem>\n\t\t\t<AccordionItem id="item-2">\n\t\t\t\t<AccordionTrigger>\n\t\t\t\t\tWhat is Tailwind CSS?\n\t\t\t\t\t<ChevronDown className="mr-2 size-3 shrink-0 transition-all ease-out group-data-[state=open]:rotate-180" />\n\t\t\t\t</AccordionTrigger>\n\t\t\t\t<AccordionContent>\n\t\t\t\t\tTailwind CSS is a utility-first CSS framework packed with\n\t\t\t\t\tclasses like flex, pt-4, text-center and rotate-90 that can\n\t\t\t\t\tbe composed to build any design, directly in your markup.\n\t\t\t\t</AccordionContent>\n\t\t\t</AccordionItem>\n\t\t\t<AccordionItem id="item-3">\n\t\t\t\t<AccordionTrigger>\n\t\t\t\t\tWhy use Framer Motion?\n\t\t\t\t\t<ChevronDown className="mr-2 size-3 shrink-0 transition-all ease-out group-data-[state=open]:rotate-180" />\n\t\t\t\t</AccordionTrigger>\n\t\t\t\t<AccordionContent>\n\t\t\t\t\tFramer Motion is a motion library for React. It provides a\n\t\t\t\t\tdeclarative, flexible API to add smooth animations and\n\t\t\t\t\tgestures to your components.\n\t\t\t\t</AccordionContent>\n\t\t\t</AccordionItem>\n\t\t</Accordion>\n\t);\n}',
+					'"use client";\n\nimport {\n\tAccordion,\n\tAccordionItem,\n\tAccordionTrigger,\n\tAccordionContent,\n} from "@/components/craftui/components/accordion";\nimport { ChevronDown } from "lucide-react";\n\nexport default function Particle() {\n\treturn (\n\t\t<Accordion allowMultipleOpen className="w-full md:w-125">\n\t\t\t<AccordionItem id="item-1">\n\t\t\t\t<AccordionTrigger>\n\t\t\t\t\tWhat is React?\n\t\t\t\t\t<ChevronDown className="mr-2 size-3 shrink-0 transition-all ease-out group-data-[state=open]:rotate-180" />\n\t\t\t\t</AccordionTrigger>\n\t\t\t\t<AccordionContent>\n\t\t\t\t\tReact is a JavaScript library for building user interfaces.\n\t\t\t\t\tIt lets you create reusable UI components.\n\t\t\t\t</AccordionContent>\n\t\t\t</AccordionItem>\n\t\t\t<AccordionItem id="item-2">\n\t\t\t\t<AccordionTrigger>\n\t\t\t\t\tWhat is Tailwind CSS?\n\t\t\t\t\t<ChevronDown className="mr-2 size-3 shrink-0 transition-all ease-out group-data-[state=open]:rotate-180" />\n\t\t\t\t</AccordionTrigger>\n\t\t\t\t<AccordionContent>\n\t\t\t\t\tTailwind CSS is a utility-first CSS framework packed with\n\t\t\t\t\tclasses like flex, pt-4, text-center and rotate-90 that can\n\t\t\t\t\tbe composed to build any design, directly in your markup.\n\t\t\t\t</AccordionContent>\n\t\t\t</AccordionItem>\n\t\t\t<AccordionItem id="item-3">\n\t\t\t\t<AccordionTrigger>\n\t\t\t\t\tWhy use Framer Motion?\n\t\t\t\t\t<ChevronDown className="mr-2 size-3 shrink-0 transition-all ease-out group-data-[state=open]:rotate-180" />\n\t\t\t\t</AccordionTrigger>\n\t\t\t\t<AccordionContent>\n\t\t\t\t\tFramer Motion is a motion library for React. It provides a\n\t\t\t\t\tdeclarative, flexible API to add smooth animations and\n\t\t\t\t\tgestures to your components.\n\t\t\t\t</AccordionContent>\n\t\t\t</AccordionItem>\n\t\t</Accordion>\n\t);\n}',
 			},
 		],
 		keywords: [],
@@ -870,7 +870,7 @@ export const Registry: Record<string, any> = {
 				type: "registry:block",
 				target: "components/craftui/particles/accordion.tsx",
 				content:
-					'"use client";\n\nimport {\n\tAccordion,\n\tAccordionItem,\n\tAccordionTrigger,\n\tAccordionContent,\n} from "@/components/craftui/components/accordion";\nimport { ChevronDown } from "lucide-react";\n\nexport default function AccordionDemo() {\n\treturn (\n\t\t<Accordion className="w-full md:w-[500px]">\n\t\t\t<AccordionItem id="item-1">\n\t\t\t\t<AccordionTrigger>\n\t\t\t\t\tWhat is React?\n\t\t\t\t\t<ChevronDown className="mr-2 size-3 shrink-0 transition-all ease-out group-data-[state=open]:rotate-180" />\n\t\t\t\t</AccordionTrigger>\n\t\t\t\t<AccordionContent>\n\t\t\t\t\tReact is a JavaScript library for building user interfaces.\n\t\t\t\t\tIt lets you create reusable UI components.\n\t\t\t\t</AccordionContent>\n\t\t\t</AccordionItem>\n\t\t\t<AccordionItem id="item-2">\n\t\t\t\t<AccordionTrigger>\n\t\t\t\t\tWhat is Tailwind CSS?\n\t\t\t\t\t<ChevronDown className="mr-2 size-3 shrink-0 transition-all ease-out group-data-[state=open]:rotate-180" />\n\t\t\t\t</AccordionTrigger>\n\t\t\t\t<AccordionContent>\n\t\t\t\t\tTailwind CSS is a utility-first CSS framework packed with\n\t\t\t\t\tclasses like flex, pt-4, text-center and rotate-90 that can\n\t\t\t\t\tbe composed to build any design, directly in your markup.\n\t\t\t\t</AccordionContent>\n\t\t\t</AccordionItem>\n\t\t\t<AccordionItem id="item-3">\n\t\t\t\t<AccordionTrigger>\n\t\t\t\t\tWhy use Framer Motion?\n\t\t\t\t\t<ChevronDown className="mr-2 size-3 shrink-0 transition-all ease-out group-data-[state=open]:rotate-180" />\n\t\t\t\t</AccordionTrigger>\n\t\t\t\t<AccordionContent>\n\t\t\t\t\tFramer Motion is a motion library for React. It provides a\n\t\t\t\t\tdeclarative, flexible API to add smooth animations and\n\t\t\t\t\tgestures to your components.\n\t\t\t\t</AccordionContent>\n\t\t\t</AccordionItem>\n\t\t</Accordion>\n\t);\n}',
+					'"use client";\n\nimport {\n\tAccordion,\n\tAccordionItem,\n\tAccordionTrigger,\n\tAccordionContent,\n} from "@/components/craftui/components/accordion";\nimport { ChevronDown } from "lucide-react";\n\nexport default function AccordionDemo() {\n\treturn (\n\t\t<Accordion className="w-full md:w-125">\n\t\t\t<AccordionItem id="item-1">\n\t\t\t\t<AccordionTrigger>\n\t\t\t\t\tWhat is React?\n\t\t\t\t\t<ChevronDown className="mr-2 size-3 shrink-0 transition-all ease-out group-data-[state=open]:rotate-180" />\n\t\t\t\t</AccordionTrigger>\n\t\t\t\t<AccordionContent>\n\t\t\t\t\tReact is a JavaScript library for building user interfaces.\n\t\t\t\t\tIt lets you create reusable UI components.\n\t\t\t\t</AccordionContent>\n\t\t\t</AccordionItem>\n\t\t\t<AccordionItem id="item-2">\n\t\t\t\t<AccordionTrigger>\n\t\t\t\t\tWhat is Tailwind CSS?\n\t\t\t\t\t<ChevronDown className="mr-2 size-3 shrink-0 transition-all ease-out group-data-[state=open]:rotate-180" />\n\t\t\t\t</AccordionTrigger>\n\t\t\t\t<AccordionContent>\n\t\t\t\t\tTailwind CSS is a utility-first CSS framework packed with\n\t\t\t\t\tclasses like flex, pt-4, text-center and rotate-90 that can\n\t\t\t\t\tbe composed to build any design, directly in your markup.\n\t\t\t\t</AccordionContent>\n\t\t\t</AccordionItem>\n\t\t\t<AccordionItem id="item-3">\n\t\t\t\t<AccordionTrigger>\n\t\t\t\t\tWhy use Framer Motion?\n\t\t\t\t\t<ChevronDown className="mr-2 size-3 shrink-0 transition-all ease-out group-data-[state=open]:rotate-180" />\n\t\t\t\t</AccordionTrigger>\n\t\t\t\t<AccordionContent>\n\t\t\t\t\tFramer Motion is a motion library for React. It provides a\n\t\t\t\t\tdeclarative, flexible API to add smooth animations and\n\t\t\t\t\tgestures to your components.\n\t\t\t\t</AccordionContent>\n\t\t\t</AccordionItem>\n\t\t</Accordion>\n\t);\n}',
 			},
 		],
 		keywords: [],
@@ -2795,6 +2795,2019 @@ export const Registry: Record<string, any> = {
 			const LazyComp = React.lazy(async () => {
 				const mod = await import(
 					"@craftdotui/craftui/particles/timeline/timeline-with-horizontal-layout/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-accordion": {
+		name: "baseui-accordion",
+		description: "A Base UI accordion component",
+		type: "registry:component",
+		dependencies: ["lucide-react", "@base-ui/react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/utils"],
+		files: [
+			{
+				path: "packages/baseui/components/accordion/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/accordion.tsx",
+				content:
+					'"use client";\n\nimport { ChevronDownIcon } from "lucide-react";\nimport { Accordion as AccordionPrimitive } from "@base-ui/react/accordion";\n\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Accordion                                                                  */\n/* -------------------------------------------------------------------------- */\n\nfunction Accordion({ className, ...props }: AccordionPrimitive.Root.Props) {\n\treturn (\n\t\t<AccordionPrimitive.Root\n\t\t\tdata-slot="accordion"\n\t\t\tclassName={cn("flex w-full flex-col", className)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* AccordionItem                                                              */\n/* -------------------------------------------------------------------------- */\n\nfunction AccordionItem({ className, ...props }: AccordionPrimitive.Item.Props) {\n\treturn (\n\t\t<AccordionPrimitive.Item\n\t\t\tdata-slot="accordion-item"\n\t\t\tclassName={cn("not-last:border-b", className)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* AccordionTrigger                                                           */\n/* -------------------------------------------------------------------------- */\n\nfunction AccordionTrigger({\n\tclassName,\n\tchildren,\n\t...props\n}: AccordionPrimitive.Trigger.Props) {\n\treturn (\n\t\t<AccordionPrimitive.Header className="flex">\n\t\t\t<AccordionPrimitive.Trigger\n\t\t\t\tdata-slot="accordion-trigger"\n\t\t\t\tclassName={cn(\n\t\t\t\t\t"py-4 relative flex flex-1 items-start justify-between rounded-md border border-transparent text-left text-sm font-medium transition-all outline-none",\n\t\t\t\t\t"hover:cursor-pointer hover:underline disabled:pointer-events-none disabled:opacity-50",\n\t\t\t\t\t"focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:border-ring focus-visible:after:border-ring",\n\t\t\t\t\t"**:data-[slot=accordion-trigger-icon]:ml-auto **:data-[slot=accordion-trigger-icon]:size-4 **:data-[slot=accordion-trigger-icon]:text-muted-foreground",\n\t\t\t\t\t"[&[data-panel-open]>[data-slot=accordion-trigger-icon]]:rotate-180",\n\t\t\t\t\tclassName,\n\t\t\t\t)}\n\t\t\t\t{...props}\n\t\t\t>\n\t\t\t\t{children}\n\n\t\t\t\t<ChevronDownIcon\n\t\t\t\t\tdata-slot="accordion-trigger-icon"\n\t\t\t\t\tclassName="pointer-events-none shrink-0 transition-transform duration-200"\n\t\t\t\t/>\n\t\t\t</AccordionPrimitive.Trigger>\n\t\t</AccordionPrimitive.Header>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* AccordionPanel                                                             */\n/* -------------------------------------------------------------------------- */\n\nfunction AccordionPanel({\n\tclassName,\n\tchildren,\n\t...props\n}: AccordionPrimitive.Panel.Props) {\n\treturn (\n\t\t<AccordionPrimitive.Panel\n\t\t\tdata-slot="accordion-content"\n\t\t\tclassName={cn(\n\t\t\t\t"h-(--accordion-panel-height) overflow-hidden text-sm transition-[height] duration-300 ease-in-out",\n\t\t\t\t"data-starting-style:h-0 data-ending-style:h-0",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t<div className="pt-0 pb-4 text-muted-foreground">{children}</div>\n\t\t</AccordionPrimitive.Panel>\n\t);\n}\n\nexport { Accordion, AccordionItem, AccordionTrigger, AccordionPanel };',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-accordion",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/components/accordion/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-alert-dialog": {
+		name: "baseui-alert-dialog",
+		description: "A Base UI alert dialog component",
+		type: "registry:component",
+		dependencies: ["lucide-react", "@base-ui/react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/utils"],
+		files: [
+			{
+				path: "packages/baseui/components/alert-dialog/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/alert-dialog.tsx",
+				content:
+					'"use client";\n\nimport { AlertDialog as AlertDialogPrimitive } from "@base-ui/react/alert-dialog";\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Root                                                                       */\n/* -------------------------------------------------------------------------- */\n\nconst AlertDialog = AlertDialogPrimitive.Root;\n\n/* -------------------------------------------------------------------------- */\n/* Trigger                                                                    */\n/* -------------------------------------------------------------------------- */\n\nfunction AlertDialogTrigger(props: AlertDialogPrimitive.Trigger.Props) {\n\tconst { className, ...rest } = props;\n\n\treturn (\n\t\t<AlertDialogPrimitive.Trigger\n\t\t\tclassName={cn("cursor-pointer", className)}\n\t\t\tdata-slot="alert-dialog-trigger"\n\t\t\t{...rest}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Portal                                                                     */\n/* -------------------------------------------------------------------------- */\n\nconst AlertDialogPortal: typeof AlertDialogPrimitive.Portal =\n\tAlertDialogPrimitive.Portal;\n\n/* -------------------------------------------------------------------------- */\n/* Backdrop                                                                   */\n/* -------------------------------------------------------------------------- */\n\nfunction AlertDialogBackdrop(props: AlertDialogPrimitive.Backdrop.Props) {\n\tconst { className, ...rest } = props;\n\n\treturn (\n\t\t<AlertDialogPrimitive.Backdrop\n\t\t\tclassName={cn(\n\t\t\t\t"fixed inset-0 z-50 bg-muted/50 backdrop-blur-sm transition-opacity duration-200 ease-out",\n\t\t\t\t"data-ending-style:opacity-0 data-starting-style:opacity-0",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="alert-dialog-backdrop"\n\t\t\t{...rest}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Viewport                                                                   */\n/* -------------------------------------------------------------------------- */\n\nfunction AlertDialogViewport(props: AlertDialogPrimitive.Viewport.Props) {\n\tconst { className, ...rest } = props;\n\n\treturn (\n\t\t<AlertDialogPrimitive.Viewport\n\t\t\tclassName={cn(\n\t\t\t\t"p-4 fixed inset-0 z-50 flex items-center justify-center",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="alert-dialog-viewport"\n\t\t\t{...rest}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Popup / Content                                                            */\n/* -------------------------------------------------------------------------- */\n\nfunction AlertDialogPopup(props: AlertDialogPrimitive.Popup.Props) {\n\tconst { className, ...rest } = props;\n\n\treturn (\n\t\t<AlertDialogPortal>\n\t\t\t<AlertDialogBackdrop />\n\t\t\t<AlertDialogViewport>\n\t\t\t\t<AlertDialogPrimitive.Popup\n\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t"w-full max-w-lg p-6 rounded-lg border border-border bg-background shadow-sm",\n\t\t\t\t\t\t"transition-all duration-200 ease-out",\n\t\t\t\t\t\t"data-starting-style:opacity-0 data-starting-style:scale-95",\n\t\t\t\t\t\t"data-ending-style:opacity-0 data-ending-style:scale-95",\n\t\t\t\t\t\t"focus:outline-none",\n\t\t\t\t\t\tclassName,\n\t\t\t\t\t)}\n\t\t\t\t\tdata-slot="alert-dialog-popup"\n\t\t\t\t\t{...rest}\n\t\t\t\t/>\n\t\t\t</AlertDialogViewport>\n\t\t</AlertDialogPortal>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Layout Helpers                                                             */\n/* -------------------------------------------------------------------------- */\n\nfunction AlertDialogHeader(props: React.HTMLAttributes<HTMLDivElement>) {\n\tconst { className, ...rest } = props;\n\n\treturn (\n\t\t<div\n\t\t\tclassName={cn("flex flex-col gap-2", className)}\n\t\t\tdata-slot="alert-dialog-header"\n\t\t\t{...rest}\n\t\t/>\n\t);\n}\n\nfunction AlertDialogFooter(props: React.HTMLAttributes<HTMLDivElement>) {\n\tconst { className, ...rest } = props;\n\n\treturn (\n\t\t<div\n\t\t\tclassName={cn(\n\t\t\t\t"mt-6 flex flex-col-reverse gap-1 sm:flex-row sm:justify-end",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="alert-dialog-footer"\n\t\t\t{...rest}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Title                                                                      */\n/* -------------------------------------------------------------------------- */\n\nfunction AlertDialogTitle(props: AlertDialogPrimitive.Title.Props) {\n\tconst { className, ...rest } = props;\n\n\treturn (\n\t\t<AlertDialogPrimitive.Title\n\t\t\tclassName={cn(\n\t\t\t\t"text-lg font-semibold leading-none text-foreground",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="alert-dialog-title"\n\t\t\t{...rest}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Description                                                                */\n/* -------------------------------------------------------------------------- */\n\nfunction AlertDialogDescription(props: AlertDialogPrimitive.Description.Props) {\n\tconst { className, ...rest } = props;\n\n\treturn (\n\t\t<AlertDialogPrimitive.Description\n\t\t\tclassName={cn("text-sm text-muted-foreground", className)}\n\t\t\tdata-slot="alert-dialog-description"\n\t\t\t{...rest}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Close                                                                      */\n/* -------------------------------------------------------------------------- */\n\nfunction AlertDialogClose(props: AlertDialogPrimitive.Close.Props) {\n\tconst { className, ...rest } = props;\n\n\treturn (\n\t\t<AlertDialogPrimitive.Close\n\t\t\tclassName={cn(className)}\n\t\t\tdata-slot="alert-dialog-close"\n\t\t\t{...rest}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport {\n\tAlertDialog,\n\tAlertDialogTrigger,\n\tAlertDialogPortal,\n\tAlertDialogBackdrop,\n\tAlertDialogViewport,\n\tAlertDialogPopup,\n\tAlertDialogHeader,\n\tAlertDialogFooter,\n\tAlertDialogTitle,\n\tAlertDialogDescription,\n\tAlertDialogClose,\n};',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-alert-dialog",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/components/alert-dialog/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-autocomplete": {
+		name: "baseui-autocomplete",
+		description: "A Base UI autocomplete component",
+		type: "registry:component",
+		dependencies: ["lucide-react", "@base-ui/react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/utils"],
+		files: [
+			{
+				path: "packages/baseui/components/autocomplete/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/autocomplete.tsx",
+				content:
+					'"use client";\n\nimport type * as React from "react";\nimport { Search, X, ChevronsUpDown } from "lucide-react";\nimport { Autocomplete as AutocompletePrimitive } from "@base-ui/react/autocomplete";\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Autocomplete                                                               */\n/* -------------------------------------------------------------------------- */\n\nconst Autocomplete = AutocompletePrimitive.Root;\n\n/* -------------------------------------------------------------------------- */\n/* AutocompleteInput                                                          */\n/* -------------------------------------------------------------------------- */\n\ninterface AutocompleteInputProps extends AutocompletePrimitive.Input.Props {\n\tshowClear?: boolean;\n\tshowTrigger?: boolean;\n\tstartAddon?: React.ReactNode;\n}\n\nfunction AutocompleteInput({\n\tclassName,\n\tshowClear = false,\n\tshowTrigger = false,\n\tstartAddon = null,\n\t...props\n}: AutocompleteInputProps) {\n\treturn (\n\t\t<div className="relative">\n\t\t\t{startAddon && (\n\t\t\t\t<div className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">\n\t\t\t\t\t{startAddon}\n\t\t\t\t</div>\n\t\t\t)}\n\n\t\t\t<AutocompletePrimitive.Input\n\t\t\t\tonFocus={(e) => e.target.select()}\n\t\t\t\tclassName={cn(\n\t\t\t\t\t"h-10 w-full px-3 py-2 flex border border-input rounded-md bg-background text-sm",\n\t\t\t\t\tstartAddon && "pl-10",\n\t\t\t\t\t(showClear || showTrigger) && "pr-10",\n\t\t\t\t\t"placeholder:text-muted-foreground",\n\t\t\t\t\t"disabled:cursor-not-allowed disabled:opacity-50",\n\t\t\t\t\tclassName,\n\t\t\t\t)}\n\t\t\t\tdata-slot="autocomplete-input"\n\t\t\t\t{...props}\n\t\t\t/>\n\n\t\t\t<div className="absolute right-2 top-1/2 -translate-y-1/2 flex">\n\t\t\t\t{showClear && (\n\t\t\t\t\t<AutocompleteClear>\n\t\t\t\t\t\t<X className="size-4" />\n\t\t\t\t\t</AutocompleteClear>\n\t\t\t\t)}\n\n\t\t\t\t{showTrigger && (\n\t\t\t\t\t<AutocompleteTrigger>\n\t\t\t\t\t\t<ChevronsUpDown className="size-4" />\n\t\t\t\t\t</AutocompleteTrigger>\n\t\t\t\t)}\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* AutocompleteTrigger                                                        */\n/* -------------------------------------------------------------------------- */\n\nfunction AutocompleteTrigger({\n\tclassName,\n\t...props\n}: AutocompletePrimitive.Trigger.Props) {\n\treturn (\n\t\t<AutocompletePrimitive.Trigger\n\t\t\tclassName={cn(\n\t\t\t\t"p-1 opacity-70 hover:opacity-100 cursor-pointer",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="autocomplete-trigger"\n\t\t\taria-label="Toggle options"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* AutocompleteClear                                                          */\n/* -------------------------------------------------------------------------- */\n\nfunction AutocompleteClear({\n\tclassName,\n\t...props\n}: AutocompletePrimitive.Clear.Props) {\n\treturn (\n\t\t<AutocompletePrimitive.Clear\n\t\t\tclassName={cn(\n\t\t\t\t"p-1 opacity-70 hover:opacity-100 cursor-pointer",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="autocomplete-clear"\n\t\t\taria-label="Clear search"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* AutocompleteIcon                                                           */\n/* -------------------------------------------------------------------------- */\n\nfunction AutocompleteIcon({\n\tclassName,\n\t...props\n}: AutocompletePrimitive.Icon.Props) {\n\treturn (\n\t\t<AutocompletePrimitive.Icon\n\t\t\tclassName={cn(\n\t\t\t\t"absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="autocomplete-icon"\n\t\t\t{...props}\n\t\t>\n\t\t\t<Search className="size-4" />\n\t\t</AutocompletePrimitive.Icon>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* AutocompletePopup                                                          */\n/* -------------------------------------------------------------------------- */\n\ninterface AutocompletePopupProps extends AutocompletePrimitive.Popup.Props {\n\tsideOffset?: number;\n\thasBackdrop?: boolean;\n\tclassName?: string;\n\tchildren?: React.ReactNode;\n}\n\nfunction AutocompletePopup({\n\tclassName,\n\tchildren,\n\tsideOffset = 4,\n\thasBackdrop = false,\n\t...props\n}: AutocompletePopupProps) {\n\treturn (\n\t\t<AutocompletePrimitive.Portal>\n\t\t\t{hasBackdrop && (\n\t\t\t\t<AutocompletePrimitive.Backdrop\n\t\t\t\t\tclassName="fixed inset-0 z-40 bg-background/80 backdrop-blur-sm"\n\t\t\t\t\tdata-slot="autocomplete-backdrop"\n\t\t\t\t/>\n\t\t\t)}\n\t\t\t<AutocompletePrimitive.Positioner\n\t\t\t\tsideOffset={sideOffset}\n\t\t\t\tclassName="z-50"\n\t\t\t\tdata-slot="autocomplete-positioner"\n\t\t\t>\n\t\t\t\t<AutocompletePrimitive.Popup\n\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t"max-h-96 w-(--anchor-width) max-w-(--available-width)",\n\t\t\t\t\t\t"rounded-md border border-border bg-popover text-popover-foreground shadow",\n\t\t\t\t\t\t"data-[state=open]:animate-in data-[state=closed]:animate-out",\n\t\t\t\t\t\t"data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",\n\t\t\t\t\t\t"data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",\n\t\t\t\t\t\t"origin-[--popover-transform-origin]",\n\t\t\t\t\t\tclassName,\n\t\t\t\t\t)}\n\t\t\t\t\tdata-slot="autocomplete-popup"\n\t\t\t\t\trole="listbox"\n\t\t\t\t\taria-live="polite"\n\t\t\t\t\t{...props}\n\t\t\t\t>\n\t\t\t\t\t{children}\n\t\t\t\t</AutocompletePrimitive.Popup>\n\t\t\t</AutocompletePrimitive.Positioner>\n\t\t</AutocompletePrimitive.Portal>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* AutocompleteList                                                           */\n/* -------------------------------------------------------------------------- */\n\nfunction AutocompleteList({\n\tclassName,\n\tchildren,\n\t...props\n}: AutocompletePrimitive.List.Props) {\n\treturn (\n\t\t<AutocompletePrimitive.List\n\t\t\tclassName={cn(\n\t\t\t\t"max-h-[min(var(--available-height),300px)] p-1 overflow-y-auto",\n\t\t\t\t"data-empty:p-0",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="autocomplete-list"\n\t\t\t{...props}\n\t\t>\n\t\t\t{children}\n\t\t</AutocompletePrimitive.List>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* AutocompleteItem                                                           */\n/* -------------------------------------------------------------------------- */\n\nfunction AutocompleteItem({\n\tclassName,\n\tchildren,\n\t...props\n}: AutocompletePrimitive.Item.Props) {\n\treturn (\n\t\t<AutocompletePrimitive.Item\n\t\t\tclassName={cn(\n\t\t\t\t"relative w-full px-2 py-1.5 flex items-center cursor-default select-none rounded-sm text-sm outline-none",\n\t\t\t\t"data-highlighted:bg-accent data-highlighted:text-accent-foreground",\n\t\t\t\t"data-disabled:pointer-events-none data-disabled:opacity-50",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="autocomplete-item"\n\t\t\t{...props}\n\t\t>\n\t\t\t{children}\n\t\t</AutocompletePrimitive.Item>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* AutocompleteEmpty                                                          */\n/* -------------------------------------------------------------------------- */\n\nfunction AutocompleteEmpty({\n\tclassName,\n\tchildren,\n\t...props\n}: AutocompletePrimitive.Empty.Props) {\n\treturn (\n\t\t<AutocompletePrimitive.Empty\n\t\t\tclassName={cn(\n\t\t\t\t"py-4 text-center text-sm text-muted-foreground empty:hidden",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="autocomplete-empty"\n\t\t\trole="status"\n\t\t\taria-live="polite"\n\t\t\t{...props}\n\t\t>\n\t\t\t{children ?? "No results found."}\n\t\t</AutocompletePrimitive.Empty>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* AutocompleteSeparator                                                      */\n/* -------------------------------------------------------------------------- */\n\nfunction AutocompleteSeparator({\n\tclassName,\n\t...props\n}: AutocompletePrimitive.Separator.Props) {\n\treturn (\n\t\t<AutocompletePrimitive.Separator\n\t\t\tclassName={cn("h-px bg-border my-1", className)}\n\t\t\tdata-slot="autocomplete-separator"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* AutocompleteGroup                                                          */\n/* -------------------------------------------------------------------------- */\n\nfunction AutocompleteGroup({\n\tclassName,\n\tchildren,\n\t...props\n}: AutocompletePrimitive.Group.Props) {\n\treturn (\n\t\t<AutocompletePrimitive.Group\n\t\t\tclassName={cn("", className)}\n\t\t\tdata-slot="autocomplete-group"\n\t\t\t{...props}\n\t\t>\n\t\t\t{children}\n\t\t</AutocompletePrimitive.Group>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* AutocompleteGroupLabel                                                     */\n/* -------------------------------------------------------------------------- */\n\nfunction AutocompleteGroupLabel({\n\tclassName,\n\tchildren,\n\t...props\n}: AutocompletePrimitive.GroupLabel.Props) {\n\treturn (\n\t\t<AutocompletePrimitive.GroupLabel\n\t\t\tclassName={cn(\n\t\t\t\t"px-2 py-1.5 text-xs font-semibold uppercase text-muted-foreground",\n\t\t\t)}\n\t\t\tdata-slot="autocomplete-group-label"\n\t\t\t{...props}\n\t\t>\n\t\t\t{children}\n\t\t</AutocompletePrimitive.GroupLabel>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* AutocompleteCollection                                                     */\n/* -------------------------------------------------------------------------- */\n\nfunction AutocompleteCollection({\n\t...props\n}: AutocompletePrimitive.Collection.Props) {\n\treturn (\n\t\t<AutocompletePrimitive.Collection\n\t\t\tdata-slot="autocomplete-collection"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* AutocompleteStatus                                                         */\n/* -------------------------------------------------------------------------- */\n\nfunction AutocompleteStatus({\n\tclassName,\n\tchildren,\n\t...props\n}: AutocompletePrimitive.Status.Props) {\n\treturn (\n\t\t<AutocompletePrimitive.Status\n\t\t\tclassName={cn(\n\t\t\t\t"p-3 text-sm text-muted-foreground border-b",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="autocomplete-status"\n\t\t\trole="status"\n\t\t\taria-live="polite"\n\t\t\t{...props}\n\t\t>\n\t\t\t{children}\n\t\t</AutocompletePrimitive.Status>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Export                                                                     */\n/* -------------------------------------------------------------------------- */\n\nexport {\n\tAutocomplete,\n\tAutocompleteInput,\n\tAutocompleteTrigger,\n\tAutocompleteClear,\n\tAutocompleteIcon,\n\tAutocompletePopup,\n\tAutocompleteList,\n\tAutocompleteItem,\n\tAutocompleteEmpty,\n\tAutocompleteSeparator,\n\tAutocompleteGroup,\n\tAutocompleteGroupLabel,\n\tAutocompleteStatus,\n\tAutocompleteCollection,\n};',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-autocomplete",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/components/autocomplete/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-avatar": {
+		name: "baseui-avatar",
+		description: "A Base UI avatar component",
+		type: "registry:component",
+		dependencies: ["@base-ui/react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/utils"],
+		files: [
+			{
+				path: "packages/baseui/components/avatar/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/avatar.tsx",
+				content:
+					'"use client";\n\nimport { Avatar as AvatarPrimitive } from "@base-ui/react/avatar";\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Avatar Root                                                                       */\n/* -------------------------------------------------------------------------- */\n\ninterface AvatarRootProps extends AvatarPrimitive.Root.Props {\n\tclassName?: string;\n}\n\nfunction Avatar({ className, ...props }: AvatarRootProps) {\n\treturn (\n\t\t<AvatarPrimitive.Root\n\t\t\tclassName={cn(\n\t\t\t\t"relative inline-flex size-9 items-center justify-center overflow-hidden rounded-full bg-muted align-middle select-none",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="avatar-root"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Avatar Image                                                                      */\n/* -------------------------------------------------------------------------- */\n\ninterface AvatarImageProps extends AvatarPrimitive.Image.Props {\n\tclassName?: string;\n}\n\nfunction AvatarImage({ className, ...props }: AvatarImageProps) {\n\treturn (\n\t\t<AvatarPrimitive.Image\n\t\t\tclassName={cn("size-full object-cover", className)}\n\t\t\tdata-slot="avatar-image"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Avatar Fallback                                                                   */\n/* -------------------------------------------------------------------------- */\n\nfunction AvatarFallback({\n\tclassName,\n\t...props\n}: AvatarPrimitive.Fallback.Props) {\n\treturn (\n\t\t<AvatarPrimitive.Fallback\n\t\t\tclassName={cn(\n\t\t\t\t"flex size-full items-center justify-center text-sm font-medium text-muted-foreground",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="avatar-fallback"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Export                                                           */\n/* -------------------------------------------------------------------------- */\n\nexport { Avatar, AvatarImage, AvatarFallback };',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-avatar",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/components/avatar/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-button": {
+		name: "baseui-button",
+		description: "A Base UI button component",
+		type: "registry:component",
+		dependencies: ["@base-ui/react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/utils"],
+		files: [
+			{
+				path: "packages/baseui/components/button/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/button.tsx",
+				content:
+					'"use client";\n\nimport type * as React from "react";\nimport { useRender } from "@base-ui/react/use-render";\nimport { mergeProps } from "@base-ui/react/merge-props";\nimport { cva, type VariantProps } from "class-variance-authority";\n\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Variants                                                                   */\n/* -------------------------------------------------------------------------- */\n\nconst buttonVariants = cva(\n\t[\n\t\t"relative inline-flex items-center justify-center shrink-0 gap-2",\n\t\t"border rounded-md text-sm whitespace-nowrap outline-none transition cursor-pointer",\n\t\t"focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",\n\t\t"disabled:pointer-events-none disabled:opacity-60",\n\t\t"[&_svg]:pointer-events-none [&_svg]:shrink-0",\n\t\t"[&_svg:not([class*=\'size-\'])]:size-4",\n\t].join(" "),\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault:\n\t\t\t\t\t"bg-primary text-primary-foreground border-primary hover:bg-primary/90",\n\t\t\t\tsecondary:\n\t\t\t\t\t"bg-secondary text-secondary-foreground border-transparent hover:bg-secondary/90",\n\t\t\t\tdestructive:\n\t\t\t\t\t"bg-destructive text-destructive-foreground border-destructive hover:bg-destructive/90",\n\t\t\t\toutline:\n\t\t\t\t\t"bg-background text-foreground border-border hover:bg-accent",\n\t\t\t\tghost: "border-transparent bg-transparent hover:bg-muted",\n\t\t\t\tlink: "border-transparent bg-transparent underline-offset-4 hover:underline",\n\t\t\t},\n\t\t\tsize: {\n\t\t\t\txs: "h-7 px-2 text-xs",\n\t\t\t\tsm: "h-8 px-3 text-sm",\n\t\t\t\tdefault: "h-9 px-4",\n\t\t\t\tlg: "h-10 px-6",\n\t\t\t\txl: "h-11 px-8",\n\t\t\t\ticon: "size-9 p-0",\n\t\t\t\t"icon-sm": "size-8 p-0",\n\t\t\t\t"icon-lg": "size-10 p-0",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: "default",\n\t\t\tsize: "default",\n\t\t},\n\t},\n);\n\n/* -------------------------------------------------------------------------- */\n/* Props                                                                      */\n/* -------------------------------------------------------------------------- */\n\ninterface ButtonProps\n\textends useRender.ComponentProps<"button">,\n\t\tVariantProps<typeof buttonVariants> {\n\tloading?: boolean;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Component                                                                  */\n/* -------------------------------------------------------------------------- */\n\nfunction Button({\n\tclassName,\n\tvariant,\n\tsize,\n\trender,\n\tloading,\n\tchildren,\n\t...props\n}: ButtonProps) {\n\t// Determine the type attribute based on whether we\'re rendering a native button\n\tconst type: React.ButtonHTMLAttributes<HTMLButtonElement>["type"] = render\n\t\t? undefined\n\t\t: "button";\n\n\t// Create children with loading spinner\n\tconst renderedChildren = (\n\t\t<>\n\t\t\t{loading && (\n\t\t\t\t<span\n\t\t\t\t\taria-hidden\n\t\t\t\t\tclassName="inline-flex size-4 animate-spin rounded-full border-2 border-current border-t-transparent"\n\t\t\t\t/>\n\t\t\t)}\n\t\t\t{children}\n\t\t</>\n\t);\n\n\t// Prepare default props for the button\n\tconst defaultProps = {\n\t\tclassName: cn(\n\t\t\tbuttonVariants({ variant, size }),\n\t\t\tloading && "cursor-wait opacity-80",\n\t\t\tclassName,\n\t\t),\n\t\ttype,\n\t\t"aria-busy": loading || undefined,\n\t\t"data-slot": "button",\n\t\tdisabled: props.disabled || loading,\n\t\tchildren: renderedChildren, // Make sure children are included\n\t};\n\n\t// Merge default props with user props\n\tconst mergedProps = mergeProps<"button">(defaultProps, props);\n\n\t// Use useRender hook which handles the rendering logic\n\t// According to Base UI docs, this returns a React element\n\treturn useRender({\n\t\tdefaultTagName: "button",\n\t\tprops: mergedProps,\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport { Button, buttonVariants };',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-button",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/components/button/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-checkbox": {
+		name: "baseui-checkbox",
+		description: "A Base UI checkbox component",
+		type: "registry:component",
+		dependencies: ["@base-ui/react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/utils"],
+		files: [
+			{
+				path: "packages/baseui/components/checkbox/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/checkbox.tsx",
+				content:
+					'"use client";\n\nimport type * as React from "react";\nimport { Checkbox as CheckboxPrimitive } from "@base-ui/react/checkbox";\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Checkbox Root                                                              */\n/* -------------------------------------------------------------------------- */\n\nfunction Checkbox({ className, ...props }: CheckboxPrimitive.Root.Props) {\n\treturn (\n\t\t<CheckboxPrimitive.Root\n\t\t\tclassName={cn(\n\t\t\t\t"inline-flex size-4 items-center justify-center rounded-sm border border-input cursor-pointer",\n\t\t\t\t"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",\n\t\t\t\t"disabled:cursor-not-allowed disabled:opacity-50",\n\t\t\t\t"data-checked:bg-primary data-checked:border-primary data-checked:text-primary-foreground",\n\t\t\t\t"data-unchecked:bg-background",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="checkbox-root"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Checkbox Indicator                                                         */\n/* -------------------------------------------------------------------------- */\n\nfunction CheckboxIndicator({\n\tclassName,\n\tkeepMounted,\n\t...props\n}: CheckboxPrimitive.Indicator.Props) {\n\treturn (\n\t\t<CheckboxPrimitive.Indicator\n\t\t\tclassName={cn(\n\t\t\t\t"flex items-center justify-center text-current",\n\t\t\t\t"data-unchecked:hidden",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="checkbox-indicator"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Default Check Icon                                                         */\n/* -------------------------------------------------------------------------- */\n\ninterface CheckIconProps extends React.ComponentProps<"svg"> {}\n\nfunction CheckIcon({ className, ...props }: CheckIconProps) {\n\treturn (\n\t\t<svg\n\t\t\tfill="currentcolor"\n\t\t\twidth="10"\n\t\t\theight="10"\n\t\t\tviewBox="0 0 10 10"\n\t\t\t{...props}\n\t\t>\n\t\t\t<title>Check Icon</title>\n\t\t\t<path d="M9.1603 1.12218C9.50684 1.34873 9.60427 1.81354 9.37792 2.16038L5.13603 8.66012C5.01614 8.8438 4.82192 8.96576 4.60451 8.99384C4.3871 9.02194 4.1683 8.95335 4.00574 8.80615L1.24664 6.30769C0.939709 6.02975 0.916013 5.55541 1.19372 5.24822C1.47142 4.94102 1.94536 4.91731 2.2523 5.19524L4.36085 7.10461L8.12299 1.33999C8.34934 0.993152 8.81376 0.895638 9.1603 1.12218Z" />\n\t\t</svg>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Export                                                                     */\n/* -------------------------------------------------------------------------- */\n\nexport { Checkbox, CheckboxIndicator, CheckIcon };',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-checkbox",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/components/checkbox/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-collapsible": {
+		name: "baseui-collapsible",
+		description: "A Base UI collapsible component",
+		type: "registry:component",
+		dependencies: ["@base-ui/react", "lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/utils"],
+		files: [
+			{
+				path: "packages/baseui/components/collapsible/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/collapsible.tsx",
+				content:
+					'"use client";\n\nimport { ChevronRight } from "lucide-react";\nimport { Collapsible as CollapsiblePrimitive } from "@base-ui/react/collapsible";\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Collapsible Root                                                           */\n/* -------------------------------------------------------------------------- */\n\nfunction Collapsible({\n\tclassName,\n\tchildren,\n\t...props\n}: CollapsiblePrimitive.Root.Props) {\n\treturn (\n\t\t<CollapsiblePrimitive.Root\n\t\t\tclassName={cn("w-48 flex flex-col gap-2", className)}\n\t\t\tdata-slot="collapsible-root"\n\t\t\t{...props}\n\t\t>\n\t\t\t{children}\n\t\t</CollapsiblePrimitive.Root>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Collapsible Trigger                                                        */\n/* -------------------------------------------------------------------------- */\n\nfunction CollapsibleTrigger({\n\tclassName,\n\tchildren,\n\t...props\n}: CollapsiblePrimitive.Trigger.Props) {\n\treturn (\n\t\t<CollapsiblePrimitive.Trigger\n\t\t\tclassName={cn(\n\t\t\t\t"group px-3 py-2 flex items-center justify-between cursor-pointer rounded-md font-medium text-sm bg-muted",\n\t\t\t\t"hover:bg-muted/80 transition-colors",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="collapsible-trigger"\n\t\t\t{...props}\n\t\t>\n\t\t\t{children}\n\t\t\t<ChevronRight className="size-4 transition-transform duration-200 group-data-panel-open:rotate-90" />\n\t\t</CollapsiblePrimitive.Trigger>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Collapsible Panel                                                          */\n/* -------------------------------------------------------------------------- */\n\nfunction CollapsiblePanel({\n\tclassName,\n\tchildren,\n\thiddenUntilFound = false,\n\tkeepMounted = false,\n\t...props\n}: CollapsiblePrimitive.Panel.Props) {\n\treturn (\n\t\t<CollapsiblePrimitive.Panel\n\t\t\thiddenUntilFound={hiddenUntilFound}\n\t\t\tkeepMounted={keepMounted}\n\t\t\tclassName={cn(\n\t\t\t\t"w-full overflow-hidden text-sm transition-[height] duration-200 ease-in-out",\n\t\t\t\t"data-starting-style:h-0 data-ending-style:h-0 data-closed:h-0 data-open:h-auto",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="collapsible-panel"\n\t\t\t{...props}\n\t\t>\n\t\t\t{children}\n\t\t</CollapsiblePrimitive.Panel>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Export                                                                     */\n/* -------------------------------------------------------------------------- */\n\nexport { Collapsible, CollapsibleTrigger, CollapsiblePanel };',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-collapsible",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/components/collapsible/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-accordion-controlled": {
+		name: "baseui-particles-accordion-controlled",
+		description: "Controlled accordion with programmatic state management",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: [
+			"@craftdotui/baseui-accordion",
+			"@craftdotui/baseui-button",
+		],
+		files: [
+			{
+				path: "packages/baseui/particles/accordion/accordion-controlled/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/accordion-controlled.tsx",
+				content:
+					'"use client";\n\nimport { useState } from "react";\nimport {\n\tAccordion,\n\tAccordionItem,\n\tAccordionTrigger,\n\tAccordionPanel,\n} from "@/components/baseui/components/accordion";\nimport { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\tconst [value, setValue] = useState<string[]>(["item-1"]);\n\n\treturn (\n\t\t<div className="w-full max-w-md space-y-4">\n\t\t\t<Accordion value={value} onValueChange={setValue}>\n\t\t\t\t<AccordionItem value="item-1">\n\t\t\t\t\t<AccordionTrigger>Who won 2022 World Cup?</AccordionTrigger>\n\t\t\t\t\t<AccordionPanel>\n\t\t\t\t\t\tArgentina defeated France in the final (3-3, 4-2 on\n\t\t\t\t\t\tpenalties).\n\t\t\t\t\t</AccordionPanel>\n\t\t\t\t</AccordionItem>\n\n\t\t\t\t<AccordionItem value="item-2">\n\t\t\t\t\t<AccordionTrigger>Most World Cup goals?</AccordionTrigger>\n\t\t\t\t\t<AccordionPanel>\n\t\t\t\t\t\tMiroslav Klose (Germany) with 16 goals across 4\n\t\t\t\t\t\ttournaments.\n\t\t\t\t\t</AccordionPanel>\n\t\t\t\t</AccordionItem>\n\n\t\t\t\t<AccordionItem value="item-3">\n\t\t\t\t\t<AccordionTrigger>\n\t\t\t\t\t\tBallon d\'Or 2024 winner?\n\t\t\t\t\t</AccordionTrigger>\n\t\t\t\t\t<AccordionPanel>\n\t\t\t\t\t\tRodri (Manchester City) for his outstanding midfield\n\t\t\t\t\t\tplay.\n\t\t\t\t\t</AccordionPanel>\n\t\t\t\t</AccordionItem>\n\t\t\t</Accordion>\n\n\t\t\t<div className="flex gap-2">\n\t\t\t\t<Button\n\t\t\t\t\tonClick={() => setValue(["item-1", "item-2", "item-3"])}\n\t\t\t\t>\n\t\t\t\t\tOpen All\n\t\t\t\t</Button>\n\t\t\t\t<Button variant="outline" onClick={() => setValue([])}>\n\t\t\t\t\tClose All\n\t\t\t\t</Button>\n\t\t\t</div>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-accordion-controlled",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/accordion/accordion-controlled/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-accordion-default-open": {
+		name: "baseui-particles-accordion-default-open",
+		description: "Accordion with an item open by default.",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-accordion"],
+		files: [
+			{
+				path: "packages/baseui/particles/accordion/accordion-default-open/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/accordion-default-open.tsx",
+				content:
+					'import {\n\tAccordion,\n\tAccordionItem,\n\tAccordionPanel,\n\tAccordionTrigger,\n} from "@/components/baseui/components/accordion";\n\nexport default function Particle() {\n\tconst items = [\n\t\t{\n\t\t\tcontent:\n\t\t\t\t"React: Created by Jordan Walke at Facebook (Meta) in 2013.",\n\t\t\tid: "1",\n\t\t\ttitle: "Who created React?",\n\t\t},\n\t\t{\n\t\t\tcontent: "Vue: Created by Evan You in 2014.",\n\t\t\tid: "2",\n\t\t\ttitle: "Who created Vue?",\n\t\t},\n\t\t{\n\t\t\tcontent: "Svelte: Created by Rich Harris in 2016.",\n\t\t\tid: "3",\n\t\t\ttitle: "Who created Svelte?",\n\t\t},\n\t];\n\n\treturn (\n\t\t<Accordion className="w-full md:w-125" defaultValue={["1"]}>\n\t\t\t{items.map((item) => (\n\t\t\t\t<AccordionItem key={item.id} value={item.id}>\n\t\t\t\t\t<AccordionTrigger>{item.title}</AccordionTrigger>\n\t\t\t\t\t<AccordionPanel>{item.content}</AccordionPanel>\n\t\t\t\t</AccordionItem>\n\t\t\t))}\n\t\t</Accordion>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-accordion-default-open",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/accordion/accordion-default-open/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-accordion-multiple": {
+		name: "baseui-particles-accordion-multiple",
+		description: "Accordion with multiple panels open at once",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-accordion"],
+		files: [
+			{
+				path: "packages/baseui/particles/accordion/accordion-multiple/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/accordion-multiple.tsx",
+				content:
+					'"use client";\n\nimport {\n\tAccordion,\n\tAccordionItem,\n\tAccordionTrigger,\n\tAccordionPanel,\n} from "@/components/baseui/components/accordion";\n\nexport default function Particle() {\n\treturn (\n\t\t<Accordion multiple className="w-full max-w-md">\n\t\t\t<AccordionItem value="item-1">\n\t\t\t\t<AccordionTrigger>What is your refund policy?</AccordionTrigger>\n\t\t\t\t<AccordionPanel>\n\t\t\t\t\tWe offer a 30-day money-back guarantee for all purchases. If\n\t\t\t\t\tyou\'re not satisfied with your product, contact our support\n\t\t\t\t\tteam for a full refund.\n\t\t\t\t</AccordionPanel>\n\t\t\t</AccordionItem>\n\n\t\t\t<AccordionItem value="item-2">\n\t\t\t\t<AccordionTrigger>How do I track my order?</AccordionTrigger>\n\t\t\t\t<AccordionPanel>\n\t\t\t\t\tOnce your order ships, you\'ll receive a tracking number via\n\t\t\t\t\temail. You can use this number on our website or the\n\t\t\t\t\tcarrier\'s site to monitor your delivery.\n\t\t\t\t</AccordionPanel>\n\t\t\t</AccordionItem>\n\n\t\t\t<AccordionItem value="item-3">\n\t\t\t\t<AccordionTrigger>\n\t\t\t\t\tDo you ship internationally?\n\t\t\t\t</AccordionTrigger>\n\t\t\t\t<AccordionPanel>\n\t\t\t\t\tYes! We ship to over 100 countries worldwide. Shipping costs\n\t\t\t\t\tand delivery times vary by location.\n\t\t\t\t</AccordionPanel>\n\t\t\t</AccordionItem>\n\t\t</Accordion>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-accordion-multiple",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/accordion/accordion-multiple/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-accordion": {
+		name: "baseui-particles-accordion",
+		description: "",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-accordion"],
+		files: [
+			{
+				path: "packages/baseui/particles/accordion/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/accordion.tsx",
+				content:
+					'import {\n\tAccordion,\n\tAccordionItem,\n\tAccordionPanel,\n\tAccordionTrigger,\n} from "@/components/baseui/components/accordion";\n\nexport default function Particle() {\n\tconst items = [\n\t\t{\n\t\t\tcontent:\n\t\t\t\t"Base UI is a library of high-quality unstyled React components for design systems and web apps.",\n\t\t\tid: "1",\n\t\t\ttitle: "What is Base UI?",\n\t\t},\n\t\t{\n\t\t\tcontent:\n\t\t\t\t"Head to the \\"Quick start\\" guide in the docs. If you\'ve used unstyled libraries before, you\'ll feel at home.",\n\t\t\tid: "2",\n\t\t\ttitle: "How do I get started?",\n\t\t},\n\t\t{\n\t\t\tcontent: "Of course! Base UI is free and open source.",\n\t\t\tid: "3",\n\t\t\ttitle: "Can I use it for my project?",\n\t\t},\n\t];\n\n\treturn (\n\t\t<Accordion className="w-full md:w-125">\n\t\t\t{items.map((item) => (\n\t\t\t\t<AccordionItem key={item.id} value={item.id}>\n\t\t\t\t\t<AccordionTrigger>{item.title}</AccordionTrigger>\n\t\t\t\t\t<AccordionPanel>{item.content}</AccordionPanel>\n\t\t\t\t</AccordionItem>\n\t\t\t))}\n\t\t</Accordion>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-accordion",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/accordion/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-alert-dialog": {
+		name: "baseui-particles-alert-dialog",
+		description: "",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-alert-dialog"],
+		files: [
+			{
+				path: "packages/baseui/particles/alert-dialog/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/alert-dialog.tsx",
+				content:
+					'"use client";\n\nimport {\n\tAlertDialog,\n\tAlertDialogTrigger,\n\tAlertDialogPopup,\n\tAlertDialogHeader,\n\tAlertDialogFooter,\n\tAlertDialogTitle,\n\tAlertDialogDescription,\n\tAlertDialogClose,\n} from "@/components/baseui/components/alert-dialog";\nimport { Button } from "@/components/baseui/components/button";\n\nfunction DeleteAlert() {\n\treturn (\n\t\t<AlertDialog>\n\t\t\t<AlertDialogTrigger render={<Button variant="destructive" />}>\n\t\t\t\tDelete\n\t\t\t</AlertDialogTrigger>\n\n\t\t\t<AlertDialogPopup>\n\t\t\t\t<AlertDialogHeader>\n\t\t\t\t\t<AlertDialogTitle>\n\t\t\t\t\t\tAre you absolutely sure?\n\t\t\t\t\t</AlertDialogTitle>\n\n\t\t\t\t\t<AlertDialogDescription>\n\t\t\t\t\t\tThis action cannot be undone. This will permanently\n\t\t\t\t\t\tdelete your data from our servers.\n\t\t\t\t\t</AlertDialogDescription>\n\t\t\t\t</AlertDialogHeader>\n\n\t\t\t\t<AlertDialogFooter>\n\t\t\t\t\t<AlertDialogClose render={<Button variant="ghost" />}>\n\t\t\t\t\t\tCancel\n\t\t\t\t\t</AlertDialogClose>\n\n\t\t\t\t\t<AlertDialogClose render={<Button variant="outline" />}>\n\t\t\t\t\t\tConfirm\n\t\t\t\t\t</AlertDialogClose>\n\t\t\t\t</AlertDialogFooter>\n\t\t\t</AlertDialogPopup>\n\t\t</AlertDialog>\n\t);\n}\n\nexport { DeleteAlert };',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-alert-dialog",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/alert-dialog/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-autocomplete-async-search": {
+		name: "baseui-particles-autocomplete-async-search",
+		description: "Autocomplete with async search",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-autocomplete"],
+		files: [
+			{
+				path: "packages/baseui/particles/autocomplete/autocomplete-async-search/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/autocomplete-async-search.tsx",
+				content:
+					'"use client";\n\nimport { useState, useEffect } from "react";\nimport {\n\tAutocomplete,\n\tAutocompleteInput,\n\tAutocompletePopup,\n\tAutocompleteList,\n\tAutocompleteItem,\n\tAutocompleteEmpty,\n\tAutocompleteStatus,\n} from "@/components/baseui/components/autocomplete";\n\ninterface User {\n\tid: string;\n\tname: string;\n\temail: string;\n}\n\n// Simulated API call\nconst searchUsers = async (query: string): Promise<User[]> => {\n\tawait new Promise((resolve) => setTimeout(resolve, 1000));\n\tconst users = [\n\t\t{ id: "1", name: "John Doe", email: "john@example.com" },\n\t\t{ id: "2", name: "Jane Smith", email: "jane@example.com" },\n\t\t{ id: "3", name: "Bob Johnson", email: "bob@example.com" },\n\t\t{ id: "4", name: "Alice Williams", email: "alice@example.com" },\n\t];\n\treturn users.filter((user) =>\n\t\tuser.name.toLowerCase().includes(query.toLowerCase()),\n\t);\n};\n\nexport default function Particle() {\n\tconst [value, setValue] = useState("");\n\tconst [query, setQuery] = useState("");\n\tconst [loading, setLoading] = useState(false);\n\tconst [items, setItems] = useState<User[]>([]);\n\n\tconst shouldRenderPopup = query !== "";\n\n\tlet status: React.ReactNode = `${items.length} result${items.length === 1 ? "" : "s"} found`;\n\tif (loading) {\n\t\tstatus = (\n\t\t\t<div className="flex items-center gap-2">\n\t\t\t\t<span\n\t\t\t\t\taria-hidden\n\t\t\t\t\tclassName="inline-flex size-4 animate-spin rounded-full border-2 border-current border-t-transparent"\n\t\t\t\t/>\n\t\t\t\tSearching...\n\t\t\t</div>\n\t\t);\n\t} else if (query.length === 0 && value) {\n\t\tstatus = `Movie or year "${value}" does not exist in the Top 100 IMDb movies`;\n\t}\n\n\tuseEffect(() => {\n\t\tif (query.length > 0) {\n\t\t\tsetLoading(true);\n\t\t\tsearchUsers(query).then((results) => {\n\t\t\t\tsetItems(results);\n\t\t\t\tsetLoading(false);\n\t\t\t});\n\t\t} else {\n\t\t\tsetItems([]);\n\t\t}\n\t}, [query]);\n\n\treturn (\n\t\t<Autocomplete\n\t\t\titems={items}\n\t\t\tvalue={value}\n\t\t\tonValueChange={setValue}\n\t\t\titemToStringValue={(item) => item.name}\n\t\t\tfilter={null}\n\t\t>\n\t\t\t<AutocompleteInput\n\t\t\t\tplaceholder="Search users..."\n\t\t\t\tonChange={(e) => setQuery(e.target.value)}\n\t\t\t/>\n\n\t\t\t{shouldRenderPopup && (\n\t\t\t\t<AutocompletePopup>\n\t\t\t\t\t<AutocompleteStatus>{status}</AutocompleteStatus>\n\t\t\t\t\t<AutocompleteEmpty>No users found.</AutocompleteEmpty>\n\t\t\t\t\t<AutocompleteList>\n\t\t\t\t\t\t{(user: User) => (\n\t\t\t\t\t\t\t<AutocompleteItem key={user.id} value={user}>\n\t\t\t\t\t\t\t\t<div className="flex flex-col">\n\t\t\t\t\t\t\t\t\t<span className="font-medium">\n\t\t\t\t\t\t\t\t\t\t{user.name}\n\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t<span className="text-xs text-muted-foreground">\n\t\t\t\t\t\t\t\t\t\t{user.email}\n\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</AutocompleteItem>\n\t\t\t\t\t\t)}\n\t\t\t\t\t</AutocompleteList>\n\t\t\t\t</AutocompletePopup>\n\t\t\t)}\n\t\t</Autocomplete>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-autocomplete-async-search",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/autocomplete/autocomplete-async-search/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-autocomplete-auto-highlight": {
+		name: "baseui-particles-autocomplete-auto-highlight",
+		description: "Autocomplete with auto-highlight items",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-autocomplete"],
+		files: [
+			{
+				path: "packages/baseui/particles/autocomplete/autocomplete-auto-highlight/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/autocomplete-auto-highlight.tsx",
+				content:
+					'import {\n\tAutocomplete,\n\tAutocompleteInput,\n\tAutocompletePopup,\n\tAutocompleteList,\n\tAutocompleteItem,\n\tAutocompleteEmpty,\n} from "@/components/baseui/components/autocomplete";\n\ninterface Tag {\n\tid: string;\n\tvalue: string;\n}\n\nconst tags: Tag[] = [\n\t{ id: "1", value: "apple" },\n\t{ id: "2", value: "mango" },\n\t{ id: "3", value: "banana" },\n\t{ id: "4", value: "pineapple" },\n\t{ id: "5", value: "coconut" },\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<Autocomplete items={tags} autoHighlight>\n\t\t\t<AutocompleteInput placeholder="e.g. feature" />\n\t\t\t<AutocompletePopup>\n\t\t\t\t<AutocompleteEmpty>Fruit not found.</AutocompleteEmpty>\n\t\t\t\t<AutocompleteList>\n\t\t\t\t\t{(tag: Tag) => (\n\t\t\t\t\t\t<AutocompleteItem key={tag.id} value={tag}>\n\t\t\t\t\t\t\t{tag.value}\n\t\t\t\t\t\t</AutocompleteItem>\n\t\t\t\t\t)}\n\t\t\t\t</AutocompleteList>\n\t\t\t</AutocompletePopup>\n\t\t</Autocomplete>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-autocomplete-auto-highlight",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/autocomplete/autocomplete-auto-highlight/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-autocomplete-disabled": {
+		name: "baseui-particles-autocomplete-disabled",
+		description: "Disabled autocomplete",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-autocomplete"],
+		files: [
+			{
+				path: "packages/baseui/particles/autocomplete/autocomplete-disabled/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/autocomplete-disabled.tsx",
+				content:
+					'import {\n\tAutocomplete,\n\tAutocompleteInput,\n\tAutocompletePopup,\n\tAutocompleteList,\n\tAutocompleteItem,\n\tAutocompleteEmpty,\n} from "@/components/baseui/components/autocomplete";\n\ninterface Tag {\n\tid: string;\n\tvalue: string;\n}\n\nconst tags: Tag[] = [\n\t{ id: "t1", value: "feature" },\n\t{ id: "t2", value: "fix" },\n\t{ id: "t3", value: "bug" },\n\t{ id: "t4", value: "docs" },\n\t{ id: "t5", value: "refactor" },\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<Autocomplete items={tags}>\n\t\t\t<AutocompleteInput placeholder="e.g. feature" disabled />\n\t\t\t<AutocompletePopup>\n\t\t\t\t<AutocompleteEmpty>No tags found.</AutocompleteEmpty>\n\t\t\t\t<AutocompleteList>\n\t\t\t\t\t{(tag: Tag) => (\n\t\t\t\t\t\t<AutocompleteItem key={tag.id} value={tag}>\n\t\t\t\t\t\t\t{tag.value}\n\t\t\t\t\t\t</AutocompleteItem>\n\t\t\t\t\t)}\n\t\t\t\t</AutocompleteList>\n\t\t\t</AutocompletePopup>\n\t\t</Autocomplete>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-autocomplete-disabled",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/autocomplete/autocomplete-disabled/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-autocomplete-with-clear-and-trigger": {
+		name: "baseui-particles-autocomplete-with-clear-and-trigger",
+		description: "Autocomplete with clear and trigger buttons",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-autocomplete"],
+		files: [
+			{
+				path: "packages/baseui/particles/autocomplete/autocomplete-with-clear-and-trigger/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/autocomplete-with-clear-and-trigger.tsx",
+				content:
+					'import {\n\tAutocomplete,\n\tAutocompleteInput,\n\tAutocompletePopup,\n\tAutocompleteList,\n\tAutocompleteItem,\n\tAutocompleteEmpty,\n} from "@/components/baseui/components/autocomplete";\n\ninterface Tag {\n\tid: string;\n\tvalue: string;\n}\n\nconst tags: Tag[] = [\n\t{ id: "t1", value: "feature" },\n\t{ id: "t2", value: "fix" },\n\t{ id: "t3", value: "bug" },\n\t{ id: "t4", value: "docs" },\n\t{ id: "t5", value: "refactor" },\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<Autocomplete items={tags}>\n\t\t\t<AutocompleteInput\n\t\t\t\tplaceholder="Search tags..."\n\t\t\t\tshowClear\n\t\t\t\tshowTrigger\n\t\t\t/>\n\t\t\t<AutocompletePopup>\n\t\t\t\t<AutocompleteEmpty>No tags found.</AutocompleteEmpty>\n\t\t\t\t<AutocompleteList>\n\t\t\t\t\t{(tag: Tag) => (\n\t\t\t\t\t\t<AutocompleteItem key={tag.id} value={tag}>\n\t\t\t\t\t\t\t{tag.value}\n\t\t\t\t\t\t</AutocompleteItem>\n\t\t\t\t\t)}\n\t\t\t\t</AutocompleteList>\n\t\t\t</AutocompletePopup>\n\t\t</Autocomplete>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command:
+			"@craftdotui/baseui-particles-autocomplete-with-clear-and-trigger",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/autocomplete/autocomplete-with-clear-and-trigger/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-autocomplete-with-groups": {
+		name: "baseui-particles-autocomplete-with-groups",
+		description: "Autocomplete with groups",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-autocomplete"],
+		files: [
+			{
+				path: "packages/baseui/particles/autocomplete/autocomplete-with-groups/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/autocomplete-with-groups.tsx",
+				content:
+					'"use client";\n\nimport * as React from "react";\n\nimport {\n\tAutocomplete,\n\tAutocompleteCollection,\n\tAutocompleteEmpty,\n\tAutocompleteGroup,\n\tAutocompleteGroupLabel,\n\tAutocompleteInput,\n\tAutocompleteItem,\n\tAutocompleteList,\n\tAutocompletePopup,\n\tAutocompleteSeparator,\n} from "@/components/baseui/components/autocomplete";\n\ninterface Framework {\n\tid: string;\n\tvalue: string;\n\tcategory: string;\n}\n\ntype FrameworkGroup = { value: string; items: Framework[] };\n\nconst frameworksData: Framework[] = [\n\t// JavaScript/TypeScript\n\t{ id: "js-react", value: "React", category: "JavaScript" },\n\t{ id: "js-next", value: "Next.js", category: "JavaScript" },\n\t{ id: "js-vue", value: "Vue.js", category: "JavaScript" },\n\t{ id: "js-svelte", value: "Svelte", category: "JavaScript" },\n\t{ id: "js-angular", value: "Angular", category: "JavaScript" },\n\t{ id: "js-astro", value: "Astro", category: "JavaScript" },\n\t{ id: "js-solid", value: "Solid.js", category: "JavaScript" },\n\t{ id: "js-qwik", value: "Qwik", category: "JavaScript" },\n\n\t// Python\n\t{ id: "py-django", value: "Django", category: "Python" },\n\t{ id: "py-fastapi", value: "FastAPI", category: "Python" },\n\t{ id: "py-flask", value: "Flask", category: "Python" },\n\t{ id: "py-streamlit", value: "Streamlit", category: "Python" },\n\n\t// Go\n\t{ id: "go-gin", value: "Gin", category: "Go" },\n\t{ id: "go-echo", value: "Echo", category: "Go" },\n\t{ id: "go-fiber", value: "Fiber", category: "Go" },\n\n\t// Rust\n\t{ id: "rs-actix", value: "Actix Web", category: "Rust" },\n\t{ id: "rs-axum", value: "Axum", category: "Rust" },\n\t{ id: "rs-rocket", value: "Rocket", category: "Rust" },\n\t{ id: "rs-leptos", value: "Leptos", category: "Rust" },\n\n\t// Java\n\t{ id: "java-spring", value: "Spring Boot", category: "Java" },\n\t{ id: "java-quarkus", value: "Quarkus", category: "Java" },\n];\n\nfunction groupFrameworks(frameworks: Framework[]): FrameworkGroup[] {\n\tconst groups: Record<string, Framework[]> = {};\n\tfor (const fw of frameworks) {\n\t\tif (!groups[fw.category]) {\n\t\t\tgroups[fw.category] = [];\n\t\t}\n\t\tgroups[fw.category]?.push(fw);\n\t}\n\n\tconst order: Array<FrameworkGroup["value"]> = [\n\t\t"JavaScript",\n\t\t"Python",\n\t\t"Go",\n\t\t"Rust",\n\t\t"Java",\n\t];\n\treturn order.map((value) => ({ items: groups[value] ?? [], value }));\n}\n\nconst groupedFrameworks: FrameworkGroup[] = groupFrameworks(frameworksData);\n\nexport default function Particle() {\n\treturn (\n\t\t<Autocomplete items={groupedFrameworks}>\n\t\t\t<div className="flex flex-col items-start gap-2">\n\t\t\t\t<AutocompleteInput\n\t\t\t\t\taria-label="Search frameworks"\n\t\t\t\t\tplaceholder="e.g. React, Django, Gin..."\n\t\t\t\t/>\n\t\t\t</div>\n\t\t\t<AutocompletePopup>\n\t\t\t\t<AutocompleteEmpty>No frameworks found.</AutocompleteEmpty>\n\t\t\t\t<AutocompleteList>\n\t\t\t\t\t{(group: FrameworkGroup) => (\n\t\t\t\t\t\t<React.Fragment key={group.value}>\n\t\t\t\t\t\t\t<AutocompleteGroup items={group.items}>\n\t\t\t\t\t\t\t\t<AutocompleteGroupLabel>\n\t\t\t\t\t\t\t\t\t{group.value}\n\t\t\t\t\t\t\t\t</AutocompleteGroupLabel>\n\t\t\t\t\t\t\t\t<AutocompleteCollection>\n\t\t\t\t\t\t\t\t\t{(fw: Framework) => (\n\t\t\t\t\t\t\t\t\t\t<AutocompleteItem\n\t\t\t\t\t\t\t\t\t\t\tkey={fw.id}\n\t\t\t\t\t\t\t\t\t\t\tvalue={fw}\n\t\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\t\t{fw.value}\n\t\t\t\t\t\t\t\t\t\t</AutocompleteItem>\n\t\t\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t\t\t</AutocompleteCollection>\n\t\t\t\t\t\t\t</AutocompleteGroup>\n\t\t\t\t\t\t\t{group.value !== "Java" && (\n\t\t\t\t\t\t\t\t<AutocompleteSeparator />\n\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t</React.Fragment>\n\t\t\t\t\t)}\n\t\t\t\t</AutocompleteList>\n\t\t\t</AutocompletePopup>\n\t\t</Autocomplete>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-autocomplete-with-groups",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/autocomplete/autocomplete-with-groups/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-autocomplete-with-start-addon": {
+		name: "baseui-particles-autocomplete-with-start-addon",
+		description: "Autocomplete with clear and trigger buttons",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-autocomplete"],
+		files: [
+			{
+				path: "packages/baseui/particles/autocomplete/autocomplete-with-start-addon/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/autocomplete-with-start-addon.tsx",
+				content:
+					'import {\n\tAutocomplete,\n\tAutocompleteInput,\n\tAutocompletePopup,\n\tAutocompleteList,\n\tAutocompleteItem,\n\tAutocompleteEmpty,\n} from "@/components/baseui/components/autocomplete";\nimport { Search } from "lucide-react";\n\ninterface Tag {\n\tid: string;\n\tvalue: string;\n}\n\nconst tags: Tag[] = [\n\t{ id: "apple", value: "Apple" },\n\t{ id: "ball", value: "Ball" },\n\t{ id: "cat", value: "Cat" },\n\t{ id: "dog", value: "Dog" },\n\t{ id: "eagle", value: "Eagle" },\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<Autocomplete items={tags}>\n\t\t\t<AutocompleteInput\n\t\t\t\tplaceholder="Search tags..."\n\t\t\t\tstartAddon={<Search className="size-4" />}\n\t\t\t/>\n\t\t\t<AutocompletePopup>\n\t\t\t\t<AutocompleteEmpty>No tags found.</AutocompleteEmpty>\n\t\t\t\t<AutocompleteList>\n\t\t\t\t\t{(tag: Tag) => (\n\t\t\t\t\t\t<AutocompleteItem key={tag.id} value={tag}>\n\t\t\t\t\t\t\t{tag.value}\n\t\t\t\t\t\t</AutocompleteItem>\n\t\t\t\t\t)}\n\t\t\t\t</AutocompleteList>\n\t\t\t</AutocompletePopup>\n\t\t</Autocomplete>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-autocomplete-with-start-addon",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/autocomplete/autocomplete-with-start-addon/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-autocomplete": {
+		name: "baseui-particles-autocomplete",
+		description: "",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-autocomplete"],
+		files: [
+			{
+				path: "packages/baseui/particles/autocomplete/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/autocomplete.tsx",
+				content:
+					'import {\n\tAutocomplete,\n\tAutocompleteInput,\n\tAutocompletePopup,\n\tAutocompleteList,\n\tAutocompleteItem,\n\tAutocompleteEmpty,\n} from "@/components/baseui/components/autocomplete";\n\ninterface Tag {\n\tid: string;\n\tvalue: string;\n}\n\nconst tags: Tag[] = [\n\t{ id: "t1", value: "feature" },\n\t{ id: "t2", value: "fix" },\n\t{ id: "t3", value: "bug" },\n\t{ id: "t4", value: "docs" },\n];\n\nexport default function Example() {\n\treturn (\n\t\t<div className="space-y-2">\n\t\t\t<Autocomplete items={tags}>\n\t\t\t\t<AutocompleteInput placeholder="e.g. feature" />\n\n\t\t\t\t<AutocompletePopup>\n\t\t\t\t\t<AutocompleteEmpty>No tags found.</AutocompleteEmpty>\n\t\t\t\t\t<AutocompleteList>\n\t\t\t\t\t\t{(tag: Tag) => (\n\t\t\t\t\t\t\t<AutocompleteItem key={tag.id} value={tag}>\n\t\t\t\t\t\t\t\t{tag.value}\n\t\t\t\t\t\t\t</AutocompleteItem>\n\t\t\t\t\t\t)}\n\t\t\t\t\t</AutocompleteList>\n\t\t\t\t</AutocompletePopup>\n\t\t\t</Autocomplete>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-autocomplete",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/autocomplete/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-avatar-fallback": {
+		name: "baseui-particles-avatar-fallback",
+		description: "Avatar with fallback initials",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-avatar"],
+		files: [
+			{
+				path: "packages/baseui/particles/avatar/avatar-fallback/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/avatar-fallback.tsx",
+				content:
+					'import { Avatar, AvatarFallback } from "@/components/baseui/components/avatar";\n\nexport default function Particle() {\n\treturn (\n\t\t<Avatar>\n\t\t\t<AvatarFallback>YR</AvatarFallback>\n\t\t</Avatar>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-avatar-fallback",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/avatar/avatar-fallback/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-avatar-group": {
+		name: "baseui-particles-avatar-group",
+		description: "Grouped/stacked avatars",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-avatar"],
+		files: [
+			{
+				path: "packages/baseui/particles/avatar/avatar-group/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/avatar-group.tsx",
+				content:
+					'import {\n\tAvatar,\n\tAvatarImage,\n\tAvatarFallback,\n} from "@/components/baseui/components/avatar";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex -space-x-3">\n\t\t\t<Avatar className="border-2 border-background">\n\t\t\t\t<AvatarImage src="https://github.com/shadcn.png" alt="User 1" />\n\t\t\t\t<AvatarFallback>U1</AvatarFallback>\n\t\t\t</Avatar>\n\t\t\t<Avatar className="border-2 border-background">\n\t\t\t\t<AvatarImage src="https://github.com/vercel.png" alt="User 2" />\n\t\t\t\t<AvatarFallback>U2</AvatarFallback>\n\t\t\t</Avatar>\n\t\t\t<Avatar className="border-2 border-background">\n\t\t\t\t<AvatarImage src="https://github.com/nextjs.png" alt="User 3" />\n\t\t\t\t<AvatarFallback>U3</AvatarFallback>\n\t\t\t</Avatar>\n\t\t\t<Avatar className="border-2 border-background">\n\t\t\t\t<AvatarFallback className="bg-primary text-primary-foreground">\n\t\t\t\t\t+5\n\t\t\t\t</AvatarFallback>\n\t\t\t</Avatar>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-avatar-group",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/avatar/avatar-group/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-avatar-radius": {
+		name: "baseui-particles-avatar-radius",
+		description: "Avatar border radius variants",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-avatar"],
+		files: [
+			{
+				path: "packages/baseui/particles/avatar/avatar-radius/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/avatar-radius.tsx",
+				content:
+					'import {\n\tAvatar,\n\tAvatarImage,\n\tAvatarFallback,\n} from "@/components/baseui/components/avatar";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex flex-wrap items-center gap-4">\n\t\t\t<Avatar className="rounded-full">\n\t\t\t\t<AvatarImage src="https://github.com/shadcn.png" alt="Avatar" />\n\t\t\t\t<AvatarFallback>RD</AvatarFallback>\n\t\t\t</Avatar>\n\t\t\t<Avatar className="rounded-lg">\n\t\t\t\t<AvatarImage src="https://github.com/shadcn.png" alt="Avatar" />\n\t\t\t\t<AvatarFallback>LG</AvatarFallback>\n\t\t\t</Avatar>\n\t\t\t<Avatar className="rounded-md">\n\t\t\t\t<AvatarImage src="https://github.com/shadcn.png" alt="Avatar" />\n\t\t\t\t<AvatarFallback>MD</AvatarFallback>\n\t\t\t</Avatar>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-avatar-radius",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/avatar/avatar-radius/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-avatar-sizes": {
+		name: "baseui-particles-avatar-sizes",
+		description: "Avatar size variants",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-avatar"],
+		files: [
+			{
+				path: "packages/baseui/particles/avatar/avatar-sizes/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/avatar-sizes.tsx",
+				content:
+					'import {\n\tAvatar,\n\tAvatarImage,\n\tAvatarFallback,\n} from "@/components/baseui/components/avatar";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex flex-wrap items-center gap-4">\n\t\t\t<Avatar>\n\t\t\t\t<AvatarImage src="https://github.com/shadcn.png" alt="Avatar" />\n\t\t\t\t<AvatarFallback className="text-xs">XS</AvatarFallback>\n\t\t\t</Avatar>\n\t\t\t<Avatar className="size-10">\n\t\t\t\t<AvatarImage src="https://github.com/shadcn.png" alt="Avatar" />\n\t\t\t\t<AvatarFallback>LG</AvatarFallback>\n\t\t\t</Avatar>\n\t\t\t<Avatar className="size-12">\n\t\t\t\t<AvatarImage src="https://github.com/shadcn.png" alt="Avatar" />\n\t\t\t\t<AvatarFallback className="text-lg">XL</AvatarFallback>\n\t\t\t</Avatar>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-avatar-sizes",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/avatar/avatar-sizes/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-avatar": {
+		name: "baseui-particles-avatar",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-avatar"],
+		files: [
+			{
+				path: "packages/baseui/particles/avatar/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/avatar.tsx",
+				content:
+					'import {\n\tAvatar,\n\tAvatarImage,\n\tAvatarFallback,\n} from "@/components/baseui/components/avatar";\n\nexport default function Particle() {\n\treturn (\n\t\t<Avatar>\n\t\t\t<AvatarImage\n\t\t\t\tsrc="https://images.pexels.com/photos/2613260/pexels-photo-2613260.jpeg"\n\t\t\t\talt="User Avatar"\n\t\t\t/>\n\t\t\t<AvatarFallback>JD</AvatarFallback>\n\t\t</Avatar>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-avatar",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/avatar/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-button-destructive": {
+		name: "baseui-particles-button-destructive",
+		description: "Destructive button variant",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-button"],
+		files: [
+			{
+				path: "packages/baseui/particles/button/button-destructive/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/button-destructive.tsx",
+				content:
+					'import { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\treturn <Button variant="destructive">Delete</Button>;\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-button-destructive",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/button/button-destructive/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-button-disabled": {
+		name: "baseui-particles-button-disabled",
+		description: "Disabled button states",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-button"],
+		files: [
+			{
+				path: "packages/baseui/particles/button/button-disabled/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/button-disabled.tsx",
+				content:
+					'import { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\treturn <Button disabled>Disabled</Button>;\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-button-disabled",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/button/button-disabled/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-button-ghost": {
+		name: "baseui-particles-button-ghost",
+		description: "Ghost button variant",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-button"],
+		files: [
+			{
+				path: "packages/baseui/particles/button/button-ghost/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/button-ghost.tsx",
+				content:
+					'import { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\treturn <Button variant="ghost">Ghost</Button>;\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-button-ghost",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/button/button-ghost/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-button-icon": {
+		name: "baseui-particles-button-icon",
+		description: "Icon-only button",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-button"],
+		files: [
+			{
+				path: "packages/baseui/particles/button/button-icon/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/button-icon.tsx",
+				content:
+					'import { Settings } from "lucide-react";\nimport { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\treturn (\n\t\t<Button size="icon" variant="outline">\n\t\t\t<Settings />\n\t\t</Button>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-button-icon",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/button/button-icon/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-button-loading": {
+		name: "baseui-particles-button-loading",
+		description: "Button with loading state",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-button"],
+		files: [
+			{
+				path: "packages/baseui/particles/button/button-loading/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/button-loading.tsx",
+				content:
+					'import { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\treturn (\n\t\t<Button loading variant="outline">\n\t\t\tSubmitting\n\t\t</Button>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-button-loading",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/button/button-loading/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-button-outline": {
+		name: "baseui-particles-button-outline",
+		description: "Outline button variant",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-button"],
+		files: [
+			{
+				path: "packages/baseui/particles/button/button-outline/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/button-outline.tsx",
+				content:
+					'import { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\treturn <Button variant="outline">Outline</Button>;\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-button-outline",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/button/button-outline/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-button-rounded": {
+		name: "baseui-particles-button-rounded",
+		description: "Fully rounded button",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-button"],
+		files: [
+			{
+				path: "packages/baseui/particles/button/button-rounded/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/button-rounded.tsx",
+				content:
+					'import { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\treturn (\n\t\t<Button variant="outline" className="rounded-full">\n\t\t\tRounded\n\t\t</Button>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-button-rounded",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/button/button-rounded/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-button-secondary": {
+		name: "baseui-particles-button-secondary",
+		description: "Secondary button variant",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-button"],
+		files: [
+			{
+				path: "packages/baseui/particles/button/button-secondary/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/button-secondary.tsx",
+				content:
+					'import { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\treturn <Button variant="secondary">Secondary Button</Button>;\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-button-secondary",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/button/button-secondary/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-button-sizes": {
+		name: "baseui-particles-button-sizes",
+		description: "Button size variants",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-button"],
+		files: [
+			{
+				path: "packages/baseui/particles/button/button-sizes/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/button-sizes.tsx",
+				content:
+					'import { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex flex-wrap items-center gap-2">\n\t\t\t<Button variant="outline" size="xs">\n\t\t\t\tExtra Small\n\t\t\t</Button>\n\t\t\t<Button variant="outline" size="sm">\n\t\t\t\tSmall\n\t\t\t</Button>\n\t\t\t<Button variant="outline" size="default">\n\t\t\t\tDefault\n\t\t\t</Button>\n\t\t\t<Button variant="outline" size="lg">\n\t\t\t\tLarge\n\t\t\t</Button>\n\t\t\t<Button variant="outline" size="xl">\n\t\t\t\tExtra Large\n\t\t\t</Button>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-button-sizes",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/button/button-sizes/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-button-with-icon": {
+		name: "baseui-particles-button-with-icon",
+		description: "Buttons with icons",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-button"],
+		files: [
+			{
+				path: "packages/baseui/particles/button/button-with-icon/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/button-with-icon.tsx",
+				content:
+					'import { Mail } from "lucide-react";\nimport { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\treturn (\n\t\t<Button variant="outline">\n\t\t\t<Mail />\n\t\t\tSend Email\n\t\t</Button>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-button-with-icon",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/button/button-with-icon/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-button-with-link": {
+		name: "baseui-particles-button-with-link",
+		description: "Link button variant",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-button"],
+		files: [
+			{
+				path: "packages/baseui/particles/button/button-with-link/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/button-with-link.tsx",
+				content:
+					'import { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\treturn (\n\t\t<Button\n\t\t\tvariant="link"\n\t\t\trender={\n\t\t\t\t<a href="/" aria-label="Home">\n\t\t\t\t\tHome\n\t\t\t\t</a>\n\t\t\t}\n\t\t>\n\t\t\tLink\n\t\t</Button>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-button-with-link",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/button/button-with-link/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-button": {
+		name: "baseui-particles-button",
+		description: "",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-button"],
+		files: [
+			{
+				path: "packages/baseui/particles/button/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/button.tsx",
+				content:
+					'import { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\treturn <Button>Click</Button>;\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-button",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/button/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-checkbox-card": {
+		name: "baseui-particles-checkbox-card",
+		description: "Card-style selectable checkbox",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-checkbox"],
+		files: [
+			{
+				path: "packages/baseui/particles/checkbox/checkbox-card/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/checkbox-card.tsx",
+				content:
+					'"use client";\n\nimport { useState } from "react";\nimport {\n\tCheckbox,\n\tCheckboxIndicator,\n\tCheckIcon,\n} from "@/components/baseui/components/checkbox";\n\nconst plans = [\n\t{\n\t\tid: "free",\n\t\tname: "Free",\n\t\tdescription: "Perfect for trying out our service",\n\t\tprice: "$0/month",\n\t},\n\t{\n\t\tid: "pro",\n\t\tname: "Pro",\n\t\tdescription: "For professionals and small teams",\n\t\tprice: "$19/month",\n\t},\n\t{\n\t\tid: "enterprise",\n\t\tname: "Enterprise",\n\t\tdescription: "Advanced features for large organizations",\n\t\tprice: "$99/month",\n\t},\n];\n\nexport default function Particle() {\n\tconst [selected, setSelected] = useState("free");\n\n\treturn (\n\t\t<div className="flex flex-col gap-3 w-full max-w-md">\n\t\t\t{plans.map((plan) => (\n\t\t\t\t<label\n\t\t\t\t\tkey={plan.id}\n\t\t\t\t\thtmlFor={plan.id}\n\t\t\t\t\tclassName="relative flex items-start gap-3 p-3 border rounded-lg cursor-pointer transition-colors hover:bg-muted has-checked:border has-checked:bg-muted"\n\t\t\t\t>\n\t\t\t\t\t<Checkbox\n\t\t\t\t\t\tid={plan.id}\n\t\t\t\t\t\tchecked={selected === plan.id}\n\t\t\t\t\t\tonCheckedChange={() => setSelected(plan.id)}\n\t\t\t\t\t\tclassName="mt-0.5"\n\t\t\t\t\t>\n\t\t\t\t\t\t<CheckboxIndicator>\n\t\t\t\t\t\t\t<CheckIcon />\n\t\t\t\t\t\t</CheckboxIndicator>\n\t\t\t\t\t</Checkbox>\n\t\t\t\t\t<div className="flex-1">\n\t\t\t\t\t\t<div className="flex items-center justify-between">\n\t\t\t\t\t\t\t<span className="font-medium">{plan.name}</span>\n\t\t\t\t\t\t\t<span className="text-sm font-semibold">\n\t\t\t\t\t\t\t\t{plan.price}\n\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<p className="text-sm text-muted-foreground">\n\t\t\t\t\t\t\t{plan.description}\n\t\t\t\t\t\t</p>\n\t\t\t\t\t</div>\n\t\t\t\t</label>\n\t\t\t))}\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-checkbox-card",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/checkbox/checkbox-card/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-checkbox-disabled": {
+		name: "baseui-particles-checkbox-disabled",
+		description: "Disabled checkbox states",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-checkbox"],
+		files: [
+			{
+				path: "packages/baseui/particles/checkbox/checkbox-disabled/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/checkbox-disabled.tsx",
+				content:
+					'import {\n\tCheckbox,\n\tCheckboxIndicator,\n\tCheckIcon,\n} from "@/components/baseui/components/checkbox";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex flex-col gap-4">\n\t\t\t<div className="flex items-center gap-2">\n\t\t\t\t<Checkbox id="disabled-unchecked" disabled>\n\t\t\t\t\t<CheckboxIndicator>\n\t\t\t\t\t\t<CheckIcon />\n\t\t\t\t\t</CheckboxIndicator>\n\t\t\t\t</Checkbox>\n\t\t\t\t<label\n\t\t\t\t\thtmlFor="disabled-unchecked"\n\t\t\t\t\tclassName="text-sm text-muted-foreground cursor-not-allowed"\n\t\t\t\t>\n\t\t\t\t\tDisabled unchecked\n\t\t\t\t</label>\n\t\t\t</div>\n\t\t\t<div className="flex items-center gap-2">\n\t\t\t\t<Checkbox id="disabled-checked" disabled defaultChecked>\n\t\t\t\t\t<CheckboxIndicator>\n\t\t\t\t\t\t<CheckIcon />\n\t\t\t\t\t</CheckboxIndicator>\n\t\t\t\t</Checkbox>\n\t\t\t\t<label\n\t\t\t\t\thtmlFor="disabled-checked"\n\t\t\t\t\tclassName="text-sm text-muted-foreground cursor-not-allowed"\n\t\t\t\t>\n\t\t\t\t\tDisabled checked\n\t\t\t\t</label>\n\t\t\t</div>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-checkbox-disabled",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/checkbox/checkbox-disabled/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-checkbox-with-description": {
+		name: "baseui-particles-checkbox-with-description",
+		description: "Checkbox with label and description",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-checkbox"],
+		files: [
+			{
+				path: "packages/baseui/particles/checkbox/checkbox-with-description/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/checkbox-with-description.tsx",
+				content:
+					'import {\n\tCheckbox,\n\tCheckboxIndicator,\n\tCheckIcon,\n} from "@/components/baseui/components/checkbox";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex flex-col gap-4">\n\t\t\t<div className="flex items-start gap-2">\n\t\t\t\t<Checkbox id="terms" className="mt-0.5">\n\t\t\t\t\t<CheckboxIndicator>\n\t\t\t\t\t\t<CheckIcon />\n\t\t\t\t\t</CheckboxIndicator>\n\t\t\t\t</Checkbox>\n\t\t\t\t<div className="flex flex-col gap-1">\n\t\t\t\t\t<label\n\t\t\t\t\t\thtmlFor="terms"\n\t\t\t\t\t\tclassName="text-sm font-medium cursor-pointer"\n\t\t\t\t\t>\n\t\t\t\t\t\tAccept terms and conditions\n\t\t\t\t\t</label>\n\t\t\t\t\t<p className="text-xs text-muted-foreground">\n\t\t\t\t\t\tYou agree to our Terms of Service and Privacy Policy.\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div className="flex items-start gap-2">\n\t\t\t\t<Checkbox id="marketing" className="mt-0.5">\n\t\t\t\t\t<CheckboxIndicator>\n\t\t\t\t\t\t<CheckIcon />\n\t\t\t\t\t</CheckboxIndicator>\n\t\t\t\t</Checkbox>\n\t\t\t\t<div className="flex flex-col gap-1">\n\t\t\t\t\t<label\n\t\t\t\t\t\thtmlFor="marketing"\n\t\t\t\t\t\tclassName="text-sm font-medium cursor-pointer"\n\t\t\t\t\t>\n\t\t\t\t\t\tMarketing emails\n\t\t\t\t\t</label>\n\t\t\t\t\t<p className="text-xs text-muted-foreground">\n\t\t\t\t\t\tReceive emails about new products, features, and more.\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-checkbox-with-description",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/checkbox/checkbox-with-description/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-checkbox": {
+		name: "baseui-particles-checkbox",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-checkbox"],
+		files: [
+			{
+				path: "packages/baseui/particles/checkbox/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/checkbox.tsx",
+				content:
+					'import {\n\tCheckbox,\n\tCheckIcon,\n\tCheckboxIndicator,\n} from "@/components/baseui/components/checkbox";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex items-center gap-2 cursor-pointer">\n\t\t\t<Checkbox id="notifications">\n\t\t\t\t<CheckboxIndicator>\n\t\t\t\t\t<CheckIcon />\n\t\t\t\t</CheckboxIndicator>\n\t\t\t\t{/* <CheckboxIndicator /> */}\n\t\t\t</Checkbox>\n\t\t\t<span>Enable notifications</span>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-checkbox",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/checkbox/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-collapsible": {
+		name: "baseui-particles-collapsible",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-collapsible"],
+		files: [
+			{
+				path: "packages/baseui/particles/collapsible/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/collapsible.tsx",
+				content:
+					'import {\n\tCollapsible,\n\tCollapsiblePanel,\n\tCollapsibleTrigger,\n} from "@/components/baseui/components/collapsible";\n\nexport default function Particle() {\n\treturn (\n\t\t<Collapsible>\n\t\t\t<CollapsibleTrigger>Recovery Keys</CollapsibleTrigger>\n\t\t\t<CollapsiblePanel>\n\t\t\t\t<div className="flex flex-col gap-2 p-3 bg-muted rounded-md">\n\t\t\t\t\t<div>alien-bean-pasta</div>\n\t\t\t\t\t<div>wild-irish-burrito</div>\n\t\t\t\t\t<div>horse-battery-staple</div>\n\t\t\t\t</div>\n\t\t\t</CollapsiblePanel>\n\t\t</Collapsible>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-collapsible",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/collapsible/index.tsx"
 				);
 				let Comp = mod.default;
 

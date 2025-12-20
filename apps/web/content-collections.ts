@@ -1,3 +1,4 @@
+import { z } from "zod";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import { codeImport } from "remark-code-import";
@@ -8,7 +9,7 @@ const docs = defineCollection({
 	name: "Docs",
 	directory: "src/content",
 	include: "**/*.mdx",
-	schema: (z) => ({
+	schema: z.object({
 		title: z.string(),
 		description: z.string(),
 		published: z.boolean().default(false),

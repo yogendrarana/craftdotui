@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-autocomplete",
+	"type": "registry:component",
+	"description": "A Base UI autocomplete component",
+	"dependencies": ["lucide-react", "@base-ui/react"],
+	"registryDependencies": ["@craftdotui/utils"],
+	"files": [
+		{
+			"path": "packages/baseui/components/autocomplete/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/components/autocomplete.tsx"
+		}
+	]
+}

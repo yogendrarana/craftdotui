@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-button-outline",
+	"type": "registry:component",
+	"description": "Outline button variant",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/baseui-button"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/button/button-outline/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/components/button-outline.tsx"
+		}
+	]
+}

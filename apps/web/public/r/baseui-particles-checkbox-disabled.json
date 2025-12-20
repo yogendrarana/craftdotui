@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-checkbox-disabled",
+	"description": "Disabled checkbox states",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-checkbox"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/checkbox/checkbox-disabled/index.tsx",
+			"content": "import {\n\tCheckbox,\n\tCheckboxIndicator,\n\tCheckIcon,\n} from \"@/components/baseui/components/checkbox\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"flex flex-col gap-4\">\n\t\t\t<div className=\"flex items-center gap-2\">\n\t\t\t\t<Checkbox id=\"disabled-unchecked\" disabled>\n\t\t\t\t\t<CheckboxIndicator>\n\t\t\t\t\t\t<CheckIcon />\n\t\t\t\t\t</CheckboxIndicator>\n\t\t\t\t</Checkbox>\n\t\t\t\t<label\n\t\t\t\t\thtmlFor=\"disabled-unchecked\"\n\t\t\t\t\tclassName=\"text-sm text-muted-foreground cursor-not-allowed\"\n\t\t\t\t>\n\t\t\t\t\tDisabled unchecked\n\t\t\t\t</label>\n\t\t\t</div>\n\t\t\t<div className=\"flex items-center gap-2\">\n\t\t\t\t<Checkbox id=\"disabled-checked\" disabled defaultChecked>\n\t\t\t\t\t<CheckboxIndicator>\n\t\t\t\t\t\t<CheckIcon />\n\t\t\t\t\t</CheckboxIndicator>\n\t\t\t\t</Checkbox>\n\t\t\t\t<label\n\t\t\t\t\thtmlFor=\"disabled-checked\"\n\t\t\t\t\tclassName=\"text-sm text-muted-foreground cursor-not-allowed\"\n\t\t\t\t>\n\t\t\t\t\tDisabled checked\n\t\t\t\t</label>\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/components/checkbox-disabled.tsx"
+		}
+	],
+	"type": "registry:component"
+}

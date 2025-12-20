@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-avatar",
+	"description": "A Base UI avatar component",
+	"dependencies": ["@base-ui/react"],
+	"registryDependencies": ["@craftdotui/utils"],
+	"files": [
+		{
+			"path": "packages/baseui/components/avatar/index.tsx",
+			"content": "\"use client\";\n\nimport { Avatar as AvatarPrimitive } from \"@base-ui/react/avatar\";\nimport { cn } from \"@/lib/utils\";\n\n/* -------------------------------------------------------------------------- */\n/* Avatar Root                                                                       */\n/* -------------------------------------------------------------------------- */\n\ninterface AvatarRootProps extends AvatarPrimitive.Root.Props {\n\tclassName?: string;\n}\n\nfunction Avatar({ className, ...props }: AvatarRootProps) {\n\treturn (\n\t\t<AvatarPrimitive.Root\n\t\t\tclassName={cn(\n\t\t\t\t\"relative inline-flex size-9 items-center justify-center overflow-hidden rounded-full bg-muted align-middle select-none\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot=\"avatar-root\"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Avatar Image                                                                      */\n/* -------------------------------------------------------------------------- */\n\ninterface AvatarImageProps extends AvatarPrimitive.Image.Props {\n\tclassName?: string;\n}\n\nfunction AvatarImage({ className, ...props }: AvatarImageProps) {\n\treturn (\n\t\t<AvatarPrimitive.Image\n\t\t\tclassName={cn(\"size-full object-cover\", className)}\n\t\t\tdata-slot=\"avatar-image\"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Avatar Fallback                                                                   */\n/* -------------------------------------------------------------------------- */\n\nfunction AvatarFallback({\n\tclassName,\n\t...props\n}: AvatarPrimitive.Fallback.Props) {\n\treturn (\n\t\t<AvatarPrimitive.Fallback\n\t\t\tclassName={cn(\n\t\t\t\t\"flex size-full items-center justify-center text-sm font-medium text-muted-foreground\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot=\"avatar-fallback\"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Export                                                           */\n/* -------------------------------------------------------------------------- */\n\nexport { Avatar, AvatarImage, AvatarFallback };\n",
+			"type": "registry:component",
+			"target": "components/baseui/components/avatar.tsx"
+		}
+	],
+	"type": "registry:component"
+}

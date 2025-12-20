@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-accordion-default-open",
+	"description": "Accordion with an item open by default.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-accordion"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/accordion/accordion-default-open/index.tsx",
+			"content": "import {\n\tAccordion,\n\tAccordionItem,\n\tAccordionPanel,\n\tAccordionTrigger,\n} from \"@/components/baseui/components/accordion\";\n\nexport default function Particle() {\n\tconst items = [\n\t\t{\n\t\t\tcontent:\n\t\t\t\t\"React: Created by Jordan Walke at Facebook (Meta) in 2013.\",\n\t\t\tid: \"1\",\n\t\t\ttitle: \"Who created React?\",\n\t\t},\n\t\t{\n\t\t\tcontent: \"Vue: Created by Evan You in 2014.\",\n\t\t\tid: \"2\",\n\t\t\ttitle: \"Who created Vue?\",\n\t\t},\n\t\t{\n\t\t\tcontent: \"Svelte: Created by Rich Harris in 2016.\",\n\t\t\tid: \"3\",\n\t\t\ttitle: \"Who created Svelte?\",\n\t\t},\n\t];\n\n\treturn (\n\t\t<Accordion className=\"w-full md:w-125\" defaultValue={[\"1\"]}>\n\t\t\t{items.map((item) => (\n\t\t\t\t<AccordionItem key={item.id} value={item.id}>\n\t\t\t\t\t<AccordionTrigger>{item.title}</AccordionTrigger>\n\t\t\t\t\t<AccordionPanel>{item.content}</AccordionPanel>\n\t\t\t\t</AccordionItem>\n\t\t\t))}\n\t\t</Accordion>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/components/accordion-default-open.tsx"
+		}
+	],
+	"type": "registry:component"
+}

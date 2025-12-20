@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-avatar-group",
+	"description": "Grouped/stacked avatars",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-avatar"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/avatar/avatar-group/index.tsx",
+			"content": "import {\n\tAvatar,\n\tAvatarImage,\n\tAvatarFallback,\n} from \"@/components/baseui/components/avatar\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"flex -space-x-3\">\n\t\t\t<Avatar className=\"border-2 border-background\">\n\t\t\t\t<AvatarImage src=\"https://github.com/shadcn.png\" alt=\"User 1\" />\n\t\t\t\t<AvatarFallback>U1</AvatarFallback>\n\t\t\t</Avatar>\n\t\t\t<Avatar className=\"border-2 border-background\">\n\t\t\t\t<AvatarImage src=\"https://github.com/vercel.png\" alt=\"User 2\" />\n\t\t\t\t<AvatarFallback>U2</AvatarFallback>\n\t\t\t</Avatar>\n\t\t\t<Avatar className=\"border-2 border-background\">\n\t\t\t\t<AvatarImage src=\"https://github.com/nextjs.png\" alt=\"User 3\" />\n\t\t\t\t<AvatarFallback>U3</AvatarFallback>\n\t\t\t</Avatar>\n\t\t\t<Avatar className=\"border-2 border-background\">\n\t\t\t\t<AvatarFallback className=\"bg-primary text-primary-foreground\">\n\t\t\t\t\t+5\n\t\t\t\t</AvatarFallback>\n\t\t\t</Avatar>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/components/avatar-group.tsx"
+		}
+	],
+	"type": "registry:component"
+}

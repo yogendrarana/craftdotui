@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-button-rounded",
+	"type": "registry:component",
+	"description": "Fully rounded button",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-button"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/button/button-rounded/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/components/button-rounded.tsx"
+		}
+	]
+}

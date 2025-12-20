@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-checkbox-disabled",
+	"type": "registry:component",
+	"description": "Disabled checkbox states",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-checkbox"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/checkbox/checkbox-disabled/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/components/checkbox-disabled.tsx"
+		}
+	]
+}

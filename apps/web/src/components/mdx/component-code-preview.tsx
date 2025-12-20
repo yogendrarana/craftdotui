@@ -47,7 +47,7 @@ export function ComponentCodePreview({
 							type="button"
 							onClick={() => setMode("preview")}
 							className={cn(
-								"px-3 py-1.5 min-w-[90px] cursor-pointer rounded-md text-xs font-medium flex items-center gap-1.5 border transition-colors",
+								"px-3 py-1.5 min-w-22.5 cursor-pointer rounded-md text-xs font-medium flex items-center gap-1.5 border transition-colors",
 								mode === "preview"
 									? "bg-background text-foreground border-border shadow-sm"
 									: "text-muted-foreground hover:text-foreground border-transparent",
@@ -61,7 +61,7 @@ export function ComponentCodePreview({
 							type="button"
 							onClick={() => setMode("code")}
 							className={cn(
-								"px-3 py-1.5 min-w-[90px] cursor-pointer rounded-md text-xs font-medium flex items-center gap-1.5 border transition-colors",
+								"px-3 py-1.5 min-w-22.5 cursor-pointer rounded-md text-xs font-medium flex items-center gap-1.5 border transition-colors",
 								mode === "code"
 									? "bg-background text-foreground border-border shadow-sm"
 									: "text-muted-foreground hover:text-foreground border-transparent",
@@ -79,9 +79,9 @@ export function ComponentCodePreview({
 			</div>
 
 			{/* component and code */}
-			<div className="relative min-h-[400px] w-full border border-dashed rounded-md flex items-center justify-center p-1.5">
+			<div className="relative min-h-100 w-full border rounded-lg flex items-center justify-center p-1.5">
 				{mode === "preview" ? (
-					<div className="h-[400px] w-full flex justify-center items-center border rounded-md">
+					<div className="h-100 w-full flex justify-center items-center border border-dashed rounded-md">
 						<ComponentPreview
 							name={name}
 							key={key}
@@ -90,7 +90,7 @@ export function ComponentCodePreview({
 					</div>
 				) : (
 					<CodeRenderer
-						className="h-[400px] w-full border rounded-md bg-[#fafafa] dark:bg-black"
+						className="h-100 w-full border rounded-md"
 						code={Code}
 					/>
 				)}
