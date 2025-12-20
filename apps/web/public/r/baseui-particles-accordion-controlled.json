@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-accordion-controlled",
+	"description": "Controlled accordion with programmatic state management",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/baseui-accordion",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/baseui/particles/accordion/accordion-controlled/index.tsx",
+			"content": "\"use client\";\n\nimport { useState } from \"react\";\nimport {\n\tAccordion,\n\tAccordionItem,\n\tAccordionTrigger,\n\tAccordionPanel,\n} from \"@/components/baseui/components/accordion\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport default function Particle() {\n\tconst [value, setValue] = useState<string[]>([\"item-1\"]);\n\n\treturn (\n\t\t<div className=\"w-full max-w-md space-y-4\">\n\t\t\t<Accordion value={value} onValueChange={setValue}>\n\t\t\t\t<AccordionItem value=\"item-1\">\n\t\t\t\t\t<AccordionTrigger>Who won 2022 World Cup?</AccordionTrigger>\n\t\t\t\t\t<AccordionPanel>\n\t\t\t\t\t\tArgentina defeated France in the final (3-3, 4-2 on\n\t\t\t\t\t\tpenalties).\n\t\t\t\t\t</AccordionPanel>\n\t\t\t\t</AccordionItem>\n\n\t\t\t\t<AccordionItem value=\"item-2\">\n\t\t\t\t\t<AccordionTrigger>Most World Cup goals?</AccordionTrigger>\n\t\t\t\t\t<AccordionPanel>\n\t\t\t\t\t\tMiroslav Klose (Germany) with 16 goals across 4\n\t\t\t\t\t\ttournaments.\n\t\t\t\t\t</AccordionPanel>\n\t\t\t\t</AccordionItem>\n\n\t\t\t\t<AccordionItem value=\"item-3\">\n\t\t\t\t\t<AccordionTrigger>\n\t\t\t\t\t\tBallon d'Or 2024 winner?\n\t\t\t\t\t</AccordionTrigger>\n\t\t\t\t\t<AccordionPanel>\n\t\t\t\t\t\tRodri (Manchester City) for his outstanding midfield\n\t\t\t\t\t\tplay.\n\t\t\t\t\t</AccordionPanel>\n\t\t\t\t</AccordionItem>\n\t\t\t</Accordion>\n\n\t\t\t<div className=\"flex gap-2\">\n\t\t\t\t<Button\n\t\t\t\t\tonClick={() => setValue([\"item-1\", \"item-2\", \"item-3\"])}\n\t\t\t\t>\n\t\t\t\t\tOpen All\n\t\t\t\t</Button>\n\t\t\t\t<Button variant=\"outline\" onClick={() => setValue([])}>\n\t\t\t\t\tClose All\n\t\t\t\t</Button>\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/components/accordion-controlled.tsx"
+		}
+	],
+	"type": "registry:component"
+}

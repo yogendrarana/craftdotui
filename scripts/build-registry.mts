@@ -37,6 +37,7 @@ async function buildRegistryFile() {
 	// Collect registry items from all packages
 	const packagePaths = [
 		path.join(process.cwd(), "packages", "craftui"),
+		path.join(process.cwd(), "packages", "baseui"),
 		path.join(process.cwd(), "packages", "hooks"),
 		path.join(process.cwd(), "packages", "lib"),
 	];
@@ -119,14 +120,14 @@ function rewriteImports(inputStr: string): string {
 		} else if (content.startsWith("@craftdotui/hooks/")) {
 			const rest = content.slice("@craftdotui/hooks/".length);
 			return `${quote}@/hooks/${rest}${quote}`;
-		} else if (content.startsWith("@craftdotui/craftui/ui/")) {
-			const rest = content.slice("@craftdotui/craftui/ui/".length);
-			return `${quote}@/components/craftui/ui/${rest}${quote}`;
 		} else if (content.startsWith("@craftdotui/craftui/components/")) {
 			const rest = content.slice(
 				"@craftdotui/craftui/components/".length,
 			);
 			return `${quote}@/components/craftui/components/${rest}${quote}`;
+		} else if (content.startsWith("@craftdotui/baseui/components/")) {
+			const rest = content.slice("@craftdotui/baseui/components/".length);
+			return `${quote}@/components/baseui/components/${rest}${quote}`;
 		}
 
 		return match;
@@ -175,6 +176,11 @@ async function buildRegistryIndex() {
 					if (filePath.startsWith("packages/craftui/")) {
 						return `@craftdotui/craftui/${filePath.replace(
 							"packages/craftui/",
+							"",
+						)}`;
+					} else if (filePath.startsWith("packages/baseui/")) {
+						return `@craftdotui/baseui/${filePath.replace(
+							"packages/baseui/",
 							"",
 						)}`;
 					} else if (filePath.startsWith("packages/hooks/")) {

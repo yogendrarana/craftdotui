@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-collapsible",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-collapsible"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/collapsible/index.tsx",
+			"content": "import {\n\tCollapsible,\n\tCollapsiblePanel,\n\tCollapsibleTrigger,\n} from \"@/components/baseui/components/collapsible\";\n\nexport default function Particle() {\n\treturn (\n\t\t<Collapsible>\n\t\t\t<CollapsibleTrigger>Recovery Keys</CollapsibleTrigger>\n\t\t\t<CollapsiblePanel>\n\t\t\t\t<div className=\"flex flex-col gap-2 p-3 bg-muted rounded-md\">\n\t\t\t\t\t<div>alien-bean-pasta</div>\n\t\t\t\t\t<div>wild-irish-burrito</div>\n\t\t\t\t\t<div>horse-battery-staple</div>\n\t\t\t\t</div>\n\t\t\t</CollapsiblePanel>\n\t\t</Collapsible>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/components/collapsible.tsx"
+		}
+	],
+	"type": "registry:component"
+}

@@ -1,5 +1,6 @@
 @import "tailwindcss";
-@plugin "tailwindcss-animate";
+@source "../../../packages/baseui";
+@source "../../../packages/craftui";
 @custom-variant dark (&:is(.dark *));
 
 html {

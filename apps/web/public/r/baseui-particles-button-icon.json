@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-button-icon",
+	"description": "Icon-only button",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/baseui-button"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/button/button-icon/index.tsx",
+			"content": "import { Settings } from \"lucide-react\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport default function Particle() {\n\treturn (\n\t\t<Button size=\"icon\" variant=\"outline\">\n\t\t\t<Settings />\n\t\t</Button>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/components/button-icon.tsx"
+		}
+	],
+	"type": "registry:component"
+}

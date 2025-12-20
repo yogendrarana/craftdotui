@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-checkbox-with-description",
+	"type": "registry:component",
+	"description": "Checkbox with label and description",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-checkbox"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/checkbox/checkbox-with-description/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/components/checkbox-with-description.tsx"
+		}
+	]
+}

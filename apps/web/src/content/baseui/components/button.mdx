@@ -1,0 +1,82 @@
+---
+title: Button
+description: A Base UI button component
+slug: /baseui/components/button
+published: true
+date: 2025-12-20T00:00:00.000Z
+author:
+  name: Yogendra Rana
+  twitter: "https://twitter.com/yooogendra_rana"
+---
+
+<ComponentCodePreview name="baseui-particles-button" />
+
+## Installation
+
+<Installation name="baseui-button" />
+
+## Demo
+
+#### Default
+
+<ComponentCodePreview name="baseui-particles-button" />
+
+#### Secondary
+
+<ComponentCodePreview name="baseui-particles-button-secondary" />
+
+#### Outline
+
+<ComponentCodePreview name="baseui-particles-button-outline" />
+
+#### Ghost
+
+<ComponentCodePreview name="baseui-particles-button-ghost" />
+
+#### Destructive
+
+<ComponentCodePreview name="baseui-particles-button-destructive" />
+
+#### Icon
+
+<ComponentCodePreview name="baseui-particles-button-icon" />
+
+#### Sizes
+
+<ComponentCodePreview name="baseui-particles-button-sizes" />
+
+#### Disabled
+
+<ComponentCodePreview name="baseui-particles-button-disabled" />
+
+#### Loading
+
+<ComponentCodePreview name="baseui-particles-button-loading" />
+
+#### Rounded
+
+<ComponentCodePreview name="baseui-particles-button-rounded" />
+
+#### With Icon
+
+<ComponentCodePreview name="baseui-particles-button-with-icon" />
+
+#### With Link
+
+<ComponentCodePreview name="baseui-particles-button-with-link" />
+
+
+
+## Props
+
+#### Button
+
+| Prop       | Type                                                                          | Description                                              | Default   |
+| ---------- | ----------------------------------------------------------------------------- | -------------------------------------------------------- | --------- |
+| variant    | "default" \| "secondary" \| "destructive" \| "outline" \| "ghost" \| "link"   | The visual style variant of the button                   | "default" |
+| size       | "xs" \| "sm" \| "default" \| "lg" \| "xl" \| "icon" \| "icon-sm" \| "icon-lg" | The size of the button                                   | "default" |
+| loading    | boolean                                                                       | If true, shows a loading spinner and disables the button | false     |
+| disabled   | boolean                                                                       | If true, disables the button                             | false     |
+| className? | string                                                                        | Additional class names to style the Button               | \_        |
+| render?    | React.ReactElement                                                            | Custom element to render (e.g., Link component)          | \_        |
+| children   | ReactNode                                                                     | The content to be rendered inside the Button             | \_        |

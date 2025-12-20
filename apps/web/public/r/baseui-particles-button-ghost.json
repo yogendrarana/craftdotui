@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-button-ghost",
+	"description": "Ghost button variant",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/baseui-button"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/button/button-ghost/index.tsx",
+			"content": "import { Button } from \"@/components/baseui/components/button\";\n\nexport default function Particle() {\n\treturn <Button variant=\"ghost\">Ghost</Button>;\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/components/button-ghost.tsx"
+		}
+	],
+	"type": "registry:component"
+}

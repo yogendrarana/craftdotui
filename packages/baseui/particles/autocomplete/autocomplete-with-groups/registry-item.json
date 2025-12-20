@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-autocomplete-with-groups",
+	"type": "registry:component",
+	"description": "Autocomplete with groups",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/baseui-autocomplete"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/autocomplete/autocomplete-with-groups/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/components/autocomplete-with-groups.tsx"
+		}
+	]
+}

@@ -86,6 +86,40 @@ export const docsNavItems: Array<DocsNavItem> = [
 	},
 
 	{
+		title: "Base UI",
+		items: [
+			{
+				title: "Accordion",
+				href: "/docs/baseui/components/accordion",
+			},
+			{
+				title: "Alert Dialog",
+				href: "/docs/baseui/components/alert-dialog",
+			},
+			{
+				title: "Autocomplete",
+				href: "/docs/baseui/components/autocomplete",
+			},
+			{
+				title: "Avatar",
+				href: "/docs/baseui/components/avatar",
+			},
+			{
+				title: "Button",
+				href: "/docs/baseui/components/button",
+			},
+			{
+				title: "Checkbox",
+				href: "/docs/baseui/components/checkbox",
+			},
+			{
+				title: "Collapsible",
+				href: "/docs/baseui/components/collapsible",
+			},
+		],
+	},
+
+	{
 		title: "Hooks",
 		items: [
 			{

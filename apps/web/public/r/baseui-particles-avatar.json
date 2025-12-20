@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-avatar",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-avatar"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/avatar/index.tsx",
+			"content": "import {\n\tAvatar,\n\tAvatarImage,\n\tAvatarFallback,\n} from \"@/components/baseui/components/avatar\";\n\nexport default function Particle() {\n\treturn (\n\t\t<Avatar>\n\t\t\t<AvatarImage\n\t\t\t\tsrc=\"https://images.pexels.com/photos/2613260/pexels-photo-2613260.jpeg\"\n\t\t\t\talt=\"User Avatar\"\n\t\t\t/>\n\t\t\t<AvatarFallback>JD</AvatarFallback>\n\t\t</Avatar>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/components/avatar.tsx"
+		}
+	],
+	"type": "registry:component"
+}

@@ -64,7 +64,7 @@ export function ComponentPreview({
 	return (
 		<div
 			className={cn(
-				"relative w-full flex items-center justify-center rounded-sm h-full bg-[#fafafa] dark:bg-zinc-800",
+				"p-4 relative w-full flex items-center justify-center rounded-sm h-full",
 				className,
 			)}
 		>

@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-button-disabled",
+	"description": "Disabled button states",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/baseui-button"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/button/button-disabled/index.tsx",
+			"content": "import { Button } from \"@/components/baseui/components/button\";\n\nexport default function Particle() {\n\treturn <Button disabled>Disabled</Button>;\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/components/button-disabled.tsx"
+		}
+	],
+	"type": "registry:component"
+}

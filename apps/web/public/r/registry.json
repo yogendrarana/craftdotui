@@ -812,6 +812,583 @@
 			]
 		},
 		{
+			"name": "baseui-accordion",
+			"type": "registry:component",
+			"description": "A Base UI accordion component",
+			"dependencies": ["lucide-react", "@base-ui/react"],
+			"registryDependencies": ["@craftdotui/utils"],
+			"files": [
+				{
+					"path": "packages/baseui/components/accordion/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/accordion.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-alert-dialog",
+			"type": "registry:component",
+			"description": "A Base UI alert dialog component",
+			"dependencies": ["lucide-react", "@base-ui/react"],
+			"registryDependencies": ["@craftdotui/utils"],
+			"files": [
+				{
+					"path": "packages/baseui/components/alert-dialog/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/alert-dialog.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-autocomplete",
+			"type": "registry:component",
+			"description": "A Base UI autocomplete component",
+			"dependencies": ["lucide-react", "@base-ui/react"],
+			"registryDependencies": ["@craftdotui/utils"],
+			"files": [
+				{
+					"path": "packages/baseui/components/autocomplete/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/autocomplete.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-avatar",
+			"type": "registry:component",
+			"description": "A Base UI avatar component",
+			"dependencies": ["@base-ui/react"],
+			"registryDependencies": ["@craftdotui/utils"],
+			"files": [
+				{
+					"path": "packages/baseui/components/avatar/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/avatar.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-button",
+			"type": "registry:component",
+			"description": "A Base UI button component",
+			"dependencies": ["@base-ui/react"],
+			"registryDependencies": ["@craftdotui/utils"],
+			"files": [
+				{
+					"path": "packages/baseui/components/button/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/button.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-checkbox",
+			"type": "registry:component",
+			"description": "A Base UI checkbox component",
+			"dependencies": ["@base-ui/react"],
+			"registryDependencies": ["@craftdotui/utils"],
+			"files": [
+				{
+					"path": "packages/baseui/components/checkbox/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/checkbox.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-collapsible",
+			"type": "registry:component",
+			"description": "A Base UI collapsible component",
+			"dependencies": ["@base-ui/react", "lucide-react"],
+			"registryDependencies": ["@craftdotui/utils"],
+			"files": [
+				{
+					"path": "packages/baseui/components/collapsible/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/collapsible.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-accordion-controlled",
+			"type": "registry:component",
+			"description": "Controlled accordion with programmatic state management",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/baseui-accordion",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/baseui/particles/accordion/accordion-controlled/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/accordion-controlled.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-accordion-default-open",
+			"type": "registry:component",
+			"description": "Accordion with an item open by default.",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-accordion"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/accordion/accordion-default-open/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/accordion-default-open.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-accordion-multiple",
+			"type": "registry:component",
+			"description": "Accordion with multiple panels open at once",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-accordion"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/accordion/accordion-multiple/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/accordion-multiple.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-accordion",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-accordion"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/accordion/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/accordion.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-alert-dialog",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-alert-dialog"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/alert-dialog/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/alert-dialog.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-autocomplete-async-search",
+			"type": "registry:component",
+			"description": "Autocomplete with async search",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-autocomplete"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/autocomplete/autocomplete-async-search/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/autocomplete-async-search.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-autocomplete-auto-highlight",
+			"type": "registry:component",
+			"description": "Autocomplete with auto-highlight items",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-autocomplete"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/autocomplete/autocomplete-auto-highlight/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/autocomplete-auto-highlight.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-autocomplete-disabled",
+			"type": "registry:component",
+			"description": "Disabled autocomplete",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-autocomplete"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/autocomplete/autocomplete-disabled/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/autocomplete-disabled.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-autocomplete-with-clear-and-trigger",
+			"type": "registry:component",
+			"description": "Autocomplete with clear and trigger buttons",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-autocomplete"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/autocomplete/autocomplete-with-clear-and-trigger/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/autocomplete-with-clear-and-trigger.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-autocomplete-with-groups",
+			"type": "registry:component",
+			"description": "Autocomplete with groups",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-autocomplete"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/autocomplete/autocomplete-with-groups/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/autocomplete-with-groups.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-autocomplete-with-start-addon",
+			"type": "registry:component",
+			"description": "Autocomplete with clear and trigger buttons",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-autocomplete"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/autocomplete/autocomplete-with-start-addon/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/autocomplete-with-start-addon.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-autocomplete",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-autocomplete"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/autocomplete/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/autocomplete.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-avatar-fallback",
+			"type": "registry:component",
+			"description": "Avatar with fallback initials",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-avatar"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/avatar/avatar-fallback/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/avatar-fallback.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-avatar-group",
+			"type": "registry:component",
+			"description": "Grouped/stacked avatars",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-avatar"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/avatar/avatar-group/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/avatar-group.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-avatar-radius",
+			"type": "registry:component",
+			"description": "Avatar border radius variants",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-avatar"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/avatar/avatar-radius/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/avatar-radius.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-avatar-sizes",
+			"type": "registry:component",
+			"description": "Avatar size variants",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-avatar"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/avatar/avatar-sizes/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/avatar-sizes.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-avatar",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-avatar"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/avatar/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/avatar.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-button-destructive",
+			"type": "registry:component",
+			"description": "Destructive button variant",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-button"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/button/button-destructive/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/button-destructive.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-button-disabled",
+			"type": "registry:component",
+			"description": "Disabled button states",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-button"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/button/button-disabled/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/button-disabled.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-button-ghost",
+			"type": "registry:component",
+			"description": "Ghost button variant",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-button"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/button/button-ghost/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/button-ghost.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-button-icon",
+			"type": "registry:component",
+			"description": "Icon-only button",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-button"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/button/button-icon/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/button-icon.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-button-loading",
+			"type": "registry:component",
+			"description": "Button with loading state",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-button"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/button/button-loading/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/button-loading.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-button-outline",
+			"type": "registry:component",
+			"description": "Outline button variant",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-button"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/button/button-outline/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/button-outline.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-button-rounded",
+			"type": "registry:component",
+			"description": "Fully rounded button",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-button"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/button/button-rounded/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/button-rounded.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-button-secondary",
+			"type": "registry:component",
+			"description": "Secondary button variant",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-button"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/button/button-secondary/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/button-secondary.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-button-sizes",
+			"type": "registry:component",
+			"description": "Button size variants",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-button"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/button/button-sizes/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/button-sizes.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-button-with-icon",
+			"type": "registry:component",
+			"description": "Buttons with icons",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-button"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/button/button-with-icon/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/button-with-icon.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-button-with-link",
+			"type": "registry:component",
+			"description": "Link button variant",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-button"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/button/button-with-link/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/button-with-link.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-button",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-button"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/button/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/button.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-checkbox-card",
+			"type": "registry:component",
+			"description": "Card-style selectable checkbox",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-checkbox"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/checkbox/checkbox-card/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/checkbox-card.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-checkbox-disabled",
+			"type": "registry:component",
+			"description": "Disabled checkbox states",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-checkbox"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/checkbox/checkbox-disabled/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/checkbox-disabled.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-checkbox-with-description",
+			"type": "registry:component",
+			"description": "Checkbox with label and description",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-checkbox"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/checkbox/checkbox-with-description/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/checkbox-with-description.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-checkbox",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-checkbox"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/checkbox/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/checkbox.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-collapsible",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-collapsible"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/collapsible/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/collapsible.tsx"
+				}
+			]
+		},
+		{
 			"name": "use-callback",
 			"type": "registry:hook",
 			"description": "A hook that provides a stable callback reference while always invoking the latest version of the provided function.",

@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-accordion-multiple",
+	"description": "Accordion with multiple panels open at once",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/baseui-accordion"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/accordion/accordion-multiple/index.tsx",
+			"content": "\"use client\";\n\nimport {\n\tAccordion,\n\tAccordionItem,\n\tAccordionTrigger,\n\tAccordionPanel,\n} from \"@/components/baseui/components/accordion\";\n\nexport default function Particle() {\n\treturn (\n\t\t<Accordion multiple className=\"w-full max-w-md\">\n\t\t\t<AccordionItem value=\"item-1\">\n\t\t\t\t<AccordionTrigger>What is your refund policy?</AccordionTrigger>\n\t\t\t\t<AccordionPanel>\n\t\t\t\t\tWe offer a 30-day money-back guarantee for all purchases. If\n\t\t\t\t\tyou're not satisfied with your product, contact our support\n\t\t\t\t\tteam for a full refund.\n\t\t\t\t</AccordionPanel>\n\t\t\t</AccordionItem>\n\n\t\t\t<AccordionItem value=\"item-2\">\n\t\t\t\t<AccordionTrigger>How do I track my order?</AccordionTrigger>\n\t\t\t\t<AccordionPanel>\n\t\t\t\t\tOnce your order ships, you'll receive a tracking number via\n\t\t\t\t\temail. You can use this number on our website or the\n\t\t\t\t\tcarrier's site to monitor your delivery.\n\t\t\t\t</AccordionPanel>\n\t\t\t</AccordionItem>\n\n\t\t\t<AccordionItem value=\"item-3\">\n\t\t\t\t<AccordionTrigger>\n\t\t\t\t\tDo you ship internationally?\n\t\t\t\t</AccordionTrigger>\n\t\t\t\t<AccordionPanel>\n\t\t\t\t\tYes! We ship to over 100 countries worldwide. Shipping costs\n\t\t\t\t\tand delivery times vary by location.\n\t\t\t\t</AccordionPanel>\n\t\t\t</AccordionItem>\n\t\t</Accordion>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/components/accordion-multiple.tsx"
+		}
+	],
+	"type": "registry:component"
+}

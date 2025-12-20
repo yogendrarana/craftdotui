@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-button-sizes",
+	"type": "registry:component",
+	"description": "Button size variants",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/baseui-button"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/button/button-sizes/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/components/button-sizes.tsx"
+		}
+	]
+}

@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-collapsible",
+	"description": "A Base UI collapsible component",
+	"dependencies": ["@base-ui/react", "lucide-react"],
+	"registryDependencies": ["@craftdotui/utils"],
+	"files": [
+		{
+			"path": "packages/baseui/components/collapsible/index.tsx",
+			"content": "\"use client\";\n\nimport { ChevronRight } from \"lucide-react\";\nimport { Collapsible as CollapsiblePrimitive } from \"@base-ui/react/collapsible\";\nimport { cn } from \"@/lib/utils\";\n\n/* -------------------------------------------------------------------------- */\n/* Collapsible Root                                                           */\n/* -------------------------------------------------------------------------- */\n\nfunction Collapsible({\n\tclassName,\n\tchildren,\n\t...props\n}: CollapsiblePrimitive.Root.Props) {\n\treturn (\n\t\t<CollapsiblePrimitive.Root\n\t\t\tclassName={cn(\"w-48 flex flex-col gap-2\", className)}\n\t\t\tdata-slot=\"collapsible-root\"\n\t\t\t{...props}\n\t\t>\n\t\t\t{children}\n\t\t</CollapsiblePrimitive.Root>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Collapsible Trigger                                                        */\n/* -------------------------------------------------------------------------- */\n\nfunction CollapsibleTrigger({\n\tclassName,\n\tchildren,\n\t...props\n}: CollapsiblePrimitive.Trigger.Props) {\n\treturn (\n\t\t<CollapsiblePrimitive.Trigger\n\t\t\tclassName={cn(\n\t\t\t\t\"group px-3 py-2 flex items-center justify-between cursor-pointer rounded-md font-medium text-sm bg-muted\",\n\t\t\t\t\"hover:bg-muted/80 transition-colors\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot=\"collapsible-trigger\"\n\t\t\t{...props}\n\t\t>\n\t\t\t{children}\n\t\t\t<ChevronRight className=\"size-4 transition-transform duration-200 group-data-panel-open:rotate-90\" />\n\t\t</CollapsiblePrimitive.Trigger>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Collapsible Panel                                                          */\n/* -------------------------------------------------------------------------- */\n\nfunction CollapsiblePanel({\n\tclassName,\n\tchildren,\n\thiddenUntilFound = false,\n\tkeepMounted = false,\n\t...props\n}: CollapsiblePrimitive.Panel.Props) {\n\treturn (\n\t\t<CollapsiblePrimitive.Panel\n\t\t\thiddenUntilFound={hiddenUntilFound}\n\t\t\tkeepMounted={keepMounted}\n\t\t\tclassName={cn(\n\t\t\t\t\"w-full overflow-hidden text-sm transition-[height] duration-200 ease-in-out\",\n\t\t\t\t\"data-starting-style:h-0 data-ending-style:h-0 data-closed:h-0 data-open:h-auto\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot=\"collapsible-panel\"\n\t\t\t{...props}\n\t\t>\n\t\t\t{children}\n\t\t</CollapsiblePrimitive.Panel>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Export                                                                     */\n/* -------------------------------------------------------------------------- */\n\nexport { Collapsible, CollapsibleTrigger, CollapsiblePanel };\n",
+			"type": "registry:component",
+			"target": "components/baseui/components/collapsible.tsx"
+		}
+	],
+	"type": "registry:component"
+}

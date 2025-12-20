@@ -1,0 +1,61 @@
+---
+title: Autocomplete
+description: A Base UI autocomplete component
+slug: /baseui/components/autocomplete
+published: true
+date: 2025-12-20T00:00:00.000Z
+author:
+  name: Yogendra Rana
+  twitter: "https://twitter.com/yooogendra_rana"
+---
+
+<ComponentCodePreview name="baseui-particles-autocomplete" />
+
+## Installation
+
+<Installation name="baseui-autocomplete" />
+
+## Demo
+
+
+#### Disabled
+
+<ComponentCodePreview name="baseui-particles-autocomplete-disabled" />
+
+#### Auto Highlight
+
+<ComponentCodePreview name="baseui-particles-autocomplete-auto-highlight" />
+
+#### With Start Addon
+
+<ComponentCodePreview name="baseui-particles-autocomplete-with-start-addon" />
+
+#### With Clear and Trigger
+
+<ComponentCodePreview name="baseui-particles-autocomplete-with-clear-and-trigger" />
+
+#### With Groups
+
+<ComponentCodePreview name="baseui-particles-autocomplete-with-groups" />
+
+#### With Async Search
+
+<ComponentCodePreview name="baseui-particles-autocomplete-async-search" />
+
+
+## Props
+
+#### AutocompleteInput
+
+| Prop         | Type      | Description                                              | Default |
+| ------------ | --------- | -------------------------------------------------------- | ------- |
+| showClear?   | boolean   | If true, shows a clear button to reset the input         | false   |
+| showTrigger? | boolean   | If true, shows a trigger button to open the dropdown     | false   |
+| startAddon?  | ReactNode | Provide startAddon like search icon to show on the front | null    |
+
+#### AutocompletePopup
+
+| Prop         | Type    | Description                                | Default |
+| ------------ | ------- | ------------------------------------------ | ------- |
+| sideOffset?  | number  | The distance in pixels from the input      | 4       |
+| hasBackdrop? | boolean | If true, shows a backdrop behind the popup | false   |
