@@ -19,7 +19,7 @@ export const GithubStars = ({ className }: PropTypes) => {
 			if (stars > 100) return;
 			try {
 				const response = await fetch(
-					"https://api.github.com/repos/yogendrarana/craftui",
+					"https://api.github.com/repos/yogendrarana/craftdotui",
 					{
 						headers: process.env.NEXT_PUBLIC_GITHUB_OAUTH_TOKEN
 							? {
