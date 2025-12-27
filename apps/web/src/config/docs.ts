@@ -120,6 +120,10 @@ export const docsNavItems: Array<DocsNavItem> = [
 				title: "Context Menu",
 				href: "/docs/baseui/components/context-menu",
 			},
+			{
+				title: "Dialog",
+				href: "/docs/baseui/components/dialog",
+			},
 		],
 	},
 

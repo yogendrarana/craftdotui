@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/autocomplete/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/components/autocomplete.tsx"
+			"target": "components/baseui/particles/autocomplete.tsx"
 		}
 	]
 }

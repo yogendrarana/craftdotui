@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-dialog",
+	"type": "registry:component",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-dialog"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/dialog/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/particles/dialog.tsx"
+		}
+	]
+}

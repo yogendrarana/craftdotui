@@ -924,6 +924,20 @@
 			]
 		},
 		{
+			"name": "baseui-dialog",
+			"type": "registry:component",
+			"description": "A Base UI dialog component",
+			"dependencies": ["@base-ui/react"],
+			"registryDependencies": ["@craftdotui/utils"],
+			"files": [
+				{
+					"path": "packages/baseui/components/dialog/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/dialog.tsx"
+				}
+			]
+		},
+		{
 			"name": "baseui-particles-accordion-controlled",
 			"type": "registry:component",
 			"description": "Controlled accordion with programmatic state management",
@@ -936,7 +950,7 @@
 				{
 					"path": "packages/baseui/particles/accordion/accordion-controlled/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/accordion-controlled.tsx"
+					"target": "components/baseui/particles/accordion-controlled.tsx"
 				}
 			]
 		},
@@ -950,7 +964,7 @@
 				{
 					"path": "packages/baseui/particles/accordion/accordion-default-open/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/accordion-default-open.tsx"
+					"target": "components/baseui/particles/accordion-default-open.tsx"
 				}
 			]
 		},
@@ -964,7 +978,7 @@
 				{
 					"path": "packages/baseui/particles/accordion/accordion-multiple/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/accordion-multiple.tsx"
+					"target": "components/baseui/particles/accordion-multiple.tsx"
 				}
 			]
 		},
@@ -978,7 +992,7 @@
 				{
 					"path": "packages/baseui/particles/accordion/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/accordion.tsx"
+					"target": "components/baseui/particles/accordion.tsx"
 				}
 			]
 		},
@@ -992,7 +1006,7 @@
 				{
 					"path": "packages/baseui/particles/alert-dialog/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/alert-dialog.tsx"
+					"target": "components/baseui/particles/alert-dialog.tsx"
 				}
 			]
 		},
@@ -1006,7 +1020,7 @@
 				{
 					"path": "packages/baseui/particles/autocomplete/autocomplete-async-search/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/autocomplete-async-search.tsx"
+					"target": "components/baseui/particles/autocomplete-async-search.tsx"
 				}
 			]
 		},
@@ -1020,7 +1034,7 @@
 				{
 					"path": "packages/baseui/particles/autocomplete/autocomplete-auto-highlight/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/autocomplete-auto-highlight.tsx"
+					"target": "components/baseui/particles/autocomplete-auto-highlight.tsx"
 				}
 			]
 		},
@@ -1034,7 +1048,7 @@
 				{
 					"path": "packages/baseui/particles/autocomplete/autocomplete-disabled/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/autocomplete-disabled.tsx"
+					"target": "components/baseui/particles/autocomplete-disabled.tsx"
 				}
 			]
 		},
@@ -1048,7 +1062,7 @@
 				{
 					"path": "packages/baseui/particles/autocomplete/autocomplete-with-clear-and-trigger/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/autocomplete-with-clear-and-trigger.tsx"
+					"target": "components/baseui/particles/autocomplete-with-clear-and-trigger.tsx"
 				}
 			]
 		},
@@ -1062,7 +1076,7 @@
 				{
 					"path": "packages/baseui/particles/autocomplete/autocomplete-with-groups/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/autocomplete-with-groups.tsx"
+					"target": "components/baseui/particles/autocomplete-with-groups.tsx"
 				}
 			]
 		},
@@ -1076,7 +1090,7 @@
 				{
 					"path": "packages/baseui/particles/autocomplete/autocomplete-with-start-addon/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/autocomplete-with-start-addon.tsx"
+					"target": "components/baseui/particles/autocomplete-with-start-addon.tsx"
 				}
 			]
 		},
@@ -1090,7 +1104,7 @@
 				{
 					"path": "packages/baseui/particles/autocomplete/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/autocomplete.tsx"
+					"target": "components/baseui/particles/autocomplete.tsx"
 				}
 			]
 		},
@@ -1104,7 +1118,7 @@
 				{
 					"path": "packages/baseui/particles/avatar/avatar-fallback/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/avatar-fallback.tsx"
+					"target": "components/baseui/particles/avatar-fallback.tsx"
 				}
 			]
 		},
@@ -1118,7 +1132,7 @@
 				{
 					"path": "packages/baseui/particles/avatar/avatar-group/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/avatar-group.tsx"
+					"target": "components/baseui/particles/avatar-group.tsx"
 				}
 			]
 		},
@@ -1132,7 +1146,7 @@
 				{
 					"path": "packages/baseui/particles/avatar/avatar-radius/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/avatar-radius.tsx"
+					"target": "components/baseui/particles/avatar-radius.tsx"
 				}
 			]
 		},
@@ -1146,7 +1160,7 @@
 				{
 					"path": "packages/baseui/particles/avatar/avatar-sizes/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/avatar-sizes.tsx"
+					"target": "components/baseui/particles/avatar-sizes.tsx"
 				}
 			]
 		},
@@ -1160,7 +1174,7 @@
 				{
 					"path": "packages/baseui/particles/avatar/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/avatar.tsx"
+					"target": "components/baseui/particles/avatar.tsx"
 				}
 			]
 		},
@@ -1174,7 +1188,7 @@
 				{
 					"path": "packages/baseui/particles/button/button-destructive/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/button-destructive.tsx"
+					"target": "components/baseui/particles/button-destructive.tsx"
 				}
 			]
 		},
@@ -1188,7 +1202,7 @@
 				{
 					"path": "packages/baseui/particles/button/button-disabled/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/button-disabled.tsx"
+					"target": "components/baseui/particles/button-disabled.tsx"
 				}
 			]
 		},
@@ -1202,7 +1216,7 @@
 				{
 					"path": "packages/baseui/particles/button/button-ghost/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/button-ghost.tsx"
+					"target": "components/baseui/particles/button-ghost.tsx"
 				}
 			]
 		},
@@ -1216,7 +1230,7 @@
 				{
 					"path": "packages/baseui/particles/button/button-icon/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/button-icon.tsx"
+					"target": "components/baseui/particles/button-icon.tsx"
 				}
 			]
 		},
@@ -1230,7 +1244,7 @@
 				{
 					"path": "packages/baseui/particles/button/button-loading/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/button-loading.tsx"
+					"target": "components/baseui/particles/button-loading.tsx"
 				}
 			]
 		},
@@ -1244,7 +1258,7 @@
 				{
 					"path": "packages/baseui/particles/button/button-outline/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/button-outline.tsx"
+					"target": "components/baseui/particles/button-outline.tsx"
 				}
 			]
 		},
@@ -1258,7 +1272,7 @@
 				{
 					"path": "packages/baseui/particles/button/button-rounded/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/button-rounded.tsx"
+					"target": "components/baseui/particles/button-rounded.tsx"
 				}
 			]
 		},
@@ -1272,7 +1286,7 @@
 				{
 					"path": "packages/baseui/particles/button/button-secondary/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/button-secondary.tsx"
+					"target": "components/baseui/particles/button-secondary.tsx"
 				}
 			]
 		},
@@ -1286,7 +1300,7 @@
 				{
 					"path": "packages/baseui/particles/button/button-sizes/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/button-sizes.tsx"
+					"target": "components/baseui/particles/button-sizes.tsx"
 				}
 			]
 		},
@@ -1300,7 +1314,7 @@
 				{
 					"path": "packages/baseui/particles/button/button-with-icon/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/button-with-icon.tsx"
+					"target": "components/baseui/particles/button-with-icon.tsx"
 				}
 			]
 		},
@@ -1314,7 +1328,7 @@
 				{
 					"path": "packages/baseui/particles/button/button-with-link/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/button-with-link.tsx"
+					"target": "components/baseui/particles/button-with-link.tsx"
 				}
 			]
 		},
@@ -1328,7 +1342,7 @@
 				{
 					"path": "packages/baseui/particles/button/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/button.tsx"
+					"target": "components/baseui/particles/button.tsx"
 				}
 			]
 		},
@@ -1342,7 +1356,7 @@
 				{
 					"path": "packages/baseui/particles/checkbox/checkbox-card/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/checkbox-card.tsx"
+					"target": "components/baseui/particles/checkbox-card.tsx"
 				}
 			]
 		},
@@ -1356,7 +1370,7 @@
 				{
 					"path": "packages/baseui/particles/checkbox/checkbox-disabled/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/checkbox-disabled.tsx"
+					"target": "components/baseui/particles/checkbox-disabled.tsx"
 				}
 			]
 		},
@@ -1370,7 +1384,7 @@
 				{
 					"path": "packages/baseui/particles/checkbox/checkbox-with-description/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/checkbox-with-description.tsx"
+					"target": "components/baseui/particles/checkbox-with-description.tsx"
 				}
 			]
 		},
@@ -1384,7 +1398,7 @@
 				{
 					"path": "packages/baseui/particles/checkbox/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/checkbox.tsx"
+					"target": "components/baseui/particles/checkbox.tsx"
 				}
 			]
 		},
@@ -1398,7 +1412,7 @@
 				{
 					"path": "packages/baseui/particles/collapsible/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/collapsible.tsx"
+					"target": "components/baseui/particles/collapsible.tsx"
 				}
 			]
 		},
@@ -1469,6 +1483,34 @@
 					"path": "packages/baseui/particles/context-menu/with-submenu/index.tsx",
 					"type": "registry:component",
 					"target": "components/baseui/particles/context-menu-with-submenu.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-dialog-controlled",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-dialog"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/dialog/controlled/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/dialog-controlled.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-dialog",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-dialog"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/dialog/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/dialog.tsx"
 				}
 			]
 		},

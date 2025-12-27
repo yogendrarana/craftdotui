@@ -9,7 +9,7 @@
 			"path": "packages/baseui/particles/alert-dialog/index.tsx",
 			"content": "\"use client\";\n\nimport {\n\tAlertDialog,\n\tAlertDialogTrigger,\n\tAlertDialogPopup,\n\tAlertDialogHeader,\n\tAlertDialogFooter,\n\tAlertDialogTitle,\n\tAlertDialogDescription,\n\tAlertDialogClose,\n} from \"@/components/baseui/components/alert-dialog\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nfunction DeleteAlert() {\n\treturn (\n\t\t<AlertDialog>\n\t\t\t<AlertDialogTrigger render={<Button variant=\"destructive\" />}>\n\t\t\t\tDelete\n\t\t\t</AlertDialogTrigger>\n\n\t\t\t<AlertDialogPopup>\n\t\t\t\t<AlertDialogHeader>\n\t\t\t\t\t<AlertDialogTitle>\n\t\t\t\t\t\tAre you absolutely sure?\n\t\t\t\t\t</AlertDialogTitle>\n\n\t\t\t\t\t<AlertDialogDescription>\n\t\t\t\t\t\tThis action cannot be undone. This will permanently\n\t\t\t\t\t\tdelete your data from our servers.\n\t\t\t\t\t</AlertDialogDescription>\n\t\t\t\t</AlertDialogHeader>\n\n\t\t\t\t<AlertDialogFooter>\n\t\t\t\t\t<AlertDialogClose render={<Button variant=\"ghost\" />}>\n\t\t\t\t\t\tCancel\n\t\t\t\t\t</AlertDialogClose>\n\n\t\t\t\t\t<AlertDialogClose render={<Button variant=\"outline\" />}>\n\t\t\t\t\t\tConfirm\n\t\t\t\t\t</AlertDialogClose>\n\t\t\t\t</AlertDialogFooter>\n\t\t\t</AlertDialogPopup>\n\t\t</AlertDialog>\n\t);\n}\n\nexport { DeleteAlert };\n",
 			"type": "registry:component",
-			"target": "components/baseui/components/alert-dialog.tsx"
+			"target": "components/baseui/particles/alert-dialog.tsx"
 		}
 	],
 	"type": "registry:component"

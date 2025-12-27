@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-dialog-controlled",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-dialog"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/dialog/controlled/index.tsx",
+			"content": "import { useState } from \"react\";\nimport {\n\tDialog,\n\tDialogTrigger,\n\tDialogPortal,\n\tDialogBackdrop,\n\tDialogViewport,\n\tDialogPopup,\n\tDialogTitle,\n\tDialogDescription,\n\tDialogClose,\n\tDialogFooter,\n} from \"@/components/baseui/components/dialog\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport function Particle() {\n\tconst [open, setOpen] = useState<boolean>(false);\n\n\treturn (\n\t\t<Dialog open={open} onOpenChange={setOpen}>\n\t\t\t<DialogTrigger\n\t\t\t\trender={<Button variant={\"outline\"}>Open Dialog</Button>}\n\t\t\t/>\n\n\t\t\t<DialogPortal>\n\t\t\t\t<DialogBackdrop />\n\t\t\t\t<DialogViewport>\n\t\t\t\t\t<DialogPopup>\n\t\t\t\t\t\t<DialogTitle>Edit profile</DialogTitle>\n\t\t\t\t\t\t<DialogDescription>\n\t\t\t\t\t\t\tMake changes to your profile and save them.\n\t\t\t\t\t\t</DialogDescription>\n\n\t\t\t\t\t\t<DialogFooter>\n\t\t\t\t\t\t\t<DialogClose render={<Button variant=\"ghost\" />}>\n\t\t\t\t\t\t\t\tCancel\n\t\t\t\t\t\t\t</DialogClose>\n\n\t\t\t\t\t\t\t<DialogClose render={<Button variant=\"outline\" />}>\n\t\t\t\t\t\t\t\tConfirm\n\t\t\t\t\t\t\t</DialogClose>\n\t\t\t\t\t\t</DialogFooter>\n\t\t\t\t\t</DialogPopup>\n\t\t\t\t</DialogViewport>\n\t\t\t</DialogPortal>\n\t\t</Dialog>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/dialog-controlled.tsx"
+		}
+	],
+	"type": "registry:component"
+}

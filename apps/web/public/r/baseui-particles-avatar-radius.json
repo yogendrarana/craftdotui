@@ -9,7 +9,7 @@
 			"path": "packages/baseui/particles/avatar/avatar-radius/index.tsx",
 			"content": "import {\n\tAvatar,\n\tAvatarImage,\n\tAvatarFallback,\n} from \"@/components/baseui/components/avatar\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"flex flex-wrap items-center gap-4\">\n\t\t\t<Avatar className=\"rounded-full\">\n\t\t\t\t<AvatarImage src=\"https://github.com/shadcn.png\" alt=\"Avatar\" />\n\t\t\t\t<AvatarFallback>RD</AvatarFallback>\n\t\t\t</Avatar>\n\t\t\t<Avatar className=\"rounded-lg\">\n\t\t\t\t<AvatarImage src=\"https://github.com/shadcn.png\" alt=\"Avatar\" />\n\t\t\t\t<AvatarFallback>LG</AvatarFallback>\n\t\t\t</Avatar>\n\t\t\t<Avatar className=\"rounded-md\">\n\t\t\t\t<AvatarImage src=\"https://github.com/shadcn.png\" alt=\"Avatar\" />\n\t\t\t\t<AvatarFallback>MD</AvatarFallback>\n\t\t\t</Avatar>\n\t\t</div>\n\t);\n}\n",
 			"type": "registry:component",
-			"target": "components/baseui/components/avatar-radius.tsx"
+			"target": "components/baseui/particles/avatar-radius.tsx"
 		}
 	],
 	"type": "registry:component"

@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/button/button-secondary/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/components/button-secondary.tsx"
+			"target": "components/baseui/particles/button-secondary.tsx"
 		}
 	]
 }

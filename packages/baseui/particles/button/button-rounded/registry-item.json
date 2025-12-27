@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/button/button-rounded/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/components/button-rounded.tsx"
+			"target": "components/baseui/particles/button-rounded.tsx"
 		}
 	]
 }

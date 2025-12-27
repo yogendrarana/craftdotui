@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/button/button-destructive/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/components/button-destructive.tsx"
+			"target": "components/baseui/particles/button-destructive.tsx"
 		}
 	]
 }

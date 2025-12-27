@@ -9,7 +9,7 @@
 			"path": "packages/baseui/particles/autocomplete/index.tsx",
 			"content": "import {\n\tAutocomplete,\n\tAutocompleteInput,\n\tAutocompletePopup,\n\tAutocompleteList,\n\tAutocompleteItem,\n\tAutocompleteEmpty,\n} from \"@/components/baseui/components/autocomplete\";\n\ninterface Tag {\n\tid: string;\n\tvalue: string;\n}\n\nconst tags: Tag[] = [\n\t{ id: \"t1\", value: \"feature\" },\n\t{ id: \"t2\", value: \"fix\" },\n\t{ id: \"t3\", value: \"bug\" },\n\t{ id: \"t4\", value: \"docs\" },\n];\n\nexport default function Example() {\n\treturn (\n\t\t<div className=\"space-y-2\">\n\t\t\t<Autocomplete items={tags}>\n\t\t\t\t<AutocompleteInput placeholder=\"e.g. feature\" />\n\n\t\t\t\t<AutocompletePopup>\n\t\t\t\t\t<AutocompleteEmpty>No tags found.</AutocompleteEmpty>\n\t\t\t\t\t<AutocompleteList>\n\t\t\t\t\t\t{(tag: Tag) => (\n\t\t\t\t\t\t\t<AutocompleteItem key={tag.id} value={tag}>\n\t\t\t\t\t\t\t\t{tag.value}\n\t\t\t\t\t\t\t</AutocompleteItem>\n\t\t\t\t\t\t)}\n\t\t\t\t\t</AutocompleteList>\n\t\t\t\t</AutocompletePopup>\n\t\t\t</Autocomplete>\n\t\t</div>\n\t);\n}\n",
 			"type": "registry:component",
-			"target": "components/baseui/components/autocomplete.tsx"
+			"target": "components/baseui/particles/autocomplete.tsx"
 		}
 	],
 	"type": "registry:component"

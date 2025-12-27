@@ -9,7 +9,7 @@
 			"path": "packages/baseui/particles/autocomplete/autocomplete-auto-highlight/index.tsx",
 			"content": "import {\n\tAutocomplete,\n\tAutocompleteInput,\n\tAutocompletePopup,\n\tAutocompleteList,\n\tAutocompleteItem,\n\tAutocompleteEmpty,\n} from \"@/components/baseui/components/autocomplete\";\n\ninterface Tag {\n\tid: string;\n\tvalue: string;\n}\n\nconst tags: Tag[] = [\n\t{ id: \"1\", value: \"apple\" },\n\t{ id: \"2\", value: \"mango\" },\n\t{ id: \"3\", value: \"banana\" },\n\t{ id: \"4\", value: \"pineapple\" },\n\t{ id: \"5\", value: \"coconut\" },\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<Autocomplete items={tags} autoHighlight>\n\t\t\t<AutocompleteInput placeholder=\"e.g. feature\" />\n\t\t\t<AutocompletePopup>\n\t\t\t\t<AutocompleteEmpty>Fruit not found.</AutocompleteEmpty>\n\t\t\t\t<AutocompleteList>\n\t\t\t\t\t{(tag: Tag) => (\n\t\t\t\t\t\t<AutocompleteItem key={tag.id} value={tag}>\n\t\t\t\t\t\t\t{tag.value}\n\t\t\t\t\t\t</AutocompleteItem>\n\t\t\t\t\t)}\n\t\t\t\t</AutocompleteList>\n\t\t\t</AutocompletePopup>\n\t\t</Autocomplete>\n\t);\n}\n",
 			"type": "registry:component",
-			"target": "components/baseui/components/autocomplete-auto-highlight.tsx"
+			"target": "components/baseui/particles/autocomplete-auto-highlight.tsx"
 		}
 	],
 	"type": "registry:component"

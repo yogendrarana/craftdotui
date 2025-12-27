@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/collapsible/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/components/collapsible.tsx"
+			"target": "components/baseui/particles/collapsible.tsx"
 		}
 	]
 }

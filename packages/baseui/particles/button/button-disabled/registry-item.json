@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/button/button-disabled/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/components/button-disabled.tsx"
+			"target": "components/baseui/particles/button-disabled.tsx"
 		}
 	]
 }

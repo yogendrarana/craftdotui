@@ -12,7 +12,7 @@
 		{
 			"path": "packages/baseui/particles/accordion/accordion-controlled/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/components/accordion-controlled.tsx"
+			"target": "components/baseui/particles/accordion-controlled.tsx"
 		}
 	]
 }

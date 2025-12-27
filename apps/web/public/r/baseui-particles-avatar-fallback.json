@@ -9,7 +9,7 @@
 			"path": "packages/baseui/particles/avatar/avatar-fallback/index.tsx",
 			"content": "import { Avatar, AvatarFallback } from \"@/components/baseui/components/avatar\";\n\nexport default function Particle() {\n\treturn (\n\t\t<Avatar>\n\t\t\t<AvatarFallback>YR</AvatarFallback>\n\t\t</Avatar>\n\t);\n}\n",
 			"type": "registry:component",
-			"target": "components/baseui/components/avatar-fallback.tsx"
+			"target": "components/baseui/particles/avatar-fallback.tsx"
 		}
 	],
 	"type": "registry:component"

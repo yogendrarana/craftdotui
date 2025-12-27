@@ -9,7 +9,7 @@
 			"path": "packages/baseui/particles/button/button-with-icon/index.tsx",
 			"content": "import { Mail } from \"lucide-react\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport default function Particle() {\n\treturn (\n\t\t<Button variant=\"outline\">\n\t\t\t<Mail />\n\t\t\tSend Email\n\t\t</Button>\n\t);\n}\n",
 			"type": "registry:component",
-			"target": "components/baseui/components/button-with-icon.tsx"
+			"target": "components/baseui/particles/button-with-icon.tsx"
 		}
 	],
 	"type": "registry:component"

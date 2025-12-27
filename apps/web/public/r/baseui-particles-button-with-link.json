@@ -9,7 +9,7 @@
 			"path": "packages/baseui/particles/button/button-with-link/index.tsx",
 			"content": "import { Button } from \"@/components/baseui/components/button\";\n\nexport default function Particle() {\n\treturn (\n\t\t<Button\n\t\t\tvariant=\"link\"\n\t\t\trender={\n\t\t\t\t<a href=\"/\" aria-label=\"Home\">\n\t\t\t\t\tHome\n\t\t\t\t</a>\n\t\t\t}\n\t\t>\n\t\t\tLink\n\t\t</Button>\n\t);\n}\n",
 			"type": "registry:component",
-			"target": "components/baseui/components/button-with-link.tsx"
+			"target": "components/baseui/particles/button-with-link.tsx"
 		}
 	],
 	"type": "registry:component"

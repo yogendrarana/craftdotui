@@ -9,7 +9,7 @@
 			"path": "packages/baseui/particles/button/button-loading/index.tsx",
 			"content": "import { Button } from \"@/components/baseui/components/button\";\n\nexport default function Particle() {\n\treturn (\n\t\t<Button loading variant=\"outline\">\n\t\t\tSubmitting\n\t\t</Button>\n\t);\n}\n",
 			"type": "registry:component",
-			"target": "components/baseui/components/button-loading.tsx"
+			"target": "components/baseui/particles/button-loading.tsx"
 		}
 	],
 	"type": "registry:component"

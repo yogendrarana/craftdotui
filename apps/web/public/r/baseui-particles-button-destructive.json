@@ -9,7 +9,7 @@
 			"path": "packages/baseui/particles/button/button-destructive/index.tsx",
 			"content": "import { Button } from \"@/components/baseui/components/button\";\n\nexport default function Particle() {\n\treturn <Button variant=\"destructive\">Delete</Button>;\n}\n",
 			"type": "registry:component",
-			"target": "components/baseui/components/button-destructive.tsx"
+			"target": "components/baseui/particles/button-destructive.tsx"
 		}
 	],
 	"type": "registry:component"

@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/button/button-loading/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/components/button-loading.tsx"
+			"target": "components/baseui/particles/button-loading.tsx"
 		}
 	]
 }

@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/autocomplete/autocomplete-with-groups/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/components/autocomplete-with-groups.tsx"
+			"target": "components/baseui/particles/autocomplete-with-groups.tsx"
 		}
 	]
 }

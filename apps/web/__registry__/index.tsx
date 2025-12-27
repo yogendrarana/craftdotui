@@ -3214,6 +3214,55 @@ export const Registry: Record<string, any> = {
 			return LazyComp;
 		})(),
 	},
+	"baseui-dialog": {
+		name: "baseui-dialog",
+		description: "A Base UI dialog component",
+		type: "registry:component",
+		dependencies: ["@base-ui/react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/utils"],
+		files: [
+			{
+				path: "packages/baseui/components/dialog/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/dialog.tsx",
+				content:
+					'"use client";\n\nimport { Dialog as DialogPrimitive } from "@base-ui/react/dialog";\n\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Root                                                                */\n/* -------------------------------------------------------------------------- */\n\nconst Dialog = DialogPrimitive.Root;\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Trigger                                                             */\n/* -------------------------------------------------------------------------- */\n\nfunction DialogTrigger({ className, ...props }: DialogPrimitive.Trigger.Props) {\n\treturn (\n\t\t<DialogPrimitive.Trigger\n\t\t\tclassName={cn(className)}\n\t\t\tdata-slot="dialog-trigger"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Portal                                                              */\n/* -------------------------------------------------------------------------- */\n\nconst DialogPortal = DialogPrimitive.Portal;\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Backdrop                                                            */\n/* -------------------------------------------------------------------------- */\n\nfunction DialogBackdrop({\n\tclassName,\n\t...props\n}: DialogPrimitive.Backdrop.Props) {\n\treturn (\n\t\t<DialogPrimitive.Backdrop\n\t\t\tclassName={cn(\n\t\t\t\t"fixed inset-0 z-50 bg-muted/50 backdrop-blur-sm transition-opacity duration-200 ease-out",\n\t\t\t\t"data-ending-style:opacity-0 data-starting-style:opacity-0",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="dialog-backdrop"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Viewport                                                            */\n/* -------------------------------------------------------------------------- */\n\nfunction DialogViewport({\n\tclassName,\n\t...props\n}: DialogPrimitive.Viewport.Props) {\n\treturn (\n\t\t<DialogPrimitive.Viewport\n\t\t\tclassName={cn(\n\t\t\t\t"fixed inset-0 p-4 z-50 flex items-center justify-center",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="dialog-viewport"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Popup                                                               */\n/* -------------------------------------------------------------------------- */\n\nfunction DialogPopup({ className, ...props }: DialogPrimitive.Popup.Props) {\n\treturn (\n\t\t<DialogPrimitive.Popup\n\t\t\tclassName={cn(\n\t\t\t\t"relative",\n\t\t\t\t"w-full max-w-lg p-6 rounded-lg border border-border bg-background shadow-sm",\n\t\t\t\t"transition-all duration-200 ease-out",\n\t\t\t\t"data-starting-style:opacity-0 data-starting-style:scale-95 data-ending-style:opacity-0 data-ending-style:scale-95",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="dialog-popup"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Title                                                               */\n/* -------------------------------------------------------------------------- */\n\nfunction DialogTitle({ className, ...props }: DialogPrimitive.Title.Props) {\n\treturn (\n\t\t<DialogPrimitive.Title\n\t\t\tclassName={cn(\n\t\t\t\t"text-lg font-semibold leading-none text-foreground",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="dialog-title"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Description                                                         */\n/* -------------------------------------------------------------------------- */\n\nfunction DialogDescription({\n\tclassName,\n\t...props\n}: DialogPrimitive.Description.Props) {\n\treturn (\n\t\t<DialogPrimitive.Description\n\t\t\tclassName={cn("mt-2 text-sm text-muted-foreground", className)}\n\t\t\tdata-slot="dialog-description"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Close                                                               */\n/* -------------------------------------------------------------------------- */\n\nfunction DialogClose({ className, ...props }: DialogPrimitive.Close.Props) {\n\treturn (\n\t\t<DialogPrimitive.Close\n\t\t\tclassName={cn("cursor-pointer", className)}\n\t\t\tdata-slot="dialog-close"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Footer                                                              */\n/* -------------------------------------------------------------------------- */\nfunction DialogFooter(props: React.HTMLAttributes<HTMLDivElement>) {\n\tconst { className, ...rest } = props;\n\n\treturn (\n\t\t<div\n\t\t\tclassName={cn(\n\t\t\t\t"mt-6 flex flex-col-reverse gap-1 sm:flex-row sm:justify-end",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="alert-dialog-footer"\n\t\t\t{...rest}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Export                                                                     */\n/* -------------------------------------------------------------------------- */\n\nexport {\n\tDialog,\n\tDialogTrigger,\n\tDialogPortal,\n\tDialogBackdrop,\n\tDialogViewport,\n\tDialogPopup,\n\tDialogTitle,\n\tDialogDescription,\n\tDialogClose,\n\tDialogFooter,\n};',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-dialog",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/components/dialog/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
 	"baseui-particles-accordion-controlled": {
 		name: "baseui-particles-accordion-controlled",
 		description: "Controlled accordion with programmatic state management",
@@ -3228,7 +3277,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/accordion/accordion-controlled/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/accordion-controlled.tsx",
+				target: "components/baseui/particles/accordion-controlled.tsx",
 				content:
 					'"use client";\n\nimport { useState } from "react";\nimport {\n\tAccordion,\n\tAccordionItem,\n\tAccordionTrigger,\n\tAccordionPanel,\n} from "@/components/baseui/components/accordion";\nimport { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\tconst [value, setValue] = useState<string[]>(["item-1"]);\n\n\treturn (\n\t\t<div className="w-full max-w-md space-y-4">\n\t\t\t<Accordion value={value} onValueChange={setValue}>\n\t\t\t\t<AccordionItem value="item-1">\n\t\t\t\t\t<AccordionTrigger>Who won 2022 World Cup?</AccordionTrigger>\n\t\t\t\t\t<AccordionPanel>\n\t\t\t\t\t\tArgentina defeated France in the final (3-3, 4-2 on\n\t\t\t\t\t\tpenalties).\n\t\t\t\t\t</AccordionPanel>\n\t\t\t\t</AccordionItem>\n\n\t\t\t\t<AccordionItem value="item-2">\n\t\t\t\t\t<AccordionTrigger>Most World Cup goals?</AccordionTrigger>\n\t\t\t\t\t<AccordionPanel>\n\t\t\t\t\t\tMiroslav Klose (Germany) with 16 goals across 4\n\t\t\t\t\t\ttournaments.\n\t\t\t\t\t</AccordionPanel>\n\t\t\t\t</AccordionItem>\n\n\t\t\t\t<AccordionItem value="item-3">\n\t\t\t\t\t<AccordionTrigger>\n\t\t\t\t\t\tBallon d\'Or 2024 winner?\n\t\t\t\t\t</AccordionTrigger>\n\t\t\t\t\t<AccordionPanel>\n\t\t\t\t\t\tRodri (Manchester City) for his outstanding midfield\n\t\t\t\t\t\tplay.\n\t\t\t\t\t</AccordionPanel>\n\t\t\t\t</AccordionItem>\n\t\t\t</Accordion>\n\n\t\t\t<div className="flex gap-2">\n\t\t\t\t<Button\n\t\t\t\t\tonClick={() => setValue(["item-1", "item-2", "item-3"])}\n\t\t\t\t>\n\t\t\t\t\tOpen All\n\t\t\t\t</Button>\n\t\t\t\t<Button variant="outline" onClick={() => setValue([])}>\n\t\t\t\t\tClose All\n\t\t\t\t</Button>\n\t\t\t</div>\n\t\t</div>\n\t);\n}',
 			},
@@ -3277,7 +3326,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/accordion/accordion-default-open/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/accordion-default-open.tsx",
+				target: "components/baseui/particles/accordion-default-open.tsx",
 				content:
 					'import {\n\tAccordion,\n\tAccordionItem,\n\tAccordionPanel,\n\tAccordionTrigger,\n} from "@/components/baseui/components/accordion";\n\nexport default function Particle() {\n\tconst items = [\n\t\t{\n\t\t\tcontent:\n\t\t\t\t"React: Created by Jordan Walke at Facebook (Meta) in 2013.",\n\t\t\tid: "1",\n\t\t\ttitle: "Who created React?",\n\t\t},\n\t\t{\n\t\t\tcontent: "Vue: Created by Evan You in 2014.",\n\t\t\tid: "2",\n\t\t\ttitle: "Who created Vue?",\n\t\t},\n\t\t{\n\t\t\tcontent: "Svelte: Created by Rich Harris in 2016.",\n\t\t\tid: "3",\n\t\t\ttitle: "Who created Svelte?",\n\t\t},\n\t];\n\n\treturn (\n\t\t<Accordion className="w-full md:w-125" defaultValue={["1"]}>\n\t\t\t{items.map((item) => (\n\t\t\t\t<AccordionItem key={item.id} value={item.id}>\n\t\t\t\t\t<AccordionTrigger>{item.title}</AccordionTrigger>\n\t\t\t\t\t<AccordionPanel>{item.content}</AccordionPanel>\n\t\t\t\t</AccordionItem>\n\t\t\t))}\n\t\t</Accordion>\n\t);\n}',
 			},
@@ -3326,7 +3375,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/accordion/accordion-multiple/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/accordion-multiple.tsx",
+				target: "components/baseui/particles/accordion-multiple.tsx",
 				content:
 					'"use client";\n\nimport {\n\tAccordion,\n\tAccordionItem,\n\tAccordionTrigger,\n\tAccordionPanel,\n} from "@/components/baseui/components/accordion";\n\nexport default function Particle() {\n\treturn (\n\t\t<Accordion multiple className="w-full max-w-md">\n\t\t\t<AccordionItem value="item-1">\n\t\t\t\t<AccordionTrigger>What is your refund policy?</AccordionTrigger>\n\t\t\t\t<AccordionPanel>\n\t\t\t\t\tWe offer a 30-day money-back guarantee for all purchases. If\n\t\t\t\t\tyou\'re not satisfied with your product, contact our support\n\t\t\t\t\tteam for a full refund.\n\t\t\t\t</AccordionPanel>\n\t\t\t</AccordionItem>\n\n\t\t\t<AccordionItem value="item-2">\n\t\t\t\t<AccordionTrigger>How do I track my order?</AccordionTrigger>\n\t\t\t\t<AccordionPanel>\n\t\t\t\t\tOnce your order ships, you\'ll receive a tracking number via\n\t\t\t\t\temail. You can use this number on our website or the\n\t\t\t\t\tcarrier\'s site to monitor your delivery.\n\t\t\t\t</AccordionPanel>\n\t\t\t</AccordionItem>\n\n\t\t\t<AccordionItem value="item-3">\n\t\t\t\t<AccordionTrigger>\n\t\t\t\t\tDo you ship internationally?\n\t\t\t\t</AccordionTrigger>\n\t\t\t\t<AccordionPanel>\n\t\t\t\t\tYes! We ship to over 100 countries worldwide. Shipping costs\n\t\t\t\t\tand delivery times vary by location.\n\t\t\t\t</AccordionPanel>\n\t\t\t</AccordionItem>\n\t\t</Accordion>\n\t);\n}',
 			},
@@ -3375,7 +3424,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/accordion/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/accordion.tsx",
+				target: "components/baseui/particles/accordion.tsx",
 				content:
 					'import {\n\tAccordion,\n\tAccordionItem,\n\tAccordionPanel,\n\tAccordionTrigger,\n} from "@/components/baseui/components/accordion";\n\nexport default function Particle() {\n\tconst items = [\n\t\t{\n\t\t\tcontent:\n\t\t\t\t"Base UI is a library of high-quality unstyled React components for design systems and web apps.",\n\t\t\tid: "1",\n\t\t\ttitle: "What is Base UI?",\n\t\t},\n\t\t{\n\t\t\tcontent:\n\t\t\t\t"Head to the \\"Quick start\\" guide in the docs. If you\'ve used unstyled libraries before, you\'ll feel at home.",\n\t\t\tid: "2",\n\t\t\ttitle: "How do I get started?",\n\t\t},\n\t\t{\n\t\t\tcontent: "Of course! Base UI is free and open source.",\n\t\t\tid: "3",\n\t\t\ttitle: "Can I use it for my project?",\n\t\t},\n\t];\n\n\treturn (\n\t\t<Accordion className="w-full md:w-125">\n\t\t\t{items.map((item) => (\n\t\t\t\t<AccordionItem key={item.id} value={item.id}>\n\t\t\t\t\t<AccordionTrigger>{item.title}</AccordionTrigger>\n\t\t\t\t\t<AccordionPanel>{item.content}</AccordionPanel>\n\t\t\t\t</AccordionItem>\n\t\t\t))}\n\t\t</Accordion>\n\t);\n}',
 			},
@@ -3424,7 +3473,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/alert-dialog/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/alert-dialog.tsx",
+				target: "components/baseui/particles/alert-dialog.tsx",
 				content:
 					'"use client";\n\nimport {\n\tAlertDialog,\n\tAlertDialogTrigger,\n\tAlertDialogPopup,\n\tAlertDialogHeader,\n\tAlertDialogFooter,\n\tAlertDialogTitle,\n\tAlertDialogDescription,\n\tAlertDialogClose,\n} from "@/components/baseui/components/alert-dialog";\nimport { Button } from "@/components/baseui/components/button";\n\nfunction DeleteAlert() {\n\treturn (\n\t\t<AlertDialog>\n\t\t\t<AlertDialogTrigger render={<Button variant="destructive" />}>\n\t\t\t\tDelete\n\t\t\t</AlertDialogTrigger>\n\n\t\t\t<AlertDialogPopup>\n\t\t\t\t<AlertDialogHeader>\n\t\t\t\t\t<AlertDialogTitle>\n\t\t\t\t\t\tAre you absolutely sure?\n\t\t\t\t\t</AlertDialogTitle>\n\n\t\t\t\t\t<AlertDialogDescription>\n\t\t\t\t\t\tThis action cannot be undone. This will permanently\n\t\t\t\t\t\tdelete your data from our servers.\n\t\t\t\t\t</AlertDialogDescription>\n\t\t\t\t</AlertDialogHeader>\n\n\t\t\t\t<AlertDialogFooter>\n\t\t\t\t\t<AlertDialogClose render={<Button variant="ghost" />}>\n\t\t\t\t\t\tCancel\n\t\t\t\t\t</AlertDialogClose>\n\n\t\t\t\t\t<AlertDialogClose render={<Button variant="outline" />}>\n\t\t\t\t\t\tConfirm\n\t\t\t\t\t</AlertDialogClose>\n\t\t\t\t</AlertDialogFooter>\n\t\t\t</AlertDialogPopup>\n\t\t</AlertDialog>\n\t);\n}\n\nexport { DeleteAlert };',
 			},
@@ -3473,7 +3522,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/autocomplete/autocomplete-async-search/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/autocomplete-async-search.tsx",
+				target: "components/baseui/particles/autocomplete-async-search.tsx",
 				content:
 					'"use client";\n\nimport { useState, useEffect } from "react";\nimport {\n\tAutocomplete,\n\tAutocompleteInput,\n\tAutocompletePopup,\n\tAutocompleteList,\n\tAutocompleteItem,\n\tAutocompleteEmpty,\n\tAutocompleteStatus,\n} from "@/components/baseui/components/autocomplete";\n\ninterface User {\n\tid: string;\n\tname: string;\n\temail: string;\n}\n\n// Simulated API call\nconst searchUsers = async (query: string): Promise<User[]> => {\n\tawait new Promise((resolve) => setTimeout(resolve, 1000));\n\tconst users = [\n\t\t{ id: "1", name: "John Doe", email: "john@example.com" },\n\t\t{ id: "2", name: "Jane Smith", email: "jane@example.com" },\n\t\t{ id: "3", name: "Bob Johnson", email: "bob@example.com" },\n\t\t{ id: "4", name: "Alice Williams", email: "alice@example.com" },\n\t];\n\treturn users.filter((user) =>\n\t\tuser.name.toLowerCase().includes(query.toLowerCase()),\n\t);\n};\n\nexport default function Particle() {\n\tconst [value, setValue] = useState("");\n\tconst [query, setQuery] = useState("");\n\tconst [loading, setLoading] = useState(false);\n\tconst [items, setItems] = useState<User[]>([]);\n\n\tconst shouldRenderPopup = query !== "";\n\n\tlet status: React.ReactNode = `${items.length} result${items.length === 1 ? "" : "s"} found`;\n\tif (loading) {\n\t\tstatus = (\n\t\t\t<div className="flex items-center gap-2">\n\t\t\t\t<span\n\t\t\t\t\taria-hidden\n\t\t\t\t\tclassName="inline-flex size-4 animate-spin rounded-full border-2 border-current border-t-transparent"\n\t\t\t\t/>\n\t\t\t\tSearching...\n\t\t\t</div>\n\t\t);\n\t} else if (query.length === 0 && value) {\n\t\tstatus = `Movie or year "${value}" does not exist in the Top 100 IMDb movies`;\n\t}\n\n\tuseEffect(() => {\n\t\tif (query.length > 0) {\n\t\t\tsetLoading(true);\n\t\t\tsearchUsers(query).then((results) => {\n\t\t\t\tsetItems(results);\n\t\t\t\tsetLoading(false);\n\t\t\t});\n\t\t} else {\n\t\t\tsetItems([]);\n\t\t}\n\t}, [query]);\n\n\treturn (\n\t\t<Autocomplete\n\t\t\titems={items}\n\t\t\tvalue={value}\n\t\t\tonValueChange={setValue}\n\t\t\titemToStringValue={(item) => item.name}\n\t\t\tfilter={null}\n\t\t>\n\t\t\t<AutocompleteInput\n\t\t\t\tplaceholder="Search users..."\n\t\t\t\tonChange={(e) => setQuery(e.target.value)}\n\t\t\t/>\n\n\t\t\t{shouldRenderPopup && (\n\t\t\t\t<AutocompletePopup>\n\t\t\t\t\t<AutocompleteStatus>{status}</AutocompleteStatus>\n\t\t\t\t\t<AutocompleteEmpty>No users found.</AutocompleteEmpty>\n\t\t\t\t\t<AutocompleteList>\n\t\t\t\t\t\t{(user: User) => (\n\t\t\t\t\t\t\t<AutocompleteItem key={user.id} value={user}>\n\t\t\t\t\t\t\t\t<div className="flex flex-col">\n\t\t\t\t\t\t\t\t\t<span className="font-medium">\n\t\t\t\t\t\t\t\t\t\t{user.name}\n\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t<span className="text-xs text-muted-foreground">\n\t\t\t\t\t\t\t\t\t\t{user.email}\n\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</AutocompleteItem>\n\t\t\t\t\t\t)}\n\t\t\t\t\t</AutocompleteList>\n\t\t\t\t</AutocompletePopup>\n\t\t\t)}\n\t\t</Autocomplete>\n\t);\n}',
 			},
@@ -3522,7 +3571,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/autocomplete/autocomplete-auto-highlight/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/autocomplete-auto-highlight.tsx",
+				target: "components/baseui/particles/autocomplete-auto-highlight.tsx",
 				content:
 					'import {\n\tAutocomplete,\n\tAutocompleteInput,\n\tAutocompletePopup,\n\tAutocompleteList,\n\tAutocompleteItem,\n\tAutocompleteEmpty,\n} from "@/components/baseui/components/autocomplete";\n\ninterface Tag {\n\tid: string;\n\tvalue: string;\n}\n\nconst tags: Tag[] = [\n\t{ id: "1", value: "apple" },\n\t{ id: "2", value: "mango" },\n\t{ id: "3", value: "banana" },\n\t{ id: "4", value: "pineapple" },\n\t{ id: "5", value: "coconut" },\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<Autocomplete items={tags} autoHighlight>\n\t\t\t<AutocompleteInput placeholder="e.g. feature" />\n\t\t\t<AutocompletePopup>\n\t\t\t\t<AutocompleteEmpty>Fruit not found.</AutocompleteEmpty>\n\t\t\t\t<AutocompleteList>\n\t\t\t\t\t{(tag: Tag) => (\n\t\t\t\t\t\t<AutocompleteItem key={tag.id} value={tag}>\n\t\t\t\t\t\t\t{tag.value}\n\t\t\t\t\t\t</AutocompleteItem>\n\t\t\t\t\t)}\n\t\t\t\t</AutocompleteList>\n\t\t\t</AutocompletePopup>\n\t\t</Autocomplete>\n\t);\n}',
 			},
@@ -3571,7 +3620,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/autocomplete/autocomplete-disabled/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/autocomplete-disabled.tsx",
+				target: "components/baseui/particles/autocomplete-disabled.tsx",
 				content:
 					'import {\n\tAutocomplete,\n\tAutocompleteInput,\n\tAutocompletePopup,\n\tAutocompleteList,\n\tAutocompleteItem,\n\tAutocompleteEmpty,\n} from "@/components/baseui/components/autocomplete";\n\ninterface Tag {\n\tid: string;\n\tvalue: string;\n}\n\nconst tags: Tag[] = [\n\t{ id: "t1", value: "feature" },\n\t{ id: "t2", value: "fix" },\n\t{ id: "t3", value: "bug" },\n\t{ id: "t4", value: "docs" },\n\t{ id: "t5", value: "refactor" },\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<Autocomplete items={tags}>\n\t\t\t<AutocompleteInput placeholder="e.g. feature" disabled />\n\t\t\t<AutocompletePopup>\n\t\t\t\t<AutocompleteEmpty>No tags found.</AutocompleteEmpty>\n\t\t\t\t<AutocompleteList>\n\t\t\t\t\t{(tag: Tag) => (\n\t\t\t\t\t\t<AutocompleteItem key={tag.id} value={tag}>\n\t\t\t\t\t\t\t{tag.value}\n\t\t\t\t\t\t</AutocompleteItem>\n\t\t\t\t\t)}\n\t\t\t\t</AutocompleteList>\n\t\t\t</AutocompletePopup>\n\t\t</Autocomplete>\n\t);\n}',
 			},
@@ -3620,7 +3669,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/autocomplete/autocomplete-with-clear-and-trigger/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/autocomplete-with-clear-and-trigger.tsx",
+				target: "components/baseui/particles/autocomplete-with-clear-and-trigger.tsx",
 				content:
 					'import {\n\tAutocomplete,\n\tAutocompleteInput,\n\tAutocompletePopup,\n\tAutocompleteList,\n\tAutocompleteItem,\n\tAutocompleteEmpty,\n} from "@/components/baseui/components/autocomplete";\n\ninterface Tag {\n\tid: string;\n\tvalue: string;\n}\n\nconst tags: Tag[] = [\n\t{ id: "t1", value: "feature" },\n\t{ id: "t2", value: "fix" },\n\t{ id: "t3", value: "bug" },\n\t{ id: "t4", value: "docs" },\n\t{ id: "t5", value: "refactor" },\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<Autocomplete items={tags}>\n\t\t\t<AutocompleteInput\n\t\t\t\tplaceholder="Search tags..."\n\t\t\t\tshowClear\n\t\t\t\tshowTrigger\n\t\t\t/>\n\t\t\t<AutocompletePopup>\n\t\t\t\t<AutocompleteEmpty>No tags found.</AutocompleteEmpty>\n\t\t\t\t<AutocompleteList>\n\t\t\t\t\t{(tag: Tag) => (\n\t\t\t\t\t\t<AutocompleteItem key={tag.id} value={tag}>\n\t\t\t\t\t\t\t{tag.value}\n\t\t\t\t\t\t</AutocompleteItem>\n\t\t\t\t\t)}\n\t\t\t\t</AutocompleteList>\n\t\t\t</AutocompletePopup>\n\t\t</Autocomplete>\n\t);\n}',
 			},
@@ -3670,7 +3719,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/autocomplete/autocomplete-with-groups/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/autocomplete-with-groups.tsx",
+				target: "components/baseui/particles/autocomplete-with-groups.tsx",
 				content:
 					'"use client";\n\nimport * as React from "react";\n\nimport {\n\tAutocomplete,\n\tAutocompleteCollection,\n\tAutocompleteEmpty,\n\tAutocompleteGroup,\n\tAutocompleteGroupLabel,\n\tAutocompleteInput,\n\tAutocompleteItem,\n\tAutocompleteList,\n\tAutocompletePopup,\n\tAutocompleteSeparator,\n} from "@/components/baseui/components/autocomplete";\n\ninterface Framework {\n\tid: string;\n\tvalue: string;\n\tcategory: string;\n}\n\ntype FrameworkGroup = { value: string; items: Framework[] };\n\nconst frameworksData: Framework[] = [\n\t// JavaScript/TypeScript\n\t{ id: "js-react", value: "React", category: "JavaScript" },\n\t{ id: "js-next", value: "Next.js", category: "JavaScript" },\n\t{ id: "js-vue", value: "Vue.js", category: "JavaScript" },\n\t{ id: "js-svelte", value: "Svelte", category: "JavaScript" },\n\t{ id: "js-angular", value: "Angular", category: "JavaScript" },\n\t{ id: "js-astro", value: "Astro", category: "JavaScript" },\n\t{ id: "js-solid", value: "Solid.js", category: "JavaScript" },\n\t{ id: "js-qwik", value: "Qwik", category: "JavaScript" },\n\n\t// Python\n\t{ id: "py-django", value: "Django", category: "Python" },\n\t{ id: "py-fastapi", value: "FastAPI", category: "Python" },\n\t{ id: "py-flask", value: "Flask", category: "Python" },\n\t{ id: "py-streamlit", value: "Streamlit", category: "Python" },\n\n\t// Go\n\t{ id: "go-gin", value: "Gin", category: "Go" },\n\t{ id: "go-echo", value: "Echo", category: "Go" },\n\t{ id: "go-fiber", value: "Fiber", category: "Go" },\n\n\t// Rust\n\t{ id: "rs-actix", value: "Actix Web", category: "Rust" },\n\t{ id: "rs-axum", value: "Axum", category: "Rust" },\n\t{ id: "rs-rocket", value: "Rocket", category: "Rust" },\n\t{ id: "rs-leptos", value: "Leptos", category: "Rust" },\n\n\t// Java\n\t{ id: "java-spring", value: "Spring Boot", category: "Java" },\n\t{ id: "java-quarkus", value: "Quarkus", category: "Java" },\n];\n\nfunction groupFrameworks(frameworks: Framework[]): FrameworkGroup[] {\n\tconst groups: Record<string, Framework[]> = {};\n\tfor (const fw of frameworks) {\n\t\tif (!groups[fw.category]) {\n\t\t\tgroups[fw.category] = [];\n\t\t}\n\t\tgroups[fw.category]?.push(fw);\n\t}\n\n\tconst order: Array<FrameworkGroup["value"]> = [\n\t\t"JavaScript",\n\t\t"Python",\n\t\t"Go",\n\t\t"Rust",\n\t\t"Java",\n\t];\n\treturn order.map((value) => ({ items: groups[value] ?? [], value }));\n}\n\nconst groupedFrameworks: FrameworkGroup[] = groupFrameworks(frameworksData);\n\nexport default function Particle() {\n\treturn (\n\t\t<Autocomplete items={groupedFrameworks}>\n\t\t\t<div className="flex flex-col items-start gap-2">\n\t\t\t\t<AutocompleteInput\n\t\t\t\t\taria-label="Search frameworks"\n\t\t\t\t\tplaceholder="e.g. React, Django, Gin..."\n\t\t\t\t/>\n\t\t\t</div>\n\t\t\t<AutocompletePopup>\n\t\t\t\t<AutocompleteEmpty>No frameworks found.</AutocompleteEmpty>\n\t\t\t\t<AutocompleteList>\n\t\t\t\t\t{(group: FrameworkGroup) => (\n\t\t\t\t\t\t<React.Fragment key={group.value}>\n\t\t\t\t\t\t\t<AutocompleteGroup items={group.items}>\n\t\t\t\t\t\t\t\t<AutocompleteGroupLabel>\n\t\t\t\t\t\t\t\t\t{group.value}\n\t\t\t\t\t\t\t\t</AutocompleteGroupLabel>\n\t\t\t\t\t\t\t\t<AutocompleteCollection>\n\t\t\t\t\t\t\t\t\t{(fw: Framework) => (\n\t\t\t\t\t\t\t\t\t\t<AutocompleteItem\n\t\t\t\t\t\t\t\t\t\t\tkey={fw.id}\n\t\t\t\t\t\t\t\t\t\t\tvalue={fw}\n\t\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\t\t{fw.value}\n\t\t\t\t\t\t\t\t\t\t</AutocompleteItem>\n\t\t\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t\t\t</AutocompleteCollection>\n\t\t\t\t\t\t\t</AutocompleteGroup>\n\t\t\t\t\t\t\t{group.value !== "Java" && (\n\t\t\t\t\t\t\t\t<AutocompleteSeparator />\n\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t</React.Fragment>\n\t\t\t\t\t)}\n\t\t\t\t</AutocompleteList>\n\t\t\t</AutocompletePopup>\n\t\t</Autocomplete>\n\t);\n}',
 			},
@@ -3719,7 +3768,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/autocomplete/autocomplete-with-start-addon/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/autocomplete-with-start-addon.tsx",
+				target: "components/baseui/particles/autocomplete-with-start-addon.tsx",
 				content:
 					'import {\n\tAutocomplete,\n\tAutocompleteInput,\n\tAutocompletePopup,\n\tAutocompleteList,\n\tAutocompleteItem,\n\tAutocompleteEmpty,\n} from "@/components/baseui/components/autocomplete";\nimport { Search } from "lucide-react";\n\ninterface Tag {\n\tid: string;\n\tvalue: string;\n}\n\nconst tags: Tag[] = [\n\t{ id: "apple", value: "Apple" },\n\t{ id: "ball", value: "Ball" },\n\t{ id: "cat", value: "Cat" },\n\t{ id: "dog", value: "Dog" },\n\t{ id: "eagle", value: "Eagle" },\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<Autocomplete items={tags}>\n\t\t\t<AutocompleteInput\n\t\t\t\tplaceholder="Search tags..."\n\t\t\t\tstartAddon={<Search className="size-4" />}\n\t\t\t/>\n\t\t\t<AutocompletePopup>\n\t\t\t\t<AutocompleteEmpty>No tags found.</AutocompleteEmpty>\n\t\t\t\t<AutocompleteList>\n\t\t\t\t\t{(tag: Tag) => (\n\t\t\t\t\t\t<AutocompleteItem key={tag.id} value={tag}>\n\t\t\t\t\t\t\t{tag.value}\n\t\t\t\t\t\t</AutocompleteItem>\n\t\t\t\t\t)}\n\t\t\t\t</AutocompleteList>\n\t\t\t</AutocompletePopup>\n\t\t</Autocomplete>\n\t);\n}',
 			},
@@ -3768,7 +3817,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/autocomplete/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/autocomplete.tsx",
+				target: "components/baseui/particles/autocomplete.tsx",
 				content:
 					'import {\n\tAutocomplete,\n\tAutocompleteInput,\n\tAutocompletePopup,\n\tAutocompleteList,\n\tAutocompleteItem,\n\tAutocompleteEmpty,\n} from "@/components/baseui/components/autocomplete";\n\ninterface Tag {\n\tid: string;\n\tvalue: string;\n}\n\nconst tags: Tag[] = [\n\t{ id: "t1", value: "feature" },\n\t{ id: "t2", value: "fix" },\n\t{ id: "t3", value: "bug" },\n\t{ id: "t4", value: "docs" },\n];\n\nexport default function Example() {\n\treturn (\n\t\t<div className="space-y-2">\n\t\t\t<Autocomplete items={tags}>\n\t\t\t\t<AutocompleteInput placeholder="e.g. feature" />\n\n\t\t\t\t<AutocompletePopup>\n\t\t\t\t\t<AutocompleteEmpty>No tags found.</AutocompleteEmpty>\n\t\t\t\t\t<AutocompleteList>\n\t\t\t\t\t\t{(tag: Tag) => (\n\t\t\t\t\t\t\t<AutocompleteItem key={tag.id} value={tag}>\n\t\t\t\t\t\t\t\t{tag.value}\n\t\t\t\t\t\t\t</AutocompleteItem>\n\t\t\t\t\t\t)}\n\t\t\t\t\t</AutocompleteList>\n\t\t\t\t</AutocompletePopup>\n\t\t\t</Autocomplete>\n\t\t</div>\n\t);\n}',
 			},
@@ -3817,7 +3866,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/avatar/avatar-fallback/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/avatar-fallback.tsx",
+				target: "components/baseui/particles/avatar-fallback.tsx",
 				content:
 					'import { Avatar, AvatarFallback } from "@/components/baseui/components/avatar";\n\nexport default function Particle() {\n\treturn (\n\t\t<Avatar>\n\t\t\t<AvatarFallback>YR</AvatarFallback>\n\t\t</Avatar>\n\t);\n}',
 			},
@@ -3866,7 +3915,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/avatar/avatar-group/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/avatar-group.tsx",
+				target: "components/baseui/particles/avatar-group.tsx",
 				content:
 					'import {\n\tAvatar,\n\tAvatarImage,\n\tAvatarFallback,\n} from "@/components/baseui/components/avatar";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex -space-x-3">\n\t\t\t<Avatar className="border-2 border-background">\n\t\t\t\t<AvatarImage src="https://github.com/shadcn.png" alt="User 1" />\n\t\t\t\t<AvatarFallback>U1</AvatarFallback>\n\t\t\t</Avatar>\n\t\t\t<Avatar className="border-2 border-background">\n\t\t\t\t<AvatarImage src="https://github.com/vercel.png" alt="User 2" />\n\t\t\t\t<AvatarFallback>U2</AvatarFallback>\n\t\t\t</Avatar>\n\t\t\t<Avatar className="border-2 border-background">\n\t\t\t\t<AvatarImage src="https://github.com/nextjs.png" alt="User 3" />\n\t\t\t\t<AvatarFallback>U3</AvatarFallback>\n\t\t\t</Avatar>\n\t\t\t<Avatar className="border-2 border-background">\n\t\t\t\t<AvatarFallback className="bg-primary text-primary-foreground">\n\t\t\t\t\t+5\n\t\t\t\t</AvatarFallback>\n\t\t\t</Avatar>\n\t\t</div>\n\t);\n}',
 			},
@@ -3915,7 +3964,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/avatar/avatar-radius/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/avatar-radius.tsx",
+				target: "components/baseui/particles/avatar-radius.tsx",
 				content:
 					'import {\n\tAvatar,\n\tAvatarImage,\n\tAvatarFallback,\n} from "@/components/baseui/components/avatar";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex flex-wrap items-center gap-4">\n\t\t\t<Avatar className="rounded-full">\n\t\t\t\t<AvatarImage src="https://github.com/shadcn.png" alt="Avatar" />\n\t\t\t\t<AvatarFallback>RD</AvatarFallback>\n\t\t\t</Avatar>\n\t\t\t<Avatar className="rounded-lg">\n\t\t\t\t<AvatarImage src="https://github.com/shadcn.png" alt="Avatar" />\n\t\t\t\t<AvatarFallback>LG</AvatarFallback>\n\t\t\t</Avatar>\n\t\t\t<Avatar className="rounded-md">\n\t\t\t\t<AvatarImage src="https://github.com/shadcn.png" alt="Avatar" />\n\t\t\t\t<AvatarFallback>MD</AvatarFallback>\n\t\t\t</Avatar>\n\t\t</div>\n\t);\n}',
 			},
@@ -3964,7 +4013,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/avatar/avatar-sizes/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/avatar-sizes.tsx",
+				target: "components/baseui/particles/avatar-sizes.tsx",
 				content:
 					'import {\n\tAvatar,\n\tAvatarImage,\n\tAvatarFallback,\n} from "@/components/baseui/components/avatar";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex flex-wrap items-center gap-4">\n\t\t\t<Avatar>\n\t\t\t\t<AvatarImage src="https://github.com/shadcn.png" alt="Avatar" />\n\t\t\t\t<AvatarFallback className="text-xs">XS</AvatarFallback>\n\t\t\t</Avatar>\n\t\t\t<Avatar className="size-10">\n\t\t\t\t<AvatarImage src="https://github.com/shadcn.png" alt="Avatar" />\n\t\t\t\t<AvatarFallback>LG</AvatarFallback>\n\t\t\t</Avatar>\n\t\t\t<Avatar className="size-12">\n\t\t\t\t<AvatarImage src="https://github.com/shadcn.png" alt="Avatar" />\n\t\t\t\t<AvatarFallback className="text-lg">XL</AvatarFallback>\n\t\t\t</Avatar>\n\t\t</div>\n\t);\n}',
 			},
@@ -4013,7 +4062,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/avatar/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/avatar.tsx",
+				target: "components/baseui/particles/avatar.tsx",
 				content:
 					'import {\n\tAvatar,\n\tAvatarImage,\n\tAvatarFallback,\n} from "@/components/baseui/components/avatar";\n\nexport default function Particle() {\n\treturn (\n\t\t<Avatar>\n\t\t\t<AvatarImage\n\t\t\t\tsrc="https://images.pexels.com/photos/2613260/pexels-photo-2613260.jpeg"\n\t\t\t\talt="User Avatar"\n\t\t\t/>\n\t\t\t<AvatarFallback>JD</AvatarFallback>\n\t\t</Avatar>\n\t);\n}',
 			},
@@ -4062,7 +4111,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/button/button-destructive/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/button-destructive.tsx",
+				target: "components/baseui/particles/button-destructive.tsx",
 				content:
 					'import { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\treturn <Button variant="destructive">Delete</Button>;\n}',
 			},
@@ -4111,7 +4160,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/button/button-disabled/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/button-disabled.tsx",
+				target: "components/baseui/particles/button-disabled.tsx",
 				content:
 					'import { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\treturn <Button disabled>Disabled</Button>;\n}',
 			},
@@ -4160,7 +4209,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/button/button-ghost/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/button-ghost.tsx",
+				target: "components/baseui/particles/button-ghost.tsx",
 				content:
 					'import { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\treturn <Button variant="ghost">Ghost</Button>;\n}',
 			},
@@ -4209,7 +4258,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/button/button-icon/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/button-icon.tsx",
+				target: "components/baseui/particles/button-icon.tsx",
 				content:
 					'import { Settings } from "lucide-react";\nimport { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\treturn (\n\t\t<Button size="icon" variant="outline">\n\t\t\t<Settings />\n\t\t</Button>\n\t);\n}',
 			},
@@ -4258,7 +4307,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/button/button-loading/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/button-loading.tsx",
+				target: "components/baseui/particles/button-loading.tsx",
 				content:
 					'import { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\treturn (\n\t\t<Button loading variant="outline">\n\t\t\tSubmitting\n\t\t</Button>\n\t);\n}',
 			},
@@ -4307,7 +4356,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/button/button-outline/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/button-outline.tsx",
+				target: "components/baseui/particles/button-outline.tsx",
 				content:
 					'import { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\treturn <Button variant="outline">Outline</Button>;\n}',
 			},
@@ -4356,7 +4405,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/button/button-rounded/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/button-rounded.tsx",
+				target: "components/baseui/particles/button-rounded.tsx",
 				content:
 					'import { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\treturn (\n\t\t<Button variant="outline" className="rounded-full">\n\t\t\tRounded\n\t\t</Button>\n\t);\n}',
 			},
@@ -4405,7 +4454,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/button/button-secondary/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/button-secondary.tsx",
+				target: "components/baseui/particles/button-secondary.tsx",
 				content:
 					'import { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\treturn <Button variant="secondary">Secondary Button</Button>;\n}',
 			},
@@ -4454,7 +4503,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/button/button-sizes/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/button-sizes.tsx",
+				target: "components/baseui/particles/button-sizes.tsx",
 				content:
 					'import { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex flex-wrap items-center gap-2">\n\t\t\t<Button variant="outline" size="xs">\n\t\t\t\tExtra Small\n\t\t\t</Button>\n\t\t\t<Button variant="outline" size="sm">\n\t\t\t\tSmall\n\t\t\t</Button>\n\t\t\t<Button variant="outline" size="default">\n\t\t\t\tDefault\n\t\t\t</Button>\n\t\t\t<Button variant="outline" size="lg">\n\t\t\t\tLarge\n\t\t\t</Button>\n\t\t\t<Button variant="outline" size="xl">\n\t\t\t\tExtra Large\n\t\t\t</Button>\n\t\t</div>\n\t);\n}',
 			},
@@ -4503,7 +4552,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/button/button-with-icon/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/button-with-icon.tsx",
+				target: "components/baseui/particles/button-with-icon.tsx",
 				content:
 					'import { Mail } from "lucide-react";\nimport { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\treturn (\n\t\t<Button variant="outline">\n\t\t\t<Mail />\n\t\t\tSend Email\n\t\t</Button>\n\t);\n}',
 			},
@@ -4552,7 +4601,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/button/button-with-link/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/button-with-link.tsx",
+				target: "components/baseui/particles/button-with-link.tsx",
 				content:
 					'import { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\treturn (\n\t\t<Button\n\t\t\tvariant="link"\n\t\t\trender={\n\t\t\t\t<a href="/" aria-label="Home">\n\t\t\t\t\tHome\n\t\t\t\t</a>\n\t\t\t}\n\t\t>\n\t\t\tLink\n\t\t</Button>\n\t);\n}',
 			},
@@ -4601,7 +4650,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/button/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/button.tsx",
+				target: "components/baseui/particles/button.tsx",
 				content:
 					'import { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\treturn <Button>Click</Button>;\n}',
 			},
@@ -4650,7 +4699,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/checkbox/checkbox-card/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/checkbox-card.tsx",
+				target: "components/baseui/particles/checkbox-card.tsx",
 				content:
 					'"use client";\n\nimport { useState } from "react";\nimport {\n\tCheckbox,\n\tCheckboxIndicator,\n\tCheckIcon,\n} from "@/components/baseui/components/checkbox";\n\nconst plans = [\n\t{\n\t\tid: "free",\n\t\tname: "Free",\n\t\tdescription: "Perfect for trying out our service",\n\t\tprice: "$0/month",\n\t},\n\t{\n\t\tid: "pro",\n\t\tname: "Pro",\n\t\tdescription: "For professionals and small teams",\n\t\tprice: "$19/month",\n\t},\n\t{\n\t\tid: "enterprise",\n\t\tname: "Enterprise",\n\t\tdescription: "Advanced features for large organizations",\n\t\tprice: "$99/month",\n\t},\n];\n\nexport default function Particle() {\n\tconst [selected, setSelected] = useState("free");\n\n\treturn (\n\t\t<div className="flex flex-col gap-3 w-full max-w-md">\n\t\t\t{plans.map((plan) => (\n\t\t\t\t<label\n\t\t\t\t\tkey={plan.id}\n\t\t\t\t\thtmlFor={plan.id}\n\t\t\t\t\tclassName="relative flex items-start gap-3 p-3 border rounded-lg cursor-pointer transition-colors hover:bg-muted has-checked:border has-checked:bg-muted"\n\t\t\t\t>\n\t\t\t\t\t<Checkbox\n\t\t\t\t\t\tid={plan.id}\n\t\t\t\t\t\tchecked={selected === plan.id}\n\t\t\t\t\t\tonCheckedChange={() => setSelected(plan.id)}\n\t\t\t\t\t\tclassName="mt-0.5"\n\t\t\t\t\t>\n\t\t\t\t\t\t<CheckboxIndicator>\n\t\t\t\t\t\t\t<CheckIcon />\n\t\t\t\t\t\t</CheckboxIndicator>\n\t\t\t\t\t</Checkbox>\n\t\t\t\t\t<div className="flex-1">\n\t\t\t\t\t\t<div className="flex items-center justify-between">\n\t\t\t\t\t\t\t<span className="font-medium">{plan.name}</span>\n\t\t\t\t\t\t\t<span className="text-sm font-semibold">\n\t\t\t\t\t\t\t\t{plan.price}\n\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<p className="text-sm text-muted-foreground">\n\t\t\t\t\t\t\t{plan.description}\n\t\t\t\t\t\t</p>\n\t\t\t\t\t</div>\n\t\t\t\t</label>\n\t\t\t))}\n\t\t</div>\n\t);\n}',
 			},
@@ -4699,7 +4748,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/checkbox/checkbox-disabled/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/checkbox-disabled.tsx",
+				target: "components/baseui/particles/checkbox-disabled.tsx",
 				content:
 					'import {\n\tCheckbox,\n\tCheckboxIndicator,\n\tCheckIcon,\n} from "@/components/baseui/components/checkbox";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex flex-col gap-4">\n\t\t\t<div className="flex items-center gap-2">\n\t\t\t\t<Checkbox id="disabled-unchecked" disabled>\n\t\t\t\t\t<CheckboxIndicator>\n\t\t\t\t\t\t<CheckIcon />\n\t\t\t\t\t</CheckboxIndicator>\n\t\t\t\t</Checkbox>\n\t\t\t\t<label\n\t\t\t\t\thtmlFor="disabled-unchecked"\n\t\t\t\t\tclassName="text-sm text-muted-foreground cursor-not-allowed"\n\t\t\t\t>\n\t\t\t\t\tDisabled unchecked\n\t\t\t\t</label>\n\t\t\t</div>\n\t\t\t<div className="flex items-center gap-2">\n\t\t\t\t<Checkbox id="disabled-checked" disabled defaultChecked>\n\t\t\t\t\t<CheckboxIndicator>\n\t\t\t\t\t\t<CheckIcon />\n\t\t\t\t\t</CheckboxIndicator>\n\t\t\t\t</Checkbox>\n\t\t\t\t<label\n\t\t\t\t\thtmlFor="disabled-checked"\n\t\t\t\t\tclassName="text-sm text-muted-foreground cursor-not-allowed"\n\t\t\t\t>\n\t\t\t\t\tDisabled checked\n\t\t\t\t</label>\n\t\t\t</div>\n\t\t</div>\n\t);\n}',
 			},
@@ -4748,7 +4797,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/checkbox/checkbox-with-description/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/checkbox-with-description.tsx",
+				target: "components/baseui/particles/checkbox-with-description.tsx",
 				content:
 					'import {\n\tCheckbox,\n\tCheckboxIndicator,\n\tCheckIcon,\n} from "@/components/baseui/components/checkbox";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex flex-col gap-4">\n\t\t\t<div className="flex items-start gap-2">\n\t\t\t\t<Checkbox id="terms" className="mt-0.5">\n\t\t\t\t\t<CheckboxIndicator>\n\t\t\t\t\t\t<CheckIcon />\n\t\t\t\t\t</CheckboxIndicator>\n\t\t\t\t</Checkbox>\n\t\t\t\t<div className="flex flex-col gap-1">\n\t\t\t\t\t<label\n\t\t\t\t\t\thtmlFor="terms"\n\t\t\t\t\t\tclassName="text-sm font-medium cursor-pointer"\n\t\t\t\t\t>\n\t\t\t\t\t\tAccept terms and conditions\n\t\t\t\t\t</label>\n\t\t\t\t\t<p className="text-xs text-muted-foreground">\n\t\t\t\t\t\tYou agree to our Terms of Service and Privacy Policy.\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div className="flex items-start gap-2">\n\t\t\t\t<Checkbox id="marketing" className="mt-0.5">\n\t\t\t\t\t<CheckboxIndicator>\n\t\t\t\t\t\t<CheckIcon />\n\t\t\t\t\t</CheckboxIndicator>\n\t\t\t\t</Checkbox>\n\t\t\t\t<div className="flex flex-col gap-1">\n\t\t\t\t\t<label\n\t\t\t\t\t\thtmlFor="marketing"\n\t\t\t\t\t\tclassName="text-sm font-medium cursor-pointer"\n\t\t\t\t\t>\n\t\t\t\t\t\tMarketing emails\n\t\t\t\t\t</label>\n\t\t\t\t\t<p className="text-xs text-muted-foreground">\n\t\t\t\t\t\tReceive emails about new products, features, and more.\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t);\n}',
 			},
@@ -4797,7 +4846,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/checkbox/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/checkbox.tsx",
+				target: "components/baseui/particles/checkbox.tsx",
 				content:
 					'import {\n\tCheckbox,\n\tCheckIcon,\n\tCheckboxIndicator,\n} from "@/components/baseui/components/checkbox";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex items-center gap-2 cursor-pointer">\n\t\t\t<Checkbox id="notifications">\n\t\t\t\t<CheckboxIndicator>\n\t\t\t\t\t<CheckIcon />\n\t\t\t\t</CheckboxIndicator>\n\t\t\t\t{/* <CheckboxIndicator /> */}\n\t\t\t</Checkbox>\n\t\t\t<span>Enable notifications</span>\n\t\t</div>\n\t);\n}',
 			},
@@ -4846,7 +4895,7 @@ export const Registry: Record<string, any> = {
 			{
 				path: "packages/baseui/particles/collapsible/index.tsx",
 				type: "registry:component",
-				target: "components/baseui/components/collapsible.tsx",
+				target: "components/baseui/particles/collapsible.tsx",
 				content:
 					'import {\n\tCollapsible,\n\tCollapsiblePanel,\n\tCollapsibleTrigger,\n} from "@/components/baseui/components/collapsible";\n\nexport default function Particle() {\n\treturn (\n\t\t<Collapsible>\n\t\t\t<CollapsibleTrigger>Recovery Keys</CollapsibleTrigger>\n\t\t\t<CollapsiblePanel>\n\t\t\t\t<div className="flex flex-col gap-2 p-3 bg-muted rounded-md">\n\t\t\t\t\t<div>alien-bean-pasta</div>\n\t\t\t\t\t<div>wild-irish-burrito</div>\n\t\t\t\t\t<div>horse-battery-staple</div>\n\t\t\t\t</div>\n\t\t\t</CollapsiblePanel>\n\t\t</Collapsible>\n\t);\n}',
 			},
@@ -5104,6 +5153,104 @@ export const Registry: Record<string, any> = {
 			const LazyComp = React.lazy(async () => {
 				const mod = await import(
 					"@craftdotui/baseui/particles/context-menu/with-submenu/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-dialog-controlled": {
+		name: "baseui-particles-dialog-controlled",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-dialog"],
+		files: [
+			{
+				path: "packages/baseui/particles/dialog/controlled/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/dialog-controlled.tsx",
+				content:
+					'import { useState } from "react";\nimport {\n\tDialog,\n\tDialogTrigger,\n\tDialogPortal,\n\tDialogBackdrop,\n\tDialogViewport,\n\tDialogPopup,\n\tDialogTitle,\n\tDialogDescription,\n\tDialogClose,\n\tDialogFooter,\n} from "@/components/baseui/components/dialog";\nimport { Button } from "@/components/baseui/components/button";\n\nexport function Particle() {\n\tconst [open, setOpen] = useState<boolean>(false);\n\n\treturn (\n\t\t<Dialog open={open} onOpenChange={setOpen}>\n\t\t\t<DialogTrigger\n\t\t\t\trender={<Button variant={"outline"}>Open Dialog</Button>}\n\t\t\t/>\n\n\t\t\t<DialogPortal>\n\t\t\t\t<DialogBackdrop />\n\t\t\t\t<DialogViewport>\n\t\t\t\t\t<DialogPopup>\n\t\t\t\t\t\t<DialogTitle>Edit profile</DialogTitle>\n\t\t\t\t\t\t<DialogDescription>\n\t\t\t\t\t\t\tMake changes to your profile and save them.\n\t\t\t\t\t\t</DialogDescription>\n\n\t\t\t\t\t\t<DialogFooter>\n\t\t\t\t\t\t\t<DialogClose render={<Button variant="ghost" />}>\n\t\t\t\t\t\t\t\tCancel\n\t\t\t\t\t\t\t</DialogClose>\n\n\t\t\t\t\t\t\t<DialogClose render={<Button variant="outline" />}>\n\t\t\t\t\t\t\t\tConfirm\n\t\t\t\t\t\t\t</DialogClose>\n\t\t\t\t\t\t</DialogFooter>\n\t\t\t\t\t</DialogPopup>\n\t\t\t\t</DialogViewport>\n\t\t\t</DialogPortal>\n\t\t</Dialog>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-dialog-controlled",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/dialog/controlled/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-dialog": {
+		name: "baseui-particles-dialog",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-dialog"],
+		files: [
+			{
+				path: "packages/baseui/particles/dialog/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/dialog.tsx",
+				content:
+					'import {\n\tDialog,\n\tDialogTrigger,\n\tDialogPortal,\n\tDialogBackdrop,\n\tDialogViewport,\n\tDialogPopup,\n\tDialogTitle,\n\tDialogDescription,\n\tDialogClose,\n\tDialogFooter,\n} from "@/components/baseui/components/dialog";\nimport { Button } from "@/components/baseui/components/button";\n\nexport function Particle() {\n\treturn (\n\t\t<Dialog>\n\t\t\t<DialogTrigger\n\t\t\t\trender={<Button variant={"outline"}>Open Dialog</Button>}\n\t\t\t/>\n\n\t\t\t<DialogPortal>\n\t\t\t\t<DialogBackdrop />\n\t\t\t\t<DialogViewport>\n\t\t\t\t\t<DialogPopup>\n\t\t\t\t\t\t<DialogTitle>Edit profile</DialogTitle>\n\t\t\t\t\t\t<DialogDescription>\n\t\t\t\t\t\t\tMake changes to your profile and save them.\n\t\t\t\t\t\t</DialogDescription>\n\n\t\t\t\t\t\t<DialogFooter>\n\t\t\t\t\t\t\t<DialogClose render={<Button variant="ghost" />}>\n\t\t\t\t\t\t\t\tCancel\n\t\t\t\t\t\t\t</DialogClose>\n\n\t\t\t\t\t\t\t<DialogClose render={<Button variant="outline" />}>\n\t\t\t\t\t\t\t\tConfirm\n\t\t\t\t\t\t\t</DialogClose>\n\t\t\t\t\t\t</DialogFooter>\n\t\t\t\t\t</DialogPopup>\n\t\t\t\t</DialogViewport>\n\t\t\t</DialogPortal>\n\t\t</Dialog>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-dialog",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/dialog/index.tsx"
 				);
 				let Comp = mod.default;
 

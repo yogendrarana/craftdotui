@@ -9,7 +9,7 @@
 			"path": "packages/baseui/particles/button/button-sizes/index.tsx",
 			"content": "import { Button } from \"@/components/baseui/components/button\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"flex flex-wrap items-center gap-2\">\n\t\t\t<Button variant=\"outline\" size=\"xs\">\n\t\t\t\tExtra Small\n\t\t\t</Button>\n\t\t\t<Button variant=\"outline\" size=\"sm\">\n\t\t\t\tSmall\n\t\t\t</Button>\n\t\t\t<Button variant=\"outline\" size=\"default\">\n\t\t\t\tDefault\n\t\t\t</Button>\n\t\t\t<Button variant=\"outline\" size=\"lg\">\n\t\t\t\tLarge\n\t\t\t</Button>\n\t\t\t<Button variant=\"outline\" size=\"xl\">\n\t\t\t\tExtra Large\n\t\t\t</Button>\n\t\t</div>\n\t);\n}\n",
 			"type": "registry:component",
-			"target": "components/baseui/components/button-sizes.tsx"
+			"target": "components/baseui/particles/button-sizes.tsx"
 		}
 	],
 	"type": "registry:component"

@@ -9,7 +9,7 @@
 			"path": "packages/baseui/particles/avatar/avatar-sizes/index.tsx",
 			"content": "import {\n\tAvatar,\n\tAvatarImage,\n\tAvatarFallback,\n} from \"@/components/baseui/components/avatar\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"flex flex-wrap items-center gap-4\">\n\t\t\t<Avatar>\n\t\t\t\t<AvatarImage src=\"https://github.com/shadcn.png\" alt=\"Avatar\" />\n\t\t\t\t<AvatarFallback className=\"text-xs\">XS</AvatarFallback>\n\t\t\t</Avatar>\n\t\t\t<Avatar className=\"size-10\">\n\t\t\t\t<AvatarImage src=\"https://github.com/shadcn.png\" alt=\"Avatar\" />\n\t\t\t\t<AvatarFallback>LG</AvatarFallback>\n\t\t\t</Avatar>\n\t\t\t<Avatar className=\"size-12\">\n\t\t\t\t<AvatarImage src=\"https://github.com/shadcn.png\" alt=\"Avatar\" />\n\t\t\t\t<AvatarFallback className=\"text-lg\">XL</AvatarFallback>\n\t\t\t</Avatar>\n\t\t</div>\n\t);\n}\n",
 			"type": "registry:component",
-			"target": "components/baseui/components/avatar-sizes.tsx"
+			"target": "components/baseui/particles/avatar-sizes.tsx"
 		}
 	],
 	"type": "registry:component"

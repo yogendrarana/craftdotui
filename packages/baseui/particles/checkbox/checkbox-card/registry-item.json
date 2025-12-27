@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/checkbox/checkbox-card/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/components/checkbox-card.tsx"
+			"target": "components/baseui/particles/checkbox-card.tsx"
 		}
 	]
 }

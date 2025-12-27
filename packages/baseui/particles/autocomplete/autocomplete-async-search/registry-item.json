@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/autocomplete/autocomplete-async-search/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/components/autocomplete-async-search.tsx"
+			"target": "components/baseui/particles/autocomplete-async-search.tsx"
 		}
 	]
 }

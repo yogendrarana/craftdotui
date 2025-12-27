@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/avatar/avatar-radius/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/components/avatar-radius.tsx"
+			"target": "components/baseui/particles/avatar-radius.tsx"
 		}
 	]
 }

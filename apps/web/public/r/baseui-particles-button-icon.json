@@ -9,7 +9,7 @@
 			"path": "packages/baseui/particles/button/button-icon/index.tsx",
 			"content": "import { Settings } from \"lucide-react\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport default function Particle() {\n\treturn (\n\t\t<Button size=\"icon\" variant=\"outline\">\n\t\t\t<Settings />\n\t\t</Button>\n\t);\n}\n",
 			"type": "registry:component",
-			"target": "components/baseui/components/button-icon.tsx"
+			"target": "components/baseui/particles/button-icon.tsx"
 		}
 	],
 	"type": "registry:component"

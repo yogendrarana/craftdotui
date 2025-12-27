@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/button/button-outline/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/components/button-outline.tsx"
+			"target": "components/baseui/particles/button-outline.tsx"
 		}
 	]
 }

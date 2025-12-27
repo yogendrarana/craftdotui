@@ -9,7 +9,7 @@
 			"path": "packages/baseui/particles/button/button-disabled/index.tsx",
 			"content": "import { Button } from \"@/components/baseui/components/button\";\n\nexport default function Particle() {\n\treturn <Button disabled>Disabled</Button>;\n}\n",
 			"type": "registry:component",
-			"target": "components/baseui/components/button-disabled.tsx"
+			"target": "components/baseui/particles/button-disabled.tsx"
 		}
 	],
 	"type": "registry:component"

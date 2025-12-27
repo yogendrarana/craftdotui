@@ -9,7 +9,7 @@
 			"path": "packages/baseui/particles/autocomplete/autocomplete-with-start-addon/index.tsx",
 			"content": "import {\n\tAutocomplete,\n\tAutocompleteInput,\n\tAutocompletePopup,\n\tAutocompleteList,\n\tAutocompleteItem,\n\tAutocompleteEmpty,\n} from \"@/components/baseui/components/autocomplete\";\nimport { Search } from \"lucide-react\";\n\ninterface Tag {\n\tid: string;\n\tvalue: string;\n}\n\nconst tags: Tag[] = [\n\t{ id: \"apple\", value: \"Apple\" },\n\t{ id: \"ball\", value: \"Ball\" },\n\t{ id: \"cat\", value: \"Cat\" },\n\t{ id: \"dog\", value: \"Dog\" },\n\t{ id: \"eagle\", value: \"Eagle\" },\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<Autocomplete items={tags}>\n\t\t\t<AutocompleteInput\n\t\t\t\tplaceholder=\"Search tags...\"\n\t\t\t\tstartAddon={<Search className=\"size-4\" />}\n\t\t\t/>\n\t\t\t<AutocompletePopup>\n\t\t\t\t<AutocompleteEmpty>No tags found.</AutocompleteEmpty>\n\t\t\t\t<AutocompleteList>\n\t\t\t\t\t{(tag: Tag) => (\n\t\t\t\t\t\t<AutocompleteItem key={tag.id} value={tag}>\n\t\t\t\t\t\t\t{tag.value}\n\t\t\t\t\t\t</AutocompleteItem>\n\t\t\t\t\t)}\n\t\t\t\t</AutocompleteList>\n\t\t\t</AutocompletePopup>\n\t\t</Autocomplete>\n\t);\n}\n",
 			"type": "registry:component",
-			"target": "components/baseui/components/autocomplete-with-start-addon.tsx"
+			"target": "components/baseui/particles/autocomplete-with-start-addon.tsx"
 		}
 	],
 	"type": "registry:component"

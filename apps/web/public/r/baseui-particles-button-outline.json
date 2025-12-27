@@ -9,7 +9,7 @@
 			"path": "packages/baseui/particles/button/button-outline/index.tsx",
 			"content": "import { Button } from \"@/components/baseui/components/button\";\n\nexport default function Particle() {\n\treturn <Button variant=\"outline\">Outline</Button>;\n}\n",
 			"type": "registry:component",
-			"target": "components/baseui/components/button-outline.tsx"
+			"target": "components/baseui/particles/button-outline.tsx"
 		}
 	],
 	"type": "registry:component"
