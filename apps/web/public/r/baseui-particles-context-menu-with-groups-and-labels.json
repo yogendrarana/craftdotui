@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-context-menu-with-groups-and-labels",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-context-menu"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/context-menu/with-groups-and-labels/index.tsx",
+			"content": "import {\n\tContextMenu,\n\tContextMenuTrigger,\n\tContextMenuPortal,\n\tContextMenuPositioner,\n\tContextMenuPopup,\n\tContextMenuGroup,\n\tContextMenuGroupLabel,\n\tContextMenuItem,\n\tContextMenuSeparator,\n} from \"@/components/baseui/components/context-menu\";\n\nexport function Particle() {\n\treturn (\n\t\t<ContextMenu>\n\t\t\t<ContextMenuTrigger className=\"flex h-32 w-64 items-center justify-center rounded-md border text-sm\">\n\t\t\t\tRight click for actions\n\t\t\t</ContextMenuTrigger>\n\n\t\t\t<ContextMenuPortal>\n\t\t\t\t<ContextMenuPositioner>\n\t\t\t\t\t<ContextMenuPopup>\n\t\t\t\t\t\t<ContextMenuGroup>\n\t\t\t\t\t\t\t<ContextMenuGroupLabel>File</ContextMenuGroupLabel>\n\t\t\t\t\t\t\t<ContextMenuItem>New File</ContextMenuItem>\n\t\t\t\t\t\t\t<ContextMenuItem>Open</ContextMenuItem>\n\t\t\t\t\t\t\t<ContextMenuItem>Save</ContextMenuItem>\n\t\t\t\t\t\t</ContextMenuGroup>\n\n\t\t\t\t\t\t<ContextMenuSeparator />\n\n\t\t\t\t\t\t<ContextMenuGroup>\n\t\t\t\t\t\t\t<ContextMenuGroupLabel>Edit</ContextMenuGroupLabel>\n\t\t\t\t\t\t\t<ContextMenuItem>Undo</ContextMenuItem>\n\t\t\t\t\t\t\t<ContextMenuItem>Redo</ContextMenuItem>\n\t\t\t\t\t\t\t<ContextMenuItem>Rename</ContextMenuItem>\n\t\t\t\t\t\t</ContextMenuGroup>\n\t\t\t\t\t</ContextMenuPopup>\n\t\t\t\t</ContextMenuPositioner>\n\t\t\t</ContextMenuPortal>\n\t\t</ContextMenu>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/context-menu-with-groups-and-labels.tsx"
+		}
+	],
+	"type": "registry:component"
+}

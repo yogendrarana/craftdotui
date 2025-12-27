@@ -3165,6 +3165,55 @@ export const Registry: Record<string, any> = {
 			return LazyComp;
 		})(),
 	},
+	"baseui-context-menu": {
+		name: "baseui-context-menu",
+		description: "A Base UI context menu component",
+		type: "registry:component",
+		dependencies: ["@base-ui/react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/utils"],
+		files: [
+			{
+				path: "packages/baseui/components/context-menu/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/context-menu.tsx",
+				content:
+					'"use client";\n\nimport type * as React from "react";\nimport { Check, ChevronRight, Dot } from "lucide-react";\nimport { ContextMenu as ContextMenuPrimitive } from "@base-ui/react/context-menu";\n\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Root                                                                       */\n/* -------------------------------------------------------------------------- */\n\nfunction ContextMenu(props: ContextMenuPrimitive.Root.Props) {\n\treturn <ContextMenuPrimitive.Root data-slot="context-menu" {...props} />;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Trigger                                                                    */\n/* -------------------------------------------------------------------------- */\n\nfunction ContextMenuTrigger({\n\tclassName,\n\t...props\n}: ContextMenuPrimitive.Trigger.Props) {\n\treturn (\n\t\t<ContextMenuPrimitive.Trigger\n\t\t\tdata-slot="context-menu-trigger"\n\t\t\tclassName={cn("cursor-context-menu select-none", className)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Portal                                                                     */\n/* -------------------------------------------------------------------------- */\n\nfunction ContextMenuPortal(props: ContextMenuPrimitive.Portal.Props) {\n\treturn (\n\t\t<ContextMenuPrimitive.Portal\n\t\t\tdata-slot="context-menu-portal"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Positioner                                                                 */\n/* -------------------------------------------------------------------------- */\n\ninterface ContextMenuPositionerProps\n\textends ContextMenuPrimitive.Positioner.Props {\n\tsideOffset?: number;\n}\n\nfunction ContextMenuPositioner({\n\tclassName,\n\tsideOffset = 4,\n\t...props\n}: ContextMenuPositionerProps) {\n\treturn (\n\t\t<ContextMenuPrimitive.Positioner\n\t\t\tdata-slot="context-menu-positioner"\n\t\t\tsideOffset={sideOffset}\n\t\t\tclassName={cn("z-50", className)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Popup                                                                      */\n/* -------------------------------------------------------------------------- */\n\nfunction ContextMenuPopup({\n\tclassName,\n\t...props\n}: ContextMenuPrimitive.Popup.Props) {\n\treturn (\n\t\t<ContextMenuPrimitive.Popup\n\t\t\tdata-slot="context-menu-popup"\n\t\t\tclassName={cn(\n\t\t\t\t"z-50 min-w-64 p-1 rounded border border-border bg-popover text-popover-foreground shadow-md",\n\t\t\t\t"overflow-x-hidden overflow-y-auto outline-none",\n\t\t\t\t"data-open:animate-in data-closed:animate-out",\n\t\t\t\t"data-open:fade-in-0 data-closed:fade-out-0",\n\t\t\t\t"data-open:zoom-in-95 data-closed:zoom-out-95",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Arrow                                                                      */\n/* -------------------------------------------------------------------------- */\n\nfunction ContextMenuArrow({\n\tclassName,\n\t...props\n}: ContextMenuPrimitive.Arrow.Props) {\n\treturn (\n\t\t<ContextMenuPrimitive.Arrow\n\t\t\tdata-slot="context-menu-arrow"\n\t\t\tclassName={cn("fill-border", className)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Item                                                                       */\n/* -------------------------------------------------------------------------- */\n\nfunction ContextMenuItem({\n\tclassName,\n\tinset,\n\t...props\n}: ContextMenuPrimitive.Item.Props & { inset?: boolean }) {\n\treturn (\n\t\t<ContextMenuPrimitive.Item\n\t\t\tdata-slot="context-menu-item"\n\t\t\tdata-inset={inset}\n\t\t\tclassName={cn(\n\t\t\t\t"relative px-2 py-1.5 flex items-center cursor-default select-none text-sm rounded",\n\t\t\t\t"data-highlighted:bg-accent data-highlighted:text-accent-foreground",\n\t\t\t\t"data-disabled:pointer-events-none data-disabled:opacity-50",\n\t\t\t\t"data-inset:pl-8",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Submenu Root                                                               */\n/* -------------------------------------------------------------------------- */\n\nfunction ContextMenuSubmenu(props: ContextMenuPrimitive.SubmenuRoot.Props) {\n\treturn (\n\t\t<ContextMenuPrimitive.SubmenuRoot\n\t\t\tdata-slot="context-menu-submenu"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Submenu Trigger                                                            */\n/* -------------------------------------------------------------------------- */\n\nfunction ContextMenuSubmenuTrigger({\n\tclassName,\n\tinset,\n\tchildren,\n\t...props\n}: ContextMenuPrimitive.SubmenuTrigger.Props & { inset?: boolean }) {\n\treturn (\n\t\t<ContextMenuPrimitive.SubmenuTrigger\n\t\t\tdata-slot="context-menu-submenu-trigger"\n\t\t\tdata-inset={inset}\n\t\t\tclassName={cn(\n\t\t\t\t"flex w-full cursor-default items-center justify-between rounded-sm px-2 py-1.5 text-sm",\n\t\t\t\t"data-highlighted:bg-accent data-highlighted:text-accent-foreground",\n\t\t\t\t"data-disabled:pointer-events-none data-disabled:opacity-50",\n\t\t\t\t"data-inset:pl-8",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t{children}\n\t\t\t<span className="ml-auto opacity-60">\n\t\t\t\t<ChevronRight className="size-4" />\n\t\t\t</span>\n\t\t</ContextMenuPrimitive.SubmenuTrigger>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Group                                                                      */\n/* -------------------------------------------------------------------------- */\n\nfunction ContextMenuGroup({\n\tclassName,\n\t...props\n}: ContextMenuPrimitive.Group.Props) {\n\treturn (\n\t\t<ContextMenuPrimitive.Group\n\t\t\tdata-slot="context-menu-group"\n\t\t\tclassName={className}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Group Label                                                                */\n/* -------------------------------------------------------------------------- */\n\nfunction ContextMenuGroupLabel({\n\tclassName,\n\tinset,\n\t...props\n}: ContextMenuPrimitive.GroupLabel.Props & { inset?: boolean }) {\n\treturn (\n\t\t<ContextMenuPrimitive.GroupLabel\n\t\t\tdata-slot="context-menu-group-label"\n\t\t\tdata-inset={inset}\n\t\t\tclassName={cn(\n\t\t\t\t"px-2 py-1 text-xs font-medium text-muted-foreground",\n\t\t\t\t"data-inset:pl-8",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Radio Group                                                               */\n/* -------------------------------------------------------------------------- */\n\nfunction ContextMenuRadioGroup(props: ContextMenuPrimitive.RadioGroup.Props) {\n\treturn <ContextMenuPrimitive.RadioGroup {...props} />;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Radio Item                                                                 */\n/* -------------------------------------------------------------------------- */\n\nfunction ContextMenuRadioItem({\n\tclassName,\n\tinset,\n\tchildren,\n\t...props\n}: ContextMenuPrimitive.RadioItem.Props & { inset?: boolean }) {\n\treturn (\n\t\t<ContextMenuPrimitive.RadioItem\n\t\t\tdata-slot="context-menu-radio-item"\n\t\t\tdata-inset={inset}\n\t\t\tclassName={cn(\n\t\t\t\t"relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm",\n\t\t\t\t"data-highlighted:bg-accent data-highlighted:text-accent-foreground",\n\t\t\t\t"data-disabled:pointer-events-none data-disabled:opacity-50",\n\t\t\t\t"data-inset:pl-8",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t<span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">\n\t\t\t\t<ContextMenuRadioItemIndicator />\n\t\t\t</span>\n\t\t\t{children}\n\t\t</ContextMenuPrimitive.RadioItem>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Radio Item Indicator                                                       */\n/* -------------------------------------------------------------------------- */\n\nfunction ContextMenuRadioItemIndicator(\n\tprops: ContextMenuPrimitive.RadioItemIndicator.Props,\n) {\n\treturn (\n\t\t<ContextMenuPrimitive.RadioItemIndicator {...props}>\n\t\t\t<Dot className="h-10 w-10" />\n\t\t</ContextMenuPrimitive.RadioItemIndicator>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Checkbox Item                                                              */\n/* -------------------------------------------------------------------------- */\n\nfunction ContextMenuCheckboxItem({\n\tclassName,\n\tinset,\n\tchildren,\n\t...props\n}: ContextMenuPrimitive.CheckboxItem.Props & { inset?: boolean }) {\n\treturn (\n\t\t<ContextMenuPrimitive.CheckboxItem\n\t\t\tdata-slot="context-menu-checkbox-item"\n\t\t\tdata-inset={inset}\n\t\t\tclassName={cn(\n\t\t\t\t"relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm",\n\t\t\t\t"data-highlighted:bg-accent data-highlighted:text-accent-foreground",\n\t\t\t\t"data-disabled:pointer-events-none data-disabled:opacity-50",\n\t\t\t\t"data-inset:pl-8",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t<span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">\n\t\t\t\t<ContextMenuCheckboxItemIndicator />\n\t\t\t</span>\n\t\t\t{children}\n\t\t</ContextMenuPrimitive.CheckboxItem>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Checkbox Item Indicator                                                    */\n/* -------------------------------------------------------------------------- */\n\nfunction ContextMenuCheckboxItemIndicator(\n\tprops: ContextMenuPrimitive.CheckboxItemIndicator.Props,\n) {\n\treturn (\n\t\t<ContextMenuPrimitive.CheckboxItemIndicator {...props}>\n\t\t\t<Check className="h-3.5 w-3.5" />\n\t\t</ContextMenuPrimitive.CheckboxItemIndicator>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Separator                                                                  */\n/* -------------------------------------------------------------------------- */\n\nfunction ContextMenuSeparator({\n\tclassName,\n\t...props\n}: ContextMenuPrimitive.Separator.Props) {\n\treturn (\n\t\t<ContextMenuPrimitive.Separator\n\t\t\tdata-slot="context-menu-separator"\n\t\t\tclassName={cn("my-1 h-px bg-border", className)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Shortcut                                                                  */\n/* -------------------------------------------------------------------------- */\n\nfunction ContextMenuShortcut({\n\tclassName,\n\t...props\n}: React.ComponentProps<"span">) {\n\treturn (\n\t\t<span\n\t\t\tdata-slot="context-menu-shortcut"\n\t\t\tclassName={cn(\n\t\t\t\t"ml-auto text-xs tracking-widest text-muted-foreground",\n\t\t\t\t"group-focus/context-menu-item:text-accent-foreground",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport {\n\tContextMenu,\n\tContextMenuTrigger,\n\tContextMenuPortal,\n\tContextMenuPositioner,\n\tContextMenuPopup,\n\tContextMenuItem,\n\tContextMenuShortcut,\n\tContextMenuArrow,\n\tContextMenuSeparator,\n\t// submenu\n\tContextMenuSubmenu,\n\tContextMenuSubmenuTrigger,\n\t// group\n\tContextMenuGroup,\n\tContextMenuGroupLabel,\n\t// radio\n\tContextMenuRadioGroup,\n\tContextMenuRadioItem,\n\tContextMenuRadioItemIndicator,\n\t// checkbox\n\tContextMenuCheckboxItem,\n\tContextMenuCheckboxItemIndicator,\n};',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-context-menu",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/components/context-menu/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
 	"baseui-particles-accordion-controlled": {
 		name: "baseui-particles-accordion-controlled",
 		description: "Controlled accordion with programmatic state management",
@@ -4808,6 +4857,253 @@ export const Registry: Record<string, any> = {
 			const LazyComp = React.lazy(async () => {
 				const mod = await import(
 					"@craftdotui/baseui/particles/collapsible/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-context-menu": {
+		name: "baseui-particles-context-menu",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-context-menu"],
+		files: [
+			{
+				path: "packages/baseui/particles/context-menu/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/context-menu.tsx",
+				content:
+					'import {\n\tContextMenu,\n\tContextMenuTrigger,\n\tContextMenuPortal,\n\tContextMenuPositioner,\n\tContextMenuPopup,\n\tContextMenuItem,\n\tContextMenuSeparator,\n\tContextMenuShortcut,\n\tContextMenuSubmenu,\n\tContextMenuSubmenuTrigger,\n\tContextMenuCheckboxItem,\n\tContextMenuGroup,\n\tContextMenuGroupLabel,\n\tContextMenuRadioGroup,\n\tContextMenuRadioItem,\n} from "@/components/baseui/components/context-menu";\n\nexport default function Particle() {\n\treturn (\n\t\t<ContextMenu>\n\t\t\t<ContextMenuTrigger className="flex h-32 w-64 items-center justify-center rounded-md border text-sm">\n\t\t\t\tRight click here\n\t\t\t</ContextMenuTrigger>\n\n\t\t\t<ContextMenuPortal>\n\t\t\t\t<ContextMenuPositioner>\n\t\t\t\t\t<ContextMenuPopup>\n\t\t\t\t\t\t<ContextMenuItem inset>\n\t\t\t\t\t\t\tNew File\n\t\t\t\t\t\t\t<ContextMenuShortcut>⌘N</ContextMenuShortcut>\n\t\t\t\t\t\t</ContextMenuItem>\n\t\t\t\t\t\t<ContextMenuItem inset>\n\t\t\t\t\t\t\tOpen File\n\t\t\t\t\t\t\t<ContextMenuShortcut>⌘O</ContextMenuShortcut>\n\t\t\t\t\t\t</ContextMenuItem>\n\t\t\t\t\t\t<ContextMenuItem inset disabled>\n\t\t\t\t\t\t\tSave\n\t\t\t\t\t\t\t<ContextMenuShortcut>⌘S</ContextMenuShortcut>\n\t\t\t\t\t\t</ContextMenuItem>\n\t\t\t\t\t\t<ContextMenuSubmenu>\n\t\t\t\t\t\t\t<ContextMenuSubmenuTrigger inset>\n\t\t\t\t\t\t\t\tEdit\n\t\t\t\t\t\t\t</ContextMenuSubmenuTrigger>\n\t\t\t\t\t\t\t<ContextMenuPortal>\n\t\t\t\t\t\t\t\t<ContextMenuPositioner>\n\t\t\t\t\t\t\t\t\t<ContextMenuPopup className="w-48">\n\t\t\t\t\t\t\t\t\t\t<ContextMenuItem>Cut</ContextMenuItem>\n\t\t\t\t\t\t\t\t\t\t<ContextMenuItem>Copy</ContextMenuItem>\n\t\t\t\t\t\t\t\t\t\t<ContextMenuItem>Paste</ContextMenuItem>\n\t\t\t\t\t\t\t\t\t\t<ContextMenuSeparator />\n\t\t\t\t\t\t\t\t\t\t<ContextMenuItem>\n\t\t\t\t\t\t\t\t\t\t\tFind & Replace\n\t\t\t\t\t\t\t\t\t\t</ContextMenuItem>\n\t\t\t\t\t\t\t\t\t\t<ContextMenuSeparator />\n\t\t\t\t\t\t\t\t\t\t<ContextMenuItem>\n\t\t\t\t\t\t\t\t\t\t\tClear All\n\t\t\t\t\t\t\t\t\t\t</ContextMenuItem>\n\t\t\t\t\t\t\t\t\t</ContextMenuPopup>\n\t\t\t\t\t\t\t\t</ContextMenuPositioner>\n\t\t\t\t\t\t\t</ContextMenuPortal>\n\t\t\t\t\t\t</ContextMenuSubmenu>\n\t\t\t\t\t\t<ContextMenuSeparator />\n\t\t\t\t\t\t<ContextMenuCheckboxItem inset defaultChecked>\n\t\t\t\t\t\t\tShow Line Numbers\n\t\t\t\t\t\t</ContextMenuCheckboxItem>\n\t\t\t\t\t\t<ContextMenuCheckboxItem inset>\n\t\t\t\t\t\t\tWord Wrap\n\t\t\t\t\t\t</ContextMenuCheckboxItem>\n\t\t\t\t\t\t<ContextMenuSeparator />\n\t\t\t\t\t\t<ContextMenuGroup>\n\t\t\t\t\t\t\t<ContextMenuRadioGroup defaultValue="dark">\n\t\t\t\t\t\t\t\t<ContextMenuGroupLabel inset>\n\t\t\t\t\t\t\t\t\tThemes\n\t\t\t\t\t\t\t\t</ContextMenuGroupLabel>\n\t\t\t\t\t\t\t\t<ContextMenuRadioItem inset value="light">\n\t\t\t\t\t\t\t\t\tLight Theme\n\t\t\t\t\t\t\t\t</ContextMenuRadioItem>\n\t\t\t\t\t\t\t\t<ContextMenuRadioItem inset value="dark">\n\t\t\t\t\t\t\t\t\tDark Theme\n\t\t\t\t\t\t\t\t</ContextMenuRadioItem>\n\t\t\t\t\t\t\t\t<ContextMenuRadioItem inset value="auto">\n\t\t\t\t\t\t\t\t\tAuto Theme\n\t\t\t\t\t\t\t\t</ContextMenuRadioItem>\n\t\t\t\t\t\t\t</ContextMenuRadioGroup>\n\t\t\t\t\t\t</ContextMenuGroup>\n\t\t\t\t\t</ContextMenuPopup>\n\t\t\t\t</ContextMenuPositioner>\n\t\t\t</ContextMenuPortal>\n\t\t</ContextMenu>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-context-menu",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/context-menu/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-context-menu-with-checkbox-items": {
+		name: "baseui-particles-context-menu-with-checkbox-items",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-context-menu"],
+		files: [
+			{
+				path: "packages/baseui/particles/context-menu/with-checkbox-items/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/context-menu-with-checkbox-items.tsx",
+				content:
+					'import {\n\tContextMenu,\n\tContextMenuTrigger,\n\tContextMenuPortal,\n\tContextMenuPositioner,\n\tContextMenuPopup,\n\tContextMenuCheckboxItem,\n} from "@/components/baseui/components/context-menu";\n\nexport function Particle() {\n\treturn (\n\t\t<ContextMenu>\n\t\t\t<ContextMenuTrigger className="flex h-32 w-64 items-center justify-center rounded-md border text-sm">\n\t\t\t\tPreferences\n\t\t\t</ContextMenuTrigger>\n\n\t\t\t<ContextMenuPortal>\n\t\t\t\t<ContextMenuPositioner>\n\t\t\t\t\t<ContextMenuPopup className="min-w-48 p-1">\n\t\t\t\t\t\t<ContextMenuCheckboxItem inset>\n\t\t\t\t\t\t\tEnable autosave\n\t\t\t\t\t\t</ContextMenuCheckboxItem>\n\n\t\t\t\t\t\t<ContextMenuCheckboxItem inset>\n\t\t\t\t\t\t\tSync files across devices\n\t\t\t\t\t\t</ContextMenuCheckboxItem>\n\n\t\t\t\t\t\t<ContextMenuCheckboxItem inset>\n\t\t\t\t\t\t\tShow file previews\n\t\t\t\t\t\t</ContextMenuCheckboxItem>\n\n\t\t\t\t\t\t<ContextMenuCheckboxItem inset>\n\t\t\t\t\t\t\tLive collaboration\n\t\t\t\t\t\t</ContextMenuCheckboxItem>\n\n\t\t\t\t\t\t<ContextMenuCheckboxItem inset>\n\t\t\t\t\t\t\tAuto backup to cloud\n\t\t\t\t\t\t</ContextMenuCheckboxItem>\n\n\t\t\t\t\t\t<ContextMenuCheckboxItem inset>\n\t\t\t\t\t\t\tSpell check\n\t\t\t\t\t\t</ContextMenuCheckboxItem>\n\t\t\t\t\t</ContextMenuPopup>\n\t\t\t\t</ContextMenuPositioner>\n\t\t\t</ContextMenuPortal>\n\t\t</ContextMenu>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command:
+			"@craftdotui/baseui-particles-context-menu-with-checkbox-items",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/context-menu/with-checkbox-items/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-context-menu-with-groups-and-labels": {
+		name: "baseui-particles-context-menu-with-groups-and-labels",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-context-menu"],
+		files: [
+			{
+				path: "packages/baseui/particles/context-menu/with-groups-and-labels/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/context-menu-with-groups-and-labels.tsx",
+				content:
+					'import {\n\tContextMenu,\n\tContextMenuTrigger,\n\tContextMenuPortal,\n\tContextMenuPositioner,\n\tContextMenuPopup,\n\tContextMenuGroup,\n\tContextMenuGroupLabel,\n\tContextMenuItem,\n\tContextMenuSeparator,\n} from "@/components/baseui/components/context-menu";\n\nexport function Particle() {\n\treturn (\n\t\t<ContextMenu>\n\t\t\t<ContextMenuTrigger className="flex h-32 w-64 items-center justify-center rounded-md border text-sm">\n\t\t\t\tRight click for actions\n\t\t\t</ContextMenuTrigger>\n\n\t\t\t<ContextMenuPortal>\n\t\t\t\t<ContextMenuPositioner>\n\t\t\t\t\t<ContextMenuPopup>\n\t\t\t\t\t\t<ContextMenuGroup>\n\t\t\t\t\t\t\t<ContextMenuGroupLabel>File</ContextMenuGroupLabel>\n\t\t\t\t\t\t\t<ContextMenuItem>New File</ContextMenuItem>\n\t\t\t\t\t\t\t<ContextMenuItem>Open</ContextMenuItem>\n\t\t\t\t\t\t\t<ContextMenuItem>Save</ContextMenuItem>\n\t\t\t\t\t\t</ContextMenuGroup>\n\n\t\t\t\t\t\t<ContextMenuSeparator />\n\n\t\t\t\t\t\t<ContextMenuGroup>\n\t\t\t\t\t\t\t<ContextMenuGroupLabel>Edit</ContextMenuGroupLabel>\n\t\t\t\t\t\t\t<ContextMenuItem>Undo</ContextMenuItem>\n\t\t\t\t\t\t\t<ContextMenuItem>Redo</ContextMenuItem>\n\t\t\t\t\t\t\t<ContextMenuItem>Rename</ContextMenuItem>\n\t\t\t\t\t\t</ContextMenuGroup>\n\t\t\t\t\t</ContextMenuPopup>\n\t\t\t\t</ContextMenuPositioner>\n\t\t\t</ContextMenuPortal>\n\t\t</ContextMenu>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command:
+			"@craftdotui/baseui-particles-context-menu-with-groups-and-labels",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/context-menu/with-groups-and-labels/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-context-menu-with-radio-group": {
+		name: "baseui-particles-context-menu-with-radio-group",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-context-menu"],
+		files: [
+			{
+				path: "packages/baseui/particles/context-menu/with-radio-group/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/context-menu-with-radio-group.tsx",
+				content:
+					'import {\n\tContextMenu,\n\tContextMenuTrigger,\n\tContextMenuPortal,\n\tContextMenuPositioner,\n\tContextMenuPopup,\n\tContextMenuRadioGroup,\n\tContextMenuRadioItem,\n} from "@/components/baseui/components/context-menu";\n\nexport function Particle() {\n\treturn (\n\t\t<ContextMenu>\n\t\t\t<ContextMenuTrigger className="flex h-32 w-64 items-center justify-center rounded-md border text-sm">\n\t\t\t\tSort by\n\t\t\t</ContextMenuTrigger>\n\n\t\t\t<ContextMenuPortal>\n\t\t\t\t<ContextMenuPositioner>\n\t\t\t\t\t<ContextMenuPopup>\n\t\t\t\t\t\t<ContextMenuRadioGroup defaultValue="name">\n\t\t\t\t\t\t\t<ContextMenuRadioItem inset value="name">\n\t\t\t\t\t\t\t\tName (A-Z)\n\t\t\t\t\t\t\t</ContextMenuRadioItem>\n\n\t\t\t\t\t\t\t<ContextMenuRadioItem inset value="date">\n\t\t\t\t\t\t\t\tDate modified (newest)\n\t\t\t\t\t\t\t</ContextMenuRadioItem>\n\n\t\t\t\t\t\t\t<ContextMenuRadioItem inset value="date-asc">\n\t\t\t\t\t\t\t\tDate modified (oldest)\n\t\t\t\t\t\t\t</ContextMenuRadioItem>\n\n\t\t\t\t\t\t\t<ContextMenuRadioItem inset value="size">\n\t\t\t\t\t\t\t\tSize (largest)\n\t\t\t\t\t\t\t</ContextMenuRadioItem>\n\n\t\t\t\t\t\t\t<ContextMenuRadioItem inset value="size-asc">\n\t\t\t\t\t\t\t\tSize (smallest)\n\t\t\t\t\t\t\t</ContextMenuRadioItem>\n\n\t\t\t\t\t\t\t<ContextMenuRadioItem inset value="type">\n\t\t\t\t\t\t\t\tType\n\t\t\t\t\t\t\t</ContextMenuRadioItem>\n\t\t\t\t\t\t</ContextMenuRadioGroup>\n\t\t\t\t\t</ContextMenuPopup>\n\t\t\t\t</ContextMenuPositioner>\n\t\t\t</ContextMenuPortal>\n\t\t</ContextMenu>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-context-menu-with-radio-group",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/context-menu/with-radio-group/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-context-menu-with-submenu": {
+		name: "baseui-particles-context-menu-with-submenu",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-context"],
+		files: [
+			{
+				path: "packages/baseui/particles/context-menu/with-submenu/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/context-menu-with-submenu.tsx",
+				content:
+					'import {\n\tContextMenu,\n\tContextMenuTrigger,\n\tContextMenuPortal,\n\tContextMenuPositioner,\n\tContextMenuPopup,\n\tContextMenuSubmenu,\n\tContextMenuSubmenuTrigger,\n\tContextMenuItem,\n} from "@/components/baseui/components/context-menu";\n\nexport function Particle() {\n\treturn (\n\t\t<ContextMenu>\n\t\t\t<ContextMenuTrigger className="flex h-32 w-64 items-center justify-center rounded-md border text-sm">\n\t\t\t\tRight click\n\t\t\t</ContextMenuTrigger>\n\n\t\t\t<ContextMenuPortal>\n\t\t\t\t<ContextMenuPositioner>\n\t\t\t\t\t<ContextMenuPopup className="min-w-48 p-1">\n\t\t\t\t\t\t<ContextMenuItem>Open</ContextMenuItem>\n\t\t\t\t\t\t<ContextMenuItem>Open in new tab</ContextMenuItem>\n\t\t\t\t\t\t<ContextMenuItem>Open as preview</ContextMenuItem>\n\n\t\t\t\t\t\t<ContextMenuSubmenu>\n\t\t\t\t\t\t\t<ContextMenuSubmenuTrigger>\n\t\t\t\t\t\t\t\tShare\n\t\t\t\t\t\t\t</ContextMenuSubmenuTrigger>\n\t\t\t\t\t\t\t<ContextMenuPortal>\n\t\t\t\t\t\t\t\t<ContextMenuPositioner>\n\t\t\t\t\t\t\t\t\t<ContextMenuPopup className="min-w-48 p-1 w-48">\n\t\t\t\t\t\t\t\t\t\t<ContextMenuItem>Email</ContextMenuItem>\n\t\t\t\t\t\t\t\t\t\t<ContextMenuItem>\n\t\t\t\t\t\t\t\t\t\t\tCopy link\n\t\t\t\t\t\t\t\t\t\t</ContextMenuItem>\n\t\t\t\t\t\t\t\t\t\t<ContextMenuItem>\n\t\t\t\t\t\t\t\t\t\t\tCopy image\n\t\t\t\t\t\t\t\t\t\t</ContextMenuItem>\n\t\t\t\t\t\t\t\t\t\t<ContextMenuItem>\n\t\t\t\t\t\t\t\t\t\t\tShare to social\n\t\t\t\t\t\t\t\t\t\t</ContextMenuItem>\n\t\t\t\t\t\t\t\t\t</ContextMenuPopup>\n\t\t\t\t\t\t\t\t</ContextMenuPositioner>\n\t\t\t\t\t\t\t</ContextMenuPortal>\n\t\t\t\t\t\t</ContextMenuSubmenu>\n\n\t\t\t\t\t\t<ContextMenuSubmenu>\n\t\t\t\t\t\t\t<ContextMenuSubmenuTrigger>\n\t\t\t\t\t\t\t\tEdit\n\t\t\t\t\t\t\t</ContextMenuSubmenuTrigger>\n\t\t\t\t\t\t\t<ContextMenuPortal>\n\t\t\t\t\t\t\t\t<ContextMenuPositioner>\n\t\t\t\t\t\t\t\t\t<ContextMenuPopup className="min-w-48 p-1 w-48">\n\t\t\t\t\t\t\t\t\t\t<ContextMenuItem>\n\t\t\t\t\t\t\t\t\t\t\tRename\n\t\t\t\t\t\t\t\t\t\t</ContextMenuItem>\n\t\t\t\t\t\t\t\t\t\t<ContextMenuItem>\n\t\t\t\t\t\t\t\t\t\t\tDuplicate\n\t\t\t\t\t\t\t\t\t\t</ContextMenuItem>\n\t\t\t\t\t\t\t\t\t\t<ContextMenuItem>\n\t\t\t\t\t\t\t\t\t\t\tMove to...\n\t\t\t\t\t\t\t\t\t\t</ContextMenuItem>\n\t\t\t\t\t\t\t\t\t</ContextMenuPopup>\n\t\t\t\t\t\t\t\t</ContextMenuPositioner>\n\t\t\t\t\t\t\t</ContextMenuPortal>\n\t\t\t\t\t\t</ContextMenuSubmenu>\n\t\t\t\t\t</ContextMenuPopup>\n\t\t\t\t</ContextMenuPositioner>\n\t\t\t</ContextMenuPortal>\n\t\t</ContextMenu>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-context-menu-with-submenu",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/context-menu/with-submenu/index.tsx"
 				);
 				let Comp = mod.default;
 

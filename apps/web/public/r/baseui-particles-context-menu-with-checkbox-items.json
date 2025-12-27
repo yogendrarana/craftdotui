@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-context-menu-with-checkbox-items",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-context-menu"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/context-menu/with-checkbox-items/index.tsx",
+			"content": "import {\n\tContextMenu,\n\tContextMenuTrigger,\n\tContextMenuPortal,\n\tContextMenuPositioner,\n\tContextMenuPopup,\n\tContextMenuCheckboxItem,\n} from \"@/components/baseui/components/context-menu\";\n\nexport function Particle() {\n\treturn (\n\t\t<ContextMenu>\n\t\t\t<ContextMenuTrigger className=\"flex h-32 w-64 items-center justify-center rounded-md border text-sm\">\n\t\t\t\tPreferences\n\t\t\t</ContextMenuTrigger>\n\n\t\t\t<ContextMenuPortal>\n\t\t\t\t<ContextMenuPositioner>\n\t\t\t\t\t<ContextMenuPopup className=\"min-w-48 p-1\">\n\t\t\t\t\t\t<ContextMenuCheckboxItem inset>\n\t\t\t\t\t\t\tEnable autosave\n\t\t\t\t\t\t</ContextMenuCheckboxItem>\n\n\t\t\t\t\t\t<ContextMenuCheckboxItem inset>\n\t\t\t\t\t\t\tSync files across devices\n\t\t\t\t\t\t</ContextMenuCheckboxItem>\n\n\t\t\t\t\t\t<ContextMenuCheckboxItem inset>\n\t\t\t\t\t\t\tShow file previews\n\t\t\t\t\t\t</ContextMenuCheckboxItem>\n\n\t\t\t\t\t\t<ContextMenuCheckboxItem inset>\n\t\t\t\t\t\t\tLive collaboration\n\t\t\t\t\t\t</ContextMenuCheckboxItem>\n\n\t\t\t\t\t\t<ContextMenuCheckboxItem inset>\n\t\t\t\t\t\t\tAuto backup to cloud\n\t\t\t\t\t\t</ContextMenuCheckboxItem>\n\n\t\t\t\t\t\t<ContextMenuCheckboxItem inset>\n\t\t\t\t\t\t\tSpell check\n\t\t\t\t\t\t</ContextMenuCheckboxItem>\n\t\t\t\t\t</ContextMenuPopup>\n\t\t\t\t</ContextMenuPositioner>\n\t\t\t</ContextMenuPortal>\n\t\t</ContextMenu>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/context-menu-with-checkbox-items.tsx"
+		}
+	],
+	"type": "registry:component"
+}
