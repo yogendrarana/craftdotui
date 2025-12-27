@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-context-menu-with-radio-group",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-context-menu"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/context-menu/with-radio-group/index.tsx",
+			"content": "import {\n\tContextMenu,\n\tContextMenuTrigger,\n\tContextMenuPortal,\n\tContextMenuPositioner,\n\tContextMenuPopup,\n\tContextMenuRadioGroup,\n\tContextMenuRadioItem,\n} from \"@/components/baseui/components/context-menu\";\n\nexport function Particle() {\n\treturn (\n\t\t<ContextMenu>\n\t\t\t<ContextMenuTrigger className=\"flex h-32 w-64 items-center justify-center rounded-md border text-sm\">\n\t\t\t\tSort by\n\t\t\t</ContextMenuTrigger>\n\n\t\t\t<ContextMenuPortal>\n\t\t\t\t<ContextMenuPositioner>\n\t\t\t\t\t<ContextMenuPopup>\n\t\t\t\t\t\t<ContextMenuRadioGroup defaultValue=\"name\">\n\t\t\t\t\t\t\t<ContextMenuRadioItem inset value=\"name\">\n\t\t\t\t\t\t\t\tName (A-Z)\n\t\t\t\t\t\t\t</ContextMenuRadioItem>\n\n\t\t\t\t\t\t\t<ContextMenuRadioItem inset value=\"date\">\n\t\t\t\t\t\t\t\tDate modified (newest)\n\t\t\t\t\t\t\t</ContextMenuRadioItem>\n\n\t\t\t\t\t\t\t<ContextMenuRadioItem inset value=\"date-asc\">\n\t\t\t\t\t\t\t\tDate modified (oldest)\n\t\t\t\t\t\t\t</ContextMenuRadioItem>\n\n\t\t\t\t\t\t\t<ContextMenuRadioItem inset value=\"size\">\n\t\t\t\t\t\t\t\tSize (largest)\n\t\t\t\t\t\t\t</ContextMenuRadioItem>\n\n\t\t\t\t\t\t\t<ContextMenuRadioItem inset value=\"size-asc\">\n\t\t\t\t\t\t\t\tSize (smallest)\n\t\t\t\t\t\t\t</ContextMenuRadioItem>\n\n\t\t\t\t\t\t\t<ContextMenuRadioItem inset value=\"type\">\n\t\t\t\t\t\t\t\tType\n\t\t\t\t\t\t\t</ContextMenuRadioItem>\n\t\t\t\t\t\t</ContextMenuRadioGroup>\n\t\t\t\t\t</ContextMenuPopup>\n\t\t\t\t</ContextMenuPositioner>\n\t\t\t</ContextMenuPortal>\n\t\t</ContextMenu>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/context-menu-with-radio-group.tsx"
+		}
+	],
+	"type": "registry:component"
+}

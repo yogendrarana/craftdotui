@@ -116,6 +116,10 @@ export const docsNavItems: Array<DocsNavItem> = [
 				title: "Collapsible",
 				href: "/docs/baseui/components/collapsible",
 			},
+			{
+				title: "Context Menu",
+				href: "/docs/baseui/components/context-menu",
+			},
 		],
 	},
 

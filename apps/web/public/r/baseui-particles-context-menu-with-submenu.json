@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-context-menu-with-submenu",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-context"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/context-menu/with-submenu/index.tsx",
+			"content": "import {\n\tContextMenu,\n\tContextMenuTrigger,\n\tContextMenuPortal,\n\tContextMenuPositioner,\n\tContextMenuPopup,\n\tContextMenuSubmenu,\n\tContextMenuSubmenuTrigger,\n\tContextMenuItem,\n} from \"@/components/baseui/components/context-menu\";\n\nexport function Particle() {\n\treturn (\n\t\t<ContextMenu>\n\t\t\t<ContextMenuTrigger className=\"flex h-32 w-64 items-center justify-center rounded-md border text-sm\">\n\t\t\t\tRight click\n\t\t\t</ContextMenuTrigger>\n\n\t\t\t<ContextMenuPortal>\n\t\t\t\t<ContextMenuPositioner>\n\t\t\t\t\t<ContextMenuPopup className=\"min-w-48 p-1\">\n\t\t\t\t\t\t<ContextMenuItem>Open</ContextMenuItem>\n\t\t\t\t\t\t<ContextMenuItem>Open in new tab</ContextMenuItem>\n\t\t\t\t\t\t<ContextMenuItem>Open as preview</ContextMenuItem>\n\n\t\t\t\t\t\t<ContextMenuSubmenu>\n\t\t\t\t\t\t\t<ContextMenuSubmenuTrigger>\n\t\t\t\t\t\t\t\tShare\n\t\t\t\t\t\t\t</ContextMenuSubmenuTrigger>\n\t\t\t\t\t\t\t<ContextMenuPortal>\n\t\t\t\t\t\t\t\t<ContextMenuPositioner>\n\t\t\t\t\t\t\t\t\t<ContextMenuPopup className=\"min-w-48 p-1 w-48\">\n\t\t\t\t\t\t\t\t\t\t<ContextMenuItem>Email</ContextMenuItem>\n\t\t\t\t\t\t\t\t\t\t<ContextMenuItem>\n\t\t\t\t\t\t\t\t\t\t\tCopy link\n\t\t\t\t\t\t\t\t\t\t</ContextMenuItem>\n\t\t\t\t\t\t\t\t\t\t<ContextMenuItem>\n\t\t\t\t\t\t\t\t\t\t\tCopy image\n\t\t\t\t\t\t\t\t\t\t</ContextMenuItem>\n\t\t\t\t\t\t\t\t\t\t<ContextMenuItem>\n\t\t\t\t\t\t\t\t\t\t\tShare to social\n\t\t\t\t\t\t\t\t\t\t</ContextMenuItem>\n\t\t\t\t\t\t\t\t\t</ContextMenuPopup>\n\t\t\t\t\t\t\t\t</ContextMenuPositioner>\n\t\t\t\t\t\t\t</ContextMenuPortal>\n\t\t\t\t\t\t</ContextMenuSubmenu>\n\n\t\t\t\t\t\t<ContextMenuSubmenu>\n\t\t\t\t\t\t\t<ContextMenuSubmenuTrigger>\n\t\t\t\t\t\t\t\tEdit\n\t\t\t\t\t\t\t</ContextMenuSubmenuTrigger>\n\t\t\t\t\t\t\t<ContextMenuPortal>\n\t\t\t\t\t\t\t\t<ContextMenuPositioner>\n\t\t\t\t\t\t\t\t\t<ContextMenuPopup className=\"min-w-48 p-1 w-48\">\n\t\t\t\t\t\t\t\t\t\t<ContextMenuItem>\n\t\t\t\t\t\t\t\t\t\t\tRename\n\t\t\t\t\t\t\t\t\t\t</ContextMenuItem>\n\t\t\t\t\t\t\t\t\t\t<ContextMenuItem>\n\t\t\t\t\t\t\t\t\t\t\tDuplicate\n\t\t\t\t\t\t\t\t\t\t</ContextMenuItem>\n\t\t\t\t\t\t\t\t\t\t<ContextMenuItem>\n\t\t\t\t\t\t\t\t\t\t\tMove to...\n\t\t\t\t\t\t\t\t\t\t</ContextMenuItem>\n\t\t\t\t\t\t\t\t\t</ContextMenuPopup>\n\t\t\t\t\t\t\t\t</ContextMenuPositioner>\n\t\t\t\t\t\t\t</ContextMenuPortal>\n\t\t\t\t\t\t</ContextMenuSubmenu>\n\t\t\t\t\t</ContextMenuPopup>\n\t\t\t\t</ContextMenuPositioner>\n\t\t\t</ContextMenuPortal>\n\t\t</ContextMenu>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/context-menu-with-submenu.tsx"
+		}
+	],
+	"type": "registry:component"
+}

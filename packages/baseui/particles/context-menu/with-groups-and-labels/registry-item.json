@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-context-menu-with-groups-and-labels",
+	"type": "registry:component",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-context-menu"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/context-menu/with-groups-and-labels/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/particles/context-menu-with-groups-and-labels.tsx"
+		}
+	]
+}

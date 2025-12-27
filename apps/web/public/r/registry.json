@@ -910,6 +910,20 @@
 			]
 		},
 		{
+			"name": "baseui-context-menu",
+			"type": "registry:component",
+			"description": "A Base UI context menu component",
+			"dependencies": ["@base-ui/react"],
+			"registryDependencies": ["@craftdotui/utils"],
+			"files": [
+				{
+					"path": "packages/baseui/components/context-menu/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/context-menu.tsx"
+				}
+			]
+		},
+		{
 			"name": "baseui-particles-accordion-controlled",
 			"type": "registry:component",
 			"description": "Controlled accordion with programmatic state management",
@@ -1385,6 +1399,76 @@
 					"path": "packages/baseui/particles/collapsible/index.tsx",
 					"type": "registry:component",
 					"target": "components/baseui/components/collapsible.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-context-menu",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-context-menu"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/context-menu/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/context-menu.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-context-menu-with-checkbox-items",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-context-menu"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/context-menu/with-checkbox-items/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/context-menu-with-checkbox-items.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-context-menu-with-groups-and-labels",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-context-menu"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/context-menu/with-groups-and-labels/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/context-menu-with-groups-and-labels.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-context-menu-with-radio-group",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-context-menu"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/context-menu/with-radio-group/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/context-menu-with-radio-group.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-context-menu-with-submenu",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-context"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/context-menu/with-submenu/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/context-menu-with-submenu.tsx"
 				}
 			]
 		},
