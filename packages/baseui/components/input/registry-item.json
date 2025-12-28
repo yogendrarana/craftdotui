@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-input",
+	"type": "registry:component",
+	"description": "A Base UI input component",
+	"dependencies": ["@base-ui/react"],
+	"registryDependencies": ["@craftdotui/utils"],
+	"files": [
+		{
+			"path": "packages/baseui/components/input/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/components/input.tsx"
+		}
+	]
+}

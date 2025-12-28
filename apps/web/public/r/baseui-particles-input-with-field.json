@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-input-with-field",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-input"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/input/with-field/index.tsx",
+			"content": "import {\n\tField,\n\tFieldLabel,\n\tFieldDescription,\n} from \"@/components/baseui/components/field\";\nimport { Input } from \"@/components/baseui/components/input\";\n\nexport function InputExampleWithField() {\n\treturn (\n\t\t<Field>\n\t\t\t<FieldLabel>Email</FieldLabel>\n\t\t\t<Input type=\"email\" placeholder=\"you@example.com\" />\n\t\t\t<FieldDescription>We’ll never share your email.</FieldDescription>\n\t\t</Field>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/inputp-with-field.tsx"
+		}
+	],
+	"type": "registry:component"
+}

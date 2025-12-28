@@ -124,6 +124,14 @@ export const docsNavItems: Array<DocsNavItem> = [
 				title: "Dialog",
 				href: "/docs/baseui/components/dialog",
 			},
+			{
+				title: "Field",
+				href: "/docs/baseui/components/field",
+			},
+			{
+				title: "Input",
+				href: "/docs/baseui/components/input",
+			},
 		],
 	},
 
