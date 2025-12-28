@@ -7,7 +7,7 @@
 	"files": [
 		{
 			"path": "packages/baseui/particles/fieldset/index.tsx",
-			"content": "import {\n\tFieldset,\n\tFieldsetLegend,\n} from \"@/components/baseui/components/fieldset\";\n\nexport function FieldsetExampleBasic() {\n\treturn (\n\t\t<Fieldset>\n\t\t\t<FieldsetLegend>Profile</FieldsetLegend>\n\t\t</Fieldset>\n\t);\n}\n",
+			"content": "import {\n\tField,\n\tFieldLabel,\n\tFieldControl,\n} from \"@/components/baseui/components/field\";\n\nimport {\n\tFieldset,\n\tFieldsetLegend,\n} from \"@/components/baseui/components/fieldset\";\n\nexport function FieldsetExampleWithFields() {\n\treturn (\n\t\t<Fieldset>\n\t\t\t<FieldsetLegend>Account details</FieldsetLegend>\n\n\t\t\t<Field>\n\t\t\t\t<FieldLabel>Email</FieldLabel>\n\t\t\t\t<FieldControl type=\"email\" />\n\t\t\t</Field>\n\n\t\t\t<Field>\n\t\t\t\t<FieldLabel>Password</FieldLabel>\n\t\t\t\t<FieldControl type=\"password\" />\n\t\t\t</Field>\n\t\t</Fieldset>\n\t);\n}\n",
 			"type": "registry:component",
 			"target": "components/baseui/particles/fieldset.tsx"
 		}

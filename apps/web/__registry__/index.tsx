@@ -5487,7 +5487,7 @@ export const Registry: Record<string, any> = {
 				type: "registry:component",
 				target: "components/baseui/particles/fieldset.tsx",
 				content:
-					'import {\n\tFieldset,\n\tFieldsetLegend,\n} from "@/components/baseui/components/fieldset";\n\nexport function FieldsetExampleBasic() {\n\treturn (\n\t\t<Fieldset>\n\t\t\t<FieldsetLegend>Profile</FieldsetLegend>\n\t\t</Fieldset>\n\t);\n}',
+					'import {\n\tField,\n\tFieldLabel,\n\tFieldControl,\n} from "@/components/baseui/components/field";\n\nimport {\n\tFieldset,\n\tFieldsetLegend,\n} from "@/components/baseui/components/fieldset";\n\nexport function FieldsetExampleWithFields() {\n\treturn (\n\t\t<Fieldset>\n\t\t\t<FieldsetLegend>Account details</FieldsetLegend>\n\n\t\t\t<Field>\n\t\t\t\t<FieldLabel>Email</FieldLabel>\n\t\t\t\t<FieldControl type="email" />\n\t\t\t</Field>\n\n\t\t\t<Field>\n\t\t\t\t<FieldLabel>Password</FieldLabel>\n\t\t\t\t<FieldControl type="password" />\n\t\t\t</Field>\n\t\t</Fieldset>\n\t);\n}',
 			},
 		],
 		keywords: [],
@@ -5496,58 +5496,6 @@ export const Registry: Record<string, any> = {
 			const LazyComp = React.lazy(async () => {
 				const mod = await import(
 					"@craftdotui/baseui/particles/fieldset/index.tsx"
-				);
-				let Comp = mod.default;
-
-				if (!Comp) {
-					const exportName =
-						Object.keys(mod).find((key) => {
-							const value = mod[key];
-							return (
-								typeof value === "function" ||
-								typeof value === "object"
-							);
-						}) || "default";
-
-					Comp = mod[exportName];
-				}
-
-				if (mod.animations) {
-					(LazyComp as any).animations = mod.animations;
-				}
-
-				return { default: Comp };
-			});
-
-			LazyComp.demoProps = {};
-			return LazyComp;
-		})(),
-	},
-	"baseui-particles-fieldset-with-fields": {
-		name: "baseui-particles-fieldset-with-fields",
-		description: "",
-		type: "registry:component",
-		dependencies: [],
-		devDependencies: undefined,
-		registryDependencies: [
-			"@craftdotui/baseui-fieldset",
-			"@craftdotui/baseui-fieldset",
-		],
-		files: [
-			{
-				path: "packages/baseui/particles/fieldset/with-fields/index.tsx",
-				type: "registry:component",
-				target: "components/baseui/particles/fieldset-with-fields.tsx",
-				content:
-					'import {\n    Field,\n    FieldLabel,\n    FieldControl,\n} from "@/components/baseui/components/field";\n\nimport {\n\tFieldset,\n\tFieldsetLegend,\n} from "@/components/baseui/components/fieldset";\n\n\nexport function FieldsetExampleWithFields() {\n\treturn (\n\t\t<Fieldset>\n\t\t\t<FieldsetLegend>Account details</FieldsetLegend>\n\n\t\t\t<Field>\n\t\t\t\t<FieldLabel>Email</FieldLabel>\n\t\t\t\t<FieldControl type="email" />\n\t\t\t</Field>\n\n\t\t\t<Field>\n\t\t\t\t<FieldLabel>Password</FieldLabel>\n\t\t\t\t<FieldControl type="password" />\n\t\t\t</Field>\n\t\t</Fieldset>\n\t);\n}',
-			},
-		],
-		keywords: [],
-		command: "@craftdotui/baseui-particles-fieldset-with-fields",
-		component: (() => {
-			const LazyComp = React.lazy(async () => {
-				const mod = await import(
-					"@craftdotui/baseui/particles/fieldset/with-fields/index.tsx"
 				);
 				let Comp = mod.default;
 
