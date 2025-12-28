@@ -24,8 +24,8 @@ const inputVariants = cva(
 			size: {
 				xs: "h-7 px-2 text-xs leading-7",
 				sm: "h-8 px-2 text-sm leading-8",
-				md: "h-9 px-3 text-sm leading-9",
-				lg: "h-10 px-4 text-base leading-10",
+				md: "h-8.5 px-3 text-sm leading-9",
+				lg: "h-11 px-4 text-base leading-10",
 				xl: "h-12 px-8 text-base leading-12",
 			},
 		},

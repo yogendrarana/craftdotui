@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-fieldset-with-fields",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/baseui-fieldset",
+		"@craftdotui/baseui-fieldset"
+	],
+	"files": [
+		{
+			"path": "packages/baseui/particles/fieldset/with-fields/index.tsx",
+			"content": "import {\n    Field,\n    FieldLabel,\n    FieldControl,\n} from \"@/components/baseui/components/field\";\n\nimport {\n\tFieldset,\n\tFieldsetLegend,\n} from \"@/components/baseui/components/fieldset\";\n\n\nexport function FieldsetExampleWithFields() {\n\treturn (\n\t\t<Fieldset>\n\t\t\t<FieldsetLegend>Account details</FieldsetLegend>\n\n\t\t\t<Field>\n\t\t\t\t<FieldLabel>Email</FieldLabel>\n\t\t\t\t<FieldControl type=\"email\" />\n\t\t\t</Field>\n\n\t\t\t<Field>\n\t\t\t\t<FieldLabel>Password</FieldLabel>\n\t\t\t\t<FieldControl type=\"password\" />\n\t\t\t</Field>\n\t\t</Fieldset>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/fieldset-with-fields.tsx"
+		}
+	],
+	"type": "registry:component"
+}

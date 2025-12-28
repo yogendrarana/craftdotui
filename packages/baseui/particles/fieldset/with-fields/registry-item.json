@@ -1,0 +1,18 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-fieldset-with-fields",
+	"type": "registry:component",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/baseui-fieldset",
+		"@craftdotui/baseui-fieldset"
+	],
+	"files": [
+		{
+			"path": "packages/baseui/particles/fieldset/with-fields/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/particles/fieldset-with-fields.tsx"
+		}
+	]
+}
