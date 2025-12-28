@@ -3263,6 +3263,104 @@ export const Registry: Record<string, any> = {
 			return LazyComp;
 		})(),
 	},
+	"baseui-field": {
+		name: "baseui-field",
+		description: "A Base UI field component",
+		type: "registry:component",
+		dependencies: ["@base-ui/react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/utils", "@craftdotui/baseui-input"],
+		files: [
+			{
+				path: "packages/baseui/components/field/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/field.tsx",
+				content:
+					'"use client";\n\nimport { Field as FieldPrimitive } from "@base-ui/react/field";\nimport {\n\ttype InputVariants,\n\tinputVariants,\n} from "@/components/baseui/components/input";\n\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Field Root                                                                 */\n/* -------------------------------------------------------------------------- */\n\nfunction Field({ className, ...props }: FieldPrimitive.Root.Props) {\n\treturn (\n\t\t<FieldPrimitive.Root\n\t\t\tclassName={cn("flex flex-col gap-1.5", className)}\n\t\t\tdata-slot="field-root"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Field Label                                                                */\n/* -------------------------------------------------------------------------- */\n\nfunction FieldLabel({ className, ...props }: FieldPrimitive.Label.Props) {\n\treturn (\n\t\t<FieldPrimitive.Label\n\t\t\tclassName={cn("text-sm font-medium text-foreground", className)}\n\t\t\tdata-slot="field-label"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Field Control                                                              */\n/* -------------------------------------------------------------------------- */\ninterface FieldControlProps\n\textends Omit<FieldPrimitive.Control.Props, "size">,\n\t\tInputVariants {\n\tclassName?: string;\n}\n\nfunction FieldControl({\n\tclassName,\n\tsize,\n\tvariant,\n\t...props\n}: FieldControlProps) {\n\treturn (\n\t\t<FieldPrimitive.Control\n\t\t\tclassName={cn(inputVariants({ size, variant }), className)}\n\t\t\tdata-slot="field-control"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Field Description                                                          */\n/* -------------------------------------------------------------------------- */\n\nfunction FieldDescription({\n\tclassName,\n\t...props\n}: FieldPrimitive.Description.Props) {\n\treturn (\n\t\t<FieldPrimitive.Description\n\t\t\tclassName={cn("text-xs text-muted-foreground", className)}\n\t\t\tdata-slot="field-description"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Field Item                                                                 */\n/* -------------------------------------------------------------------------- */\n\nfunction FieldItem({ className, ...props }: FieldPrimitive.Item.Props) {\n\treturn (\n\t\t<FieldPrimitive.Item\n\t\t\tclassName={cn("relative", className)}\n\t\t\tdata-slot="field-item"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Field Error                                                                */\n/* -------------------------------------------------------------------------- */\n\nfunction FieldError({ className, ...props }: FieldPrimitive.Error.Props) {\n\treturn (\n\t\t<FieldPrimitive.Error\n\t\t\tclassName={cn("text-xs font-medium text-destructive", className)}\n\t\t\tdata-slot="field-error"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Field Validity                                                             */\n/* -------------------------------------------------------------------------- */\n\nfunction FieldValidity({ ...props }: FieldPrimitive.Validity.Props) {\n\treturn <FieldPrimitive.Validity data-slot="field-validity" {...props} />;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport {\n\tField,\n\tFieldLabel,\n\tFieldControl,\n\tFieldDescription,\n\tFieldItem,\n\tFieldError,\n\tFieldValidity,\n};',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-field",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/components/field/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-input": {
+		name: "baseui-input",
+		description: "A Base UI input component",
+		type: "registry:component",
+		dependencies: ["@base-ui/react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/utils"],
+		files: [
+			{
+				path: "packages/baseui/components/input/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/input.tsx",
+				content:
+					'"use client";\n\nimport { Input as InputPrimitive } from "@base-ui/react/input";\nimport { cva, type VariantProps } from "class-variance-authority";\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Input Variants                                                             */\n/* -------------------------------------------------------------------------- */\n\nconst inputVariants = cva(\n\t[\n\t\t"relative",\n\t\t"w-full min-w-0 bg-background border border-border rounded-md outline-none inline-flex",\n\t\t"transition-all duration-200 ease-in-out",\n\t\t"focus-visible:ring-2 focus-visible:ring-ring/20 focus-visible:ring-offset-1",\n\t\t"placeholder:text-muted-foreground/80 disabled:cursor-not-allowed",\n\t],\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tunstyled: "border-0 bg-transparent rounded-none focus:ring-0",\n\t\t\t},\n\t\t\tsize: {\n\t\t\t\txs: "h-7 px-2 text-xs leading-7",\n\t\t\t\tsm: "h-8 px-2 text-sm leading-8",\n\t\t\t\tmd: "h-9 px-3 text-sm leading-9",\n\t\t\t\tlg: "h-10 px-4 text-base leading-10",\n\t\t\t\txl: "h-12 px-8 text-base leading-12",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tsize: "md",\n\t\t},\n\t},\n);\n\n/* -------------------------------------------------------------------------- */\n/* Types                                                                      */\n/* -------------------------------------------------------------------------- */\n\ntype InputVariants = VariantProps<typeof inputVariants>;\n\ninterface InputProps extends Omit<InputPrimitive.Props, "size">, InputVariants {\n\tclassName?: string;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Input Component                                                            */\n/* -------------------------------------------------------------------------- */\n\nfunction Input({ className, size, variant, type, ...props }: InputProps) {\n\tconst isFile = type === "file";\n\tconst isSearch = type === "search";\n\n\treturn (\n\t\t<InputPrimitive\n\t\t\ttype={type}\n\t\t\tclassName={cn(\n\t\t\t\tinputVariants({ size, variant }),\n\t\t\t\tisSearch && [\n\t\t\t\t\t"[&::-webkit-search-cancel-button]:appearance-none",\n\t\t\t\t\t"[&::-webkit-search-decoration]:appearance-none",\n\t\t\t\t\t"[&::-webkit-search-results-button]:appearance-none",\n\t\t\t\t\t"[&::-webkit-search-results-decoration]:appearance-none",\n\t\t\t\t],\n\t\t\t\tisFile && [\n\t\t\t\t\t"text-muted-foreground cursor-pointer",\n\t\t\t\t\t"file:me-3 file:bg-transparent file:font-medium file:text-foreground file:text-sm file:border-0",\n\t\t\t\t\t"flex items-center",\n\t\t\t\t],\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="input"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport { Input, inputVariants };\nexport type { InputProps, InputVariants };',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-input",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/components/input/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
 	"baseui-particles-accordion-controlled": {
 		name: "baseui-particles-accordion-controlled",
 		description: "Controlled accordion with programmatic state management",
@@ -5251,6 +5349,300 @@ export const Registry: Record<string, any> = {
 			const LazyComp = React.lazy(async () => {
 				const mod = await import(
 					"@craftdotui/baseui/particles/dialog/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-field": {
+		name: "baseui-particles-field",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-field"],
+		files: [
+			{
+				path: "packages/baseui/particles/field/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/field.tsx",
+				content:
+					'import {\n\tField,\n\tFieldLabel,\n\tFieldControl,\n\tFieldDescription,\n} from "@/components/baseui/components/field";\n\nexport function Particle() {\n\treturn (\n\t\t<Field>\n\t\t\t<FieldLabel>Email</FieldLabel>\n\t\t\t<FieldControl placeholder="you@example.com" />\n\t\t\t<FieldDescription>We’ll never share your email.</FieldDescription>\n\t\t</Field>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-field",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/field/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-input-disabled": {
+		name: "baseui-particles-input-disabled",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-input"],
+		files: [
+			{
+				path: "packages/baseui/particles/input/disabled/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/input-disabled.tsx",
+				content:
+					'import { Input } from "@/components/baseui/components/input";\n\nexport function Particle() {\n\treturn (\n\t\t<div className="max-w-64">\n\t\t\t<Input disabled placeholder="Email address" />\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-input-disabled",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/input/disabled/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-input-file": {
+		name: "baseui-particles-input-file",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-input"],
+		files: [
+			{
+				path: "packages/baseui/particles/input/file/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/input-file.tsx",
+				content:
+					'import { Input } from "@/components/baseui/components/input";\n\nexport function Particle() {\n\treturn (\n\t\t<div className="max-w-64">\n\t\t\t<Input type="file" />\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-input-file",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/input/file/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-input": {
+		name: "baseui-particles-input",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-input"],
+		files: [
+			{
+				path: "packages/baseui/particles/input/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/input.tsx",
+				content:
+					'import { Input } from "@/components/baseui/components/input";\n\nexport function Particle() {\n\treturn (\n\t\t<div className="max-w-64">\n\t\t\t<Input placeholder="Email address" />\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-input",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/input/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-input-sizes": {
+		name: "baseui-particles-input-sizes",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-input"],
+		files: [
+			{
+				path: "packages/baseui/particles/input/sizes/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/input-sizes.tsx",
+				content:
+					'import { Input } from "@/components/baseui/components/input";\n\nexport function Particle() {\n\treturn (\n\t\t<div className="max-w-64 space-y-4">\n\t\t\t<Input size="sm" placeholder="Small input" />\n\t\t\t<Input size="md" placeholder="Medium input" />\n\t\t\t<Input size="lg" placeholder="Large input" />\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-input-sizes",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/input/sizes/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-input-with-field": {
+		name: "baseui-particles-input-with-field",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-input"],
+		files: [
+			{
+				path: "packages/baseui/particles/input/with-field/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/inputp-with-field.tsx",
+				content:
+					'import {\n\tField,\n\tFieldLabel,\n\tFieldDescription,\n} from "@/components/baseui/components/field";\nimport { Input } from "@/components/baseui/components/input";\n\nexport function InputExampleWithField() {\n\treturn (\n\t\t<Field>\n\t\t\t<FieldLabel>Email</FieldLabel>\n\t\t\t<Input type="email" placeholder="you@example.com" />\n\t\t\t<FieldDescription>We’ll never share your email.</FieldDescription>\n\t\t</Field>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-input-with-field",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/input/with-field/index.tsx"
 				);
 				let Comp = mod.default;
 

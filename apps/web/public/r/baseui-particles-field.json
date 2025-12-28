@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-field",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-field"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/field/index.tsx",
+			"content": "import {\n\tField,\n\tFieldLabel,\n\tFieldControl,\n\tFieldDescription,\n} from \"@/components/baseui/components/field\";\n\nexport function Particle() {\n\treturn (\n\t\t<Field>\n\t\t\t<FieldLabel>Email</FieldLabel>\n\t\t\t<FieldControl placeholder=\"you@example.com\" />\n\t\t\t<FieldDescription>We’ll never share your email.</FieldDescription>\n\t\t</Field>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/field.tsx"
+		}
+	],
+	"type": "registry:component"
+}

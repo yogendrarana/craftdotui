@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-input-file",
+	"type": "registry:component",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-input"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/input/file/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/particles/input-file.tsx"
+		}
+	]
+}
