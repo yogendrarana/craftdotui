@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-fieldset",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-fieldset"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/fieldset/index.tsx",
+			"content": "import {\n\tFieldset,\n\tFieldsetLegend,\n} from \"@/components/baseui/components/fieldset\";\n\nexport function FieldsetExampleBasic() {\n\treturn (\n\t\t<Fieldset>\n\t\t\t<FieldsetLegend>Profile</FieldsetLegend>\n\t\t</Fieldset>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/fieldset.tsx"
+		}
+	],
+	"type": "registry:component"
+}

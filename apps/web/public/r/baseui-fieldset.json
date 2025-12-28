@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-fieldset",
+	"description": "A Base UI fieldset component",
+	"dependencies": ["@base-ui/react"],
+	"registryDependencies": ["@craftdotui/utils", "@craftdotui/baseui-field"],
+	"files": [
+		{
+			"path": "packages/baseui/components/fieldset/index.tsx",
+			"content": "\"use client\";\n\nimport { Fieldset as FieldsetPrimitive } from \"@base-ui/react/fieldset\";\nimport { cn } from \"@/lib/utils\";\n\n/* -------------------------------------------------------------------------- */\n/* Fieldset Root                                                              */\n/* -------------------------------------------------------------------------- */\n\nfunction Fieldset({ className, ...props }: FieldsetPrimitive.Root.Props) {\n\treturn (\n\t\t<FieldsetPrimitive.Root\n\t\t\tclassName={cn(\n\t\t\t\t\"p-4 flex flex-col gap-4 rounded-lg border border-border\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot=\"fieldset-root\"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Fieldset Legend                                                            */\n/* -------------------------------------------------------------------------- */\n\nfunction FieldsetLegend({\n\tclassName,\n\t...props\n}: FieldsetPrimitive.Legend.Props) {\n\treturn (\n\t\t<FieldsetPrimitive.Legend\n\t\t\tclassName={cn(\"text-sm font-medium text-foreground\", className)}\n\t\t\tdata-slot=\"fieldset-legend\"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport { Fieldset, FieldsetLegend };\n",
+			"type": "registry:component",
+			"target": "components/baseui/components/fieldset.tsx"
+		}
+	],
+	"type": "registry:component"
+}

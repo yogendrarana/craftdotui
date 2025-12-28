@@ -955,6 +955,23 @@
 			]
 		},
 		{
+			"name": "baseui-fieldset",
+			"type": "registry:component",
+			"description": "A Base UI fieldset component",
+			"dependencies": ["@base-ui/react"],
+			"registryDependencies": [
+				"@craftdotui/utils",
+				"@craftdotui/baseui-field"
+			],
+			"files": [
+				{
+					"path": "packages/baseui/components/fieldset/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/fieldset.tsx"
+				}
+			]
+		},
+		{
 			"name": "baseui-input",
 			"type": "registry:component",
 			"description": "A Base UI input component",
@@ -1556,6 +1573,37 @@
 					"path": "packages/baseui/particles/field/index.tsx",
 					"type": "registry:component",
 					"target": "components/baseui/particles/field.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-fieldset",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-fieldset"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/fieldset/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/fieldset.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-fieldset-with-fields",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/baseui-fieldset",
+				"@craftdotui/baseui-fieldset"
+			],
+			"files": [
+				{
+					"path": "packages/baseui/particles/fieldset/with-fields/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/fieldset-with-fields.tsx"
 				}
 			]
 		},

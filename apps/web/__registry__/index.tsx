@@ -3312,6 +3312,55 @@ export const Registry: Record<string, any> = {
 			return LazyComp;
 		})(),
 	},
+	"baseui-fieldset": {
+		name: "baseui-fieldset",
+		description: "A Base UI fieldset component",
+		type: "registry:component",
+		dependencies: ["@base-ui/react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/utils", "@craftdotui/baseui-field"],
+		files: [
+			{
+				path: "packages/baseui/components/fieldset/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/fieldset.tsx",
+				content:
+					'"use client";\n\nimport { Fieldset as FieldsetPrimitive } from "@base-ui/react/fieldset";\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Fieldset Root                                                              */\n/* -------------------------------------------------------------------------- */\n\nfunction Fieldset({ className, ...props }: FieldsetPrimitive.Root.Props) {\n\treturn (\n\t\t<FieldsetPrimitive.Root\n\t\t\tclassName={cn(\n\t\t\t\t"p-4 flex flex-col gap-4 rounded-lg border border-border",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="fieldset-root"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Fieldset Legend                                                            */\n/* -------------------------------------------------------------------------- */\n\nfunction FieldsetLegend({\n\tclassName,\n\t...props\n}: FieldsetPrimitive.Legend.Props) {\n\treturn (\n\t\t<FieldsetPrimitive.Legend\n\t\t\tclassName={cn("text-sm font-medium text-foreground", className)}\n\t\t\tdata-slot="fieldset-legend"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport { Fieldset, FieldsetLegend };',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-fieldset",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/components/fieldset/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
 	"baseui-input": {
 		name: "baseui-input",
 		description: "A Base UI input component",
@@ -3325,7 +3374,7 @@ export const Registry: Record<string, any> = {
 				type: "registry:component",
 				target: "components/baseui/components/input.tsx",
 				content:
-					'"use client";\n\nimport { Input as InputPrimitive } from "@base-ui/react/input";\nimport { cva, type VariantProps } from "class-variance-authority";\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Input Variants                                                             */\n/* -------------------------------------------------------------------------- */\n\nconst inputVariants = cva(\n\t[\n\t\t"relative",\n\t\t"w-full min-w-0 bg-background border border-border rounded-md outline-none inline-flex",\n\t\t"transition-all duration-200 ease-in-out",\n\t\t"focus-visible:ring-2 focus-visible:ring-ring/20 focus-visible:ring-offset-1",\n\t\t"placeholder:text-muted-foreground/80 disabled:cursor-not-allowed",\n\t],\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tunstyled: "border-0 bg-transparent rounded-none focus:ring-0",\n\t\t\t},\n\t\t\tsize: {\n\t\t\t\txs: "h-7 px-2 text-xs leading-7",\n\t\t\t\tsm: "h-8 px-2 text-sm leading-8",\n\t\t\t\tmd: "h-9 px-3 text-sm leading-9",\n\t\t\t\tlg: "h-10 px-4 text-base leading-10",\n\t\t\t\txl: "h-12 px-8 text-base leading-12",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tsize: "md",\n\t\t},\n\t},\n);\n\n/* -------------------------------------------------------------------------- */\n/* Types                                                                      */\n/* -------------------------------------------------------------------------- */\n\ntype InputVariants = VariantProps<typeof inputVariants>;\n\ninterface InputProps extends Omit<InputPrimitive.Props, "size">, InputVariants {\n\tclassName?: string;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Input Component                                                            */\n/* -------------------------------------------------------------------------- */\n\nfunction Input({ className, size, variant, type, ...props }: InputProps) {\n\tconst isFile = type === "file";\n\tconst isSearch = type === "search";\n\n\treturn (\n\t\t<InputPrimitive\n\t\t\ttype={type}\n\t\t\tclassName={cn(\n\t\t\t\tinputVariants({ size, variant }),\n\t\t\t\tisSearch && [\n\t\t\t\t\t"[&::-webkit-search-cancel-button]:appearance-none",\n\t\t\t\t\t"[&::-webkit-search-decoration]:appearance-none",\n\t\t\t\t\t"[&::-webkit-search-results-button]:appearance-none",\n\t\t\t\t\t"[&::-webkit-search-results-decoration]:appearance-none",\n\t\t\t\t],\n\t\t\t\tisFile && [\n\t\t\t\t\t"text-muted-foreground cursor-pointer",\n\t\t\t\t\t"file:me-3 file:bg-transparent file:font-medium file:text-foreground file:text-sm file:border-0",\n\t\t\t\t\t"flex items-center",\n\t\t\t\t],\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="input"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport { Input, inputVariants };\nexport type { InputProps, InputVariants };',
+					'"use client";\n\nimport { Input as InputPrimitive } from "@base-ui/react/input";\nimport { cva, type VariantProps } from "class-variance-authority";\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Input Variants                                                             */\n/* -------------------------------------------------------------------------- */\n\nconst inputVariants = cva(\n\t[\n\t\t"relative",\n\t\t"w-full min-w-0 bg-background border border-border rounded-md outline-none inline-flex",\n\t\t"transition-all duration-200 ease-in-out",\n\t\t"focus-visible:ring-2 focus-visible:ring-ring/20 focus-visible:ring-offset-1",\n\t\t"placeholder:text-muted-foreground/80 disabled:cursor-not-allowed",\n\t],\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tunstyled: "border-0 bg-transparent rounded-none focus:ring-0",\n\t\t\t},\n\t\t\tsize: {\n\t\t\t\txs: "h-7 px-2 text-xs leading-7",\n\t\t\t\tsm: "h-8 px-2 text-sm leading-8",\n\t\t\t\tmd: "h-8.5 px-3 text-sm leading-9",\n\t\t\t\tlg: "h-11 px-4 text-base leading-10",\n\t\t\t\txl: "h-12 px-8 text-base leading-12",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tsize: "md",\n\t\t},\n\t},\n);\n\n/* -------------------------------------------------------------------------- */\n/* Types                                                                      */\n/* -------------------------------------------------------------------------- */\n\ntype InputVariants = VariantProps<typeof inputVariants>;\n\ninterface InputProps extends Omit<InputPrimitive.Props, "size">, InputVariants {\n\tclassName?: string;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Input Component                                                            */\n/* -------------------------------------------------------------------------- */\n\nfunction Input({ className, size, variant, type, ...props }: InputProps) {\n\tconst isFile = type === "file";\n\tconst isSearch = type === "search";\n\n\treturn (\n\t\t<InputPrimitive\n\t\t\ttype={type}\n\t\t\tclassName={cn(\n\t\t\t\tinputVariants({ size, variant }),\n\t\t\t\tisSearch && [\n\t\t\t\t\t"[&::-webkit-search-cancel-button]:appearance-none",\n\t\t\t\t\t"[&::-webkit-search-decoration]:appearance-none",\n\t\t\t\t\t"[&::-webkit-search-results-button]:appearance-none",\n\t\t\t\t\t"[&::-webkit-search-results-decoration]:appearance-none",\n\t\t\t\t],\n\t\t\t\tisFile && [\n\t\t\t\t\t"text-muted-foreground cursor-pointer",\n\t\t\t\t\t"file:me-3 file:bg-transparent file:font-medium file:text-foreground file:text-sm file:border-0",\n\t\t\t\t\t"flex items-center",\n\t\t\t\t],\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="input"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport { Input, inputVariants };\nexport type { InputProps, InputVariants };',
 			},
 		],
 		keywords: [],
@@ -5398,6 +5447,107 @@ export const Registry: Record<string, any> = {
 			const LazyComp = React.lazy(async () => {
 				const mod = await import(
 					"@craftdotui/baseui/particles/field/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-fieldset": {
+		name: "baseui-particles-fieldset",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-fieldset"],
+		files: [
+			{
+				path: "packages/baseui/particles/fieldset/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/fieldset.tsx",
+				content:
+					'import {\n\tFieldset,\n\tFieldsetLegend,\n} from "@/components/baseui/components/fieldset";\n\nexport function FieldsetExampleBasic() {\n\treturn (\n\t\t<Fieldset>\n\t\t\t<FieldsetLegend>Profile</FieldsetLegend>\n\t\t</Fieldset>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-fieldset",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/fieldset/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-fieldset-with-fields": {
+		name: "baseui-particles-fieldset-with-fields",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: [
+			"@craftdotui/baseui-fieldset",
+			"@craftdotui/baseui-fieldset",
+		],
+		files: [
+			{
+				path: "packages/baseui/particles/fieldset/with-fields/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/fieldset-with-fields.tsx",
+				content:
+					'import {\n    Field,\n    FieldLabel,\n    FieldControl,\n} from "@/components/baseui/components/field";\n\nimport {\n\tFieldset,\n\tFieldsetLegend,\n} from "@/components/baseui/components/fieldset";\n\n\nexport function FieldsetExampleWithFields() {\n\treturn (\n\t\t<Fieldset>\n\t\t\t<FieldsetLegend>Account details</FieldsetLegend>\n\n\t\t\t<Field>\n\t\t\t\t<FieldLabel>Email</FieldLabel>\n\t\t\t\t<FieldControl type="email" />\n\t\t\t</Field>\n\n\t\t\t<Field>\n\t\t\t\t<FieldLabel>Password</FieldLabel>\n\t\t\t\t<FieldControl type="password" />\n\t\t\t</Field>\n\t\t</Fieldset>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-fieldset-with-fields",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/fieldset/with-fields/index.tsx"
 				);
 				let Comp = mod.default;
 
