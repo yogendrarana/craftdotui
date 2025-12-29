@@ -986,6 +986,20 @@
 			]
 		},
 		{
+			"name": "baseui-meter",
+			"type": "registry:component",
+			"description": "A Base UI meter component",
+			"dependencies": ["@base-ui/react"],
+			"registryDependencies": ["@craftdotui/utils"],
+			"files": [
+				{
+					"path": "packages/baseui/components/meter/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/meter.tsx"
+				}
+			]
+		},
+		{
 			"name": "baseui-particles-accordion-controlled",
 			"type": "registry:component",
 			"description": "Controlled accordion with programmatic state management",
@@ -1657,6 +1671,48 @@
 					"path": "packages/baseui/particles/input/with-field/index.tsx",
 					"type": "registry:component",
 					"target": "components/baseui/particles/inputp-with-field.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-meter",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-meter"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/meter/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/meter.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-meter-with-custom-color",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-meter"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/meter/with-custom-color/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/meter-with-custom-color.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-meter-without-label",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-meter"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/meter/without-label/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/meter-without-label.tsx"
 				}
 			]
 		},

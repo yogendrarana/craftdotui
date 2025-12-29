@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-meter",
+	"type": "registry:component",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-meter"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/meter/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/particles/meter.tsx"
+		}
+	]
+}
