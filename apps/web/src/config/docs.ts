@@ -136,6 +136,10 @@ export const docsNavItems: Array<DocsNavItem> = [
 				title: "Input",
 				href: "/docs/baseui/components/input",
 			},
+			{
+				title: "Meter",
+				href: "/docs/baseui/components/meter",
+			},
 		],
 	},
 
