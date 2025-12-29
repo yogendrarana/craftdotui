@@ -22,11 +22,9 @@ const inputVariants = cva(
 				unstyled: "border-0 bg-transparent rounded-none focus:ring-0",
 			},
 			size: {
-				xs: "h-7 px-2 text-xs leading-7",
-				sm: "h-8 px-2 text-sm leading-8",
-				md: "h-8.5 px-3 text-sm leading-9",
-				lg: "h-11 px-4 text-base leading-10",
-				xl: "h-12 px-8 text-base leading-12",
+				sm: "h-7 px-2 text-sm leading-7",
+				md: "h-8 px-3 text-sm leading-8",
+				lg: "h-9 px-3 text-base leading-9",
 			},
 		},
 		defaultVariants: {
