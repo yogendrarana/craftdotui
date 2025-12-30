@@ -1014,6 +1014,20 @@
 			]
 		},
 		{
+			"name": "baseui-radio",
+			"type": "registry:component",
+			"description": "A Base UI radio component",
+			"dependencies": ["@base-ui/react"],
+			"registryDependencies": ["@craftdotui/utils"],
+			"files": [
+				{
+					"path": "packages/baseui/components/radio/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/radio.tsx"
+				}
+			]
+		},
+		{
 			"name": "baseui-particles-accordion-controlled",
 			"type": "registry:component",
 			"description": "Controlled accordion with programmatic state management",
@@ -1769,6 +1783,62 @@
 					"path": "packages/baseui/particles/progress/without-label/index.tsx",
 					"type": "registry:component",
 					"target": "components/baseui/particles/progress-without-label.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-radio-card",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-radio"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/radio/card/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/radio-card.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-radio-disabled",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-radio"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/radio/disabled/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/radio-disabled.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-radio",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-radio"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/radio/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/radio.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-radio-with-description",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-radio"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/radio/with-description/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/radio-with-description.tsx"
 				}
 			]
 		},

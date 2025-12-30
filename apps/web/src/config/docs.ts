@@ -144,6 +144,10 @@ export const docsNavItems: Array<DocsNavItem> = [
 				title: "Progress",
 				href: "/docs/baseui/components/progress",
 			},
+			{
+				title: "Radio",
+				href: "/docs/baseui/components/radio",
+			},
 		],
 	},
 

@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-radio-disabled",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-radio"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/radio/disabled/index.tsx",
+			"content": "import { Radio, RadioGroup } from \"@/components/baseui/components/radio\";\n\nexport function Particle() {\n\treturn (\n\t\t<RadioGroup defaultValue=\"option-one\">\n\t\t\t<div className=\"flex items-center gap-2\">\n\t\t\t\t<Radio value=\"option-one\" id=\"option-one\" />\n\t\t\t\t<label\n\t\t\t\t\thtmlFor=\"option-one\"\n\t\t\t\t\tclassName=\"text-sm font-medium leading-none cursor-pointer\"\n\t\t\t\t>\n\t\t\t\t\tOption One\n\t\t\t\t</label>\n\t\t\t</div>\n\t\t\t<div className=\"flex items-center gap-2\">\n\t\t\t\t<Radio value=\"option-two\" id=\"option-two\" disabled />\n\t\t\t\t<label\n\t\t\t\t\thtmlFor=\"option-two\"\n\t\t\t\t\tclassName=\"text-sm text-muted-foreground cursor-not-allowed\"\n\t\t\t\t>\n\t\t\t\t\tOption Two (Disabled)\n\t\t\t\t</label>\n\t\t\t</div>\n\t\t</RadioGroup>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/radio-disabled.tsx"
+		}
+	],
+	"type": "registry:component"
+}
