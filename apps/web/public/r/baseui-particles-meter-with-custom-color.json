@@ -7,7 +7,7 @@
 	"files": [
 		{
 			"path": "packages/baseui/particles/meter/with-custom-color/index.tsx",
-			"content": "import {\n\tMeter,\n\tMeterLabel,\n\tMeterTrack,\n\tMeterIndicator,\n\tMeterValue,\n} from \"@/components/baseui/components/meter\";\n\nexport function MeterExampleCustom() {\n\treturn (\n\t\t<Meter value={85} max={100} className=\"max-w-100\">\n             <div className=\"flex items-center justify-between gap-2\">\n        <MeterLabel>Storage usage</MeterLabel>\n        <MeterValue />\n      </div>\n\t\t\t<MeterTrack>\n\t\t\t\t<MeterIndicator className=\"bg-destructive\" />\n\t\t\t</MeterTrack>\n\t\t</Meter>\n\t);\n}\n",
+			"content": "import {\n\tMeter,\n\tMeterLabel,\n\tMeterTrack,\n\tMeterIndicator,\n\tMeterValue,\n} from \"@/components/baseui/components/meter\";\n\nexport function MeterExampleCustom() {\n\treturn (\n\t\t<Meter value={85} max={100} className=\"max-w-100\">\n\t\t\t<div className=\"flex items-center justify-between gap-2\">\n\t\t\t\t<MeterLabel>Storage usage</MeterLabel>\n\t\t\t\t<MeterValue />\n\t\t\t</div>\n\t\t\t<MeterTrack>\n\t\t\t\t<MeterIndicator className=\"bg-destructive\" />\n\t\t\t</MeterTrack>\n\t\t</Meter>\n\t);\n}\n",
 			"type": "registry:component",
 			"target": "components/baseui/particles/meter-with-custom-color.tsx"
 		}

@@ -3459,6 +3459,55 @@ export const Registry: Record<string, any> = {
 			return LazyComp;
 		})(),
 	},
+	"baseui-progress": {
+		name: "baseui-progress",
+		description: "A Base UI progress component",
+		type: "registry:component",
+		dependencies: ["@base-ui/react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/utils"],
+		files: [
+			{
+				path: "packages/baseui/components/progress/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/progress.tsx",
+				content:
+					'"use client";\n\nimport { Progress as ProgressPrimitive } from "@base-ui/react/progress";\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Progress                                                                   */\n/* -------------------------------------------------------------------------- */\n\nfunction Progress({ className, ...props }: ProgressPrimitive.Root.Props) {\n\treturn (\n\t\t<ProgressPrimitive.Root\n\t\t\tclassName={cn("w-full", "flex flex-col gap-2", className)}\n\t\t\tdata-slot="progress"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Progress Label                                                             */\n/* -------------------------------------------------------------------------- */\n\nfunction ProgressLabel({ className, ...props }: ProgressPrimitive.Label.Props) {\n\treturn (\n\t\t<ProgressPrimitive.Label\n\t\t\tclassName={cn("text-sm font-medium text-foreground", className)}\n\t\t\tdata-slot="progress-label"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Progress Track                                                             */\n/* -------------------------------------------------------------------------- */\n\nfunction ProgressTrack({ className, ...props }: ProgressPrimitive.Track.Props) {\n\treturn (\n\t\t<ProgressPrimitive.Track\n\t\t\tclassName={cn(\n\t\t\t\t"h-2 w-full",\n\t\t\t\t"flex items-center",\n\t\t\t\t"overflow-hidden rounded-full bg-muted",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="progress-track"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Progress Indicator                                                         */\n/* -------------------------------------------------------------------------- */\n\nfunction ProgressIndicator({\n\tclassName,\n\t...props\n}: ProgressPrimitive.Indicator.Props) {\n\treturn (\n\t\t<ProgressPrimitive.Indicator\n\t\t\tclassName={cn(\n\t\t\t\t"h-full w-0",\n\t\t\t\t"transition-[width] duration-300 ease-out",\n\t\t\t\t"bg-primary",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="progress-indicator"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Progress Value                                                             */\n/* -------------------------------------------------------------------------- */\n\nfunction ProgressValue({ className, ...props }: ProgressPrimitive.Value.Props) {\n\treturn (\n\t\t<ProgressPrimitive.Value\n\t\t\tclassName={cn("text-xs text-muted-foreground", className)}\n\t\t\tdata-slot="progress-value"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport {\n\tProgress,\n\tProgressLabel,\n\tProgressTrack,\n\tProgressIndicator,\n\tProgressValue,\n};',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-progress",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/components/progress/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
 	"baseui-particles-accordion-controlled": {
 		name: "baseui-particles-accordion-controlled",
 		description: "Controlled accordion with programmatic state management",
@@ -5830,7 +5879,7 @@ export const Registry: Record<string, any> = {
 				type: "registry:component",
 				target: "components/baseui/particles/meter.tsx",
 				content:
-					'import {\n\tMeter,\n\tMeterLabel,\n\tMeterTrack,\n\tMeterIndicator,\n\tMeterValue,\n} from "@/components/baseui/components/meter";\n\nexport function MeterExampleBasic() {\n\treturn (\n\t\t<Meter value={60} max={100} className="max-w-100">\n     <div className="flex items-center justify-between gap-2">\n        <MeterLabel>Storage usage</MeterLabel>\n        <MeterValue />\n      </div>\n\t\t\t<MeterTrack>\n\t\t\t\t<MeterIndicator />\n\t\t\t</MeterTrack>\n\t\t</Meter>\n\t);\n}',
+					'import {\n\tMeter,\n\tMeterLabel,\n\tMeterTrack,\n\tMeterIndicator,\n\tMeterValue,\n} from "@/components/baseui/components/meter";\n\nexport function MeterExampleBasic() {\n\treturn (\n\t\t<Meter value={60} max={100} className="max-w-100">\n\t\t\t<div className="flex items-center justify-between gap-2">\n\t\t\t\t<MeterLabel>Storage usage</MeterLabel>\n\t\t\t\t<MeterValue />\n\t\t\t</div>\n\t\t\t<MeterTrack>\n\t\t\t\t<MeterIndicator />\n\t\t\t</MeterTrack>\n\t\t</Meter>\n\t);\n}',
 			},
 		],
 		keywords: [],
@@ -5879,7 +5928,7 @@ export const Registry: Record<string, any> = {
 				type: "registry:component",
 				target: "components/baseui/particles/meter-with-custom-color.tsx",
 				content:
-					'import {\n\tMeter,\n\tMeterLabel,\n\tMeterTrack,\n\tMeterIndicator,\n\tMeterValue,\n} from "@/components/baseui/components/meter";\n\nexport function MeterExampleCustom() {\n\treturn (\n\t\t<Meter value={85} max={100} className="max-w-100">\n             <div className="flex items-center justify-between gap-2">\n        <MeterLabel>Storage usage</MeterLabel>\n        <MeterValue />\n      </div>\n\t\t\t<MeterTrack>\n\t\t\t\t<MeterIndicator className="bg-destructive" />\n\t\t\t</MeterTrack>\n\t\t</Meter>\n\t);\n}',
+					'import {\n\tMeter,\n\tMeterLabel,\n\tMeterTrack,\n\tMeterIndicator,\n\tMeterValue,\n} from "@/components/baseui/components/meter";\n\nexport function MeterExampleCustom() {\n\treturn (\n\t\t<Meter value={85} max={100} className="max-w-100">\n\t\t\t<div className="flex items-center justify-between gap-2">\n\t\t\t\t<MeterLabel>Storage usage</MeterLabel>\n\t\t\t\t<MeterValue />\n\t\t\t</div>\n\t\t\t<MeterTrack>\n\t\t\t\t<MeterIndicator className="bg-destructive" />\n\t\t\t</MeterTrack>\n\t\t</Meter>\n\t);\n}',
 			},
 		],
 		keywords: [],
@@ -5937,6 +5986,153 @@ export const Registry: Record<string, any> = {
 			const LazyComp = React.lazy(async () => {
 				const mod = await import(
 					"@craftdotui/baseui/particles/meter/without-label/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-progress": {
+		name: "baseui-particles-progress",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-progress"],
+		files: [
+			{
+				path: "packages/baseui/particles/progress/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/progress-without-label.tsx",
+				content:
+					'import {\n\tProgress,\n\tProgressLabel,\n\tProgressTrack,\n\tProgressIndicator,\n\tProgressValue,\n} from "@/components/baseui/components/progress";\nimport React from "react";\n\nexport function Particle() {\n\tconst [value, setValue] = React.useState(20);\n\n\tReact.useEffect(() => {\n\t\tconst interval = setInterval(() => {\n\t\t\tsetValue((current) =>\n\t\t\t\tMath.min(100, Math.round(current + Math.random() * 25)),\n\t\t\t);\n\t\t}, 1000);\n\t\treturn () => clearInterval(interval);\n\t}, []);\n\n\treturn (\n\t\t<Progress value={value} max={100} className="max-w-100">\n\t\t\t<div className="flex items-center justify-between gap-2">\n\t\t\t\t<ProgressLabel>Downloading...</ProgressLabel>\n\t\t\t\t<ProgressValue />\n\t\t\t</div>\n\t\t\t<ProgressTrack>\n\t\t\t\t<ProgressIndicator />\n\t\t\t</ProgressTrack>\n\t\t</Progress>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-progress",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/progress/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-progress-with-custom-color": {
+		name: "baseui-particles-progress-with-custom-color",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-progress"],
+		files: [
+			{
+				path: "packages/baseui/particles/progress/with-custom-color/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/progress-with-custom-color.tsx",
+				content:
+					'import {\n\tProgress,\n\tProgressLabel,\n\tProgressTrack,\n\tProgressIndicator,\n\tProgressValue,\n} from "@/components/baseui/components/progress";\nimport React from "react";\n\nexport function Particle() {\n\tconst [value, setValue] = React.useState(20);\n\n\tReact.useEffect(() => {\n\t\tconst interval = setInterval(() => {\n\t\t\tsetValue((current) =>\n\t\t\t\tMath.min(100, Math.round(current + Math.random() * 25)),\n\t\t\t);\n\t\t}, 1000);\n\t\treturn () => clearInterval(interval);\n\t}, []);\n\n\treturn (\n\t\t<Progress value={value} max={100} className="max-w-100">\n\t\t\t<div className="flex items-center justify-between gap-2">\n\t\t\t\t<ProgressLabel>Storage usage</ProgressLabel>\n\t\t\t\t<ProgressValue />\n\t\t\t</div>\n\t\t\t<ProgressTrack>\n\t\t\t\t<ProgressIndicator className="bg-destructive" />\n\t\t\t</ProgressTrack>\n\t\t</Progress>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-progress-with-custom-color",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/progress/with-custom-color/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-progress-without-label": {
+		name: "baseui-particles-progress-without-label",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-progress"],
+		files: [
+			{
+				path: "packages/baseui/particles/progress/without-label/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/progress-without-label.tsx",
+				content:
+					'import {\n\tProgress,\n\tProgressTrack,\n\tProgressIndicator,\n\tProgressValue,\n} from "@/components/baseui/components/progress";\nimport React from "react";\n\nexport function Particle() {\n\tconst [value, setValue] = React.useState(20);\n\n\tReact.useEffect(() => {\n\t\tconst interval = setInterval(() => {\n\t\t\tsetValue((current) =>\n\t\t\t\tMath.min(100, Math.round(current + Math.random() * 25)),\n\t\t\t);\n\t\t}, 1000);\n\t\treturn () => clearInterval(interval);\n\t}, []);\n\n\treturn (\n\t\t<Progress value={value} max={100} className="max-w-100">\n\t\t\t<ProgressTrack>\n\t\t\t\t<ProgressIndicator />\n\t\t\t</ProgressTrack>\n\t\t\t<ProgressValue />\n\t\t</Progress>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-progress-without-label",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/progress/without-label/index.tsx"
 				);
 				let Comp = mod.default;
 

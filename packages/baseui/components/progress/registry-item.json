@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-progress",
+	"type": "registry:component",
+	"description": "A Base UI progress component",
+	"dependencies": ["@base-ui/react"],
+	"registryDependencies": ["@craftdotui/utils"],
+	"files": [
+		{
+			"path": "packages/baseui/components/progress/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/components/progress.tsx"
+		}
+	]
+}
