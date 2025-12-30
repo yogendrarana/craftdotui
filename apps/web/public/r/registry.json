@@ -1028,6 +1028,20 @@
 			]
 		},
 		{
+			"name": "baseui-separator",
+			"type": "registry:component",
+			"description": "A Base UI separator component",
+			"dependencies": ["@base-ui/react"],
+			"registryDependencies": ["@craftdotui/utils"],
+			"files": [
+				{
+					"path": "packages/baseui/components/separator/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/separator.tsx"
+				}
+			]
+		},
+		{
 			"name": "baseui-particles-accordion-controlled",
 			"type": "registry:component",
 			"description": "Controlled accordion with programmatic state management",
@@ -1839,6 +1853,20 @@
 					"path": "packages/baseui/particles/radio/with-description/index.tsx",
 					"type": "registry:component",
 					"target": "components/baseui/particles/radio-with-description.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-separator",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-separator"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/separator/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/separator.tsx"
 				}
 			]
 		},

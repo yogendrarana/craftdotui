@@ -148,6 +148,10 @@ export const docsNavItems: Array<DocsNavItem> = [
 				title: "Radio",
 				href: "/docs/baseui/components/radio",
 			},
+			{
+				title: "Separator",
+				href: "/docs/baseui/components/separator",
+			},
 		],
 	},
 

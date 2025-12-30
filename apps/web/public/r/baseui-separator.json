@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-separator",
+	"description": "A Base UI separator component",
+	"dependencies": ["@base-ui/react"],
+	"registryDependencies": ["@craftdotui/utils"],
+	"files": [
+		{
+			"path": "packages/baseui/components/separator/index.tsx",
+			"content": "\"use client\";\n\nimport { Separator as SeparatorPrimitive } from \"@base-ui/react/separator\";\nimport { cn } from \"@/lib/utils\";\n\n/* -------------------------------------------------------------------------- */\n/* Separator                                                                  */\n/* -------------------------------------------------------------------------- */\n\nfunction Separator({ className, ...props }: SeparatorPrimitive.Props) {\n\treturn (\n\t\t<SeparatorPrimitive\n\t\t\tclassName={cn(\n\t\t\t\t\"shrink-0 bg-border\",\n\t\t\t\t\"data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=horizontal]:my-4\",\n\t\t\t\t\"data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px data-[orientation=vertical]:mx-4\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot=\"separator\"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport { Separator };\n",
+			"type": "registry:component",
+			"target": "components/baseui/components/separator.tsx"
+		}
+	],
+	"type": "registry:component"
+}

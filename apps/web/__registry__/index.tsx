@@ -3557,6 +3557,55 @@ export const Registry: Record<string, any> = {
 			return LazyComp;
 		})(),
 	},
+	"baseui-separator": {
+		name: "baseui-separator",
+		description: "A Base UI separator component",
+		type: "registry:component",
+		dependencies: ["@base-ui/react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/utils"],
+		files: [
+			{
+				path: "packages/baseui/components/separator/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/separator.tsx",
+				content:
+					'"use client";\n\nimport { Separator as SeparatorPrimitive } from "@base-ui/react/separator";\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Separator                                                                  */\n/* -------------------------------------------------------------------------- */\n\nfunction Separator({ className, ...props }: SeparatorPrimitive.Props) {\n\treturn (\n\t\t<SeparatorPrimitive\n\t\t\tclassName={cn(\n\t\t\t\t"shrink-0 bg-border",\n\t\t\t\t"data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=horizontal]:my-4",\n\t\t\t\t"data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px data-[orientation=vertical]:mx-4",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="separator"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport { Separator };',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-separator",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/components/separator/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
 	"baseui-particles-accordion-controlled": {
 		name: "baseui-particles-accordion-controlled",
 		description: "Controlled accordion with programmatic state management",
@@ -6378,6 +6427,55 @@ export const Registry: Record<string, any> = {
 			const LazyComp = React.lazy(async () => {
 				const mod = await import(
 					"@craftdotui/baseui/particles/radio/with-description/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-separator": {
+		name: "baseui-particles-separator",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-separator"],
+		files: [
+			{
+				path: "packages/baseui/particles/separator/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/separator.tsx",
+				content:
+					'import { Separator } from "@/components/baseui/components/separator";\n\nexport function Particle() {\n\treturn (\n\t\t<div>\n\t\t\t<div className="space-y-1">\n\t\t\t\t<h4 className="text-sm font-medium leading-none">Craft UI</h4>\n\t\t\t\t<p className="text-sm text-muted-foreground">\n\t\t\t\t\tA collection of react and tailwind components.\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t\t<Separator />\n\t\t\t<div className="flex h-5 items-center text-sm">\n\t\t\t\t<div>Blog</div>\n\t\t\t\t<Separator orientation="vertical" />\n\t\t\t\t<div>Docs</div>\n\t\t\t\t<Separator orientation="vertical" />\n\t\t\t\t<div>Source</div>\n\t\t\t</div>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-separator",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/separator/index.tsx"
 				);
 				let Comp = mod.default;
 
