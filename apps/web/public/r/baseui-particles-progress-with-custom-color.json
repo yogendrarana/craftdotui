@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-progress-with-custom-color",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-progress"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/progress/with-custom-color/index.tsx",
+			"content": "import {\n\tProgress,\n\tProgressLabel,\n\tProgressTrack,\n\tProgressIndicator,\n\tProgressValue,\n} from \"@/components/baseui/components/progress\";\nimport React from \"react\";\n\nexport function Particle() {\n\tconst [value, setValue] = React.useState(20);\n\n\tReact.useEffect(() => {\n\t\tconst interval = setInterval(() => {\n\t\t\tsetValue((current) =>\n\t\t\t\tMath.min(100, Math.round(current + Math.random() * 25)),\n\t\t\t);\n\t\t}, 1000);\n\t\treturn () => clearInterval(interval);\n\t}, []);\n\n\treturn (\n\t\t<Progress value={value} max={100} className=\"max-w-100\">\n\t\t\t<div className=\"flex items-center justify-between gap-2\">\n\t\t\t\t<ProgressLabel>Storage usage</ProgressLabel>\n\t\t\t\t<ProgressValue />\n\t\t\t</div>\n\t\t\t<ProgressTrack>\n\t\t\t\t<ProgressIndicator className=\"bg-destructive\" />\n\t\t\t</ProgressTrack>\n\t\t</Progress>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/progress-with-custom-color.tsx"
+		}
+	],
+	"type": "registry:component"
+}

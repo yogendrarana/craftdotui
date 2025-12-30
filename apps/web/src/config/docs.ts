@@ -140,6 +140,10 @@ export const docsNavItems: Array<DocsNavItem> = [
 				title: "Meter",
 				href: "/docs/baseui/components/meter",
 			},
+			{
+				title: "Progress",
+				href: "/docs/baseui/components/progress",
+			},
 		],
 	},
 
