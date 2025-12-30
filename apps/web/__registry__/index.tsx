@@ -3508,6 +3508,55 @@ export const Registry: Record<string, any> = {
 			return LazyComp;
 		})(),
 	},
+	"baseui-radio": {
+		name: "baseui-radio",
+		description: "A Base UI radio component",
+		type: "registry:component",
+		dependencies: ["@base-ui/react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/utils"],
+		files: [
+			{
+				path: "packages/baseui/components/radio/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/radio.tsx",
+				content:
+					'"use client";\n\nimport { Radio as RadioPrimitive } from "@base-ui/react/radio";\nimport { RadioGroup as RadioGroupPrimitive } from "@base-ui/react/radio-group";\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Radio Group                                                                */\n/* -------------------------------------------------------------------------- */\n\nfunction RadioGroup({ className, ...props }: RadioGroupPrimitive.Props) {\n\treturn (\n\t\t<RadioGroupPrimitive\n\t\t\tclassName={cn("flex flex-col gap-2", className)}\n\t\t\tdata-slot="radio-group"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Radio Indicator                                                            */\n/* -------------------------------------------------------------------------- */\n\nfunction RadioIndicator({\n\tclassName,\n\t...props\n}: RadioPrimitive.Indicator.Props) {\n\treturn (\n\t\t<RadioPrimitive.Indicator\n\t\t\tclassName={cn(\n\t\t\t\t"flex items-center justify-center",\n\t\t\t\t"data-[state=checked]:after:block after:h-2 after:w-2 after:rounded-full after:bg-primary after:content-[\'\']",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="radio-indicator"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Radio                                                                      */\n/* -------------------------------------------------------------------------- */\n\nfunction Radio({ className, ...props }: RadioPrimitive.Root.Props) {\n\treturn (\n\t\t<RadioPrimitive.Root\n\t\t\tclassName={cn(\n\t\t\t\t"aspect-square h-4 w-4",\n\t\t\t\t"flex items-center justify-center",\n\t\t\t\t"rounded-full border border-border bg-background transition-colors",\n\t\t\t\t"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/20 focus-visible:ring-offset-1",\n\t\t\t\t"disabled:cursor-not-allowed disabled:opacity-50",\n\t\t\t\t"data-checked:border-primary",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="radio"\n\t\t\t{...props}\n\t\t>\n\t\t\t<RadioIndicator />\n\t\t</RadioPrimitive.Root>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport { RadioGroup, Radio };',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-radio",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/components/radio/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
 	"baseui-particles-accordion-controlled": {
 		name: "baseui-particles-accordion-controlled",
 		description: "Controlled accordion with programmatic state management",
@@ -6133,6 +6182,202 @@ export const Registry: Record<string, any> = {
 			const LazyComp = React.lazy(async () => {
 				const mod = await import(
 					"@craftdotui/baseui/particles/progress/without-label/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-radio-card": {
+		name: "baseui-particles-radio-card",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-radio"],
+		files: [
+			{
+				path: "packages/baseui/particles/radio/card/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/radio-card.tsx",
+				content:
+					'import { Radio, RadioGroup } from "@/components/baseui/components/radio";\n\nconst plans = [\n\t{\n\t\tid: "free",\n\t\tname: "Free",\n\t\tdescription: "Perfect for trying out our service",\n\t\tprice: "$0/month",\n\t},\n\t{\n\t\tid: "pro",\n\t\tname: "Pro",\n\t\tdescription: "For professionals and small teams",\n\t\tprice: "$19/month",\n\t},\n\t{\n\t\tid: "enterprise",\n\t\tname: "Enterprise",\n\t\tdescription: "Advanced features for large organizations",\n\t\tprice: "$99/month",\n\t},\n];\n\nexport function Particle() {\n\treturn (\n\t\t<RadioGroup defaultValue="free" className="w-full max-w-md gap-3">\n\t\t\t{plans.map((plan) => (\n\t\t\t\t<label\n\t\t\t\t\tkey={plan.id}\n\t\t\t\t\thtmlFor={plan.id}\n\t\t\t\t\tclassName="relative flex items-start gap-3 p-3 border rounded-lg cursor-pointer transition-colors hover:bg-muted has-checked:border-primary has-checked:bg-muted"\n\t\t\t\t>\n\t\t\t\t\t<Radio value={plan.id} id={plan.id} className="mt-0.5" />\n\t\t\t\t\t<div className="flex-1">\n\t\t\t\t\t\t<div className="flex items-center justify-between">\n\t\t\t\t\t\t\t<span className="font-medium">{plan.name}</span>\n\t\t\t\t\t\t\t<span className="text-sm font-semibold">\n\t\t\t\t\t\t\t\t{plan.price}\n\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<p className="text-sm text-muted-foreground">\n\t\t\t\t\t\t\t{plan.description}\n\t\t\t\t\t\t</p>\n\t\t\t\t\t</div>\n\t\t\t\t</label>\n\t\t\t))}\n\t\t</RadioGroup>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-radio-card",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/radio/card/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-radio-disabled": {
+		name: "baseui-particles-radio-disabled",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-radio"],
+		files: [
+			{
+				path: "packages/baseui/particles/radio/disabled/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/radio-disabled.tsx",
+				content:
+					'import { Radio, RadioGroup } from "@/components/baseui/components/radio";\n\nexport function Particle() {\n\treturn (\n\t\t<RadioGroup defaultValue="option-one">\n\t\t\t<div className="flex items-center gap-2">\n\t\t\t\t<Radio value="option-one" id="option-one" />\n\t\t\t\t<label\n\t\t\t\t\thtmlFor="option-one"\n\t\t\t\t\tclassName="text-sm font-medium leading-none cursor-pointer"\n\t\t\t\t>\n\t\t\t\t\tOption One\n\t\t\t\t</label>\n\t\t\t</div>\n\t\t\t<div className="flex items-center gap-2">\n\t\t\t\t<Radio value="option-two" id="option-two" disabled />\n\t\t\t\t<label\n\t\t\t\t\thtmlFor="option-two"\n\t\t\t\t\tclassName="text-sm text-muted-foreground cursor-not-allowed"\n\t\t\t\t>\n\t\t\t\t\tOption Two (Disabled)\n\t\t\t\t</label>\n\t\t\t</div>\n\t\t</RadioGroup>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-radio-disabled",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/radio/disabled/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-radio": {
+		name: "baseui-particles-radio",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-radio"],
+		files: [
+			{
+				path: "packages/baseui/particles/radio/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/radio.tsx",
+				content:
+					'import { Radio, RadioGroup } from "@/components/baseui/components/radio";\n\nexport function Particle() {\n\treturn (\n\t\t<RadioGroup defaultValue="default">\n\t\t\t<div className="flex items-center gap-2">\n\t\t\t\t<Radio value="default" id="r1" />\n\t\t\t\t<label\n\t\t\t\t\thtmlFor="r1"\n\t\t\t\t\tclassName="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"\n\t\t\t\t>\n\t\t\t\t\tDefault\n\t\t\t\t</label>\n\t\t\t</div>\n\t\t\t<div className="flex items-center gap-2">\n\t\t\t\t<Radio value="comfortable" id="r2" />\n\t\t\t\t<label\n\t\t\t\t\thtmlFor="r2"\n\t\t\t\t\tclassName="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"\n\t\t\t\t>\n\t\t\t\t\tComfortable\n\t\t\t\t</label>\n\t\t\t</div>\n\t\t\t<div className="flex items-center gap-2">\n\t\t\t\t<Radio value="compact" id="r3" />\n\t\t\t\t<label\n\t\t\t\t\thtmlFor="r3"\n\t\t\t\t\tclassName="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"\n\t\t\t\t>\n\t\t\t\t\tCompact\n\t\t\t\t</label>\n\t\t\t</div>\n\t\t</RadioGroup>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-radio",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/radio/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-radio-with-description": {
+		name: "baseui-particles-radio-with-description",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-radio"],
+		files: [
+			{
+				path: "packages/baseui/particles/radio/with-description/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/radio-with-description.tsx",
+				content:
+					'import { Radio, RadioGroup } from "@/components/baseui/components/radio";\n\nexport function Particle() {\n\treturn (\n\t\t<RadioGroup defaultValue="all">\n\t\t\t<div className="flex items-start gap-2">\n\t\t\t\t<Radio value="all" id="all" className="mt-0.5" />\n\t\t\t\t<div className="flex flex-col gap-1">\n\t\t\t\t\t<label\n\t\t\t\t\t\thtmlFor="all"\n\t\t\t\t\t\tclassName="text-sm font-medium cursor-pointer"\n\t\t\t\t\t>\n\t\t\t\t\t\tAll new messages\n\t\t\t\t\t</label>\n\t\t\t\t\t<p className="text-xs text-muted-foreground">\n\t\t\t\t\t\tReceive notifications for all new messages.\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div className="flex items-start gap-2">\n\t\t\t\t<Radio value="mentions" id="mentions" className="mt-0.5" />\n\t\t\t\t<div className="flex flex-col gap-1">\n\t\t\t\t\t<label\n\t\t\t\t\t\thtmlFor="mentions"\n\t\t\t\t\t\tclassName="text-sm font-medium cursor-pointer"\n\t\t\t\t\t>\n\t\t\t\t\t\tMentions only\n\t\t\t\t\t</label>\n\t\t\t\t\t<p className="text-xs text-muted-foreground">\n\t\t\t\t\t\tOnly receive notifications when you\'re mentioned.\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div className="flex items-start gap-2">\n\t\t\t\t<Radio value="none" id="none" className="mt-0.5" />\n\t\t\t\t<div className="flex flex-col gap-1">\n\t\t\t\t\t<label\n\t\t\t\t\t\thtmlFor="none"\n\t\t\t\t\t\tclassName="text-sm font-medium cursor-pointer"\n\t\t\t\t\t>\n\t\t\t\t\t\tNothing\n\t\t\t\t\t</label>\n\t\t\t\t\t<p className="text-xs text-muted-foreground">\n\t\t\t\t\t\tDisable all notifications.\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</RadioGroup>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-radio-with-description",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/radio/with-description/index.tsx"
 				);
 				let Comp = mod.default;
 

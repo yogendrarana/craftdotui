@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-radio-with-description",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-radio"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/radio/with-description/index.tsx",
+			"content": "import { Radio, RadioGroup } from \"@/components/baseui/components/radio\";\n\nexport function Particle() {\n\treturn (\n\t\t<RadioGroup defaultValue=\"all\">\n\t\t\t<div className=\"flex items-start gap-2\">\n\t\t\t\t<Radio value=\"all\" id=\"all\" className=\"mt-0.5\" />\n\t\t\t\t<div className=\"flex flex-col gap-1\">\n\t\t\t\t\t<label\n\t\t\t\t\t\thtmlFor=\"all\"\n\t\t\t\t\t\tclassName=\"text-sm font-medium cursor-pointer\"\n\t\t\t\t\t>\n\t\t\t\t\t\tAll new messages\n\t\t\t\t\t</label>\n\t\t\t\t\t<p className=\"text-xs text-muted-foreground\">\n\t\t\t\t\t\tReceive notifications for all new messages.\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div className=\"flex items-start gap-2\">\n\t\t\t\t<Radio value=\"mentions\" id=\"mentions\" className=\"mt-0.5\" />\n\t\t\t\t<div className=\"flex flex-col gap-1\">\n\t\t\t\t\t<label\n\t\t\t\t\t\thtmlFor=\"mentions\"\n\t\t\t\t\t\tclassName=\"text-sm font-medium cursor-pointer\"\n\t\t\t\t\t>\n\t\t\t\t\t\tMentions only\n\t\t\t\t\t</label>\n\t\t\t\t\t<p className=\"text-xs text-muted-foreground\">\n\t\t\t\t\t\tOnly receive notifications when you're mentioned.\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div className=\"flex items-start gap-2\">\n\t\t\t\t<Radio value=\"none\" id=\"none\" className=\"mt-0.5\" />\n\t\t\t\t<div className=\"flex flex-col gap-1\">\n\t\t\t\t\t<label\n\t\t\t\t\t\thtmlFor=\"none\"\n\t\t\t\t\t\tclassName=\"text-sm font-medium cursor-pointer\"\n\t\t\t\t\t>\n\t\t\t\t\t\tNothing\n\t\t\t\t\t</label>\n\t\t\t\t\t<p className=\"text-xs text-muted-foreground\">\n\t\t\t\t\t\tDisable all notifications.\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</RadioGroup>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/radio-with-description.tsx"
+		}
+	],
+	"type": "registry:component"
+}

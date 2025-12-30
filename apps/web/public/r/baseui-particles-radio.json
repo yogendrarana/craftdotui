@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-radio",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-radio"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/radio/index.tsx",
+			"content": "import { Radio, RadioGroup } from \"@/components/baseui/components/radio\";\n\nexport function Particle() {\n\treturn (\n\t\t<RadioGroup defaultValue=\"default\">\n\t\t\t<div className=\"flex items-center gap-2\">\n\t\t\t\t<Radio value=\"default\" id=\"r1\" />\n\t\t\t\t<label\n\t\t\t\t\thtmlFor=\"r1\"\n\t\t\t\t\tclassName=\"text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70\"\n\t\t\t\t>\n\t\t\t\t\tDefault\n\t\t\t\t</label>\n\t\t\t</div>\n\t\t\t<div className=\"flex items-center gap-2\">\n\t\t\t\t<Radio value=\"comfortable\" id=\"r2\" />\n\t\t\t\t<label\n\t\t\t\t\thtmlFor=\"r2\"\n\t\t\t\t\tclassName=\"text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70\"\n\t\t\t\t>\n\t\t\t\t\tComfortable\n\t\t\t\t</label>\n\t\t\t</div>\n\t\t\t<div className=\"flex items-center gap-2\">\n\t\t\t\t<Radio value=\"compact\" id=\"r3\" />\n\t\t\t\t<label\n\t\t\t\t\thtmlFor=\"r3\"\n\t\t\t\t\tclassName=\"text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70\"\n\t\t\t\t>\n\t\t\t\t\tCompact\n\t\t\t\t</label>\n\t\t\t</div>\n\t\t</RadioGroup>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/radio.tsx"
+		}
+	],
+	"type": "registry:component"
+}

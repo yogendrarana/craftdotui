@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-radio",
+	"description": "A Base UI radio component",
+	"dependencies": ["@base-ui/react"],
+	"registryDependencies": ["@craftdotui/utils"],
+	"files": [
+		{
+			"path": "packages/baseui/components/radio/index.tsx",
+			"content": "\"use client\";\n\nimport { Radio as RadioPrimitive } from \"@base-ui/react/radio\";\nimport { RadioGroup as RadioGroupPrimitive } from \"@base-ui/react/radio-group\";\nimport { cn } from \"@/lib/utils\";\n\n/* -------------------------------------------------------------------------- */\n/* Radio Group                                                                */\n/* -------------------------------------------------------------------------- */\n\nfunction RadioGroup({ className, ...props }: RadioGroupPrimitive.Props) {\n\treturn (\n\t\t<RadioGroupPrimitive\n\t\t\tclassName={cn(\"flex flex-col gap-2\", className)}\n\t\t\tdata-slot=\"radio-group\"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Radio Indicator                                                            */\n/* -------------------------------------------------------------------------- */\n\nfunction RadioIndicator({\n\tclassName,\n\t...props\n}: RadioPrimitive.Indicator.Props) {\n\treturn (\n\t\t<RadioPrimitive.Indicator\n\t\t\tclassName={cn(\n\t\t\t\t\"flex items-center justify-center\",\n\t\t\t\t\"data-[state=checked]:after:block after:h-2 after:w-2 after:rounded-full after:bg-primary after:content-['']\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot=\"radio-indicator\"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Radio                                                                      */\n/* -------------------------------------------------------------------------- */\n\nfunction Radio({ className, ...props }: RadioPrimitive.Root.Props) {\n\treturn (\n\t\t<RadioPrimitive.Root\n\t\t\tclassName={cn(\n\t\t\t\t\"aspect-square h-4 w-4\",\n\t\t\t\t\"flex items-center justify-center\",\n\t\t\t\t\"rounded-full border border-border bg-background transition-colors\",\n\t\t\t\t\"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/20 focus-visible:ring-offset-1\",\n\t\t\t\t\"disabled:cursor-not-allowed disabled:opacity-50\",\n\t\t\t\t\"data-checked:border-primary\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot=\"radio\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<RadioIndicator />\n\t\t</RadioPrimitive.Root>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport { RadioGroup, Radio };\n",
+			"type": "registry:component",
+			"target": "components/baseui/components/radio.tsx"
+		}
+	],
+	"type": "registry:component"
+}
