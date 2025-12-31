@@ -3606,6 +3606,55 @@ export const Registry: Record<string, any> = {
 			return LazyComp;
 		})(),
 	},
+	"baseui-slider": {
+		name: "baseui-slider",
+		description: "A Base UI slider component",
+		type: "registry:component",
+		dependencies: ["@base-ui/react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/utils"],
+		files: [
+			{
+				path: "packages/baseui/components/slider/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/slider.tsx",
+				content:
+					'"use client";\n\nimport { Slider as SliderPrimitive } from "@base-ui/react/slider";\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Slider                                                                     */\n/* -------------------------------------------------------------------------- */\n\nfunction Slider({ className, ...props }: SliderPrimitive.Root.Props) {\n\treturn (\n\t\t<SliderPrimitive.Root\n\t\t\tclassName={cn(\n\t\t\t\t"w-full",\n\t\t\t\t"flex flex-col gap-2",\n\t\t\t\t"data-[orientation=vertical]:h-full data-[orientation=vertical]:min-h-44",\n\t\t\t\t"data-[orientation=vertical]:flex-row data-[orientation=vertical]:gap-4",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="slider"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Slider Value                                                               */\n/* -------------------------------------------------------------------------- */\n\nfunction SliderValue({ className, ...props }: SliderPrimitive.Value.Props) {\n\treturn (\n\t\t<SliderPrimitive.Value\n\t\t\tclassName={cn("text-xs text-muted-foreground", className)}\n\t\t\tdata-slot="slider-value"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Slider Control                                                             */\n/* -------------------------------------------------------------------------- */\n\nfunction SliderControl({ className, ...props }: SliderPrimitive.Control.Props) {\n\treturn (\n\t\t<SliderPrimitive.Control\n\t\t\tclassName={cn(\n\t\t\t\t"w-full",\n\t\t\t\t"flex items-center",\n\t\t\t\t"data-[orientation=vertical]:h-full data-[orientation=vertical]:w-auto",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="slider-control"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Slider Track                                                               */\n/* -------------------------------------------------------------------------- */\n\nfunction SliderTrack({ className, ...props }: SliderPrimitive.Track.Props) {\n\treturn (\n\t\t<SliderPrimitive.Track\n\t\t\tclassName={cn(\n\t\t\t\t"h-1 w-full",\n\t\t\t\t"flex items-center",\n\t\t\t\t"relative rounded-full bg-input",\n\t\t\t\t"data-[orientation=vertical]:h-full data-[orientation=vertical]:w-1",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="slider-track"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Slider Indicator                                                           */\n/* -------------------------------------------------------------------------- */\n\nfunction SliderIndicator({\n\tclassName,\n\t...props\n}: SliderPrimitive.Indicator.Props) {\n\treturn (\n\t\t<SliderPrimitive.Indicator\n\t\t\tclassName={cn(\n\t\t\t\t"h-full w-full",\n\t\t\t\t"rounded-full bg-primary",\n\t\t\t\t"data-[orientation=vertical]:w-full data-[orientation=vertical]:h-full",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="slider-indicator"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Slider Thumb                                                               */\n/* -------------------------------------------------------------------------- */\n\nfunction SliderThumb({ className, ...props }: SliderPrimitive.Thumb.Props) {\n\treturn (\n\t\t<SliderPrimitive.Thumb\n\t\t\tclassName={cn(\n\t\t\t\t"h-4 w-4",\n\t\t\t\t"flex items-center justify-center",\n\t\t\t\t"rounded-full border border-input bg-white outline-none shadow-xs transition-shadow",\n\t\t\t\t"focus-visible:ring-2 focus-visible:ring-ring/20 focus-visible:ring-offset-1",\n\t\t\t\t"disabled:cursor-not-allowed disabled:opacity-50",\n\t\t\t\t"data-dragging:ring-[3px] data-dragging:ring-ring/10",\n\t\t\t\t"dark:data-dragging:ring-ring/50 dark:border-background",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="slider-thumb"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport {\n\tSlider,\n\tSliderValue,\n\tSliderControl,\n\tSliderTrack,\n\tSliderIndicator,\n\tSliderThumb,\n};',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-slider",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/components/slider/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
 	"baseui-particles-accordion-controlled": {
 		name: "baseui-particles-accordion-controlled",
 		description: "Controlled accordion with programmatic state management",
@@ -6476,6 +6525,251 @@ export const Registry: Record<string, any> = {
 			const LazyComp = React.lazy(async () => {
 				const mod = await import(
 					"@craftdotui/baseui/particles/separator/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-slider-disabled": {
+		name: "baseui-particles-slider-disabled",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-slider"],
+		files: [
+			{
+				path: "packages/baseui/particles/slider/disabled/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/slider-disabled.tsx",
+				content:
+					'import {\n\tSlider,\n\tSliderValue,\n\tSliderControl,\n\tSliderTrack,\n\tSliderIndicator,\n\tSliderThumb,\n} from "@/components/baseui/components/slider";\n\nexport function Particle() {\n\treturn (\n\t\t<Slider defaultValue={70} disabled className="w-full max-w-sm">\n\t\t\t<SliderValue />\n\t\t\t<SliderControl>\n\t\t\t\t<SliderTrack>\n\t\t\t\t\t<SliderIndicator />\n\t\t\t\t\t<SliderThumb />\n\t\t\t\t</SliderTrack>\n\t\t\t</SliderControl>\n\t\t</Slider>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-slider-disabled",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/slider/disabled/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-slider-range": {
+		name: "baseui-particles-slider-range",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-slider"],
+		files: [
+			{
+				path: "packages/baseui/particles/slider/range/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/slider-range.tsx",
+				content:
+					'import {\n\tSlider,\n\tSliderControl,\n\tSliderTrack,\n\tSliderIndicator,\n\tSliderThumb,\n} from "@/components/baseui/components/slider";\n\nexport function Particle() {\n\treturn (\n\t\t<Slider defaultValue={[25, 75]} className="w-full max-w-sm">\n\t\t\t<SliderControl>\n\t\t\t\t<SliderTrack>\n\t\t\t\t\t<SliderIndicator />\n\t\t\t\t\t<SliderThumb index={0} />\n\t\t\t\t\t<SliderThumb index={1} />\n\t\t\t\t</SliderTrack>\n\t\t\t</SliderControl>\n\t\t</Slider>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-slider-range",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/slider/range/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-slider": {
+		name: "baseui-particles-slider",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-slider"],
+		files: [
+			{
+				path: "packages/baseui/particles/slider/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/slider.tsx",
+				content:
+					'import {\n\tSlider,\n\tSliderControl,\n\tSliderTrack,\n\tSliderIndicator,\n\tSliderThumb,\n} from "@/components/baseui/components/slider";\n\nexport function Particle() {\n\treturn (\n\t\t<Slider defaultValue={50} className="w-full max-w-sm">\n\t\t\t<SliderControl>\n\t\t\t\t<SliderTrack>\n\t\t\t\t\t<SliderIndicator />\n\t\t\t\t\t<SliderThumb />\n\t\t\t\t</SliderTrack>\n\t\t\t</SliderControl>\n\t\t</Slider>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-slider",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/slider/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-slider-vertical": {
+		name: "baseui-particles-slider-vertical",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-slider"],
+		files: [
+			{
+				path: "packages/baseui/particles/slider/vertical/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/slider-vertical.tsx",
+				content:
+					'import {\n\tSlider,\n\tSliderControl,\n\tSliderTrack,\n\tSliderIndicator,\n\tSliderThumb,\n} from "@/components/baseui/components/slider";\n\nexport function Particle() {\n\treturn (\n\t\t<div className="h-40 flex items-center justify-center">\n\t\t\t<Slider defaultValue={50} orientation="vertical" className="h-full">\n\t\t\t\t<SliderControl>\n\t\t\t\t\t<SliderTrack>\n\t\t\t\t\t\t<SliderIndicator />\n\t\t\t\t\t\t<SliderThumb />\n\t\t\t\t\t</SliderTrack>\n\t\t\t\t</SliderControl>\n\t\t\t</Slider>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-slider-vertical",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/slider/vertical/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-slider-with-label-and-value": {
+		name: "baseui-particles-slider-with-label-and-value",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-slider"],
+		files: [
+			{
+				path: "packages/baseui/particles/slider/with-label-and-value/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/slider-with-label-and-value.tsx",
+				content:
+					'"use client";\n\nimport { useState } from "react";\nimport {\n\tSlider,\n\tSliderControl,\n\tSliderTrack,\n\tSliderIndicator,\n\tSliderThumb,\n} from "@/components/baseui/components/slider";\n\nexport function Particle() {\n\tconst [value, setValue] = useState(50);\n\n\treturn (\n\t\t<div className="w-full max-w-sm flex flex-col gap-4">\n\t\t\t<div className="flex items-center justify-between">\n\t\t\t\t<span className="text-sm font-medium">Volume</span>\n\t\t\t\t<span className="text-sm text-muted-foreground">{value}%</span>\n\t\t\t</div>\n\t\t\t<Slider\n\t\t\t\tvalue={value}\n\t\t\t\tonValueChange={(val) => setValue(val as number)}\n\t\t\t\tclassName="w-full"\n\t\t\t>\n\t\t\t\t<SliderControl>\n\t\t\t\t\t<SliderTrack>\n\t\t\t\t\t\t<SliderIndicator />\n\t\t\t\t\t\t<SliderThumb />\n\t\t\t\t\t</SliderTrack>\n\t\t\t\t</SliderControl>\n\t\t\t</Slider>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-slider-with-label-and-value",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/slider/with-label-and-value/index.tsx"
 				);
 				let Comp = mod.default;
 

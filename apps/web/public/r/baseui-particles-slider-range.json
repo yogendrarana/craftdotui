@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-slider-range",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-slider"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/slider/range/index.tsx",
+			"content": "import {\n\tSlider,\n\tSliderControl,\n\tSliderTrack,\n\tSliderIndicator,\n\tSliderThumb,\n} from \"@/components/baseui/components/slider\";\n\nexport function Particle() {\n\treturn (\n\t\t<Slider defaultValue={[25, 75]} className=\"w-full max-w-sm\">\n\t\t\t<SliderControl>\n\t\t\t\t<SliderTrack>\n\t\t\t\t\t<SliderIndicator />\n\t\t\t\t\t<SliderThumb index={0} />\n\t\t\t\t\t<SliderThumb index={1} />\n\t\t\t\t</SliderTrack>\n\t\t\t</SliderControl>\n\t\t</Slider>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/slider-range.tsx"
+		}
+	],
+	"type": "registry:component"
+}

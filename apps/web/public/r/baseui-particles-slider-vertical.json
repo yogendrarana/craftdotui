@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-slider-vertical",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-slider"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/slider/vertical/index.tsx",
+			"content": "import {\n\tSlider,\n\tSliderControl,\n\tSliderTrack,\n\tSliderIndicator,\n\tSliderThumb,\n} from \"@/components/baseui/components/slider\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"h-40 flex items-center justify-center\">\n\t\t\t<Slider defaultValue={50} orientation=\"vertical\" className=\"h-full\">\n\t\t\t\t<SliderControl>\n\t\t\t\t\t<SliderTrack>\n\t\t\t\t\t\t<SliderIndicator />\n\t\t\t\t\t\t<SliderThumb />\n\t\t\t\t\t</SliderTrack>\n\t\t\t\t</SliderControl>\n\t\t\t</Slider>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/slider-vertical.tsx"
+		}
+	],
+	"type": "registry:component"
+}
