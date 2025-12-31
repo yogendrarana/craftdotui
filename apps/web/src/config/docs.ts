@@ -152,6 +152,10 @@ export const docsNavItems: Array<DocsNavItem> = [
 				title: "Separator",
 				href: "/docs/baseui/components/separator",
 			},
+			{
+				title: "Slider",
+				href: "/docs/baseui/components/slider",
+			},
 		],
 	},
 

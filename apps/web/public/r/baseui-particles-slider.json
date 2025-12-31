@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-slider",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-slider"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/slider/index.tsx",
+			"content": "import {\n\tSlider,\n\tSliderControl,\n\tSliderTrack,\n\tSliderIndicator,\n\tSliderThumb,\n} from \"@/components/baseui/components/slider\";\n\nexport function Particle() {\n\treturn (\n\t\t<Slider defaultValue={50} className=\"w-full max-w-sm\">\n\t\t\t<SliderControl>\n\t\t\t\t<SliderTrack>\n\t\t\t\t\t<SliderIndicator />\n\t\t\t\t\t<SliderThumb />\n\t\t\t\t</SliderTrack>\n\t\t\t</SliderControl>\n\t\t</Slider>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/slider.tsx"
+		}
+	],
+	"type": "registry:component"
+}

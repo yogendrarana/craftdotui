@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-slider-with-label-and-value",
+	"type": "registry:component",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-slider"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/slider/with-label-and-value/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/particles/slider-with-label-and-value.tsx"
+		}
+	]
+}
