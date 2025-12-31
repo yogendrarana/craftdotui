@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-switch-with-label",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-switch"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/switch/with-label/index.tsx",
+			"content": "import { Switch } from \"@/components/baseui/components/switch\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"flex items-start space-x-2\">\n\t\t\t<Switch id=\"marketing-emails\" defaultChecked />\n\t\t\t<div className=\"grid gap-1.5 leading-none\">\n\t\t\t\t<label\n\t\t\t\t\thtmlFor=\"marketing-emails\"\n\t\t\t\t\tclassName=\"font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70\"\n\t\t\t\t>\n\t\t\t\t\tMarketing emails\n\t\t\t\t</label>\n\t\t\t\t<p className=\"text-xs text-muted-foreground\">\n\t\t\t\t\tReceive emails about new products, features, and more.\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/switch-with-label.tsx"
+		}
+	],
+	"type": "registry:component"
+}

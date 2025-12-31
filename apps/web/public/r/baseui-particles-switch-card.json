@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-switch-card",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-switch"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/switch/card/index.tsx",
+			"content": "\"use client\";\n\nimport { useState } from \"react\";\nimport { Switch } from \"@/components/baseui/components/switch\";\n\nconst items = [\n\t{\n\t\tid: \"notifications\",\n\t\ttitle: \"Notifications\",\n\t\tdescription: \"Receive daily digest emails.\",\n\t},\n\t{\n\t\tid: \"marketing\",\n\t\ttitle: \"Marketing\",\n\t\tdescription: \"Receive emails about new products.\",\n\t},\n\t{\n\t\tid: \"security\",\n\t\ttitle: \"Security\",\n\t\tdescription: \"Receive emails about account activity.\",\n\t},\n];\n\nexport function Particle() {\n\tconst [selected, setSelected] = useState<string[]>([\"notifications\"]);\n\n\tconst toggle = (id: string) => {\n\t\tsetSelected((prev) =>\n\t\t\tprev.includes(id)\n\t\t\t\t? prev.filter((item) => item !== id)\n\t\t\t\t: [...prev, id],\n\t\t);\n\t};\n\n\treturn (\n\t\t<div className=\"w-full max-w-md space-y-3\">\n\t\t\t{items.map((item) => (\n\t\t\t\t<div\n\t\t\t\t\tkey={item.id}\n\t\t\t\t\tclassName=\"flex flex-row items-center justify-between rounded-lg border p-4\"\n\t\t\t\t>\n\t\t\t\t\t<div className=\"space-y-0.5\">\n\t\t\t\t\t\t<label\n\t\t\t\t\t\t\thtmlFor={item.id}\n\t\t\t\t\t\t\tclassName=\"text-base font-medium cursor-pointer\"\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t{item.title}\n\t\t\t\t\t\t</label>\n\t\t\t\t\t\t<p className=\"text-sm text-muted-foreground\">\n\t\t\t\t\t\t\t{item.description}\n\t\t\t\t\t\t</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<Switch\n\t\t\t\t\t\tid={item.id}\n\t\t\t\t\t\tchecked={selected.includes(item.id)}\n\t\t\t\t\t\tonCheckedChange={() => toggle(item.id)}\n\t\t\t\t\t/>\n\t\t\t\t</div>\n\t\t\t))}\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/switch-card.tsx"
+		}
+	],
+	"type": "registry:component"
+}

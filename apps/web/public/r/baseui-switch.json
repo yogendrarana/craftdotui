@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-switch",
+	"description": "A Base UI switch component",
+	"dependencies": ["@base-ui/react"],
+	"registryDependencies": ["@craftdotui/utils"],
+	"files": [
+		{
+			"path": "packages/baseui/components/switch/index.tsx",
+			"content": "\"use client\";\n\nimport { Switch as SwitchPrimitive } from \"@base-ui/react/switch\";\nimport { cn } from \"@/lib/utils\";\n\n/* -------------------------------------------------------------------------- */\n/* Switch                                                                     */\n/* -------------------------------------------------------------------------- */\n\nfunction Switch({ className, ...props }: SwitchPrimitive.Root.Props) {\n\treturn (\n\t\t<SwitchPrimitive.Root\n\t\t\tclassName={cn(\n\t\t\t\t\"h-5 w-9 p-0.5\",\n\t\t\t\t\"inline-flex items-center rounded-full\",\n\t\t\t\t\"bg-input transition-colors\",\n\t\t\t\t\"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/20 focus-visible:ring-offset-1\",\n\t\t\t\t\"disabled:cursor-not-allowed disabled:opacity-50\",\n\t\t\t\t\"data-checked:bg-primary\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot=\"switch\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<SwitchThumb />\n\t\t</SwitchPrimitive.Root>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Switch Thumb                                                               */\n/* -------------------------------------------------------------------------- */\n\nfunction SwitchThumb({ className, ...props }: SwitchPrimitive.Thumb.Props) {\n\treturn (\n\t\t<SwitchPrimitive.Thumb\n\t\t\tclassName={cn(\n\t\t\t\t\"h-4 w-4\",\n\t\t\t\t\"block rounded-full bg-background shadow-xs transition-transform\",\n\t\t\t\t\"data-checked:translate-x-4\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot=\"switch-thumb\"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport { Switch };\n",
+			"type": "registry:component",
+			"target": "components/baseui/components/switch.tsx"
+		}
+	],
+	"type": "registry:component"
+}

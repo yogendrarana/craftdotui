@@ -1056,6 +1056,20 @@
 			]
 		},
 		{
+			"name": "baseui-switch",
+			"type": "registry:component",
+			"description": "A Base UI switch component",
+			"dependencies": ["@base-ui/react"],
+			"registryDependencies": ["@craftdotui/utils"],
+			"files": [
+				{
+					"path": "packages/baseui/components/switch/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/switch.tsx"
+				}
+			]
+		},
+		{
 			"name": "baseui-particles-accordion-controlled",
 			"type": "registry:component",
 			"description": "Controlled accordion with programmatic state management",
@@ -1951,6 +1965,62 @@
 					"path": "packages/baseui/particles/slider/with-label-and-value/index.tsx",
 					"type": "registry:component",
 					"target": "components/baseui/particles/slider-with-label-and-value.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-switch-card",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-switch"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/switch/card/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/switch-card.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-switch-disabled",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-switch"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/switch/disabled/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/switch-disabled.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-switch",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-switch"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/switch/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/switch.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-switch-with-label",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-switch"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/switch/with-label/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/switch-with-label.tsx"
 				}
 			]
 		},

@@ -3655,6 +3655,55 @@ export const Registry: Record<string, any> = {
 			return LazyComp;
 		})(),
 	},
+	"baseui-switch": {
+		name: "baseui-switch",
+		description: "A Base UI switch component",
+		type: "registry:component",
+		dependencies: ["@base-ui/react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/utils"],
+		files: [
+			{
+				path: "packages/baseui/components/switch/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/switch.tsx",
+				content:
+					'"use client";\n\nimport { Switch as SwitchPrimitive } from "@base-ui/react/switch";\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Switch                                                                     */\n/* -------------------------------------------------------------------------- */\n\nfunction Switch({ className, ...props }: SwitchPrimitive.Root.Props) {\n\treturn (\n\t\t<SwitchPrimitive.Root\n\t\t\tclassName={cn(\n\t\t\t\t"h-5 w-9 p-0.5",\n\t\t\t\t"inline-flex items-center rounded-full",\n\t\t\t\t"bg-input transition-colors",\n\t\t\t\t"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/20 focus-visible:ring-offset-1",\n\t\t\t\t"disabled:cursor-not-allowed disabled:opacity-50",\n\t\t\t\t"data-checked:bg-primary",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="switch"\n\t\t\t{...props}\n\t\t>\n\t\t\t<SwitchThumb />\n\t\t</SwitchPrimitive.Root>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Switch Thumb                                                               */\n/* -------------------------------------------------------------------------- */\n\nfunction SwitchThumb({ className, ...props }: SwitchPrimitive.Thumb.Props) {\n\treturn (\n\t\t<SwitchPrimitive.Thumb\n\t\t\tclassName={cn(\n\t\t\t\t"h-4 w-4",\n\t\t\t\t"block rounded-full bg-background shadow-xs transition-transform",\n\t\t\t\t"data-checked:translate-x-4",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="switch-thumb"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport { Switch };',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-switch",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/components/switch/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
 	"baseui-particles-accordion-controlled": {
 		name: "baseui-particles-accordion-controlled",
 		description: "Controlled accordion with programmatic state management",
@@ -6770,6 +6819,202 @@ export const Registry: Record<string, any> = {
 			const LazyComp = React.lazy(async () => {
 				const mod = await import(
 					"@craftdotui/baseui/particles/slider/with-label-and-value/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-switch-card": {
+		name: "baseui-particles-switch-card",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-switch"],
+		files: [
+			{
+				path: "packages/baseui/particles/switch/card/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/switch-card.tsx",
+				content:
+					'"use client";\n\nimport { useState } from "react";\nimport { Switch } from "@/components/baseui/components/switch";\n\nconst items = [\n\t{\n\t\tid: "notifications",\n\t\ttitle: "Notifications",\n\t\tdescription: "Receive daily digest emails.",\n\t},\n\t{\n\t\tid: "marketing",\n\t\ttitle: "Marketing",\n\t\tdescription: "Receive emails about new products.",\n\t},\n\t{\n\t\tid: "security",\n\t\ttitle: "Security",\n\t\tdescription: "Receive emails about account activity.",\n\t},\n];\n\nexport function Particle() {\n\tconst [selected, setSelected] = useState<string[]>(["notifications"]);\n\n\tconst toggle = (id: string) => {\n\t\tsetSelected((prev) =>\n\t\t\tprev.includes(id)\n\t\t\t\t? prev.filter((item) => item !== id)\n\t\t\t\t: [...prev, id],\n\t\t);\n\t};\n\n\treturn (\n\t\t<div className="w-full max-w-md space-y-3">\n\t\t\t{items.map((item) => (\n\t\t\t\t<div\n\t\t\t\t\tkey={item.id}\n\t\t\t\t\tclassName="flex flex-row items-center justify-between rounded-lg border p-4"\n\t\t\t\t>\n\t\t\t\t\t<div className="space-y-0.5">\n\t\t\t\t\t\t<label\n\t\t\t\t\t\t\thtmlFor={item.id}\n\t\t\t\t\t\t\tclassName="text-base font-medium cursor-pointer"\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t{item.title}\n\t\t\t\t\t\t</label>\n\t\t\t\t\t\t<p className="text-sm text-muted-foreground">\n\t\t\t\t\t\t\t{item.description}\n\t\t\t\t\t\t</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<Switch\n\t\t\t\t\t\tid={item.id}\n\t\t\t\t\t\tchecked={selected.includes(item.id)}\n\t\t\t\t\t\tonCheckedChange={() => toggle(item.id)}\n\t\t\t\t\t/>\n\t\t\t\t</div>\n\t\t\t))}\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-switch-card",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/switch/card/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-switch-disabled": {
+		name: "baseui-particles-switch-disabled",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-switch"],
+		files: [
+			{
+				path: "packages/baseui/particles/switch/disabled/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/switch-disabled.tsx",
+				content:
+					'import { Switch } from "@/components/baseui/components/switch";\n\nexport function Particle() {\n\treturn (\n\t\t<div className="flex items-center space-x-2">\n\t\t\t<Switch id="disabled-mode" disabled />\n\t\t\t<label\n\t\t\t\thtmlFor="disabled-mode"\n\t\t\t\tclassName="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"\n\t\t\t>\n\t\t\t\tDisabled\n\t\t\t</label>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-switch-disabled",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/switch/disabled/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-switch": {
+		name: "baseui-particles-switch",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-switch"],
+		files: [
+			{
+				path: "packages/baseui/particles/switch/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/switch.tsx",
+				content:
+					'import { Switch } from "@/components/baseui/components/switch";\n\nexport function Particle() {\n\treturn (\n\t\t<div className="flex items-center space-x-2">\n\t\t\t<Switch id="airplane-mode" />\n\t\t\t<label htmlFor="airplane-mode" className="text-sm font-medium">\n\t\t\t\tAirplane Mode\n\t\t\t</label>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-switch",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/switch/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-switch-with-label": {
+		name: "baseui-particles-switch-with-label",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-switch"],
+		files: [
+			{
+				path: "packages/baseui/particles/switch/with-label/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/switch-with-label.tsx",
+				content:
+					'import { Switch } from "@/components/baseui/components/switch";\n\nexport function Particle() {\n\treturn (\n\t\t<div className="flex items-start space-x-2">\n\t\t\t<Switch id="marketing-emails" defaultChecked />\n\t\t\t<div className="grid gap-1.5 leading-none">\n\t\t\t\t<label\n\t\t\t\t\thtmlFor="marketing-emails"\n\t\t\t\t\tclassName="font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70"\n\t\t\t\t>\n\t\t\t\t\tMarketing emails\n\t\t\t\t</label>\n\t\t\t\t<p className="text-xs text-muted-foreground">\n\t\t\t\t\tReceive emails about new products, features, and more.\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-switch-with-label",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/switch/with-label/index.tsx"
 				);
 				let Comp = mod.default;
 

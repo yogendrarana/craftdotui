@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-switch",
+	"type": "registry:component",
+	"description": "A Base UI switch component",
+	"dependencies": ["@base-ui/react"],
+	"registryDependencies": ["@craftdotui/utils"],
+	"files": [
+		{
+			"path": "packages/baseui/components/switch/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/components/switch.tsx"
+		}
+	]
+}

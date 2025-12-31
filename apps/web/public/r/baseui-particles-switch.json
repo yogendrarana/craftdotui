@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-switch",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-switch"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/switch/index.tsx",
+			"content": "import { Switch } from \"@/components/baseui/components/switch\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"flex items-center space-x-2\">\n\t\t\t<Switch id=\"airplane-mode\" />\n\t\t\t<label htmlFor=\"airplane-mode\" className=\"text-sm font-medium\">\n\t\t\t\tAirplane Mode\n\t\t\t</label>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/switch.tsx"
+		}
+	],
+	"type": "registry:component"
+}

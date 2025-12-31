@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-switch-disabled",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-switch"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/switch/disabled/index.tsx",
+			"content": "import { Switch } from \"@/components/baseui/components/switch\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"flex items-center space-x-2\">\n\t\t\t<Switch id=\"disabled-mode\" disabled />\n\t\t\t<label\n\t\t\t\thtmlFor=\"disabled-mode\"\n\t\t\t\tclassName=\"text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70\"\n\t\t\t>\n\t\t\t\tDisabled\n\t\t\t</label>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/switch-disabled.tsx"
+		}
+	],
+	"type": "registry:component"
+}
