@@ -3704,6 +3704,55 @@ export const Registry: Record<string, any> = {
 			return LazyComp;
 		})(),
 	},
+	"baseui-tabs": {
+		name: "baseui-tabs",
+		description: "A Base UI tabs component",
+		type: "registry:component",
+		dependencies: ["@base-ui/react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/utils"],
+		files: [
+			{
+				path: "packages/baseui/components/tabs/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/tabs.tsx",
+				content:
+					'"use client";\n\nimport { Tabs as TabsPrimitive } from "@base-ui/react/tabs";\nimport { cva, type VariantProps } from "class-variance-authority";\nimport { createContext, useContext } from "react";\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Tabs Root                                                                  */\n/* -------------------------------------------------------------------------- */\n\nfunction Tabs({ className, ...props }: TabsPrimitive.Root.Props) {\n\treturn (\n\t\t<TabsPrimitive.Root\n\t\t\tclassName={cn(\n\t\t\t\t"flex flex-col gap-2 data-[orientation=vertical]:flex-row",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="tabs"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Tabs List                                                                  */\n/* -------------------------------------------------------------------------- */\n\ninterface TabsListProps extends TabsPrimitive.List.Props {\n\ttabsListFullWidth?: boolean;\n\thideIndicator?: boolean;\n\tvariant?: VariantProps<typeof tabsListVariants>["variant"];\n\ttabShape?: VariantProps<typeof tabsTabVariants>["shape"];\n\ttabSize?: VariantProps<typeof tabsTabVariants>["size"];\n\ttabVariant?: VariantProps<typeof tabsTabVariants>["variant"];\n}\n\nconst TabsListContext = createContext<TabsListProps>({});\n\nconst tabsListVariants = cva(\n\t[\n\t\t"w-fit p-1 z-0",\n\t\t"relative flex gap-1 items-center text-muted-foreground rounded-lg",\n\t\t"data-[orientation=vertical]:flex-col data-[orientation=vertical]:justify-start",\n\t],\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault: "bg-muted border border-border/50 border-dashed",\n\t\t\t\toutlined: "border border-border",\n\t\t\t\tghost: "data-[orientation=vertical]:px-1 data-[orientation=horizontal]:py-1 *:data-[slot=tabs-trigger]:hover:bg-accent",\n\t\t\t},\n\t\t\ttabsListFullWidth: {\n\t\t\t\ttrue: "w-full",\n\t\t\t\tfalse: "",\n\t\t\t},\n\t\t},\n\t\tcompoundVariants: [\n\t\t\t{\n\t\t\t\tvariant: ["ghost"],\n\t\t\t\tclassName: "*:data-[slot=tabs-tab]:hover:bg-accent",\n\t\t\t},\n\t\t],\n\t\tdefaultVariants: {\n\t\t\tvariant: "default",\n\t\t\ttabsListFullWidth: false,\n\t\t},\n\t},\n);\n\nfunction TabsList({\n\tvariant = "default",\n\ttabsListFullWidth = false,\n\thideIndicator = false,\n\ttabShape = "default",\n\ttabSize = "md",\n\ttabVariant = "default",\n\tclassName,\n\tchildren,\n\t...props\n}: TabsListProps) {\n\treturn (\n\t\t<TabsListContext.Provider\n\t\t\tvalue={{\n\t\t\t\tvariant,\n\t\t\t\ttabsListFullWidth,\n\t\t\t\ttabShape,\n\t\t\t\ttabSize,\n\t\t\t\ttabVariant,\n\t\t\t}}\n\t\t>\n\t\t\t<TabsPrimitive.List\n\t\t\t\tclassName={cn(\n\t\t\t\t\ttabsListVariants({\n\t\t\t\t\t\tvariant,\n\t\t\t\t\t\ttabsListFullWidth,\n\t\t\t\t\t}),\n\t\t\t\t\ttabShape === "pill" &&\n\t\t\t\t\t\t"data-[orientation=horizontal]:rounded-full",\n\t\t\t\t\tvariant === "ghost" &&\n\t\t\t\t\t\t"data-[orientation=horizontal]:border-b rounded-none w-full",\n\t\t\t\t\tclassName,\n\t\t\t\t)}\n\t\t\t\tdata-slot="tabs-list"\n\t\t\t\t{...props}\n\t\t\t>\n\t\t\t\t{children}\n\t\t\t\t{!hideIndicator && <TabsIndicator />}\n\t\t\t</TabsPrimitive.List>\n\t\t</TabsListContext.Provider>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Tabs Indicator                                                             */\n/* -------------------------------------------------------------------------- */\n\nfunction TabsIndicator() {\n\tconst { variant, tabShape } = useContext(TabsListContext);\n\t// data-active:bg-background data-active:border-border data-active:shadow-sm data-active:text-foreground\n\treturn (\n\t\t<TabsPrimitive.Indicator\n\t\t\tdata-slot="tab-indicator"\n\t\t\tclassName={cn(\n\t\t\t\t"absolute bottom-0 left-0",\n\t\t\t\t"bg-background text-foreground",\n\t\t\t\t"h-(--active-tab-height) w-(--active-tab-width) translate-x-(--active-tab-left) -translate-y-(--active-tab-bottom)",\n\t\t\t\t"transition-[width,translate] duration-200 ease-in-out",\n\t\t\t\t// conditional styling\n\t\t\t\tvariant === "ghost" &&\n\t\t\t\t\t"data-[orientation=vertical]:-translate-x-px z-10 bg-primary data-[orientation=horizontal]:h-0.5 data-[orientation=vertical]:w-0.5 data-[orientation=horizontal]:translate-y-px",\n\t\t\t\tvariant !== "ghost" &&\n\t\t\t\t\t"-z-1 rounded-md bg-background shadow-sm text-foreground border border-border",\n\t\t\t\ttabShape === "pill" && "rounded-full",\n\t\t\t)}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Tabs Tab                                                                   */\n/* -------------------------------------------------------------------------- */\n\nconst tabsTabVariants = cva(\n\t[\n\t\t"relative inline-flex items-center justify-center gap-2 z-10 rounded-md",\n\t\t"cursor-pointer font-medium text-muted-foreground border border-transparent transition-[color,background-color,box-shadow]",\n\t\t"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",\n\t\t"disabled:pointer-events-none disabled:opacity-40",\n\t\t"hover:text-foreground",\n\t\t"data-[orientation=vertical]:w-full data-[orientation=vertical]:justify-start",\n\t],\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault: "",\n\t\t\t},\n\t\t\tsize: {\n\t\t\t\tsm: "text-xs px-3 py-1.5",\n\t\t\t\tmd: "text-xs px-3 py-1.5",\n\t\t\t\tlg: "text-sm px-4 py-2",\n\t\t\t},\n\t\t\tshape: {\n\t\t\t\tdefault: "rounded-md",\n\t\t\t\tpill: "rounded-full",\n\t\t\t},\n\t\t},\n\n\t\tdefaultVariants: {\n\t\t\tvariant: "default",\n\t\t\tsize: "md",\n\t\t\tshape: "default",\n\t\t},\n\t},\n);\n\nfunction TabsTab({ className, ...props }: TabsPrimitive.Tab.Props) {\n\tconst { variant, tabShape, tabSize, tabVariant, tabsListFullWidth } =\n\t\tuseContext(TabsListContext);\n\n\treturn (\n\t\t<TabsPrimitive.Tab\n\t\t\tclassName={cn(\n\t\t\t\ttabsTabVariants({\n\t\t\t\t\tvariant: tabVariant,\n\t\t\t\t\tsize: tabSize,\n\t\t\t\t\tshape: tabShape,\n\t\t\t\t}),\n\t\t\t\ttabsListFullWidth && "flex-1",\n\t\t\t\tvariant === "ghost" &&\n\t\t\t\t\t"data-active:bg-transparent data-active:border-transparent data-active:shadow-none",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="tabs-tab"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Tabs Panel                                                                 */\n/* -------------------------------------------------------------------------- */\n\nfunction TabsPanel({ className, ...props }: TabsPrimitive.Panel.Props) {\n\treturn (\n\t\t<TabsPrimitive.Panel\n\t\t\tclassName={cn(\n\t\t\t\t"flex-1 text-sm text-foreground",\n\t\t\t\t"data-[orientation=vertical]:ml-1",\n\t\t\t\t"data-[orientation=horizontal]:mt-1",\n\t\t\t\t"data-hidden:hidden",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="tabs-panel"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport { Tabs, TabsList, TabsTab, TabsPanel, TabsPrimitive };\nexport type { TabsListProps };',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-tabs",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/components/tabs/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
 	"baseui-particles-accordion-controlled": {
 		name: "baseui-particles-accordion-controlled",
 		description: "Controlled accordion with programmatic state management",
@@ -7015,6 +7064,398 @@ export const Registry: Record<string, any> = {
 			const LazyComp = React.lazy(async () => {
 				const mod = await import(
 					"@craftdotui/baseui/particles/switch/with-label/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-tabs-full-width": {
+		name: "baseui-particles-tabs-full-width",
+		description: "Tabs with full width variant",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-tabs"],
+		files: [
+			{
+				path: "packages/baseui/particles/tabs/full-width/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/tabs-full-width.tsx",
+				content:
+					'import {\n\tTabs,\n\tTabsList,\n\tTabsTab,\n\tTabsPanel,\n} from "@/components/baseui/components/tabs";\n\nexport function Particle() {\n\treturn (\n\t\t<Tabs defaultValue="music" className="w-[400px]">\n\t\t\t<TabsList tabsListFullWidth>\n\t\t\t\t<TabsTab value="music">Music</TabsTab>\n\t\t\t\t<TabsTab value="podcasts">Podcasts</TabsTab>\n\t\t\t\t<TabsTab value="live">Live</TabsTab>\n\t\t\t</TabsList>\n\n\t\t\t<TabsPanel\n\t\t\t\tvalue="music"\n\t\t\t\tclassName="p-4 space-y-2 border rounded-md text-xs"\n\t\t\t>\n\t\t\t\tMusic\n\t\t\t</TabsPanel>\n\t\t\t<TabsPanel\n\t\t\t\tvalue="podcasts"\n\t\t\t\tclassName="p-4 space-y-2 border rounded-md text-xs"\n\t\t\t>\n\t\t\t\tPodcasts\n\t\t\t</TabsPanel>\n\t\t\t<TabsPanel\n\t\t\t\tvalue="live"\n\t\t\t\tclassName="p-4 space-y-2 border rounded-md text-xs"\n\t\t\t>\n\t\t\t\tLive\n\t\t\t</TabsPanel>\n\t\t</Tabs>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-tabs-full-width",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/tabs/full-width/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-tabs-ghost": {
+		name: "baseui-particles-tabs-ghost",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["baseui-tabs"],
+		files: [
+			{
+				path: "packages/baseui/particles/tabs/ghost/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/tabs-ghost.tsx",
+				content:
+					'import {\n\tTabs,\n\tTabsList,\n\tTabsTab,\n\tTabsPanel,\n} from "@/components/baseui/components/tabs";\n\nexport function Particle() {\n\treturn (\n\t\t<Tabs defaultValue="overview" className="w-[400px]">\n\t\t\t<TabsList variant="ghost">\n\t\t\t\t<TabsTab value="overview">Overview</TabsTab>\n\t\t\t\t<TabsTab value="analytics">Analytics</TabsTab>\n\t\t\t</TabsList>\n\n\t\t\t<TabsPanel\n\t\t\t\tvalue="overview"\n\t\t\t\tclassName="p-4 border rounded-md text-xs"\n\t\t\t>\n\t\t\t\tOverview Content\n\t\t\t</TabsPanel>\n\t\t\t<TabsPanel\n\t\t\t\tvalue="analytics"\n\t\t\t\tclassName="p-4 border rounded-md text-xs"\n\t\t\t>\n\t\t\t\tAnalytics Content\n\t\t\t</TabsPanel>\n\t\t</Tabs>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-tabs-ghost",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/tabs/ghost/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-tabs-outlined": {
+		name: "baseui-particles-tabs-outlined",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["baseui-tabs"],
+		files: [
+			{
+				path: "packages/baseui/particles/tabs/outlined/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/tabs-outlined.tsx",
+				content:
+					'import {\n\tTabs,\n\tTabsList,\n\tTabsTab,\n\tTabsPanel,\n} from "@/components/baseui/components/tabs";\n\nexport function Particle() {\n\treturn (\n\t\t<Tabs defaultValue="overview" className="w-[400px]">\n\t\t\t<TabsList variant="outlined">\n\t\t\t\t<TabsTab value="overview">Overview</TabsTab>\n\t\t\t\t<TabsTab value="analytics">Analytics</TabsTab>\n\t\t\t</TabsList>\n\n\t\t\t<TabsPanel\n\t\t\t\tvalue="overview"\n\t\t\t\tclassName="p-4 border rounded-md text-xs"\n\t\t\t>\n\t\t\t\tOverview Content\n\t\t\t</TabsPanel>\n\t\t\t<TabsPanel\n\t\t\t\tvalue="analytics"\n\t\t\t\tclassName="p-4 border rounded-md text-xs"\n\t\t\t>\n\t\t\t\tAnalytics Content\n\t\t\t</TabsPanel>\n\t\t</Tabs>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-tabs-outlined",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/tabs/outlined/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-tabs-pill-shape": {
+		name: "baseui-particles-tabs-pill-shape",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["baseui-tabs"],
+		files: [
+			{
+				path: "packages/baseui/particles/tabs/pill-shape/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/tabs-pill-shape.tsx",
+				content:
+					'import {\n\tTabs,\n\tTabsList,\n\tTabsTab,\n\tTabsPanel,\n} from "@/components/baseui/components/tabs";\n\nexport function Particle() {\n\treturn (\n\t\t<Tabs defaultValue="overview" className="w-[400px]">\n\t\t\t<TabsList tabShape="pill">\n\t\t\t\t<TabsTab value="overview">Overview</TabsTab>\n\t\t\t\t<TabsTab value="analytics">Analytics</TabsTab>\n\t\t\t</TabsList>\n\n\t\t\t<TabsPanel value="overview" className="p-4 border rounded-full">\n\t\t\t\tOverview Content\n\t\t\t</TabsPanel>\n\t\t\t<TabsPanel value="analytics" className="p-4 border rounded-full">\n\t\t\t\tAnalytics Content\n\t\t\t</TabsPanel>\n\t\t</Tabs>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-tabs-pill-shape",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/tabs/pill-shape/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-tabs": {
+		name: "baseui-particles-tabs",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-tabs"],
+		files: [
+			{
+				path: "packages/baseui/particles/tabs/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/tabs.tsx",
+				content:
+					'import {\n\tTabs,\n\tTabsList,\n\tTabsTab,\n\tTabsPanel,\n} from "@/components/baseui/components/tabs";\n\nexport function Particle() {\n\treturn (\n\t\t<Tabs defaultValue="account" className="w-[400px]">\n\t\t\t<TabsList>\n\t\t\t\t<TabsTab value="account">Account</TabsTab>\n\t\t\t\t<TabsTab value="password">Password</TabsTab>\n\t\t\t</TabsList>\n\t\t\t<TabsPanel\n\t\t\t\tvalue="account"\n\t\t\t\tclassName="p-4 space-y-2 border rounded-md text-xs"\n\t\t\t>\n\t\t\t\t<h3 className="text-md font-medium">Account</h3>\n\t\t\t\t<p className="text-sm text-muted-foreground">\n\t\t\t\t\tManage your account info.\n\t\t\t\t</p>\n\t\t\t</TabsPanel>\n\t\t\t<TabsPanel\n\t\t\t\tvalue="password"\n\t\t\t\tclassName="p-4 space-y-2 border rounded-md text-xs"\n\t\t\t>\n\t\t\t\t<h3 className="text-md font-medium">Password</h3>\n\t\t\t\t<p className="text-sm text-muted-foreground">\n\t\t\t\t\tChange your password here.\n\t\t\t\t</p>\n\t\t\t</TabsPanel>\n\t\t</Tabs>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-tabs",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/tabs/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-tabs-vertical": {
+		name: "baseui-particles-tabs-vertical",
+		description: "Vertical tabs variant",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-tabs"],
+		files: [
+			{
+				path: "packages/baseui/particles/tabs/vertical/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/tabs-vertical.tsx",
+				content:
+					'import {\n\tTabs,\n\tTabsList,\n\tTabsTab,\n\tTabsPanel,\n} from "@/components/baseui/components/tabs";\n\nexport function Particle() {\n\treturn (\n\t\t<Tabs\n\t\t\tdefaultValue="overview"\n\t\t\torientation="vertical"\n\t\t\tclassName="h-[200px] w-[400px] border p-2 rounded-lg"\n\t\t>\n\t\t\t<TabsList className="min-w-20">\n\t\t\t\t<TabsTab value="overview">Overview</TabsTab>\n\t\t\t\t<TabsTab value="analytics">Analytics</TabsTab>\n\t\t\t\t<TabsTab value="reports">Reports</TabsTab>\n\t\t\t</TabsList>\n\n\t\t\t<TabsPanel value="overview" className="text-xs">\n\t\t\t\tOverview Content\n\t\t\t</TabsPanel>\n\t\t\t<TabsPanel value="analytics" className="text-xs">\n\t\t\t\tAnalytics Content\n\t\t\t</TabsPanel>\n\t\t\t<TabsPanel value="reports" className="text-xs">\n\t\t\t\tReports Content\n\t\t\t</TabsPanel>\n\t\t</Tabs>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-tabs-vertical",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/tabs/vertical/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-tabs-vertical-ghost": {
+		name: "baseui-particles-tabs-vertical-ghost",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["baseui-tabs"],
+		files: [
+			{
+				path: "packages/baseui/particles/tabs/vertical-ghost/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/tabs-vertical-ghost.tsx",
+				content:
+					'import {\n\tTabs,\n\tTabsList,\n\tTabsPanel,\n\tTabsTab,\n} from "@/components/baseui/components/tabs";\n\nexport default function Particle() {\n\treturn (\n\t\t<Tabs\n\t\t\tclassName="w-[400px] flex-row"\n\t\t\tdefaultValue="tab-1"\n\t\t\torientation="vertical"\n\t\t>\n\t\t\t<div className="border-s">\n\t\t\t\t<TabsList variant="ghost">\n\t\t\t\t\t<TabsTab value="tab-1">Tab 1</TabsTab>\n\t\t\t\t\t<TabsTab value="tab-2">Tab 2</TabsTab>\n\t\t\t\t\t<TabsTab value="tab-3">Tab 3</TabsTab>\n\t\t\t\t</TabsList>\n\t\t\t</div>\n\t\t\t<TabsPanel value="tab-1">\n\t\t\t\t<p className="p-4 text-center text-muted-foreground text-xs">\n\t\t\t\t\tTab 1 content\n\t\t\t\t</p>\n\t\t\t</TabsPanel>\n\t\t\t<TabsPanel value="tab-2">\n\t\t\t\t<p className="p-4 text-center text-muted-foreground text-xs">\n\t\t\t\t\tTab 2 content\n\t\t\t\t</p>\n\t\t\t</TabsPanel>\n\t\t\t<TabsPanel value="tab-3">\n\t\t\t\t<p className="p-4 text-center text-muted-foreground text-xs">\n\t\t\t\t\tTab 3 content\n\t\t\t\t</p>\n\t\t\t</TabsPanel>\n\t\t</Tabs>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-tabs-vertical-ghost",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/tabs/vertical-ghost/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-tabs-with-icon": {
+		name: "baseui-particles-tabs-with-icon",
+		description: "Tabs with icon variant",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-tabs"],
+		files: [
+			{
+				path: "packages/baseui/particles/tabs/with-icon/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/tabs-with-icon.tsx",
+				content:
+					'import {\n\tTabs,\n\tTabsList,\n\tTabsTab,\n\tTabsPanel,\n} from "@/components/baseui/components/tabs";\nimport { User, Settings } from "lucide-react";\n\nexport function Particle() {\n\treturn (\n\t\t<Tabs defaultValue="account" className="w-[400px]">\n\t\t\t<TabsList>\n\t\t\t\t<TabsTab value="account">\n\t\t\t\t\t<User className="w-4 h-4" />\n\t\t\t\t\tAccount\n\t\t\t\t</TabsTab>\n\t\t\t\t<TabsTab value="settings">\n\t\t\t\t\t<Settings className="w-4 h-4" />\n\t\t\t\t\tSettings\n\t\t\t\t</TabsTab>\n\t\t\t</TabsList>\n\n\t\t\t<TabsPanel\n\t\t\t\tvalue="account"\n\t\t\t\tclassName="p-4 space-y-2 border rounded-md text-xs"\n\t\t\t>\n\t\t\t\tAccount\n\t\t\t</TabsPanel>\n\t\t\t<TabsPanel\n\t\t\t\tvalue="settings"\n\t\t\t\tclassName="p-4 space-y-2 border rounded-md text-xs"\n\t\t\t>\n\t\t\t\tSettings\n\t\t\t</TabsPanel>\n\t\t</Tabs>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-tabs-with-icon",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/tabs/with-icon/index.tsx"
 				);
 				let Comp = mod.default;
 

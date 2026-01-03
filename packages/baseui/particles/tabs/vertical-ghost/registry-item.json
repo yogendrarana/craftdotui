@@ -1,0 +1,14 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-tabs-vertical-ghost",
+	"type": "registry:component",
+	"dependencies": [],
+	"registryDependencies": ["baseui-tabs"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/tabs/vertical-ghost/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/particles/tabs-vertical-ghost.tsx"
+		}
+	]
+}

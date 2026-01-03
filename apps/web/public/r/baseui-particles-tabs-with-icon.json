@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-tabs-with-icon",
+	"description": "Tabs with icon variant",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/baseui-tabs"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/tabs/with-icon/index.tsx",
+			"content": "import {\n\tTabs,\n\tTabsList,\n\tTabsTab,\n\tTabsPanel,\n} from \"@/components/baseui/components/tabs\";\nimport { User, Settings } from \"lucide-react\";\n\nexport function Particle() {\n\treturn (\n\t\t<Tabs defaultValue=\"account\" className=\"w-[400px]\">\n\t\t\t<TabsList>\n\t\t\t\t<TabsTab value=\"account\">\n\t\t\t\t\t<User className=\"w-4 h-4\" />\n\t\t\t\t\tAccount\n\t\t\t\t</TabsTab>\n\t\t\t\t<TabsTab value=\"settings\">\n\t\t\t\t\t<Settings className=\"w-4 h-4\" />\n\t\t\t\t\tSettings\n\t\t\t\t</TabsTab>\n\t\t\t</TabsList>\n\n\t\t\t<TabsPanel\n\t\t\t\tvalue=\"account\"\n\t\t\t\tclassName=\"p-4 space-y-2 border rounded-md text-xs\"\n\t\t\t>\n\t\t\t\tAccount\n\t\t\t</TabsPanel>\n\t\t\t<TabsPanel\n\t\t\t\tvalue=\"settings\"\n\t\t\t\tclassName=\"p-4 space-y-2 border rounded-md text-xs\"\n\t\t\t>\n\t\t\t\tSettings\n\t\t\t</TabsPanel>\n\t\t</Tabs>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/tabs-with-icon.tsx"
+		}
+	],
+	"type": "registry:component"
+}

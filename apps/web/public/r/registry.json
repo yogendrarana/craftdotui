@@ -1070,6 +1070,20 @@
 			]
 		},
 		{
+			"name": "baseui-tabs",
+			"type": "registry:component",
+			"description": "A Base UI tabs component",
+			"dependencies": ["@base-ui/react"],
+			"registryDependencies": ["@craftdotui/utils"],
+			"files": [
+				{
+					"path": "packages/baseui/components/tabs/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/tabs.tsx"
+				}
+			]
+		},
+		{
 			"name": "baseui-particles-accordion-controlled",
 			"type": "registry:component",
 			"description": "Controlled accordion with programmatic state management",
@@ -2021,6 +2035,114 @@
 					"path": "packages/baseui/particles/switch/with-label/index.tsx",
 					"type": "registry:component",
 					"target": "components/baseui/particles/switch-with-label.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-tabs-full-width",
+			"type": "registry:component",
+			"description": "Tabs with full width variant",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-tabs"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/tabs/full-width/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/tabs-full-width.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-tabs-ghost",
+			"type": "registry:component",
+			"dependencies": [],
+			"registryDependencies": ["baseui-tabs"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/tabs/ghost/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/tabs-ghost.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-tabs-outlined",
+			"type": "registry:component",
+			"dependencies": [],
+			"registryDependencies": ["baseui-tabs"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/tabs/outlined/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/tabs-outlined.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-tabs-pill-shape",
+			"type": "registry:component",
+			"dependencies": [],
+			"registryDependencies": ["baseui-tabs"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/tabs/pill-shape/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/tabs-pill-shape.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-tabs",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-tabs"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/tabs/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/tabs.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-tabs-vertical",
+			"type": "registry:component",
+			"description": "Vertical tabs variant",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-tabs"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/tabs/vertical/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/tabs-vertical.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-tabs-vertical-ghost",
+			"type": "registry:component",
+			"dependencies": [],
+			"registryDependencies": ["baseui-tabs"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/tabs/vertical-ghost/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/tabs-vertical-ghost.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-tabs-with-icon",
+			"type": "registry:component",
+			"description": "Tabs with icon variant",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-tabs"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/tabs/with-icon/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/tabs-with-icon.tsx"
 				}
 			]
 		},
