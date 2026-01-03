@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-toggle-outline",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/baseui-toggle"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/toggle/outline/index.tsx",
+			"content": "import { Toggle } from \"@/components/baseui/components/toggle\";\n\nexport function Particle() {\n\treturn <Toggle variant=\"outline\">Toggle Outline</Toggle>;\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/toggle-outline.tsx"
+		}
+	],
+	"type": "registry:component"
+}

@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-toggle-group",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/baseui-toggle"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/toggle/group/index.tsx",
+			"content": "import { Toggle } from \"@/components/baseui/components/toggle\";\nimport { Bold, Italic, Underline } from \"lucide-react\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"flex items-center gap-1\">\n\t\t\t<Toggle variant=\"outline\" size=\"icon\">\n\t\t\t\t<Bold className=\"h-4 w-4\" />\n\t\t\t</Toggle>\n\t\t\t<Toggle variant=\"outline\" size=\"icon\">\n\t\t\t\t<Italic className=\"h-4 w-4\" />\n\t\t\t</Toggle>\n\t\t\t<Toggle variant=\"outline\" size=\"icon\">\n\t\t\t\t<Underline className=\"h-4 w-4\" />\n\t\t\t</Toggle>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/toggle-group.tsx"
+		}
+	],
+	"type": "registry:component"
+}

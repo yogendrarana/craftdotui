@@ -164,6 +164,10 @@ export const docsNavItems: Array<DocsNavItem> = [
 				title: "Tabs",
 				href: "/docs/baseui/components/tabs",
 			},
+			{
+				title: "Toggle",
+				href: "/docs/baseui/components/toggle",
+			},
 		],
 	},
 

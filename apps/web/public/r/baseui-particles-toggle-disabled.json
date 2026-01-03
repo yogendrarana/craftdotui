@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-toggle-disabled",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/baseui-toggle"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/toggle/disabled/index.tsx",
+			"content": "import { Toggle } from \"@/components/baseui/components/toggle\";\nimport { Underline } from \"lucide-react\";\n\nexport function Particle() {\n\treturn (\n\t\t<Toggle disabled variant=\"outline\" size=\"icon\">\n\t\t\t<Underline className=\"h-4 w-4\" />\n\t\t</Toggle>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/toggle-disabled.tsx"
+		}
+	],
+	"type": "registry:component"
+}
