@@ -1,0 +1,14 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-toggle-with-icon",
+	"type": "registry:component",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/baseui-toggle"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/toggle/with-icon/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/particles/toggle-with-icon.tsx"
+		}
+	]
+}

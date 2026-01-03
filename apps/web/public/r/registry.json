@@ -1084,6 +1084,20 @@
 			]
 		},
 		{
+			"name": "baseui-toggle",
+			"type": "registry:component",
+			"description": "A Base UI toggle component",
+			"dependencies": ["@base-ui/react", "cva"],
+			"registryDependencies": ["@craftdotui/utils"],
+			"files": [
+				{
+					"path": "packages/baseui/components/toggle/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/toggle.tsx"
+				}
+			]
+		},
+		{
 			"name": "baseui-particles-accordion-controlled",
 			"type": "registry:component",
 			"description": "Controlled accordion with programmatic state management",
@@ -2143,6 +2157,71 @@
 					"path": "packages/baseui/particles/tabs/with-icon/index.tsx",
 					"type": "registry:component",
 					"target": "components/baseui/particles/tabs-with-icon.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-toggle-disabled",
+			"type": "registry:component",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-toggle"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/toggle/disabled/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/toggle-disabled.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-toggle-group",
+			"type": "registry:component",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-toggle"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/toggle/group/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/toggle-group.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-toggle-outline",
+			"type": "registry:component",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-toggle"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/toggle/outline/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/toggle-outline.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-toggle",
+			"type": "registry:component",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-toggle"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/toggle/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/toggle.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-toggle-with-icon",
+			"type": "registry:component",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-toggle"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/toggle/with-icon/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/toggle-with-icon.tsx"
 				}
 			]
 		},

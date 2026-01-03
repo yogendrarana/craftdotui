@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-toggle",
+	"description": "A Base UI toggle component",
+	"dependencies": ["@base-ui/react", "cva"],
+	"registryDependencies": ["@craftdotui/utils"],
+	"files": [
+		{
+			"path": "packages/baseui/components/toggle/index.tsx",
+			"content": "\"use client\";\n\nimport { Toggle as TogglePrimitive } from \"@base-ui/react/toggle\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\nimport { cn } from \"@/lib/utils\";\n\n/* -------------------------------------------------------------------------- */\n/* Toggle Variants                                                            */\n/* -------------------------------------------------------------------------- */\n\nconst toggleVariants = cva(\n\t[\n\t\t\"inline-flex items-center justify-center\",\n\t\t\"rounded-md border border-input bg-background text-sm font-medium transition-colors cursor-pointer\",\n\t\t\"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/20 focus-visible:ring-offset-1\",\n\t\t\"hover:bg-muted\",\n\t\t\"disabled:pointer-events-none disabled:opacity-50\",\n\t\t\"data-pressed:bg-accent data-pressed:text-accent-foreground\",\n\t],\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault: \"border-transparent\",\n\t\t\t\toutline: \"border border-border \",\n\t\t\t},\n\t\t\tsize: {\n\t\t\t\tsm: \"h-8 px-3 text-sm\",\n\t\t\t\tmd: \"h-9 px-4\",\n\t\t\t\tlg: \"h-10 px-6\",\n\t\t\t\ticon: \"size-9 p-0\",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: \"default\",\n\t\t\tsize: \"md\",\n\t\t},\n\t},\n);\n\n/* -------------------------------------------------------------------------- */\n/* Types                                                                      */\n/* -------------------------------------------------------------------------- */\n\ntype ToggleVariants = VariantProps<typeof toggleVariants>;\n\ninterface ToggleProps extends TogglePrimitive.Props, ToggleVariants {\n\tclassName?: string;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Toggle                                                                     */\n/* -------------------------------------------------------------------------- */\n\nfunction Toggle({ className, size, variant, ...props }: ToggleProps) {\n\treturn (\n\t\t<TogglePrimitive\n\t\t\tclassName={cn(toggleVariants({ className, size, variant }))}\n\t\t\tdata-slot=\"toggle\"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport { Toggle };\nexport type { ToggleProps };\n",
+			"type": "registry:component",
+			"target": "components/baseui/components/toggle.tsx"
+		}
+	],
+	"type": "registry:component"
+}

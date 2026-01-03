@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-toggle-with-icon",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/baseui-toggle"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/toggle/with-icon/index.tsx",
+			"content": "import { Toggle } from \"@/components/baseui/components/toggle\";\nimport { Italic } from \"lucide-react\";\n\nexport function Particle() {\n\treturn (\n\t\t<Toggle aria-label=\"Toggle italic\">\n\t\t\t<Italic className=\"mr-2 h-4 w-4\" />\n\t\t\tItalic\n\t\t</Toggle>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/toggle-with-icon.tsx"
+		}
+	],
+	"type": "registry:component"
+}

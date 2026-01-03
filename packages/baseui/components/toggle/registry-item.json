@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-toggle",
+	"type": "registry:component",
+	"description": "A Base UI toggle component",
+	"dependencies": ["@base-ui/react", "cva"],
+	"registryDependencies": ["@craftdotui/utils"],
+	"files": [
+		{
+			"path": "packages/baseui/components/toggle/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/components/toggle.tsx"
+		}
+	]
+}

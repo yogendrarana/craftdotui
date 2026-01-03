@@ -71,7 +71,10 @@ export function InstallCommandDropdown({ pkg }: { pkg: string }) {
 							{hasCopied ? "Copied!" : installCommand}
 						</span>
 					</TooltipTrigger>
-					<TooltipContent align="center" className="max-w-[600px]">
+					<TooltipContent
+						align="center"
+						className="max-w-[600px] bg-muted"
+					>
 						<code className="text-xs">{installCommand}</code>
 					</TooltipContent>
 				</Tooltip>

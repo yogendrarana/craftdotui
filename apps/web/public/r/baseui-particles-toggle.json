@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-toggle",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/baseui-toggle"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/toggle/index.tsx",
+			"content": "import { Toggle } from \"@/components/baseui/components/toggle\";\n\nexport function Particle() {\n\treturn <Toggle>Toggle</Toggle>;\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/toggle.tsx"
+		}
+	],
+	"type": "registry:component"
+}
