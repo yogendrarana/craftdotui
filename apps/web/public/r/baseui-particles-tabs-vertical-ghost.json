@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-tabs-vertical-ghost",
+	"dependencies": [],
+	"registryDependencies": ["baseui-tabs"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/tabs/vertical-ghost/index.tsx",
+			"content": "import {\n\tTabs,\n\tTabsList,\n\tTabsPanel,\n\tTabsTab,\n} from \"@/components/baseui/components/tabs\";\n\nexport default function Particle() {\n\treturn (\n\t\t<Tabs\n\t\t\tclassName=\"w-[400px] flex-row\"\n\t\t\tdefaultValue=\"tab-1\"\n\t\t\torientation=\"vertical\"\n\t\t>\n\t\t\t<div className=\"border-s\">\n\t\t\t\t<TabsList variant=\"ghost\">\n\t\t\t\t\t<TabsTab value=\"tab-1\">Tab 1</TabsTab>\n\t\t\t\t\t<TabsTab value=\"tab-2\">Tab 2</TabsTab>\n\t\t\t\t\t<TabsTab value=\"tab-3\">Tab 3</TabsTab>\n\t\t\t\t</TabsList>\n\t\t\t</div>\n\t\t\t<TabsPanel value=\"tab-1\">\n\t\t\t\t<p className=\"p-4 text-center text-muted-foreground text-xs\">\n\t\t\t\t\tTab 1 content\n\t\t\t\t</p>\n\t\t\t</TabsPanel>\n\t\t\t<TabsPanel value=\"tab-2\">\n\t\t\t\t<p className=\"p-4 text-center text-muted-foreground text-xs\">\n\t\t\t\t\tTab 2 content\n\t\t\t\t</p>\n\t\t\t</TabsPanel>\n\t\t\t<TabsPanel value=\"tab-3\">\n\t\t\t\t<p className=\"p-4 text-center text-muted-foreground text-xs\">\n\t\t\t\t\tTab 3 content\n\t\t\t\t</p>\n\t\t\t</TabsPanel>\n\t\t</Tabs>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/tabs-vertical-ghost.tsx"
+		}
+	],
+	"type": "registry:component"
+}

@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-tabs-full-width",
+	"type": "registry:component",
+	"description": "Tabs with full width variant",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-tabs"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/tabs/full-width/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/particles/tabs-full-width.tsx"
+		}
+	]
+}

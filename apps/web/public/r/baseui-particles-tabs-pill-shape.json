@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-tabs-pill-shape",
+	"dependencies": [],
+	"registryDependencies": ["baseui-tabs"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/tabs/pill-shape/index.tsx",
+			"content": "import {\n\tTabs,\n\tTabsList,\n\tTabsTab,\n\tTabsPanel,\n} from \"@/components/baseui/components/tabs\";\n\nexport function Particle() {\n\treturn (\n\t\t<Tabs defaultValue=\"overview\" className=\"w-[400px]\">\n\t\t\t<TabsList tabShape=\"pill\">\n\t\t\t\t<TabsTab value=\"overview\">Overview</TabsTab>\n\t\t\t\t<TabsTab value=\"analytics\">Analytics</TabsTab>\n\t\t\t</TabsList>\n\n\t\t\t<TabsPanel value=\"overview\" className=\"p-4 border rounded-full\">\n\t\t\t\tOverview Content\n\t\t\t</TabsPanel>\n\t\t\t<TabsPanel value=\"analytics\" className=\"p-4 border rounded-full\">\n\t\t\t\tAnalytics Content\n\t\t\t</TabsPanel>\n\t\t</Tabs>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/tabs-pill-shape.tsx"
+		}
+	],
+	"type": "registry:component"
+}

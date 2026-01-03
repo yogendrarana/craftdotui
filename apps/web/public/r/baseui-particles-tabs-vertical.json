@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-tabs-vertical",
+	"description": "Vertical tabs variant",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-tabs"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/tabs/vertical/index.tsx",
+			"content": "import {\n\tTabs,\n\tTabsList,\n\tTabsTab,\n\tTabsPanel,\n} from \"@/components/baseui/components/tabs\";\n\nexport function Particle() {\n\treturn (\n\t\t<Tabs\n\t\t\tdefaultValue=\"overview\"\n\t\t\torientation=\"vertical\"\n\t\t\tclassName=\"h-[200px] w-[400px] border p-2 rounded-lg\"\n\t\t>\n\t\t\t<TabsList className=\"min-w-20\">\n\t\t\t\t<TabsTab value=\"overview\">Overview</TabsTab>\n\t\t\t\t<TabsTab value=\"analytics\">Analytics</TabsTab>\n\t\t\t\t<TabsTab value=\"reports\">Reports</TabsTab>\n\t\t\t</TabsList>\n\n\t\t\t<TabsPanel value=\"overview\" className=\"text-xs\">\n\t\t\t\tOverview Content\n\t\t\t</TabsPanel>\n\t\t\t<TabsPanel value=\"analytics\" className=\"text-xs\">\n\t\t\t\tAnalytics Content\n\t\t\t</TabsPanel>\n\t\t\t<TabsPanel value=\"reports\" className=\"text-xs\">\n\t\t\t\tReports Content\n\t\t\t</TabsPanel>\n\t\t</Tabs>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/tabs-vertical.tsx"
+		}
+	],
+	"type": "registry:component"
+}

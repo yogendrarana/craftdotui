@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-tabs-full-width",
+	"description": "Tabs with full width variant",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-tabs"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/tabs/full-width/index.tsx",
+			"content": "import {\n\tTabs,\n\tTabsList,\n\tTabsTab,\n\tTabsPanel,\n} from \"@/components/baseui/components/tabs\";\n\nexport function Particle() {\n\treturn (\n\t\t<Tabs defaultValue=\"music\" className=\"w-[400px]\">\n\t\t\t<TabsList tabsListFullWidth>\n\t\t\t\t<TabsTab value=\"music\">Music</TabsTab>\n\t\t\t\t<TabsTab value=\"podcasts\">Podcasts</TabsTab>\n\t\t\t\t<TabsTab value=\"live\">Live</TabsTab>\n\t\t\t</TabsList>\n\n\t\t\t<TabsPanel\n\t\t\t\tvalue=\"music\"\n\t\t\t\tclassName=\"p-4 space-y-2 border rounded-md text-xs\"\n\t\t\t>\n\t\t\t\tMusic\n\t\t\t</TabsPanel>\n\t\t\t<TabsPanel\n\t\t\t\tvalue=\"podcasts\"\n\t\t\t\tclassName=\"p-4 space-y-2 border rounded-md text-xs\"\n\t\t\t>\n\t\t\t\tPodcasts\n\t\t\t</TabsPanel>\n\t\t\t<TabsPanel\n\t\t\t\tvalue=\"live\"\n\t\t\t\tclassName=\"p-4 space-y-2 border rounded-md text-xs\"\n\t\t\t>\n\t\t\t\tLive\n\t\t\t</TabsPanel>\n\t\t</Tabs>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/tabs-full-width.tsx"
+		}
+	],
+	"type": "registry:component"
+}

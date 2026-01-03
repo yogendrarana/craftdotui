@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-tabs",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-tabs"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/tabs/index.tsx",
+			"content": "import {\n\tTabs,\n\tTabsList,\n\tTabsTab,\n\tTabsPanel,\n} from \"@/components/baseui/components/tabs\";\n\nexport function Particle() {\n\treturn (\n\t\t<Tabs defaultValue=\"account\" className=\"w-[400px]\">\n\t\t\t<TabsList>\n\t\t\t\t<TabsTab value=\"account\">Account</TabsTab>\n\t\t\t\t<TabsTab value=\"password\">Password</TabsTab>\n\t\t\t</TabsList>\n\t\t\t<TabsPanel\n\t\t\t\tvalue=\"account\"\n\t\t\t\tclassName=\"p-4 space-y-2 border rounded-md text-xs\"\n\t\t\t>\n\t\t\t\t<h3 className=\"text-md font-medium\">Account</h3>\n\t\t\t\t<p className=\"text-sm text-muted-foreground\">\n\t\t\t\t\tManage your account info.\n\t\t\t\t</p>\n\t\t\t</TabsPanel>\n\t\t\t<TabsPanel\n\t\t\t\tvalue=\"password\"\n\t\t\t\tclassName=\"p-4 space-y-2 border rounded-md text-xs\"\n\t\t\t>\n\t\t\t\t<h3 className=\"text-md font-medium\">Password</h3>\n\t\t\t\t<p className=\"text-sm text-muted-foreground\">\n\t\t\t\t\tChange your password here.\n\t\t\t\t</p>\n\t\t\t</TabsPanel>\n\t\t</Tabs>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/tabs.tsx"
+		}
+	],
+	"type": "registry:component"
+}

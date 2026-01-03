@@ -1,0 +1,14 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-tabs-outlined",
+	"type": "registry:component",
+	"dependencies": [],
+	"registryDependencies": ["baseui-tabs"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/tabs/outlined/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/particles/tabs-outlined.tsx"
+		}
+	]
+}
