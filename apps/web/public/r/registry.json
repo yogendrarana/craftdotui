@@ -1098,6 +1098,23 @@
 			]
 		},
 		{
+			"name": "baseui-toggle-group",
+			"type": "registry:component",
+			"description": "A Base UI toggle group component",
+			"dependencies": ["@base-ui/react"],
+			"registryDependencies": [
+				"@craftdotui/baseui-toggle",
+				"@craftdotui/utils"
+			],
+			"files": [
+				{
+					"path": "packages/baseui/components/toggle-group/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/toggle-group.tsx"
+				}
+			]
+		},
+		{
 			"name": "baseui-particles-accordion-controlled",
 			"type": "registry:component",
 			"description": "Controlled accordion with programmatic state management",
@@ -2174,19 +2191,6 @@
 			]
 		},
 		{
-			"name": "baseui-particles-toggle-group",
-			"type": "registry:component",
-			"dependencies": ["lucide-react"],
-			"registryDependencies": ["@craftdotui/baseui-toggle"],
-			"files": [
-				{
-					"path": "packages/baseui/particles/toggle/group/index.tsx",
-					"type": "registry:component",
-					"target": "components/baseui/particles/toggle-group.tsx"
-				}
-			]
-		},
-		{
 			"name": "baseui-particles-toggle-outline",
 			"type": "registry:component",
 			"dependencies": ["lucide-react"],
@@ -2222,6 +2226,71 @@
 					"path": "packages/baseui/particles/toggle/with-icon/index.tsx",
 					"type": "registry:component",
 					"target": "components/baseui/particles/toggle-with-icon.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-toggle-group-disabled",
+			"type": "registry:component",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-toggle-group"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/toggle-group/disabled/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/toggle-group-disabled.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-toggle-group-multiple",
+			"type": "registry:component",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-toggle-group"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/toggle-group/multiple/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/toggle-group-multiple.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-toggle-group-outline",
+			"type": "registry:component",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-toggle-group"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/toggle-group/outline/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/toggle-group-outline.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-toggle-group",
+			"type": "registry:component",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-toggle-group"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/toggle-group/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/toggle-group.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-toggle-group-vertical",
+			"type": "registry:component",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-toggle-group"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/toggle-group/vertical/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/toggle-group-vertical.tsx"
 				}
 			]
 		},

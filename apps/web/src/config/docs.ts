@@ -168,6 +168,10 @@ export const docsNavItems: Array<DocsNavItem> = [
 				title: "Toggle",
 				href: "/docs/baseui/components/toggle",
 			},
+			{
+				title: "Toggle Group",
+				href: "/docs/baseui/components/toggle-group",
+			},
 		],
 	},
 

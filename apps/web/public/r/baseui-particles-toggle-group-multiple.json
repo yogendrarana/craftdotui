@@ -1,14 +1,14 @@
 {
 	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
-	"name": "baseui-particles-toggle-group",
+	"name": "baseui-particles-toggle-group-multiple",
 	"dependencies": ["lucide-react"],
 	"registryDependencies": ["@craftdotui/baseui-toggle-group"],
 	"files": [
 		{
-			"path": "packages/baseui/particles/toggle-group/index.tsx",
+			"path": "packages/baseui/particles/toggle-group/multiple/index.tsx",
 			"content": "import {\n\tToggleGroup,\n\tToggleGroupItem,\n} from \"@/components/baseui/components/toggle-group\";\nimport { Bold, Italic, Underline } from \"lucide-react\";\n\nexport function Particle() {\n\treturn (\n\t\t<ToggleGroup defaultValue={[\"bold\"]} multiple>\n\t\t\t<ToggleGroupItem value=\"bold\" aria-label=\"Toggle bold\" size=\"icon\">\n\t\t\t\t<Bold className=\"h-4 w-4\" />\n\t\t\t</ToggleGroupItem>\n\t\t\t<ToggleGroupItem\n\t\t\t\tvalue=\"italic\"\n\t\t\t\taria-label=\"Toggle italic\"\n\t\t\t\tsize=\"icon\"\n\t\t\t>\n\t\t\t\t<Italic className=\"h-4 w-4\" />\n\t\t\t</ToggleGroupItem>\n\t\t\t<ToggleGroupItem\n\t\t\t\tvalue=\"underline\"\n\t\t\t\taria-label=\"Toggle underline\"\n\t\t\t\tsize=\"icon\"\n\t\t\t>\n\t\t\t\t<Underline className=\"h-4 w-4\" />\n\t\t\t</ToggleGroupItem>\n\t\t</ToggleGroup>\n\t);\n}\n",
 			"type": "registry:component",
-			"target": "components/baseui/particles/toggle-group.tsx"
+			"target": "components/baseui/particles/toggle-group-multiple.tsx"
 		}
 	],
 	"type": "registry:component"
