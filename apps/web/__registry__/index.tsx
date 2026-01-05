@@ -3766,7 +3766,7 @@ export const Registry: Record<string, any> = {
 				type: "registry:component",
 				target: "components/baseui/components/toggle.tsx",
 				content:
-					'"use client";\n\nimport { Toggle as TogglePrimitive } from "@base-ui/react/toggle";\nimport { cva, type VariantProps } from "class-variance-authority";\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Toggle Variants                                                            */\n/* -------------------------------------------------------------------------- */\n\nconst toggleVariants = cva(\n\t[\n\t\t"inline-flex items-center justify-center",\n\t\t"rounded-md border border-input bg-background text-sm font-medium transition-colors cursor-pointer",\n\t\t"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/20 focus-visible:ring-offset-1",\n\t\t"hover:bg-muted",\n\t\t"disabled:pointer-events-none disabled:opacity-50",\n\t\t"data-pressed:bg-accent data-pressed:text-accent-foreground",\n\t],\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault: "border-transparent",\n\t\t\t\toutline: "border border-border ",\n\t\t\t},\n\t\t\tsize: {\n\t\t\t\tsm: "h-8 px-3 text-sm",\n\t\t\t\tmd: "h-9 px-4",\n\t\t\t\tlg: "h-10 px-6",\n\t\t\t\ticon: "size-9 p-0",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: "default",\n\t\t\tsize: "md",\n\t\t},\n\t},\n);\n\n/* -------------------------------------------------------------------------- */\n/* Types                                                                      */\n/* -------------------------------------------------------------------------- */\n\ntype ToggleVariants = VariantProps<typeof toggleVariants>;\n\ninterface ToggleProps extends TogglePrimitive.Props, ToggleVariants {\n\tclassName?: string;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Toggle                                                                     */\n/* -------------------------------------------------------------------------- */\n\nfunction Toggle({ className, size, variant, ...props }: ToggleProps) {\n\treturn (\n\t\t<TogglePrimitive\n\t\t\tclassName={cn(toggleVariants({ className, size, variant }))}\n\t\t\tdata-slot="toggle"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport { Toggle };\nexport type { ToggleProps };',
+					'"use client";\n\nimport { Toggle as TogglePrimitive } from "@base-ui/react/toggle";\nimport { cva, type VariantProps } from "class-variance-authority";\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Toggle Variants                                                            */\n/* -------------------------------------------------------------------------- */\n\nconst toggleVariants = cva(\n\t[\n\t\t"inline-flex items-center justify-center",\n\t\t"rounded-md border border-input bg-background text-sm font-medium transition-colors cursor-pointer",\n\t\t"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/20 focus-visible:ring-offset-1",\n\t\t"hover:bg-muted",\n\t\t"disabled:pointer-events-none disabled:opacity-50",\n\t\t"data-pressed:bg-accent data-pressed:text-accent-foreground",\n\t],\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault: "border-transparent",\n\t\t\t\toutline: "border border-border ",\n\t\t\t},\n\t\t\tsize: {\n\t\t\t\tsm: "h-8 px-3 text-sm",\n\t\t\t\tmd: "h-9 px-4",\n\t\t\t\tlg: "h-10 px-6",\n\t\t\t\ticon: "size-9 p-0",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: "default",\n\t\t\tsize: "md",\n\t\t},\n\t},\n);\n\n/* -------------------------------------------------------------------------- */\n/* Types                                                                      */\n/* -------------------------------------------------------------------------- */\n\ntype ToggleVariants = VariantProps<typeof toggleVariants>;\n\ninterface ToggleProps extends TogglePrimitive.Props, ToggleVariants {\n\tclassName?: string;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Toggle                                                                     */\n/* -------------------------------------------------------------------------- */\n\nfunction Toggle({ className, size, variant, ...props }: ToggleProps) {\n\treturn (\n\t\t<TogglePrimitive\n\t\t\tclassName={cn(toggleVariants({ className, size, variant }))}\n\t\t\tdata-slot="toggle"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport { Toggle, toggleVariants };\nexport type { ToggleProps };',
 			},
 		],
 		keywords: [],
@@ -3775,6 +3775,58 @@ export const Registry: Record<string, any> = {
 			const LazyComp = React.lazy(async () => {
 				const mod = await import(
 					"@craftdotui/baseui/components/toggle/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-toggle-group": {
+		name: "baseui-toggle-group",
+		description: "A Base UI toggle group component",
+		type: "registry:component",
+		dependencies: ["@base-ui/react"],
+		devDependencies: undefined,
+		registryDependencies: [
+			"@craftdotui/baseui-toggle",
+			"@craftdotui/utils",
+		],
+		files: [
+			{
+				path: "packages/baseui/components/toggle-group/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/toggle-group.tsx",
+				content:
+					'"use client";\n\nimport React from "react";\nimport type { VariantProps } from "class-variance-authority";\nimport { ToggleGroup as ToggleGroupPrimitive } from "@base-ui/react/toggle-group";\nimport {\n\ttype toggleVariants,\n\tToggle as BaseuiToggle,\n\ttype ToggleProps,\n} from "@/components/baseui/components/toggle";\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Toggle Group Context                                                       */\n/* -------------------------------------------------------------------------- */\n\nconst ToggleGroupContextValue = React.createContext<\n\tVariantProps<typeof toggleVariants>\n>({\n\tsize: "md",\n\tvariant: "default",\n});\n\n/* -------------------------------------------------------------------------- */\n/* Toggle Group                                                               */\n/* -------------------------------------------------------------------------- */\n\nfunction ToggleGroup({\n\tclassName,\n\tchildren,\n\tvariant,\n\tsize,\n\t...props\n}: ToggleGroupPrimitive.Props & VariantProps<typeof toggleVariants>) {\n\treturn (\n\t\t<ToggleGroupContextValue.Provider value={{ variant, size }}>\n\t\t\t<ToggleGroupPrimitive\n\t\t\t\tclassName={cn(\n\t\t\t\t\t"flex items-center justify-center gap-1",\n\t\t\t\t\t"data-[orientation=vertical]:flex-col",\n\t\t\t\t\tvariant === "outline" && [\n\t\t\t\t\t\t"gap-0",\n\t\t\t\t\t\t"[&>[data-slot=toggle-group-item]]:rounded-none",\n\t\t\t\t\t\t"data-[orientation=horizontal]:[&>[data-slot=toggle-group-item]:first-child]:rounded-l-md",\n\t\t\t\t\t\t"data-[orientation=horizontal]:[&>[data-slot=toggle-group-item]:last-child]:rounded-r-md",\n\t\t\t\t\t\t"data-[orientation=vertical]:[&>[data-slot=toggle-group-item]:first-child]:rounded-t-md",\n\t\t\t\t\t\t"data-[orientation=vertical]:[&>[data-slot=toggle-group-item]:last-child]:rounded-b-md",\n\t\t\t\t\t\t"data-[orientation=horizontal]:-space-x-px",\n\t\t\t\t\t\t"data-[orientation=vertical]:-space-y-px",\n\t\t\t\t\t],\n\t\t\t\t\tclassName,\n\t\t\t\t)}\n\t\t\t\tdata-slot="toggle-group"\n\t\t\t\t{...props}\n\t\t\t>\n\t\t\t\t{children}\n\t\t\t</ToggleGroupPrimitive>\n\t\t</ToggleGroupContextValue.Provider>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Toggle Group Item                                                          */\n/* -------------------------------------------------------------------------- */\n\nfunction ToggleGroupItem({\n\tclassName,\n\tvariant,\n\tsize,\n\t...props\n}: ToggleProps & VariantProps<typeof toggleVariants>) {\n\tconst context = React.useContext(ToggleGroupContextValue);\n\tconst effectiveVariant = variant || context.variant;\n\tconst effectiveSize = size || context.size;\n\n\treturn (\n\t\t<BaseuiToggle\n\t\t\tclassName={className}\n\t\t\tdata-slot="toggle-group-item"\n\t\t\tvariant={effectiveVariant}\n\t\t\tsize={effectiveSize}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport { ToggleGroup, ToggleGroupItem };',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-toggle-group",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/components/toggle-group/index.tsx"
 				);
 				let Comp = mod.default;
 
@@ -7581,55 +7633,6 @@ export const Registry: Record<string, any> = {
 			return LazyComp;
 		})(),
 	},
-	"baseui-particles-toggle-group": {
-		name: "baseui-particles-toggle-group",
-		description: "",
-		type: "registry:component",
-		dependencies: ["lucide-react"],
-		devDependencies: undefined,
-		registryDependencies: ["@craftdotui/baseui-toggle"],
-		files: [
-			{
-				path: "packages/baseui/particles/toggle/group/index.tsx",
-				type: "registry:component",
-				target: "components/baseui/particles/toggle-group.tsx",
-				content:
-					'import { Toggle } from "@/components/baseui/components/toggle";\nimport { Bold, Italic, Underline } from "lucide-react";\n\nexport function Particle() {\n\treturn (\n\t\t<div className="flex items-center gap-1">\n\t\t\t<Toggle variant="outline" size="icon">\n\t\t\t\t<Bold className="h-4 w-4" />\n\t\t\t</Toggle>\n\t\t\t<Toggle variant="outline" size="icon">\n\t\t\t\t<Italic className="h-4 w-4" />\n\t\t\t</Toggle>\n\t\t\t<Toggle variant="outline" size="icon">\n\t\t\t\t<Underline className="h-4 w-4" />\n\t\t\t</Toggle>\n\t\t</div>\n\t);\n}',
-			},
-		],
-		keywords: [],
-		command: "@craftdotui/baseui-particles-toggle-group",
-		component: (() => {
-			const LazyComp = React.lazy(async () => {
-				const mod = await import(
-					"@craftdotui/baseui/particles/toggle/group/index.tsx"
-				);
-				let Comp = mod.default;
-
-				if (!Comp) {
-					const exportName =
-						Object.keys(mod).find((key) => {
-							const value = mod[key];
-							return (
-								typeof value === "function" ||
-								typeof value === "object"
-							);
-						}) || "default";
-
-					Comp = mod[exportName];
-				}
-
-				if (mod.animations) {
-					(LazyComp as any).animations = mod.animations;
-				}
-
-				return { default: Comp };
-			});
-
-			LazyComp.demoProps = {};
-			return LazyComp;
-		})(),
-	},
 	"baseui-particles-toggle-outline": {
 		name: "baseui-particles-toggle-outline",
 		description: "",
@@ -7750,6 +7753,251 @@ export const Registry: Record<string, any> = {
 			const LazyComp = React.lazy(async () => {
 				const mod = await import(
 					"@craftdotui/baseui/particles/toggle/with-icon/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-toggle-group-disabled": {
+		name: "baseui-particles-toggle-group-disabled",
+		description: "",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-toggle-group"],
+		files: [
+			{
+				path: "packages/baseui/particles/toggle-group/disabled/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/toggle-group-disabled.tsx",
+				content:
+					'import {\n\tToggleGroup,\n\tToggleGroupItem,\n} from "@/components/baseui/components/toggle-group";\nimport { Bold, Italic, Underline } from "lucide-react";\n\nexport function Particle() {\n\treturn (\n\t\t<ToggleGroup defaultValue={["bold"]} disabled>\n\t\t\t<ToggleGroupItem value="bold" aria-label="Toggle bold" size="icon">\n\t\t\t\t<Bold className="h-4 w-4" />\n\t\t\t</ToggleGroupItem>\n\t\t\t<ToggleGroupItem\n\t\t\t\tvalue="italic"\n\t\t\t\taria-label="Toggle italic"\n\t\t\t\tsize="icon"\n\t\t\t>\n\t\t\t\t<Italic className="h-4 w-4" />\n\t\t\t</ToggleGroupItem>\n\t\t\t<ToggleGroupItem\n\t\t\t\tvalue="underline"\n\t\t\t\taria-label="Toggle underline"\n\t\t\t\tsize="icon"\n\t\t\t>\n\t\t\t\t<Underline className="h-4 w-4" />\n\t\t\t</ToggleGroupItem>\n\t\t</ToggleGroup>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-toggle-group-disabled",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/toggle-group/disabled/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-toggle-group-multiple": {
+		name: "baseui-particles-toggle-group-multiple",
+		description: "",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-toggle-group"],
+		files: [
+			{
+				path: "packages/baseui/particles/toggle-group/multiple/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/toggle-group-multiple.tsx",
+				content:
+					'import {\n\tToggleGroup,\n\tToggleGroupItem,\n} from "@/components/baseui/components/toggle-group";\nimport { Bold, Italic, Underline } from "lucide-react";\n\nexport function Particle() {\n\treturn (\n\t\t<ToggleGroup defaultValue={["bold"]} multiple>\n\t\t\t<ToggleGroupItem value="bold" aria-label="Toggle bold" size="icon">\n\t\t\t\t<Bold className="h-4 w-4" />\n\t\t\t</ToggleGroupItem>\n\t\t\t<ToggleGroupItem\n\t\t\t\tvalue="italic"\n\t\t\t\taria-label="Toggle italic"\n\t\t\t\tsize="icon"\n\t\t\t>\n\t\t\t\t<Italic className="h-4 w-4" />\n\t\t\t</ToggleGroupItem>\n\t\t\t<ToggleGroupItem\n\t\t\t\tvalue="underline"\n\t\t\t\taria-label="Toggle underline"\n\t\t\t\tsize="icon"\n\t\t\t>\n\t\t\t\t<Underline className="h-4 w-4" />\n\t\t\t</ToggleGroupItem>\n\t\t</ToggleGroup>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-toggle-group-multiple",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/toggle-group/multiple/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-toggle-group-outline": {
+		name: "baseui-particles-toggle-group-outline",
+		description: "",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-toggle-group"],
+		files: [
+			{
+				path: "packages/baseui/particles/toggle-group/outline/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/toggle-group-outline.tsx",
+				content:
+					'import {\n\tToggleGroup,\n\tToggleGroupItem,\n} from "@/components/baseui/components/toggle-group";\nimport { Bold, Italic, Underline } from "lucide-react";\n\nexport function Particle() {\n\treturn (\n\t\t<ToggleGroup defaultValue={["bold"]} variant="outline">\n\t\t\t<ToggleGroupItem value="bold" aria-label="Toggle bold" size="icon">\n\t\t\t\t<Bold className="h-4 w-4" />\n\t\t\t</ToggleGroupItem>\n\t\t\t<ToggleGroupItem\n\t\t\t\tvalue="italic"\n\t\t\t\taria-label="Toggle italic"\n\t\t\t\tsize="icon"\n\t\t\t>\n\t\t\t\t<Italic className="h-4 w-4" />\n\t\t\t</ToggleGroupItem>\n\t\t\t<ToggleGroupItem\n\t\t\t\tvalue="underline"\n\t\t\t\taria-label="Toggle underline"\n\t\t\t\tsize="icon"\n\t\t\t>\n\t\t\t\t<Underline className="h-4 w-4" />\n\t\t\t</ToggleGroupItem>\n\t\t</ToggleGroup>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-toggle-group-outline",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/toggle-group/outline/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-toggle-group": {
+		name: "baseui-particles-toggle-group",
+		description: "",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-toggle-group"],
+		files: [
+			{
+				path: "packages/baseui/particles/toggle-group/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/toggle-group.tsx",
+				content:
+					'import {\n\tToggleGroup,\n\tToggleGroupItem,\n} from "@/components/baseui/components/toggle-group";\nimport { Bold, Italic, Underline } from "lucide-react";\n\nexport function Particle() {\n\treturn (\n\t\t<ToggleGroup defaultValue={["bold"]} multiple>\n\t\t\t<ToggleGroupItem value="bold" aria-label="Toggle bold" size="icon">\n\t\t\t\t<Bold className="h-4 w-4" />\n\t\t\t</ToggleGroupItem>\n\t\t\t<ToggleGroupItem\n\t\t\t\tvalue="italic"\n\t\t\t\taria-label="Toggle italic"\n\t\t\t\tsize="icon"\n\t\t\t>\n\t\t\t\t<Italic className="h-4 w-4" />\n\t\t\t</ToggleGroupItem>\n\t\t\t<ToggleGroupItem\n\t\t\t\tvalue="underline"\n\t\t\t\taria-label="Toggle underline"\n\t\t\t\tsize="icon"\n\t\t\t>\n\t\t\t\t<Underline className="h-4 w-4" />\n\t\t\t</ToggleGroupItem>\n\t\t</ToggleGroup>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-toggle-group",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/toggle-group/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-toggle-group-vertical": {
+		name: "baseui-particles-toggle-group-vertical",
+		description: "",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-toggle-group"],
+		files: [
+			{
+				path: "packages/baseui/particles/toggle-group/vertical/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/toggle-group-vertical.tsx",
+				content:
+					'import {\n\tToggleGroup,\n\tToggleGroupItem,\n} from "@/components/baseui/components/toggle-group";\nimport { Bold, Italic, Underline } from "lucide-react";\n\nexport function Particle() {\n\treturn (\n\t\t<ToggleGroup defaultValue={["bold"]} orientation="vertical" variant="outline">\n\t\t\t<ToggleGroupItem value="bold" aria-label="Toggle bold" size="icon">\n\t\t\t\t<Bold className="h-4 w-4" />\n\t\t\t</ToggleGroupItem>\n\t\t\t<ToggleGroupItem\n\t\t\t\tvalue="italic"\n\t\t\t\taria-label="Toggle italic"\n\t\t\t\tsize="icon"\n\t\t\t>\n\t\t\t\t<Italic className="h-4 w-4" />\n\t\t\t</ToggleGroupItem>\n\t\t\t<ToggleGroupItem\n\t\t\t\tvalue="underline"\n\t\t\t\taria-label="Toggle underline"\n\t\t\t\tsize="icon"\n\t\t\t>\n\t\t\t\t<Underline className="h-4 w-4" />\n\t\t\t</ToggleGroupItem>\n\t\t</ToggleGroup>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-toggle-group-vertical",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/toggle-group/vertical/index.tsx"
 				);
 				let Comp = mod.default;
 
