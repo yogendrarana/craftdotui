@@ -53,6 +53,10 @@ function TooltipPositioner(props: TooltipPrimitive.Positioner.Props) {
 	);
 }
 
+/* -------------------------------------------------------------------------- */
+/* Tooltip Viewport                                                           */
+/* -------------------------------------------------------------------------- */
+
 interface TooltipViewportProps extends TooltipPrimitive.Viewport.Props {
 	className?: string;
 }
@@ -67,29 +71,39 @@ function TooltipViewport({
 			data-slot="tooltip-viewport"
 			className={cn(
 				"relative h-full w-full overflow-clip",
-				"px-(--viewport-inline-padding) py-1 [--viewport-inline-padding:--spacing(2)]",
+				"px-(--viewport-inline-padding) py-1",
+				"[--viewport-inline-padding:--spacing(2)]",
+
+				/* previous */
 				"[&_[data-previous]]:w-[calc(var(--popup-width)-2*var(--viewport-inline-padding))]",
 				"[&_[data-previous]]:translate-x-0",
 				"[&_[data-previous]]:opacity-100",
 				"[&_[data-previous]]:transition-[translate,opacity]",
 				"[&_[data-previous]]:duration-[350ms,175ms]",
 				"[&_[data-previous]]:ease-[cubic-bezier(0.22,1,0.36,1)]",
+
+				/* current */
 				"[&_[data-current]]:w-[calc(var(--popup-width)-2*var(--viewport-inline-padding))]",
 				"[&_[data-current]]:translate-x-0",
 				"[&_[data-current]]:opacity-100",
 				"[&_[data-current]]:transition-[translate,opacity]",
 				"[&_[data-current]]:duration-[350ms,175ms]",
 				"[&_[data-current]]:ease-[cubic-bezier(0.22,1,0.36,1)]",
+
+				/* directional animations */
 				"data-[activation-direction~='left']:[&_[data-current][data-starting-style]]:-translate-x-1/2",
 				"data-[activation-direction~='left']:[&_[data-current][data-starting-style]]:opacity-0",
 				"data-[activation-direction~='right']:[&_[data-current][data-starting-style]]:translate-x-1/2",
 				"data-[activation-direction~='right']:[&_[data-current][data-starting-style]]:opacity-0",
-				"[[data-instant]_&_[data-previous]]:transition-none",
-				"[[data-instant]_&_[data-current]]:transition-none",
+
 				"data-[activation-direction~='left']:[&_[data-previous][data-ending-style]]:translate-x-1/2",
 				"data-[activation-direction~='left']:[&_[data-previous][data-ending-style]]:opacity-0",
 				"data-[activation-direction~='right']:[&_[data-previous][data-ending-style]]:-translate-x-1/2",
 				"data-[activation-direction~='right']:[&_[data-previous][data-ending-style]]:opacity-0",
+
+				/* instant */
+				"[[data-instant]_&_[data-previous]]:transition-none",
+				"[[data-instant]_&_[data-current]]:transition-none",
 
 				className,
 			)}
@@ -120,13 +134,16 @@ function TooltipPopup({
 			data-slot="tooltip-popup"
 			className={cn(
 				"h-(--popup-height,auto) w-(--popup-width,auto)",
-				"relative flex rounded-md border bg-popover text-popover-foreground text-xs",
-				// animations
+				"relative flex rounded-md border border-border",
+				"bg-popover text-popover-foreground text-xs",
+
+				/* animations */
 				"origin-(--transform-origin)",
 				"transition-[width,height,scale,opacity]",
 				"data-starting-style:scale-98 data-ending-style:scale-98",
 				"data-starting-style:opacity-0 data-ending-style:opacity-0",
 				"data-instant:duration-0",
+
 				className,
 			)}
 			{...props}
