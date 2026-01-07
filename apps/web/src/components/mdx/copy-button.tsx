@@ -4,6 +4,7 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 import type { ButtonProps } from "@/components/ui/button";
 import { CheckIcon, Copy } from "lucide-react";
+import { Button } from "@craftdotui/baseui/components/button";
 
 interface CopyButtonProps extends ButtonProps {
 	value: string;
@@ -23,8 +24,9 @@ export function CopyButton({ value, className, ...props }: CopyButtonProps) {
 	}, [hasCopied]);
 
 	return (
-		<button
-			size="icon"
+		<Button
+			variant="outline"
+			size="icon-xs"
 			className={cn("cursor-pointer", className)}
 			onClick={() => {
 				navigator.clipboard.writeText(value);
@@ -38,6 +40,6 @@ export function CopyButton({ value, className, ...props }: CopyButtonProps) {
 			) : (
 				<Copy className="h-3 w-3" />
 			)}
-		</button>
+		</Button>
 	);
 }

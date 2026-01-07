@@ -1115,6 +1115,20 @@
 			]
 		},
 		{
+			"name": "baseui-tooltip",
+			"type": "registry:component",
+			"description": "A Base UI tooltip component",
+			"dependencies": ["@base-ui/react", "lucide-react"],
+			"registryDependencies": ["@craftdotui/utils"],
+			"files": [
+				{
+					"path": "packages/baseui/components/tooltip/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/tooltip.tsx"
+				}
+			]
+		},
+		{
 			"name": "baseui-particles-accordion-controlled",
 			"type": "registry:component",
 			"description": "Controlled accordion with programmatic state management",
@@ -2291,6 +2305,134 @@
 					"path": "packages/baseui/particles/toggle-group/vertical/index.tsx",
 					"type": "registry:component",
 					"target": "components/baseui/particles/toggle-group-vertical.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-tooltip-animated",
+			"type": "registry:component",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": [
+				"@craftdotui/baseui-tooltip",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/baseui/particles/tooltip/animated/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/tooltip-animated.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-tooltip-controlled",
+			"type": "registry:component",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": [
+				"@craftdotui/baseui-tooltip",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/baseui/particles/tooltip/controlled/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/tooltip-controlled.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-tooltip-detached-triggers",
+			"type": "registry:component",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": [
+				"@craftdotui/baseui-tooltip",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/baseui/particles/tooltip/detached-triggers/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/tooltip-detached-triggers.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-tooltip-grouped",
+			"type": "registry:component",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": [
+				"@craftdotui/baseui-tooltip",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/baseui/particles/tooltip/grouped/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/tooltip-grouped.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-tooltip-instant",
+			"type": "registry:component",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": [
+				"@craftdotui/baseui-tooltip",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/baseui/particles/tooltip/instant/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/tooltip-instant.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-tooltip-multiple-triggers",
+			"type": "registry:component",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": [
+				"@craftdotui/baseui-tooltip",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/baseui/particles/tooltip/multiple-triggers/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/tooltip-multiple-triggers.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-tooltip",
+			"type": "registry:component",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": [
+				"@craftdotui/baseui-tooltip",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/baseui/particles/tooltip/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/tooltip.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-tooltip-sides",
+			"type": "registry:component",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": [
+				"@craftdotui/baseui-tooltip",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/baseui/particles/tooltip/sides/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/tooltip-sides.tsx"
 				}
 			]
 		},

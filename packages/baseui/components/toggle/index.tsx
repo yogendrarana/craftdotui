@@ -54,8 +54,12 @@ interface ToggleProps extends TogglePrimitive.Props, ToggleVariants {
 function Toggle({ className, size, variant, ...props }: ToggleProps) {
 	return (
 		<TogglePrimitive
-			className={cn(toggleVariants({ className, size, variant }))}
 			data-slot="toggle"
+			className={cn(
+				toggleVariants({ size, variant }),
+				"[&>svg]:size-4 [&>svg]:shrink-0",
+				className,
+			)}
 			{...props}
 		/>
 	);

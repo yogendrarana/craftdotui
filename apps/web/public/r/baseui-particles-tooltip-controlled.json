@@ -1,0 +1,18 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-tooltip-controlled",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/baseui-tooltip",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/baseui/particles/tooltip/controlled/index.tsx",
+			"content": "import { useState } from \"react\";\nimport {\n\tTooltip,\n\tTooltipPopup,\n\tTooltipPositioner,\n\tTooltipPortal,\n\tTooltipProvider,\n\tTooltipTrigger,\n} from \"@/components/baseui/components/tooltip\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport function Particle() {\n\tconst [open, setOpen] = useState(false);\n\n\treturn (\n\t\t<TooltipProvider>\n\t\t\t<div className=\"flex items-center gap-4\">\n\t\t\t\t<Tooltip open={open} onOpenChange={setOpen}>\n\t\t\t\t\t<TooltipTrigger\n\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t<Button variant=\"outline\" aria-label=\"Open Tooltip\">\n\t\t\t\t\t\t\t\tOpen Tooltip\n\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t}\n\t\t\t\t\t/>\n\t\t\t\t\t<TooltipPortal>\n\t\t\t\t\t\t<TooltipPositioner sideOffset={10}>\n\t\t\t\t\t\t\t<TooltipPopup>Controlled Tooltip</TooltipPopup>\n\t\t\t\t\t\t</TooltipPositioner>\n\t\t\t\t\t</TooltipPortal>\n\t\t\t\t</Tooltip>\n\n\t\t\t\t<Button\n\t\t\t\t\tonClick={() => setOpen((prev) => !prev)}\n\t\t\t\t\tvariant=\"secondary\"\n\t\t\t\t>\n\t\t\t\t\tClick\n\t\t\t\t</Button>\n\t\t\t</div>\n\t\t</TooltipProvider>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/tooltip-controlled.tsx"
+		}
+	],
+	"type": "registry:component"
+}
