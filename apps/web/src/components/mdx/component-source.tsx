@@ -26,7 +26,7 @@ export function ComponentSource({
 	code: directCode,
 	useCollapsible = true,
 }: Props) {
-	const [isOpened, setIsOpened] = React.useState(false);
+	const [isExpanded, setExpand] = React.useState(false);
 
 	const codeToRender = React.useMemo(() => {
 		// If direct code is provided, use it
@@ -62,7 +62,14 @@ export function ComponentSource({
 			);
 		}
 
-		return <CodeRenderer code={codeToRender} />;
+		return (
+			<CodeRenderer
+				code={codeToRender}
+				isExpanded={isExpanded}
+				onClick={() => setExpand(!isExpanded)}
+				allowExpand
+			/>
+		);
 	};
 
 	if (!useCollapsible) {
@@ -82,10 +89,13 @@ export function ComponentSource({
 				className,
 			)}
 		>
-			<Collapsible open={isOpened} onOpenChange={setIsOpened}>
+			<Collapsible open={isExpanded} onOpenChange={setExpand}>
 				<CollapsibleContent
 					forceMount
-					className={cn("overflow-hidden", !isOpened && "max-h-72")}
+					className={cn(
+						"overflow-hidden",
+						!isExpanded && "max-h-100",
+					)}
 				>
 					{renderContent()}
 				</CollapsibleContent>
@@ -97,7 +107,7 @@ export function ComponentSource({
 					)}
 				>
 					<CollapsibleTrigger className="w-full py-3 cursor-pointer">
-						{isOpened ? "Collapse" : expandButtonTitle}
+						{isExpanded ? "Collapse" : expandButtonTitle}
 					</CollapsibleTrigger>
 				</div>
 			</Collapsible>

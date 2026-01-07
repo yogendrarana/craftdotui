@@ -1,0 +1,18 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-tooltip-grouped",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/baseui-tooltip",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/baseui/particles/tooltip/grouped/index.tsx",
+			"content": "import { BoldIcon, ItalicIcon, UnderlineIcon } from \"lucide-react\";\n\nimport {\n\tTooltip,\n\tTooltipPopup,\n\tTooltipProvider,\n\tTooltipTrigger,\n\tTooltipPortal,\n\tTooltipPositioner,\n} from \"@/components/baseui/components/tooltip\";\n\nimport {\n\tToggleGroupItem,\n\tToggleGroup,\n} from \"@/components/baseui/components/toggle-group\";\n\nexport default function Particle() {\n\treturn (\n\t\t<TooltipProvider>\n\t\t\t<ToggleGroup defaultValue={[\"bold\"]} multiple>\n\t\t\t\t<Tooltip>\n\t\t\t\t\t<TooltipTrigger\n\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t<ToggleGroupItem\n\t\t\t\t\t\t\t\taria-label=\"Toggle bold\"\n\t\t\t\t\t\t\t\tvalue=\"bold\"\n\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t}\n\t\t\t\t\t>\n\t\t\t\t\t\t<BoldIcon />\n\t\t\t\t\t</TooltipTrigger>\n\t\t\t\t\t<TooltipPortal>\n\t\t\t\t\t\t<TooltipPositioner sideOffset={10}>\n\t\t\t\t\t\t\t<TooltipPopup>Bold</TooltipPopup>\n\t\t\t\t\t\t</TooltipPositioner>\n\t\t\t\t\t</TooltipPortal>\n\t\t\t\t</Tooltip>\n\n\t\t\t\t<Tooltip>\n\t\t\t\t\t<TooltipTrigger\n\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t<ToggleGroupItem\n\t\t\t\t\t\t\t\taria-label=\"Toggle italic\"\n\t\t\t\t\t\t\t\tvalue=\"italic\"\n\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t}\n\t\t\t\t\t>\n\t\t\t\t\t\t<ItalicIcon />\n\t\t\t\t\t</TooltipTrigger>\n\t\t\t\t\t<TooltipPortal>\n\t\t\t\t\t\t<TooltipPositioner sideOffset={10}>\n\t\t\t\t\t\t\t<TooltipPopup>Italic</TooltipPopup>\n\t\t\t\t\t\t</TooltipPositioner>\n\t\t\t\t\t</TooltipPortal>\n\t\t\t\t</Tooltip>\n\n\t\t\t\t<Tooltip>\n\t\t\t\t\t<TooltipTrigger\n\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t<ToggleGroupItem\n\t\t\t\t\t\t\t\taria-label=\"Toggle underline\"\n\t\t\t\t\t\t\t\tvalue=\"underline\"\n\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t}\n\t\t\t\t\t>\n\t\t\t\t\t\t<UnderlineIcon />\n\t\t\t\t\t</TooltipTrigger>\n\t\t\t\t\t<TooltipPortal>\n\t\t\t\t\t\t<TooltipPositioner sideOffset={10}>\n\t\t\t\t\t\t\t<TooltipPopup>Underline</TooltipPopup>\n\t\t\t\t\t\t</TooltipPositioner>\n\t\t\t\t\t</TooltipPortal>\n\t\t\t\t</Tooltip>\n\t\t\t</ToggleGroup>\n\t\t</TooltipProvider>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/tooltip-grouped.tsx"
+		}
+	],
+	"type": "registry:component"
+}

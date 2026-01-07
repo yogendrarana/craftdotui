@@ -1,0 +1,18 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-tooltip-multiple-triggers",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/baseui-tooltip",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/baseui/particles/tooltip/multiple-triggers/index.tsx",
+			"content": "",
+			"type": "registry:component",
+			"target": "components/baseui/particles/tooltip-multiple-triggers.tsx"
+		}
+	],
+	"type": "registry:component"
+}

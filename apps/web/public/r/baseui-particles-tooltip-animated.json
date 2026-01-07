@@ -1,0 +1,18 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-tooltip-animated",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/baseui-tooltip",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/baseui/particles/tooltip/animated/index.tsx",
+			"content": "import { BoldIcon, ItalicIcon, UnderlineIcon } from \"lucide-react\";\n\nimport {\n\tTooltip,\n\tTooltipPopup,\n\tTooltipProvider,\n\tTooltipTrigger,\n\tTooltipPortal,\n\tTooltipPositioner,\n\tTooltipPrimitive,\n} from \"@/components/baseui/components/tooltip\";\n\nimport {\n\tToggleGroupItem,\n\tToggleGroup,\n} from \"@/components/baseui/components/toggle-group\";\n\nconst tooltipHandle = TooltipPrimitive.createHandle();\n\nconst BoldTooltip = () => <span>Apply bold to text.</span>;\nconst ItalicTooltip = () => <span>Italicizing the text is fun.</span>;\nconst UnderlineTooltip = () => (\n\t<span>Underlined text helps to highlight the text.</span>\n);\n\nexport default function Particle() {\n\treturn (\n\t\t<TooltipProvider delay={100}>\n\t\t\t<ToggleGroup>\n\t\t\t\t<TooltipTrigger\n\t\t\t\t\thandle={tooltipHandle}\n\t\t\t\t\tpayload={BoldTooltip}\n\t\t\t\t\trender={\n\t\t\t\t\t\t<ToggleGroupItem\n\t\t\t\t\t\t\taria-label=\"Toggle bold\"\n\t\t\t\t\t\t\tvalue=\"bold\"\n\t\t\t\t\t\t\tsize=\"icon\"\n\t\t\t\t\t\t/>\n\t\t\t\t\t}\n\t\t\t\t>\n\t\t\t\t\t<BoldIcon />\n\t\t\t\t</TooltipTrigger>\n\n\t\t\t\t<TooltipTrigger\n\t\t\t\t\thandle={tooltipHandle}\n\t\t\t\t\tpayload={ItalicTooltip}\n\t\t\t\t\trender={\n\t\t\t\t\t\t<ToggleGroupItem\n\t\t\t\t\t\t\taria-label=\"Toggle italic\"\n\t\t\t\t\t\t\tvalue=\"italic\"\n\t\t\t\t\t\t\tsize=\"icon\"\n\t\t\t\t\t\t/>\n\t\t\t\t\t}\n\t\t\t\t>\n\t\t\t\t\t<ItalicIcon />\n\t\t\t\t</TooltipTrigger>\n\n\t\t\t\t<TooltipTrigger\n\t\t\t\t\thandle={tooltipHandle}\n\t\t\t\t\tpayload={UnderlineTooltip}\n\t\t\t\t\trender={\n\t\t\t\t\t\t<ToggleGroupItem\n\t\t\t\t\t\t\taria-label=\"Toggle underline\"\n\t\t\t\t\t\t\tvalue=\"underline\"\n\t\t\t\t\t\t\tsize=\"icon\"\n\t\t\t\t\t\t/>\n\t\t\t\t\t}\n\t\t\t\t>\n\t\t\t\t\t<UnderlineIcon />\n\t\t\t\t</TooltipTrigger>\n\t\t\t</ToggleGroup>\n\n\t\t\t<Tooltip handle={tooltipHandle}>\n\t\t\t\t{({ payload }) => {\n\t\t\t\t\tconst Payload = payload as React.ComponentType | undefined;\n\n\t\t\t\t\treturn (\n\t\t\t\t\t\t<TooltipPortal>\n\t\t\t\t\t\t\t<TooltipPositioner sideOffset={10}>\n\t\t\t\t\t\t\t\t<TooltipPopup>\n\t\t\t\t\t\t\t\t\t{Payload && <Payload />}\n\t\t\t\t\t\t\t\t</TooltipPopup>\n\t\t\t\t\t\t\t</TooltipPositioner>\n\t\t\t\t\t\t</TooltipPortal>\n\t\t\t\t\t);\n\t\t\t\t}}\n\t\t\t</Tooltip>\n\t\t</TooltipProvider>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/tooltip-animated.tsx"
+		}
+	],
+	"type": "registry:component"
+}

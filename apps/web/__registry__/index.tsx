@@ -3031,7 +3031,7 @@ export const Registry: Record<string, any> = {
 				type: "registry:component",
 				target: "components/baseui/components/button.tsx",
 				content:
-					'"use client";\n\nimport type * as React from "react";\nimport { useRender } from "@base-ui/react/use-render";\nimport { mergeProps } from "@base-ui/react/merge-props";\nimport { cva, type VariantProps } from "class-variance-authority";\n\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Variants                                                                   */\n/* -------------------------------------------------------------------------- */\n\nconst buttonVariants = cva(\n\t[\n\t\t"relative inline-flex items-center justify-center shrink-0 gap-2",\n\t\t"border rounded-md text-sm whitespace-nowrap outline-none transition cursor-pointer",\n\t\t"focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",\n\t\t"disabled:pointer-events-none disabled:opacity-60",\n\t\t"[&_svg]:pointer-events-none [&_svg]:shrink-0",\n\t\t"[&_svg:not([class*=\'size-\'])]:size-4",\n\t].join(" "),\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault:\n\t\t\t\t\t"bg-primary text-primary-foreground border-primary hover:bg-primary/90",\n\t\t\t\tsecondary:\n\t\t\t\t\t"bg-secondary text-secondary-foreground border-transparent hover:bg-secondary/90",\n\t\t\t\tdestructive:\n\t\t\t\t\t"bg-destructive text-destructive-foreground border-destructive hover:bg-destructive/90",\n\t\t\t\toutline:\n\t\t\t\t\t"bg-background text-foreground border-border hover:bg-accent",\n\t\t\t\tghost: "border-transparent bg-transparent hover:bg-muted",\n\t\t\t\tlink: "border-transparent bg-transparent underline-offset-4 hover:underline",\n\t\t\t},\n\t\t\tsize: {\n\t\t\t\txs: "h-7 px-2 text-xs",\n\t\t\t\tsm: "h-8 px-3 text-sm",\n\t\t\t\tdefault: "h-9 px-4",\n\t\t\t\tlg: "h-10 px-6",\n\t\t\t\txl: "h-11 px-8",\n\t\t\t\ticon: "size-9 p-0",\n\t\t\t\t"icon-sm": "size-8 p-0",\n\t\t\t\t"icon-lg": "size-10 p-0",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: "default",\n\t\t\tsize: "default",\n\t\t},\n\t},\n);\n\n/* -------------------------------------------------------------------------- */\n/* Props                                                                      */\n/* -------------------------------------------------------------------------- */\n\ninterface ButtonProps\n\textends useRender.ComponentProps<"button">,\n\t\tVariantProps<typeof buttonVariants> {\n\tloading?: boolean;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Component                                                                  */\n/* -------------------------------------------------------------------------- */\n\nfunction Button({\n\tclassName,\n\tvariant,\n\tsize,\n\trender,\n\tloading,\n\tchildren,\n\t...props\n}: ButtonProps) {\n\t// Determine the type attribute based on whether we\'re rendering a native button\n\tconst type: React.ButtonHTMLAttributes<HTMLButtonElement>["type"] = render\n\t\t? undefined\n\t\t: "button";\n\n\t// Create children with loading spinner\n\tconst renderedChildren = (\n\t\t<>\n\t\t\t{loading && (\n\t\t\t\t<span\n\t\t\t\t\taria-hidden\n\t\t\t\t\tclassName="inline-flex size-4 animate-spin rounded-full border-2 border-current border-t-transparent"\n\t\t\t\t/>\n\t\t\t)}\n\t\t\t{children}\n\t\t</>\n\t);\n\n\t// Prepare default props for the button\n\tconst defaultProps = {\n\t\tclassName: cn(\n\t\t\tbuttonVariants({ variant, size }),\n\t\t\tloading && "cursor-wait opacity-80",\n\t\t\tclassName,\n\t\t),\n\t\ttype,\n\t\t"aria-busy": loading || undefined,\n\t\t"data-slot": "button",\n\t\tdisabled: props.disabled || loading,\n\t\tchildren: renderedChildren, // Make sure children are included\n\t};\n\n\t// Merge default props with user props\n\tconst mergedProps = mergeProps<"button">(defaultProps, props);\n\n\t// Use useRender hook which handles the rendering logic\n\t// According to Base UI docs, this returns a React element\n\treturn useRender({\n\t\tdefaultTagName: "button",\n\t\tprops: mergedProps,\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport { Button, buttonVariants };',
+					'"use client";\n\nimport type * as React from "react";\nimport { useRender } from "@base-ui/react/use-render";\nimport { mergeProps } from "@base-ui/react/merge-props";\nimport { cva, type VariantProps } from "class-variance-authority";\n\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Variants                                                                   */\n/* -------------------------------------------------------------------------- */\n\nconst buttonVariants = cva(\n\t[\n\t\t"relative inline-flex items-center justify-center shrink-0 gap-2",\n\t\t"border rounded-md text-sm whitespace-nowrap outline-none transition cursor-pointer",\n\t\t"focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",\n\t\t"disabled:pointer-events-none disabled:opacity-60",\n\t\t"[&_svg]:pointer-events-none [&_svg]:shrink-0",\n\t\t"[&_svg:not([class*=\'size-\'])]:size-4",\n\t].join(" "),\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault:\n\t\t\t\t\t"bg-primary text-primary-foreground border-primary hover:bg-primary/90",\n\t\t\t\tsecondary:\n\t\t\t\t\t"bg-secondary text-secondary-foreground border-transparent hover:bg-secondary/90",\n\t\t\t\tdestructive:\n\t\t\t\t\t"bg-destructive text-destructive-foreground border-destructive hover:bg-destructive/90",\n\t\t\t\toutline:\n\t\t\t\t\t"bg-background text-foreground border-border hover:bg-accent",\n\t\t\t\tghost: "border-transparent bg-transparent hover:bg-muted",\n\t\t\t\tlink: "border-transparent bg-transparent underline-offset-4 hover:underline",\n\t\t\t},\n\t\t\tsize: {\n\t\t\t\txs: "h-7 px-2 text-xs",\n\t\t\t\tsm: "h-8 px-3 text-sm",\n\t\t\t\tdefault: "h-9 px-4",\n\t\t\t\tlg: "h-10 px-6",\n\t\t\t\txl: "h-11 px-8",\n\t\t\t\ticon: "size-9 p-0",\n\t\t\t\t"icon-xs": "size-7 p-0",\n\t\t\t\t"icon-sm": "size-8 p-0",\n\t\t\t\t"icon-lg": "size-10 p-0",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: "default",\n\t\t\tsize: "default",\n\t\t},\n\t},\n);\n\n/* -------------------------------------------------------------------------- */\n/* Props                                                                      */\n/* -------------------------------------------------------------------------- */\n\ninterface ButtonProps\n\textends useRender.ComponentProps<"button">,\n\t\tVariantProps<typeof buttonVariants> {\n\tloading?: boolean;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Component                                                                  */\n/* -------------------------------------------------------------------------- */\n\nfunction Button({\n\tclassName,\n\tvariant,\n\tsize,\n\trender,\n\tloading,\n\tchildren,\n\t...props\n}: ButtonProps) {\n\t// Determine the type attribute based on whether we\'re rendering a native button\n\tconst type: React.ButtonHTMLAttributes<HTMLButtonElement>["type"] = render\n\t\t? undefined\n\t\t: "button";\n\n\t// Create children with loading spinner\n\tconst renderedChildren = (\n\t\t<>\n\t\t\t{loading && (\n\t\t\t\t<span\n\t\t\t\t\taria-hidden\n\t\t\t\t\tclassName="inline-flex size-4 animate-spin rounded-full border-2 border-current border-t-transparent"\n\t\t\t\t/>\n\t\t\t)}\n\t\t\t{children}\n\t\t</>\n\t);\n\n\t// Prepare default props for the button\n\tconst defaultProps = {\n\t\tclassName: cn(\n\t\t\tbuttonVariants({ variant, size }),\n\t\t\tloading && "cursor-wait opacity-80",\n\t\t\tclassName,\n\t\t),\n\t\ttype,\n\t\t"aria-busy": loading || undefined,\n\t\t"data-slot": "button",\n\t\tdisabled: props.disabled || loading,\n\t\tchildren: renderedChildren, // Make sure children are included\n\t};\n\n\t// Merge default props with user props\n\tconst mergedProps = mergeProps<"button">(defaultProps, props);\n\n\t// Use useRender hook which handles the rendering logic\n\t// According to Base UI docs, this returns a React element\n\treturn useRender({\n\t\tdefaultTagName: "button",\n\t\tprops: mergedProps,\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport { Button, buttonVariants };',
 			},
 		],
 		keywords: [],
@@ -3766,7 +3766,7 @@ export const Registry: Record<string, any> = {
 				type: "registry:component",
 				target: "components/baseui/components/toggle.tsx",
 				content:
-					'"use client";\n\nimport { Toggle as TogglePrimitive } from "@base-ui/react/toggle";\nimport { cva, type VariantProps } from "class-variance-authority";\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Toggle Variants                                                            */\n/* -------------------------------------------------------------------------- */\n\nconst toggleVariants = cva(\n\t[\n\t\t"inline-flex items-center justify-center",\n\t\t"rounded-md border border-input bg-background text-sm font-medium transition-colors cursor-pointer",\n\t\t"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/20 focus-visible:ring-offset-1",\n\t\t"hover:bg-muted",\n\t\t"disabled:pointer-events-none disabled:opacity-50",\n\t\t"data-pressed:bg-accent data-pressed:text-accent-foreground",\n\t],\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault: "border-transparent",\n\t\t\t\toutline: "border border-border ",\n\t\t\t},\n\t\t\tsize: {\n\t\t\t\tsm: "h-8 px-3 text-sm",\n\t\t\t\tmd: "h-9 px-4",\n\t\t\t\tlg: "h-10 px-6",\n\t\t\t\ticon: "size-9 p-0",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: "default",\n\t\t\tsize: "md",\n\t\t},\n\t},\n);\n\n/* -------------------------------------------------------------------------- */\n/* Types                                                                      */\n/* -------------------------------------------------------------------------- */\n\ntype ToggleVariants = VariantProps<typeof toggleVariants>;\n\ninterface ToggleProps extends TogglePrimitive.Props, ToggleVariants {\n\tclassName?: string;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Toggle                                                                     */\n/* -------------------------------------------------------------------------- */\n\nfunction Toggle({ className, size, variant, ...props }: ToggleProps) {\n\treturn (\n\t\t<TogglePrimitive\n\t\t\tclassName={cn(toggleVariants({ className, size, variant }))}\n\t\t\tdata-slot="toggle"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport { Toggle, toggleVariants };\nexport type { ToggleProps };',
+					'"use client";\n\nimport { Toggle as TogglePrimitive } from "@base-ui/react/toggle";\nimport { cva, type VariantProps } from "class-variance-authority";\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Toggle Variants                                                            */\n/* -------------------------------------------------------------------------- */\n\nconst toggleVariants = cva(\n\t[\n\t\t"inline-flex items-center justify-center",\n\t\t"rounded-md border border-input bg-background text-sm font-medium transition-colors cursor-pointer",\n\t\t"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/20 focus-visible:ring-offset-1",\n\t\t"hover:bg-muted",\n\t\t"disabled:pointer-events-none disabled:opacity-50",\n\t\t"data-pressed:bg-accent data-pressed:text-accent-foreground",\n\t],\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault: "border-transparent",\n\t\t\t\toutline: "border border-border ",\n\t\t\t},\n\t\t\tsize: {\n\t\t\t\tsm: "h-8 px-3 text-sm",\n\t\t\t\tmd: "h-9 px-4",\n\t\t\t\tlg: "h-10 px-6",\n\t\t\t\ticon: "size-9 p-0",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: "default",\n\t\t\tsize: "md",\n\t\t},\n\t},\n);\n\n/* -------------------------------------------------------------------------- */\n/* Types                                                                      */\n/* -------------------------------------------------------------------------- */\n\ntype ToggleVariants = VariantProps<typeof toggleVariants>;\n\ninterface ToggleProps extends TogglePrimitive.Props, ToggleVariants {\n\tclassName?: string;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Toggle                                                                     */\n/* -------------------------------------------------------------------------- */\n\nfunction Toggle({ className, size, variant, ...props }: ToggleProps) {\n\treturn (\n\t\t<TogglePrimitive\n\t\t\tdata-slot="toggle"\n\t\t\tclassName={cn(\n\t\t\t\ttoggleVariants({ size, variant }),\n\t\t\t\t"[&>svg]:size-4 [&>svg]:shrink-0",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport { Toggle, toggleVariants };\nexport type { ToggleProps };',
 			},
 		],
 		keywords: [],
@@ -3818,7 +3818,7 @@ export const Registry: Record<string, any> = {
 				type: "registry:component",
 				target: "components/baseui/components/toggle-group.tsx",
 				content:
-					'"use client";\n\nimport React from "react";\nimport type { VariantProps } from "class-variance-authority";\nimport { ToggleGroup as ToggleGroupPrimitive } from "@base-ui/react/toggle-group";\nimport {\n\ttype toggleVariants,\n\tToggle as BaseuiToggle,\n\ttype ToggleProps,\n} from "@/components/baseui/components/toggle";\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Toggle Group Context                                                       */\n/* -------------------------------------------------------------------------- */\n\nconst ToggleGroupContextValue = React.createContext<\n\tVariantProps<typeof toggleVariants>\n>({\n\tsize: "md",\n\tvariant: "default",\n});\n\n/* -------------------------------------------------------------------------- */\n/* Toggle Group                                                               */\n/* -------------------------------------------------------------------------- */\n\nfunction ToggleGroup({\n\tclassName,\n\tchildren,\n\tvariant,\n\tsize,\n\t...props\n}: ToggleGroupPrimitive.Props & VariantProps<typeof toggleVariants>) {\n\treturn (\n\t\t<ToggleGroupContextValue.Provider value={{ variant, size }}>\n\t\t\t<ToggleGroupPrimitive\n\t\t\t\tclassName={cn(\n\t\t\t\t\t"flex items-center justify-center gap-1",\n\t\t\t\t\t"data-[orientation=vertical]:flex-col",\n\t\t\t\t\tvariant === "outline" && [\n\t\t\t\t\t\t"gap-0",\n\t\t\t\t\t\t"[&>[data-slot=toggle-group-item]]:rounded-none",\n\t\t\t\t\t\t"data-[orientation=horizontal]:[&>[data-slot=toggle-group-item]:first-child]:rounded-l-md",\n\t\t\t\t\t\t"data-[orientation=horizontal]:[&>[data-slot=toggle-group-item]:last-child]:rounded-r-md",\n\t\t\t\t\t\t"data-[orientation=vertical]:[&>[data-slot=toggle-group-item]:first-child]:rounded-t-md",\n\t\t\t\t\t\t"data-[orientation=vertical]:[&>[data-slot=toggle-group-item]:last-child]:rounded-b-md",\n\t\t\t\t\t\t"data-[orientation=horizontal]:-space-x-px",\n\t\t\t\t\t\t"data-[orientation=vertical]:-space-y-px",\n\t\t\t\t\t],\n\t\t\t\t\tclassName,\n\t\t\t\t)}\n\t\t\t\tdata-slot="toggle-group"\n\t\t\t\t{...props}\n\t\t\t>\n\t\t\t\t{children}\n\t\t\t</ToggleGroupPrimitive>\n\t\t</ToggleGroupContextValue.Provider>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Toggle Group Item                                                          */\n/* -------------------------------------------------------------------------- */\n\nfunction ToggleGroupItem({\n\tclassName,\n\tvariant,\n\tsize,\n\t...props\n}: ToggleProps & VariantProps<typeof toggleVariants>) {\n\tconst context = React.useContext(ToggleGroupContextValue);\n\tconst effectiveVariant = variant || context.variant;\n\tconst effectiveSize = size || context.size;\n\n\treturn (\n\t\t<BaseuiToggle\n\t\t\tclassName={className}\n\t\t\tdata-slot="toggle-group-item"\n\t\t\tvariant={effectiveVariant}\n\t\t\tsize={effectiveSize}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport { ToggleGroup, ToggleGroupItem };',
+					'"use client";\n\nimport React from "react";\nimport type { VariantProps } from "class-variance-authority";\nimport { ToggleGroup as ToggleGroupPrimitive } from "@base-ui/react/toggle-group";\nimport {\n\ttype toggleVariants,\n\tToggle as BaseuiToggle,\n\ttype ToggleProps,\n} from "@/components/baseui/components/toggle";\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Toggle Group Context                                                       */\n/* -------------------------------------------------------------------------- */\n\nconst ToggleGroupContextValue = React.createContext<\n\tVariantProps<typeof toggleVariants>\n>({\n\tsize: "md",\n\tvariant: "default",\n});\n\n/* -------------------------------------------------------------------------- */\n/* Toggle Group                                                               */\n/* -------------------------------------------------------------------------- */\n\nfunction ToggleGroup({\n\tclassName,\n\tchildren,\n\tvariant = "default",\n\tsize = "md",\n\t...props\n}: ToggleGroupPrimitive.Props & VariantProps<typeof toggleVariants>) {\n\treturn (\n\t\t<ToggleGroupContextValue.Provider value={{ variant, size }}>\n\t\t\t<ToggleGroupPrimitive\n\t\t\t\tclassName={cn(\n\t\t\t\t\t"flex items-center justify-center gap-1",\n\t\t\t\t\t"data-[orientation=vertical]:flex-col",\n\t\t\t\t\tvariant === "outline" && [\n\t\t\t\t\t\t"gap-0",\n\t\t\t\t\t\t"[&>[data-slot=toggle-group-item]]:rounded-none",\n\t\t\t\t\t\t"data-[orientation=horizontal]:[&>[data-slot=toggle-group-item]:first-child]:rounded-l-md",\n\t\t\t\t\t\t"data-[orientation=horizontal]:[&>[data-slot=toggle-group-item]:last-child]:rounded-r-md",\n\t\t\t\t\t\t"data-[orientation=vertical]:[&>[data-slot=toggle-group-item]:first-child]:rounded-t-md",\n\t\t\t\t\t\t"data-[orientation=vertical]:[&>[data-slot=toggle-group-item]:last-child]:rounded-b-md",\n\t\t\t\t\t\t"data-[orientation=horizontal]:-space-x-px",\n\t\t\t\t\t\t"data-[orientation=vertical]:-space-y-px",\n\t\t\t\t\t],\n\t\t\t\t\tclassName,\n\t\t\t\t)}\n\t\t\t\tdata-slot="toggle-group"\n\t\t\t\t{...props}\n\t\t\t>\n\t\t\t\t{children}\n\t\t\t</ToggleGroupPrimitive>\n\t\t</ToggleGroupContextValue.Provider>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Toggle Group Item                                                          */\n/* -------------------------------------------------------------------------- */\n\nfunction ToggleGroupItem({\n\tclassName,\n\tvariant = "default",\n\tsize = "icon",\n\t...props\n}: ToggleProps & VariantProps<typeof toggleVariants>) {\n\tconst context = React.useContext(ToggleGroupContextValue);\n\tconst effectiveVariant = variant || context.variant;\n\tconst effectiveSize = size || context.size;\n\n\treturn (\n\t\t<BaseuiToggle\n\t\t\tclassName={className}\n\t\t\tdata-slot="toggle-group-item"\n\t\t\tvariant={effectiveVariant}\n\t\t\tsize={effectiveSize}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport { ToggleGroup, ToggleGroupItem };',
 			},
 		],
 		keywords: [],
@@ -3827,6 +3827,55 @@ export const Registry: Record<string, any> = {
 			const LazyComp = React.lazy(async () => {
 				const mod = await import(
 					"@craftdotui/baseui/components/toggle-group/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-tooltip": {
+		name: "baseui-tooltip",
+		description: "A Base UI tooltip component",
+		type: "registry:component",
+		dependencies: ["@base-ui/react", "lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/utils"],
+		files: [
+			{
+				path: "packages/baseui/components/tooltip/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/tooltip.tsx",
+				content:
+					'"use client";\n\nimport { Tooltip as TooltipPrimitive } from "@base-ui/react/tooltip";\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Tooltip Provider                                                           */\n/* -------------------------------------------------------------------------- */\n\nconst TooltipProvider = TooltipPrimitive.Provider;\n\n/* -------------------------------------------------------------------------- */\n/* Tooltip Root                                                               */\n/* -------------------------------------------------------------------------- */\n\nfunction Tooltip(props: TooltipPrimitive.Root.Props) {\n\treturn <TooltipPrimitive.Root data-slot="tooltip" {...props} />;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Tooltip Trigger                                                            */\n/* -------------------------------------------------------------------------- */\n\nfunction TooltipTrigger(props: TooltipPrimitive.Trigger.Props) {\n\treturn <TooltipPrimitive.Trigger data-slot="tooltip-trigger" {...props} />;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Tooltip Portal                                                             */\n/* -------------------------------------------------------------------------- */\n\nfunction TooltipPortal(props: TooltipPrimitive.Portal.Props) {\n\treturn <TooltipPrimitive.Portal data-slot="tooltip-portal" {...props} />;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Tooltip Positioner                                                         */\n/* -------------------------------------------------------------------------- */\n\nfunction TooltipPositioner(props: TooltipPrimitive.Positioner.Props) {\n\treturn (\n\t\t<TooltipPrimitive.Positioner\n\t\t\tdata-slot="tooltip-positioner"\n\t\t\tclassName={cn(\n\t\t\t\t"z-50",\n\t\t\t\t"h-(--positioner-height) w-(--positioner-width)",\n\t\t\t\t"max-w-(--available-width)",\n\t\t\t\t"transition-[top,left,right,bottom,transform]",\n\t\t\t\t"data-instant:transition-none",\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\ninterface TooltipViewportProps extends TooltipPrimitive.Viewport.Props {\n\tclassName?: string;\n}\n\nfunction TooltipViewport({\n\tclassName,\n\tchildren,\n\t...props\n}: TooltipViewportProps) {\n\treturn (\n\t\t<TooltipPrimitive.Viewport\n\t\t\tdata-slot="tooltip-viewport"\n\t\t\tclassName={cn(\n\t\t\t\t"relative h-full w-full overflow-clip",\n\t\t\t\t"px-(--viewport-inline-padding) py-1 [--viewport-inline-padding:--spacing(2)]",\n\t\t\t\t"[&_[data-previous]]:w-[calc(var(--popup-width)-2*var(--viewport-inline-padding))]",\n\t\t\t\t"[&_[data-previous]]:translate-x-0",\n\t\t\t\t"[&_[data-previous]]:opacity-100",\n\t\t\t\t"[&_[data-previous]]:transition-[translate,opacity]",\n\t\t\t\t"[&_[data-previous]]:duration-[350ms,175ms]",\n\t\t\t\t"[&_[data-previous]]:ease-[cubic-bezier(0.22,1,0.36,1)]",\n\t\t\t\t"[&_[data-current]]:w-[calc(var(--popup-width)-2*var(--viewport-inline-padding))]",\n\t\t\t\t"[&_[data-current]]:translate-x-0",\n\t\t\t\t"[&_[data-current]]:opacity-100",\n\t\t\t\t"[&_[data-current]]:transition-[translate,opacity]",\n\t\t\t\t"[&_[data-current]]:duration-[350ms,175ms]",\n\t\t\t\t"[&_[data-current]]:ease-[cubic-bezier(0.22,1,0.36,1)]",\n\t\t\t\t"data-[activation-direction~=\'left\']:[&_[data-current][data-starting-style]]:-translate-x-1/2",\n\t\t\t\t"data-[activation-direction~=\'left\']:[&_[data-current][data-starting-style]]:opacity-0",\n\t\t\t\t"data-[activation-direction~=\'right\']:[&_[data-current][data-starting-style]]:translate-x-1/2",\n\t\t\t\t"data-[activation-direction~=\'right\']:[&_[data-current][data-starting-style]]:opacity-0",\n\t\t\t\t"[[data-instant]_&_[data-previous]]:transition-none",\n\t\t\t\t"[[data-instant]_&_[data-current]]:transition-none",\n\t\t\t\t"data-[activation-direction~=\'left\']:[&_[data-previous][data-ending-style]]:translate-x-1/2",\n\t\t\t\t"data-[activation-direction~=\'left\']:[&_[data-previous][data-ending-style]]:opacity-0",\n\t\t\t\t"data-[activation-direction~=\'right\']:[&_[data-previous][data-ending-style]]:-translate-x-1/2",\n\t\t\t\t"data-[activation-direction~=\'right\']:[&_[data-previous][data-ending-style]]:opacity-0",\n\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t{children}\n\t\t</TooltipPrimitive.Viewport>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Tooltip Popup                                                              */\n/* -------------------------------------------------------------------------- */\n\ninterface TooltipPopupProps extends TooltipPrimitive.Popup.Props {\n\tclassName?: string;\n\thideTooltipArrow?: boolean;\n}\n\nfunction TooltipPopup({\n\tclassName,\n\tchildren,\n\thideTooltipArrow = false,\n\t...props\n}: TooltipPopupProps) {\n\treturn (\n\t\t<TooltipPrimitive.Popup\n\t\t\tdata-slot="tooltip-popup"\n\t\t\tclassName={cn(\n\t\t\t\t"h-(--popup-height,auto) w-(--popup-width,auto)",\n\t\t\t\t"relative flex rounded-md border bg-popover text-popover-foreground text-xs",\n\t\t\t\t// animations\n\t\t\t\t"origin-(--transform-origin)",\n\t\t\t\t"transition-[width,height,scale,opacity]",\n\t\t\t\t"data-starting-style:scale-98 data-ending-style:scale-98",\n\t\t\t\t"data-starting-style:opacity-0 data-ending-style:opacity-0",\n\t\t\t\t"data-instant:duration-0",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t{!hideTooltipArrow && <TooltipArrow />}\n\t\t\t<TooltipViewport>{children}</TooltipViewport>\n\t\t</TooltipPrimitive.Popup>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Tooltip Arrow                                                              */\n/* -------------------------------------------------------------------------- */\n\ninterface TooltipArrowProps extends TooltipPrimitive.Arrow.Props {\n\tclassName?: string;\n}\n\nfunction TooltipArrow({ className, ...props }: TooltipArrowProps) {\n\treturn (\n\t\t<TooltipPrimitive.Arrow\n\t\t\tclassName={cn(\n\t\t\t\t"flex bg-background",\n\t\t\t\t"data-[side=top]:-bottom-2 data-[side=top]:rotate-180",\n\t\t\t\t"data-[side=left]:right-[-11px] data-[side=left]:rotate-90",\n\t\t\t\t"data-[side=bottom]:-top-2 data-[side=bottom]:rotate-0",\n\t\t\t\t"data-[side=right]:left-[-11px] data-[side=right]:-rotate-90",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t<svg width="12" height="6" viewBox="0 0 12 6">\n\t\t\t\t<title>Tooltip Arrow</title>\n\t\t\t\t<path d="M0 6L6 0L12 6Z" className="fill-background" />\n\t\t\t\t<path d="M0 6L6 0L12 6Z" className="fill-none stroke-border" />\n\t\t\t</svg>\n\t\t</TooltipPrimitive.Arrow>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport {\n\tTooltip,\n\tTooltipTrigger,\n\tTooltipPopup,\n\tTooltipProvider,\n\tTooltipPortal,\n\tTooltipPositioner,\n\tTooltipPrimitive,\n\tTooltipArrow,\n};',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-tooltip",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/components/tooltip/index.tsx"
 				);
 				let Comp = mod.default;
 
@@ -7989,7 +8038,7 @@ export const Registry: Record<string, any> = {
 				type: "registry:component",
 				target: "components/baseui/particles/toggle-group-vertical.tsx",
 				content:
-					'import {\n\tToggleGroup,\n\tToggleGroupItem,\n} from "@/components/baseui/components/toggle-group";\nimport { Bold, Italic, Underline } from "lucide-react";\n\nexport function Particle() {\n\treturn (\n\t\t<ToggleGroup defaultValue={["bold"]} orientation="vertical" variant="outline">\n\t\t\t<ToggleGroupItem value="bold" aria-label="Toggle bold" size="icon">\n\t\t\t\t<Bold className="h-4 w-4" />\n\t\t\t</ToggleGroupItem>\n\t\t\t<ToggleGroupItem\n\t\t\t\tvalue="italic"\n\t\t\t\taria-label="Toggle italic"\n\t\t\t\tsize="icon"\n\t\t\t>\n\t\t\t\t<Italic className="h-4 w-4" />\n\t\t\t</ToggleGroupItem>\n\t\t\t<ToggleGroupItem\n\t\t\t\tvalue="underline"\n\t\t\t\taria-label="Toggle underline"\n\t\t\t\tsize="icon"\n\t\t\t>\n\t\t\t\t<Underline className="h-4 w-4" />\n\t\t\t</ToggleGroupItem>\n\t\t</ToggleGroup>\n\t);\n}',
+					'import {\n\tToggleGroup,\n\tToggleGroupItem,\n} from "@/components/baseui/components/toggle-group";\nimport { Bold, Italic, Underline } from "lucide-react";\n\nexport function Particle() {\n\treturn (\n\t\t<ToggleGroup\n\t\t\tdefaultValue={["bold"]}\n\t\t\torientation="vertical"\n\t\t\tvariant="outline"\n\t\t>\n\t\t\t<ToggleGroupItem value="bold" aria-label="Toggle bold" size="icon">\n\t\t\t\t<Bold className="h-4 w-4" />\n\t\t\t</ToggleGroupItem>\n\t\t\t<ToggleGroupItem\n\t\t\t\tvalue="italic"\n\t\t\t\taria-label="Toggle italic"\n\t\t\t\tsize="icon"\n\t\t\t>\n\t\t\t\t<Italic className="h-4 w-4" />\n\t\t\t</ToggleGroupItem>\n\t\t\t<ToggleGroupItem\n\t\t\t\tvalue="underline"\n\t\t\t\taria-label="Toggle underline"\n\t\t\t\tsize="icon"\n\t\t\t>\n\t\t\t\t<Underline className="h-4 w-4" />\n\t\t\t</ToggleGroupItem>\n\t\t</ToggleGroup>\n\t);\n}',
 			},
 		],
 		keywords: [],
@@ -7998,6 +8047,421 @@ export const Registry: Record<string, any> = {
 			const LazyComp = React.lazy(async () => {
 				const mod = await import(
 					"@craftdotui/baseui/particles/toggle-group/vertical/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-tooltip-animated": {
+		name: "baseui-particles-tooltip-animated",
+		description: "",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: [
+			"@craftdotui/baseui-tooltip",
+			"@craftdotui/baseui-button",
+		],
+		files: [
+			{
+				path: "packages/baseui/particles/tooltip/animated/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/tooltip-animated.tsx",
+				content:
+					'import { BoldIcon, ItalicIcon, UnderlineIcon } from "lucide-react";\n\nimport {\n\tTooltip,\n\tTooltipPopup,\n\tTooltipProvider,\n\tTooltipTrigger,\n\tTooltipPortal,\n\tTooltipPositioner,\n\tTooltipPrimitive,\n} from "@/components/baseui/components/tooltip";\n\nimport {\n\tToggleGroupItem,\n\tToggleGroup,\n} from "@/components/baseui/components/toggle-group";\n\nconst tooltipHandle = TooltipPrimitive.createHandle();\n\nconst BoldTooltip = () => <span>Apply bold to text.</span>;\nconst ItalicTooltip = () => <span>Italicizing the text is fun.</span>;\nconst UnderlineTooltip = () => (\n\t<span>Underlined text helps to highlight the text.</span>\n);\n\nexport default function Particle() {\n\treturn (\n\t\t<TooltipProvider delay={100}>\n\t\t\t<ToggleGroup>\n\t\t\t\t<TooltipTrigger\n\t\t\t\t\thandle={tooltipHandle}\n\t\t\t\t\tpayload={BoldTooltip}\n\t\t\t\t\trender={\n\t\t\t\t\t\t<ToggleGroupItem\n\t\t\t\t\t\t\taria-label="Toggle bold"\n\t\t\t\t\t\t\tvalue="bold"\n\t\t\t\t\t\t\tsize="icon"\n\t\t\t\t\t\t/>\n\t\t\t\t\t}\n\t\t\t\t>\n\t\t\t\t\t<BoldIcon />\n\t\t\t\t</TooltipTrigger>\n\n\t\t\t\t<TooltipTrigger\n\t\t\t\t\thandle={tooltipHandle}\n\t\t\t\t\tpayload={ItalicTooltip}\n\t\t\t\t\trender={\n\t\t\t\t\t\t<ToggleGroupItem\n\t\t\t\t\t\t\taria-label="Toggle italic"\n\t\t\t\t\t\t\tvalue="italic"\n\t\t\t\t\t\t\tsize="icon"\n\t\t\t\t\t\t/>\n\t\t\t\t\t}\n\t\t\t\t>\n\t\t\t\t\t<ItalicIcon />\n\t\t\t\t</TooltipTrigger>\n\n\t\t\t\t<TooltipTrigger\n\t\t\t\t\thandle={tooltipHandle}\n\t\t\t\t\tpayload={UnderlineTooltip}\n\t\t\t\t\trender={\n\t\t\t\t\t\t<ToggleGroupItem\n\t\t\t\t\t\t\taria-label="Toggle underline"\n\t\t\t\t\t\t\tvalue="underline"\n\t\t\t\t\t\t\tsize="icon"\n\t\t\t\t\t\t/>\n\t\t\t\t\t}\n\t\t\t\t>\n\t\t\t\t\t<UnderlineIcon />\n\t\t\t\t</TooltipTrigger>\n\t\t\t</ToggleGroup>\n\n\t\t\t<Tooltip handle={tooltipHandle}>\n\t\t\t\t{({ payload }) => {\n\t\t\t\t\tconst Payload = payload as React.ComponentType | undefined;\n\n\t\t\t\t\treturn (\n\t\t\t\t\t\t<TooltipPortal>\n\t\t\t\t\t\t\t<TooltipPositioner sideOffset={10}>\n\t\t\t\t\t\t\t\t<TooltipPopup>\n\t\t\t\t\t\t\t\t\t{Payload && <Payload />}\n\t\t\t\t\t\t\t\t</TooltipPopup>\n\t\t\t\t\t\t\t</TooltipPositioner>\n\t\t\t\t\t\t</TooltipPortal>\n\t\t\t\t\t);\n\t\t\t\t}}\n\t\t\t</Tooltip>\n\t\t</TooltipProvider>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-tooltip-animated",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/tooltip/animated/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-tooltip-controlled": {
+		name: "baseui-particles-tooltip-controlled",
+		description: "",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: [
+			"@craftdotui/baseui-tooltip",
+			"@craftdotui/baseui-button",
+		],
+		files: [
+			{
+				path: "packages/baseui/particles/tooltip/controlled/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/tooltip-controlled.tsx",
+				content:
+					'import { useState } from "react";\nimport {\n\tTooltip,\n\tTooltipPopup,\n\tTooltipPositioner,\n\tTooltipPortal,\n\tTooltipProvider,\n\tTooltipTrigger,\n} from "@/components/baseui/components/tooltip";\nimport { Button } from "@/components/baseui/components/button";\n\nexport function Particle() {\n\tconst [open, setOpen] = useState(false);\n\n\treturn (\n\t\t<TooltipProvider>\n\t\t\t<div className="flex items-center gap-4">\n\t\t\t\t<Tooltip open={open} onOpenChange={setOpen}>\n\t\t\t\t\t<TooltipTrigger\n\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t<Button variant="outline" aria-label="Open Tooltip">\n\t\t\t\t\t\t\t\tOpen Tooltip\n\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t}\n\t\t\t\t\t/>\n\t\t\t\t\t<TooltipPortal>\n\t\t\t\t\t\t<TooltipPositioner sideOffset={10}>\n\t\t\t\t\t\t\t<TooltipPopup>Controlled Tooltip</TooltipPopup>\n\t\t\t\t\t\t</TooltipPositioner>\n\t\t\t\t\t</TooltipPortal>\n\t\t\t\t</Tooltip>\n\n\t\t\t\t<Button\n\t\t\t\t\tonClick={() => setOpen((prev) => !prev)}\n\t\t\t\t\tvariant="secondary"\n\t\t\t\t>\n\t\t\t\t\tClick\n\t\t\t\t</Button>\n\t\t\t</div>\n\t\t</TooltipProvider>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-tooltip-controlled",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/tooltip/controlled/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-tooltip-detached-triggers": {
+		name: "baseui-particles-tooltip-detached-triggers",
+		description: "",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: [
+			"@craftdotui/baseui-tooltip",
+			"@craftdotui/baseui-button",
+		],
+		files: [
+			{
+				path: "packages/baseui/particles/tooltip/detached-triggers/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/tooltip-detached-triggers.tsx",
+				content:
+					'import {\n\tTooltip,\n\tTooltipPopup,\n\tTooltipPositioner,\n\tTooltipPortal,\n\tTooltipPrimitive,\n\tTooltipProvider,\n\tTooltipTrigger,\n} from "@/components/baseui/components/tooltip";\nimport { Button } from "@/components/baseui/components/button";\nimport { Info } from "lucide-react";\n\nconst demoTooltip = TooltipPrimitive.createHandle();\n\nexport function Particle() {\n\treturn (\n\t\t<TooltipProvider>\n\t\t\t<div className="flex flex-col items-center gap-4">\n\t\t\t\t<TooltipTrigger\n\t\t\t\t\thandle={demoTooltip}\n\t\t\t\t\trender={\n\t\t\t\t\t\t<Button variant="outline" size="icon">\n\t\t\t\t\t\t\t<Info className="h-4 w-4" />\n\t\t\t\t\t\t</Button>\n\t\t\t\t\t}\n\t\t\t\t/>\n\n\t\t\t\t<Tooltip handle={demoTooltip}>\n\t\t\t\t\t<TooltipPortal>\n\t\t\t\t\t\t<TooltipPositioner sideOffset={10}>\n\t\t\t\t\t\t\t<TooltipPopup>\n\t\t\t\t\t\t\t\tThis is a detached tooltip\n\t\t\t\t\t\t\t</TooltipPopup>\n\t\t\t\t\t\t</TooltipPositioner>\n\t\t\t\t\t</TooltipPortal>\n\t\t\t\t</Tooltip>\n\t\t\t</div>\n\t\t</TooltipProvider>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-tooltip-detached-triggers",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/tooltip/detached-triggers/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-tooltip-grouped": {
+		name: "baseui-particles-tooltip-grouped",
+		description: "",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: [
+			"@craftdotui/baseui-tooltip",
+			"@craftdotui/baseui-button",
+		],
+		files: [
+			{
+				path: "packages/baseui/particles/tooltip/grouped/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/tooltip-grouped.tsx",
+				content:
+					'import { BoldIcon, ItalicIcon, UnderlineIcon } from "lucide-react";\n\nimport {\n\tTooltip,\n\tTooltipPopup,\n\tTooltipProvider,\n\tTooltipTrigger,\n\tTooltipPortal,\n\tTooltipPositioner,\n} from "@/components/baseui/components/tooltip";\n\nimport {\n\tToggleGroupItem,\n\tToggleGroup,\n} from "@/components/baseui/components/toggle-group";\n\nexport default function Particle() {\n\treturn (\n\t\t<TooltipProvider>\n\t\t\t<ToggleGroup defaultValue={["bold"]} multiple>\n\t\t\t\t<Tooltip>\n\t\t\t\t\t<TooltipTrigger\n\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t<ToggleGroupItem\n\t\t\t\t\t\t\t\taria-label="Toggle bold"\n\t\t\t\t\t\t\t\tvalue="bold"\n\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t}\n\t\t\t\t\t>\n\t\t\t\t\t\t<BoldIcon />\n\t\t\t\t\t</TooltipTrigger>\n\t\t\t\t\t<TooltipPortal>\n\t\t\t\t\t\t<TooltipPositioner sideOffset={10}>\n\t\t\t\t\t\t\t<TooltipPopup>Bold</TooltipPopup>\n\t\t\t\t\t\t</TooltipPositioner>\n\t\t\t\t\t</TooltipPortal>\n\t\t\t\t</Tooltip>\n\n\t\t\t\t<Tooltip>\n\t\t\t\t\t<TooltipTrigger\n\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t<ToggleGroupItem\n\t\t\t\t\t\t\t\taria-label="Toggle italic"\n\t\t\t\t\t\t\t\tvalue="italic"\n\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t}\n\t\t\t\t\t>\n\t\t\t\t\t\t<ItalicIcon />\n\t\t\t\t\t</TooltipTrigger>\n\t\t\t\t\t<TooltipPortal>\n\t\t\t\t\t\t<TooltipPositioner sideOffset={10}>\n\t\t\t\t\t\t\t<TooltipPopup>Italic</TooltipPopup>\n\t\t\t\t\t\t</TooltipPositioner>\n\t\t\t\t\t</TooltipPortal>\n\t\t\t\t</Tooltip>\n\n\t\t\t\t<Tooltip>\n\t\t\t\t\t<TooltipTrigger\n\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t<ToggleGroupItem\n\t\t\t\t\t\t\t\taria-label="Toggle underline"\n\t\t\t\t\t\t\t\tvalue="underline"\n\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t}\n\t\t\t\t\t>\n\t\t\t\t\t\t<UnderlineIcon />\n\t\t\t\t\t</TooltipTrigger>\n\t\t\t\t\t<TooltipPortal>\n\t\t\t\t\t\t<TooltipPositioner sideOffset={10}>\n\t\t\t\t\t\t\t<TooltipPopup>Underline</TooltipPopup>\n\t\t\t\t\t\t</TooltipPositioner>\n\t\t\t\t\t</TooltipPortal>\n\t\t\t\t</Tooltip>\n\t\t\t</ToggleGroup>\n\t\t</TooltipProvider>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-tooltip-grouped",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/tooltip/grouped/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-tooltip-instant": {
+		name: "baseui-particles-tooltip-instant",
+		description: "",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: [
+			"@craftdotui/baseui-tooltip",
+			"@craftdotui/baseui-button",
+		],
+		files: [
+			{
+				path: "packages/baseui/particles/tooltip/instant/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/tooltip-instant.tsx",
+				content:
+					'import {\n\tTooltip,\n\tTooltipPopup,\n\tTooltipPositioner,\n\tTooltipPortal,\n\tTooltipProvider,\n\tTooltipTrigger,\n} from "@/components/baseui/components/tooltip";\nimport { Button } from "@/components/baseui/components/button";\n\nexport function Particle() {\n\treturn (\n\t\t<TooltipProvider delay={0}>\n\t\t\t<Tooltip>\n\t\t\t\t<TooltipTrigger\n\t\t\t\t\trender={\n\t\t\t\t\t\t<Button variant="outline">Instant Animation</Button>\n\t\t\t\t\t}\n\t\t\t\t/>\n\t\t\t\t<TooltipPortal>\n\t\t\t\t\t<TooltipPositioner sideOffset={10}>\n\t\t\t\t\t\t<TooltipPopup>Custom Styled & Animated</TooltipPopup>\n\t\t\t\t\t</TooltipPositioner>\n\t\t\t\t</TooltipPortal>\n\t\t\t</Tooltip>\n\t\t</TooltipProvider>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-tooltip-instant",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/tooltip/instant/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-tooltip-multiple-triggers": {
+		name: "baseui-particles-tooltip-multiple-triggers",
+		description: "",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: [
+			"@craftdotui/baseui-tooltip",
+			"@craftdotui/baseui-button",
+		],
+		files: [
+			{
+				path: "packages/baseui/particles/tooltip/multiple-triggers/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/tooltip-multiple-triggers.tsx",
+				content: "",
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-tooltip-multiple-triggers",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/tooltip/multiple-triggers/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-tooltip": {
+		name: "baseui-particles-tooltip",
+		description: "",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: [
+			"@craftdotui/baseui-tooltip",
+			"@craftdotui/baseui-button",
+		],
+		files: [
+			{
+				path: "packages/baseui/particles/tooltip/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/tooltip.tsx",
+				content:
+					'import {\n\tTooltip,\n\tTooltipPopup,\n\tTooltipPositioner,\n\tTooltipPortal,\n\tTooltipProvider,\n\tTooltipTrigger,\n} from "@/components/baseui/components/tooltip";\nimport { Button } from "@/components/baseui/components/button";\n\nexport function Particle() {\n\treturn (\n\t\t<TooltipProvider>\n\t\t\t<Tooltip>\n\t\t\t\t<TooltipTrigger\n\t\t\t\t\trender={<Button variant="outline">Hover me</Button>}\n\t\t\t\t/>\n\t\t\t\t<TooltipPortal>\n\t\t\t\t\t<TooltipPositioner sideOffset={10}>\n\t\t\t\t\t\t<TooltipPopup>Add to library</TooltipPopup>\n\t\t\t\t\t</TooltipPositioner>\n\t\t\t\t</TooltipPortal>\n\t\t\t</Tooltip>\n\t\t</TooltipProvider>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-tooltip",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/tooltip/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-tooltip-sides": {
+		name: "baseui-particles-tooltip-sides",
+		description: "",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: [
+			"@craftdotui/baseui-tooltip",
+			"@craftdotui/baseui-button",
+		],
+		files: [
+			{
+				path: "packages/baseui/particles/tooltip/sides/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/tooltip-sides.tsx",
+				content:
+					'import {\n\tTooltip,\n\tTooltipPopup,\n\tTooltipPositioner,\n\tTooltipPortal,\n\tTooltipProvider,\n\tTooltipTrigger,\n} from "@/components/baseui/components/tooltip";\nimport { Button } from "@/components/baseui/components/button";\n\nexport function Particle() {\n\treturn (\n\t\t<TooltipProvider>\n\t\t\t<div className="grid grid-cols-2 grid-rows-2 gap-2">\n\t\t\t\t<Tooltip>\n\t\t\t\t\t<TooltipTrigger\n\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t<Button className="w-20" variant="outline">\n\t\t\t\t\t\t\t\tTop\n\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t}\n\t\t\t\t\t/>\n\t\t\t\t\t<TooltipPortal>\n\t\t\t\t\t\t<TooltipPositioner side="top" sideOffset={10}>\n\t\t\t\t\t\t\t<TooltipPopup>Tooltip on top</TooltipPopup>\n\t\t\t\t\t\t</TooltipPositioner>\n\t\t\t\t\t</TooltipPortal>\n\t\t\t\t</Tooltip>\n\n\t\t\t\t<Tooltip>\n\t\t\t\t\t<TooltipTrigger\n\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t<Button className="w-20" variant="outline">\n\t\t\t\t\t\t\t\tRight\n\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t}\n\t\t\t\t\t/>\n\t\t\t\t\t<TooltipPortal>\n\t\t\t\t\t\t<TooltipPositioner side="right" sideOffset={10}>\n\t\t\t\t\t\t\t<TooltipPopup>Tooltip on right</TooltipPopup>\n\t\t\t\t\t\t</TooltipPositioner>\n\t\t\t\t\t</TooltipPortal>\n\t\t\t\t</Tooltip>\n\n\t\t\t\t<Tooltip>\n\t\t\t\t\t<TooltipTrigger\n\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t<Button className="w-20" variant="outline">\n\t\t\t\t\t\t\t\tLeft\n\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t}\n\t\t\t\t\t/>\n\t\t\t\t\t<TooltipPortal>\n\t\t\t\t\t\t<TooltipPositioner side="left" sideOffset={10}>\n\t\t\t\t\t\t\t<TooltipPopup>Tooltip on left</TooltipPopup>\n\t\t\t\t\t\t</TooltipPositioner>\n\t\t\t\t\t</TooltipPortal>\n\t\t\t\t</Tooltip>\n\n\t\t\t\t<Tooltip>\n\t\t\t\t\t<TooltipTrigger\n\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t<Button className="w-20" variant="outline">\n\t\t\t\t\t\t\t\tBottom\n\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t}\n\t\t\t\t\t/>\n\t\t\t\t\t<TooltipPortal>\n\t\t\t\t\t\t<TooltipPositioner side="bottom" sideOffset={10}>\n\t\t\t\t\t\t\t<TooltipPopup>Tooltip on bottom</TooltipPopup>\n\t\t\t\t\t\t</TooltipPositioner>\n\t\t\t\t\t</TooltipPortal>\n\t\t\t\t</Tooltip>\n\t\t\t</div>\n\t\t</TooltipProvider>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-tooltip-sides",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/tooltip/sides/index.tsx"
 				);
 				let Comp = mod.default;
 
