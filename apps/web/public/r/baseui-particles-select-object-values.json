@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-select-object-values",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-select"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/select/object-values/index.tsx",
+			"content": "\"use client\";\n\nimport {\n\tSelect,\n\tSelectTrigger,\n\tSelectValue,\n\tSelectPortal,\n\tSelectPositioner,\n\tSelectPopup,\n\tSelectItem,\n\tSelectItemList,\n} from \"@/components/baseui/components/select\";\n\nconst items = [\n\t{ command: \"npm create node-blueprint\", label: \"NPM\", value: \"npm\" },\n\t{ command: \"yarn create node-blueprint\", label: \"Yarn\", value: \"yarn\" },\n\t{ command: \"pnpm create node-blueprint\", label: \"PNPM\", value: \"pnpm\" },\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"w-full max-w-80\">\n\t\t\t<Select\n\t\t\t\tdefaultValue={items[0]}\n\t\t\t\titemToStringValue={(item) => item.value}\n\t\t\t>\n\t\t\t\t<SelectTrigger className=\"py-2\">\n\t\t\t\t\t<SelectValue>\n\t\t\t\t\t\t{(item) => (\n\t\t\t\t\t\t\t<span className=\"flex flex-col items-start\">\n\t\t\t\t\t\t\t\t<span className=\"truncate\">{item.label}</span>\n\t\t\t\t\t\t\t\t<span className=\"truncate text-muted-foreground text-xs\">\n\t\t\t\t\t\t\t\t\t{item.command}\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t)}\n\t\t\t\t\t</SelectValue>\n\t\t\t\t</SelectTrigger>\n\t\t\t\t<SelectPortal>\n\t\t\t\t\t<SelectPositioner>\n\t\t\t\t\t\t<SelectPopup>\n\t\t\t\t\t\t\t<SelectItemList>\n\t\t\t\t\t\t\t\t{items.map((item) => (\n\t\t\t\t\t\t\t\t\t<SelectItem key={item.value} value={item}>\n\t\t\t\t\t\t\t\t\t\t<span className=\"flex flex-col\">\n\t\t\t\t\t\t\t\t\t\t\t<span className=\"truncate\">\n\t\t\t\t\t\t\t\t\t\t\t\t{item.label}\n\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t<span className=\"truncate text-muted-foreground text-xs\">\n\t\t\t\t\t\t\t\t\t\t\t\t{item.command}\n\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t</SelectItem>\n\t\t\t\t\t\t\t\t))}\n\t\t\t\t\t\t\t</SelectItemList>\n\t\t\t\t\t\t</SelectPopup>\n\t\t\t\t\t</SelectPositioner>\n\t\t\t\t</SelectPortal>\n\t\t\t</Select>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/select-object-values.tsx"
+		}
+	],
+	"type": "registry:component"
+}

@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-select-with-icon",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/baseui-select"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/select/with-icon/index.tsx",
+			"content": "import { Apple, Banana, Citrus, Grape, Cherry } from \"lucide-react\";\nimport {\n\tSelect,\n\tSelectTrigger,\n\tSelectValue,\n\tSelectPortal,\n\tSelectPositioner,\n\tSelectPopup,\n\tSelectItem,\n\tSelectItemList,\n} from \"@/components/baseui/components/select\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"w-full max-w-50\">\n\t\t\t<Select defaultValue=\"apple\">\n\t\t\t\t<SelectTrigger>\n\t\t\t\t\t<SelectValue />\n\t\t\t\t</SelectTrigger>\n\n\t\t\t\t<SelectPortal>\n\t\t\t\t\t<SelectPositioner>\n\t\t\t\t\t\t<SelectPopup>\n\t\t\t\t\t\t\t<SelectItemList>\n\t\t\t\t\t\t\t\t<SelectItem value=\"apple\">\n\t\t\t\t\t\t\t\t\t<div className=\"flex items-center gap-2\">\n\t\t\t\t\t\t\t\t\t\t<Apple className=\"size-4 text-red-500\" />\n\t\t\t\t\t\t\t\t\t\t<span>Apple</span>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</SelectItem>\n\t\t\t\t\t\t\t\t<SelectItem value=\"banana\">\n\t\t\t\t\t\t\t\t\t<div className=\"flex items-center gap-2\">\n\t\t\t\t\t\t\t\t\t\t<Banana className=\"size-4 text-yellow-500\" />\n\t\t\t\t\t\t\t\t\t\t<span>Banana</span>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</SelectItem>\n\t\t\t\t\t\t\t\t<SelectItem value=\"orange\">\n\t\t\t\t\t\t\t\t\t<div className=\"flex items-center gap-2\">\n\t\t\t\t\t\t\t\t\t\t<Citrus className=\"size-4 text-orange-500\" />\n\t\t\t\t\t\t\t\t\t\t<span>Orange</span>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</SelectItem>\n\t\t\t\t\t\t\t\t<SelectItem value=\"grape\">\n\t\t\t\t\t\t\t\t\t<div className=\"flex items-center gap-2\">\n\t\t\t\t\t\t\t\t\t\t<Grape className=\"size-4 text-purple-500\" />\n\t\t\t\t\t\t\t\t\t\t<span>Grape</span>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</SelectItem>\n\t\t\t\t\t\t\t\t<SelectItem value=\"cherry\">\n\t\t\t\t\t\t\t\t\t<div className=\"flex items-center gap-2\">\n\t\t\t\t\t\t\t\t\t\t<Cherry className=\"size-4 text-pink-500\" />\n\t\t\t\t\t\t\t\t\t\t<span>Cherry</span>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</SelectItem>\n\t\t\t\t\t\t\t</SelectItemList>\n\t\t\t\t\t\t</SelectPopup>\n\t\t\t\t\t</SelectPositioner>\n\t\t\t\t</SelectPortal>\n\t\t\t</Select>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/select-with-icon.tsx"
+		}
+	],
+	"type": "registry:component"
+}

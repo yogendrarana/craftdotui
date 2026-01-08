@@ -3557,6 +3557,55 @@ export const Registry: Record<string, any> = {
 			return LazyComp;
 		})(),
 	},
+	"baseui-select": {
+		name: "baseui-select",
+		description: "A Base UI select component",
+		type: "registry:component",
+		dependencies: ["@base-ui/react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/utils"],
+		files: [
+			{
+				path: "packages/baseui/components/select/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/select.tsx",
+				content:
+					'"use client";\n\nimport { Check, ChevronsUpDown } from "lucide-react";\nimport { Select as SelectPrimitive } from "@base-ui/react/select";\nimport { cva, type VariantProps } from "class-variance-authority";\n\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Root                                                                       */\n/* -------------------------------------------------------------------------- */\n\nconst Select = SelectPrimitive.Root;\n\n/* -------------------------------------------------------------------------- */\n/* SelectValue                                                                */\n/* -------------------------------------------------------------------------- */\n\nfunction SelectValue({ className, ...props }: SelectPrimitive.Value.Props) {\n\treturn (\n\t\t<SelectPrimitive.Value\n\t\t\tclassName={cn(\n\t\t\t\t"flex-1 flex truncate text-foreground data-placeholder:text-muted-foreground",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="select-value"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Icon                                                                       */\n/* -------------------------------------------------------------------------- */\n\nfunction SelectIcon({ className, ...props }: SelectPrimitive.Icon.Props) {\n\treturn (\n\t\t<SelectPrimitive.Icon\n\t\t\tclassName={cn("text-muted-foreground", className)}\n\t\t\tdata-slot="select-icon"\n\t\t\t{...props}\n\t\t>\n\t\t\t<ChevronsUpDown className="size-4" />\n\t\t</SelectPrimitive.Icon>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Trigger                                                                    */\n/* -------------------------------------------------------------------------- */\n\nconst selectTriggerVariants = cva(\n\t[\n\t\t"relative",\n\t\t"w-full min-w-0 inline-flex items-center justify-between gap-2 cursor-pointer",\n\t\t"bg-background outline-none border border-border rounded-md text-sm text-foreground",\n\t\t"transition-all duration-200 ease-in-out",\n\t\t"focus-visible:ring-2 focus-visible:ring-ring/20 focus-visible:ring-offset-1",\n\t\t"disabled:cursor-not-allowed disabled:opacity-50",\n\t],\n\t{\n\t\tvariants: {\n\t\t\tsize: {\n\t\t\t\tsm: "min-h-7 px-2",\n\t\t\t\tmd: "min-h-8 px-3",\n\t\t\t\tlg: "min-h-9 px-3 text-base",\n\t\t\t},\n\t\t\tvariant: {\n\t\t\t\tunstyled:\n\t\t\t\t\t"border-0 bg-transparent rounded-none focus-visible:ring-0",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tsize: "md",\n\t\t},\n\t},\n);\n\ntype SelectTriggerVariants = VariantProps<typeof selectTriggerVariants>;\n\nfunction SelectTrigger({\n\tclassName,\n\tsize,\n\tvariant,\n\thideSelectTriggerIcon = false,\n\tchildren,\n\t...props\n}: SelectPrimitive.Trigger.Props &\n\tSelectTriggerVariants & {\n\t\thideSelectTriggerIcon?: boolean;\n\t}) {\n\treturn (\n\t\t<SelectPrimitive.Trigger\n\t\t\tclassName={cn(selectTriggerVariants({ size, variant }), className)}\n\t\t\tdata-slot="select-trigger"\n\t\t\t{...props}\n\t\t>\n\t\t\t{children}\n\t\t\t{!hideSelectTriggerIcon && <SelectIcon />}\n\t\t</SelectPrimitive.Trigger>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* SelectScrollUpArrow                                                            */\n/* -------------------------------------------------------------------------- */\n\nfunction SelectScrollUpArrow({\n\tclassName,\n\t...props\n}: SelectPrimitive.ScrollUpArrow.Props) {\n\treturn (\n\t\t<SelectPrimitive.ScrollUpArrow\n\t\t\tclassName={cn(className)}\n\t\t\tdata-slot="select-scroll-up-arrow"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* SelectScrollDownArrow                                                          */\n/* -------------------------------------------------------------------------- */\n\nfunction SelectScrollDownArrow({\n\tclassName,\n\t...props\n}: SelectPrimitive.ScrollDownArrow.Props) {\n\treturn (\n\t\t<SelectPrimitive.ScrollDownArrow\n\t\t\tclassName={cn(className)}\n\t\t\tdata-slot="select-scroll-down-arrow"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* SelectPortal                                                              */\n/* -------------------------------------------------------------------------- */\n\nfunction SelectPortal({\n\tclassName,\n\tchildren,\n\t...props\n}: SelectPrimitive.Portal.Props) {\n\treturn (\n\t\t<SelectPrimitive.Portal\n\t\t\tclassName={cn(className)}\n\t\t\tdata-slot="select-portal"\n\t\t\t{...props}\n\t\t>\n\t\t\t{children}\n\t\t</SelectPrimitive.Portal>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* SelectPositioner                                                          */\n/* -------------------------------------------------------------------------- */\n\nfunction SelectPositioner({\n\tclassName,\n\tsideOffset = 4,\n\tchildren,\n\t...props\n}: SelectPrimitive.Positioner.Props) {\n\treturn (\n\t\t<SelectPrimitive.Positioner\n\t\t\tclassName={cn(className)}\n\t\t\tsideOffset={sideOffset}\n\t\t\tdata-slot="select-positioner"\n\t\t\t{...props}\n\t\t>\n\t\t\t{children}\n\t\t</SelectPrimitive.Positioner>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* SelectPopup                                                              */\n/* -------------------------------------------------------------------------- */\n\nfunction SelectPopup({\n\tclassName,\n\tchildren,\n\t...props\n}: SelectPrimitive.Popup.Props) {\n\treturn (\n\t\t<SelectPrimitive.Popup\n\t\t\tdata-slot="select-content"\n\t\t\tclassName={cn(\n\t\t\t\t"z-50 min-w-[var(--anchor-width)]",\n\t\t\t\t"origin-[var(--transform-origin)]",\n\t\t\t\t"rounded-md border border-border bg-popover text-sm shadow",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t{children}\n\t\t</SelectPrimitive.Popup>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* SelectItemIndicator                                                        */\n/* -------------------------------------------------------------------------- */\n\nfunction SelectItemIndicator({\n\tclassName,\n\t...props\n}: SelectPrimitive.ItemIndicator.Props) {\n\treturn (\n\t\t<SelectPrimitive.ItemIndicator\n\t\t\tclassName={cn("text-muted-foreground ml-auto", className)}\n\t\t\tdata-slot="select-item-indicator"\n\t\t\t{...props}\n\t\t>\n\t\t\t<Check className="size-4" />\n\t\t</SelectPrimitive.ItemIndicator>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* SelectItemList                                                             */\n/* -------------------------------------------------------------------------- */\n\nfunction SelectItemList({\n\tclassName,\n\tchildren,\n\t...props\n}: SelectPrimitive.List.Props) {\n\treturn (\n\t\t<SelectPrimitive.List\n\t\t\tdata-slot="select-item-list"\n\t\t\tclassName={cn(\n\t\t\t\t"max-h-(--available-height) min-w-(--anchor-width) p-1 overflow-y-auto",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t{children}\n\t\t</SelectPrimitive.List>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* SelectItem                                                                 */\n/* -------------------------------------------------------------------------- */\n\nfunction SelectItem({\n\tclassName,\n\tchildren,\n\thideIndicator = false,\n\t...props\n}: SelectPrimitive.Item.Props & { hideIndicator?: boolean }) {\n\treturn (\n\t\t<SelectPrimitive.Item\n\t\t\tclassName={cn(\n\t\t\t\t"relative px-2 py-1.5 flex items-center justify-between gap-2",\n\t\t\t\t"cursor-pointer select-none rounded-sm text-foreground outline-none",\n\t\t\t\t"data-[highlighted]:bg-muted",\n\t\t\t\t"data-[disabled]:pointer-events-none data-[disabled]:opacity-50",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="select-item"\n\t\t\t{...props}\n\t\t>\n\t\t\t<SelectPrimitive.ItemText className="mr-auto">\n\t\t\t\t{children}\n\t\t\t</SelectPrimitive.ItemText>\n\t\t\t{!hideIndicator && <SelectItemIndicator />}\n\t\t</SelectPrimitive.Item>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Group Label                                                                */\n/* -------------------------------------------------------------------------- */\n\nfunction SelectGroupLabel({\n\tclassName,\n\t...props\n}: SelectPrimitive.GroupLabel.Props) {\n\treturn (\n\t\t<SelectPrimitive.GroupLabel\n\t\t\tclassName={cn(\n\t\t\t\t"px-3 py-1 text-muted-foreground text-xs font-medium",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="select-group-label"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Group                                                                      */\n/* -------------------------------------------------------------------------- */\n\nfunction SelectGroup({ className, ...props }: SelectPrimitive.Group.Props) {\n\treturn (\n\t\t<SelectPrimitive.Group\n\t\t\tclassName={cn("", className)}\n\t\t\tdata-slot="select-group"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Separator                                                                  */\n/* -------------------------------------------------------------------------- */\n\nfunction SelectSeparator({\n\tclassName,\n\t...props\n}: SelectPrimitive.Separator.Props) {\n\treturn (\n\t\t<SelectPrimitive.Separator\n\t\t\tclassName={cn("h-px bg-border", className)}\n\t\t\tdata-slot="select-separator"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport {\n\tSelect,\n\tSelectTrigger,\n\tSelectValue,\n\tSelectIcon,\n\tSelectPortal,\n\tSelectPositioner,\n\tSelectPopup,\n\tSelectItem,\n\tSelectItemList,\n\tSelectGroup,\n\tSelectGroupLabel,\n\tSelectSeparator,\n\tselectTriggerVariants,\n\tSelectScrollUpArrow,\n\tSelectScrollDownArrow,\n};',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-select",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/components/select/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
 	"baseui-separator": {
 		name: "baseui-separator",
 		description: "A Base UI separator component",
@@ -6724,6 +6773,496 @@ export const Registry: Record<string, any> = {
 			const LazyComp = React.lazy(async () => {
 				const mod = await import(
 					"@craftdotui/baseui/particles/radio/with-description/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-select-disabled": {
+		name: "baseui-particles-select-disabled",
+		description: "",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-select"],
+		files: [
+			{
+				path: "packages/baseui/particles/select/disabled/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/select-disabled.tsx",
+				content:
+					'import {\n\tSelect,\n\tSelectTrigger,\n\tSelectValue,\n\tSelectPortal,\n\tSelectPositioner,\n\tSelectPopup,\n\tSelectItem,\n\tSelectItemList,\n} from "@/components/baseui/components/select";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="w-full max-w-50">\n\t\t\t<Select defaultValue="apple" disabled>\n\t\t\t\t<SelectTrigger>\n\t\t\t\t\t<SelectValue />\n\t\t\t\t</SelectTrigger>\n\n\t\t\t\t<SelectPortal>\n\t\t\t\t\t<SelectPositioner>\n\t\t\t\t\t\t<SelectPopup>\n\t\t\t\t\t\t\t<SelectItemList>\n\t\t\t\t\t\t\t\t<SelectItem value="apple">Apple</SelectItem>\n\t\t\t\t\t\t\t\t<SelectItem value="banana">Banana</SelectItem>\n\t\t\t\t\t\t\t\t<SelectItem value="orange">Orange</SelectItem>\n\t\t\t\t\t\t\t</SelectItemList>\n\t\t\t\t\t\t</SelectPopup>\n\t\t\t\t\t</SelectPositioner>\n\t\t\t\t</SelectPortal>\n\t\t\t</Select>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-select-disabled",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/select/disabled/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-select-disabled-item": {
+		name: "baseui-particles-select-disabled-item",
+		description: "",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-select"],
+		files: [
+			{
+				path: "packages/baseui/particles/select/disabled-item/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/select-disabled-item.tsx",
+				content:
+					'import {\n\tSelect,\n\tSelectTrigger,\n\tSelectValue,\n\tSelectPortal,\n\tSelectPositioner,\n\tSelectPopup,\n\tSelectItem,\n\tSelectItemList,\n} from "@/components/baseui/components/select";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="w-full max-w-50">\n\t\t\t<Select defaultValue="apple">\n\t\t\t\t<SelectTrigger>\n\t\t\t\t\t<SelectValue />\n\t\t\t\t</SelectTrigger>\n\n\t\t\t\t<SelectPortal>\n\t\t\t\t\t<SelectPositioner>\n\t\t\t\t\t\t<SelectPopup>\n\t\t\t\t\t\t\t<SelectItemList>\n\t\t\t\t\t\t\t\t<SelectItem value="apple">Apple</SelectItem>\n\t\t\t\t\t\t\t\t<SelectItem value="banana" disabled>\n\t\t\t\t\t\t\t\t\tBanana (Unavailable)\n\t\t\t\t\t\t\t\t</SelectItem>\n\t\t\t\t\t\t\t\t<SelectItem value="orange">Orange</SelectItem>\n\t\t\t\t\t\t\t</SelectItemList>\n\t\t\t\t\t\t</SelectPopup>\n\t\t\t\t\t</SelectPositioner>\n\t\t\t\t</SelectPortal>\n\t\t\t</Select>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-select-disabled-item",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/select/disabled-item/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-select-multiple-selection": {
+		name: "baseui-particles-select-multiple-selection",
+		description: "",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-select"],
+		files: [
+			{
+				path: "packages/baseui/particles/select/multiple-selection/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/select-multiple-selection.tsx",
+				content:
+					'import {\n\tSelect,\n\tSelectTrigger,\n\tSelectValue,\n\tSelectPortal,\n\tSelectPositioner,\n\tSelectPopup,\n\tSelectItem,\n\tSelectItemList,\n} from "@/components/baseui/components/select";\n\nconst languages = {\n\tjavascript: "JavaScript",\n\ttypescript: "TypeScript",\n\tpython: "Python",\n\tjava: "Java",\n\tcsharp: "C#",\n\tphp: "PHP",\n\tcpp: "C++",\n\trust: "Rust",\n\tgo: "Go",\n\tswift: "Swift",\n};\n\ntype Language = keyof typeof languages;\n\nconst values = Object.keys(languages) as Language[];\n\nfunction renderValue(value: Language[]) {\n\tif (value.length === 0) {\n\t\treturn "Select languages...";\n\t}\n\n\tconst firstLanguage = languages[value[0]];\n\tconst additionalLanguages =\n\t\tvalue.length > 1 ? ` (+${value.length - 1} more)` : "";\n\treturn firstLanguage + additionalLanguages;\n}\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="w-full max-w-50">\n\t\t\t<Select defaultValue={["javascript", "typescript"]} multiple>\n\t\t\t\t<SelectTrigger>\n\t\t\t\t\t<SelectValue>{renderValue}</SelectValue>\n\t\t\t\t</SelectTrigger>\n\n\t\t\t\t<SelectPortal>\n\t\t\t\t\t<SelectPositioner alignItemWithTrigger={false}>\n\t\t\t\t\t\t<SelectPopup>\n\t\t\t\t\t\t\t<SelectItemList>\n\t\t\t\t\t\t\t\t{values.map((value) => (\n\t\t\t\t\t\t\t\t\t<SelectItem key={value} value={value}>\n\t\t\t\t\t\t\t\t\t\t{languages[value]}\n\t\t\t\t\t\t\t\t\t</SelectItem>\n\t\t\t\t\t\t\t\t))}\n\t\t\t\t\t\t\t</SelectItemList>\n\t\t\t\t\t\t</SelectPopup>\n\t\t\t\t\t</SelectPositioner>\n\t\t\t\t</SelectPortal>\n\t\t\t</Select>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-select-multiple-selection",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/select/multiple-selection/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-select-object-values": {
+		name: "baseui-particles-select-object-values",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-select"],
+		files: [
+			{
+				path: "packages/baseui/particles/select/object-values/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/select-object-values.tsx",
+				content:
+					'"use client";\n\nimport {\n\tSelect,\n\tSelectTrigger,\n\tSelectValue,\n\tSelectPortal,\n\tSelectPositioner,\n\tSelectPopup,\n\tSelectItem,\n\tSelectItemList,\n} from "@/components/baseui/components/select";\n\nconst items = [\n\t{ command: "npm create node-blueprint", label: "NPM", value: "npm" },\n\t{ command: "yarn create node-blueprint", label: "Yarn", value: "yarn" },\n\t{ command: "pnpm create node-blueprint", label: "PNPM", value: "pnpm" },\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="w-full max-w-80">\n\t\t\t<Select\n\t\t\t\tdefaultValue={items[0]}\n\t\t\t\titemToStringValue={(item) => item.value}\n\t\t\t>\n\t\t\t\t<SelectTrigger className="py-2">\n\t\t\t\t\t<SelectValue>\n\t\t\t\t\t\t{(item) => (\n\t\t\t\t\t\t\t<span className="flex flex-col items-start">\n\t\t\t\t\t\t\t\t<span className="truncate">{item.label}</span>\n\t\t\t\t\t\t\t\t<span className="truncate text-muted-foreground text-xs">\n\t\t\t\t\t\t\t\t\t{item.command}\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t)}\n\t\t\t\t\t</SelectValue>\n\t\t\t\t</SelectTrigger>\n\t\t\t\t<SelectPortal>\n\t\t\t\t\t<SelectPositioner>\n\t\t\t\t\t\t<SelectPopup>\n\t\t\t\t\t\t\t<SelectItemList>\n\t\t\t\t\t\t\t\t{items.map((item) => (\n\t\t\t\t\t\t\t\t\t<SelectItem key={item.value} value={item}>\n\t\t\t\t\t\t\t\t\t\t<span className="flex flex-col">\n\t\t\t\t\t\t\t\t\t\t\t<span className="truncate">\n\t\t\t\t\t\t\t\t\t\t\t\t{item.label}\n\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t<span className="truncate text-muted-foreground text-xs">\n\t\t\t\t\t\t\t\t\t\t\t\t{item.command}\n\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t</SelectItem>\n\t\t\t\t\t\t\t\t))}\n\t\t\t\t\t\t\t</SelectItemList>\n\t\t\t\t\t\t</SelectPopup>\n\t\t\t\t\t</SelectPositioner>\n\t\t\t\t</SelectPortal>\n\t\t\t</Select>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-select-object-values",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/select/object-values/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-select": {
+		name: "baseui-particles-select",
+		description: "",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-select"],
+		files: [
+			{
+				path: "packages/baseui/particles/select/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/select.tsx",
+				content:
+					'import {\n\tSelect,\n\tSelectTrigger,\n\tSelectValue,\n\tSelectPortal,\n\tSelectPositioner,\n\tSelectPopup,\n\tSelectItem,\n\tSelectItemList,\n} from "@/components/baseui/components/select";\n\nconst fonts = [\n\t{ label: "Select font", value: null },\n\t{ label: "Sans-serif", value: "sans" },\n\t{ label: "Serif", value: "serif" },\n\t{ label: "Monospace", value: "mono" },\n\t{ label: "Cursive", value: "cursive" },\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="w-full max-w-50">\n\t\t\t<Select items={fonts}>\n\t\t\t\t<SelectTrigger>\n\t\t\t\t\t<SelectValue />\n\t\t\t\t</SelectTrigger>\n\n\t\t\t\t<SelectPortal>\n\t\t\t\t\t<SelectPositioner>\n\t\t\t\t\t\t<SelectPopup>\n\t\t\t\t\t\t\t<SelectItemList>\n\t\t\t\t\t\t\t\t{fonts.map((font) => (\n\t\t\t\t\t\t\t\t\t<SelectItem\n\t\t\t\t\t\t\t\t\t\tkey={font.value}\n\t\t\t\t\t\t\t\t\t\tvalue={font.value}\n\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\t{font.label}\n\t\t\t\t\t\t\t\t\t</SelectItem>\n\t\t\t\t\t\t\t\t))}\n\t\t\t\t\t\t\t</SelectItemList>\n\t\t\t\t\t\t</SelectPopup>\n\t\t\t\t\t</SelectPositioner>\n\t\t\t\t</SelectPortal>\n\t\t\t</Select>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-select",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/select/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-select-sizes": {
+		name: "baseui-particles-select-sizes",
+		description: "",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-select"],
+		files: [
+			{
+				path: "packages/baseui/particles/select/sizes/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/select-sizes.tsx",
+				content:
+					'import {\n\tSelect,\n\tSelectTrigger,\n\tSelectValue,\n\tSelectPortal,\n\tSelectPositioner,\n\tSelectPopup,\n\tSelectItem,\n\tSelectItemList,\n} from "@/components/baseui/components/select";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex flex-col gap-4 w-full max-w-50">\n\t\t\t<div className="flex flex-col gap-2">\n\t\t\t\t<span className="text-xs font-medium text-muted-foreground">\n\t\t\t\t\tSmall (sm)\n\t\t\t\t</span>\n\t\t\t\t<Select defaultValue="apple">\n\t\t\t\t\t<SelectTrigger size="sm">\n\t\t\t\t\t\t<SelectValue />\n\t\t\t\t\t</SelectTrigger>\n\n\t\t\t\t\t<SelectPortal>\n\t\t\t\t\t\t<SelectPositioner>\n\t\t\t\t\t\t\t<SelectPopup>\n\t\t\t\t\t\t\t\t<SelectItemList>\n\t\t\t\t\t\t\t\t\t<SelectItem value="apple">Apple</SelectItem>\n\t\t\t\t\t\t\t\t\t<SelectItem value="banana">\n\t\t\t\t\t\t\t\t\t\tBanana\n\t\t\t\t\t\t\t\t\t</SelectItem>\n\t\t\t\t\t\t\t\t</SelectItemList>\n\t\t\t\t\t\t\t</SelectPopup>\n\t\t\t\t\t\t</SelectPositioner>\n\t\t\t\t\t</SelectPortal>\n\t\t\t\t</Select>\n\t\t\t</div>\n\n\t\t\t<div className="flex flex-col gap-2">\n\t\t\t\t<span className="text-xs font-medium text-muted-foreground">\n\t\t\t\t\tMedium (md)\n\t\t\t\t</span>\n\t\t\t\t<Select defaultValue="apple">\n\t\t\t\t\t<SelectTrigger size="md">\n\t\t\t\t\t\t<SelectValue />\n\t\t\t\t\t</SelectTrigger>\n\n\t\t\t\t\t<SelectPortal>\n\t\t\t\t\t\t<SelectPositioner>\n\t\t\t\t\t\t\t<SelectPopup>\n\t\t\t\t\t\t\t\t<SelectItemList>\n\t\t\t\t\t\t\t\t\t<SelectItem value="apple">Apple</SelectItem>\n\t\t\t\t\t\t\t\t\t<SelectItem value="banana">\n\t\t\t\t\t\t\t\t\t\tBanana\n\t\t\t\t\t\t\t\t\t</SelectItem>\n\t\t\t\t\t\t\t\t</SelectItemList>\n\t\t\t\t\t\t\t</SelectPopup>\n\t\t\t\t\t\t</SelectPositioner>\n\t\t\t\t\t</SelectPortal>\n\t\t\t\t</Select>\n\t\t\t</div>\n\n\t\t\t<div className="flex flex-col gap-2">\n\t\t\t\t<span className="text-xs font-medium text-muted-foreground">\n\t\t\t\t\tLarge (lg)\n\t\t\t\t</span>\n\t\t\t\t<Select defaultValue="apple">\n\t\t\t\t\t<SelectTrigger size="lg">\n\t\t\t\t\t\t<SelectValue />\n\t\t\t\t\t</SelectTrigger>\n\n\t\t\t\t\t<SelectPortal>\n\t\t\t\t\t\t<SelectPositioner>\n\t\t\t\t\t\t\t<SelectPopup>\n\t\t\t\t\t\t\t\t<SelectItemList>\n\t\t\t\t\t\t\t\t\t<SelectItem value="apple">Apple</SelectItem>\n\t\t\t\t\t\t\t\t\t<SelectItem value="banana">\n\t\t\t\t\t\t\t\t\t\tBanana\n\t\t\t\t\t\t\t\t\t</SelectItem>\n\t\t\t\t\t\t\t\t</SelectItemList>\n\t\t\t\t\t\t\t</SelectPopup>\n\t\t\t\t\t\t</SelectPositioner>\n\t\t\t\t\t</SelectPortal>\n\t\t\t\t</Select>\n\t\t\t</div>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-select-sizes",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/select/sizes/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-select-with-groups": {
+		name: "baseui-particles-select-with-groups",
+		description: "",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-select"],
+		files: [
+			{
+				path: "packages/baseui/particles/select/with-groups/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/select-with-groups.tsx",
+				content:
+					'import {\n\tSelect,\n\tSelectTrigger,\n\tSelectValue,\n\tSelectPortal,\n\tSelectPositioner,\n\tSelectPopup,\n\tSelectItem,\n\tSelectItemList,\n\tSelectGroup,\n\tSelectGroupLabel,\n} from "@/components/baseui/components/select";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="w-full max-w-50">\n\t\t\t<Select defaultValue="apple">\n\t\t\t\t<SelectTrigger>\n\t\t\t\t\t<SelectValue />\n\t\t\t\t</SelectTrigger>\n\n\t\t\t\t<SelectPortal>\n\t\t\t\t\t<SelectPositioner alignItemWithTrigger={false}>\n\t\t\t\t\t\t<SelectPopup>\n\t\t\t\t\t\t\t<SelectGroup>\n\t\t\t\t\t\t\t\t<SelectGroupLabel>Fruits</SelectGroupLabel>\n\t\t\t\t\t\t\t\t<SelectItemList>\n\t\t\t\t\t\t\t\t\t<SelectItem value="apple">Apple</SelectItem>\n\t\t\t\t\t\t\t\t\t<SelectItem value="banana">\n\t\t\t\t\t\t\t\t\t\tBanana\n\t\t\t\t\t\t\t\t\t</SelectItem>\n\t\t\t\t\t\t\t\t\t<SelectItem value="grapes">\n\t\t\t\t\t\t\t\t\t\tGrapes\n\t\t\t\t\t\t\t\t\t</SelectItem>\n\t\t\t\t\t\t\t\t</SelectItemList>\n\t\t\t\t\t\t\t</SelectGroup>\n\t\t\t\t\t\t\t<SelectGroup>\n\t\t\t\t\t\t\t\t<SelectGroupLabel>Vegetables</SelectGroupLabel>\n\t\t\t\t\t\t\t\t<SelectItemList>\n\t\t\t\t\t\t\t\t\t<SelectItem value="broccoli">\n\t\t\t\t\t\t\t\t\t\tBroccoli\n\t\t\t\t\t\t\t\t\t</SelectItem>\n\t\t\t\t\t\t\t\t\t<SelectItem value="carrot">\n\t\t\t\t\t\t\t\t\t\tCarrot\n\t\t\t\t\t\t\t\t\t</SelectItem>\n\t\t\t\t\t\t\t\t\t<SelectItem value="courgette">\n\t\t\t\t\t\t\t\t\t\tCourgette\n\t\t\t\t\t\t\t\t\t</SelectItem>\n\t\t\t\t\t\t\t\t</SelectItemList>\n\t\t\t\t\t\t\t</SelectGroup>\n\t\t\t\t\t\t\t<SelectGroup>\n\t\t\t\t\t\t\t\t<SelectGroupLabel>Meat</SelectGroupLabel>\n\t\t\t\t\t\t\t\t<SelectItemList>\n\t\t\t\t\t\t\t\t\t<SelectItem value="chicken">\n\t\t\t\t\t\t\t\t\t\tChicken\n\t\t\t\t\t\t\t\t\t</SelectItem>\n\t\t\t\t\t\t\t\t\t<SelectItem value="lamb">Lamb</SelectItem>\n\t\t\t\t\t\t\t\t\t<SelectItem value="pork">Pork</SelectItem>\n\t\t\t\t\t\t\t\t</SelectItemList>\n\t\t\t\t\t\t\t</SelectGroup>\n\t\t\t\t\t\t</SelectPopup>\n\t\t\t\t\t</SelectPositioner>\n\t\t\t\t</SelectPortal>\n\t\t\t</Select>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-select-with-groups",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/select/with-groups/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-select-with-icon": {
+		name: "baseui-particles-select-with-icon",
+		description: "",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-select"],
+		files: [
+			{
+				path: "packages/baseui/particles/select/with-icon/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/select-with-icon.tsx",
+				content:
+					'import { Apple, Banana, Citrus, Grape, Cherry } from "lucide-react";\nimport {\n\tSelect,\n\tSelectTrigger,\n\tSelectValue,\n\tSelectPortal,\n\tSelectPositioner,\n\tSelectPopup,\n\tSelectItem,\n\tSelectItemList,\n} from "@/components/baseui/components/select";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="w-full max-w-50">\n\t\t\t<Select defaultValue="apple">\n\t\t\t\t<SelectTrigger>\n\t\t\t\t\t<SelectValue />\n\t\t\t\t</SelectTrigger>\n\n\t\t\t\t<SelectPortal>\n\t\t\t\t\t<SelectPositioner>\n\t\t\t\t\t\t<SelectPopup>\n\t\t\t\t\t\t\t<SelectItemList>\n\t\t\t\t\t\t\t\t<SelectItem value="apple">\n\t\t\t\t\t\t\t\t\t<div className="flex items-center gap-2">\n\t\t\t\t\t\t\t\t\t\t<Apple className="size-4 text-red-500" />\n\t\t\t\t\t\t\t\t\t\t<span>Apple</span>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</SelectItem>\n\t\t\t\t\t\t\t\t<SelectItem value="banana">\n\t\t\t\t\t\t\t\t\t<div className="flex items-center gap-2">\n\t\t\t\t\t\t\t\t\t\t<Banana className="size-4 text-yellow-500" />\n\t\t\t\t\t\t\t\t\t\t<span>Banana</span>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</SelectItem>\n\t\t\t\t\t\t\t\t<SelectItem value="orange">\n\t\t\t\t\t\t\t\t\t<div className="flex items-center gap-2">\n\t\t\t\t\t\t\t\t\t\t<Citrus className="size-4 text-orange-500" />\n\t\t\t\t\t\t\t\t\t\t<span>Orange</span>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</SelectItem>\n\t\t\t\t\t\t\t\t<SelectItem value="grape">\n\t\t\t\t\t\t\t\t\t<div className="flex items-center gap-2">\n\t\t\t\t\t\t\t\t\t\t<Grape className="size-4 text-purple-500" />\n\t\t\t\t\t\t\t\t\t\t<span>Grape</span>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</SelectItem>\n\t\t\t\t\t\t\t\t<SelectItem value="cherry">\n\t\t\t\t\t\t\t\t\t<div className="flex items-center gap-2">\n\t\t\t\t\t\t\t\t\t\t<Cherry className="size-4 text-pink-500" />\n\t\t\t\t\t\t\t\t\t\t<span>Cherry</span>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</SelectItem>\n\t\t\t\t\t\t\t</SelectItemList>\n\t\t\t\t\t\t</SelectPopup>\n\t\t\t\t\t</SelectPositioner>\n\t\t\t\t</SelectPortal>\n\t\t\t</Select>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-select-with-icon",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/select/with-icon/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-select-with-separator": {
+		name: "baseui-particles-select-with-separator",
+		description: "",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-select"],
+		files: [
+			{
+				path: "packages/baseui/particles/select/with-separator/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/select-with-separator.tsx",
+				content:
+					'import {\n\tSelect,\n\tSelectTrigger,\n\tSelectValue,\n\tSelectPortal,\n\tSelectPositioner,\n\tSelectPopup,\n\tSelectItem,\n\tSelectItemList,\n\tSelectSeparator,\n} from "@/components/baseui/components/select";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="w-full max-w-50">\n\t\t\t<Select defaultValue="apple">\n\t\t\t\t<SelectTrigger>\n\t\t\t\t\t<SelectValue />\n\t\t\t\t</SelectTrigger>\n\n\t\t\t\t<SelectPortal>\n\t\t\t\t\t<SelectPositioner>\n\t\t\t\t\t\t<SelectPopup>\n\t\t\t\t\t\t\t<SelectItemList>\n\t\t\t\t\t\t\t\t<SelectItem value="apple">Apple</SelectItem>\n\t\t\t\t\t\t\t\t<SelectItem value="banana">Banana</SelectItem>\n\n\t\t\t\t\t\t\t\t<SelectSeparator className="my-1" />\n\t\t\t\t\t\t\t\t<SelectItem value="orange">Orange</SelectItem>\n\t\t\t\t\t\t\t\t<SelectItem value="lemon">Lemon</SelectItem>\n\n\t\t\t\t\t\t\t\t<SelectSeparator className="my-1" />\n\t\t\t\t\t\t\t\t<SelectItem value="strawberry">\n\t\t\t\t\t\t\t\t\tStrawberry\n\t\t\t\t\t\t\t\t</SelectItem>\n\t\t\t\t\t\t\t</SelectItemList>\n\t\t\t\t\t\t</SelectPopup>\n\t\t\t\t\t</SelectPositioner>\n\t\t\t\t</SelectPortal>\n\t\t\t</Select>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-select-with-separator",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/select/with-separator/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-select-without-item-alignment": {
+		name: "baseui-particles-select-without-item-alignment",
+		description: "",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-select"],
+		files: [
+			{
+				path: "packages/baseui/particles/select/without-item-alignment/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/select-without-item-alignment.tsx",
+				content:
+					'import {\n\tSelect,\n\tSelectTrigger,\n\tSelectValue,\n\tSelectPortal,\n\tSelectItem,\n\tSelectItemList,\n\tSelectPositioner,\n\tSelectPopup,\n} from "@/components/baseui/components/select";\n\nexport default function FrontendFrameworksSelect() {\n\treturn (\n\t\t<div className="w-full max-w-50">\n\t\t\t<Select defaultValue="react">\n\t\t\t\t<SelectTrigger>\n\t\t\t\t\t<SelectValue />\n\t\t\t\t</SelectTrigger>\n\t\t\t\t<SelectPortal>\n\t\t\t\t\t<SelectPositioner alignItemWithTrigger={false}>\n\t\t\t\t\t\t<SelectPopup>\n\t\t\t\t\t\t\t<SelectItemList>\n\t\t\t\t\t\t\t\t<SelectItem value="react">React</SelectItem>\n\t\t\t\t\t\t\t\t<SelectItem value="vue">Vue.js</SelectItem>\n\t\t\t\t\t\t\t\t<SelectItem value="svelte">Svelte</SelectItem>\n\t\t\t\t\t\t\t</SelectItemList>\n\t\t\t\t\t\t</SelectPopup>\n\t\t\t\t\t</SelectPositioner>\n\t\t\t\t</SelectPortal>\n\t\t\t</Select>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-select-without-item-alignment",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/select/without-item-alignment/index.tsx"
 				);
 				let Comp = mod.default;
 
