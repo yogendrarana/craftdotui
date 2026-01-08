@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-select-without-item-alignment",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/baseui-select"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/select/without-item-alignment/index.tsx",
+			"content": "import {\n\tSelect,\n\tSelectTrigger,\n\tSelectValue,\n\tSelectPortal,\n\tSelectItem,\n\tSelectItemList,\n\tSelectPositioner,\n\tSelectPopup,\n} from \"@/components/baseui/components/select\";\n\nexport default function FrontendFrameworksSelect() {\n\treturn (\n\t\t<div className=\"w-full max-w-50\">\n\t\t\t<Select defaultValue=\"react\">\n\t\t\t\t<SelectTrigger>\n\t\t\t\t\t<SelectValue />\n\t\t\t\t</SelectTrigger>\n\t\t\t\t<SelectPortal>\n\t\t\t\t\t<SelectPositioner alignItemWithTrigger={false}>\n\t\t\t\t\t\t<SelectPopup>\n\t\t\t\t\t\t\t<SelectItemList>\n\t\t\t\t\t\t\t\t<SelectItem value=\"react\">React</SelectItem>\n\t\t\t\t\t\t\t\t<SelectItem value=\"vue\">Vue.js</SelectItem>\n\t\t\t\t\t\t\t\t<SelectItem value=\"svelte\">Svelte</SelectItem>\n\t\t\t\t\t\t\t</SelectItemList>\n\t\t\t\t\t\t</SelectPopup>\n\t\t\t\t\t</SelectPositioner>\n\t\t\t\t</SelectPortal>\n\t\t\t</Select>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/select-without-item-alignment.tsx"
+		}
+	],
+	"type": "registry:component"
+}

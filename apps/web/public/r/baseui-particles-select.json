@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-select",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/baseui-select"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/select/index.tsx",
+			"content": "import {\n\tSelect,\n\tSelectTrigger,\n\tSelectValue,\n\tSelectPortal,\n\tSelectPositioner,\n\tSelectPopup,\n\tSelectItem,\n\tSelectItemList,\n} from \"@/components/baseui/components/select\";\n\nconst fonts = [\n\t{ label: \"Select font\", value: null },\n\t{ label: \"Sans-serif\", value: \"sans\" },\n\t{ label: \"Serif\", value: \"serif\" },\n\t{ label: \"Monospace\", value: \"mono\" },\n\t{ label: \"Cursive\", value: \"cursive\" },\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"w-full max-w-50\">\n\t\t\t<Select items={fonts}>\n\t\t\t\t<SelectTrigger>\n\t\t\t\t\t<SelectValue />\n\t\t\t\t</SelectTrigger>\n\n\t\t\t\t<SelectPortal>\n\t\t\t\t\t<SelectPositioner>\n\t\t\t\t\t\t<SelectPopup>\n\t\t\t\t\t\t\t<SelectItemList>\n\t\t\t\t\t\t\t\t{fonts.map((font) => (\n\t\t\t\t\t\t\t\t\t<SelectItem\n\t\t\t\t\t\t\t\t\t\tkey={font.value}\n\t\t\t\t\t\t\t\t\t\tvalue={font.value}\n\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\t{font.label}\n\t\t\t\t\t\t\t\t\t</SelectItem>\n\t\t\t\t\t\t\t\t))}\n\t\t\t\t\t\t\t</SelectItemList>\n\t\t\t\t\t\t</SelectPopup>\n\t\t\t\t\t</SelectPositioner>\n\t\t\t\t</SelectPortal>\n\t\t\t</Select>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/select.tsx"
+		}
+	],
+	"type": "registry:component"
+}

@@ -1028,6 +1028,20 @@
 			]
 		},
 		{
+			"name": "baseui-select",
+			"type": "registry:component",
+			"description": "A Base UI select component",
+			"dependencies": ["@base-ui/react"],
+			"registryDependencies": ["@craftdotui/utils"],
+			"files": [
+				{
+					"path": "packages/baseui/components/select/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/select.tsx"
+				}
+			]
+		},
+		{
 			"name": "baseui-separator",
 			"type": "registry:component",
 			"description": "A Base UI separator component",
@@ -1940,6 +1954,136 @@
 					"path": "packages/baseui/particles/radio/with-description/index.tsx",
 					"type": "registry:component",
 					"target": "components/baseui/particles/radio-with-description.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-select-disabled",
+			"type": "registry:component",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-select"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/select/disabled/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/select-disabled.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-select-disabled-item",
+			"type": "registry:component",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-select"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/select/disabled-item/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/select-disabled-item.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-select-multiple-selection",
+			"type": "registry:component",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-select"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/select/multiple-selection/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/select-multiple-selection.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-select-object-values",
+			"type": "registry:component",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-select"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/select/object-values/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/select-object-values.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-select",
+			"type": "registry:component",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-select"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/select/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/select.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-select-sizes",
+			"type": "registry:component",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-select"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/select/sizes/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/select-sizes.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-select-with-groups",
+			"type": "registry:component",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-select"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/select/with-groups/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/select-with-groups.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-select-with-icon",
+			"type": "registry:component",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-select"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/select/with-icon/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/select-with-icon.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-select-with-separator",
+			"type": "registry:component",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-select"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/select/with-separator/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/select-with-separator.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-select-without-item-alignment",
+			"type": "registry:component",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-select"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/select/without-item-alignment/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/select-without-item-alignment.tsx"
 				}
 			]
 		},

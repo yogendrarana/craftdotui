@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-select-with-groups",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/baseui-select"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/select/with-groups/index.tsx",
+			"content": "import {\n\tSelect,\n\tSelectTrigger,\n\tSelectValue,\n\tSelectPortal,\n\tSelectPositioner,\n\tSelectPopup,\n\tSelectItem,\n\tSelectItemList,\n\tSelectGroup,\n\tSelectGroupLabel,\n} from \"@/components/baseui/components/select\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"w-full max-w-50\">\n\t\t\t<Select defaultValue=\"apple\">\n\t\t\t\t<SelectTrigger>\n\t\t\t\t\t<SelectValue />\n\t\t\t\t</SelectTrigger>\n\n\t\t\t\t<SelectPortal>\n\t\t\t\t\t<SelectPositioner alignItemWithTrigger={false}>\n\t\t\t\t\t\t<SelectPopup>\n\t\t\t\t\t\t\t<SelectGroup>\n\t\t\t\t\t\t\t\t<SelectGroupLabel>Fruits</SelectGroupLabel>\n\t\t\t\t\t\t\t\t<SelectItemList>\n\t\t\t\t\t\t\t\t\t<SelectItem value=\"apple\">Apple</SelectItem>\n\t\t\t\t\t\t\t\t\t<SelectItem value=\"banana\">\n\t\t\t\t\t\t\t\t\t\tBanana\n\t\t\t\t\t\t\t\t\t</SelectItem>\n\t\t\t\t\t\t\t\t\t<SelectItem value=\"grapes\">\n\t\t\t\t\t\t\t\t\t\tGrapes\n\t\t\t\t\t\t\t\t\t</SelectItem>\n\t\t\t\t\t\t\t\t</SelectItemList>\n\t\t\t\t\t\t\t</SelectGroup>\n\t\t\t\t\t\t\t<SelectGroup>\n\t\t\t\t\t\t\t\t<SelectGroupLabel>Vegetables</SelectGroupLabel>\n\t\t\t\t\t\t\t\t<SelectItemList>\n\t\t\t\t\t\t\t\t\t<SelectItem value=\"broccoli\">\n\t\t\t\t\t\t\t\t\t\tBroccoli\n\t\t\t\t\t\t\t\t\t</SelectItem>\n\t\t\t\t\t\t\t\t\t<SelectItem value=\"carrot\">\n\t\t\t\t\t\t\t\t\t\tCarrot\n\t\t\t\t\t\t\t\t\t</SelectItem>\n\t\t\t\t\t\t\t\t\t<SelectItem value=\"courgette\">\n\t\t\t\t\t\t\t\t\t\tCourgette\n\t\t\t\t\t\t\t\t\t</SelectItem>\n\t\t\t\t\t\t\t\t</SelectItemList>\n\t\t\t\t\t\t\t</SelectGroup>\n\t\t\t\t\t\t\t<SelectGroup>\n\t\t\t\t\t\t\t\t<SelectGroupLabel>Meat</SelectGroupLabel>\n\t\t\t\t\t\t\t\t<SelectItemList>\n\t\t\t\t\t\t\t\t\t<SelectItem value=\"chicken\">\n\t\t\t\t\t\t\t\t\t\tChicken\n\t\t\t\t\t\t\t\t\t</SelectItem>\n\t\t\t\t\t\t\t\t\t<SelectItem value=\"lamb\">Lamb</SelectItem>\n\t\t\t\t\t\t\t\t\t<SelectItem value=\"pork\">Pork</SelectItem>\n\t\t\t\t\t\t\t\t</SelectItemList>\n\t\t\t\t\t\t\t</SelectGroup>\n\t\t\t\t\t\t</SelectPopup>\n\t\t\t\t\t</SelectPositioner>\n\t\t\t\t</SelectPortal>\n\t\t\t</Select>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/select-with-groups.tsx"
+		}
+	],
+	"type": "registry:component"
+}

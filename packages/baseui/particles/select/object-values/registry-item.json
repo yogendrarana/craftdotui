@@ -1,0 +1,14 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-select-object-values",
+	"type": "registry:component",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-select"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/select/object-values/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/particles/select-object-values.tsx"
+		}
+	]
+}
