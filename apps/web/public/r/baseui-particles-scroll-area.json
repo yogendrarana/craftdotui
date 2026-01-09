@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-scroll-area",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/baseui-scroll-area"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/scroll-area/index.tsx",
+			"content": "import {\n\tScrollAreaRoot,\n\tScrollAreaContent,\n\tScrollAreaCorner,\n\tScrollAreaScrollbar,\n\tScrollAreaThumb,\n\tScrollAreaViewport,\n} from \"@/components/baseui/components/scroll-area\";\n\nexport function Particle() {\n\treturn (\n\t\t<ScrollAreaRoot className=\"h-48 max-w-96\">\n\t\t\t<ScrollAreaViewport>\n\t\t\t\t<ScrollAreaContent className=\"p-4 space-y-4\">\n\t\t\t\t\tVernacular architecture is building done outside any\n\t\t\t\t\tacademic tradition, and without professional guidance. It is\n\t\t\t\t\tnot a particular architectural movement or style, but rather\n\t\t\t\t\ta broad category, encompassing a wide range and variety of\n\t\t\t\t\tbuilding types, with differing methods of construction, from\n\t\t\t\t\taround the world, both historical and extant and classical\n\t\t\t\t\tand modern. Vernacular architecture constitutes 95% of the\n\t\t\t\t\tworld's built environment, as estimated in 1995 by Amos\n\t\t\t\t\tRapoport, as measured against the small percentage of new\n\t\t\t\t\tbuildings every year designed by architects and built by\n\t\t\t\t\tengineers. This type of architecture usually serves\n\t\t\t\t\timmediate, local needs, is constrained by the materials\n\t\t\t\t\tavailable in its particular region and reflects local\n\t\t\t\t\ttraditions and cultural practices. The study of vernacular\n\t\t\t\t\tarchitecture does not examine formally schooled architects,\n\t\t\t\t\tbut instead that of the design skills and tradition of local\n\t\t\t\t\tbuilders, who were rarely given any attribution for the\n\t\t\t\t\twork. More recently, vernacular architecture has been\n\t\t\t\t\texamined by designers and the building industry in an effort\n\t\t\t\t\tto be more energy conscious with contemporary design and\n\t\t\t\t\tconstruction—part of a broader interest in sustainable\n\t\t\t\t\tdesign.\n\t\t\t\t</ScrollAreaContent>\n\t\t\t</ScrollAreaViewport>\n\n\t\t\t<ScrollAreaScrollbar>\n\t\t\t\t<ScrollAreaThumb />\n\t\t\t</ScrollAreaScrollbar>\n\n\t\t\t<ScrollAreaCorner />\n\t\t</ScrollAreaRoot>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/scroll-area.tsx"
+		}
+	],
+	"type": "registry:component"
+}

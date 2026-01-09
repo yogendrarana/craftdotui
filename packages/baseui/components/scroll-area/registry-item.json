@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-scroll-area",
+	"type": "registry:component",
+	"description": "A Base UI scroll-area component",
+	"dependencies": ["@base-ui/react"],
+	"registryDependencies": ["@craftdotui/utils"],
+	"files": [
+		{
+			"path": "packages/baseui/components/scroll-area/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/components/scroll-area.tsx"
+		}
+	]
+}

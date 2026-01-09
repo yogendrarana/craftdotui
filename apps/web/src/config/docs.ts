@@ -149,6 +149,10 @@ export const docsNavItems: Array<DocsNavItem> = [
 				href: "/docs/baseui/components/radio",
 			},
 			{
+				title: "Scroll Area",
+				href: "/docs/baseui/components/scroll-area",
+			},
+			{
 				title: "Select",
 				href: "/docs/baseui/components/select",
 			},
