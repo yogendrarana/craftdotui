@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-preview-card-instant",
+	"description": "",
+	"dependencies": [""],
+	"registryDependencies": ["@craftdotui/baseui-preview-card"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/preview-card/instant/index.tsx",
+			"content": "\"use client\";\n\nimport {\n\tPreviewCardRoot,\n\tPreviewCardTrigger,\n\tPreviewCardPortal,\n\tPreviewCardPositioner,\n\tPreviewCardPopup,\n} from \"@/components/baseui/components/preview-card\";\nimport { ForkKnife, Star } from \"lucide-react\";\n\nconst projects = [\n\t{\n\t\tname: \"React\",\n\t\trepo: \"facebook/react\",\n\t\tdescription: \"A JavaScript library for building user interfaces.\",\n\t\tstars: \"220k\",\n\t\tforks: \"45k\",\n\t\tlanguage: \"TypeScript\",\n\t},\n\t{\n\t\tname: \"Next.js\",\n\t\trepo: \"vercel/next.js\",\n\t\tdescription: \"The React framework for the Web.\",\n\t\tstars: \"120k\",\n\t\tforks: \"26k\",\n\t\tlanguage: \"TypeScript\",\n\t},\n\t{\n\t\tname: \"Tailwind CSS\",\n\t\trepo: \"tailwindlabs/tailwindcss\",\n\t\tdescription: \"A utility-first CSS framework.\",\n\t\tstars: \"78k\",\n\t\tforks: \"4k\",\n\t\tlanguage: \"CSS\",\n\t},\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<p className=\"max-w-md text-base text-balance text-primary\">\n\t\t\tPopular open-source tools like{\" \"}\n\t\t\t{projects.map((project, i) => (\n\t\t\t\t<PreviewCardRoot key={project.repo}>\n\t\t\t\t\t<PreviewCardTrigger\n\t\t\t\t\t\thref={`https://github.com/${project.repo}`}\n\t\t\t\t\t\tdelay={80}\n\t\t\t\t\t\tcloseDelay={80}\n\t\t\t\t\t>\n\t\t\t\t\t\t{project.name}\n\t\t\t\t\t</PreviewCardTrigger>\n\t\t\t\t\t{i < projects.length - 1 && \", \"}\n\t\t\t\t\t<PreviewCardPortal>\n\t\t\t\t\t\t<PreviewCardPositioner sideOffset={10}>\n\t\t\t\t\t\t\t<PreviewCardPopup>\n\t\t\t\t\t\t\t\t<div className=\" flex flex-col gap-3\">\n\t\t\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t\t\t<p className=\"text-sm font-semibold text-primary\">\n\t\t\t\t\t\t\t\t\t\t\t{project.repo}\n\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t<p className=\"text-xs text-muted-foreground\">\n\t\t\t\t\t\t\t\t\t\t\t{project.description}\n\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div className=\"flex items-center gap-4 text-xs text-muted-foreground\">\n\t\t\t\t\t\t\t\t\t\t<span className=\"flex items-center gap-1\">\n\t\t\t\t\t\t\t\t\t\t\t<Star className=\"w-3.5 h-3.5\" />{\" \"}\n\t\t\t\t\t\t\t\t\t\t\t{project.stars}\n\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t<span className=\"flex items-center gap-1\">\n\t\t\t\t\t\t\t\t\t\t\t<ForkKnife className=\"w-3.5 h-3.5\" />{\" \"}\n\t\t\t\t\t\t\t\t\t\t\t{project.forks}\n\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t<span className=\"rounded bg-secondary text-secondary-foreground px-1.5 py-0.5\">\n\t\t\t\t\t\t\t\t\t\t\t{project.language}\n\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</PreviewCardPopup>\n\t\t\t\t\t\t</PreviewCardPositioner>\n\t\t\t\t\t</PreviewCardPortal>\n\t\t\t\t</PreviewCardRoot>\n\t\t\t))}{\" \"}\n\t\t\tpower modern interfaces.\n\t\t</p>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/preview-card-instant.tsx"
+		}
+	],
+	"type": "registry:component"
+}

@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-preview-card-without-arrow",
+	"description": "Preview card without an arrow",
+	"dependencies": [""],
+	"registryDependencies": ["@craftdotui/baseui-preview-card"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/preview-card/without-arrow/index.tsx",
+			"content": "\"use client\";\n\nimport {\n\tPreviewCardRoot,\n\tPreviewCardTrigger,\n\tPreviewCardPortal,\n\tPreviewCardPositioner,\n\tPreviewCardPopup,\n} from \"@/components/baseui/components/preview-card\";\n\nexport default function Particle() {\n\treturn (\n\t\t<p className=\"max-w-md text-base text-balance text-primary\">\n\t\t\tMinimalist designs often prefer a{\" \"}\n\t\t\t<PreviewCardRoot>\n\t\t\t\t<PreviewCardTrigger className=\"font-medium\">\n\t\t\t\t\tcleaner look\n\t\t\t\t</PreviewCardTrigger>\n\t\t\t\t<PreviewCardPortal>\n\t\t\t\t\t<PreviewCardPositioner sideOffset={10}>\n\t\t\t\t\t\t<PreviewCardPopup showPreviewCardArrow={false}>\n\t\t\t\t\t\t\t<p className=\"text-sm\">\n\t\t\t\t\t\t\t\tThis preview card has no arrow, providing a\n\t\t\t\t\t\t\t\tcleaner and more minimalist appearance.\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t</PreviewCardPopup>\n\t\t\t\t\t</PreviewCardPositioner>\n\t\t\t\t</PreviewCardPortal>\n\t\t\t</PreviewCardRoot>{\" \"}\n\t\t\twithout any pointing indicators.\n\t\t</p>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/preview-card-without-arrow.tsx"
+		}
+	],
+	"type": "registry:component"
+}

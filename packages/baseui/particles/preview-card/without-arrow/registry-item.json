@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-preview-card-without-arrow",
+	"type": "registry:component",
+	"description": "Preview card without an arrow",
+	"dependencies": [""],
+	"registryDependencies": ["@craftdotui/baseui-preview-card"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/preview-card/without-arrow/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/particles/preview-card-without-arrow.tsx"
+		}
+	]
+}

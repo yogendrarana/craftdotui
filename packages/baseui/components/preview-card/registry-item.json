@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-preview-card",
+	"type": "registry:component",
+	"description": "A Base UI preview card component",
+	"dependencies": ["@base-ui/react"],
+	"registryDependencies": ["@craftdotui/utils"],
+	"files": [
+		{
+			"path": "packages/baseui/components/preview-card/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/components/preview-card.tsx"
+		}
+	]
+}

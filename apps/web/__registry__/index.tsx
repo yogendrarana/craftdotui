@@ -3459,6 +3459,55 @@ export const Registry: Record<string, any> = {
 			return LazyComp;
 		})(),
 	},
+	"baseui-preview-card": {
+		name: "baseui-preview-card",
+		description: "A Base UI preview card component",
+		type: "registry:component",
+		dependencies: ["@base-ui/react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/utils"],
+		files: [
+			{
+				path: "packages/baseui/components/preview-card/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/preview-card.tsx",
+				content:
+					'"use client";\n\nimport { PreviewCard as PreviewCardPrimitive } from "@base-ui/react/preview-card";\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Root                                                                       */\n/* -------------------------------------------------------------------------- */\n\nfunction PreviewCardRoot(props: PreviewCardPrimitive.Root.Props) {\n\treturn (\n\t\t<PreviewCardPrimitive.Root {...props} data-slot="preview-card-root" />\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Trigger                                                                    */\n/* -------------------------------------------------------------------------- */\n\nfunction PreviewCardTrigger({\n\tclassName,\n\thref,\n\t...props\n}: PreviewCardPrimitive.Trigger.Props) {\n\treturn (\n\t\t<PreviewCardPrimitive.Trigger\n\t\t\thref={href}\n\t\t\tclassName={cn(\n\t\t\t\t"underline font-medium cursor-default decoration-1 underline-offset-4",\n\t\t\t\t"focus-visible:rounded-sm focus-visible:no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-800",\n\t\t\t\t"data-[popup-open]:underline data-[popup-open]:focus-visible:no-underline",\n\t\t\t\thref && "text-blue-500",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="preview-card-trigger"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Portal                                                                     */\n/* -------------------------------------------------------------------------- */\n\nfunction PreviewCardPortal(props: PreviewCardPrimitive.Portal.Props) {\n\treturn (\n\t\t<PreviewCardPrimitive.Portal\n\t\t\t{...props}\n\t\t\tdata-slot="preview-card-portal"\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Positioner                                                                 */\n/* -------------------------------------------------------------------------- */\n\nfunction PreviewCardPositioner({\n\tclassName,\n\tsideOffset = 4,\n\t...props\n}: PreviewCardPrimitive.Positioner.Props) {\n\treturn (\n\t\t<PreviewCardPrimitive.Positioner\n\t\t\tsideOffset={sideOffset}\n\t\t\tclassName={cn("z-50", className)}\n\t\t\tdata-slot="preview-card-positioner"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Popup                                                                      */\n/* -------------------------------------------------------------------------- */\n\nfunction PreviewCardPopup({\n\tclassName,\n\tchildren,\n\tshowPreviewCardArrow = true,\n\t...props\n}: PreviewCardPrimitive.Popup.Props & { showPreviewCardArrow?: boolean }) {\n\treturn (\n\t\t<PreviewCardPrimitive.Popup\n\t\t\tclassName={cn(\n\t\t\t\t"w-64 p-3 origin-[var(--transform-origin)]",\n\t\t\t\t"flex bg-popover text-popover-foreground text-sm rounded-lg border border-border shadow",\n\t\t\t\t"transition-[transform,scale,opacity]",\n\t\t\t\t"data-[starting-style]:scale-90 data-[starting-style]:opacity-0",\n\t\t\t\t"data-[ending-style]:scale-90 data-[ending-style]:opacity-0",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="preview-card-popup"\n\t\t\t{...props}\n\t\t>\n\t\t\t{showPreviewCardArrow && <PreviewCardArrow />}\n\t\t\t{children}\n\t\t</PreviewCardPrimitive.Popup>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Arrow                                                                      */\n/* -------------------------------------------------------------------------- */\n\nfunction PreviewCardArrow({\n\tclassName,\n\t...props\n}: PreviewCardPrimitive.Arrow.Props) {\n\treturn (\n\t\t<PreviewCardPrimitive.Arrow\n\t\t\tclassName={cn(\n\t\t\t\t"data-[side=bottom]:top-[-8px]",\n\t\t\t\t"data-[side=top]:bottom-[-8px] data-[side=top]:rotate-180",\n\t\t\t\t"data-[side=left]:right-[-13px] data-[side=left]:rotate-90",\n\t\t\t\t"data-[side=right]:left-[-13px] data-[side=right]:-rotate-90",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="preview-card-arrow"\n\t\t\t{...props}\n\t\t>\n\t\t\t<svg width="12" height="6" viewBox="0 0 12 6">\n\t\t\t\t<title>PreviewCard Arrow</title>\n\t\t\t\t<path d="M0 6L6 0L12 6Z" className="fill-background" />\n\t\t\t\t<path d="M0 6L6 0L12 6Z" className="fill-none stroke-border" />\n\t\t\t</svg>\n\t\t</PreviewCardPrimitive.Arrow>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport {\n\tPreviewCardRoot,\n\tPreviewCardTrigger,\n\tPreviewCardPortal,\n\tPreviewCardPositioner,\n\tPreviewCardPopup,\n\tPreviewCardArrow,\n};',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-preview-card",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/components/preview-card/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
 	"baseui-progress": {
 		name: "baseui-progress",
 		description: "A Base UI progress component",
@@ -6479,6 +6528,202 @@ export const Registry: Record<string, any> = {
 			const LazyComp = React.lazy(async () => {
 				const mod = await import(
 					"@craftdotui/baseui/particles/meter/without-label/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-preview-card-instant": {
+		name: "baseui-particles-preview-card-instant",
+		description: "",
+		type: "registry:component",
+		dependencies: [""],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-preview-card"],
+		files: [
+			{
+				path: "packages/baseui/particles/preview-card/instant/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/preview-card-instant.tsx",
+				content:
+					'"use client";\n\nimport {\n\tPreviewCardRoot,\n\tPreviewCardTrigger,\n\tPreviewCardPortal,\n\tPreviewCardPositioner,\n\tPreviewCardPopup,\n} from "@/components/baseui/components/preview-card";\nimport { ForkKnife, Star } from "lucide-react";\n\nconst projects = [\n\t{\n\t\tname: "React",\n\t\trepo: "facebook/react",\n\t\tdescription: "A JavaScript library for building user interfaces.",\n\t\tstars: "220k",\n\t\tforks: "45k",\n\t\tlanguage: "TypeScript",\n\t},\n\t{\n\t\tname: "Next.js",\n\t\trepo: "vercel/next.js",\n\t\tdescription: "The React framework for the Web.",\n\t\tstars: "120k",\n\t\tforks: "26k",\n\t\tlanguage: "TypeScript",\n\t},\n\t{\n\t\tname: "Tailwind CSS",\n\t\trepo: "tailwindlabs/tailwindcss",\n\t\tdescription: "A utility-first CSS framework.",\n\t\tstars: "78k",\n\t\tforks: "4k",\n\t\tlanguage: "CSS",\n\t},\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<p className="max-w-md text-base text-balance text-primary">\n\t\t\tPopular open-source tools like{" "}\n\t\t\t{projects.map((project, i) => (\n\t\t\t\t<PreviewCardRoot key={project.repo}>\n\t\t\t\t\t<PreviewCardTrigger\n\t\t\t\t\t\thref={`https://github.com/${project.repo}`}\n\t\t\t\t\t\tdelay={80}\n\t\t\t\t\t\tcloseDelay={80}\n\t\t\t\t\t>\n\t\t\t\t\t\t{project.name}\n\t\t\t\t\t</PreviewCardTrigger>\n\t\t\t\t\t{i < projects.length - 1 && ", "}\n\t\t\t\t\t<PreviewCardPortal>\n\t\t\t\t\t\t<PreviewCardPositioner sideOffset={10}>\n\t\t\t\t\t\t\t<PreviewCardPopup>\n\t\t\t\t\t\t\t\t<div className=" flex flex-col gap-3">\n\t\t\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t\t\t<p className="text-sm font-semibold text-primary">\n\t\t\t\t\t\t\t\t\t\t\t{project.repo}\n\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t<p className="text-xs text-muted-foreground">\n\t\t\t\t\t\t\t\t\t\t\t{project.description}\n\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div className="flex items-center gap-4 text-xs text-muted-foreground">\n\t\t\t\t\t\t\t\t\t\t<span className="flex items-center gap-1">\n\t\t\t\t\t\t\t\t\t\t\t<Star className="w-3.5 h-3.5" />{" "}\n\t\t\t\t\t\t\t\t\t\t\t{project.stars}\n\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t<span className="flex items-center gap-1">\n\t\t\t\t\t\t\t\t\t\t\t<ForkKnife className="w-3.5 h-3.5" />{" "}\n\t\t\t\t\t\t\t\t\t\t\t{project.forks}\n\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t<span className="rounded bg-secondary text-secondary-foreground px-1.5 py-0.5">\n\t\t\t\t\t\t\t\t\t\t\t{project.language}\n\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</PreviewCardPopup>\n\t\t\t\t\t\t</PreviewCardPositioner>\n\t\t\t\t\t</PreviewCardPortal>\n\t\t\t\t</PreviewCardRoot>\n\t\t\t))}{" "}\n\t\t\tpower modern interfaces.\n\t\t</p>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-preview-card-instant",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/preview-card/instant/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-preview-card": {
+		name: "baseui-particles-preview-card",
+		description: "",
+		type: "registry:component",
+		dependencies: [""],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-preview-card"],
+		files: [
+			{
+				path: "packages/baseui/particles/preview-card/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/preview-card.tsx",
+				content:
+					'"use client";\n\nimport {\n\tPreviewCardRoot,\n\tPreviewCardTrigger,\n\tPreviewCardPortal,\n\tPreviewCardPositioner,\n\tPreviewCardPopup,\n} from "@/components/baseui/components/preview-card";\n\nconst particles = [\n\t{\n\t\tlabel: "Typography",\n\t\timg: "https://images.unsplash.com/photo-1619615391095-dfa29e1672ef?q=80&w=448&h=300",\n\t},\n\t{\n\t\tlabel: "Layout",\n\t\timg: "https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=448&h=300",\n\t},\n\t{\n\t\tlabel: "Motion",\n\t\timg: "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?q=80&w=448&h=300",\n\t},\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<p className="max-w-md text-base text-balance text-primary">\n\t\t\tModern interfaces blend{" "}\n\t\t\t{particles.map((p, i) => (\n\t\t\t\t<PreviewCardRoot key={p.label}>\n\t\t\t\t\t<PreviewCardTrigger href="#">{p.label}</PreviewCardTrigger>\n\t\t\t\t\t{i < particles.length - 1 && ", "}\n\t\t\t\t\t<PreviewCardPortal>\n\t\t\t\t\t\t<PreviewCardPositioner>\n\t\t\t\t\t\t\t<PreviewCardPopup>\n\t\t\t\t\t\t\t\t<div className="flex flex-col gap-2">\n\t\t\t\t\t\t\t\t\t<img\n\t\t\t\t\t\t\t\t\t\tsrc={p.img}\n\t\t\t\t\t\t\t\t\t\talt={p.label}\n\t\t\t\t\t\t\t\t\t\tclassName="block w-full rounded-sm"\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t<p className="text-sm">\n\t\t\t\t\t\t\t\t\t\t<strong>{p.label}</strong> enhances\n\t\t\t\t\t\t\t\t\t\tclarity, hierarchy, and user delight.\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</PreviewCardPopup>\n\t\t\t\t\t\t</PreviewCardPositioner>\n\t\t\t\t\t</PreviewCardPortal>\n\t\t\t\t</PreviewCardRoot>\n\t\t\t))}{" "}\n\t\t\tto create expressive systems.\n\t\t</p>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-preview-card",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/preview-card/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-preview-card-sides": {
+		name: "baseui-particles-preview-card-sides",
+		description: "Preview card on different sides",
+		type: "registry:component",
+		dependencies: [""],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-preview-card"],
+		files: [
+			{
+				path: "packages/baseui/particles/preview-card/sides/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/preview-card-sides.tsx",
+				content:
+					'"use client";\n\nimport {\n\tPreviewCardRoot,\n\tPreviewCardTrigger,\n\tPreviewCardPortal,\n\tPreviewCardPositioner,\n\tPreviewCardPopup,\n} from "@/components/baseui/components/preview-card";\n\nexport default function Particle() {\n\treturn (\n\t\t<p className="max-w-md text-base text-balance text-primary">\n\t\t\tPreview cards can be positioned globally around the trigger:\n\t\t\tappearing on the{" "}\n\t\t\t<PreviewCardRoot>\n\t\t\t\t<PreviewCardTrigger className="font-medium">\n\t\t\t\t\ttop\n\t\t\t\t</PreviewCardTrigger>\n\t\t\t\t<PreviewCardPortal>\n\t\t\t\t\t<PreviewCardPositioner side="top" sideOffset={10}>\n\t\t\t\t\t\t<PreviewCardPopup showPreviewCardArrow={false}>\n\t\t\t\t\t\t\t<p className="text-sm">Positioned to the top.</p>\n\t\t\t\t\t\t</PreviewCardPopup>\n\t\t\t\t\t</PreviewCardPositioner>\n\t\t\t\t</PreviewCardPortal>\n\t\t\t</PreviewCardRoot>\n\t\t\t, at the{" "}\n\t\t\t<PreviewCardRoot>\n\t\t\t\t<PreviewCardTrigger className="font-medium">\n\t\t\t\t\tbottom\n\t\t\t\t</PreviewCardTrigger>\n\t\t\t\t<PreviewCardPortal>\n\t\t\t\t\t<PreviewCardPositioner side="bottom" sideOffset={10}>\n\t\t\t\t\t\t<PreviewCardPopup showPreviewCardArrow={false}>\n\t\t\t\t\t\t\t<p className="text-sm">Positioned to the bottom.</p>\n\t\t\t\t\t\t</PreviewCardPopup>\n\t\t\t\t\t</PreviewCardPositioner>\n\t\t\t\t</PreviewCardPortal>\n\t\t\t</PreviewCardRoot>\n\t\t\t, to the{" "}\n\t\t\t<PreviewCardRoot>\n\t\t\t\t<PreviewCardTrigger className="font-medium">\n\t\t\t\t\tleft\n\t\t\t\t</PreviewCardTrigger>\n\t\t\t\t<PreviewCardPortal>\n\t\t\t\t\t<PreviewCardPositioner side="left" sideOffset={10}>\n\t\t\t\t\t\t<PreviewCardPopup showPreviewCardArrow={false}>\n\t\t\t\t\t\t\t<p className="text-sm">Positioned to the left.</p>\n\t\t\t\t\t\t</PreviewCardPopup>\n\t\t\t\t\t</PreviewCardPositioner>\n\t\t\t\t</PreviewCardPortal>\n\t\t\t</PreviewCardRoot>\n\t\t\t, or on the{" "}\n\t\t\t<PreviewCardRoot>\n\t\t\t\t<PreviewCardTrigger className="font-medium">\n\t\t\t\t\tright\n\t\t\t\t</PreviewCardTrigger>\n\t\t\t\t<PreviewCardPortal>\n\t\t\t\t\t<PreviewCardPositioner side="right" sideOffset={10}>\n\t\t\t\t\t\t<PreviewCardPopup showPreviewCardArrow={false}>\n\t\t\t\t\t\t\t<p className="text-sm">Positioned to the right.</p>\n\t\t\t\t\t\t</PreviewCardPopup>\n\t\t\t\t\t</PreviewCardPositioner>\n\t\t\t\t</PreviewCardPortal>\n\t\t\t</PreviewCardRoot>\n\t\t\t.\n\t\t</p>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-preview-card-sides",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/preview-card/sides/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-preview-card-without-arrow": {
+		name: "baseui-particles-preview-card-without-arrow",
+		description: "Preview card without an arrow",
+		type: "registry:component",
+		dependencies: [""],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-preview-card"],
+		files: [
+			{
+				path: "packages/baseui/particles/preview-card/without-arrow/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/preview-card-without-arrow.tsx",
+				content:
+					'"use client";\n\nimport {\n\tPreviewCardRoot,\n\tPreviewCardTrigger,\n\tPreviewCardPortal,\n\tPreviewCardPositioner,\n\tPreviewCardPopup,\n} from "@/components/baseui/components/preview-card";\n\nexport default function Particle() {\n\treturn (\n\t\t<p className="max-w-md text-base text-balance text-primary">\n\t\t\tMinimalist designs often prefer a{" "}\n\t\t\t<PreviewCardRoot>\n\t\t\t\t<PreviewCardTrigger className="font-medium">\n\t\t\t\t\tcleaner look\n\t\t\t\t</PreviewCardTrigger>\n\t\t\t\t<PreviewCardPortal>\n\t\t\t\t\t<PreviewCardPositioner sideOffset={10}>\n\t\t\t\t\t\t<PreviewCardPopup showPreviewCardArrow={false}>\n\t\t\t\t\t\t\t<p className="text-sm">\n\t\t\t\t\t\t\t\tThis preview card has no arrow, providing a\n\t\t\t\t\t\t\t\tcleaner and more minimalist appearance.\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t</PreviewCardPopup>\n\t\t\t\t\t</PreviewCardPositioner>\n\t\t\t\t</PreviewCardPortal>\n\t\t\t</PreviewCardRoot>{" "}\n\t\t\twithout any pointing indicators.\n\t\t</p>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-preview-card-without-arrow",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/preview-card/without-arrow/index.tsx"
 				);
 				let Comp = mod.default;
 
