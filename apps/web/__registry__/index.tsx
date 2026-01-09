@@ -3557,6 +3557,55 @@ export const Registry: Record<string, any> = {
 			return LazyComp;
 		})(),
 	},
+	"baseui-scroll-area": {
+		name: "baseui-scroll-area",
+		description: "A Base UI scroll-area component",
+		type: "registry:component",
+		dependencies: ["@base-ui/react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/utils"],
+		files: [
+			{
+				path: "packages/baseui/components/scroll-area/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/scroll-area.tsx",
+				content:
+					'"use client";\n\nimport { ScrollArea as ScrollAreaPrimitive } from "@base-ui/react/scroll-area";\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Root                                                                       */\n/* -------------------------------------------------------------------------- */\n\nfunction ScrollAreaRoot({\n\tclassName,\n\t...props\n}: ScrollAreaPrimitive.Root.Props) {\n\treturn (\n\t\t<ScrollAreaPrimitive.Root\n\t\t\tclassName={cn("border border-border rounded-md", className)}\n\t\t\tdata-slot="scroll-area"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Viewport                                                                   */\n/* -------------------------------------------------------------------------- */\n\nfunction ScrollAreaViewport({\n\tclassName,\n\t...props\n}: ScrollAreaPrimitive.Viewport.Props) {\n\treturn (\n\t\t<ScrollAreaPrimitive.Viewport\n\t\t\tclassName={cn(\n\t\t\t\t"h-full rounded-[inherit] outline-none transition-shadows",\n\t\t\t\t"focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:ring-offset-background",\n\t\t\t\t"data-has-overflow-x:overscroll-x-contain",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="scroll-area-viewport"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Content                                                                    */\n/* -------------------------------------------------------------------------- */\n\nfunction ScrollAreaContent({\n\tclassName,\n\t...props\n}: ScrollAreaPrimitive.Content.Props) {\n\treturn (\n\t\t<ScrollAreaPrimitive.Content\n\t\t\tclassName={cn("h-full w-full p-2", className)}\n\t\t\tdata-slot="scroll-area-content"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Scrollbar                                                                  */\n/* -------------------------------------------------------------------------- */\n\nfunction ScrollAreaScrollbar({\n\tclassName,\n\t...props\n}: ScrollAreaPrimitive.Scrollbar.Props) {\n\treturn (\n\t\t<ScrollAreaPrimitive.Scrollbar\n\t\t\tclassName={cn(\n\t\t\t\t"m-1.25 flex select-none touch-none",\n\t\t\t\t"opacity-0 transition-opacity pointer-events-none duration-150",\n\t\t\t\t"data-visible:opacity-100 data-visible:pointer-events-auto data-visible:delay-0",\n\t\t\t\t"data-hovering:opacity-100 data-hovering:pointer-events-auto data-hovering:delay-0",\n\t\t\t\t"data-scrolling:opacity-100 data-scrolling:pointer-events-auto data-scrolling:duration-0",\n\n\t\t\t\t// orientation\n\t\t\t\t"data-[orientation=vertical]:w-1.25",\n\t\t\t\t"data-[orientation=horizontal]:h-1.25",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="scroll-area-scrollbar"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Thumb                                                                      */\n/* -------------------------------------------------------------------------- */\n\nfunction ScrollAreaThumb({\n\tclassName,\n\t...props\n}: ScrollAreaPrimitive.Thumb.Props) {\n\treturn (\n\t\t<ScrollAreaPrimitive.Thumb\n\t\t\tclassName={cn(\n\t\t\t\t"relative rounded-full bg-foreground/20 hover:bg-foreground/30 transition-colors",\n\t\t\t\t"data-[orientation=vertical]:w-full",\n\t\t\t\t"data-[orientation=horizontal]:h-full",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="scroll-area-thumb"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Corner                                                                     */\n/* -------------------------------------------------------------------------- */\n\nfunction ScrollAreaCorner({\n\tclassName,\n\t...props\n}: ScrollAreaPrimitive.Corner.Props) {\n\treturn (\n\t\t<ScrollAreaPrimitive.Corner\n\t\t\tclassName={cn("", className)}\n\t\t\tdata-slot="scroll-area-corner"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Composed ScrollArea                                                        */\n/* -------------------------------------------------------------------------- */\n\nfunction ScrollArea({\n\tclassName,\n\tchildren,\n\t...props\n}: ScrollAreaPrimitive.Root.Props) {\n\treturn (\n\t\t<ScrollAreaRoot className={className} {...props}>\n\t\t\t<ScrollAreaViewport>\n\t\t\t\t<ScrollAreaContent>{children}</ScrollAreaContent>\n\t\t\t</ScrollAreaViewport>\n\n\t\t\t<ScrollAreaScrollbar>\n\t\t\t\t<ScrollAreaThumb />\n\t\t\t</ScrollAreaScrollbar>\n\n\t\t\t<ScrollAreaScrollbar orientation="horizontal">\n\t\t\t\t<ScrollAreaThumb />\n\t\t\t</ScrollAreaScrollbar>\n\n\t\t\t<ScrollAreaCorner />\n\t\t</ScrollAreaRoot>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport {\n\tScrollAreaRoot,\n\tScrollArea,\n\tScrollAreaViewport,\n\tScrollAreaContent,\n\tScrollAreaScrollbar,\n\tScrollAreaThumb,\n\tScrollAreaCorner,\n};',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-scroll-area",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/components/scroll-area/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
 	"baseui-select": {
 		name: "baseui-select",
 		description: "A Base UI select component",
@@ -6773,6 +6822,154 @@ export const Registry: Record<string, any> = {
 			const LazyComp = React.lazy(async () => {
 				const mod = await import(
 					"@craftdotui/baseui/particles/radio/with-description/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-scroll-area-both-scrollbars": {
+		name: "baseui-particles-scroll-area-both-scrollbars",
+		description: "",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-scroll-area"],
+		files: [
+			{
+				path: "packages/baseui/particles/scroll-area/both-scrollbars/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/scroll-area/both-scrollbars.tsx",
+				content:
+					'import {\n\tScrollAreaRoot,\n\tScrollAreaContent,\n\tScrollAreaCorner,\n\tScrollAreaScrollbar,\n\tScrollAreaThumb,\n\tScrollAreaViewport,\n} from "@/components/baseui/components/scroll-area";\n\nexport function Particle() {\n\treturn (\n\t\t<ScrollAreaRoot className="h-48 w-96">\n\t\t\t<ScrollAreaViewport>\n\t\t\t\t<ScrollAreaContent className="p-4">\n\t\t\t\t\t<div className="w-[600px] flex flex-col gap-4">\n\t\t\t\t\t\t<h4 className="text-sm font-medium leading-none">\n\t\t\t\t\t\t\tVernacular Architecture\n\t\t\t\t\t\t</h4>\n\t\t\t\t\t\t<p className="text-sm text-muted-foreground">\n\t\t\t\t\t\t\tVernacular architecture is building done outside any\n\t\t\t\t\t\t\tacademic tradition, and without professional\n\t\t\t\t\t\t\tguidance. It is not a particular architectural\n\t\t\t\t\t\t\tmovement or style, but rather a broad category,\n\t\t\t\t\t\t\tencompassing a wide range and variety of building\n\t\t\t\t\t\t\ttypes, with differing methods of construction, from\n\t\t\t\t\t\t\taround the world, both historical and extant and\n\t\t\t\t\t\t\tclassical and modern.\n\t\t\t\t\t\t</p>\n\t\t\t\t\t\t<p className="text-sm text-muted-foreground">\n\t\t\t\t\t\t\tVernacular architecture constitutes 95% of the\n\t\t\t\t\t\t\tworld\'s built environment, as estimated in 1995 by\n\t\t\t\t\t\t\tAmos Rapoport, as measured against the small\n\t\t\t\t\t\t\tpercentage of new buildings every year designed by\n\t\t\t\t\t\t\tarchitects and built by engineers. This type of\n\t\t\t\t\t\t\tarchitecture usually serves immediate, local needs,\n\t\t\t\t\t\t\tis constrained by the materials available in its\n\t\t\t\t\t\t\tparticular region and reflects local traditions and\n\t\t\t\t\t\t\tcultural practices.\n\t\t\t\t\t\t</p>\n\t\t\t\t\t\t<p className="text-sm text-muted-foreground">\n\t\t\t\t\t\t\tThe study of vernacular architecture does not\n\t\t\t\t\t\t\texamine formally schooled architects, but instead\n\t\t\t\t\t\t\tthat of the design skills and tradition of local\n\t\t\t\t\t\t\tbuilders, who were rarely given any attribution for\n\t\t\t\t\t\t\tthe work. More recently, vernacular architecture has\n\t\t\t\t\t\t\tbeen examined by designers and the building industry\n\t\t\t\t\t\t\tin an effort to be more energy conscious with\n\t\t\t\t\t\t\tcontemporary design and construction—part of a\n\t\t\t\t\t\t\tbroader interest in sustainable design.\n\t\t\t\t\t\t</p>\n\t\t\t\t\t</div>\n\t\t\t\t</ScrollAreaContent>\n\t\t\t</ScrollAreaViewport>\n\n\t\t\t<ScrollAreaScrollbar orientation="vertical">\n\t\t\t\t<ScrollAreaThumb />\n\t\t\t</ScrollAreaScrollbar>\n\n\t\t\t<ScrollAreaScrollbar orientation="horizontal">\n\t\t\t\t<ScrollAreaThumb />\n\t\t\t</ScrollAreaScrollbar>\n\n\t\t\t<ScrollAreaCorner />\n\t\t</ScrollAreaRoot>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-scroll-area-both-scrollbars",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/scroll-area/both-scrollbars/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-scroll-area-horizontal-scrollbar": {
+		name: "baseui-particles-scroll-area-horizontal-scrollbar",
+		description: "",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-scroll-area"],
+		files: [
+			{
+				path: "packages/baseui/particles/scroll-area/horizontal-scrollbar/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/scroll-area/horizontal-scrollbar.tsx",
+				content:
+					'import {\n\tScrollAreaRoot,\n\tScrollAreaContent,\n\tScrollAreaCorner,\n\tScrollAreaScrollbar,\n\tScrollAreaThumb,\n\tScrollAreaViewport,\n} from "@/components/baseui/components/scroll-area";\n\nexport function Particle() {\n\treturn (\n\t\t<ScrollAreaRoot className="max-w-96">\n\t\t\t<ScrollAreaViewport>\n\t\t\t\t<ScrollAreaContent className="p-4 flex gap-4">\n\t\t\t\t\t{Array.from({ length: 20 }).map((_, index) => (\n\t\t\t\t\t\t<div\n\t\t\t\t\t\t\tclassName="h-20 w-30 rounded-md bg-muted text-muted-foreground flex items-center justify-center font-medium"\n\t\t\t\t\t\t\tkey={index}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\tItem {index}\n\t\t\t\t\t\t</div>\n\t\t\t\t\t))}\n\t\t\t\t</ScrollAreaContent>\n\t\t\t</ScrollAreaViewport>\n\n\t\t\t<ScrollAreaScrollbar orientation="horizontal">\n\t\t\t\t<ScrollAreaThumb />\n\t\t\t</ScrollAreaScrollbar>\n\n\t\t\t<ScrollAreaCorner />\n\t\t</ScrollAreaRoot>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command:
+			"@craftdotui/baseui-particles-scroll-area-horizontal-scrollbar",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/scroll-area/horizontal-scrollbar/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-scroll-area": {
+		name: "baseui-particles-scroll-area",
+		description: "",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-scroll-area"],
+		files: [
+			{
+				path: "packages/baseui/particles/scroll-area/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/scroll-area.tsx",
+				content:
+					'import {\n\tScrollAreaRoot,\n\tScrollAreaContent,\n\tScrollAreaCorner,\n\tScrollAreaScrollbar,\n\tScrollAreaThumb,\n\tScrollAreaViewport,\n} from "@/components/baseui/components/scroll-area";\n\nexport function Particle() {\n\treturn (\n\t\t<ScrollAreaRoot className="h-48 max-w-96">\n\t\t\t<ScrollAreaViewport>\n\t\t\t\t<ScrollAreaContent className="p-4 space-y-4">\n\t\t\t\t\tVernacular architecture is building done outside any\n\t\t\t\t\tacademic tradition, and without professional guidance. It is\n\t\t\t\t\tnot a particular architectural movement or style, but rather\n\t\t\t\t\ta broad category, encompassing a wide range and variety of\n\t\t\t\t\tbuilding types, with differing methods of construction, from\n\t\t\t\t\taround the world, both historical and extant and classical\n\t\t\t\t\tand modern. Vernacular architecture constitutes 95% of the\n\t\t\t\t\tworld\'s built environment, as estimated in 1995 by Amos\n\t\t\t\t\tRapoport, as measured against the small percentage of new\n\t\t\t\t\tbuildings every year designed by architects and built by\n\t\t\t\t\tengineers. This type of architecture usually serves\n\t\t\t\t\timmediate, local needs, is constrained by the materials\n\t\t\t\t\tavailable in its particular region and reflects local\n\t\t\t\t\ttraditions and cultural practices. The study of vernacular\n\t\t\t\t\tarchitecture does not examine formally schooled architects,\n\t\t\t\t\tbut instead that of the design skills and tradition of local\n\t\t\t\t\tbuilders, who were rarely given any attribution for the\n\t\t\t\t\twork. More recently, vernacular architecture has been\n\t\t\t\t\texamined by designers and the building industry in an effort\n\t\t\t\t\tto be more energy conscious with contemporary design and\n\t\t\t\t\tconstruction—part of a broader interest in sustainable\n\t\t\t\t\tdesign.\n\t\t\t\t</ScrollAreaContent>\n\t\t\t</ScrollAreaViewport>\n\n\t\t\t<ScrollAreaScrollbar>\n\t\t\t\t<ScrollAreaThumb />\n\t\t\t</ScrollAreaScrollbar>\n\n\t\t\t<ScrollAreaCorner />\n\t\t</ScrollAreaRoot>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-scroll-area",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/scroll-area/index.tsx"
 				);
 				let Comp = mod.default;
 

@@ -1028,6 +1028,20 @@
 			]
 		},
 		{
+			"name": "baseui-scroll-area",
+			"type": "registry:component",
+			"description": "A Base UI scroll-area component",
+			"dependencies": ["@base-ui/react"],
+			"registryDependencies": ["@craftdotui/utils"],
+			"files": [
+				{
+					"path": "packages/baseui/components/scroll-area/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/scroll-area.tsx"
+				}
+			]
+		},
+		{
 			"name": "baseui-select",
 			"type": "registry:component",
 			"description": "A Base UI select component",
@@ -1954,6 +1968,45 @@
 					"path": "packages/baseui/particles/radio/with-description/index.tsx",
 					"type": "registry:component",
 					"target": "components/baseui/particles/radio-with-description.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-scroll-area-both-scrollbars",
+			"type": "registry:component",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-scroll-area"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/scroll-area/both-scrollbars/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/scroll-area/both-scrollbars.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-scroll-area-horizontal-scrollbar",
+			"type": "registry:component",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-scroll-area"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/scroll-area/horizontal-scrollbar/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/scroll-area/horizontal-scrollbar.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-scroll-area",
+			"type": "registry:component",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/baseui-scroll-area"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/scroll-area/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/scroll-area.tsx"
 				}
 			]
 		},

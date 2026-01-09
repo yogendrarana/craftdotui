@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-scroll-area-horizontal-scrollbar",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/baseui-scroll-area"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/scroll-area/horizontal-scrollbar/index.tsx",
+			"content": "import {\n\tScrollAreaRoot,\n\tScrollAreaContent,\n\tScrollAreaCorner,\n\tScrollAreaScrollbar,\n\tScrollAreaThumb,\n\tScrollAreaViewport,\n} from \"@/components/baseui/components/scroll-area\";\n\nexport function Particle() {\n\treturn (\n\t\t<ScrollAreaRoot className=\"max-w-96\">\n\t\t\t<ScrollAreaViewport>\n\t\t\t\t<ScrollAreaContent className=\"p-4 flex gap-4\">\n\t\t\t\t\t{Array.from({ length: 20 }).map((_, index) => (\n\t\t\t\t\t\t<div\n\t\t\t\t\t\t\tclassName=\"h-20 w-30 rounded-md bg-muted text-muted-foreground flex items-center justify-center font-medium\"\n\t\t\t\t\t\t\tkey={index}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\tItem {index}\n\t\t\t\t\t\t</div>\n\t\t\t\t\t))}\n\t\t\t\t</ScrollAreaContent>\n\t\t\t</ScrollAreaViewport>\n\n\t\t\t<ScrollAreaScrollbar orientation=\"horizontal\">\n\t\t\t\t<ScrollAreaThumb />\n\t\t\t</ScrollAreaScrollbar>\n\n\t\t\t<ScrollAreaCorner />\n\t\t</ScrollAreaRoot>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/scroll-area/horizontal-scrollbar.tsx"
+		}
+	],
+	"type": "registry:component"
+}
