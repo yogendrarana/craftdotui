@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-preview-card-instant",
+	"type": "registry:component",
+	"description": "",
+	"dependencies": [""],
+	"registryDependencies": ["@craftdotui/baseui-preview-card"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/preview-card/instant/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/particles/preview-card-instant.tsx"
+		}
+	]
+}

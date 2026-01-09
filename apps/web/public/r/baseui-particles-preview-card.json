@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-preview-card",
+	"description": "",
+	"dependencies": [""],
+	"registryDependencies": ["@craftdotui/baseui-preview-card"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/preview-card/index.tsx",
+			"content": "\"use client\";\n\nimport {\n\tPreviewCardRoot,\n\tPreviewCardTrigger,\n\tPreviewCardPortal,\n\tPreviewCardPositioner,\n\tPreviewCardPopup,\n} from \"@/components/baseui/components/preview-card\";\n\nconst particles = [\n\t{\n\t\tlabel: \"Typography\",\n\t\timg: \"https://images.unsplash.com/photo-1619615391095-dfa29e1672ef?q=80&w=448&h=300\",\n\t},\n\t{\n\t\tlabel: \"Layout\",\n\t\timg: \"https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=448&h=300\",\n\t},\n\t{\n\t\tlabel: \"Motion\",\n\t\timg: \"https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?q=80&w=448&h=300\",\n\t},\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<p className=\"max-w-md text-base text-balance text-primary\">\n\t\t\tModern interfaces blend{\" \"}\n\t\t\t{particles.map((p, i) => (\n\t\t\t\t<PreviewCardRoot key={p.label}>\n\t\t\t\t\t<PreviewCardTrigger href=\"#\">{p.label}</PreviewCardTrigger>\n\t\t\t\t\t{i < particles.length - 1 && \", \"}\n\t\t\t\t\t<PreviewCardPortal>\n\t\t\t\t\t\t<PreviewCardPositioner>\n\t\t\t\t\t\t\t<PreviewCardPopup>\n\t\t\t\t\t\t\t\t<div className=\"flex flex-col gap-2\">\n\t\t\t\t\t\t\t\t\t<img\n\t\t\t\t\t\t\t\t\t\tsrc={p.img}\n\t\t\t\t\t\t\t\t\t\talt={p.label}\n\t\t\t\t\t\t\t\t\t\tclassName=\"block w-full rounded-sm\"\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t<p className=\"text-sm\">\n\t\t\t\t\t\t\t\t\t\t<strong>{p.label}</strong> enhances\n\t\t\t\t\t\t\t\t\t\tclarity, hierarchy, and user delight.\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</PreviewCardPopup>\n\t\t\t\t\t\t</PreviewCardPositioner>\n\t\t\t\t\t</PreviewCardPortal>\n\t\t\t\t</PreviewCardRoot>\n\t\t\t))}{\" \"}\n\t\t\tto create expressive systems.\n\t\t</p>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/preview-card.tsx"
+		}
+	],
+	"type": "registry:component"
+}

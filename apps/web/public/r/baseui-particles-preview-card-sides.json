@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-preview-card-sides",
+	"description": "Preview card on different sides",
+	"dependencies": [""],
+	"registryDependencies": ["@craftdotui/baseui-preview-card"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/preview-card/sides/index.tsx",
+			"content": "\"use client\";\n\nimport {\n\tPreviewCardRoot,\n\tPreviewCardTrigger,\n\tPreviewCardPortal,\n\tPreviewCardPositioner,\n\tPreviewCardPopup,\n} from \"@/components/baseui/components/preview-card\";\n\nexport default function Particle() {\n\treturn (\n\t\t<p className=\"max-w-md text-base text-balance text-primary\">\n\t\t\tPreview cards can be positioned globally around the trigger:\n\t\t\tappearing on the{\" \"}\n\t\t\t<PreviewCardRoot>\n\t\t\t\t<PreviewCardTrigger className=\"font-medium\">\n\t\t\t\t\ttop\n\t\t\t\t</PreviewCardTrigger>\n\t\t\t\t<PreviewCardPortal>\n\t\t\t\t\t<PreviewCardPositioner side=\"top\" sideOffset={10}>\n\t\t\t\t\t\t<PreviewCardPopup showPreviewCardArrow={false}>\n\t\t\t\t\t\t\t<p className=\"text-sm\">Positioned to the top.</p>\n\t\t\t\t\t\t</PreviewCardPopup>\n\t\t\t\t\t</PreviewCardPositioner>\n\t\t\t\t</PreviewCardPortal>\n\t\t\t</PreviewCardRoot>\n\t\t\t, at the{\" \"}\n\t\t\t<PreviewCardRoot>\n\t\t\t\t<PreviewCardTrigger className=\"font-medium\">\n\t\t\t\t\tbottom\n\t\t\t\t</PreviewCardTrigger>\n\t\t\t\t<PreviewCardPortal>\n\t\t\t\t\t<PreviewCardPositioner side=\"bottom\" sideOffset={10}>\n\t\t\t\t\t\t<PreviewCardPopup showPreviewCardArrow={false}>\n\t\t\t\t\t\t\t<p className=\"text-sm\">Positioned to the bottom.</p>\n\t\t\t\t\t\t</PreviewCardPopup>\n\t\t\t\t\t</PreviewCardPositioner>\n\t\t\t\t</PreviewCardPortal>\n\t\t\t</PreviewCardRoot>\n\t\t\t, to the{\" \"}\n\t\t\t<PreviewCardRoot>\n\t\t\t\t<PreviewCardTrigger className=\"font-medium\">\n\t\t\t\t\tleft\n\t\t\t\t</PreviewCardTrigger>\n\t\t\t\t<PreviewCardPortal>\n\t\t\t\t\t<PreviewCardPositioner side=\"left\" sideOffset={10}>\n\t\t\t\t\t\t<PreviewCardPopup showPreviewCardArrow={false}>\n\t\t\t\t\t\t\t<p className=\"text-sm\">Positioned to the left.</p>\n\t\t\t\t\t\t</PreviewCardPopup>\n\t\t\t\t\t</PreviewCardPositioner>\n\t\t\t\t</PreviewCardPortal>\n\t\t\t</PreviewCardRoot>\n\t\t\t, or on the{\" \"}\n\t\t\t<PreviewCardRoot>\n\t\t\t\t<PreviewCardTrigger className=\"font-medium\">\n\t\t\t\t\tright\n\t\t\t\t</PreviewCardTrigger>\n\t\t\t\t<PreviewCardPortal>\n\t\t\t\t\t<PreviewCardPositioner side=\"right\" sideOffset={10}>\n\t\t\t\t\t\t<PreviewCardPopup showPreviewCardArrow={false}>\n\t\t\t\t\t\t\t<p className=\"text-sm\">Positioned to the right.</p>\n\t\t\t\t\t\t</PreviewCardPopup>\n\t\t\t\t\t</PreviewCardPositioner>\n\t\t\t\t</PreviewCardPortal>\n\t\t\t</PreviewCardRoot>\n\t\t\t.\n\t\t</p>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/preview-card-sides.tsx"
+		}
+	],
+	"type": "registry:component"
+}
