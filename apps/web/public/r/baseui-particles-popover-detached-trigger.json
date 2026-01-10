@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-popover-detached-trigger",
+	"description": "Popover with detached trigger",
+	"registryDependencies": ["@craftdotui/baseui-popover"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/popover/detached-trigger/index.tsx",
+			"content": "\"use client\";\n\nimport { Button } from \"@/components/baseui/components/button\";\nimport {\n\tPopoverRoot,\n\tPopoverTrigger,\n\tPopoverPortal,\n\tPopoverPositioner,\n\tPopoverPopup,\n\tPopoverArrow,\n\tPopoverTitle,\n\tPopoverDescription,\n\tPopoverPrimitive,\n} from \"@/components/baseui/components/popover\";\n\nconst demoPopover = PopoverPrimitive.createHandle();\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"flex flex-col items-center gap-4\">\n\t\t\t<PopoverTrigger\n\t\t\t\thandle={demoPopover}\n\t\t\t\trender={<Button variant=\"outline\">Detached Popover</Button>}\n\t\t\t/>\n\n\t\t\t<PopoverRoot handle={demoPopover}>\n\t\t\t\t<PopoverPortal>\n\t\t\t\t\t<PopoverPositioner>\n\t\t\t\t\t\t<PopoverPopup>\n\t\t\t\t\t\t\t<PopoverArrow />\n\t\t\t\t\t\t\t<PopoverTitle>Detached Popover</PopoverTitle>\n\t\t\t\t\t\t\t<PopoverDescription>\n\t\t\t\t\t\t\t\tThis popover is controlled by a trigger outside\n\t\t\t\t\t\t\t\tof its Root.\n\t\t\t\t\t\t\t</PopoverDescription>\n\t\t\t\t\t\t</PopoverPopup>\n\t\t\t\t\t</PopoverPositioner>\n\t\t\t\t</PopoverPortal>\n\t\t\t</PopoverRoot>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/popover-detached-trigger.tsx"
+		}
+	],
+	"type": "registry:component"
+}

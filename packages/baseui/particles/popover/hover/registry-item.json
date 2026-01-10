@@ -1,0 +1,14 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-popover-hover",
+	"type": "registry:component",
+	"description": "Popover opening on hover",
+	"registryDependencies": ["@craftdotui/baseui-popover"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/popover/hover/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/particles/popover-hover.tsx"
+		}
+	]
+}

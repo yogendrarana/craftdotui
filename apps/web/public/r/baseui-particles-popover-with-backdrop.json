@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-popover-with-backdrop",
+	"description": "Popover with a backdrop",
+	"registryDependencies": ["@craftdotui/baseui-popover"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/popover/with-backdrop/index.tsx",
+			"content": "\"use client\";\n\nimport {\n\tPopoverRoot,\n\tPopoverTrigger,\n\tPopoverPortal,\n\tPopoverPositioner,\n\tPopoverPopup,\n\tPopoverTitle,\n\tPopoverDescription,\n\tPopoverBackdrop,\n\tPopoverArrow,\n} from \"@/components/baseui/components/popover\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport default function Particle() {\n\treturn (\n\t\t<PopoverRoot>\n\t\t\t<PopoverTrigger render={<Button variant=\"outline\">Click</Button>} />\n\t\t\t<PopoverPortal>\n\t\t\t\t<PopoverBackdrop />\n\t\t\t\t<PopoverPositioner>\n\t\t\t\t\t<PopoverPopup>\n\t\t\t\t\t\t<PopoverArrow />\n\t\t\t\t\t\t<PopoverTitle>Backdrop Popover</PopoverTitle>\n\t\t\t\t\t\t<PopoverDescription>\n\t\t\t\t\t\t\tThis popover has a backdrop that dims the\n\t\t\t\t\t\t\tbackground.\n\t\t\t\t\t\t</PopoverDescription>\n\t\t\t\t\t</PopoverPopup>\n\t\t\t\t</PopoverPositioner>\n\t\t\t</PopoverPortal>\n\t\t</PopoverRoot>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/popover-with-backdrop.tsx"
+		}
+	],
+	"type": "registry:component"
+}

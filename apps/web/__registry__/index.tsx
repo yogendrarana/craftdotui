@@ -3459,6 +3459,55 @@ export const Registry: Record<string, any> = {
 			return LazyComp;
 		})(),
 	},
+	"baseui-popover": {
+		name: "baseui-popover",
+		description: "A Base UI popover component",
+		type: "registry:component",
+		dependencies: ["@base-ui/react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/utils"],
+		files: [
+			{
+				path: "packages/baseui/components/popover/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/popover.tsx",
+				content:
+					'"use client";\n\nimport { Popover as PopoverPrimitive } from "@base-ui/react/popover";\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Root                                                                       */\n/* -------------------------------------------------------------------------- */\n\nconst PopoverRoot = PopoverPrimitive.Root;\n\n/* -------------------------------------------------------------------------- */\n/* Trigger                                                                    */\n/* -------------------------------------------------------------------------- */\n\nfunction PopoverTrigger(props: PopoverPrimitive.Trigger.Props) {\n\treturn <PopoverPrimitive.Trigger data-slot="popover-trigger" {...props} />;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Portal                                                                     */\n/* -------------------------------------------------------------------------- */\n\nfunction PopoverPortal(props: PopoverPrimitive.Portal.Props) {\n\treturn <PopoverPrimitive.Portal {...props} data-slot="popover-portal" />;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Backdrop                                                                    */\n/* -------------------------------------------------------------------------- */\n\nfunction PopoverBackdrop({\n\tclassName,\n\t...props\n}: PopoverPrimitive.Backdrop.Props) {\n\treturn (\n\t\t<PopoverPrimitive.Backdrop\n\t\t\tclassName={cn(\n\t\t\t\t"fixed inset-0 z-50",\n\t\t\t\t"bg-background/70",\n\t\t\t\t"data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="popover-backdrop"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Positioner                                                                 */\n/* -------------------------------------------------------------------------- */\n\nfunction PopoverPositioner({\n\tclassName,\n\tsideOffset = 8,\n\t...props\n}: PopoverPrimitive.Positioner.Props) {\n\treturn (\n\t\t<PopoverPrimitive.Positioner\n\t\t\tsideOffset={sideOffset}\n\t\t\tclassName={cn(\n\t\t\t\t"z-50",\n\t\t\t\t"h-(--positioner-height) w-(--positioner-width) max-w-(--available-width)",\n\t\t\t\t"transition-[top,left,right,bottom,transform] ease-[cubic-bezier(0.22,1,0.36,1)] duration-300",\n\t\t\t\t"data-instant:transition-none",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="popover-positioner"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Popup                                                                      */\n/* -------------------------------------------------------------------------- */\n\nfunction PopoverPopup({ className, ...props }: PopoverPrimitive.Popup.Props) {\n\treturn (\n\t\t<PopoverPrimitive.Popup\n\t\t\tclassName={cn(\n\t\t\t\t"relative",\n\t\t\t\t"h-(--popup-height, auto) w-(--popup-width, auto) p-4 space-y-2",\n\t\t\t\t"z-50 border border-border bg-popover text-popover-foreground rounded-md shadow-xs outline-none",\n\t\t\t\t"origin-(--transform-origin) transition-[height,width,transform,scale,opacity] ease-[cubic-bezier(0.22,1,0.36,1)] duration-300",\n\t\t\t\t"data-starting-style:scale-90 data-starting-style:opacity-0",\n\t\t\t\t"data-ending-style:scale-90 data-ending-style:opacity-0",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="popover-popup"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Arrow                                                                      */\n/* -------------------------------------------------------------------------- */\n\nfunction PopoverArrow({ className, ...props }: PopoverPrimitive.Arrow.Props) {\n\treturn (\n\t\t<PopoverPrimitive.Arrow\n\t\t\tclassName={cn(\n\t\t\t\t"data-[side=bottom]:top-[-8px]",\n\t\t\t\t"data-[side=top]:bottom-[-8px] data-[side=top]:rotate-180",\n\t\t\t\t"data-[side=left]:right-[-13px] data-[side=left]:rotate-90",\n\t\t\t\t"data-[side=right]:left-[-13px] data-[side=right]:-rotate-90",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="popover-arrow"\n\t\t\t{...props}\n\t\t>\n\t\t\t<svg width="12" height="6" viewBox="0 0 12 6">\n\t\t\t\t<title>Popover Arrow</title>\n\t\t\t\t<path d="M0 6L6 0L12 6Z" className="fill-background" />\n\t\t\t\t<path d="M0 6L6 0L12 6Z" className="fill-none stroke-border" />\n\t\t\t</svg>\n\t\t</PopoverPrimitive.Arrow>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Title                                                                      */\n/* -------------------------------------------------------------------------- */\n\nfunction PopoverTitle({ className, ...props }: PopoverPrimitive.Title.Props) {\n\treturn (\n\t\t<PopoverPrimitive.Title\n\t\t\tclassName={cn(\n\t\t\t\t"text-base font-semibold leading-none tracking-tight",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="popover-title"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Description                                                                */\n/* -------------------------------------------------------------------------- */\n\nfunction PopoverDescription({\n\tclassName,\n\t...props\n}: PopoverPrimitive.Description.Props) {\n\treturn (\n\t\t<PopoverPrimitive.Description\n\t\t\tclassName={cn("text-sm text-muted-foreground", className)}\n\t\t\tdata-slot="popover-description"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Close                                                                      */\n/* -------------------------------------------------------------------------- */\n\nfunction PopoverClose({ className, ...props }: PopoverPrimitive.Close.Props) {\n\treturn (\n\t\t<PopoverPrimitive.Close\n\t\t\tclassName={cn("", className)}\n\t\t\tdata-slot="popover-close"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Viewport                                                                   */\n/* -------------------------------------------------------------------------- */\n\nfunction PopoverViewport({\n\tclassName,\n\t...props\n}: PopoverPrimitive.Viewport.Props) {\n\treturn (\n\t\t<PopoverPrimitive.Viewport\n\t\t\tclassName={cn(\n\t\t\t\t"relative h-full w-full overflow-clip",\n\t\t\t\t"will-change-[transform,opacity]",\n\n\t\t\t\t/* shared animation contract */\n\t\t\t\t"[&_[data-current]]:translate-x-0",\n\t\t\t\t"[&_[data-current]]:opacity-100",\n\t\t\t\t"[&_[data-current]]:scale-100",\n\t\t\t\t"[&_[data-current]]:transition-[transform,opacity]",\n\t\t\t\t"[&_[data-current]]:duration-300",\n\t\t\t\t"[&_[data-current]]:ease-[cubic-bezier(0.22,1,0.36,1)]",\n\n\t\t\t\t"[&_[data-previous]]:translate-x-0",\n\t\t\t\t"[&_[data-previous]]:opacity-100",\n\t\t\t\t"[&_[data-previous]]:scale-100",\n\t\t\t\t"[&_[data-previous]]:transition-[transform,opacity]",\n\t\t\t\t"[&_[data-previous]]:duration-300",\n\t\t\t\t"[&_[data-previous]]:ease-[cubic-bezier(0.22,1,0.36,1)]",\n\n\t\t\t\t/* horizontal directions */\n\t\t\t\t"data-[activation-direction~=\'left\']:[&_[data-current][data-starting-style]]:-translate-x-6",\n\t\t\t\t"data-[activation-direction~=\'right\']:[&_[data-current][data-starting-style]]:translate-x-6",\n\t\t\t\t"data-[activation-direction~=\'left\']:[&_[data-previous][data-ending-style]]:translate-x-6",\n\t\t\t\t"data-[activation-direction~=\'right\']:[&_[data-previous][data-ending-style]]:-translate-x-6",\n\n\t\t\t\t/* vertical directions */\n\t\t\t\t"data-[activation-direction~=\'up\']:[&_[data-current][data-starting-style]]:translate-y-2",\n\t\t\t\t"data-[activation-direction~=\'down\']:[&_[data-current][data-starting-style]]:-translate-y-2",\n\t\t\t\t"data-[activation-direction~=\'up\']:[&_[data-previous][data-ending-style]]:-translate-y-2",\n\t\t\t\t"data-[activation-direction~=\'down\']:[&_[data-previous][data-ending-style]]:translate-y-2",\n\n\t\t\t\t/* depth */\n\t\t\t\t"[&_[data-current][data-starting-style]]:scale-95",\n\t\t\t\t"[&_[data-previous][data-ending-style]]:scale-95",\n\n\t\t\t\t/* instant */\n\t\t\t\t"[[data-instant]_&_[data-current]]:transition-none",\n\t\t\t\t"[[data-instant]_&_[data-previous]]:transition-none",\n\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="popover-viewport"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport {\n\tPopoverRoot,\n\tPopoverTrigger,\n\tPopoverPortal,\n\tPopoverBackdrop,\n\tPopoverPositioner,\n\tPopoverPopup,\n\tPopoverArrow,\n\tPopoverTitle,\n\tPopoverDescription,\n\tPopoverClose,\n\tPopoverViewport,\n\tPopoverPrimitive,\n};',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-popover",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/components/popover/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
 	"baseui-preview-card": {
 		name: "baseui-preview-card",
 		description: "A Base UI preview card component",
@@ -6528,6 +6577,398 @@ export const Registry: Record<string, any> = {
 			const LazyComp = React.lazy(async () => {
 				const mod = await import(
 					"@craftdotui/baseui/particles/meter/without-label/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-popover-animated": {
+		name: "baseui-particles-popover-animated",
+		description: "Animated Popover with transitions",
+		type: "registry:component",
+		dependencies: undefined,
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-popover"],
+		files: [
+			{
+				path: "packages/baseui/particles/popover/animated/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/popover-animated.tsx",
+				content:
+					'"use client";\n\nimport type * as React from "react";\nimport { Bell, List, User } from "lucide-react";\nimport {\n\tPopoverRoot,\n\tPopoverTrigger,\n\tPopoverPortal,\n\tPopoverPositioner,\n\tPopoverPopup,\n\tPopoverViewport,\n\tPopoverTitle,\n\tPopoverDescription,\n\tPopoverPrimitive,\n\tPopoverArrow,\n} from "@/components/baseui/components/popover";\nimport { Button } from "@/components/baseui/components/button";\n\nconst animatedPopover = PopoverPrimitive.createHandle<React.ComponentType>();\n\nexport default function PopoverAnimatedDemo() {\n\treturn (\n\t\t<div className="flex gap-2 justify-center">\n\t\t\t<PopoverTrigger\n\t\t\t\thandle={animatedPopover}\n\t\t\t\tpayload={NotificationsPanel}\n\t\t\t\trender={\n\t\t\t\t\t<Button variant="outline" size="icon-sm">\n\t\t\t\t\t\t<Bell className="h-4 w-4" />\n\t\t\t\t\t</Button>\n\t\t\t\t}\n\t\t\t/>\n\n\t\t\t<PopoverTrigger\n\t\t\t\thandle={animatedPopover}\n\t\t\t\tpayload={ActivityPanel}\n\t\t\t\trender={\n\t\t\t\t\t<Button variant="outline" size="icon-sm">\n\t\t\t\t\t\t<List className="h-4 w-4" />\n\t\t\t\t\t</Button>\n\t\t\t\t}\n\t\t\t/>\n\n\t\t\t<PopoverTrigger\n\t\t\t\thandle={animatedPopover}\n\t\t\t\tpayload={ProfilePanel}\n\t\t\t\trender={\n\t\t\t\t\t<Button variant="outline" size="icon-sm">\n\t\t\t\t\t\t<User className="h-4 w-4" />\n\t\t\t\t\t</Button>\n\t\t\t\t}\n\t\t\t/>\n\n\t\t\t<PopoverRoot handle={animatedPopover}>\n\t\t\t\t{({ payload: Payload }) => (\n\t\t\t\t\t<PopoverPortal>\n\t\t\t\t\t\t<PopoverPositioner>\n\t\t\t\t\t\t\t<PopoverPopup>\n\t\t\t\t\t\t\t\t<PopoverArrow />\n\t\t\t\t\t\t\t\t<PopoverViewport>\n\t\t\t\t\t\t\t\t\t{Payload !== undefined && <Payload />}\n\t\t\t\t\t\t\t\t</PopoverViewport>\n\t\t\t\t\t\t\t</PopoverPopup>\n\t\t\t\t\t\t</PopoverPositioner>\n\t\t\t\t\t</PopoverPortal>\n\t\t\t\t)}\n\t\t\t</PopoverRoot>\n\t\t</div>\n\t);\n}\n\nfunction NotificationsPanel() {\n\treturn (\n\t\t<div className="flex flex-col gap-1">\n\t\t\t<PopoverTitle className="text-base font-medium">\n\t\t\t\tNotifications\n\t\t\t</PopoverTitle>\n\t\t\t<PopoverDescription className="text-sm text-muted-foreground">\n\t\t\t\tYou are all caught up. Good job!\n\t\t\t</PopoverDescription>\n\t\t</div>\n\t);\n}\n\nfunction ProfilePanel() {\n\treturn (\n\t\t<div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1">\n\t\t\t<div className="col-start-1 col-end-2 row-start-1 row-end-3 flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-muted">\n\t\t\t\t<img\n\t\t\t\t\tsrc="https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?w=128&h=128&dpr=2&q=80"\n\t\t\t\t\talt="User"\n\t\t\t\t\tclassName="h-full w-full object-cover"\n\t\t\t\t/>\n\t\t\t</div>\n\t\t\t<PopoverTitle className="text-base font-medium">\n\t\t\t\tJason Eventon\n\t\t\t</PopoverTitle>\n\t\t\t<span className="text-sm text-muted-foreground">Pro plan</span>\n\t\t\t<div className="col-start-1 col-end-3 mt-4 flex flex-col gap-2 border-t pt-4">\n\t\t\t\t<a href="#abs" className="text-sm hover:underline">\n\t\t\t\t\tProfile settings\n\t\t\t\t</a>\n\t\t\t\t<a href="#abc" className="text-sm hover:underline">\n\t\t\t\t\tLog out\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n\nfunction ActivityPanel() {\n\treturn (\n\t\t<div className="flex flex-col gap-1">\n\t\t\t<PopoverTitle className="text-base font-medium">\n\t\t\t\tActivity\n\t\t\t</PopoverTitle>\n\t\t\t<PopoverDescription className="text-sm text-muted-foreground">\n\t\t\t\tNothing interesting happened recently.\n\t\t\t</PopoverDescription>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-popover-animated",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/popover/animated/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-popover-controlled": {
+		name: "baseui-particles-popover-controlled",
+		description: "Controlled Popover with multiple triggers",
+		type: "registry:component",
+		dependencies: undefined,
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-popover"],
+		files: [
+			{
+				path: "packages/baseui/particles/popover/controlled/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/popover-controlled.tsx",
+				content:
+					'"use client";\n\nimport * as React from "react";\nimport {\n\tPopoverRoot,\n\tPopoverTrigger,\n\tPopoverPortal,\n\tPopoverPositioner,\n\tPopoverPopup,\n\tPopoverTitle,\n\tPopoverDescription,\n\tPopoverPrimitive,\n\tPopoverArrow,\n} from "@/components/baseui/components/popover";\nimport { Button } from "@/components/baseui/components/button";\n\nconst demoPopover = PopoverPrimitive.createHandle();\n\nexport default function Particle() {\n\tconst [open, setOpen] = React.useState(false);\n\tconst [triggerId, setTriggerId] = React.useState<string | null>(null);\n\n\tconst handleOpenChange = (\n\t\tisOpen: boolean,\n\t\teventDetails: PopoverPrimitive.Root.ChangeEventDetails,\n\t) => {\n\t\tsetOpen(isOpen);\n\t\tsetTriggerId(eventDetails.trigger?.id ?? null);\n\t};\n\n\treturn (\n\t\t<div className="flex flex-col items-center gap-4">\n\t\t\t<div className="flex gap-2">\n\t\t\t\t<PopoverTrigger\n\t\t\t\t\thandle={demoPopover}\n\t\t\t\t\tid="trigger-1"\n\t\t\t\t\trender={<Button variant="outline">Trigger 1</Button>}\n\t\t\t\t/>\n\t\t\t\t<PopoverTrigger\n\t\t\t\t\thandle={demoPopover}\n\t\t\t\t\tid="trigger-2"\n\t\t\t\t\trender={<Button variant="outline">Trigger 2</Button>}\n\t\t\t\t/>\n\t\t\t\t<Button\n\t\t\t\t\ttype="button"\n\t\t\t\t\tvariant="secondary"\n\t\t\t\t\tonClick={() => {\n\t\t\t\t\t\tsetTriggerId("trigger-2");\n\t\t\t\t\t\tsetOpen(true);\n\t\t\t\t\t}}\n\t\t\t\t>\n\t\t\t\t\tOpen Trigger 2\n\t\t\t\t</Button>\n\t\t\t</div>\n\n\t\t\t<PopoverRoot\n\t\t\t\thandle={demoPopover}\n\t\t\t\topen={open}\n\t\t\t\tonOpenChange={handleOpenChange}\n\t\t\t\ttriggerId={triggerId}\n\t\t\t>\n\t\t\t\t<PopoverPortal>\n\t\t\t\t\t<PopoverPositioner>\n\t\t\t\t\t\t<PopoverPopup>\n\t\t\t\t\t\t\t<PopoverArrow />\n\t\t\t\t\t\t\t<PopoverTitle>Controlled Popover</PopoverTitle>\n\t\t\t\t\t\t\t<PopoverDescription>\n\t\t\t\t\t\t\t\tThe active trigger is{" "}\n\t\t\t\t\t\t\t\t<strong>{triggerId}</strong>.\n\t\t\t\t\t\t\t</PopoverDescription>\n\t\t\t\t\t\t</PopoverPopup>\n\t\t\t\t\t</PopoverPositioner>\n\t\t\t\t</PopoverPortal>\n\t\t\t</PopoverRoot>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-popover-controlled",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/popover/controlled/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-popover-detached-trigger": {
+		name: "baseui-particles-popover-detached-trigger",
+		description: "Popover with detached trigger",
+		type: "registry:component",
+		dependencies: undefined,
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-popover"],
+		files: [
+			{
+				path: "packages/baseui/particles/popover/detached-trigger/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/popover-detached-trigger.tsx",
+				content:
+					'"use client";\n\nimport { Button } from "@/components/baseui/components/button";\nimport {\n\tPopoverRoot,\n\tPopoverTrigger,\n\tPopoverPortal,\n\tPopoverPositioner,\n\tPopoverPopup,\n\tPopoverArrow,\n\tPopoverTitle,\n\tPopoverDescription,\n\tPopoverPrimitive,\n} from "@/components/baseui/components/popover";\n\nconst demoPopover = PopoverPrimitive.createHandle();\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex flex-col items-center gap-4">\n\t\t\t<PopoverTrigger\n\t\t\t\thandle={demoPopover}\n\t\t\t\trender={<Button variant="outline">Detached Popover</Button>}\n\t\t\t/>\n\n\t\t\t<PopoverRoot handle={demoPopover}>\n\t\t\t\t<PopoverPortal>\n\t\t\t\t\t<PopoverPositioner>\n\t\t\t\t\t\t<PopoverPopup>\n\t\t\t\t\t\t\t<PopoverArrow />\n\t\t\t\t\t\t\t<PopoverTitle>Detached Popover</PopoverTitle>\n\t\t\t\t\t\t\t<PopoverDescription>\n\t\t\t\t\t\t\t\tThis popover is controlled by a trigger outside\n\t\t\t\t\t\t\t\tof its Root.\n\t\t\t\t\t\t\t</PopoverDescription>\n\t\t\t\t\t\t</PopoverPopup>\n\t\t\t\t\t</PopoverPositioner>\n\t\t\t\t</PopoverPortal>\n\t\t\t</PopoverRoot>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-popover-detached-trigger",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/popover/detached-trigger/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-popover-hover": {
+		name: "baseui-particles-popover-hover",
+		description: "Popover opening on hover",
+		type: "registry:component",
+		dependencies: undefined,
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-popover"],
+		files: [
+			{
+				path: "packages/baseui/particles/popover/hover/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/popover-hover.tsx",
+				content:
+					'"use client";\n\nimport { Button } from "@/components/baseui/components/button";\nimport {\n\tPopoverRoot,\n\tPopoverTrigger,\n\tPopoverPortal,\n\tPopoverPositioner,\n\tPopoverPopup,\n\tPopoverArrow,\n\tPopoverTitle,\n\tPopoverDescription,\n} from "@/components/baseui/components/popover";\n\nexport default function Particle() {\n\treturn (\n\t\t<PopoverRoot>\n\t\t\t<PopoverTrigger\n\t\t\t\topenOnHover\n\t\t\t\tdelay={300}\n\t\t\t\trender={<Button variant="outline">Hover me</Button>}\n\t\t\t/>\n\t\t\t<PopoverPortal>\n\t\t\t\t<PopoverPositioner>\n\t\t\t\t\t<PopoverPopup>\n\t\t\t\t\t\t<PopoverArrow />\n\t\t\t\t\t\t<PopoverTitle>Hover Popover</PopoverTitle>\n\t\t\t\t\t\t<PopoverDescription>\n\t\t\t\t\t\t\tThis popover opens on hover with a delay of 300ms.\n\t\t\t\t\t\t</PopoverDescription>\n\t\t\t\t\t</PopoverPopup>\n\t\t\t\t</PopoverPositioner>\n\t\t\t</PopoverPortal>\n\t\t</PopoverRoot>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-popover-hover",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/popover/hover/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-popover-multiple-triggers": {
+		name: "baseui-particles-popover-multiple-triggers",
+		description: "Popover with multiple triggers",
+		type: "registry:component",
+		dependencies: undefined,
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-popover"],
+		files: [
+			{
+				path: "packages/baseui/particles/popover/multiple-triggers/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/popover-multiple-triggers.tsx",
+				content:
+					'"use client";\n\nimport { Button } from "@/components/baseui/components/button";\nimport {\n\tPopoverRoot,\n\tPopoverTrigger,\n\tPopoverPortal,\n\tPopoverPositioner,\n\tPopoverPopup,\n\tPopoverTitle,\n\tPopoverDescription,\n\tPopoverPrimitive,\n\tPopoverArrow,\n} from "@/components/baseui/components/popover";\n\nconst demoPopover = PopoverPrimitive.createHandle<{ text: string }>();\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex flex-col items-center gap-4">\n\t\t\t<div className="flex gap-2">\n\t\t\t\t<PopoverTrigger\n\t\t\t\t\thandle={demoPopover}\n\t\t\t\t\tpayload={{ text: "Trigger 1" }}\n\t\t\t\t\trender={<Button variant="outline">Trigger 1</Button>}\n\t\t\t\t/>\n\t\t\t\t<PopoverTrigger\n\t\t\t\t\thandle={demoPopover}\n\t\t\t\t\tpayload={{ text: "Trigger 2" }}\n\t\t\t\t\trender={<Button variant="outline">Trigger 2</Button>}\n\t\t\t\t/>\n\t\t\t</div>\n\n\t\t\t<PopoverRoot handle={demoPopover}>\n\t\t\t\t{({ payload }) => (\n\t\t\t\t\t<PopoverPortal>\n\t\t\t\t\t\t<PopoverPositioner>\n\t\t\t\t\t\t\t<PopoverPopup>\n\t\t\t\t\t\t\t\t<PopoverArrow />\n\t\t\t\t\t\t\t\t<PopoverTitle>Multiple Triggers</PopoverTitle>\n\t\t\t\t\t\t\t\t{payload && (\n\t\t\t\t\t\t\t\t\t<PopoverDescription>\n\t\t\t\t\t\t\t\t\t\tThis popover was opened by{" "}\n\t\t\t\t\t\t\t\t\t\t<strong>{payload?.text}</strong>.\n\t\t\t\t\t\t\t\t\t</PopoverDescription>\n\t\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t\t</PopoverPopup>\n\t\t\t\t\t\t</PopoverPositioner>\n\t\t\t\t\t</PopoverPortal>\n\t\t\t\t)}\n\t\t\t</PopoverRoot>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-popover-multiple-triggers",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/popover/multiple-triggers/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-popover": {
+		name: "baseui-particles-popover",
+		description: "A simple Popover demo",
+		type: "registry:component",
+		dependencies: undefined,
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-popover"],
+		files: [
+			{
+				path: "packages/baseui/particles/popover/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/popover.tsx",
+				content:
+					'"use client";\n\nimport { Button } from "@/components/baseui/components/button";\nimport {\n\tPopoverRoot,\n\tPopoverTrigger,\n\tPopoverPortal,\n\tPopoverPositioner,\n\tPopoverPopup,\n\tPopoverTitle,\n\tPopoverDescription,\n\tPopoverArrow,\n} from "@/components/baseui/components/popover";\n\nexport default function Particle() {\n\treturn (\n\t\t<PopoverRoot>\n\t\t\t<PopoverTrigger\n\t\t\t\trender={<Button variant="outline">Open Popover</Button>}\n\t\t\t/>\n\t\t\t<PopoverPortal>\n\t\t\t\t<PopoverPositioner>\n\t\t\t\t\t<PopoverPopup>\n\t\t\t\t\t\t<PopoverArrow />\n\t\t\t\t\t\t<PopoverTitle>Popover Title</PopoverTitle>\n\t\t\t\t\t\t<PopoverDescription>\n\t\t\t\t\t\t\tThis is a simple popover description.\n\t\t\t\t\t\t</PopoverDescription>\n\t\t\t\t\t</PopoverPopup>\n\t\t\t\t</PopoverPositioner>\n\t\t\t</PopoverPortal>\n\t\t</PopoverRoot>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-popover",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/popover/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-popover-with-backdrop": {
+		name: "baseui-particles-popover-with-backdrop",
+		description: "Popover with a backdrop",
+		type: "registry:component",
+		dependencies: undefined,
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-popover"],
+		files: [
+			{
+				path: "packages/baseui/particles/popover/with-backdrop/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/popover-with-backdrop.tsx",
+				content:
+					'"use client";\n\nimport {\n\tPopoverRoot,\n\tPopoverTrigger,\n\tPopoverPortal,\n\tPopoverPositioner,\n\tPopoverPopup,\n\tPopoverTitle,\n\tPopoverDescription,\n\tPopoverBackdrop,\n\tPopoverArrow,\n} from "@/components/baseui/components/popover";\nimport { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\treturn (\n\t\t<PopoverRoot>\n\t\t\t<PopoverTrigger render={<Button variant="outline">Click</Button>} />\n\t\t\t<PopoverPortal>\n\t\t\t\t<PopoverBackdrop />\n\t\t\t\t<PopoverPositioner>\n\t\t\t\t\t<PopoverPopup>\n\t\t\t\t\t\t<PopoverArrow />\n\t\t\t\t\t\t<PopoverTitle>Backdrop Popover</PopoverTitle>\n\t\t\t\t\t\t<PopoverDescription>\n\t\t\t\t\t\t\tThis popover has a backdrop that dims the\n\t\t\t\t\t\t\tbackground.\n\t\t\t\t\t\t</PopoverDescription>\n\t\t\t\t\t</PopoverPopup>\n\t\t\t\t</PopoverPositioner>\n\t\t\t</PopoverPortal>\n\t\t</PopoverRoot>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-popover-with-backdrop",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/popover/with-backdrop/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-popover-with-close": {
+		name: "baseui-particles-popover-with-close",
+		description: "Popover with a close button",
+		type: "registry:component",
+		dependencies: undefined,
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-popover"],
+		files: [
+			{
+				path: "packages/baseui/particles/popover/with-close/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/popover-with-close.tsx",
+				content:
+					'"use client";\n\nimport { XIcon } from "lucide-react";\nimport { Button } from "@/components/baseui/components/button";\nimport {\n\tPopoverRoot,\n\tPopoverTrigger,\n\tPopoverPortal,\n\tPopoverPositioner,\n\tPopoverPopup,\n\tPopoverTitle,\n\tPopoverDescription,\n\tPopoverClose,\n\tPopoverArrow,\n} from "@/components/baseui/components/popover";\n\nexport default function Particle() {\n\treturn (\n\t\t<PopoverRoot>\n\t\t\t<PopoverTrigger render={<Button variant="outline">Click</Button>} />\n\t\t\t<PopoverPortal>\n\t\t\t\t<PopoverPositioner>\n\t\t\t\t\t<PopoverPopup>\n\t\t\t\t\t\t<PopoverArrow />\n\t\t\t\t\t\t<PopoverClose\n\t\t\t\t\t\t\tclassName="absolute right-2 top-2"\n\t\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t\t<Button variant="ghost" size="icon-xs">\n\t\t\t\t\t\t\t\t\t<XIcon />\n\t\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t/>\n\t\t\t\t\t\t<PopoverTitle>Close Popover</PopoverTitle>\n\t\t\t\t\t\t<PopoverDescription>\n\t\t\t\t\t\t\tThis popover has a close button in the top right\n\t\t\t\t\t\t\tcorner.\n\t\t\t\t\t\t</PopoverDescription>\n\t\t\t\t\t\t<PopoverClose\n\t\t\t\t\t\t\trender={<Button variant="outline" size="sm" />}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\tClose\n\t\t\t\t\t\t</PopoverClose>\n\t\t\t\t\t</PopoverPopup>\n\t\t\t\t</PopoverPositioner>\n\t\t\t</PopoverPortal>\n\t\t</PopoverRoot>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-popover-with-close",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/popover/with-close/index.tsx"
 				);
 				let Comp = mod.default;
 
