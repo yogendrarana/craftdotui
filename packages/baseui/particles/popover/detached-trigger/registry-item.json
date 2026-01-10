@@ -1,0 +1,14 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-popover-detached-trigger",
+	"type": "registry:component",
+	"description": "Popover with detached trigger",
+	"registryDependencies": ["@craftdotui/baseui-popover"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/popover/detached-trigger/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/particles/popover-detached-trigger.tsx"
+		}
+	]
+}

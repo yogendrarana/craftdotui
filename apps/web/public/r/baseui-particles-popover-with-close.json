@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-popover-with-close",
+	"description": "Popover with a close button",
+	"registryDependencies": ["@craftdotui/baseui-popover"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/popover/with-close/index.tsx",
+			"content": "\"use client\";\n\nimport { XIcon } from \"lucide-react\";\nimport { Button } from \"@/components/baseui/components/button\";\nimport {\n\tPopoverRoot,\n\tPopoverTrigger,\n\tPopoverPortal,\n\tPopoverPositioner,\n\tPopoverPopup,\n\tPopoverTitle,\n\tPopoverDescription,\n\tPopoverClose,\n\tPopoverArrow,\n} from \"@/components/baseui/components/popover\";\n\nexport default function Particle() {\n\treturn (\n\t\t<PopoverRoot>\n\t\t\t<PopoverTrigger render={<Button variant=\"outline\">Click</Button>} />\n\t\t\t<PopoverPortal>\n\t\t\t\t<PopoverPositioner>\n\t\t\t\t\t<PopoverPopup>\n\t\t\t\t\t\t<PopoverArrow />\n\t\t\t\t\t\t<PopoverClose\n\t\t\t\t\t\t\tclassName=\"absolute right-2 top-2\"\n\t\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t\t<Button variant=\"ghost\" size=\"icon-xs\">\n\t\t\t\t\t\t\t\t\t<XIcon />\n\t\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t/>\n\t\t\t\t\t\t<PopoverTitle>Close Popover</PopoverTitle>\n\t\t\t\t\t\t<PopoverDescription>\n\t\t\t\t\t\t\tThis popover has a close button in the top right\n\t\t\t\t\t\t\tcorner.\n\t\t\t\t\t\t</PopoverDescription>\n\t\t\t\t\t\t<PopoverClose\n\t\t\t\t\t\t\trender={<Button variant=\"outline\" size=\"sm\" />}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\tClose\n\t\t\t\t\t\t</PopoverClose>\n\t\t\t\t\t</PopoverPopup>\n\t\t\t\t</PopoverPositioner>\n\t\t\t</PopoverPortal>\n\t\t</PopoverRoot>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/popover-with-close.tsx"
+		}
+	],
+	"type": "registry:component"
+}

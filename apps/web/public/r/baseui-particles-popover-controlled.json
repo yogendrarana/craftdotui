@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-popover-controlled",
+	"description": "Controlled Popover with multiple triggers",
+	"registryDependencies": ["@craftdotui/baseui-popover"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/popover/controlled/index.tsx",
+			"content": "\"use client\";\n\nimport * as React from \"react\";\nimport {\n\tPopoverRoot,\n\tPopoverTrigger,\n\tPopoverPortal,\n\tPopoverPositioner,\n\tPopoverPopup,\n\tPopoverTitle,\n\tPopoverDescription,\n\tPopoverPrimitive,\n\tPopoverArrow,\n} from \"@/components/baseui/components/popover\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nconst demoPopover = PopoverPrimitive.createHandle();\n\nexport default function Particle() {\n\tconst [open, setOpen] = React.useState(false);\n\tconst [triggerId, setTriggerId] = React.useState<string | null>(null);\n\n\tconst handleOpenChange = (\n\t\tisOpen: boolean,\n\t\teventDetails: PopoverPrimitive.Root.ChangeEventDetails,\n\t) => {\n\t\tsetOpen(isOpen);\n\t\tsetTriggerId(eventDetails.trigger?.id ?? null);\n\t};\n\n\treturn (\n\t\t<div className=\"flex flex-col items-center gap-4\">\n\t\t\t<div className=\"flex gap-2\">\n\t\t\t\t<PopoverTrigger\n\t\t\t\t\thandle={demoPopover}\n\t\t\t\t\tid=\"trigger-1\"\n\t\t\t\t\trender={<Button variant=\"outline\">Trigger 1</Button>}\n\t\t\t\t/>\n\t\t\t\t<PopoverTrigger\n\t\t\t\t\thandle={demoPopover}\n\t\t\t\t\tid=\"trigger-2\"\n\t\t\t\t\trender={<Button variant=\"outline\">Trigger 2</Button>}\n\t\t\t\t/>\n\t\t\t\t<Button\n\t\t\t\t\ttype=\"button\"\n\t\t\t\t\tvariant=\"secondary\"\n\t\t\t\t\tonClick={() => {\n\t\t\t\t\t\tsetTriggerId(\"trigger-2\");\n\t\t\t\t\t\tsetOpen(true);\n\t\t\t\t\t}}\n\t\t\t\t>\n\t\t\t\t\tOpen Trigger 2\n\t\t\t\t</Button>\n\t\t\t</div>\n\n\t\t\t<PopoverRoot\n\t\t\t\thandle={demoPopover}\n\t\t\t\topen={open}\n\t\t\t\tonOpenChange={handleOpenChange}\n\t\t\t\ttriggerId={triggerId}\n\t\t\t>\n\t\t\t\t<PopoverPortal>\n\t\t\t\t\t<PopoverPositioner>\n\t\t\t\t\t\t<PopoverPopup>\n\t\t\t\t\t\t\t<PopoverArrow />\n\t\t\t\t\t\t\t<PopoverTitle>Controlled Popover</PopoverTitle>\n\t\t\t\t\t\t\t<PopoverDescription>\n\t\t\t\t\t\t\t\tThe active trigger is{\" \"}\n\t\t\t\t\t\t\t\t<strong>{triggerId}</strong>.\n\t\t\t\t\t\t\t</PopoverDescription>\n\t\t\t\t\t\t</PopoverPopup>\n\t\t\t\t\t</PopoverPositioner>\n\t\t\t\t</PopoverPortal>\n\t\t\t</PopoverRoot>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/popover-controlled.tsx"
+		}
+	],
+	"type": "registry:component"
+}

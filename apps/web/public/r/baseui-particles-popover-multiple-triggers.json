@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-popover-multiple-triggers",
+	"description": "Popover with multiple triggers",
+	"registryDependencies": ["@craftdotui/baseui-popover"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/popover/multiple-triggers/index.tsx",
+			"content": "\"use client\";\n\nimport { Button } from \"@/components/baseui/components/button\";\nimport {\n\tPopoverRoot,\n\tPopoverTrigger,\n\tPopoverPortal,\n\tPopoverPositioner,\n\tPopoverPopup,\n\tPopoverTitle,\n\tPopoverDescription,\n\tPopoverPrimitive,\n\tPopoverArrow,\n} from \"@/components/baseui/components/popover\";\n\nconst demoPopover = PopoverPrimitive.createHandle<{ text: string }>();\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"flex flex-col items-center gap-4\">\n\t\t\t<div className=\"flex gap-2\">\n\t\t\t\t<PopoverTrigger\n\t\t\t\t\thandle={demoPopover}\n\t\t\t\t\tpayload={{ text: \"Trigger 1\" }}\n\t\t\t\t\trender={<Button variant=\"outline\">Trigger 1</Button>}\n\t\t\t\t/>\n\t\t\t\t<PopoverTrigger\n\t\t\t\t\thandle={demoPopover}\n\t\t\t\t\tpayload={{ text: \"Trigger 2\" }}\n\t\t\t\t\trender={<Button variant=\"outline\">Trigger 2</Button>}\n\t\t\t\t/>\n\t\t\t</div>\n\n\t\t\t<PopoverRoot handle={demoPopover}>\n\t\t\t\t{({ payload }) => (\n\t\t\t\t\t<PopoverPortal>\n\t\t\t\t\t\t<PopoverPositioner>\n\t\t\t\t\t\t\t<PopoverPopup>\n\t\t\t\t\t\t\t\t<PopoverArrow />\n\t\t\t\t\t\t\t\t<PopoverTitle>Multiple Triggers</PopoverTitle>\n\t\t\t\t\t\t\t\t{payload && (\n\t\t\t\t\t\t\t\t\t<PopoverDescription>\n\t\t\t\t\t\t\t\t\t\tThis popover was opened by{\" \"}\n\t\t\t\t\t\t\t\t\t\t<strong>{payload?.text}</strong>.\n\t\t\t\t\t\t\t\t\t</PopoverDescription>\n\t\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t\t</PopoverPopup>\n\t\t\t\t\t\t</PopoverPositioner>\n\t\t\t\t\t</PopoverPortal>\n\t\t\t\t)}\n\t\t\t</PopoverRoot>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/popover-multiple-triggers.tsx"
+		}
+	],
+	"type": "registry:component"
+}

@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-popover-hover",
+	"description": "Popover opening on hover",
+	"registryDependencies": ["@craftdotui/baseui-popover"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/popover/hover/index.tsx",
+			"content": "\"use client\";\n\nimport { Button } from \"@/components/baseui/components/button\";\nimport {\n\tPopoverRoot,\n\tPopoverTrigger,\n\tPopoverPortal,\n\tPopoverPositioner,\n\tPopoverPopup,\n\tPopoverArrow,\n\tPopoverTitle,\n\tPopoverDescription,\n} from \"@/components/baseui/components/popover\";\n\nexport default function Particle() {\n\treturn (\n\t\t<PopoverRoot>\n\t\t\t<PopoverTrigger\n\t\t\t\topenOnHover\n\t\t\t\tdelay={300}\n\t\t\t\trender={<Button variant=\"outline\">Hover me</Button>}\n\t\t\t/>\n\t\t\t<PopoverPortal>\n\t\t\t\t<PopoverPositioner>\n\t\t\t\t\t<PopoverPopup>\n\t\t\t\t\t\t<PopoverArrow />\n\t\t\t\t\t\t<PopoverTitle>Hover Popover</PopoverTitle>\n\t\t\t\t\t\t<PopoverDescription>\n\t\t\t\t\t\t\tThis popover opens on hover with a delay of 300ms.\n\t\t\t\t\t\t</PopoverDescription>\n\t\t\t\t\t</PopoverPopup>\n\t\t\t\t</PopoverPositioner>\n\t\t\t</PopoverPortal>\n\t\t</PopoverRoot>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/popover-hover.tsx"
+		}
+	],
+	"type": "registry:component"
+}

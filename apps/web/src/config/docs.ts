@@ -141,6 +141,10 @@ export const docsNavItems: Array<DocsNavItem> = [
 				href: "/docs/baseui/components/meter",
 			},
 			{
+				title: "Popover",
+				href: "/docs/baseui/components/popover",
+			},
+			{
 				title: "Preview Card",
 				href: "/docs/baseui/components/preview-card",
 			},

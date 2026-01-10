@@ -1000,6 +1000,20 @@
 			]
 		},
 		{
+			"name": "baseui-popover",
+			"type": "registry:component",
+			"description": "A Base UI popover component",
+			"dependencies": ["@base-ui/react"],
+			"registryDependencies": ["@craftdotui/utils"],
+			"files": [
+				{
+					"path": "packages/baseui/components/popover/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/popover.tsx"
+				}
+			]
+		},
+		{
 			"name": "baseui-preview-card",
 			"type": "registry:component",
 			"description": "A Base UI preview card component",
@@ -1884,6 +1898,110 @@
 					"path": "packages/baseui/particles/meter/without-label/index.tsx",
 					"type": "registry:component",
 					"target": "components/baseui/particles/meter-without-label.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-popover-animated",
+			"type": "registry:component",
+			"description": "Animated Popover with transitions",
+			"registryDependencies": ["@craftdotui/baseui-popover"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/popover/animated/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/popover-animated.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-popover-controlled",
+			"type": "registry:component",
+			"description": "Controlled Popover with multiple triggers",
+			"registryDependencies": ["@craftdotui/baseui-popover"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/popover/controlled/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/popover-controlled.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-popover-detached-trigger",
+			"type": "registry:component",
+			"description": "Popover with detached trigger",
+			"registryDependencies": ["@craftdotui/baseui-popover"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/popover/detached-trigger/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/popover-detached-trigger.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-popover-hover",
+			"type": "registry:component",
+			"description": "Popover opening on hover",
+			"registryDependencies": ["@craftdotui/baseui-popover"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/popover/hover/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/popover-hover.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-popover-multiple-triggers",
+			"type": "registry:component",
+			"description": "Popover with multiple triggers",
+			"registryDependencies": ["@craftdotui/baseui-popover"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/popover/multiple-triggers/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/popover-multiple-triggers.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-popover",
+			"type": "registry:component",
+			"description": "A simple Popover demo",
+			"registryDependencies": ["@craftdotui/baseui-popover"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/popover/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/popover.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-popover-with-backdrop",
+			"type": "registry:component",
+			"description": "Popover with a backdrop",
+			"registryDependencies": ["@craftdotui/baseui-popover"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/popover/with-backdrop/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/popover-with-backdrop.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-popover-with-close",
+			"type": "registry:component",
+			"description": "Popover with a close button",
+			"registryDependencies": ["@craftdotui/baseui-popover"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/popover/with-close/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/popover-with-close.tsx"
 				}
 			]
 		},
