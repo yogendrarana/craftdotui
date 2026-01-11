@@ -1,16 +1,21 @@
 "use client";
 
 import * as React from "react";
-import { cn } from "@/lib/utils";
-import type { ButtonProps } from "@/components/ui/button";
 import { CheckIcon, Copy } from "lucide-react";
-import { Button } from "@craftdotui/baseui/components/button";
+
+import { cn } from "@/lib/utils";
+import { Button, type ButtonProps } from "@craftdotui/baseui/components/button";
 
 interface CopyButtonProps extends ButtonProps {
 	value: string;
 }
 
-export function CopyButton({ value, className, ...props }: CopyButtonProps) {
+export function CopyButton({
+	value,
+	className,
+	size,
+	...props
+}: CopyButtonProps) {
 	const [hasCopied, setHasCopied] = React.useState(false);
 
 	React.useEffect(() => {

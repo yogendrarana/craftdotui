@@ -58,7 +58,7 @@ const buttonVariants = cva(
 /* Props                                                                      */
 /* -------------------------------------------------------------------------- */
 
-interface ButtonProps
+export interface ButtonProps
 	extends useRender.ComponentProps<"button">,
 		VariantProps<typeof buttonVariants> {
 	loading?: boolean;
