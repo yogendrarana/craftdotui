@@ -6,7 +6,7 @@
 	"files": [
 		{
 			"path": "packages/baseui/particles/number-field/with-range/index.tsx",
-			"content": "import {\n\tNumberFieldRoot,\n\tNumberFieldGroup,\n\tNumberFieldInput,\n\tNumberFieldIncrement,\n\tNumberFieldDecrement,\n} from \"@/components/baseui/components/number-field\";\n\nexport function Particle() {\n\treturn (\n\t\t<NumberFieldRoot\n\t\t\tdefaultValue={0}\n\t\t\tmin={0}\n\t\t\tmax={10}\n\t\t>\n\t\t\t<NumberFieldGroup>\n\t\t\t\t<NumberFieldDecrement />\n\t\t\t\t<NumberFieldInput />\n\t\t\t\t<NumberFieldIncrement />\n\t\t\t</NumberFieldGroup>\n\t\t</NumberFieldRoot>\n\t);\n}\n",
+			"content": "import {\n\tNumberFieldRoot,\n\tNumberFieldGroup,\n\tNumberFieldInput,\n\tNumberFieldIncrement,\n\tNumberFieldDecrement,\n} from \"@/components/baseui/components/number-field\";\n\nexport function Particle() {\n\treturn (\n\t\t<NumberFieldRoot defaultValue={0} min={0} max={10}>\n\t\t\t<NumberFieldGroup>\n\t\t\t\t<NumberFieldDecrement />\n\t\t\t\t<NumberFieldInput />\n\t\t\t\t<NumberFieldIncrement />\n\t\t\t</NumberFieldGroup>\n\t\t</NumberFieldRoot>\n\t);\n}\n",
 			"type": "registry:component",
 			"target": "components/baseui/particles/number-field-with-range.tsx"
 		}

@@ -1,12 +1,13 @@
 "use client";
 
 import * as React from "react";
+import type { VariantProps } from "class-variance-authority";
 import { MinusIcon, MoveHorizontal, PlusIcon } from "lucide-react";
 import { NumberField as NumberFieldPrimitive } from "@base-ui/react/number-field";
 
 import { cn } from "@craftdotui/lib/utils";
-import { buttonVariants } from "../button";
-import { inputVariants } from "../input";
+import { inputVariants } from "@craftdotui/baseui/components/input";
+import { buttonVariants } from "@craftdotui/baseui/components/button";
 
 /* -------------------------------------------------------------------------- */
 /* Root                                                                       */
@@ -87,14 +88,19 @@ function NumberFieldGroup({
 /* Input                                                                      */
 /* -------------------------------------------------------------------------- */
 
+type NumberFieldInputProps = Omit<NumberFieldPrimitive.Input.Props, "size"> & {
+	size?: VariantProps<typeof inputVariants>["size"];
+};
+
 function NumberFieldInput({
 	className,
+	size = "md",
 	...props
-}: NumberFieldPrimitive.Input.Props) {
+}: NumberFieldInputProps) {
 	return (
 		<NumberFieldPrimitive.Input
 			data-slot="number-field-input"
-			className={cn(inputVariants(), className)}
+			className={cn(inputVariants({ size }), className)}
 			{...props}
 		/>
 	);
@@ -104,10 +110,20 @@ function NumberFieldInput({
 /* Increment                                                                  */
 /* -------------------------------------------------------------------------- */
 
+type NumberFieldIncrementProps = Omit<
+	NumberFieldPrimitive.Increment.Props,
+	"size"
+> & {
+	size?: VariantProps<typeof buttonVariants>["size"];
+	variant?: VariantProps<typeof buttonVariants>["variant"];
+};
+
 function NumberFieldIncrement({
 	className,
+	size = "icon",
+	variant = "outline",
 	...props
-}: NumberFieldPrimitive.Increment.Props) {
+}: NumberFieldIncrementProps) {
 	return (
 		<NumberFieldPrimitive.Increment
 			data-slot="number-field-increment"
@@ -129,10 +145,20 @@ function NumberFieldIncrement({
 /* Decrement                                                                  */
 /* -------------------------------------------------------------------------- */
 
+type NumberFieldDecrementProps = Omit<
+	NumberFieldPrimitive.Decrement.Props,
+	"size"
+> & {
+	size?: VariantProps<typeof buttonVariants>["size"];
+	variant?: VariantProps<typeof buttonVariants>["variant"];
+};
+
 function NumberFieldDecrement({
 	className,
+	size = "icon",
+	variant = "outline",
 	...props
-}: NumberFieldPrimitive.Decrement.Props) {
+}: NumberFieldDecrementProps) {
 	return (
 		<NumberFieldPrimitive.Decrement
 			data-slot="number-field-decrement"
