@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-number-field-with-formatted-value",
+	"description": "A simple number field demo",
+	"registryDependencies": ["@craftdotui/baseui-number-field"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/number-field/with-formatted-value/index.tsx",
+			"content": "import {\n\tNumberFieldRoot,\n\tNumberFieldGroup,\n\tNumberFieldInput,\n\tNumberFieldIncrement,\n\tNumberFieldDecrement,\n} from \"@/components/baseui/components/number-field\";\n\nexport function Particle() {\n\treturn (\n\t\t<NumberFieldRoot\n\t\t\tdefaultValue={10}\n\t\t\tformat={{ currency: \"USD\", style: \"currency\" }}\n\t\t>\n\t\t\t<NumberFieldGroup>\n\t\t\t\t<NumberFieldDecrement />\n\t\t\t\t<NumberFieldInput />\n\t\t\t\t<NumberFieldIncrement />\n\t\t\t</NumberFieldGroup>\n\t\t</NumberFieldRoot>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/number-field-with-formatted-value.tsx"
+		}
+	],
+	"type": "registry:component"
+}

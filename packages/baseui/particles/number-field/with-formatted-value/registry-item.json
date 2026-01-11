@@ -1,0 +1,14 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-number-field-with-formatted-value",
+	"type": "registry:component",
+	"description": "A simple number field demo",
+	"registryDependencies": ["@craftdotui/baseui-number-field"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/number-field/with-formatted-value/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/particles/number-field-with-formatted-value.tsx"
+		}
+	]
+}

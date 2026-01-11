@@ -9,7 +9,7 @@ export default function Particle() {
 			<Button variant="outline" size="sm">
 				Small
 			</Button>
-			<Button variant="outline" size="default">
+			<Button variant="outline" size="md">
 				Default
 			</Button>
 			<Button variant="outline" size="lg">

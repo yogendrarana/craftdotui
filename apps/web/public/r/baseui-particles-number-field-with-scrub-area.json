@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-number-field-with-scrub-area",
+	"description": "A simple number field demo",
+	"registryDependencies": ["@craftdotui/baseui-number-field"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/number-field/with-scrub-area/index.tsx",
+			"content": "import {\n\tNumberFieldRoot,\n\tNumberFieldScrubArea,\n\tNumberFieldGroup,\n\tNumberFieldInput,\n\tNumberFieldIncrement,\n\tNumberFieldDecrement,\n\tNumberFieldScrubAreaCursor,\n} from \"@/components/baseui/components/number-field\";\n\nexport function Particle() {\n\tconst id = \"amount\";\n\n\treturn (\n\t\t<NumberFieldRoot\n\t\t\tid={id}\n\t\t\tdefaultValue={100}\n\t\t\tclassName=\"flex flex-col gap-2\"\n\t\t>\n\t\t\t<NumberFieldScrubArea>\n\t\t\t\tAmount\n\t\t\t\t<NumberFieldScrubAreaCursor />\n\t\t\t</NumberFieldScrubArea>\n\n\t\t\t<NumberFieldGroup>\n\t\t\t\t<NumberFieldDecrement />\n\t\t\t\t<NumberFieldInput />\n\t\t\t\t<NumberFieldIncrement />\n\t\t\t</NumberFieldGroup>\n\t\t</NumberFieldRoot>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/number-field-with-scrub-area.tsx"
+		}
+	],
+	"type": "registry:component"
+}

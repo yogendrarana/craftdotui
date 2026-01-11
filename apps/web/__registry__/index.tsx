@@ -3031,7 +3031,7 @@ export const Registry: Record<string, any> = {
 				type: "registry:component",
 				target: "components/baseui/components/button.tsx",
 				content:
-					'"use client";\n\nimport type * as React from "react";\nimport { useRender } from "@base-ui/react/use-render";\nimport { mergeProps } from "@base-ui/react/merge-props";\nimport { cva, type VariantProps } from "class-variance-authority";\n\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Variants                                                                   */\n/* -------------------------------------------------------------------------- */\n\nconst buttonVariants = cva(\n\t[\n\t\t"relative inline-flex items-center justify-center shrink-0 gap-2",\n\t\t"border rounded-md text-sm whitespace-nowrap outline-none transition cursor-pointer",\n\t\t"focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",\n\t\t"disabled:pointer-events-none disabled:opacity-60",\n\t\t"[&_svg]:pointer-events-none [&_svg]:shrink-0",\n\t\t"[&_svg:not([class*=\'size-\'])]:size-4",\n\t].join(" "),\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault:\n\t\t\t\t\t"bg-primary text-primary-foreground border-primary hover:bg-primary/90",\n\t\t\t\tsecondary:\n\t\t\t\t\t"bg-secondary text-secondary-foreground border-transparent hover:bg-secondary/90",\n\t\t\t\tdestructive:\n\t\t\t\t\t"bg-destructive text-destructive-foreground border-destructive hover:bg-destructive/90",\n\t\t\t\toutline:\n\t\t\t\t\t"bg-background text-foreground border-border hover:bg-accent",\n\t\t\t\tghost: "border-transparent bg-transparent hover:bg-muted",\n\t\t\t\tlink: "border-transparent bg-transparent underline-offset-4 hover:underline",\n\t\t\t},\n\t\t\tsize: {\n\t\t\t\txs: "h-7 px-2 text-xs",\n\t\t\t\tsm: "h-8 px-3 text-sm",\n\t\t\t\tdefault: "h-9 px-4",\n\t\t\t\tlg: "h-10 px-6",\n\t\t\t\txl: "h-11 px-8",\n\t\t\t\ticon: "size-9 p-0",\n\t\t\t\t"icon-xs": "size-7 p-0",\n\t\t\t\t"icon-sm": "size-8 p-0",\n\t\t\t\t"icon-lg": "size-10 p-0",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: "default",\n\t\t\tsize: "default",\n\t\t},\n\t},\n);\n\n/* -------------------------------------------------------------------------- */\n/* Props                                                                      */\n/* -------------------------------------------------------------------------- */\n\ninterface ButtonProps\n\textends useRender.ComponentProps<"button">,\n\t\tVariantProps<typeof buttonVariants> {\n\tloading?: boolean;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Component                                                                  */\n/* -------------------------------------------------------------------------- */\n\nfunction Button({\n\tclassName,\n\tvariant,\n\tsize,\n\trender,\n\tloading,\n\tchildren,\n\t...props\n}: ButtonProps) {\n\t// Determine the type attribute based on whether we\'re rendering a native button\n\tconst type: React.ButtonHTMLAttributes<HTMLButtonElement>["type"] = render\n\t\t? undefined\n\t\t: "button";\n\n\t// Create children with loading spinner\n\tconst renderedChildren = (\n\t\t<>\n\t\t\t{loading && (\n\t\t\t\t<span\n\t\t\t\t\taria-hidden\n\t\t\t\t\tclassName="inline-flex size-4 animate-spin rounded-full border-2 border-current border-t-transparent"\n\t\t\t\t/>\n\t\t\t)}\n\t\t\t{children}\n\t\t</>\n\t);\n\n\t// Prepare default props for the button\n\tconst defaultProps = {\n\t\tclassName: cn(\n\t\t\tbuttonVariants({ variant, size }),\n\t\t\tloading && "cursor-wait opacity-80",\n\t\t\tclassName,\n\t\t),\n\t\ttype,\n\t\t"aria-busy": loading || undefined,\n\t\t"data-slot": "button",\n\t\tdisabled: props.disabled || loading,\n\t\tchildren: renderedChildren, // Make sure children are included\n\t};\n\n\t// Merge default props with user props\n\tconst mergedProps = mergeProps<"button">(defaultProps, props);\n\n\t// Use useRender hook which handles the rendering logic\n\t// According to Base UI docs, this returns a React element\n\treturn useRender({\n\t\tdefaultTagName: "button",\n\t\tprops: mergedProps,\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport { Button, buttonVariants };',
+					'"use client";\n\nimport type * as React from "react";\nimport { useRender } from "@base-ui/react/use-render";\nimport { mergeProps } from "@base-ui/react/merge-props";\nimport { cva, type VariantProps } from "class-variance-authority";\n\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Variants                                                                   */\n/* -------------------------------------------------------------------------- */\n\nconst buttonVariants = cva(\n\t[\n\t\t"relative inline-flex items-center justify-center shrink-0 gap-2",\n\t\t"border rounded-md text-sm whitespace-nowrap outline-none transition cursor-pointer",\n\t\t"focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",\n\t\t"disabled:pointer-events-none disabled:opacity-60",\n\t\t"[&_svg]:pointer-events-none [&_svg]:shrink-0",\n\t\t"[&_svg:not([class*=\'size-\'])]:size-4",\n\t].join(" "),\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault:\n\t\t\t\t\t"bg-primary text-primary-foreground border-primary hover:bg-primary/90",\n\t\t\t\tsecondary:\n\t\t\t\t\t"bg-secondary text-secondary-foreground border-transparent hover:bg-secondary/90",\n\t\t\t\tdestructive:\n\t\t\t\t\t"bg-destructive text-destructive-foreground border-destructive hover:bg-destructive/90",\n\t\t\t\toutline:\n\t\t\t\t\t"bg-background text-foreground border-border hover:bg-accent",\n\t\t\t\tghost: "border-transparent bg-transparent hover:bg-muted",\n\t\t\t\tlink: "border-transparent bg-transparent underline-offset-4 hover:underline",\n\t\t\t},\n\t\t\tsize: {\n\t\t\t\txs: "h-7 px-2 text-xs",\n\t\t\t\tsm: "h-7.5 px-3 text-sm",\n\t\t\t\tmd: "h-8 px-4",\n\t\t\t\tlg: "h-8.5 px-6",\n\t\t\t\txl: "h-9 px-8",\n\t\t\t\t"icon-xs": "size-7 p-0",\n\t\t\t\t"icon-sm": "size-7.5 p-0",\n\t\t\t\ticon: "size-8 p-0",\n\t\t\t\t"icon-lg": "size-8.5 p-0",\n\t\t\t\t"icon-xl": "size-9 p-0",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: "default",\n\t\t\tsize: "md",\n\t\t},\n\t},\n);\n\n/* -------------------------------------------------------------------------- */\n/* Props                                                                      */\n/* -------------------------------------------------------------------------- */\n\ninterface ButtonProps\n\textends useRender.ComponentProps<"button">,\n\t\tVariantProps<typeof buttonVariants> {\n\tloading?: boolean;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Component                                                                  */\n/* -------------------------------------------------------------------------- */\n\nfunction Button({\n\tclassName,\n\tvariant,\n\tsize,\n\trender,\n\tloading,\n\tchildren,\n\t...props\n}: ButtonProps) {\n\t// Determine the type attribute based on whether we\'re rendering a native button\n\tconst type: React.ButtonHTMLAttributes<HTMLButtonElement>["type"] = render\n\t\t? undefined\n\t\t: "button";\n\n\t// Create children with loading spinner\n\tconst renderedChildren = (\n\t\t<>\n\t\t\t{loading && (\n\t\t\t\t<span\n\t\t\t\t\taria-hidden\n\t\t\t\t\tclassName="inline-flex size-4 animate-spin rounded-full border-2 border-current border-t-transparent"\n\t\t\t\t/>\n\t\t\t)}\n\t\t\t{children}\n\t\t</>\n\t);\n\n\t// Prepare default props for the button\n\tconst defaultProps = {\n\t\tclassName: cn(\n\t\t\tbuttonVariants({ variant, size }),\n\t\t\tloading && "cursor-wait opacity-80",\n\t\t\tclassName,\n\t\t),\n\t\ttype,\n\t\t"aria-busy": loading || undefined,\n\t\t"data-slot": "button",\n\t\tdisabled: props.disabled || loading,\n\t\tchildren: renderedChildren, // Make sure children are included\n\t};\n\n\t// Merge default props with user props\n\tconst mergedProps = mergeProps<"button">(defaultProps, props);\n\n\t// Use useRender hook which handles the rendering logic\n\t// According to Base UI docs, this returns a React element\n\treturn useRender({\n\t\tdefaultTagName: "button",\n\t\tprops: mergedProps,\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport { Button, buttonVariants };',
 			},
 		],
 		keywords: [],
@@ -3432,6 +3432,59 @@ export const Registry: Record<string, any> = {
 			const LazyComp = React.lazy(async () => {
 				const mod = await import(
 					"@craftdotui/baseui/components/meter/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-number-field": {
+		name: "baseui-number-field",
+		description: "A Base UI number field component",
+		type: "registry:component",
+		dependencies: ["@base-ui/react"],
+		devDependencies: undefined,
+		registryDependencies: [
+			"@craftdotui/utils",
+			"@craftdotui/baseui-button",
+			"@craftdotui/baseui-input",
+		],
+		files: [
+			{
+				path: "packages/baseui/components/number-field/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/number-field.tsx",
+				content:
+					'"use client";\n\nimport * as React from "react";\nimport { MinusIcon, MoveHorizontal, PlusIcon } from "lucide-react";\nimport { NumberField as NumberFieldPrimitive } from "@base-ui/react/number-field";\n\nimport { cn } from "@/lib/utils";\nimport { buttonVariants } from "../button";\nimport { inputVariants } from "../input";\n\n/* -------------------------------------------------------------------------- */\n/* Root                                                                       */\n/* -------------------------------------------------------------------------- */\n\nfunction NumberFieldRoot({\n\tid: idProp,\n\tclassName,\n\t...props\n}: NumberFieldPrimitive.Root.Props) {\n\tconst generatedId = React.useId();\n\tconst id = idProp ?? generatedId;\n\n\treturn (\n\t\t<NumberFieldPrimitive.Root\n\t\t\tdata-slot="number-field-root"\n\t\t\tid={id}\n\t\t\tclassName={cn("", className)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Scrub Area                                                                 */\n/* -------------------------------------------------------------------------- */\n\nfunction NumberFieldScrubArea({\n\tclassName,\n\t...props\n}: NumberFieldPrimitive.ScrubArea.Props) {\n\treturn (\n\t\t<NumberFieldPrimitive.ScrubArea\n\t\t\tdata-slot="number-field-scrub-area"\n\t\t\tclassName={cn("cursor-ew-resize", className)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Scrub Area Cursor                                                          */\n/* -------------------------------------------------------------------------- */\n\nfunction NumberFieldScrubAreaCursor({\n\tclassName,\n\t...props\n}: NumberFieldPrimitive.ScrubAreaCursor.Props) {\n\treturn (\n\t\t<NumberFieldPrimitive.ScrubAreaCursor\n\t\t\tdata-slot="number-field-scrub-area-cursor"\n\t\t\tclassName={cn("", className)}\n\t\t\t{...props}\n\t\t>\n\t\t\t<MoveHorizontal className="size-4" />\n\t\t</NumberFieldPrimitive.ScrubAreaCursor>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Group                                                                      */\n/* -------------------------------------------------------------------------- */\n\nfunction NumberFieldGroup({\n\tclassName,\n\t...props\n}: NumberFieldPrimitive.Group.Props) {\n\treturn (\n\t\t<NumberFieldPrimitive.Group\n\t\t\tdata-slot="number-field-group"\n\t\t\tclassName={cn("flex items-center gap-2", className)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Input                                                                      */\n/* -------------------------------------------------------------------------- */\n\nfunction NumberFieldInput({\n\tclassName,\n\t...props\n}: NumberFieldPrimitive.Input.Props) {\n\treturn (\n\t\t<NumberFieldPrimitive.Input\n\t\t\tdata-slot="number-field-input"\n\t\t\tclassName={cn(inputVariants(), className)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Increment                                                                  */\n/* -------------------------------------------------------------------------- */\n\nfunction NumberFieldIncrement({\n\tclassName,\n\t...props\n}: NumberFieldPrimitive.Increment.Props) {\n\treturn (\n\t\t<NumberFieldPrimitive.Increment\n\t\t\tdata-slot="number-field-increment"\n\t\t\tclassName={cn(\n\t\t\t\tbuttonVariants({\n\t\t\t\t\tvariant: "outline",\n\t\t\t\t\tsize: "icon",\n\t\t\t\t\tclassName,\n\t\t\t\t}),\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t<PlusIcon />\n\t\t</NumberFieldPrimitive.Increment>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Decrement                                                                  */\n/* -------------------------------------------------------------------------- */\n\nfunction NumberFieldDecrement({\n\tclassName,\n\t...props\n}: NumberFieldPrimitive.Decrement.Props) {\n\treturn (\n\t\t<NumberFieldPrimitive.Decrement\n\t\t\tdata-slot="number-field-decrement"\n\t\t\tclassName={cn(\n\t\t\t\tbuttonVariants({\n\t\t\t\t\tvariant: "outline",\n\t\t\t\t\tsize: "icon",\n\t\t\t\t\tclassName,\n\t\t\t\t}),\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t<MinusIcon />\n\t\t</NumberFieldPrimitive.Decrement>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport {\n\tNumberFieldRoot,\n\tNumberFieldScrubArea,\n\tNumberFieldScrubAreaCursor,\n\tNumberFieldGroup,\n\tNumberFieldInput,\n\tNumberFieldIncrement,\n\tNumberFieldDecrement,\n\tNumberFieldPrimitive,\n};',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-number-field",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/components/number-field/index.tsx"
 				);
 				let Comp = mod.default;
 
@@ -5341,7 +5394,7 @@ export const Registry: Record<string, any> = {
 				type: "registry:component",
 				target: "components/baseui/particles/button-sizes.tsx",
 				content:
-					'import { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex flex-wrap items-center gap-2">\n\t\t\t<Button variant="outline" size="xs">\n\t\t\t\tExtra Small\n\t\t\t</Button>\n\t\t\t<Button variant="outline" size="sm">\n\t\t\t\tSmall\n\t\t\t</Button>\n\t\t\t<Button variant="outline" size="default">\n\t\t\t\tDefault\n\t\t\t</Button>\n\t\t\t<Button variant="outline" size="lg">\n\t\t\t\tLarge\n\t\t\t</Button>\n\t\t\t<Button variant="outline" size="xl">\n\t\t\t\tExtra Large\n\t\t\t</Button>\n\t\t</div>\n\t);\n}',
+					'import { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex flex-wrap items-center gap-2">\n\t\t\t<Button variant="outline" size="xs">\n\t\t\t\tExtra Small\n\t\t\t</Button>\n\t\t\t<Button variant="outline" size="sm">\n\t\t\t\tSmall\n\t\t\t</Button>\n\t\t\t<Button variant="outline" size="md">\n\t\t\t\tDefault\n\t\t\t</Button>\n\t\t\t<Button variant="outline" size="lg">\n\t\t\t\tLarge\n\t\t\t</Button>\n\t\t\t<Button variant="outline" size="xl">\n\t\t\t\tExtra Large\n\t\t\t</Button>\n\t\t</div>\n\t);\n}',
 			},
 		],
 		keywords: [],
@@ -6577,6 +6630,252 @@ export const Registry: Record<string, any> = {
 			const LazyComp = React.lazy(async () => {
 				const mod = await import(
 					"@craftdotui/baseui/particles/meter/without-label/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-number-field": {
+		name: "baseui-particles-number-field",
+		description: "A simple number field demo",
+		type: "registry:component",
+		dependencies: undefined,
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-number-field"],
+		files: [
+			{
+				path: "packages/baseui/particles/number-field/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/number-field.tsx",
+				content:
+					'import {\n\tNumberFieldRoot,\n\tNumberFieldGroup,\n\tNumberFieldInput,\n\tNumberFieldIncrement,\n\tNumberFieldDecrement,\n} from "@/components/baseui/components/number-field";\n\nexport function Particle() {\n\treturn (\n\t\t<NumberFieldRoot defaultValue={10}>\n\t\t\t<NumberFieldGroup>\n\t\t\t\t<NumberFieldDecrement />\n\t\t\t\t<NumberFieldInput />\n\t\t\t\t<NumberFieldIncrement />\n\t\t\t</NumberFieldGroup>\n\t\t</NumberFieldRoot>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-number-field",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/number-field/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-number-field-with-formatted-value": {
+		name: "baseui-particles-number-field-with-formatted-value",
+		description: "A simple number field demo",
+		type: "registry:component",
+		dependencies: undefined,
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-number-field"],
+		files: [
+			{
+				path: "packages/baseui/particles/number-field/with-formatted-value/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/number-field-with-formatted-value.tsx",
+				content:
+					'import {\n\tNumberFieldRoot,\n\tNumberFieldGroup,\n\tNumberFieldInput,\n\tNumberFieldIncrement,\n\tNumberFieldDecrement,\n} from "@/components/baseui/components/number-field";\n\nexport function Particle() {\n\treturn (\n\t\t<NumberFieldRoot\n\t\t\tdefaultValue={10}\n\t\t\tformat={{ currency: "USD", style: "currency" }}\n\t\t>\n\t\t\t<NumberFieldGroup>\n\t\t\t\t<NumberFieldDecrement />\n\t\t\t\t<NumberFieldInput />\n\t\t\t\t<NumberFieldIncrement />\n\t\t\t</NumberFieldGroup>\n\t\t</NumberFieldRoot>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command:
+			"@craftdotui/baseui-particles-number-field-with-formatted-value",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/number-field/with-formatted-value/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-number-field-with-range": {
+		name: "baseui-particles-number-field-with-range",
+		description: "A simple number field demo",
+		type: "registry:component",
+		dependencies: undefined,
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-number-field"],
+		files: [
+			{
+				path: "packages/baseui/particles/number-field/with-range/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/number-field-with-range.tsx",
+				content:
+					'import {\n\tNumberFieldRoot,\n\tNumberFieldGroup,\n\tNumberFieldInput,\n\tNumberFieldIncrement,\n\tNumberFieldDecrement,\n} from "@/components/baseui/components/number-field";\n\nexport function Particle() {\n\treturn (\n\t\t<NumberFieldRoot\n\t\t\tdefaultValue={0}\n\t\t\tmin={0}\n\t\t\tmax={10}\n\t\t>\n\t\t\t<NumberFieldGroup>\n\t\t\t\t<NumberFieldDecrement />\n\t\t\t\t<NumberFieldInput />\n\t\t\t\t<NumberFieldIncrement />\n\t\t\t</NumberFieldGroup>\n\t\t</NumberFieldRoot>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-number-field-with-range",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/number-field/with-range/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-number-field-with-scrub-area": {
+		name: "baseui-particles-number-field-with-scrub-area",
+		description: "A simple number field demo",
+		type: "registry:component",
+		dependencies: undefined,
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-number-field"],
+		files: [
+			{
+				path: "packages/baseui/particles/number-field/with-scrub-area/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/number-field-with-scrub-area.tsx",
+				content:
+					'import {\n\tNumberFieldRoot,\n\tNumberFieldScrubArea,\n\tNumberFieldGroup,\n\tNumberFieldInput,\n\tNumberFieldIncrement,\n\tNumberFieldDecrement,\n\tNumberFieldScrubAreaCursor,\n} from "@/components/baseui/components/number-field";\n\nexport function Particle() {\n\tconst id = "amount";\n\n\treturn (\n\t\t<NumberFieldRoot\n\t\t\tid={id}\n\t\t\tdefaultValue={100}\n\t\t\tclassName="flex flex-col gap-2"\n\t\t>\n\t\t\t<NumberFieldScrubArea>\n\t\t\t\tAmount\n\t\t\t\t<NumberFieldScrubAreaCursor />\n\t\t\t</NumberFieldScrubArea>\n\n\t\t\t<NumberFieldGroup>\n\t\t\t\t<NumberFieldDecrement />\n\t\t\t\t<NumberFieldInput />\n\t\t\t\t<NumberFieldIncrement />\n\t\t\t</NumberFieldGroup>\n\t\t</NumberFieldRoot>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-number-field-with-scrub-area",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/number-field/with-scrub-area/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-number-field-with-step": {
+		name: "baseui-particles-number-field-with-step",
+		description: "A simple number field demo",
+		type: "registry:component",
+		dependencies: undefined,
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-number-field"],
+		files: [
+			{
+				path: "packages/baseui/particles/number-field/with-step/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/number-field-with-step.tsx",
+				content:
+					'import {\n\tNumberFieldRoot,\n\tNumberFieldGroup,\n\tNumberFieldInput,\n\tNumberFieldIncrement,\n\tNumberFieldDecrement,\n\tNumberFieldScrubArea,\n\tNumberFieldScrubAreaCursor,\n} from "@/components/baseui/components/number-field";\n\nexport function Particle() {\n\treturn (\n\t\t<div className="flex flex-col gap-8">\n\t\t\t<NumberFieldRoot defaultValue={10} step={10} id="step-10">\n\t\t\t\t<NumberFieldScrubArea>\n\t\t\t\t\t<span>Step 10</span>\n\t\t\t\t\t<NumberFieldScrubAreaCursor />\n\t\t\t\t</NumberFieldScrubArea>\n\n\t\t\t\t<NumberFieldGroup className="mt-2">\n\t\t\t\t\t<NumberFieldDecrement />\n\t\t\t\t\t<NumberFieldInput />\n\t\t\t\t\t<NumberFieldIncrement />\n\t\t\t\t</NumberFieldGroup>\n\t\t\t</NumberFieldRoot>\n\n\t\t\t<NumberFieldRoot defaultValue={10} step={0.1} id="step-0.1">\n\t\t\t\t<NumberFieldScrubArea>\n\t\t\t\t\t<span>Step 0.1</span>\n\t\t\t\t\t<NumberFieldScrubAreaCursor />\n\t\t\t\t</NumberFieldScrubArea>\n\n\t\t\t\t<NumberFieldGroup className="mt-2">\n\t\t\t\t\t<NumberFieldDecrement />\n\t\t\t\t\t<NumberFieldInput />\n\t\t\t\t\t<NumberFieldIncrement />\n\t\t\t\t</NumberFieldGroup>\n\t\t\t</NumberFieldRoot>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-number-field-with-step",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/number-field/with-step/index.tsx"
 				);
 				let Comp = mod.default;
 
