@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-number-field",
+	"type": "registry:component",
+	"description": "A Base UI number field component",
+	"dependencies": ["@base-ui/react"],
+	"registryDependencies": [
+		"@craftdotui/utils",
+		"@craftdotui/baseui-button",
+		"@craftdotui/baseui-input"
+	],
+	"files": [
+		{
+			"path": "packages/baseui/components/number-field/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/components/number-field.tsx"
+		}
+	]
+}
