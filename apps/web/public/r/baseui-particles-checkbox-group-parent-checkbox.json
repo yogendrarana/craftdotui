@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-checkbox-group-parent-checkbox",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/baseui-checkbox-group",
+		"@craftdotui/baseui-checkbox"
+	],
+	"files": [
+		{
+			"path": "packages/baseui/particles/checkbox-group/parent-checkbox/index.tsx",
+			"content": "\"use client\";\nimport * as React from \"react\";\nimport {\n\tCheckbox,\n\tCheckboxIndicator,\n} from \"@/components/baseui/components/checkbox\";\nimport { CheckboxGroup } from \"@/components/baseui/components/checkbox-group\";\n\nconst frameworks = [\n\t{ id: \"react\", label: \"React\" },\n\t{ id: \"vue\", label: \"Vue\" },\n\t{ id: \"svelte\", label: \"Svelte\" },\n];\n\nexport default function Particle() {\n\tconst id = React.useId();\n\tconst [value, setValue] = React.useState<string[]>([]);\n\n\treturn (\n\t\t<CheckboxGroup\n\t\t\taria-labelledby={id}\n\t\t\tdefaultValue={[\"react\"]}\n\t\t\tvalue={value}\n\t\t\tonValueChange={setValue}\n\t\t\tallValues={frameworks.map((framework) => framework.id)}\n\t\t\tclassName=\"flex flex-col items-start gap-1\"\n\t\t>\n\t\t\t<div className=\"flex items-center gap-2 cursor-pointer\">\n\t\t\t\t<Checkbox name=\"JavaScript\" parent>\n\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t</Checkbox>\n\t\t\t\t<span>JavaScript</span>\n\t\t\t</div>\n\n\t\t\t{frameworks.map((framework) => (\n\t\t\t\t<div\n\t\t\t\t\tkey={framework.id}\n\t\t\t\t\tclassName=\"ms-4 flex items-center gap-2 cursor-pointer\"\n\t\t\t\t>\n\t\t\t\t\t<Checkbox id={`${id}-${framework.id}`} value={framework.id}>\n\t\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t\t</Checkbox>\n\t\t\t\t\t<span>{framework.label}</span>\n\t\t\t\t</div>\n\t\t\t))}\n\t\t</CheckboxGroup>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/checkbox-group-parent-checkbox.tsx"
+		}
+	],
+	"type": "registry:component"
+}

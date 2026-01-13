@@ -113,6 +113,10 @@ export const docsNavItems: Array<DocsNavItem> = [
 				href: "/docs/baseui/components/checkbox",
 			},
 			{
+				title: "Checkbox Group",
+				href: "/docs/baseui/components/checkbox-group",
+			},
+			{
 				title: "Collapsible",
 				href: "/docs/baseui/components/collapsible",
 			},

@@ -1,0 +1,18 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-checkbox-group",
+	"type": "registry:component",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/baseui-checkbox-group",
+		"@craftdotui/baseui-checkbox"
+	],
+	"files": [
+		{
+			"path": "packages/baseui/particles/checkbox-group/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/particles/checkbox-group.tsx"
+		}
+	]
+}

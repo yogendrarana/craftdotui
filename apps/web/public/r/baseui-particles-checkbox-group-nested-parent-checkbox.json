@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-checkbox-group-nested-parent-checkbox",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/baseui-checkbox-group",
+		"@craftdotui/baseui-checkbox"
+	],
+	"files": [
+		{
+			"path": "packages/baseui/particles/checkbox-group/nested-parent-checkbox/index.tsx",
+			"content": "\"use client\";\n\nimport * as React from \"react\";\nimport {\n\tCheckbox,\n\tCheckboxIndicator,\n} from \"@/components/baseui/components/checkbox\";\nimport { CheckboxGroup } from \"@/components/baseui/components/checkbox-group\";\n\nconst frontendFrameworks = [\"react\", \"vue\", \"svelte\"];\nconst reactFrameworks = [\"next\", \"remix\"];\n\nexport default function LanguageFrameworkTree() {\n\tconst [frontendValues, setFrontendValues] = React.useState<string[]>([]);\n\tconst [reactValues, setReactValues] = React.useState<string[]>([]);\n\n\treturn (\n\t\t<CheckboxGroup\n\t\t\tvalue={frontendValues}\n\t\t\tallValues={frontendFrameworks}\n\t\t\tonValueChange={(value) => {\n\t\t\t\tconst wasReactSelected = frontendValues.includes(\"react\");\n\t\t\t\tconst isReactSelected = value.includes(\"react\");\n\t\t\t\t\n\t\t\t\tif (isReactSelected && !wasReactSelected) {\n\t\t\t\t\tsetReactValues(reactFrameworks);\n\t\t\t\t} else if (!isReactSelected && wasReactSelected) {\n\t\t\t\t\tsetReactValues([]);\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\tsetFrontendValues(value);\n\t\t\t}}\n\t\t>\n\t\t\t<div className=\"flex items-center gap-2 cursor-pointer\">\n\t\t\t\t<Checkbox\n\t\t\t\t\tname=\"javascript\"\n\t\t\t\t\tparent\n\t\t\t\t\tindeterminate={\n\t\t\t\t\t\t(reactValues.length > 0 &&\n\t\t\t\t\t\t\treactValues.length !== reactFrameworks.length) ||\n\t\t\t\t\t\t(frontendValues.length > 0 &&\n\t\t\t\t\t\t\tfrontendValues.length !== frontendFrameworks.length)\n\t\t\t\t\t}\n\t\t\t\t>\n\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t</Checkbox>\n\t\t\t\t<span>Frontend</span>\n\t\t\t</div>\n\n\t\t\t<div className=\"ms-4 flex items-center gap-2 cursor-pointer\">\n\t\t\t\t<Checkbox value=\"vue\">\n\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t</Checkbox>\n\t\t\t\t<span>Vue</span>\n\t\t\t</div>\n\n\t\t\t<div className=\"ms-4 flex items-center gap-2 cursor-pointer\">\n\t\t\t\t<Checkbox value=\"svelte\">\n\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t</Checkbox>\n\t\t\t\t<span>Svelte</span>\n\t\t\t</div>\n\n\t\t\t<CheckboxGroup\n\t\t\t\tvalue={reactValues}\n\t\t\t\tallValues={reactFrameworks}\n\t\t\t\tonValueChange={(value) => {\n\t\t\t\t\tif (value.length === reactFrameworks.length) {\n\t\t\t\t\t\tsetFrontendValues((prev) =>\n\t\t\t\t\t\t\tArray.from(new Set([...prev, \"react\"])),\n\t\t\t\t\t\t);\n\t\t\t\t\t} else {\n\t\t\t\t\t\tsetFrontendValues((prev) =>\n\t\t\t\t\t\t\tprev.filter((value) => value !== \"react\"),\n\t\t\t\t\t\t);\n\t\t\t\t\t}\n\n\t\t\t\t\tsetReactValues(value);\n\t\t\t\t}}\n\t\t\t>\n\t\t\t\t<div className=\"ms-4 flex items-center gap-2 cursor-pointer\">\n\t\t\t\t\t<Checkbox\n\t\t\t\t\t\tparent\n\t\t\t\t\t\tindeterminate={\n\t\t\t\t\t\t\treactValues.length > 0 &&\n\t\t\t\t\t\t\treactValues.length !== reactFrameworks.length\n\t\t\t\t\t\t}\n\t\t\t\t\t>\n\t\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t\t</Checkbox>\n\t\t\t\t\t<span>React</span>\n\t\t\t\t</div>\n\n\t\t\t\t{reactFrameworks.map((framework) => (\n\t\t\t\t\t<div\n\t\t\t\t\t\tkey={framework}\n\t\t\t\t\t\tclassName=\"ms-8 flex items-center gap-2 cursor-pointer\"\n\t\t\t\t\t>\n\t\t\t\t\t\t<Checkbox name={framework} value={framework}>\n\t\t\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t\t\t</Checkbox>\n\t\t\t\t\t\t<span className=\"capitalize\">{framework}</span>\n\t\t\t\t\t</div>\n\t\t\t\t))}\n\t\t\t</CheckboxGroup>\n\t\t</CheckboxGroup>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/checkbox-group-nested-parent-checkbox.tsx"
+		}
+	],
+	"type": "registry:component"
+}

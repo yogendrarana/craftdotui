@@ -3080,7 +3080,7 @@ export const Registry: Record<string, any> = {
 				type: "registry:component",
 				target: "components/baseui/components/checkbox.tsx",
 				content:
-					'"use client";\n\nimport type * as React from "react";\nimport { Checkbox as CheckboxPrimitive } from "@base-ui/react/checkbox";\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Checkbox Root                                                              */\n/* -------------------------------------------------------------------------- */\n\nfunction Checkbox({ className, ...props }: CheckboxPrimitive.Root.Props) {\n\treturn (\n\t\t<CheckboxPrimitive.Root\n\t\t\tclassName={cn(\n\t\t\t\t"inline-flex size-4 items-center justify-center rounded-sm border border-input cursor-pointer",\n\t\t\t\t"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",\n\t\t\t\t"disabled:cursor-not-allowed disabled:opacity-50",\n\t\t\t\t"data-checked:bg-primary data-checked:border-primary data-checked:text-primary-foreground",\n\t\t\t\t"data-unchecked:bg-background",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="checkbox-root"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Checkbox Indicator                                                         */\n/* -------------------------------------------------------------------------- */\n\nfunction CheckboxIndicator({\n\tclassName,\n\tkeepMounted,\n\t...props\n}: CheckboxPrimitive.Indicator.Props) {\n\treturn (\n\t\t<CheckboxPrimitive.Indicator\n\t\t\tclassName={cn(\n\t\t\t\t"flex items-center justify-center text-current",\n\t\t\t\t"data-unchecked:hidden",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="checkbox-indicator"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Default Check Icon                                                         */\n/* -------------------------------------------------------------------------- */\n\ninterface CheckIconProps extends React.ComponentProps<"svg"> {}\n\nfunction CheckIcon({ className, ...props }: CheckIconProps) {\n\treturn (\n\t\t<svg\n\t\t\tfill="currentcolor"\n\t\t\twidth="10"\n\t\t\theight="10"\n\t\t\tviewBox="0 0 10 10"\n\t\t\t{...props}\n\t\t>\n\t\t\t<title>Check Icon</title>\n\t\t\t<path d="M9.1603 1.12218C9.50684 1.34873 9.60427 1.81354 9.37792 2.16038L5.13603 8.66012C5.01614 8.8438 4.82192 8.96576 4.60451 8.99384C4.3871 9.02194 4.1683 8.95335 4.00574 8.80615L1.24664 6.30769C0.939709 6.02975 0.916013 5.55541 1.19372 5.24822C1.47142 4.94102 1.94536 4.91731 2.2523 5.19524L4.36085 7.10461L8.12299 1.33999C8.34934 0.993152 8.81376 0.895638 9.1603 1.12218Z" />\n\t\t</svg>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Export                                                                     */\n/* -------------------------------------------------------------------------- */\n\nexport { Checkbox, CheckboxIndicator, CheckIcon };',
+					'"use client";\n\nimport type * as React from "react";\nimport { Checkbox as CheckboxPrimitive } from "@base-ui/react/checkbox";\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Checkbox Root                                                              */\n/* -------------------------------------------------------------------------- */\n\nfunction Checkbox({ className, ...props }: CheckboxPrimitive.Root.Props) {\n\treturn (\n\t\t<CheckboxPrimitive.Root\n\t\t\tclassName={cn(\n\t\t\t\t"inline-flex size-4 items-center justify-center rounded-sm border border-input cursor-pointer",\n\t\t\t\t"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",\n\t\t\t\t"disabled:cursor-not-allowed disabled:opacity-50",\n\t\t\t\t"data-checked:bg-primary data-checked:border-primary data-checked:text-primary-foreground",\n\t\t\t\t"data-unchecked:bg-background",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="checkbox-root"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Checkbox Indicator                                                         */\n/* -------------------------------------------------------------------------- */\n\nfunction CheckboxIndicator({\n\tclassName,\n\tkeepMounted,\n\t...props\n}: CheckboxPrimitive.Indicator.Props) {\n\treturn (\n\t\t<CheckboxPrimitive.Indicator\n\t\t\tclassName={cn(\n\t\t\t\t"flex items-center justify-center text-current",\n\t\t\t\t"data-unchecked:hidden",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\trender={(props, state) => (\n\t\t\t\t<span {...props}>\n\t\t\t\t\t{state.indeterminate ? (\n\t\t\t\t\t\t<MinusIcon className="size-4" />\n\t\t\t\t\t) : (\n\t\t\t\t\t\t<CheckIcon className="size-4" />\n\t\t\t\t\t)}\n\t\t\t\t</span>\n\t\t\t)}\n\t\t\tdata-slot="checkbox-indicator"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Default Check Icon                                                         */\n/* -------------------------------------------------------------------------- */\n\nfunction CheckIcon({ className, ...props }: React.ComponentProps<"svg">) {\n\treturn (\n\t\t<svg\n\t\t\tfill="currentcolor"\n\t\t\twidth="10"\n\t\t\theight="10"\n\t\t\tviewBox="0 0 10 10"\n\t\t\t{...props}\n\t\t>\n\t\t\t<title>Check Icon</title>\n\t\t\t<path d="M9.1603 1.12218C9.50684 1.34873 9.60427 1.81354 9.37792 2.16038L5.13603 8.66012C5.01614 8.8438 4.82192 8.96576 4.60451 8.99384C4.3871 9.02194 4.1683 8.95335 4.00574 8.80615L1.24664 6.30769C0.939709 6.02975 0.916013 5.55541 1.19372 5.24822C1.47142 4.94102 1.94536 4.91731 2.2523 5.19524L4.36085 7.10461L8.12299 1.33999C8.34934 0.993152 8.81376 0.895638 9.1603 1.12218Z" />\n\t\t</svg>\n\t);\n}\n\nfunction MinusIcon({ className, ...props }: React.ComponentProps<"svg">) {\n\treturn (\n\t\t<svg\n\t\t\tfill="none"\n\t\t\tstroke="currentColor"\n\t\t\tstrokeWidth="2"\n\t\t\tstrokeLinecap="round"\n\t\t\tstrokeLinejoin="round"\n\t\t\twidth="10"\n\t\t\theight="10"\n\t\t\tviewBox="0 0 10 10"\n\t\t\t{...props}\n\t\t>\n\t\t\t<title>Minus Icon</title>\n\t\t\t<path d="M1 5H9" />\n\t\t</svg>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Export                                                                     */\n/* -------------------------------------------------------------------------- */\n\nexport { Checkbox, CheckboxIndicator };',
 			},
 		],
 		keywords: [],
@@ -3089,6 +3089,55 @@ export const Registry: Record<string, any> = {
 			const LazyComp = React.lazy(async () => {
 				const mod = await import(
 					"@craftdotui/baseui/components/checkbox/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-checkbox-group": {
+		name: "baseui-checkbox-group",
+		description: "A Base UI checkbox group component",
+		type: "registry:component",
+		dependencies: ["@base-ui/react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/utils"],
+		files: [
+			{
+				path: "packages/baseui/components/checkbox-group/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/checkbox-group.tsx",
+				content:
+					'"use client";\n\nimport { CheckboxGroup as CheckboxGroupPrimitive } from "@base-ui/react/checkbox-group";\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Checkbox Group                                                             */\n/* -------------------------------------------------------------------------- */\n\nfunction CheckboxGroup({ className, ...props }: CheckboxGroupPrimitive.Props) {\n\treturn (\n\t\t<CheckboxGroupPrimitive\n\t\t\tclassName={cn("flex flex-col items-start gap-3", className)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Export                                                                     */\n/* -------------------------------------------------------------------------- */\n\nexport { CheckboxGroup };',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-checkbox-group",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/components/checkbox-group/index.tsx"
 				);
 				let Comp = mod.default;
 
@@ -5590,7 +5639,7 @@ export const Registry: Record<string, any> = {
 				type: "registry:component",
 				target: "components/baseui/particles/checkbox-card.tsx",
 				content:
-					'"use client";\n\nimport { useState } from "react";\nimport {\n\tCheckbox,\n\tCheckboxIndicator,\n\tCheckIcon,\n} from "@/components/baseui/components/checkbox";\n\nconst plans = [\n\t{\n\t\tid: "free",\n\t\tname: "Free",\n\t\tdescription: "Perfect for trying out our service",\n\t\tprice: "$0/month",\n\t},\n\t{\n\t\tid: "pro",\n\t\tname: "Pro",\n\t\tdescription: "For professionals and small teams",\n\t\tprice: "$19/month",\n\t},\n\t{\n\t\tid: "enterprise",\n\t\tname: "Enterprise",\n\t\tdescription: "Advanced features for large organizations",\n\t\tprice: "$99/month",\n\t},\n];\n\nexport default function Particle() {\n\tconst [selected, setSelected] = useState("free");\n\n\treturn (\n\t\t<div className="flex flex-col gap-3 w-full max-w-md">\n\t\t\t{plans.map((plan) => (\n\t\t\t\t<label\n\t\t\t\t\tkey={plan.id}\n\t\t\t\t\thtmlFor={plan.id}\n\t\t\t\t\tclassName="relative flex items-start gap-3 p-3 border rounded-lg cursor-pointer transition-colors hover:bg-muted has-checked:border has-checked:bg-muted"\n\t\t\t\t>\n\t\t\t\t\t<Checkbox\n\t\t\t\t\t\tid={plan.id}\n\t\t\t\t\t\tchecked={selected === plan.id}\n\t\t\t\t\t\tonCheckedChange={() => setSelected(plan.id)}\n\t\t\t\t\t\tclassName="mt-0.5"\n\t\t\t\t\t>\n\t\t\t\t\t\t<CheckboxIndicator>\n\t\t\t\t\t\t\t<CheckIcon />\n\t\t\t\t\t\t</CheckboxIndicator>\n\t\t\t\t\t</Checkbox>\n\t\t\t\t\t<div className="flex-1">\n\t\t\t\t\t\t<div className="flex items-center justify-between">\n\t\t\t\t\t\t\t<span className="font-medium">{plan.name}</span>\n\t\t\t\t\t\t\t<span className="text-sm font-semibold">\n\t\t\t\t\t\t\t\t{plan.price}\n\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<p className="text-sm text-muted-foreground">\n\t\t\t\t\t\t\t{plan.description}\n\t\t\t\t\t\t</p>\n\t\t\t\t\t</div>\n\t\t\t\t</label>\n\t\t\t))}\n\t\t</div>\n\t);\n}',
+					'"use client";\n\nimport { useState } from "react";\nimport {\n\tCheckbox,\n\tCheckboxIndicator,\n} from "@/components/baseui/components/checkbox";\n\nconst plans = [\n\t{\n\t\tid: "free",\n\t\tname: "Free",\n\t\tdescription: "Perfect for trying out our service",\n\t\tprice: "$0/month",\n\t},\n\t{\n\t\tid: "pro",\n\t\tname: "Pro",\n\t\tdescription: "For professionals and small teams",\n\t\tprice: "$19/month",\n\t},\n\t{\n\t\tid: "enterprise",\n\t\tname: "Enterprise",\n\t\tdescription: "Advanced features for large organizations",\n\t\tprice: "$99/month",\n\t},\n];\n\nexport default function Particle() {\n\tconst [selected, setSelected] = useState("free");\n\n\treturn (\n\t\t<div className="flex flex-col gap-3 w-full max-w-md">\n\t\t\t{plans.map((plan) => (\n\t\t\t\t<label\n\t\t\t\t\tkey={plan.id}\n\t\t\t\t\thtmlFor={plan.id}\n\t\t\t\t\tclassName="relative flex items-start gap-3 p-3 border rounded-lg cursor-pointer transition-colors hover:bg-muted has-checked:border has-checked:bg-muted"\n\t\t\t\t>\n\t\t\t\t\t<Checkbox\n\t\t\t\t\t\tid={plan.id}\n\t\t\t\t\t\tchecked={selected === plan.id}\n\t\t\t\t\t\tonCheckedChange={() => setSelected(plan.id)}\n\t\t\t\t\t\tclassName="mt-0.5"\n\t\t\t\t\t>\n\t\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t\t</Checkbox>\n\t\t\t\t\t<div className="flex-1">\n\t\t\t\t\t\t<div className="flex items-center justify-between">\n\t\t\t\t\t\t\t<span className="font-medium">{plan.name}</span>\n\t\t\t\t\t\t\t<span className="text-sm font-semibold">\n\t\t\t\t\t\t\t\t{plan.price}\n\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<p className="text-sm text-muted-foreground">\n\t\t\t\t\t\t\t{plan.description}\n\t\t\t\t\t\t</p>\n\t\t\t\t\t</div>\n\t\t\t\t</label>\n\t\t\t))}\n\t\t</div>\n\t);\n}',
 			},
 		],
 		keywords: [],
@@ -5639,7 +5688,7 @@ export const Registry: Record<string, any> = {
 				type: "registry:component",
 				target: "components/baseui/particles/checkbox-disabled.tsx",
 				content:
-					'import {\n\tCheckbox,\n\tCheckboxIndicator,\n\tCheckIcon,\n} from "@/components/baseui/components/checkbox";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex flex-col gap-4">\n\t\t\t<div className="flex items-center gap-2">\n\t\t\t\t<Checkbox id="disabled-unchecked" disabled>\n\t\t\t\t\t<CheckboxIndicator>\n\t\t\t\t\t\t<CheckIcon />\n\t\t\t\t\t</CheckboxIndicator>\n\t\t\t\t</Checkbox>\n\t\t\t\t<label\n\t\t\t\t\thtmlFor="disabled-unchecked"\n\t\t\t\t\tclassName="text-sm text-muted-foreground cursor-not-allowed"\n\t\t\t\t>\n\t\t\t\t\tDisabled unchecked\n\t\t\t\t</label>\n\t\t\t</div>\n\t\t\t<div className="flex items-center gap-2">\n\t\t\t\t<Checkbox id="disabled-checked" disabled defaultChecked>\n\t\t\t\t\t<CheckboxIndicator>\n\t\t\t\t\t\t<CheckIcon />\n\t\t\t\t\t</CheckboxIndicator>\n\t\t\t\t</Checkbox>\n\t\t\t\t<label\n\t\t\t\t\thtmlFor="disabled-checked"\n\t\t\t\t\tclassName="text-sm text-muted-foreground cursor-not-allowed"\n\t\t\t\t>\n\t\t\t\t\tDisabled checked\n\t\t\t\t</label>\n\t\t\t</div>\n\t\t</div>\n\t);\n}',
+					'import {\n\tCheckbox,\n\tCheckboxIndicator,\n} from "@/components/baseui/components/checkbox";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex flex-col gap-4">\n\t\t\t<div className="flex items-center gap-2">\n\t\t\t\t<Checkbox id="disabled-unchecked" disabled>\n\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t</Checkbox>\n\t\t\t\t<label\n\t\t\t\t\thtmlFor="disabled-unchecked"\n\t\t\t\t\tclassName="text-sm text-muted-foreground cursor-not-allowed"\n\t\t\t\t>\n\t\t\t\t\tDisabled unchecked\n\t\t\t\t</label>\n\t\t\t</div>\n\t\t\t<div className="flex items-center gap-2">\n\t\t\t\t<Checkbox id="disabled-checked" disabled defaultChecked>\n\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t</Checkbox>\n\t\t\t\t<label\n\t\t\t\t\thtmlFor="disabled-checked"\n\t\t\t\t\tclassName="text-sm text-muted-foreground cursor-not-allowed"\n\t\t\t\t>\n\t\t\t\t\tDisabled checked\n\t\t\t\t</label>\n\t\t\t</div>\n\t\t</div>\n\t);\n}',
 			},
 		],
 		keywords: [],
@@ -5688,7 +5737,7 @@ export const Registry: Record<string, any> = {
 				type: "registry:component",
 				target: "components/baseui/particles/checkbox-with-description.tsx",
 				content:
-					'import {\n\tCheckbox,\n\tCheckboxIndicator,\n\tCheckIcon,\n} from "@/components/baseui/components/checkbox";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex flex-col gap-4">\n\t\t\t<div className="flex items-start gap-2">\n\t\t\t\t<Checkbox id="terms" className="mt-0.5">\n\t\t\t\t\t<CheckboxIndicator>\n\t\t\t\t\t\t<CheckIcon />\n\t\t\t\t\t</CheckboxIndicator>\n\t\t\t\t</Checkbox>\n\t\t\t\t<div className="flex flex-col gap-1">\n\t\t\t\t\t<label\n\t\t\t\t\t\thtmlFor="terms"\n\t\t\t\t\t\tclassName="text-sm font-medium cursor-pointer"\n\t\t\t\t\t>\n\t\t\t\t\t\tAccept terms and conditions\n\t\t\t\t\t</label>\n\t\t\t\t\t<p className="text-xs text-muted-foreground">\n\t\t\t\t\t\tYou agree to our Terms of Service and Privacy Policy.\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div className="flex items-start gap-2">\n\t\t\t\t<Checkbox id="marketing" className="mt-0.5">\n\t\t\t\t\t<CheckboxIndicator>\n\t\t\t\t\t\t<CheckIcon />\n\t\t\t\t\t</CheckboxIndicator>\n\t\t\t\t</Checkbox>\n\t\t\t\t<div className="flex flex-col gap-1">\n\t\t\t\t\t<label\n\t\t\t\t\t\thtmlFor="marketing"\n\t\t\t\t\t\tclassName="text-sm font-medium cursor-pointer"\n\t\t\t\t\t>\n\t\t\t\t\t\tMarketing emails\n\t\t\t\t\t</label>\n\t\t\t\t\t<p className="text-xs text-muted-foreground">\n\t\t\t\t\t\tReceive emails about new products, features, and more.\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t);\n}',
+					'import {\n\tCheckbox,\n\tCheckboxIndicator,\n} from "@/components/baseui/components/checkbox";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex flex-col gap-4">\n\t\t\t<div className="flex items-start gap-2">\n\t\t\t\t<Checkbox id="terms" className="mt-0.5">\n\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t</Checkbox>\n\t\t\t\t<div className="flex flex-col gap-1">\n\t\t\t\t\t<label\n\t\t\t\t\t\thtmlFor="terms"\n\t\t\t\t\t\tclassName="text-sm font-medium cursor-pointer"\n\t\t\t\t\t>\n\t\t\t\t\t\tAccept terms and conditions\n\t\t\t\t\t</label>\n\t\t\t\t\t<p className="text-xs text-muted-foreground">\n\t\t\t\t\t\tYou agree to our Terms of Service and Privacy Policy.\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div className="flex items-start gap-2">\n\t\t\t\t<Checkbox id="marketing" className="mt-0.5">\n\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t</Checkbox>\n\t\t\t\t<div className="flex flex-col gap-1">\n\t\t\t\t\t<label\n\t\t\t\t\t\thtmlFor="marketing"\n\t\t\t\t\t\tclassName="text-sm font-medium cursor-pointer"\n\t\t\t\t\t>\n\t\t\t\t\t\tMarketing emails\n\t\t\t\t\t</label>\n\t\t\t\t\t<p className="text-xs text-muted-foreground">\n\t\t\t\t\t\tReceive emails about new products, features, and more.\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t);\n}',
 			},
 		],
 		keywords: [],
@@ -5737,7 +5786,7 @@ export const Registry: Record<string, any> = {
 				type: "registry:component",
 				target: "components/baseui/particles/checkbox.tsx",
 				content:
-					'import {\n\tCheckbox,\n\tCheckIcon,\n\tCheckboxIndicator,\n} from "@/components/baseui/components/checkbox";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex items-center gap-2 cursor-pointer">\n\t\t\t<Checkbox id="notifications">\n\t\t\t\t<CheckboxIndicator>\n\t\t\t\t\t<CheckIcon />\n\t\t\t\t</CheckboxIndicator>\n\t\t\t\t{/* <CheckboxIndicator /> */}\n\t\t\t</Checkbox>\n\t\t\t<span>Enable notifications</span>\n\t\t</div>\n\t);\n}',
+					'import {\n\tCheckbox,\n\tCheckboxIndicator,\n} from "@/components/baseui/components/checkbox";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex items-center gap-2 cursor-pointer">\n\t\t\t<Checkbox id="notifications">\n\t\t\t\t<CheckboxIndicator />\n\t\t\t</Checkbox>\n\t\t\t<span>Enable notifications</span>\n\t\t</div>\n\t);\n}',
 			},
 		],
 		keywords: [],
@@ -5746,6 +5795,163 @@ export const Registry: Record<string, any> = {
 			const LazyComp = React.lazy(async () => {
 				const mod = await import(
 					"@craftdotui/baseui/particles/checkbox/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-checkbox-group-nested-parent-checkbox": {
+		name: "baseui-particles-checkbox-group-nested-parent-checkbox",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: [
+			"@craftdotui/baseui-checkbox-group",
+			"@craftdotui/baseui-checkbox",
+		],
+		files: [
+			{
+				path: "packages/baseui/particles/checkbox-group/nested-parent-checkbox/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/checkbox-group-nested-parent-checkbox.tsx",
+				content:
+					'"use client";\n\nimport * as React from "react";\nimport {\n\tCheckbox,\n\tCheckboxIndicator,\n} from "@/components/baseui/components/checkbox";\nimport { CheckboxGroup } from "@/components/baseui/components/checkbox-group";\n\nconst frontendFrameworks = ["react", "vue", "svelte"];\nconst reactFrameworks = ["next", "remix"];\n\nexport default function LanguageFrameworkTree() {\n\tconst [frontendValues, setFrontendValues] = React.useState<string[]>([]);\n\tconst [reactValues, setReactValues] = React.useState<string[]>([]);\n\n\treturn (\n\t\t<CheckboxGroup\n\t\t\tvalue={frontendValues}\n\t\t\tallValues={frontendFrameworks}\n\t\t\tonValueChange={(value) => {\n\t\t\t\tconst wasReactSelected = frontendValues.includes("react");\n\t\t\t\tconst isReactSelected = value.includes("react");\n\t\t\t\t\n\t\t\t\tif (isReactSelected && !wasReactSelected) {\n\t\t\t\t\tsetReactValues(reactFrameworks);\n\t\t\t\t} else if (!isReactSelected && wasReactSelected) {\n\t\t\t\t\tsetReactValues([]);\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\tsetFrontendValues(value);\n\t\t\t}}\n\t\t>\n\t\t\t<div className="flex items-center gap-2 cursor-pointer">\n\t\t\t\t<Checkbox\n\t\t\t\t\tname="javascript"\n\t\t\t\t\tparent\n\t\t\t\t\tindeterminate={\n\t\t\t\t\t\t(reactValues.length > 0 &&\n\t\t\t\t\t\t\treactValues.length !== reactFrameworks.length) ||\n\t\t\t\t\t\t(frontendValues.length > 0 &&\n\t\t\t\t\t\t\tfrontendValues.length !== frontendFrameworks.length)\n\t\t\t\t\t}\n\t\t\t\t>\n\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t</Checkbox>\n\t\t\t\t<span>Frontend</span>\n\t\t\t</div>\n\n\t\t\t<div className="ms-4 flex items-center gap-2 cursor-pointer">\n\t\t\t\t<Checkbox value="vue">\n\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t</Checkbox>\n\t\t\t\t<span>Vue</span>\n\t\t\t</div>\n\n\t\t\t<div className="ms-4 flex items-center gap-2 cursor-pointer">\n\t\t\t\t<Checkbox value="svelte">\n\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t</Checkbox>\n\t\t\t\t<span>Svelte</span>\n\t\t\t</div>\n\n\t\t\t<CheckboxGroup\n\t\t\t\tvalue={reactValues}\n\t\t\t\tallValues={reactFrameworks}\n\t\t\t\tonValueChange={(value) => {\n\t\t\t\t\tif (value.length === reactFrameworks.length) {\n\t\t\t\t\t\tsetFrontendValues((prev) =>\n\t\t\t\t\t\t\tArray.from(new Set([...prev, "react"])),\n\t\t\t\t\t\t);\n\t\t\t\t\t} else {\n\t\t\t\t\t\tsetFrontendValues((prev) =>\n\t\t\t\t\t\t\tprev.filter((value) => value !== "react"),\n\t\t\t\t\t\t);\n\t\t\t\t\t}\n\n\t\t\t\t\tsetReactValues(value);\n\t\t\t\t}}\n\t\t\t>\n\t\t\t\t<div className="ms-4 flex items-center gap-2 cursor-pointer">\n\t\t\t\t\t<Checkbox\n\t\t\t\t\t\tparent\n\t\t\t\t\t\tindeterminate={\n\t\t\t\t\t\t\treactValues.length > 0 &&\n\t\t\t\t\t\t\treactValues.length !== reactFrameworks.length\n\t\t\t\t\t\t}\n\t\t\t\t\t>\n\t\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t\t</Checkbox>\n\t\t\t\t\t<span>React</span>\n\t\t\t\t</div>\n\n\t\t\t\t{reactFrameworks.map((framework) => (\n\t\t\t\t\t<div\n\t\t\t\t\t\tkey={framework}\n\t\t\t\t\t\tclassName="ms-8 flex items-center gap-2 cursor-pointer"\n\t\t\t\t\t>\n\t\t\t\t\t\t<Checkbox name={framework} value={framework}>\n\t\t\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t\t\t</Checkbox>\n\t\t\t\t\t\t<span className="capitalize">{framework}</span>\n\t\t\t\t\t</div>\n\t\t\t\t))}\n\t\t\t</CheckboxGroup>\n\t\t</CheckboxGroup>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command:
+			"@craftdotui/baseui-particles-checkbox-group-nested-parent-checkbox",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/checkbox-group/nested-parent-checkbox/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-checkbox-group-parent-checkbox": {
+		name: "baseui-particles-checkbox-group-parent-checkbox",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: [
+			"@craftdotui/baseui-checkbox-group",
+			"@craftdotui/baseui-checkbox",
+		],
+		files: [
+			{
+				path: "packages/baseui/particles/checkbox-group/parent-checkbox/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/checkbox-group-parent-checkbox.tsx",
+				content:
+					'"use client";\nimport * as React from "react";\nimport {\n\tCheckbox,\n\tCheckboxIndicator,\n} from "@/components/baseui/components/checkbox";\nimport { CheckboxGroup } from "@/components/baseui/components/checkbox-group";\n\nconst frameworks = [\n\t{ id: "react", label: "React" },\n\t{ id: "vue", label: "Vue" },\n\t{ id: "svelte", label: "Svelte" },\n];\n\nexport default function Particle() {\n\tconst id = React.useId();\n\tconst [value, setValue] = React.useState<string[]>([]);\n\n\treturn (\n\t\t<CheckboxGroup\n\t\t\taria-labelledby={id}\n\t\t\tdefaultValue={["react"]}\n\t\t\tvalue={value}\n\t\t\tonValueChange={setValue}\n\t\t\tallValues={frameworks.map((framework) => framework.id)}\n\t\t\tclassName="flex flex-col items-start gap-1"\n\t\t>\n\t\t\t<div className="flex items-center gap-2 cursor-pointer">\n\t\t\t\t<Checkbox name="JavaScript" parent>\n\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t</Checkbox>\n\t\t\t\t<span>JavaScript</span>\n\t\t\t</div>\n\n\t\t\t{frameworks.map((framework) => (\n\t\t\t\t<div\n\t\t\t\t\tkey={framework.id}\n\t\t\t\t\tclassName="ms-4 flex items-center gap-2 cursor-pointer"\n\t\t\t\t>\n\t\t\t\t\t<Checkbox id={`${id}-${framework.id}`} value={framework.id}>\n\t\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t\t</Checkbox>\n\t\t\t\t\t<span>{framework.label}</span>\n\t\t\t\t</div>\n\t\t\t))}\n\t\t</CheckboxGroup>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-checkbox-group-parent-checkbox",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/checkbox-group/parent-checkbox/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-checkbox-group": {
+		name: "baseui-particles-checkbox-group",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: [
+			"@craftdotui/baseui-checkbox-group",
+			"@craftdotui/baseui-checkbox",
+		],
+		files: [
+			{
+				path: "packages/baseui/particles/checkbox-group/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/checkbox-group.tsx",
+				content:
+					'"use client";\nimport * as React from "react";\nimport {\n\tCheckbox,\n\tCheckboxIndicator,\n} from "@/components/baseui/components/checkbox";\nimport { CheckboxGroup } from "@/components/baseui/components/checkbox-group";\n\nexport default function Particle() {\n\tconst id = React.useId();\n\n\treturn (\n\t\t<CheckboxGroup\n\t\t\taria-labelledby={id}\n\t\t\tdefaultValue={["react"]}\n\t\t\tclassName="flex flex-col items-start gap-1"\n\t\t>\n\t\t\t<div className="flex items-center gap-2 cursor-pointer">\n\t\t\t\t<Checkbox id={`${id}-react`} value="react">\n\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t</Checkbox>\n\t\t\t\t<span>React</span>\n\t\t\t</div>\n\n\t\t\t<div className="flex items-center gap-2 cursor-pointer">\n\t\t\t\t<Checkbox id={`${id}-vue`} value="vue">\n\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t</Checkbox>\n\t\t\t\t<span>Vue</span>\n\t\t\t</div>\n\n\t\t\t<div className="flex items-center gap-2 cursor-pointer">\n\t\t\t\t<Checkbox id={`${id}-svelte`} value="svelte">\n\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t</Checkbox>\n\t\t\t\t<span>Svelte</span>\n\t\t\t</div>\n\t\t</CheckboxGroup>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-checkbox-group",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/checkbox-group/index.tsx"
 				);
 				let Comp = mod.default;
 
