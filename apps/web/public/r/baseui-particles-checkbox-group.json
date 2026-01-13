@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-checkbox-group",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/baseui-checkbox-group",
+		"@craftdotui/baseui-checkbox"
+	],
+	"files": [
+		{
+			"path": "packages/baseui/particles/checkbox-group/index.tsx",
+			"content": "\"use client\";\nimport * as React from \"react\";\nimport {\n\tCheckbox,\n\tCheckboxIndicator,\n} from \"@/components/baseui/components/checkbox\";\nimport { CheckboxGroup } from \"@/components/baseui/components/checkbox-group\";\n\nexport default function Particle() {\n\tconst id = React.useId();\n\n\treturn (\n\t\t<CheckboxGroup\n\t\t\taria-labelledby={id}\n\t\t\tdefaultValue={[\"react\"]}\n\t\t\tclassName=\"flex flex-col items-start gap-1\"\n\t\t>\n\t\t\t<div className=\"flex items-center gap-2 cursor-pointer\">\n\t\t\t\t<Checkbox id={`${id}-react`} value=\"react\">\n\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t</Checkbox>\n\t\t\t\t<span>React</span>\n\t\t\t</div>\n\n\t\t\t<div className=\"flex items-center gap-2 cursor-pointer\">\n\t\t\t\t<Checkbox id={`${id}-vue`} value=\"vue\">\n\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t</Checkbox>\n\t\t\t\t<span>Vue</span>\n\t\t\t</div>\n\n\t\t\t<div className=\"flex items-center gap-2 cursor-pointer\">\n\t\t\t\t<Checkbox id={`${id}-svelte`} value=\"svelte\">\n\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t</Checkbox>\n\t\t\t\t<span>Svelte</span>\n\t\t\t</div>\n\t\t</CheckboxGroup>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/checkbox-group.tsx"
+		}
+	],
+	"type": "registry:component"
+}

@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-checkbox-group",
+	"description": "A Base UI checkbox group component",
+	"dependencies": ["@base-ui/react"],
+	"registryDependencies": ["@craftdotui/utils"],
+	"files": [
+		{
+			"path": "packages/baseui/components/checkbox-group/index.tsx",
+			"content": "\"use client\";\n\nimport { CheckboxGroup as CheckboxGroupPrimitive } from \"@base-ui/react/checkbox-group\";\nimport { cn } from \"@/lib/utils\";\n\n/* -------------------------------------------------------------------------- */\n/* Checkbox Group                                                             */\n/* -------------------------------------------------------------------------- */\n\nfunction CheckboxGroup({ className, ...props }: CheckboxGroupPrimitive.Props) {\n\treturn (\n\t\t<CheckboxGroupPrimitive\n\t\t\tclassName={cn(\"flex flex-col items-start gap-3\", className)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Export                                                                     */\n/* -------------------------------------------------------------------------- */\n\nexport { CheckboxGroup };\n",
+			"type": "registry:component",
+			"target": "components/baseui/components/checkbox-group.tsx"
+		}
+	],
+	"type": "registry:component"
+}

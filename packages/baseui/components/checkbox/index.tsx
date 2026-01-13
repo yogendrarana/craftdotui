@@ -41,6 +41,15 @@ function CheckboxIndicator({
 				"data-unchecked:hidden",
 				className,
 			)}
+			render={(props, state) => (
+				<span {...props}>
+					{state.indeterminate ? (
+						<MinusIcon className="size-4" />
+					) : (
+						<CheckIcon className="size-4" />
+					)}
+				</span>
+			)}
 			data-slot="checkbox-indicator"
 			{...props}
 		/>
@@ -51,9 +60,7 @@ function CheckboxIndicator({
 /* Default Check Icon                                                         */
 /* -------------------------------------------------------------------------- */
 
-interface CheckIconProps extends React.ComponentProps<"svg"> {}
-
-function CheckIcon({ className, ...props }: CheckIconProps) {
+function CheckIcon({ className, ...props }: React.ComponentProps<"svg">) {
 	return (
 		<svg
 			fill="currentcolor"
@@ -68,8 +75,27 @@ function CheckIcon({ className, ...props }: CheckIconProps) {
 	);
 }
 
+function MinusIcon({ className, ...props }: React.ComponentProps<"svg">) {
+	return (
+		<svg
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="2"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+			width="10"
+			height="10"
+			viewBox="0 0 10 10"
+			{...props}
+		>
+			<title>Minus Icon</title>
+			<path d="M1 5H9" />
+		</svg>
+	);
+}
+
 /* -------------------------------------------------------------------------- */
 /* Export                                                                     */
 /* -------------------------------------------------------------------------- */
 
-export { Checkbox, CheckboxIndicator, CheckIcon };
+export { Checkbox, CheckboxIndicator };

@@ -4,7 +4,6 @@ import { useState } from "react";
 import {
 	Checkbox,
 	CheckboxIndicator,
-	CheckIcon,
 } from "@craftdotui/baseui/components/checkbox";
 
 const plans = [
@@ -45,9 +44,7 @@ export default function Particle() {
 						onCheckedChange={() => setSelected(plan.id)}
 						className="mt-0.5"
 					>
-						<CheckboxIndicator>
-							<CheckIcon />
-						</CheckboxIndicator>
+						<CheckboxIndicator />
 					</Checkbox>
 					<div className="flex-1">
 						<div className="flex items-center justify-between">
