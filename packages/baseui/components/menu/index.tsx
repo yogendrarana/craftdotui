@@ -50,7 +50,7 @@ function MenuBackdrop({ className, ...props }: MenuPrimitive.Backdrop.Props) {
 
 function MenuPositioner({
 	className,
-	sideOffset = 4,
+	sideOffset = 10,
 	...props
 }: MenuPrimitive.Positioner.Props) {
 	return (

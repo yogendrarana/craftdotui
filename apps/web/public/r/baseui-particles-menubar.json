@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-menubar",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-menubar"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/menubar/index.tsx",
+			"content": "\"use client\";\n\nimport { Menubar } from \"@/components/baseui/components/menubar\";\nimport {\n\tMenuRoot,\n\tMenuTrigger,\n\tMenuPortal,\n\tMenuPositioner,\n\tMenuPopup,\n\tMenuItem,\n\tMenuSeparator,\n\tMenuSubmenuRoot,\n\tMenuSubmenuTrigger,\n} from \"@/components/baseui/components/menu\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport function Particle() {\n\treturn (\n\t\t<Menubar orientation=\"vertical\">\n\t\t\t<MenuRoot>\n\t\t\t\t<MenuTrigger render={<Button variant=\"ghost\">File</Button>} />\n\t\t\t\t<MenuPortal>\n\t\t\t\t\t<MenuPositioner>\n\t\t\t\t\t\t<MenuPopup>\n\t\t\t\t\t\t\t<MenuItem>New</MenuItem>\n\t\t\t\t\t\t\t<MenuItem>Open</MenuItem>\n\t\t\t\t\t\t\t<MenuItem>Save</MenuItem>\n\n\t\t\t\t\t\t\t<MenuSubmenuRoot>\n\t\t\t\t\t\t\t\t<MenuSubmenuTrigger>Export</MenuSubmenuTrigger>\n\t\t\t\t\t\t\t\t<MenuPortal>\n\t\t\t\t\t\t\t\t\t<MenuPositioner>\n\t\t\t\t\t\t\t\t\t\t<MenuPopup>\n\t\t\t\t\t\t\t\t\t\t\t<MenuItem>PDF</MenuItem>\n\t\t\t\t\t\t\t\t\t\t\t<MenuItem>PNG</MenuItem>\n\t\t\t\t\t\t\t\t\t\t\t<MenuItem>SVG</MenuItem>\n\t\t\t\t\t\t\t\t\t\t</MenuPopup>\n\t\t\t\t\t\t\t\t\t</MenuPositioner>\n\t\t\t\t\t\t\t\t</MenuPortal>\n\t\t\t\t\t\t\t</MenuSubmenuRoot>\n\n\t\t\t\t\t\t\t<MenuSeparator />\n\t\t\t\t\t\t\t<MenuItem>Print</MenuItem>\n\t\t\t\t\t\t</MenuPopup>\n\t\t\t\t\t</MenuPositioner>\n\t\t\t\t</MenuPortal>\n\t\t\t</MenuRoot>\n\n\t\t\t<MenuRoot>\n\t\t\t\t<MenuTrigger render={<Button variant=\"ghost\">Edit</Button>} />\n\t\t\t\t<MenuPortal>\n\t\t\t\t\t<MenuPositioner>\n\t\t\t\t\t\t<MenuPopup>\n\t\t\t\t\t\t\t<MenuItem>Cut</MenuItem>\n\t\t\t\t\t\t\t<MenuItem>Copy</MenuItem>\n\t\t\t\t\t\t\t<MenuItem>Paste</MenuItem>\n\t\t\t\t\t\t</MenuPopup>\n\t\t\t\t\t</MenuPositioner>\n\t\t\t\t</MenuPortal>\n\t\t\t</MenuRoot>\n\n\t\t\t<MenuRoot>\n\t\t\t\t<MenuTrigger render={<Button variant=\"ghost\">View</Button>} />\n\t\t\t\t<MenuPortal>\n\t\t\t\t\t<MenuPositioner>\n\t\t\t\t\t\t<MenuPopup>\n\t\t\t\t\t\t\t<MenuItem>Zoom In</MenuItem>\n\t\t\t\t\t\t\t<MenuItem>Zoom Out</MenuItem>\n\n\t\t\t\t\t\t\t<MenuSubmenuRoot>\n\t\t\t\t\t\t\t\t<MenuSubmenuTrigger>Layout</MenuSubmenuTrigger>\n\t\t\t\t\t\t\t\t<MenuPortal>\n\t\t\t\t\t\t\t\t\t<MenuPositioner>\n\t\t\t\t\t\t\t\t\t\t<MenuPopup>\n\t\t\t\t\t\t\t\t\t\t\t<MenuItem>Single Page</MenuItem>\n\t\t\t\t\t\t\t\t\t\t\t<MenuItem>Two Pages</MenuItem>\n\t\t\t\t\t\t\t\t\t\t\t<MenuItem>Continuous</MenuItem>\n\t\t\t\t\t\t\t\t\t\t</MenuPopup>\n\t\t\t\t\t\t\t\t\t</MenuPositioner>\n\t\t\t\t\t\t\t\t</MenuPortal>\n\t\t\t\t\t\t\t</MenuSubmenuRoot>\n\n\t\t\t\t\t\t\t<MenuSeparator />\n\t\t\t\t\t\t\t<MenuItem>Full Screen</MenuItem>\n\t\t\t\t\t\t</MenuPopup>\n\t\t\t\t\t</MenuPositioner>\n\t\t\t\t</MenuPortal>\n\t\t\t</MenuRoot>\n\n\t\t\t<MenuRoot disabled>\n\t\t\t\t<MenuTrigger render={<Button variant=\"ghost\">Help</Button>} />\n\t\t\t</MenuRoot>\n\t\t</Menubar>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/menubar.tsx"
+		}
+	],
+	"type": "registry:component"
+}

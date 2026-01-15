@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-menubar",
+	"description": "A Base UI menubar component",
+	"dependencies": ["@base-ui/react"],
+	"registryDependencies": ["@craftdotui/utils"],
+	"files": [
+		{
+			"path": "packages/baseui/components/menubar/index.tsx",
+			"content": "\"use client\";\n\nimport { Menubar as MenubarPrimitive } from \"@base-ui/react/menubar\";\nimport { cn } from \"@/lib/utils\";\n\n/* -------------------------------------------------------------------------- */\n/* Menubar Root                                                               */\n/* -------------------------------------------------------------------------- */\n\nfunction Menubar({ className, ...props }: MenubarPrimitive.Props) {\n\treturn (\n\t\t<MenubarPrimitive\n\t\t\tdata-slot=\"menubar-root\"\n\t\t\tclassName={cn(\n\t\t\t\t\"p-1 flex items-center gap-1 rounded-md border border-border bg-muted\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport { Menubar };\n",
+			"type": "registry:component",
+			"target": "components/baseui/components/menubar.tsx"
+		}
+	],
+	"type": "registry:component"
+}

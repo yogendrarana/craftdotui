@@ -145,6 +145,10 @@ export const docsNavItems: Array<DocsNavItem> = [
 				href: "/docs/baseui/components/menu",
 			},
 			{
+				title: "Menubar",
+				href: "/docs/baseui/components/menubar",
+			},
+			{
 				title: "Meter",
 				href: "/docs/baseui/components/meter",
 			},
