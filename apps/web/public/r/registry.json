@@ -1014,6 +1014,20 @@
 			]
 		},
 		{
+			"name": "baseui-menubar",
+			"type": "registry:component",
+			"description": "A Base UI menubar component",
+			"dependencies": ["@base-ui/react"],
+			"registryDependencies": ["@craftdotui/utils"],
+			"files": [
+				{
+					"path": "packages/baseui/components/menubar/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/menubar.tsx"
+				}
+			]
+		},
+		{
 			"name": "baseui-meter",
 			"type": "registry:component",
 			"description": "A Base UI meter component",
@@ -2121,6 +2135,20 @@
 					"path": "packages/baseui/particles/menu/with-submenu/index.tsx",
 					"type": "registry:component",
 					"target": "components/baseui/particles/menu-with-submenu.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-menubar",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-menubar"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/menubar/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/menubar.tsx"
 				}
 			]
 		},
