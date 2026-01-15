@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-menu-controlled",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-menu"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/menu/controlled/index.tsx",
+			"content": "import { useState } from \"react\";\nimport {\n\tMenuRoot,\n\tMenuTrigger,\n\tMenuPortal,\n\tMenuPositioner,\n\tMenuPopup,\n\tMenuItem,\n} from \"@/components/baseui/components/menu\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport function Particle() {\n\tconst [open, setOpen] = useState(false);\n\n\treturn (\n\t\t<MenuRoot open={open} onOpenChange={setOpen}>\n\t\t\t<MenuTrigger\n\t\t\t\trender={<Button variant=\"outline\">Open Menu</Button>}\n\t\t\t/>\n\t\t\t<MenuPortal>\n\t\t\t\t<MenuPositioner>\n\t\t\t\t\t<MenuPopup>\n\t\t\t\t\t\t<MenuItem onSelect={() => setOpen(false)}>\n\t\t\t\t\t\t\tMenu Item 1\n\t\t\t\t\t\t</MenuItem>\n\t\t\t\t\t\t<MenuItem onSelect={() => setOpen(false)}>\n\t\t\t\t\t\t\tMenu Item 2\n\t\t\t\t\t\t</MenuItem>\n\t\t\t\t\t\t<MenuItem onSelect={() => setOpen(false)}>\n\t\t\t\t\t\t\tMenu Item 3\n\t\t\t\t\t\t</MenuItem>\n\t\t\t\t\t</MenuPopup>\n\t\t\t\t</MenuPositioner>\n\t\t\t</MenuPortal>\n\t\t</MenuRoot>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/menu-controlled.tsx"
+		}
+	],
+	"type": "registry:component"
+}

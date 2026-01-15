@@ -3031,7 +3031,7 @@ export const Registry: Record<string, any> = {
 				type: "registry:component",
 				target: "components/baseui/components/button.tsx",
 				content:
-					'"use client";\n\nimport type * as React from "react";\nimport { useRender } from "@base-ui/react/use-render";\nimport { mergeProps } from "@base-ui/react/merge-props";\nimport { cva, type VariantProps } from "class-variance-authority";\n\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Variants                                                                   */\n/* -------------------------------------------------------------------------- */\n\nconst buttonVariants = cva(\n\t[\n\t\t"relative inline-flex items-center justify-center shrink-0 gap-2",\n\t\t"border rounded-md text-sm whitespace-nowrap outline-none transition cursor-pointer",\n\t\t"focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",\n\t\t"disabled:pointer-events-none disabled:opacity-60",\n\t\t"[&_svg]:pointer-events-none [&_svg]:shrink-0",\n\t\t"[&_svg:not([class*=\'size-\'])]:size-4",\n\t].join(" "),\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault:\n\t\t\t\t\t"bg-primary text-primary-foreground border-primary hover:bg-primary/90",\n\t\t\t\tsecondary:\n\t\t\t\t\t"bg-secondary text-secondary-foreground border-transparent hover:bg-secondary/90",\n\t\t\t\tdestructive:\n\t\t\t\t\t"bg-destructive text-destructive-foreground border-destructive hover:bg-destructive/90",\n\t\t\t\toutline:\n\t\t\t\t\t"bg-background text-foreground border-border hover:bg-accent",\n\t\t\t\tghost: "border-transparent bg-transparent hover:bg-muted",\n\t\t\t\tlink: "border-transparent bg-transparent underline-offset-4 hover:underline",\n\t\t\t},\n\t\t\tsize: {\n\t\t\t\txs: "h-7 px-2 text-xs",\n\t\t\t\tsm: "h-7.5 px-3 text-sm",\n\t\t\t\tmd: "h-8 px-4",\n\t\t\t\tlg: "h-8.5 px-6",\n\t\t\t\txl: "h-9 px-8",\n\t\t\t\t"icon-xs": "size-7 p-0",\n\t\t\t\t"icon-sm": "size-7.5 p-0",\n\t\t\t\ticon: "size-8 p-0",\n\t\t\t\t"icon-lg": "size-8.5 p-0",\n\t\t\t\t"icon-xl": "size-9 p-0",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: "default",\n\t\t\tsize: "md",\n\t\t},\n\t},\n);\n\n/* -------------------------------------------------------------------------- */\n/* Props                                                                      */\n/* -------------------------------------------------------------------------- */\n\nexport interface ButtonProps\n\textends useRender.ComponentProps<"button">,\n\t\tVariantProps<typeof buttonVariants> {\n\tloading?: boolean;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Component                                                                  */\n/* -------------------------------------------------------------------------- */\n\nfunction Button({\n\tclassName,\n\tvariant,\n\tsize,\n\trender,\n\tloading,\n\tchildren,\n\t...props\n}: ButtonProps) {\n\t// Determine the type attribute based on whether we\'re rendering a native button\n\tconst type: React.ButtonHTMLAttributes<HTMLButtonElement>["type"] = render\n\t\t? undefined\n\t\t: "button";\n\n\t// Create children with loading spinner\n\tconst renderedChildren = (\n\t\t<>\n\t\t\t{loading && (\n\t\t\t\t<span\n\t\t\t\t\taria-hidden\n\t\t\t\t\tclassName="inline-flex size-4 animate-spin rounded-full border-2 border-current border-t-transparent"\n\t\t\t\t/>\n\t\t\t)}\n\t\t\t{children}\n\t\t</>\n\t);\n\n\t// Prepare default props for the button\n\tconst defaultProps = {\n\t\tclassName: cn(\n\t\t\tbuttonVariants({ variant, size }),\n\t\t\tloading && "cursor-wait opacity-80",\n\t\t\tclassName,\n\t\t),\n\t\ttype,\n\t\t"aria-busy": loading || undefined,\n\t\t"data-slot": "button",\n\t\tdisabled: props.disabled || loading,\n\t\tchildren: renderedChildren, // Make sure children are included\n\t};\n\n\t// Merge default props with user props\n\tconst mergedProps = mergeProps<"button">(defaultProps, props);\n\n\t// Use useRender hook which handles the rendering logic\n\t// According to Base UI docs, this returns a React element\n\treturn useRender({\n\t\tdefaultTagName: "button",\n\t\tprops: mergedProps,\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport { Button, buttonVariants };',
+					'"use client";\n\nimport type * as React from "react";\nimport { useRender } from "@base-ui/react/use-render";\nimport { mergeProps } from "@base-ui/react/merge-props";\nimport { cva, type VariantProps } from "class-variance-authority";\n\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Variants                                                                   */\n/* -------------------------------------------------------------------------- */\n\nconst buttonVariants = cva(\n\t[\n\t\t"relative inline-flex items-center justify-center shrink-0 gap-2",\n\t\t"border rounded-md text-sm whitespace-nowrap outline-none transition cursor-pointer",\n\t\t"focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",\n\t\t"disabled:pointer-events-none disabled:opacity-60",\n\t\t"[&_svg]:pointer-events-none [&_svg]:shrink-0",\n\t\t"[&_svg:not([class*=\'size-\'])]:size-4",\n\t].join(" "),\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault:\n\t\t\t\t\t"bg-primary text-primary-foreground border-primary hover:bg-primary/90",\n\t\t\t\tsecondary:\n\t\t\t\t\t"bg-secondary text-secondary-foreground border-transparent hover:bg-secondary/90",\n\t\t\t\tdestructive:\n\t\t\t\t\t"bg-destructive text-destructive-foreground border-destructive hover:bg-destructive/90",\n\t\t\t\toutline:\n\t\t\t\t\t"bg-background text-foreground border-border hover:bg-accent",\n\t\t\t\tghost: "border-transparent bg-transparent hover:bg-muted",\n\t\t\t\tlink: "border-transparent bg-transparent underline-offset-4 hover:underline",\n\t\t\t},\n\t\t\tsize: {\n\t\t\t\txs: "h-7 px-2 text-xs",\n\t\t\t\tsm: "h-7.5 px-3 text-sm",\n\t\t\t\tmd: "h-8 px-3",\n\t\t\t\tlg: "h-8.5 px-4",\n\t\t\t\txl: "h-9 px-6",\n\t\t\t\t"icon-xs": "size-7 p-0",\n\t\t\t\t"icon-sm": "size-7.5 p-0",\n\t\t\t\ticon: "size-8 p-0",\n\t\t\t\t"icon-lg": "size-8.5 p-0",\n\t\t\t\t"icon-xl": "size-9 p-0",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: "default",\n\t\t\tsize: "md",\n\t\t},\n\t},\n);\n\n/* -------------------------------------------------------------------------- */\n/* Props                                                                      */\n/* -------------------------------------------------------------------------- */\n\nexport interface ButtonProps\n\textends useRender.ComponentProps<"button">,\n\t\tVariantProps<typeof buttonVariants> {\n\tloading?: boolean;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Component                                                                  */\n/* -------------------------------------------------------------------------- */\n\nfunction Button({\n\tclassName,\n\tvariant,\n\tsize,\n\trender,\n\tloading,\n\tchildren,\n\t...props\n}: ButtonProps) {\n\t// Determine the type attribute based on whether we\'re rendering a native button\n\tconst type: React.ButtonHTMLAttributes<HTMLButtonElement>["type"] = render\n\t\t? undefined\n\t\t: "button";\n\n\t// Create children with loading spinner\n\tconst renderedChildren = (\n\t\t<>\n\t\t\t{loading && (\n\t\t\t\t<span\n\t\t\t\t\taria-hidden\n\t\t\t\t\tclassName="inline-flex size-4 animate-spin rounded-full border-2 border-current border-t-transparent"\n\t\t\t\t/>\n\t\t\t)}\n\t\t\t{children}\n\t\t</>\n\t);\n\n\t// Prepare default props for the button\n\tconst defaultProps = {\n\t\tclassName: cn(\n\t\t\tbuttonVariants({ variant, size }),\n\t\t\tloading && "cursor-wait opacity-80",\n\t\t\tclassName,\n\t\t),\n\t\ttype,\n\t\t"aria-busy": loading || undefined,\n\t\t"data-slot": "button",\n\t\tdisabled: props.disabled || loading,\n\t\tchildren: renderedChildren, // Make sure children are included\n\t};\n\n\t// Merge default props with user props\n\tconst mergedProps = mergeProps<"button">(defaultProps, props);\n\n\t// Use useRender hook which handles the rendering logic\n\t// According to Base UI docs, this returns a React element\n\treturn useRender({\n\t\tdefaultTagName: "button",\n\t\tprops: mergedProps,\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport { Button, buttonVariants };',
 			},
 		],
 		keywords: [],
@@ -3432,6 +3432,55 @@ export const Registry: Record<string, any> = {
 			const LazyComp = React.lazy(async () => {
 				const mod = await import(
 					"@craftdotui/baseui/components/input/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-menu": {
+		name: "baseui-menu",
+		description: "A Base UI menu component",
+		type: "registry:component",
+		dependencies: ["@base-ui/react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/utils"],
+		files: [
+			{
+				path: "packages/baseui/components/menu/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/menu.tsx",
+				content:
+					'"use client";\n\nimport type * as React from "react";\nimport { Check, ChevronRight, Dot } from "lucide-react";\nimport { Menu as MenuPrimitive } from "@base-ui/react/menu";\n\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Menu Root                                                                  */\n/* -------------------------------------------------------------------------- */\n\nfunction MenuRoot(props: MenuPrimitive.Root.Props) {\n\treturn <MenuPrimitive.Root data-slot="menu-root" {...props} />;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Menu Trigger                                                               */\n/* -------------------------------------------------------------------------- */\n\nfunction MenuTrigger({ className, ...props }: MenuPrimitive.Trigger.Props) {\n\treturn <MenuPrimitive.Trigger data-slot="menu-trigger" {...props} />;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Menu Portal                                                                */\n/* -------------------------------------------------------------------------- */\n\nfunction MenuPortal(props: MenuPrimitive.Portal.Props) {\n\treturn <MenuPrimitive.Portal data-slot="menu-portal" {...props} />;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Menu Backdrop                                                              */\n/* -------------------------------------------------------------------------- */\n\nfunction MenuBackdrop({ className, ...props }: MenuPrimitive.Backdrop.Props) {\n\treturn (\n\t\t<MenuPrimitive.Backdrop\n\t\t\tdata-slot="menu-backdrop"\n\t\t\tclassName={cn("fixed inset-0 z-50 bg-black/20", className)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Menu Positioner                                                            */\n/* -------------------------------------------------------------------------- */\n\nfunction MenuPositioner({\n\tclassName,\n\tsideOffset = 4,\n\t...props\n}: MenuPrimitive.Positioner.Props) {\n\treturn (\n\t\t<MenuPrimitive.Positioner\n\t\t\tdata-slot="menu-positioner"\n\t\t\tclassName={cn("z-50", className)}\n\t\t\tsideOffset={sideOffset}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Menu Popup                                                                 */\n/* -------------------------------------------------------------------------- */\n\nfunction MenuPopup({ className, ...props }: MenuPrimitive.Popup.Props) {\n\treturn (\n\t\t<MenuPrimitive.Popup\n\t\t\tdata-slot="menu-popup"\n\t\t\tclassName={cn(\n\t\t\t\t"z-50",\n\t\t\t\t"min-w-48 p-1",\n\t\t\t\t"overflow-hidden rounded-md border border-border bg-popover text-popover-foreground shadow-md outline-none",\n\t\t\t\t"data-open:animate-in data-closed:animate-out",\n\t\t\t\t"data-open:fade-in data-closed:fade-out",\n\t\t\t\t"data-open:zoom-in-95 data-closed:zoom-out-95",\n\t\t\t\t"data-starting-style:opacity-0 data-starting-style:scale-95",\n\t\t\t\t"data-ending-style:opacity-0 data-ending-style:scale-95",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Menu Arrow                                                                 */\n/* -------------------------------------------------------------------------- */\n\nfunction MenuArrow({ className, ...props }: MenuPrimitive.Arrow.Props) {\n\treturn (\n\t\t<MenuPrimitive.Arrow\n\t\t\tdata-slot="menu-arrow"\n\t\t\tclassName={cn(\n\t\t\t\t"data-[side=bottom]:top-[-8px]",\n\t\t\t\t"data-[side=top]:bottom-[-8px] data-[side=top]:rotate-180",\n\t\t\t\t"data-[side=left]:right-[-13px] data-[side=left]:rotate-90",\n\t\t\t\t"data-[side=right]:left-[-13px] data-[side=right]:-rotate-90",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t<svg width="12" height="6" viewBox="0 0 12 6">\n\t\t\t\t<title>Menu Arrow</title>\n\t\t\t\t<path d="M0 6L6 0L12 6Z" className="fill-popover" />\n\t\t\t\t<path d="M0 6L6 0L12 6Z" className="fill-none stroke-border" />\n\t\t\t</svg>\n\t\t</MenuPrimitive.Arrow>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Menu Item                                                                  */\n/* -------------------------------------------------------------------------- */\n\nfunction MenuItem({\n\tclassName,\n\tinset,\n\t...props\n}: MenuPrimitive.Item.Props & { inset?: boolean }) {\n\treturn (\n\t\t<MenuPrimitive.Item\n\t\t\tdata-slot="menu-item"\n\t\t\tdata-inset={inset}\n\t\t\tclassName={cn(\n\t\t\t\t"relative flex cursor-pointer select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none transition-colors",\n\t\t\t\t"data-highlighted:bg-accent data-highlighted:text-accent-foreground",\n\t\t\t\t"data-disabled:pointer-events-none data-disabled:opacity-50",\n\t\t\t\t"data-inset:pl-8",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Menu Checkbox Item                                                         */\n/* -------------------------------------------------------------------------- */\n\nfunction MenuCheckboxItem({\n\tclassName,\n\tchildren,\n\tinset,\n\t...props\n}: MenuPrimitive.CheckboxItem.Props & { inset?: boolean }) {\n\treturn (\n\t\t<MenuPrimitive.CheckboxItem\n\t\t\tdata-slot="menu-checkbox-item"\n\t\t\tdata-inset={inset}\n\t\t\tclassName={cn(\n\t\t\t\t"relative flex cursor-pointer select-none items-center gap-2 rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors",\n\t\t\t\t"data-highlighted:bg-accent data-highlighted:text-accent-foreground",\n\t\t\t\t"data-disabled:pointer-events-none data-disabled:opacity-50",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t<span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">\n\t\t\t\t<MenuCheckboxItemIndicator />\n\t\t\t</span>\n\t\t\t{children}\n\t\t</MenuPrimitive.CheckboxItem>\n\t);\n}\n\nfunction MenuCheckboxItemIndicator(\n\tprops: MenuPrimitive.CheckboxItemIndicator.Props,\n) {\n\treturn (\n\t\t<MenuPrimitive.CheckboxItemIndicator\n\t\t\tdata-slot="menu-checkbox-indicator"\n\t\t\t{...props}\n\t\t>\n\t\t\t<Check className="size-4" />\n\t\t</MenuPrimitive.CheckboxItemIndicator>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Menu Radio Item                                                            */\n/* -------------------------------------------------------------------------- */\n\nfunction MenuRadioItem({\n\tclassName,\n\tchildren,\n\tinset,\n\t...props\n}: MenuPrimitive.RadioItem.Props & { inset?: boolean }) {\n\treturn (\n\t\t<MenuPrimitive.RadioItem\n\t\t\tdata-slot="menu-radio-item"\n\t\t\tdata-inset={inset}\n\t\t\tclassName={cn(\n\t\t\t\t"relative flex cursor-pointer select-none items-center gap-2 rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors",\n\t\t\t\t"data-highlighted:bg-accent data-highlighted:text-accent-foreground",\n\t\t\t\t"data-disabled:pointer-events-none data-disabled:opacity-50",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t<span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">\n\t\t\t\t<MenuRadioItemIndicator />\n\t\t\t</span>\n\t\t\t{children}\n\t\t</MenuPrimitive.RadioItem>\n\t);\n}\n\nfunction MenuRadioItemIndicator(props: MenuPrimitive.RadioItemIndicator.Props) {\n\treturn (\n\t\t<MenuPrimitive.RadioItemIndicator\n\t\t\tdata-slot="menu-radio-indicator"\n\t\t\t{...props}\n\t\t>\n\t\t\t<Dot className="size-10" />\n\t\t</MenuPrimitive.RadioItemIndicator>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Menu Radio Group                                                           */\n/* -------------------------------------------------------------------------- */\n\nfunction MenuRadioGroup(props: MenuPrimitive.RadioGroup.Props) {\n\treturn <MenuPrimitive.RadioGroup data-slot="menu-radio-group" {...props} />;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Menu Submenu                                                               */\n/* -------------------------------------------------------------------------- */\n\nfunction MenuSubmenuRoot(props: MenuPrimitive.SubmenuRoot.Props) {\n\treturn <MenuPrimitive.SubmenuRoot data-slot="menu-submenu" {...props} />;\n}\n\nfunction MenuSubmenuTrigger({\n\tclassName,\n\tinset,\n\tchildren,\n\t...props\n}: MenuPrimitive.SubmenuTrigger.Props & { inset?: boolean }) {\n\treturn (\n\t\t<MenuPrimitive.SubmenuTrigger\n\t\t\tdata-slot="menu-submenu-trigger"\n\t\t\tdata-inset={inset}\n\t\t\tclassName={cn(\n\t\t\t\t"px-2 py-1.5 flex items-center",\n\t\t\t\t"cursor-pointer select-none rounded-sm text-sm outline-none transition-colors",\n\t\t\t\t"data-highlighted:bg-accent data-highlighted:text-accent-foreground",\n\t\t\t\t"data-inset:pl-8",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t{children}\n\t\t\t<ChevronRight className="ml-auto size-4" />\n\t\t</MenuPrimitive.SubmenuTrigger>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Menu Group                                                                 */\n/* -------------------------------------------------------------------------- */\n\nfunction MenuGroup(props: MenuPrimitive.Group.Props) {\n\treturn <MenuPrimitive.Group data-slot="menu-group" {...props} />;\n}\n\nfunction MenuGroupLabel({\n\tclassName,\n\tinset,\n\t...props\n}: MenuPrimitive.GroupLabel.Props & { inset?: boolean }) {\n\treturn (\n\t\t<MenuPrimitive.GroupLabel\n\t\t\tdata-slot="menu-group-label"\n\t\t\tdata-inset={inset}\n\t\t\tclassName={cn(\n\t\t\t\t"px-2 py-1.5 text-xs font-medium text-muted-foreground",\n\t\t\t\t"data-inset:pl-8",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Menu Separator                                                             */\n/* -------------------------------------------------------------------------- */\n\nfunction MenuSeparator({ className, ...props }: MenuPrimitive.Separator.Props) {\n\treturn (\n\t\t<MenuPrimitive.Separator\n\t\t\tdata-slot="menu-separator"\n\t\t\tclassName={cn("-mx-1 my-1 h-px bg-border", className)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Menu Shortcut                                                              */\n/* -------------------------------------------------------------------------- */\n\nfunction MenuShortcut({\n\tclassName,\n\t...props\n}: React.HTMLAttributes<HTMLSpanElement>) {\n\treturn (\n\t\t<span\n\t\t\tdata-slot="menu-shortcut"\n\t\t\tclassName={cn(\n\t\t\t\t"ml-auto text-xs tracking-widest text-muted-foreground",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport {\n\tMenuRoot,\n\tMenuTrigger,\n\tMenuPortal,\n\tMenuBackdrop,\n\tMenuPositioner,\n\tMenuPopup,\n\tMenuArrow,\n\tMenuItem,\n\tMenuSeparator,\n\tMenuGroup,\n\tMenuGroupLabel,\n\tMenuRadioGroup,\n\tMenuRadioItem,\n\tMenuRadioItemIndicator,\n\tMenuCheckboxItem,\n\tMenuCheckboxItemIndicator,\n\tMenuSubmenuRoot,\n\tMenuSubmenuTrigger,\n\tMenuShortcut,\n\tMenuPrimitive,\n};',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-menu",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/components/menu/index.tsx"
 				);
 				let Comp = mod.default;
 
@@ -5838,7 +5887,7 @@ export const Registry: Record<string, any> = {
 				type: "registry:component",
 				target: "components/baseui/particles/checkbox-group-nested-parent-checkbox.tsx",
 				content:
-					'"use client";\n\nimport * as React from "react";\nimport {\n\tCheckbox,\n\tCheckboxIndicator,\n} from "@/components/baseui/components/checkbox";\nimport { CheckboxGroup } from "@/components/baseui/components/checkbox-group";\n\nconst frontendFrameworks = ["react", "vue", "svelte"];\nconst reactFrameworks = ["next", "remix"];\n\nexport default function LanguageFrameworkTree() {\n\tconst [frontendValues, setFrontendValues] = React.useState<string[]>([]);\n\tconst [reactValues, setReactValues] = React.useState<string[]>([]);\n\n\treturn (\n\t\t<CheckboxGroup\n\t\t\tvalue={frontendValues}\n\t\t\tallValues={frontendFrameworks}\n\t\t\tonValueChange={(value) => {\n\t\t\t\tconst wasReactSelected = frontendValues.includes("react");\n\t\t\t\tconst isReactSelected = value.includes("react");\n\t\t\t\t\n\t\t\t\tif (isReactSelected && !wasReactSelected) {\n\t\t\t\t\tsetReactValues(reactFrameworks);\n\t\t\t\t} else if (!isReactSelected && wasReactSelected) {\n\t\t\t\t\tsetReactValues([]);\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\tsetFrontendValues(value);\n\t\t\t}}\n\t\t>\n\t\t\t<div className="flex items-center gap-2 cursor-pointer">\n\t\t\t\t<Checkbox\n\t\t\t\t\tname="javascript"\n\t\t\t\t\tparent\n\t\t\t\t\tindeterminate={\n\t\t\t\t\t\t(reactValues.length > 0 &&\n\t\t\t\t\t\t\treactValues.length !== reactFrameworks.length) ||\n\t\t\t\t\t\t(frontendValues.length > 0 &&\n\t\t\t\t\t\t\tfrontendValues.length !== frontendFrameworks.length)\n\t\t\t\t\t}\n\t\t\t\t>\n\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t</Checkbox>\n\t\t\t\t<span>Frontend</span>\n\t\t\t</div>\n\n\t\t\t<div className="ms-4 flex items-center gap-2 cursor-pointer">\n\t\t\t\t<Checkbox value="vue">\n\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t</Checkbox>\n\t\t\t\t<span>Vue</span>\n\t\t\t</div>\n\n\t\t\t<div className="ms-4 flex items-center gap-2 cursor-pointer">\n\t\t\t\t<Checkbox value="svelte">\n\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t</Checkbox>\n\t\t\t\t<span>Svelte</span>\n\t\t\t</div>\n\n\t\t\t<CheckboxGroup\n\t\t\t\tvalue={reactValues}\n\t\t\t\tallValues={reactFrameworks}\n\t\t\t\tonValueChange={(value) => {\n\t\t\t\t\tif (value.length === reactFrameworks.length) {\n\t\t\t\t\t\tsetFrontendValues((prev) =>\n\t\t\t\t\t\t\tArray.from(new Set([...prev, "react"])),\n\t\t\t\t\t\t);\n\t\t\t\t\t} else {\n\t\t\t\t\t\tsetFrontendValues((prev) =>\n\t\t\t\t\t\t\tprev.filter((value) => value !== "react"),\n\t\t\t\t\t\t);\n\t\t\t\t\t}\n\n\t\t\t\t\tsetReactValues(value);\n\t\t\t\t}}\n\t\t\t>\n\t\t\t\t<div className="ms-4 flex items-center gap-2 cursor-pointer">\n\t\t\t\t\t<Checkbox\n\t\t\t\t\t\tparent\n\t\t\t\t\t\tindeterminate={\n\t\t\t\t\t\t\treactValues.length > 0 &&\n\t\t\t\t\t\t\treactValues.length !== reactFrameworks.length\n\t\t\t\t\t\t}\n\t\t\t\t\t>\n\t\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t\t</Checkbox>\n\t\t\t\t\t<span>React</span>\n\t\t\t\t</div>\n\n\t\t\t\t{reactFrameworks.map((framework) => (\n\t\t\t\t\t<div\n\t\t\t\t\t\tkey={framework}\n\t\t\t\t\t\tclassName="ms-8 flex items-center gap-2 cursor-pointer"\n\t\t\t\t\t>\n\t\t\t\t\t\t<Checkbox name={framework} value={framework}>\n\t\t\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t\t\t</Checkbox>\n\t\t\t\t\t\t<span className="capitalize">{framework}</span>\n\t\t\t\t\t</div>\n\t\t\t\t))}\n\t\t\t</CheckboxGroup>\n\t\t</CheckboxGroup>\n\t);\n}',
+					'"use client";\n\nimport * as React from "react";\nimport {\n\tCheckbox,\n\tCheckboxIndicator,\n} from "@/components/baseui/components/checkbox";\nimport { CheckboxGroup } from "@/components/baseui/components/checkbox-group";\n\nconst frontendFrameworks = ["react", "vue", "svelte"];\nconst reactFrameworks = ["next", "remix"];\n\nexport default function LanguageFrameworkTree() {\n\tconst [frontendValues, setFrontendValues] = React.useState<string[]>([]);\n\tconst [reactValues, setReactValues] = React.useState<string[]>([]);\n\n\treturn (\n\t\t<CheckboxGroup\n\t\t\tvalue={frontendValues}\n\t\t\tallValues={frontendFrameworks}\n\t\t\tonValueChange={(value) => {\n\t\t\t\tconst wasReactSelected = frontendValues.includes("react");\n\t\t\t\tconst isReactSelected = value.includes("react");\n\n\t\t\t\tif (isReactSelected && !wasReactSelected) {\n\t\t\t\t\tsetReactValues(reactFrameworks);\n\t\t\t\t} else if (!isReactSelected && wasReactSelected) {\n\t\t\t\t\tsetReactValues([]);\n\t\t\t\t}\n\n\t\t\t\tsetFrontendValues(value);\n\t\t\t}}\n\t\t>\n\t\t\t<div className="flex items-center gap-2 cursor-pointer">\n\t\t\t\t<Checkbox\n\t\t\t\t\tname="javascript"\n\t\t\t\t\tparent\n\t\t\t\t\tindeterminate={\n\t\t\t\t\t\t(reactValues.length > 0 &&\n\t\t\t\t\t\t\treactValues.length !== reactFrameworks.length) ||\n\t\t\t\t\t\t(frontendValues.length > 0 &&\n\t\t\t\t\t\t\tfrontendValues.length !== frontendFrameworks.length)\n\t\t\t\t\t}\n\t\t\t\t>\n\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t</Checkbox>\n\t\t\t\t<span>Frontend</span>\n\t\t\t</div>\n\n\t\t\t<div className="ms-4 flex items-center gap-2 cursor-pointer">\n\t\t\t\t<Checkbox value="vue">\n\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t</Checkbox>\n\t\t\t\t<span>Vue</span>\n\t\t\t</div>\n\n\t\t\t<div className="ms-4 flex items-center gap-2 cursor-pointer">\n\t\t\t\t<Checkbox value="svelte">\n\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t</Checkbox>\n\t\t\t\t<span>Svelte</span>\n\t\t\t</div>\n\n\t\t\t<CheckboxGroup\n\t\t\t\tvalue={reactValues}\n\t\t\t\tallValues={reactFrameworks}\n\t\t\t\tonValueChange={(value) => {\n\t\t\t\t\tif (value.length === reactFrameworks.length) {\n\t\t\t\t\t\tsetFrontendValues((prev) =>\n\t\t\t\t\t\t\tArray.from(new Set([...prev, "react"])),\n\t\t\t\t\t\t);\n\t\t\t\t\t} else {\n\t\t\t\t\t\tsetFrontendValues((prev) =>\n\t\t\t\t\t\t\tprev.filter((value) => value !== "react"),\n\t\t\t\t\t\t);\n\t\t\t\t\t}\n\n\t\t\t\t\tsetReactValues(value);\n\t\t\t\t}}\n\t\t\t>\n\t\t\t\t<div className="ms-4 flex items-center gap-2 cursor-pointer">\n\t\t\t\t\t<Checkbox\n\t\t\t\t\t\tparent\n\t\t\t\t\t\tindeterminate={\n\t\t\t\t\t\t\treactValues.length > 0 &&\n\t\t\t\t\t\t\treactValues.length !== reactFrameworks.length\n\t\t\t\t\t\t}\n\t\t\t\t\t>\n\t\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t\t</Checkbox>\n\t\t\t\t\t<span>React</span>\n\t\t\t\t</div>\n\n\t\t\t\t{reactFrameworks.map((framework) => (\n\t\t\t\t\t<div\n\t\t\t\t\t\tkey={framework}\n\t\t\t\t\t\tclassName="ms-8 flex items-center gap-2 cursor-pointer"\n\t\t\t\t\t>\n\t\t\t\t\t\t<Checkbox name={framework} value={framework}>\n\t\t\t\t\t\t\t<CheckboxIndicator />\n\t\t\t\t\t\t</Checkbox>\n\t\t\t\t\t\t<span className="capitalize">{framework}</span>\n\t\t\t\t\t</div>\n\t\t\t\t))}\n\t\t\t</CheckboxGroup>\n\t\t</CheckboxGroup>\n\t);\n}',
 			},
 		],
 		keywords: [],
@@ -6689,6 +6738,594 @@ export const Registry: Record<string, any> = {
 			const LazyComp = React.lazy(async () => {
 				const mod = await import(
 					"@craftdotui/baseui/particles/input/with-field/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-menu-checkbox-items": {
+		name: "baseui-particles-menu-checkbox-items",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-menu"],
+		files: [
+			{
+				path: "packages/baseui/particles/menu/checkbox-items/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/menu-checkbox-items.tsx",
+				content:
+					'import { Button } from "@/components/baseui/components/button";\nimport {\n\tMenuRoot,\n\tMenuTrigger,\n\tMenuPortal,\n\tMenuPositioner,\n\tMenuPopup,\n\tMenuCheckboxItem,\n} from "@/components/baseui/components/menu";\n\nexport function Particle() {\n\treturn (\n\t\t<MenuRoot>\n\t\t\t<MenuTrigger\n\t\t\t\trender={<Button variant="outline">Open Menu</Button>}\n\t\t\t/>\n\t\t\t<MenuPortal>\n\t\t\t\t<MenuPositioner>\n\t\t\t\t\t<MenuPopup>\n\t\t\t\t\t\t<MenuCheckboxItem defaultChecked>\n\t\t\t\t\t\t\tShow line numbers\n\t\t\t\t\t\t</MenuCheckboxItem>\n\t\t\t\t\t\t<MenuCheckboxItem>Enable autosave</MenuCheckboxItem>\n\t\t\t\t\t</MenuPopup>\n\t\t\t\t</MenuPositioner>\n\t\t\t</MenuPortal>\n\t\t</MenuRoot>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-menu-checkbox-items",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/menu/checkbox-items/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-menu-close-on-click": {
+		name: "baseui-particles-menu-close-on-click",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-menu"],
+		files: [
+			{
+				path: "packages/baseui/particles/menu/close-on-click/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/menu-close-on-click.tsx",
+				content:
+					'import { Button } from "@/components/baseui/components/button";\nimport {\n\tMenuRoot,\n\tMenuTrigger,\n\tMenuPortal,\n\tMenuPositioner,\n\tMenuPopup,\n\tMenuItem,\n} from "@/components/baseui/components/menu";\n\nexport function Particle() {\n\treturn (\n\t\t<MenuRoot>\n\t\t\t<MenuTrigger\n\t\t\t\trender={<Button variant="outline">Open Menu</Button>}\n\t\t\t/>\n\t\t\t<MenuPortal>\n\t\t\t\t<MenuPositioner>\n\t\t\t\t\t<MenuPopup>\n\t\t\t\t\t\t<MenuItem closeOnClick>Profile</MenuItem>\n\t\t\t\t\t\t<MenuItem closeOnClick>Logout</MenuItem>\n\t\t\t\t\t</MenuPopup>\n\t\t\t\t</MenuPositioner>\n\t\t\t</MenuPortal>\n\t\t</MenuRoot>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-menu-close-on-click",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/menu/close-on-click/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-menu-controlled": {
+		name: "baseui-particles-menu-controlled",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-menu"],
+		files: [
+			{
+				path: "packages/baseui/particles/menu/controlled/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/menu-controlled.tsx",
+				content:
+					'import { useState } from "react";\nimport {\n\tMenuRoot,\n\tMenuTrigger,\n\tMenuPortal,\n\tMenuPositioner,\n\tMenuPopup,\n\tMenuItem,\n} from "@/components/baseui/components/menu";\nimport { Button } from "@/components/baseui/components/button";\n\nexport function Particle() {\n\tconst [open, setOpen] = useState(false);\n\n\treturn (\n\t\t<MenuRoot open={open} onOpenChange={setOpen}>\n\t\t\t<MenuTrigger\n\t\t\t\trender={<Button variant="outline">Open Menu</Button>}\n\t\t\t/>\n\t\t\t<MenuPortal>\n\t\t\t\t<MenuPositioner>\n\t\t\t\t\t<MenuPopup>\n\t\t\t\t\t\t<MenuItem onSelect={() => setOpen(false)}>\n\t\t\t\t\t\t\tMenu Item 1\n\t\t\t\t\t\t</MenuItem>\n\t\t\t\t\t\t<MenuItem onSelect={() => setOpen(false)}>\n\t\t\t\t\t\t\tMenu Item 2\n\t\t\t\t\t\t</MenuItem>\n\t\t\t\t\t\t<MenuItem onSelect={() => setOpen(false)}>\n\t\t\t\t\t\t\tMenu Item 3\n\t\t\t\t\t\t</MenuItem>\n\t\t\t\t\t</MenuPopup>\n\t\t\t\t</MenuPositioner>\n\t\t\t</MenuPortal>\n\t\t</MenuRoot>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-menu-controlled",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/menu/controlled/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-menu-hover": {
+		name: "baseui-particles-menu-hover",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-menu"],
+		files: [
+			{
+				path: "packages/baseui/particles/menu/hover/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/menu-hover.tsx",
+				content:
+					'import { Button } from "@/components/baseui/components/button";\nimport {\n\tMenuRoot,\n\tMenuTrigger,\n\tMenuPortal,\n\tMenuPositioner,\n\tMenuPopup,\n\tMenuItem,\n} from "@/components/baseui/components/menu";\n\nexport function Particle() {\n\treturn (\n\t\t<MenuRoot>\n\t\t\t<MenuTrigger\n\t\t\t\topenOnHover\n\t\t\t\trender={<Button variant="outline">Open Menu</Button>}\n\t\t\t/>\n\n\t\t\t<MenuPortal>\n\t\t\t\t<MenuPositioner>\n\t\t\t\t\t<MenuPopup>\n\t\t\t\t\t\t<MenuItem>Profile</MenuItem>\n\t\t\t\t\t\t<MenuItem>Settings</MenuItem>\n\t\t\t\t\t\t<MenuItem>Logout</MenuItem>\n\t\t\t\t\t</MenuPopup>\n\t\t\t\t</MenuPositioner>\n\t\t\t</MenuPortal>\n\t\t</MenuRoot>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-menu-hover",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/menu/hover/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-menu-radio-items": {
+		name: "baseui-particles-menu-radio-items",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-menu"],
+		files: [
+			{
+				path: "packages/baseui/particles/menu/radio-items/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/menu-radio-items.tsx",
+				content:
+					'import { Button } from "@/components/baseui/components/button";\nimport {\n\tMenuRoot,\n\tMenuTrigger,\n\tMenuPortal,\n\tMenuPositioner,\n\tMenuPopup,\n\tMenuRadioGroup,\n\tMenuRadioItem,\n} from "@/components/baseui/components/menu";\n\nexport function Particle() {\n\treturn (\n\t\t<MenuRoot>\n\t\t\t<MenuTrigger\n\t\t\t\trender={<Button variant="outline">Open Menu</Button>}\n\t\t\t/>\n\t\t\t<MenuPortal>\n\t\t\t\t<MenuPositioner>\n\t\t\t\t\t<MenuPopup>\n\t\t\t\t\t\t<MenuRadioGroup defaultValue="system">\n\t\t\t\t\t\t\t<MenuRadioItem value="light">Light</MenuRadioItem>\n\t\t\t\t\t\t\t<MenuRadioItem value="dark">Dark</MenuRadioItem>\n\t\t\t\t\t\t\t<MenuRadioItem value="system">System</MenuRadioItem>\n\t\t\t\t\t\t</MenuRadioGroup>\n\t\t\t\t\t</MenuPopup>\n\t\t\t\t</MenuPositioner>\n\t\t\t</MenuPortal>\n\t\t</MenuRoot>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-menu-radio-items",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/menu/radio-items/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-menu": {
+		name: "baseui-particles-menu",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-menu"],
+		files: [
+			{
+				path: "packages/baseui/particles/menu/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/menu.tsx",
+				content:
+					'import { Button } from "@/components/baseui/components/button";\nimport {\n  MenuRoot,\n  MenuTrigger,\n  MenuPortal,\n  MenuPositioner,\n  MenuPopup,\n  MenuItem,\n  MenuSeparator,\n  MenuShortcut,\n  MenuSubmenuRoot,\n  MenuSubmenuTrigger,\n  MenuCheckboxItem,\n  MenuGroup,\n  MenuGroupLabel,\n  MenuRadioGroup,\n  MenuRadioItem,\n} from "@/components/baseui/components/menu";\n\nexport default function Particle() {\n  return (\n    <MenuRoot>\n      <MenuTrigger\n        render={<Button variant="outline">Open Menu</Button>}\n      />\n\n      <MenuPortal>\n        <MenuPositioner>\n          <MenuPopup className="w-56">\n            <MenuItem inset>\n              New File\n              <MenuShortcut>⌘N</MenuShortcut>\n            </MenuItem>\n\n            <MenuItem inset>\n              Open File\n              <MenuShortcut>⌘O</MenuShortcut>\n            </MenuItem>\n\n            <MenuItem inset disabled>\n              Save\n              <MenuShortcut>⌘S</MenuShortcut>\n            </MenuItem>\n\n            <MenuSubmenuRoot>\n              <MenuSubmenuTrigger inset>\n                Edit\n              </MenuSubmenuTrigger>\n\n              <MenuPortal>\n                <MenuPositioner>\n                  <MenuPopup className="w-48">\n                    <MenuItem>Cut</MenuItem>\n                    <MenuItem>Copy</MenuItem>\n                    <MenuItem>Paste</MenuItem>\n                    <MenuSeparator />\n                    <MenuItem>Find & Replace</MenuItem>\n                    <MenuSeparator />\n                    <MenuItem>Clear All</MenuItem>\n                  </MenuPopup>\n                </MenuPositioner>\n              </MenuPortal>\n            </MenuSubmenuRoot>\n\n            <MenuSeparator />\n\n            <MenuCheckboxItem inset defaultChecked>\n              Show Line Numbers\n            </MenuCheckboxItem>\n\n            <MenuCheckboxItem inset>\n              Word Wrap\n            </MenuCheckboxItem>\n\n            <MenuSeparator />\n\n            <MenuGroup>\n              <MenuRadioGroup defaultValue="dark">\n                <MenuGroupLabel inset>\n                  Themes\n                </MenuGroupLabel>\n\n                <MenuRadioItem inset value="light">\n                  Light Theme\n                </MenuRadioItem>\n\n                <MenuRadioItem inset value="dark">\n                  Dark Theme\n                </MenuRadioItem>\n\n                <MenuRadioItem inset value="auto">\n                  Auto Theme\n                </MenuRadioItem>\n              </MenuRadioGroup>\n            </MenuGroup>\n          </MenuPopup>\n        </MenuPositioner>\n      </MenuPortal>\n    </MenuRoot>\n  );\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-menu",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/menu/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-menu-with-alert-dialog": {
+		name: "baseui-particles-menu-with-alert-dialog",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-menu"],
+		files: [
+			{
+				path: "packages/baseui/particles/menu/with-alert-dialog/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/menu-with-alert-dialog.tsx",
+				content:
+					'import { useState } from "react";\nimport {\n\tMenuRoot,\n\tMenuTrigger,\n\tMenuPortal,\n\tMenuPositioner,\n\tMenuPopup,\n\tMenuItem,\n} from "@/components/baseui/components/menu";\nimport {\n\tAlertDialog,\n\tAlertDialogPortal,\n\tAlertDialogViewport,\n\tAlertDialogPopup,\n\tAlertDialogTitle,\n\tAlertDialogDescription,\n\tAlertDialogFooter,\n\tAlertDialogClose,\n} from "@/components/baseui/components/alert-dialog";\nimport { Button } from "@/components/baseui/components/button";\n\nexport function Particle() {\n\tconst [openDialog, setOpenDialog] = useState(false);\n\n\treturn (\n\t\t<>\n\t\t\t<MenuRoot>\n\t\t\t\t<MenuTrigger\n\t\t\t\t\trender={<Button variant="outline">Open Menu</Button>}\n\t\t\t\t/>\n\t\t\t\t<MenuPortal>\n\t\t\t\t\t<MenuPositioner>\n\t\t\t\t\t\t<MenuPopup>\n\t\t\t\t\t\t\t<MenuItem>Profile</MenuItem>\n\t\t\t\t\t\t\t<MenuItem>Billing</MenuItem>\n\t\t\t\t\t\t\t<MenuItem onClick={() => setOpenDialog(true)}>\n\t\t\t\t\t\t\t\tDelete account\n\t\t\t\t\t\t\t</MenuItem>\n\t\t\t\t\t\t</MenuPopup>\n\t\t\t\t\t</MenuPositioner>\n\t\t\t\t</MenuPortal>\n\t\t\t</MenuRoot>\n\n\t\t\t<AlertDialog open={openDialog} onOpenChange={setOpenDialog}>\n\t\t\t\t<AlertDialogPortal>\n\t\t\t\t\t<AlertDialogViewport>\n\t\t\t\t\t\t<AlertDialogPopup>\n\t\t\t\t\t\t\t<AlertDialogTitle>Delete account</AlertDialogTitle>\n\t\t\t\t\t\t\t<AlertDialogDescription>\n\t\t\t\t\t\t\t\tAre you sure you want to delete your account?\n\t\t\t\t\t\t\t</AlertDialogDescription>\n\n\t\t\t\t\t\t\t<AlertDialogFooter>\n\t\t\t\t\t\t\t\t<AlertDialogClose\n\t\t\t\t\t\t\t\t\trender={<Button variant="ghost" />}\n\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\tCancel\n\t\t\t\t\t\t\t\t</AlertDialogClose>\n\n\t\t\t\t\t\t\t\t<AlertDialogClose\n\t\t\t\t\t\t\t\t\trender={<Button variant="outline" />}\n\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\tConfirm\n\t\t\t\t\t\t\t\t</AlertDialogClose>\n\t\t\t\t\t\t\t</AlertDialogFooter>\n\t\t\t\t\t\t</AlertDialogPopup>\n\t\t\t\t\t</AlertDialogViewport>\n\t\t\t\t</AlertDialogPortal>\n\t\t\t</AlertDialog>\n\t\t</>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-menu-with-alert-dialog",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/menu/with-alert-dialog/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-menu-with-detached-triggers": {
+		name: "baseui-particles-menu-with-detached-triggers",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-menu"],
+		files: [
+			{
+				path: "packages/baseui/particles/menu/with-detached-triggers/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/menu-with-detached-triggers.tsx",
+				content:
+					'import { Button } from "@/components/baseui/components/button";\nimport {\n\tMenuRoot,\n\tMenuTrigger,\n\tMenuPortal,\n\tMenuPositioner,\n\tMenuPopup,\n\tMenuItem,\n\tMenuPrimitive,\n} from "@/components/baseui/components/menu";\n\nconst demoMenu = MenuPrimitive.createHandle();\n\nexport function Particle() {\n\treturn (\n\t\t<div>\n\t\t\t<MenuTrigger\n\t\t\t\thandle={demoMenu}\n\t\t\t\trender={<Button variant="outline">Open Menu</Button>}\n\t\t\t/>\n\n\t\t\t<MenuRoot handle={demoMenu}>\n\t\t\t\t<MenuPortal>\n\t\t\t\t\t<MenuPositioner>\n\t\t\t\t\t\t<MenuPopup>\n\t\t\t\t\t\t\t<MenuItem>Edit</MenuItem>\n\t\t\t\t\t\t\t<MenuItem>Share</MenuItem>\n\t\t\t\t\t\t\t<MenuItem>Delete</MenuItem>\n\t\t\t\t\t\t</MenuPopup>\n\t\t\t\t\t</MenuPositioner>\n\t\t\t\t</MenuPortal>\n\t\t\t</MenuRoot>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-menu-with-detached-triggers",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/menu/with-detached-triggers/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-menu-with-group": {
+		name: "baseui-particles-menu-with-group",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-menu"],
+		files: [
+			{
+				path: "packages/baseui/particles/menu/with-group/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/menu-with-group.tsx",
+				content:
+					'import { Button } from "@/components/baseui/components/button";\nimport {\n\tMenuRoot,\n\tMenuTrigger,\n\tMenuPortal,\n\tMenuPositioner,\n\tMenuPopup,\n\tMenuGroup,\n\tMenuGroupLabel,\n\tMenuItem,\n\tMenuSeparator,\n} from "@/components/baseui/components/menu";\n\nexport function Particle() {\n\treturn (\n\t\t<MenuRoot>\n\t\t\t<MenuTrigger\n\t\t\t\trender={<Button variant="outline">Open Menu</Button>}\n\t\t\t/>\n\t\t\t<MenuPortal>\n\t\t\t\t<MenuPositioner>\n\t\t\t\t\t<MenuPopup>\n\t\t\t\t\t\t<MenuGroup>\n\t\t\t\t\t\t\t<MenuGroupLabel>Account</MenuGroupLabel>\n\t\t\t\t\t\t\t<MenuItem>Profile</MenuItem>\n\t\t\t\t\t\t\t<MenuItem>Settings</MenuItem>\n\t\t\t\t\t\t</MenuGroup>\n\n\t\t\t\t\t\t<MenuSeparator />\n\n\t\t\t\t\t\t<MenuGroup>\n\t\t\t\t\t\t\t<MenuGroupLabel>Danger</MenuGroupLabel>\n\t\t\t\t\t\t\t<MenuItem>Logout</MenuItem>\n\t\t\t\t\t\t</MenuGroup>\n\t\t\t\t\t</MenuPopup>\n\t\t\t\t</MenuPositioner>\n\t\t\t</MenuPortal>\n\t\t</MenuRoot>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-menu-with-group",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/menu/with-group/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-menu-with-links": {
+		name: "baseui-particles-menu-with-links",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-menu"],
+		files: [
+			{
+				path: "packages/baseui/particles/menu/with-links/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/menu-with-links.tsx",
+				content:
+					'import { Button } from "@/components/baseui/components/button";\nimport {\n\tMenuRoot,\n\tMenuTrigger,\n\tMenuPortal,\n\tMenuPositioner,\n\tMenuPopup,\n\tMenuItem,\n} from "@/components/baseui/components/menu";\n\nexport function Particle() {\n\treturn (\n\t\t<MenuRoot>\n\t\t\t<MenuTrigger\n\t\t\t\trender={<Button variant="outline">Open Menu</Button>}\n\t\t\t/>\n\t\t\t<MenuPortal>\n\t\t\t\t<MenuPositioner>\n\t\t\t\t\t<MenuPopup>\n\t\t\t\t\t\t<MenuItem render={<a href="/">Home</a>} />\n\t\t\t\t\t\t<MenuItem\n\t\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t\t<a href="/docs/getting-started/introduction">\n\t\t\t\t\t\t\t\t\tDocs\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t/>\n\t\t\t\t\t</MenuPopup>\n\t\t\t\t</MenuPositioner>\n\t\t\t</MenuPortal>\n\t\t</MenuRoot>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-menu-with-links",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/menu/with-links/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-menu-with-multiple-triggers": {
+		name: "baseui-particles-menu-with-multiple-triggers",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-menu"],
+		files: [
+			{
+				path: "packages/baseui/particles/menu/with-multiple-triggers/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/menu-with-multiple-triggers.tsx",
+				content:
+					'import { Button } from "@/components/baseui/components/button";\nimport {\n\tMenuRoot,\n\tMenuTrigger,\n\tMenuPortal,\n\tMenuPositioner,\n\tMenuPopup,\n\tMenuItem,\n} from "@/components/baseui/components/menu";\nimport { EllipsisVertical } from "lucide-react";\n\nexport function Particle() {\n\treturn (\n\t\t<MenuRoot>\n\t\t\t<div className="flex items-center gap-1">\n\t\t\t\t<MenuTrigger\n\t\t\t\t\trender={<Button variant="outline">Open Menu</Button>}\n\t\t\t\t/>\n\t\t\t\t<MenuTrigger\n\t\t\t\t\trender={\n\t\t\t\t\t\t<Button variant="outline" size="icon">\n\t\t\t\t\t\t\t<EllipsisVertical />\n\t\t\t\t\t\t</Button>\n\t\t\t\t\t}\n\t\t\t\t/>\n\t\t\t</div>\n\n\t\t\t<MenuPortal>\n\t\t\t\t<MenuPositioner>\n\t\t\t\t\t<MenuPopup>\n\t\t\t\t\t\t<MenuItem>Edit</MenuItem>\n\t\t\t\t\t\t<MenuItem>Delete</MenuItem>\n\t\t\t\t\t</MenuPopup>\n\t\t\t\t</MenuPositioner>\n\t\t\t</MenuPortal>\n\t\t</MenuRoot>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-menu-with-multiple-triggers",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/menu/with-multiple-triggers/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-menu-with-submenu": {
+		name: "baseui-particles-menu-with-submenu",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-menu"],
+		files: [
+			{
+				path: "packages/baseui/particles/menu/with-submenu/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/menu-with-submenu.tsx",
+				content:
+					'import { Button } from "@/components/baseui/components/button";\nimport {\n\tMenuRoot,\n\tMenuTrigger,\n\tMenuPortal,\n\tMenuPositioner,\n\tMenuPopup,\n\tMenuItem,\n\tMenuSubmenuRoot,\n\tMenuSubmenuTrigger,\n} from "@/components/baseui/components/menu";\n\nexport function Particle() {\n\treturn (\n\t\t<MenuRoot>\n\t\t\t<MenuTrigger\n\t\t\t\trender={<Button variant="outline">Open Menu</Button>}\n\t\t\t/>\n\t\t\t<MenuPortal>\n\t\t\t\t<MenuPositioner>\n\t\t\t\t\t<MenuPopup>\n\t\t\t\t\t\t<MenuItem>Edit</MenuItem>\n\n\t\t\t\t\t\t<MenuSubmenuRoot>\n\t\t\t\t\t\t\t<MenuSubmenuTrigger>More</MenuSubmenuTrigger>\n\t\t\t\t\t\t\t<MenuPortal>\n\t\t\t\t\t\t\t\t<MenuPositioner>\n\t\t\t\t\t\t\t\t\t<MenuPopup>\n\t\t\t\t\t\t\t\t\t\t<MenuItem>Duplicate</MenuItem>\n\t\t\t\t\t\t\t\t\t\t<MenuItem>Archive</MenuItem>\n\t\t\t\t\t\t\t\t\t</MenuPopup>\n\t\t\t\t\t\t\t\t</MenuPositioner>\n\t\t\t\t\t\t\t</MenuPortal>\n\t\t\t\t\t\t</MenuSubmenuRoot>\n\t\t\t\t\t</MenuPopup>\n\t\t\t\t</MenuPositioner>\n\t\t\t</MenuPortal>\n\t\t</MenuRoot>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-menu-with-submenu",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/menu/with-submenu/index.tsx"
 				);
 				let Comp = mod.default;
 
