@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-menu-with-submenu",
+	"type": "registry:component",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-menu"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/menu/with-submenu/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/particles/menu-with-submenu.tsx"
+		}
+	]
+}

@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-menu-checkbox-items",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-menu"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/menu/checkbox-items/index.tsx",
+			"content": "import { Button } from \"@/components/baseui/components/button\";\nimport {\n\tMenuRoot,\n\tMenuTrigger,\n\tMenuPortal,\n\tMenuPositioner,\n\tMenuPopup,\n\tMenuCheckboxItem,\n} from \"@/components/baseui/components/menu\";\n\nexport function Particle() {\n\treturn (\n\t\t<MenuRoot>\n\t\t\t<MenuTrigger\n\t\t\t\trender={<Button variant=\"outline\">Open Menu</Button>}\n\t\t\t/>\n\t\t\t<MenuPortal>\n\t\t\t\t<MenuPositioner>\n\t\t\t\t\t<MenuPopup>\n\t\t\t\t\t\t<MenuCheckboxItem defaultChecked>\n\t\t\t\t\t\t\tShow line numbers\n\t\t\t\t\t\t</MenuCheckboxItem>\n\t\t\t\t\t\t<MenuCheckboxItem>Enable autosave</MenuCheckboxItem>\n\t\t\t\t\t</MenuPopup>\n\t\t\t\t</MenuPositioner>\n\t\t\t</MenuPortal>\n\t\t</MenuRoot>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/menu-checkbox-items.tsx"
+		}
+	],
+	"type": "registry:component"
+}

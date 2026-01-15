@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-menu",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-menu"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/menu/index.tsx",
+			"content": "import { Button } from \"@/components/baseui/components/button\";\nimport {\n  MenuRoot,\n  MenuTrigger,\n  MenuPortal,\n  MenuPositioner,\n  MenuPopup,\n  MenuItem,\n  MenuSeparator,\n  MenuShortcut,\n  MenuSubmenuRoot,\n  MenuSubmenuTrigger,\n  MenuCheckboxItem,\n  MenuGroup,\n  MenuGroupLabel,\n  MenuRadioGroup,\n  MenuRadioItem,\n} from \"@/components/baseui/components/menu\";\n\nexport default function Particle() {\n  return (\n    <MenuRoot>\n      <MenuTrigger\n        render={<Button variant=\"outline\">Open Menu</Button>}\n      />\n\n      <MenuPortal>\n        <MenuPositioner>\n          <MenuPopup className=\"w-56\">\n            <MenuItem inset>\n              New File\n              <MenuShortcut>⌘N</MenuShortcut>\n            </MenuItem>\n\n            <MenuItem inset>\n              Open File\n              <MenuShortcut>⌘O</MenuShortcut>\n            </MenuItem>\n\n            <MenuItem inset disabled>\n              Save\n              <MenuShortcut>⌘S</MenuShortcut>\n            </MenuItem>\n\n            <MenuSubmenuRoot>\n              <MenuSubmenuTrigger inset>\n                Edit\n              </MenuSubmenuTrigger>\n\n              <MenuPortal>\n                <MenuPositioner>\n                  <MenuPopup className=\"w-48\">\n                    <MenuItem>Cut</MenuItem>\n                    <MenuItem>Copy</MenuItem>\n                    <MenuItem>Paste</MenuItem>\n                    <MenuSeparator />\n                    <MenuItem>Find & Replace</MenuItem>\n                    <MenuSeparator />\n                    <MenuItem>Clear All</MenuItem>\n                  </MenuPopup>\n                </MenuPositioner>\n              </MenuPortal>\n            </MenuSubmenuRoot>\n\n            <MenuSeparator />\n\n            <MenuCheckboxItem inset defaultChecked>\n              Show Line Numbers\n            </MenuCheckboxItem>\n\n            <MenuCheckboxItem inset>\n              Word Wrap\n            </MenuCheckboxItem>\n\n            <MenuSeparator />\n\n            <MenuGroup>\n              <MenuRadioGroup defaultValue=\"dark\">\n                <MenuGroupLabel inset>\n                  Themes\n                </MenuGroupLabel>\n\n                <MenuRadioItem inset value=\"light\">\n                  Light Theme\n                </MenuRadioItem>\n\n                <MenuRadioItem inset value=\"dark\">\n                  Dark Theme\n                </MenuRadioItem>\n\n                <MenuRadioItem inset value=\"auto\">\n                  Auto Theme\n                </MenuRadioItem>\n              </MenuRadioGroup>\n            </MenuGroup>\n          </MenuPopup>\n        </MenuPositioner>\n      </MenuPortal>\n    </MenuRoot>\n  );\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/menu.tsx"
+		}
+	],
+	"type": "registry:component"
+}

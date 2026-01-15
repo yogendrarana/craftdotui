@@ -1000,6 +1000,20 @@
 			]
 		},
 		{
+			"name": "baseui-menu",
+			"type": "registry:component",
+			"description": "A Base UI menu component",
+			"dependencies": ["@base-ui/react"],
+			"registryDependencies": ["@craftdotui/utils"],
+			"files": [
+				{
+					"path": "packages/baseui/components/menu/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/menu.tsx"
+				}
+			]
+		},
+		{
 			"name": "baseui-meter",
 			"type": "registry:component",
 			"description": "A Base UI meter component",
@@ -1939,6 +1953,174 @@
 					"path": "packages/baseui/particles/input/with-field/index.tsx",
 					"type": "registry:component",
 					"target": "components/baseui/particles/inputp-with-field.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-menu-checkbox-items",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-menu"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/menu/checkbox-items/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/menu-checkbox-items.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-menu-close-on-click",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-menu"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/menu/close-on-click/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/menu-close-on-click.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-menu-controlled",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-menu"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/menu/controlled/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/menu-controlled.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-menu-hover",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-menu"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/menu/hover/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/menu-hover.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-menu-radio-items",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-menu"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/menu/radio-items/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/menu-radio-items.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-menu",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-menu"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/menu/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/menu.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-menu-with-alert-dialog",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-menu"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/menu/with-alert-dialog/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/menu-with-alert-dialog.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-menu-with-detached-triggers",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-menu"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/menu/with-detached-triggers/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/menu-with-detached-triggers.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-menu-with-group",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-menu"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/menu/with-group/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/menu-with-group.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-menu-with-links",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-menu"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/menu/with-links/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/menu-with-links.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-menu-with-multiple-triggers",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-menu"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/menu/with-multiple-triggers/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/menu-with-multiple-triggers.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-menu-with-submenu",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-menu"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/menu/with-submenu/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/menu-with-submenu.tsx"
 				}
 			]
 		},
