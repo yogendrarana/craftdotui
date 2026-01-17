@@ -3606,6 +3606,55 @@ export const Registry: Record<string, any> = {
 			return LazyComp;
 		})(),
 	},
+	"baseui-navigation-menu": {
+		name: "baseui-navigation-menu",
+		description: "A Base UI navigation menu component",
+		type: "registry:component",
+		dependencies: ["@base-ui/react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/utils"],
+		files: [
+			{
+				path: "packages/baseui/components/navigation-menu/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/navigation-menu.tsx",
+				content:
+					'"use client";\n\nimport type { CSSProperties } from "react";\nimport { cva } from "class-variance-authority";\nimport { NavigationMenu as NavigationMenuPrimitive } from "@base-ui/react/navigation-menu";\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Navigation Menu Root                                                        */\n/* -------------------------------------------------------------------------- */\n\nfunction NavigationMenuRoot({ ...props }: NavigationMenuPrimitive.Root.Props) {\n\treturn (\n\t\t<NavigationMenuPrimitive.Root\n\t\t\tdata-slot="navigation-menu-root"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Navigation Menu List                                                        */\n/* -------------------------------------------------------------------------- */\n\nfunction NavigationMenuList({\n\tclassName,\n\t...props\n}: NavigationMenuPrimitive.List.Props) {\n\treturn (\n\t\t<NavigationMenuPrimitive.List\n\t\t\tdata-slot="navigation-menu-list"\n\t\t\tclassName={cn("relative flex items-center", className)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Navigation Menu Item                                                        */\n/* -------------------------------------------------------------------------- */\n\nfunction NavigationMenuItem(props: NavigationMenuPrimitive.Item.Props) {\n\treturn (\n\t\t<NavigationMenuPrimitive.Item\n\t\t\tdata-slot="navigation-menu-item"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Navigation Menu Trigger                                                    */\n/* -------------------------------------------------------------------------- */\n\nfunction NavigationMenuTrigger({\n\tclassName,\n\t...props\n}: NavigationMenuPrimitive.Trigger.Props) {\n\treturn (\n\t\t<NavigationMenuPrimitive.Trigger\n\t\t\tdata-slot="navigation-menu-trigger"\n\t\t\tclassName={cn(\n\t\t\t\t"relative min-h-10 px-4 py-2 m-0 flex items-center justify-center gap-1.5",\n\t\t\t\t"text-sm box-border transition-colors rounded-md",\n\t\t\t\t"hover:bg-accent hover:text-accent-foreground",\n\t\t\t\t"focus-visible:bg-accent focus-visible:text-accent-foreground focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-1 focus-visible:outline-primary focus-visible:relative",\n\t\t\t\t"data-[popup-open]:bg-accent data-[popup-open]:text-accent-foreground",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Navigation Menu Content                                                     */\n/* -------------------------------------------------------------------------- */\n\nfunction NavigationMenuContent({\n\tclassName,\n\t...props\n}: NavigationMenuPrimitive.Content.Props) {\n\treturn (\n\t\t<NavigationMenuPrimitive.Content\n\t\t\tdata-slot="navigation-menu-content"\n\t\t\tclassName={cn(\n\t\t\t\t"w-full",\n\t\t\t\t"transition-[opacity,transform,translate] duration-[var(--duration)] ease-[var(--easing)] ",\n\t\t\t\t"data-[starting-style]:opacity-0 data-[ending-style]:opacity-0 ",\n\t\t\t\t"data-[starting-style]:data-[activation-direction=left]:translate-x-[-50%] ",\n\t\t\t\t"data-[starting-style]:data-[activation-direction=right]:translate-x-[50%] ",\n\t\t\t\t"data-[ending-style]:data-[activation-direction=left]:translate-x-[50%] ",\n\t\t\t\t"data-[ending-style]:data-[activation-direction=right]:translate-x-[-50%]",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Navigation Menu Link                                                       */\n/* -------------------------------------------------------------------------- */\n\nconst navigationMenuLinkStyle = cva([\n\t"p-2 flex flex-col items-start text-start gap-1 rounded-sm text-sm transition-all outline-none",\n\t"hover:bg-accent hover:text-accent-foreground",\n\t"data-active:focus:bg-accent data-active:hover:bg-accent data-active:bg-accent/50 data-active:text-accent-foreground",\n\t"focus-visible:bg-accent focus-visible:text-accent-foreground focus-visible:relative focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-1 focus-visible:outline-primary",\n]);\n\nfunction NavigationMenuLink({\n\tclassName,\n\t...props\n}: NavigationMenuPrimitive.Link.Props) {\n\treturn (\n\t\t<NavigationMenuPrimitive.Link\n\t\t\tdata-slot="navigation-menu-link"\n\t\t\tclassName={cn(navigationMenuLinkStyle(), className)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Navigation Menu Icon                                                        */\n/* -------------------------------------------------------------------------- */\n\nfunction NavigationMenuIcon({\n\tclassName,\n\t...props\n}: NavigationMenuPrimitive.Icon.Props) {\n\treturn (\n\t\t<NavigationMenuPrimitive.Icon\n\t\t\tdata-slot="navigation-menu-icon"\n\t\t\tclassName={cn(\n\t\t\t\t"transition-transform duration-200 ease-in-out data-[popup-open]:rotate-180",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Navigation Menu Portal                                                      */\n/* -------------------------------------------------------------------------- */\n\nfunction NavigationMenuPortal(props: NavigationMenuPrimitive.Portal.Props) {\n\treturn (\n\t\t<NavigationMenuPrimitive.Portal\n\t\t\tdata-slot="navigation-menu-portal"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Navigation Menu Backdrop                                                    */\n/* -------------------------------------------------------------------------- */\n\nfunction NavigationMenuBackdrop({\n\tclassName,\n\t...props\n}: NavigationMenuPrimitive.Backdrop.Props) {\n\treturn (\n\t\t<NavigationMenuPrimitive.Backdrop\n\t\t\tdata-slot="navigation-menu-backdrop"\n\t\t\tclassName={cn(\n\t\t\t\t"fixed inset-0 z-50 bg-background/80 backdrop-blur-sm",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Navigation Menu Positioner                                                  */\n/* -------------------------------------------------------------------------- */\n\nfunction NavigationMenuPositioner({\n\tclassName,\n\tsideOffset = 10,\n\tstyle,\n\t...props\n}: NavigationMenuPrimitive.Positioner.Props) {\n\treturn (\n\t\t<NavigationMenuPrimitive.Positioner\n\t\t\tdata-slot="navigation-menu-positioner"\n\t\t\tsideOffset={sideOffset}\n\t\t\tcollisionPadding={{ top: 5, bottom: 5, left: 20, right: 20 }}\n\t\t\tcollisionAvoidance={{ side: "none" }}\n\t\t\tclassName={cn(\n\t\t\t\t"h-(--positioner-height) max-h-(--available-height) w-(--positioner-width) max-w-(--available-width)",\n\t\t\t\t"box-border z-50 transition-[top,left,right,bottom] duration-(--duration) ease-(--easing)",\n\t\t\t\t"before:absolute before:content-[\'\']",\n\t\t\t\t"data-[instant]:transition-none",\n\t\t\t\t"data-[side=bottom]:before:top-[-10px] data-[side=bottom]:before:right-0 data-[side=bottom]:before:left-0 data-[side=bottom]:before:h-2.5",\n\t\t\t\t"data-[side=left]:before:top-0 data-[side=left]:before:right-[-10px] data-[side=left]:before:bottom-0 data-[side=left]:before:w-2.5",\n\t\t\t\t"data-[side=right]:before:top-0 data-[side=right]:before:bottom-0 data-[side=right]:before:left-[-10px] data-[side=right]:before:w-2.5",\n\t\t\t\t"data-[side=top]:before:right-0 data-[side=top]:before:bottom-[-10px] data-[side=top]:before:left-0 data-[side=top]:before:h-2.5",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tstyle={\n\t\t\t\t{\n\t\t\t\t\t"--duration": "0.35s",\n\t\t\t\t\t"--easing": "cubic-bezier(0.22, 1, 0.36, 1)",\n\t\t\t\t\t...style,\n\t\t\t\t} as unknown as CSSProperties\n\t\t\t}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Navigation Menu Popup                                                      */\n/* -------------------------------------------------------------------------- */\n\nfunction NavigationMenuPopup({\n\tclassName,\n\tchildren,\n\t...props\n}: NavigationMenuPrimitive.Popup.Props) {\n\treturn (\n\t\t<NavigationMenuPrimitive.Popup\n\t\t\tdata-slot="navigation-menu-popup"\n\t\t\tclassName={cn(\n\t\t\t\t"h-(--popup-height) w-(--popup-width) p-3",\n\t\t\t\t"relative origin-(--transform-origin) rounded-lg bg-popover text-popover-foreground shadow-lg border border-border",\n\t\t\t\t"transition-[opacity,transform,width,height,scale,translate] duration-(--duration) ease-(--easing)",\n\t\t\t\t"data-[starting-style]:scale-90 data-[starting-style]:opacity-0",\n\t\t\t\t"data-[ending-style]:scale-90 data-[ending-style]:opacity-0 data-[ending-style]:duration-150 data-[ending-style]:ease",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t{children}\n\t\t\t<NavigationMenuViewport />\n\t\t</NavigationMenuPrimitive.Popup>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Navigation Menu Arrow                                                       */\n/* -------------------------------------------------------------------------- */\n\nfunction NavigationMenuArrow({\n\tclassName,\n\t...props\n}: NavigationMenuPrimitive.Arrow.Props) {\n\treturn (\n\t\t<NavigationMenuPrimitive.Arrow\n\t\t\tclassName={cn(\n\t\t\t\t"flex bg-background",\n\t\t\t\t"data-[side=top]:-bottom-2 data-[side=top]:rotate-180",\n\t\t\t\t"data-[side=left]:right-[-11px] data-[side=left]:rotate-90",\n\t\t\t\t"data-[side=bottom]:-top-2 data-[side=bottom]:rotate-0",\n\t\t\t\t"data-[side=right]:left-[-11px] data-[side=right]:-rotate-90",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t<svg width="12" height="6" viewBox="0 0 12 6">\n\t\t\t\t<title>Navigation Menu Arrow</title>\n\t\t\t\t<path d="M0 6L6 0L12 6Z" className="fill-background" />\n\t\t\t\t<path d="M0 6L6 0L12 6Z" className="fill-none stroke-border" />\n\t\t\t</svg>\n\t\t</NavigationMenuPrimitive.Arrow>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Navigation Menu Viewport                                                    */\n/* -------------------------------------------------------------------------- */\n\nfunction NavigationMenuViewport({\n\tclassName,\n\t...props\n}: NavigationMenuPrimitive.Viewport.Props) {\n\treturn (\n\t\t<NavigationMenuPrimitive.Viewport\n\t\t\tdata-slot="navigation-menu-viewport"\n\t\t\tclassName={cn("relative h-full w-full overflow-hidden", className)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport {\n\tNavigationMenuRoot,\n\tNavigationMenuList,\n\tNavigationMenuItem,\n\tNavigationMenuTrigger,\n\tNavigationMenuContent,\n\tNavigationMenuLink,\n\tNavigationMenuIcon,\n\tNavigationMenuPortal,\n\tNavigationMenuBackdrop,\n\tNavigationMenuPositioner,\n\tNavigationMenuPopup,\n\tNavigationMenuArrow,\n\tNavigationMenuViewport,\n\tNavigationMenuPrimitive,\n\tnavigationMenuLinkStyle,\n};',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-navigation-menu",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/components/navigation-menu/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
 	"baseui-number-field": {
 		name: "baseui-number-field",
 		description: "A Base UI number field component",
@@ -7571,6 +7620,55 @@ export const Registry: Record<string, any> = {
 			const LazyComp = React.lazy(async () => {
 				const mod = await import(
 					"@craftdotui/baseui/particles/meter/without-label/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-navigation-menu": {
+		name: "baseui-particles-navigation-menu",
+		description: "A Base UI navigation menu component",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-navigation-menu"],
+		files: [
+			{
+				path: "packages/baseui/particles/navigation-menu/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/navigation-menu.tsx",
+				content:
+					'"use client";\n\nimport { ChevronDown, ChevronRight } from "lucide-react";\nimport {\n\tNavigationMenuRoot,\n\tNavigationMenuList,\n\tNavigationMenuItem,\n\tNavigationMenuTrigger,\n\tNavigationMenuContent,\n\tNavigationMenuLink,\n\tNavigationMenuPortal,\n\tNavigationMenuPositioner,\n\tNavigationMenuPopup,\n\tNavigationMenuArrow,\n\tNavigationMenuIcon,\n\tnavigationMenuLinkStyle,\n} from "@/components/baseui/components/navigation-menu";\nimport { cn } from "@/lib/utils";\n\nconst homeLinks = [\n\t{\n\t\thref: "/docs/getting-started/introduction",\n\t\ttitle: "Introduction",\n\t\tdescription:\n\t\t\t"Re-usable components built using Base UI and Tailwind CSS.",\n\t},\n\t{\n\t\thref: "/docs/getting-started/installation",\n\t\ttitle: "Installation",\n\t\tdescription: "How to install dependencies and structure your app.",\n\t},\n] as const;\n\nconst componentLinks = [\n\t{\n\t\thref: "/docs/baseui/components/accordion",\n\t\ttitle: "Accordion",\n\t\tdescription: "Collapsible panels with multiple variants and states.",\n\t},\n\t{\n\t\thref: "/docs/baseui/components/button",\n\t\ttitle: "Button",\n\t\tdescription: "Action buttons with multiple variants and states.",\n\t},\n\t{\n\t\thref: "/docs/baseui/components/card",\n\t\ttitle: "Card",\n\t\tdescription: "Content containers with flexible layouts.",\n\t},\n\t{\n\t\thref: "/docs/baseui/components/tooltip",\n\t\ttitle: "Tooltip",\n\t\tdescription: "Accessible tooltip component.",\n\t},\n] as const;\n\nexport default function Particle() {\n\treturn (\n\t\t<NavigationMenuRoot>\n\t\t\t<NavigationMenuList>\n\t\t\t\t<NavigationMenuItem>\n\t\t\t\t\t<NavigationMenuTrigger>\n\t\t\t\t\t\tHome\n\t\t\t\t\t\t<NavigationMenuIcon>\n\t\t\t\t\t\t\t<ChevronDown className="size-4" />\n\t\t\t\t\t\t</NavigationMenuIcon>\n\t\t\t\t\t</NavigationMenuTrigger>\n\n\t\t\t\t\t<NavigationMenuContent>\n\t\t\t\t\t\t<ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">\n\t\t\t\t\t\t\t<li className="row-span-3">\n\t\t\t\t\t\t\t\t<NavigationMenuLink\n\t\t\t\t\t\t\t\t\thref="/"\n\t\t\t\t\t\t\t\t\tclassName={\n\t\t\t\t\t\t\t\t\t\t"from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-6 no-underline outline-hidden select-none focus:shadow-md"\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t<div className="mt-4 mb-2 text-lg font-medium">\n\t\t\t\t\t\t\t\t\t\tCraftUI\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<p className="text-muted-foreground text-sm leading-tight">\n\t\t\t\t\t\t\t\t\t\tA collection of components built with\n\t\t\t\t\t\t\t\t\t\tReact.js and Tailwind CSS.\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</NavigationMenuLink>\n\t\t\t\t\t\t\t</li>\n\n\t\t\t\t\t\t\t{homeLinks.map((item) => (\n\t\t\t\t\t\t\t\t<li key={item.href}>\n\t\t\t\t\t\t\t\t\t<NavigationMenuLink\n\t\t\t\t\t\t\t\t\t\thref={item.href}\n\t\t\t\t\t\t\t\t\t\tclassName="block p-3 leading-none rounded-md focus:bg-accent focus:shadow-md"\n\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\t<h3>{item.title}</h3>\n\t\t\t\t\t\t\t\t\t\t<p className="text-muted-foreground text-sm">\n\t\t\t\t\t\t\t\t\t\t\t{item.description}\n\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t</NavigationMenuLink>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t))}\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</NavigationMenuContent>\n\t\t\t\t</NavigationMenuItem>\n\n\t\t\t\t<NavigationMenuItem>\n\t\t\t\t\t<NavigationMenuTrigger>\n\t\t\t\t\t\tDocs\n\t\t\t\t\t\t<NavigationMenuIcon>\n\t\t\t\t\t\t\t<ChevronDown className="size-4" />\n\t\t\t\t\t\t</NavigationMenuIcon>\n\t\t\t\t\t</NavigationMenuTrigger>\n\n\t\t\t\t\t<NavigationMenuContent>\n\t\t\t\t\t\t<ul className="max-w-[400px] flex flex-col justify-center whitespace-normal">\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t<NavigationMenuLink href="/docs/hooks/use-confetti">\n\t\t\t\t\t\t\t\t\t<h3>Hooks</h3>\n\t\t\t\t\t\t\t\t\t<p className="text-muted-foreground text-sm">\n\t\t\t\t\t\t\t\t\t\tRe-usable hooks built for React.js.\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</NavigationMenuLink>\n\t\t\t\t\t\t\t</li>\n\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t<NavigationMenuRoot>\n\t\t\t\t\t\t\t\t\t<NavigationMenuList>\n\t\t\t\t\t\t\t\t\t\t<NavigationMenuItem>\n\t\t\t\t\t\t\t\t\t\t\t<NavigationMenuTrigger\n\t\t\t\t\t\t\t\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t\t\t\t\t\t\t\tnavigationMenuLinkStyle(),\n\t\t\t\t\t\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\t\t\t<h3 className="flex gap-1 items-center">\n\t\t\t\t\t\t\t\t\t\t\t\t\tComponents\n\t\t\t\t\t\t\t\t\t\t\t\t\t<NavigationMenuIcon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<ChevronRight className="size-4" />\n\t\t\t\t\t\t\t\t\t\t\t\t\t</NavigationMenuIcon>\n\t\t\t\t\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t<p className="text-muted-foreground text-sm text-start">\n\t\t\t\t\t\t\t\t\t\t\t\t\tRe-usable components built\n\t\t\t\t\t\t\t\t\t\t\t\t\tusing Base UI and Tailwind\n\t\t\t\t\t\t\t\t\t\t\t\t\tCSS.\n\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t</NavigationMenuTrigger>\n\n\t\t\t\t\t\t\t\t\t\t\t<NavigationMenuContent>\n\t\t\t\t\t\t\t\t\t\t\t\t<ul className="max-w-[300px] flex flex-col justify-center">\n\t\t\t\t\t\t\t\t\t\t\t\t\t{componentLinks.map(\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t(item) => (\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li key={item.href}>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<NavigationMenuLink\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\thref={\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\titem.href\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\titem.title\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p className="text-muted-foreground text-sm">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\titem.description\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</NavigationMenuLink>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t),\n\t\t\t\t\t\t\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t\t\t\t\t</NavigationMenuContent>\n\t\t\t\t\t\t\t\t\t\t</NavigationMenuItem>\n\t\t\t\t\t\t\t\t\t</NavigationMenuList>\n\n\t\t\t\t\t\t\t\t\t<NavigationMenuPortal>\n\t\t\t\t\t\t\t\t\t\t<NavigationMenuPositioner\n\t\t\t\t\t\t\t\t\t\t\tside="right"\n\t\t\t\t\t\t\t\t\t\t\talign="start"\n\t\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\t\t<NavigationMenuPopup />\n\t\t\t\t\t\t\t\t\t\t</NavigationMenuPositioner>\n\t\t\t\t\t\t\t\t\t</NavigationMenuPortal>\n\t\t\t\t\t\t\t\t</NavigationMenuRoot>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</NavigationMenuContent>\n\t\t\t\t</NavigationMenuItem>\n\n\t\t\t\t<NavigationMenuItem>\n\t\t\t\t\t<NavigationMenuLink\n\t\t\t\t\t\thref="https://github.com/yogendrarana/craftdotui"\n\t\t\t\t\t\tclassName="p-2 rounded-md"\n\t\t\t\t\t\ttarget="_blank"\n\t\t\t\t\t\trel="noopener noreferrer"\n\t\t\t\t\t>\n\t\t\t\t\t\tGitHub\n\t\t\t\t\t\t<span className="sr-only">\n\t\t\t\t\t\t\t- CraftUI GitHub repository (opens in new tab)\n\t\t\t\t\t\t</span>\n\t\t\t\t\t</NavigationMenuLink>\n\t\t\t\t</NavigationMenuItem>\n\t\t\t</NavigationMenuList>\n\n\t\t\t<NavigationMenuPortal>\n\t\t\t\t<NavigationMenuPositioner>\n\t\t\t\t\t<NavigationMenuPopup>\n\t\t\t\t\t\t<NavigationMenuArrow />\n\t\t\t\t\t</NavigationMenuPopup>\n\t\t\t\t</NavigationMenuPositioner>\n\t\t\t</NavigationMenuPortal>\n\t\t</NavigationMenuRoot>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-navigation-menu",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/navigation-menu/index.tsx"
 				);
 				let Comp = mod.default;
 
