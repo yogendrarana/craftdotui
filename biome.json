@@ -20,7 +20,8 @@
 			"recommended": true,
 			"a11y": {
 				"noStaticElementInteractions": "off",
-				"useSemanticElements": "info"
+				"useSemanticElements": "info",
+				"useAnchorContent": "off"
 			},
 			"suspicious": {
 				"noArrayIndexKey": "off"

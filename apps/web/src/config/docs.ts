@@ -153,6 +153,10 @@ export const docsNavItems: Array<DocsNavItem> = [
 				href: "/docs/baseui/components/meter",
 			},
 			{
+				title: "Navigation Menu",
+				href: "/docs/baseui/components/navigation-menu",
+			},
+			{
 				title: "Number Field",
 				href: "/docs/baseui/components/number-field",
 			},

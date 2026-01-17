@@ -1042,6 +1042,20 @@
 			]
 		},
 		{
+			"name": "baseui-navigation-menu",
+			"type": "registry:component",
+			"description": "A Base UI navigation menu component",
+			"dependencies": ["@base-ui/react"],
+			"registryDependencies": ["@craftdotui/utils"],
+			"files": [
+				{
+					"path": "packages/baseui/components/navigation-menu/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/navigation-menu.tsx"
+				}
+			]
+		},
+		{
 			"name": "baseui-number-field",
 			"type": "registry:component",
 			"description": "A Base UI number field component",
@@ -2191,6 +2205,20 @@
 					"path": "packages/baseui/particles/meter/without-label/index.tsx",
 					"type": "registry:component",
 					"target": "components/baseui/particles/meter-without-label.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-navigation-menu",
+			"type": "registry:component",
+			"description": "A Base UI navigation menu component",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-navigation-menu"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/navigation-menu/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/navigation-menu.tsx"
 				}
 			]
 		},

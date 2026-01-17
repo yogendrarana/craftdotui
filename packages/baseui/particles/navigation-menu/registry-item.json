@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-navigation-menu",
+	"type": "registry:component",
+	"description": "A Base UI navigation menu component",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-navigation-menu"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/navigation-menu/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/particles/navigation-menu.tsx"
+		}
+	]
+}
