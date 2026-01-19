@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-toolbar",
+	"type": "registry:component",
+	"description": "A Base UI toolbar component",
+	"dependencies": ["@base-ui/react", "lucide-react"],
+	"registryDependencies": ["@craftdotui/utils"],
+	"files": [
+		{
+			"path": "packages/baseui/components/toolbar/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/components/toolbar.tsx"
+		}
+	]
+}

@@ -13,13 +13,14 @@ const inputVariants = cva(
 		"relative",
 		"w-full min-w-0 bg-background border border-border rounded-md outline-none inline-flex",
 		"transition-all duration-200 ease-in-out",
-		"focus-visible:ring-2 focus-visible:ring-ring/20 focus-visible:ring-offset-1",
 		"placeholder:text-muted-foreground/80 disabled:cursor-not-allowed",
 	],
 	{
 		variants: {
 			variant: {
-				unstyled: "border-0 bg-transparent rounded-none focus:ring-0",
+				default:
+					"focus-visible:ring-2 focus-visible:ring-ring/20 focus-visible:ring-offset-1",
+				ghost: "border-0 bg-transparent rounded-none focus:ring-0",
 			},
 			size: {
 				sm: "h-7 px-2 text-sm leading-7",
@@ -29,6 +30,7 @@ const inputVariants = cva(
 		},
 		defaultVariants: {
 			size: "md",
+			variant: "default",
 		},
 	},
 );

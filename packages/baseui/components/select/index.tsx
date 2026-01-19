@@ -91,7 +91,11 @@ function SelectTrigger({
 	}) {
 	return (
 		<SelectPrimitive.Trigger
-			className={cn(selectTriggerVariants({ size, variant }), className)}
+			className={cn(
+				selectTriggerVariants({ size, variant }),
+				"w-50",
+				className,
+			)}
 			data-slot="select-trigger"
 			{...props}
 		>

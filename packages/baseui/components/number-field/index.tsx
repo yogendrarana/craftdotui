@@ -90,17 +90,23 @@ function NumberFieldGroup({
 
 type NumberFieldInputProps = Omit<NumberFieldPrimitive.Input.Props, "size"> & {
 	size?: VariantProps<typeof inputVariants>["size"];
+	variant?: VariantProps<typeof inputVariants>["variant"];
 };
 
 function NumberFieldInput({
 	className,
 	size = "md",
+	variant = "default",
 	...props
 }: NumberFieldInputProps) {
 	return (
 		<NumberFieldPrimitive.Input
 			data-slot="number-field-input"
-			className={cn(inputVariants({ size }), className)}
+			className={cn(
+				inputVariants({ size, variant }),
+				"text-center",
+				className,
+			)}
 			{...props}
 		/>
 	);
@@ -129,8 +135,8 @@ function NumberFieldIncrement({
 			data-slot="number-field-increment"
 			className={cn(
 				buttonVariants({
-					variant: "outline",
-					size: "icon",
+					variant,
+					size,
 					className,
 				}),
 			)}
@@ -164,8 +170,8 @@ function NumberFieldDecrement({
 			data-slot="number-field-decrement"
 			className={cn(
 				buttonVariants({
-					variant: "outline",
-					size: "icon",
+					variant,
+					size,
 					className,
 				}),
 			)}
