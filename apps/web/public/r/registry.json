@@ -1245,6 +1245,20 @@
 			]
 		},
 		{
+			"name": "baseui-toolbar",
+			"type": "registry:component",
+			"description": "A Base UI toolbar component",
+			"dependencies": ["@base-ui/react", "lucide-react"],
+			"registryDependencies": ["@craftdotui/utils"],
+			"files": [
+				{
+					"path": "packages/baseui/components/toolbar/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/toolbar.tsx"
+				}
+			]
+		},
+		{
 			"name": "baseui-tooltip",
 			"type": "registry:component",
 			"description": "A Base UI tooltip component",
@@ -3076,6 +3090,20 @@
 					"path": "packages/baseui/particles/toggle-group/vertical/index.tsx",
 					"type": "registry:component",
 					"target": "components/baseui/particles/toggle-group-vertical.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-toolbar",
+			"type": "registry:component",
+			"description": "A Base UI toolbar component",
+			"dependencies": ["@base-ui/react", "lucide-react"],
+			"registryDependencies": ["@craftdotui/utils"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/toolbar/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/toolbar.tsx"
 				}
 			]
 		},

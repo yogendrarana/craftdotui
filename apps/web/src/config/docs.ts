@@ -209,6 +209,10 @@ export const docsNavItems: Array<DocsNavItem> = [
 				href: "/docs/baseui/components/toggle-group",
 			},
 			{
+				title: "Toolbar",
+				href: "/docs/baseui/components/toolbar",
+			},
+			{
 				title: "Tooltip",
 				href: "/docs/baseui/components/tooltip",
 			},
