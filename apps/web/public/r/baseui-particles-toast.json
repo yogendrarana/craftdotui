@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-toast",
+	"description": "Comprehensive toast demo with positioning and types",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/baseui-toast",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/baseui/particles/toast/index.tsx",
+			"content": "\"use client\";\n\nimport { Button } from \"@/components/baseui/components/button\";\nimport { toastManager } from \"@/components/baseui/components/toast\";\n\nexport default function Particle() {\n\treturn (\n\t\t<Button\n\t\t\tvariant=\"outline\"\n\t\t\tsize=\"sm\"\n\t\t\tonClick={() => {\n\t\t\t\ttoastManager.add({\n\t\t\t\t\ttitle: \"Toast Title\",\n\t\t\t\t\tdescription: \"Toast description goes here\",\n\t\t\t\t});\n\t\t\t}}\n\t\t>\n\t\t\tClick Here\n\t\t</Button>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/toast.tsx"
+		}
+	],
+	"type": "registry:component"
+}

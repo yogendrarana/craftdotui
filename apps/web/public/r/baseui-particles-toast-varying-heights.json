@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-toast-varying-heights",
+	"description": "Toast with varying heights example",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/baseui-toast",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/baseui/particles/toast/varying-heights/index.tsx",
+			"content": "\"use client\";\n\nimport { Button } from \"@/components/baseui/components/button\";\nimport { toastManager } from \"@/components/baseui/components/toast\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"flex justify-center gap-2\">\n\t\t\t<Button\n\t\t\t\tvariant=\"outline\"\n\t\t\t\tonClick={() => {\n\t\t\t\t\ttoastManager.add({\n\t\t\t\t\t\ttitle: \"Short Toast\",\n\t\t\t\t\t\tdescription: \"A simple notification.\",\n\t\t\t\t\t});\n\t\t\t\t}}\n\t\t\t>\n\t\t\t\tShort\n\t\t\t</Button>\n\t\t\t<Button\n\t\t\t\tvariant=\"outline\"\n\t\t\t\tonClick={() => {\n\t\t\t\t\ttoastManager.add({\n\t\t\t\t\t\ttitle: \"Tall Toast\",\n\t\t\t\t\t\tdescription:\n\t\t\t\t\t\t\t\"This toast has a much longer description that will cause it to have more height than a standard one, demonstrating how the stack handles different dimensions.\",\n\t\t\t\t\t});\n\t\t\t\t}}\n\t\t\t>\n\t\t\t\tTall\n\t\t\t</Button>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/toast-varying-heights.tsx"
+		}
+	],
+	"type": "registry:component"
+}

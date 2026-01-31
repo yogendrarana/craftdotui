@@ -4198,6 +4198,55 @@ export const Registry: Record<string, any> = {
 			return LazyComp;
 		})(),
 	},
+	"baseui-toast": {
+		name: "baseui-toast",
+		description: "A Base UI toast component",
+		type: "registry:component",
+		dependencies: ["@base-ui/react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/utils"],
+		files: [
+			{
+				path: "packages/baseui/components/toast/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/toast.tsx",
+				content:
+					'"use client";\n\nimport {\n\tCircleAlertIcon,\n\tCircleCheckIcon,\n\tInfoIcon,\n\tLoader,\n\tTriangleAlertIcon,\n\tX,\n} from "lucide-react";\nimport { Toast as ToastPrimitive } from "@base-ui/react/toast";\n\nimport { cn } from "@/lib/utils";\nimport { buttonVariants } from "@/components/baseui/components/button";\n\n/* -------------------------------------------------------------------------- */\n/* Types                                                                      */\n/* -------------------------------------------------------------------------- */\n\nexport type ToastPosition =\n\t| "top-left"\n\t| "top-center"\n\t| "top-right"\n\t| "bottom-left"\n\t| "bottom-center"\n\t| "bottom-right";\n\nexport type ToastType =\n\t| "default"\n\t| "success"\n\t| "info"\n\t| "warning"\n\t| "error"\n\t| "loading";\n\nexport type ToastSwipeDirection = "up" | "down" | "left" | "right";\n\n/* -------------------------------------------------------------------------- */\n/* Toast Manager                                                              */\n/* -------------------------------------------------------------------------- */\n\nconst toastManager = ToastPrimitive.createToastManager();\nconst anchoredToastManager = ToastPrimitive.createToastManager();\n\n/* -------------------------------------------------------------------------- */\n/* Toast Portal                                                               */\n/* -------------------------------------------------------------------------- */\n\nfunction ToastPortal(props: ToastPrimitive.Portal.Props) {\n\treturn <ToastPrimitive.Portal data-slot="toast-portal" {...props} />;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Toast Viewport                                                             */\n/* -------------------------------------------------------------------------- */\n\ninterface ToastViewportProps extends ToastPrimitive.Viewport.Props {\n\tposition?: ToastPosition;\n}\n\nfunction ToastViewport({\n\tclassName,\n\tposition = "bottom-right",\n\t...props\n}: ToastViewportProps) {\n\treturn (\n\t\t<ToastPrimitive.Viewport\n\t\t\tdata-slot="toast-viewport"\n\t\t\tdata-position={position}\n\t\t\tclassName={cn(\n\t\t\t\t"[--toast-inset:--spacing(4)] sm:[--toast-inset:--spacing(8)]",\n\t\t\t\t"fixed z-50 w-[calc(100%-var(--toast-inset)*2)] max-w-90 flex mx-auto",\n\n\t\t\t\t// vertical positioning\n\t\t\t\t"data-[position*=top]:top-(--toast-inset)",\n\t\t\t\t"data-[position*=bottom]:bottom-(--toast-inset)",\n\n\t\t\t\t// horizontal positioning\n\t\t\t\t"data-[position*=left]:left-(--toast-inset)",\n\t\t\t\t"data-[position*=right]:right-(--toast-inset)",\n\n\t\t\t\t// centering\n\t\t\t\t"data-[position*=center]:-translate-x-1/2 data-[position*=center]:left-1/2",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Toast Content                                                              */\n/* -------------------------------------------------------------------------- */\n\nfunction ToastContent({ className, ...props }: ToastPrimitive.Content.Props) {\n\treturn (\n\t\t<ToastPrimitive.Content\n\t\t\tdata-slot="toast-content"\n\t\t\tclassName={cn(\n\t\t\t\t"px-3.5 py-3",\n\t\t\t\t"flex items-center justify-between gap-1.5 pointer-events-auto overflow-hidden text-sm transition-opacity duration-250",\n\t\t\t\t"data-behind:not-data-expanded:pointer-events-none data-behind:opacity-0",\n\t\t\t\t"data-expanded:opacity-100",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Toast Title                                                                */\n/* -------------------------------------------------------------------------- */\n\nfunction ToastTitle({ className, ...props }: ToastPrimitive.Title.Props) {\n\treturn (\n\t\t<ToastPrimitive.Title\n\t\t\tdata-slot="toast-title"\n\t\t\tclassName={cn("font-medium", className)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Toast Description                                                          */\n/* -------------------------------------------------------------------------- */\n\nfunction ToastDescription({\n\tclassName,\n\t...props\n}: ToastPrimitive.Description.Props) {\n\treturn (\n\t\t<ToastPrimitive.Description\n\t\t\tdata-slot="toast-description"\n\t\t\tclassName={cn("text-muted-foreground", className)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Toast Action                                                               */\n/* -------------------------------------------------------------------------- */\n\nfunction ToastAction({ className, ...props }: ToastPrimitive.Action.Props) {\n\treturn (\n\t\t<ToastPrimitive.Action\n\t\t\tdata-slot="toast-action"\n\t\t\tclassName={cn(buttonVariants({ size: "sm" }), className)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Toast Close                                                                */\n/* -------------------------------------------------------------------------- */\n\nfunction ToastClose({\n\tclassName,\n\tchildren,\n\t...props\n}: ToastPrimitive.Close.Props) {\n\treturn (\n\t\t<ToastPrimitive.Close\n\t\t\tdata-slot="toast-close"\n\t\t\tclassName={cn(\n\t\t\t\t"absolute right-1 top-1 rounded-md p-1 text-foreground/50 opacity-0 transition-opacity",\n\t\t\t\t"hover:text-foreground focus:opacity-100 focus:outline-none focus:ring-1 group-hover:opacity-100",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t{children || <X className="size-4" />}\n\t\t</ToastPrimitive.Close>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Toast Icon                                                                 */\n/* -------------------------------------------------------------------------- */\n\ninterface ToastIconProps extends React.ComponentProps<"div"> {\n\ttoast: ToastPrimitive.Root.ToastObject;\n}\n\nconst TOAST_ICONS = {\n\terror: CircleAlertIcon,\n\tinfo: InfoIcon,\n\tloading: Loader,\n\tsuccess: CircleCheckIcon,\n\twarning: TriangleAlertIcon,\n} as const;\n\nfunction ToastIcon({ toast, className, ...props }: ToastIconProps) {\n\tconst Icon = toast.type\n\t\t? TOAST_ICONS[toast.type as keyof typeof TOAST_ICONS]\n\t\t: null;\n\n\tif (!Icon) return null;\n\n\treturn (\n\t\t<div\n\t\t\tclassName={cn(\n\t\t\t\t"[&>svg]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="toast-icon"\n\t\t\t{...props}\n\t\t>\n\t\t\t<Icon\n\t\t\t\tclassName={cn(\n\t\t\t\t\t"in-data-[type=loading]:animate-spin",\n\t\t\t\t\t"in-data-[type=error]:text-destructive",\n\t\t\t\t\t"in-data-[type=info]:text-info",\n\t\t\t\t\t"in-data-[type=success]:text-success ",\n\t\t\t\t\t"in-data-[type=warning]:text-warning",\n\t\t\t\t\t"in-data-[type=loading]:opacity-80",\n\t\t\t\t)}\n\t\t\t/>\n\t\t</div>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Stacked Toast Provider                                                     */\n/* -------------------------------------------------------------------------- */\n\nfunction ToastProvider({\n\tchildren,\n\tposition = "bottom-right",\n\t...props\n}: ToastPrimitive.Provider.Props & { position: ToastPosition }) {\n\treturn (\n\t\t<ToastPrimitive.Provider {...props} toastManager={toastManager}>\n\t\t\t{children}\n\t\t\t<Toasts position={position} />\n\t\t</ToastPrimitive.Provider>\n\t);\n}\n\nfunction Toasts({ position }: { position: ToastPosition }) {\n\tconst { toasts } = ToastPrimitive.useToastManager();\n\n\treturn (\n\t\t<ToastPortal>\n\t\t\t<ToastViewport key={position} position={position as ToastPosition}>\n\t\t\t\t{toasts.map((toast) => (\n\t\t\t\t\t<ToastRoot\n\t\t\t\t\t\tkey={toast.id}\n\t\t\t\t\t\ttoast={toast}\n\t\t\t\t\t\tposition={position as ToastPosition}\n\t\t\t\t\t>\n\t\t\t\t\t\t<ToastContent>\n\t\t\t\t\t\t\t<div className="flex gap-2">\n\t\t\t\t\t\t\t\t<ToastIcon toast={toast} />\n\t\t\t\t\t\t\t\t<div className="flex flex-col gap-0.5">\n\t\t\t\t\t\t\t\t\t<ToastTitle />\n\t\t\t\t\t\t\t\t\t<ToastDescription />\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t{toast.actionProps && (\n\t\t\t\t\t\t\t\t<ToastAction>\n\t\t\t\t\t\t\t\t\t{toast.actionProps.children}\n\t\t\t\t\t\t\t\t</ToastAction>\n\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t</ToastContent>\n\t\t\t\t\t\t<ToastClose />\n\t\t\t\t\t</ToastRoot>\n\t\t\t\t))}\n\t\t\t</ToastViewport>\n\t\t</ToastPortal>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Toast Root                                                                 */\n/* -------------------------------------------------------------------------- */\n\ninterface ToastRootProps extends ToastPrimitive.Root.Props {\n\tposition?: ToastPosition;\n}\n\nconst defaultSwipeMap: Record<\n\tToastPosition,\n\tToastPrimitive.Root.Props["swipeDirection"]\n> = {\n\t"top-center": ["up", "right", "left"],\n\t"top-right": ["up", "right"],\n\t"top-left": ["up", "left"],\n\t"bottom-center": ["down", "right", "left"],\n\t"bottom-left": ["down", "left"],\n\t"bottom-right": ["right", "down"],\n};\n\nfunction getDefaultSwipeDirection(\n\tposition: ToastPosition,\n\tswipeDirection?: ToastPrimitive.Root.Props["swipeDirection"],\n) {\n\treturn swipeDirection ?? defaultSwipeMap[position];\n}\n\nfunction ToastRoot({\n\tclassName,\n\tposition = "bottom-right",\n\t...props\n}: ToastRootProps) {\n\treturn (\n\t\t<ToastPrimitive.Root\n\t\t\tdata-slot="toast-root"\n\t\t\tdata-position={position}\n\t\t\tswipeDirection={getDefaultSwipeDirection(\n\t\t\t\tposition,\n\t\t\t\tprops.swipeDirection,\n\t\t\t)}\n\t\t\tclassName={cn(\n\t\t\t\t// base styles for root\n\t\t\t\t"absolute",\n\t\t\t\t"h-(--toast-calc-height) w-full min-w-[200px] border select-none bg-clip-padding bg-popover text-popover-foreground rounded-lg",\n\n\t\t\t\t// stacking animations and zindex\n\t\t\t\t"z-[calc(1000-var(--toast-index))]",\n\t\t\t\t"[transition:transform_.5s_cubic-bezier(.22,1,.36,1),opacity_.25s,height_.25s]",\n\t\t\t\t"data-limited:opacity-0",\n\n\t\t\t\t// positioning depending on the viewport slot\n\t\t\t\t"data-[position=top-left]:top-4 data-[position=top-left]:left-4",\n\t\t\t\t"data-[position=top-center]:top-4 data-[position=top-center]:left-1/2 data-[position=top-center]:-translate-x-1/2",\n\t\t\t\t"data-[position=top-right]:top-4 data-[position=top-right]:right-4",\n\t\t\t\t"data-[position=bottom-left]:bottom-4 data-[position=bottom-left]:left-4",\n\t\t\t\t"data-[position=bottom-center]:bottom-4 data-[position=bottom-center]:left-1/2 data-[position=bottom-center]:-translate-x-1/2",\n\t\t\t\t"data-[position=bottom-right]:bottom-4 data-[position=bottom-right]:right-4",\n\n\t\t\t\t// css variables used for stack offset, scaling, and peek\n\t\t\t\t"[--toast-calc-height:var(--toast-frontmost-height,var(--toast-height))]",\n\t\t\t\t"[--toast-gap:--spacing(2)]",\n\t\t\t\t"[--toast-peek:--spacing(2)]",\n\t\t\t\t"[--toast-scale:calc(max(0,1-(var(--toast-index)*.05)))]",\n\t\t\t\t"[--toast-shrink:calc(1-var(--toast-scale))]",\n\t\t\t\t// offset for expanded stack (used in data-expanded transform)\n\t\t\t\t"data-[position*=top]:[--toast-calc-offset-y:calc(var(--toast-offset-y)+var(--toast-index)*var(--toast-gap)+var(--toast-swipe-movement-y))]",\n\t\t\t\t"data-[position*=bottom]:[--toast-calc-offset-y:calc(var(--toast-offset-y)*-1+var(--toast-index)*var(--toast-gap)*-1+var(--toast-swipe-movement-y))]",\n\n\t\t\t\t// base transform for stacked toasts\n\t\t\t\t// stack + scale + swipe\n\t\t\t\t"data-[position*=top]:transform-[translateX(var(--toast-swipe-movement-x))_translateY(calc(var(--toast-swipe-movement-y)+(var(--toast-index)*var(--toast-peek))+(var(--toast-shrink)*var(--toast-calc-height))))_scale(var(--toast-scale))]",\n\t\t\t\t"data-[position*=bottom]:transform-[translateX(var(--toast-swipe-movement-x))_translateY(calc(var(--toast-swipe-movement-y)-(var(--toast-index)*var(--toast-peek))-(var(--toast-shrink)*var(--toast-calc-height))))_scale(var(--toast-scale))]",\n\t\t\t\t// expanded state\n\t\t\t\t"data-expanded:h-(--toast-height)",\n\t\t\t\t"data-position:data-expanded:transform-[translateX(var(--toast-swipe-movement-x))_translateY(var(--toast-calc-offset-y))]",\n\n\t\t\t\t// starting animations (slide in)\n\t\t\t\t"data-[position*=top]:data-starting-style:transform-[translateY(calc(-100%-var(--toast-inset)))]",\n\t\t\t\t"data-[position*=bottom]:data-starting-style:transform-[translateY(calc(100%+var(--toast-inset)))]",\n\n\t\t\t\t// ending animations (slide out + fade)\n\t\t\t\t"data-ending-style:opacity-0",\n\t\t\t\t// default ending when no swipe\n\t\t\t\t"data-ending-style:not-data-limited:not-data-swipe-direction:transform-[translateY(calc(100%+var(--toast-inset)))]",\n\t\t\t\t// swipe-based ending\n\t\t\t\t"data-ending-style:data-[swipe-direction=left]:transform-[translateX(calc(var(--toast-swipe-movement-x)-100%-var(--toast-inset)))_translateY(var(--toast-calc-offset-y))]",\n\t\t\t\t"data-ending-style:data-[swipe-direction=right]:transform-[translateX(calc(var(--toast-swipe-movement-x)+100%+var(--toast-inset)))_translateY(var(--toast-calc-offset-y))]",\n\t\t\t\t"data-ending-style:data-[swipe-direction=up]:transform-[translateY(calc(var(--toast-swipe-movement-y)-100%-var(--toast-inset)))]",\n\t\t\t\t"data-ending-style:data-[swipe-direction=down]:transform-[translateY(calc(var(--toast-swipe-movement-y)+100%+var(--toast-inset)))]",\n\t\t\t\t// expanded + swipe ending\n\t\t\t\t"data-expanded:data-ending-style:data-[swipe-direction=left]:transform-[translateX(calc(var(--toast-swipe-movement-x)-100%-var(--toast-inset)))_translateY(var(--toast-calc-offset-y))]",\n\t\t\t\t"data-expanded:data-ending-style:data-[swipe-direction=right]:transform-[translateX(calc(var(--toast-swipe-movement-x)+100%+var(--toast-inset)))_translateY(var(--toast-calc-offset-y))]",\n\t\t\t\t"data-expanded:data-ending-style:data-[swipe-direction=up]:transform-[translateY(calc(var(--toast-swipe-movement-y)-100%-var(--toast-inset)))]",\n\t\t\t\t"data-expanded:data-ending-style:data-[swipe-direction=down]:transform-[translateY(calc(var(--toast-swipe-movement-y)+100%+var(--toast-inset)))]",\n\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Anchored Toast Provider                                                    */\n/* -------------------------------------------------------------------------- */\n\nfunction AnchoredToastProvider({\n\tchildren,\n\t...props\n}: ToastPrimitive.Provider.Props) {\n\treturn (\n\t\t<ToastPrimitive.Provider {...props} toastManager={anchoredToastManager}>\n\t\t\t{children}\n\t\t\t<AnchoredToasts position="bottom-right" />\n\t\t</ToastPrimitive.Provider>\n\t);\n}\n\nfunction AnchoredToasts({ position }: { position: ToastPosition }) {\n\tconst { toasts } = ToastPrimitive.useToastManager();\n\n\treturn (\n\t\t<ToastPortal>\n\t\t\t<ToastViewport position={position}>\n\t\t\t\t{toasts.map((toast) => {\n\t\t\t\t\tconst anchor = toast.positionerProps?.anchor;\n\t\t\t\t\tif (!anchor) return null;\n\n\t\t\t\t\tconst showAsTooltip = toast.data?.showAsTooltip ?? false;\n\n\t\t\t\t\treturn (\n\t\t\t\t\t\t<ToastPositioner key={toast.id} toast={toast}>\n\t\t\t\t\t\t\t<ToastArrow />\n\n\t\t\t\t\t\t\t<ToastPrimitive.Root\n\t\t\t\t\t\t\t\ttoast={toast}\n\t\t\t\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t\t\t\t"data-starting-style:scale-98 data-starting-style:opacity-0",\n\t\t\t\t\t\t\t\t\t"data-ending-style:scale-98 data-ending-style:opacity-0 ",\n\t\t\t\t\t\t\t\t\t!showAsTooltip &&\n\t\t\t\t\t\t\t\t\t\t"border border-border rounded-md",\n\t\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t{showAsTooltip ? (\n\t\t\t\t\t\t\t\t\t<ToastTitle className="px-2 py-1 rounded-md border border-border bg-popover text-popover-foreground text-xs" />\n\t\t\t\t\t\t\t\t) : (\n\t\t\t\t\t\t\t\t\t<ToastContent>\n\t\t\t\t\t\t\t\t\t\t<div className="flex gap-2">\n\t\t\t\t\t\t\t\t\t\t\t<ToastIcon toast={toast} />\n\t\t\t\t\t\t\t\t\t\t\t<div className="flex flex-col gap-0.5">\n\t\t\t\t\t\t\t\t\t\t\t\t<ToastTitle />\n\t\t\t\t\t\t\t\t\t\t\t\t<ToastDescription />\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t{toast.actionProps && (\n\t\t\t\t\t\t\t\t\t\t\t<ToastAction>\n\t\t\t\t\t\t\t\t\t\t\t\t{toast.actionProps.children}\n\t\t\t\t\t\t\t\t\t\t\t</ToastAction>\n\t\t\t\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t\t\t\t</ToastContent>\n\t\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t\t\t<ToastClose />\n\t\t\t\t\t\t\t</ToastPrimitive.Root>\n\t\t\t\t\t\t</ToastPositioner>\n\t\t\t\t\t);\n\t\t\t\t})}\n\t\t\t</ToastViewport>\n\t\t</ToastPortal>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Toast Positioner                                                           */\n/* -------------------------------------------------------------------------- */\n\nfunction ToastPositioner({\n\tsideOffset = 10,\n\tclassName,\n\t...props\n}: ToastPrimitive.Positioner.Props) {\n\treturn (\n\t\t<ToastPrimitive.Positioner\n\t\t\tdata-slot="toast-positioner"\n\t\t\tsideOffset={sideOffset}\n\t\t\tclassName={cn(\n\t\t\t\t"z-50 max-w-[min(--spacing(64),var(--available-width))]",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Toast Arrow                                                                */\n/* -------------------------------------------------------------------------- */\n\nfunction ToastArrow({ className, ...props }: ToastPrimitive.Arrow.Props) {\n\treturn (\n\t\t<ToastPrimitive.Arrow\n\t\t\tdata-slot="toast-arrow"\n\t\t\tclassName={cn(\n\t\t\t\t"flex bg-background",\n\t\t\t\t"data-[side=top]:-bottom-2 data-[side=top]:rotate-180",\n\t\t\t\t"data-[side=left]:-right-2.75 data-[side=left]:rotate-90",\n\t\t\t\t"data-[side=bottom]:-top-2 data-[side=bottom]:rotate-0",\n\t\t\t\t"data-[side=right]:-left-2.75 data-[side=right]:-rotate-90",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t<svg width="12" height="6" viewBox="0 0 12 6">\n\t\t\t\t<title>Toast Arrow</title>\n\t\t\t\t<path d="M0 6L6 0L12 6Z" className="fill-background" />\n\t\t\t\t<path d="M0 6L6 0L12 6Z" className="fill-none stroke-border" />\n\t\t\t</svg>\n\t\t</ToastPrimitive.Arrow>\n\t);\n}\n\nexport {\n\tToastProvider,\n\tAnchoredToastProvider,\n\ttoastManager,\n\tanchoredToastManager,\n\tToastPrimitive,\n};',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-toast",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/components/toast/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
 	"baseui-toggle": {
 		name: "baseui-toggle",
 		description: "A Base UI toggle component",
@@ -10415,6 +10464,318 @@ export const Registry: Record<string, any> = {
 			const LazyComp = React.lazy(async () => {
 				const mod = await import(
 					"@craftdotui/baseui/particles/tabs/with-icon/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-toast-anchored": {
+		name: "baseui-particles-toast-anchored",
+		description: "Anchored contextual toast demo",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: [
+			"@craftdotui/baseui-toast",
+			"@craftdotui/baseui-button",
+		],
+		files: [
+			{
+				path: "packages/baseui/particles/toast/anchored/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/toast-anchored.tsx",
+				content:
+					'"use client";\n\nimport React from "react";\nimport { Button } from "@/components/baseui/components/button";\nimport { anchoredToastManager } from "@/components/baseui/components/toast";\nimport { CheckIcon, CopyIcon } from "lucide-react";\n\nexport default function Particle() {\n\tconst ref1 = React.useRef<HTMLButtonElement>(null);\n\tconst ref2 = React.useRef<HTMLButtonElement>(null);\n\tconst [isCopied, setIsCopied] = React.useState(false);\n\tconst [isClicked, setIsClicked] = React.useState(false);\n\n\treturn (\n\t\t<div className="flex gap-2">\n\t\t\t<Button\n\t\t\t\tvariant="outline"\n\t\t\t\tsize="icon"\n\t\t\t\tref={ref1}\n\t\t\t\tdisabled={isCopied}\n\t\t\t\tonClick={() => {\n\t\t\t\t\tsetIsCopied(true);\n\t\t\t\t\tanchoredToastManager.add({\n\t\t\t\t\t\ttitle: "Toast title",\n\t\t\t\t\t\tdescription: "Toast description",\n\t\t\t\t\t\tpositionerProps: {\n\t\t\t\t\t\t\tanchor: ref1.current,\n\t\t\t\t\t\t},\n\t\t\t\t\t\tdata: {\n\t\t\t\t\t\t\tshowAsTooltip: true,\n\t\t\t\t\t\t},\n\t\t\t\t\t\ttimeout: 1000,\n\t\t\t\t\t\tonClose: () => {\n\t\t\t\t\t\t\tsetIsCopied(false);\n\t\t\t\t\t\t},\n\t\t\t\t\t});\n\t\t\t\t}}\n\t\t\t>\n\t\t\t\t{isCopied ? <CheckIcon /> : <CopyIcon />}\n\t\t\t</Button>\n\n\t\t\t<Button\n\t\t\t\tvariant="outline"\n\t\t\t\tref={ref2}\n\t\t\t\tdisabled={isClicked}\n\t\t\t\tonClick={() => {\n\t\t\t\t\tanchoredToastManager.add({\n\t\t\t\t\t\ttitle: "Toast title",\n\t\t\t\t\t\tdescription: "Toast description",\n\t\t\t\t\t\tpositionerProps: {\n\t\t\t\t\t\t\tanchor: ref2.current,\n\t\t\t\t\t\t},\n\t\t\t\t\t\ttimeout: 1000,\n\t\t\t\t\t\tonClose: () => {\n\t\t\t\t\t\t\tsetIsClicked(false);\n\t\t\t\t\t\t},\n\t\t\t\t\t});\n\t\t\t\t\tsetIsClicked(true);\n\t\t\t\t}}\n\t\t\t>\n\t\t\t\tAnchored As Toast\n\t\t\t</Button>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-toast-anchored",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/toast/anchored/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-toast-promise": {
+		name: "baseui-particles-toast-promise",
+		description: "Async promise toast example",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: [
+			"@craftdotui/baseui-toast",
+			"@craftdotui/baseui-button",
+		],
+		files: [
+			{
+				path: "packages/baseui/particles/toast/promise/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/toast-promise.tsx",
+				content:
+					'"use client";\n\nimport { Button } from "@/components/baseui/components/button";\nimport { toastManager } from "@/components/baseui/components/toast";\n\nexport default function Particle() {\n\tconst runPromise = () => {\n\t\ttoastManager\n\t\t\t.promise(\n\t\t\t\tnew Promise((resolve, reject) => {\n\t\t\t\t\tsetTimeout(() => {\n\t\t\t\t\t\tif (Math.random() > 0.5) resolve("Data loaded!");\n\t\t\t\t\t\telse reject(new Error("Failed to load"));\n\t\t\t\t\t}, 2000);\n\t\t\t\t}),\n\t\t\t\t{\n\t\t\t\t\tloading: {\n\t\t\t\t\t\ttitle: "Saving changes...",\n\t\t\t\t\t\tdescription: "Please wait.",\n\t\t\t\t\t\ttype: "loading",\n\t\t\t\t\t},\n\t\t\t\t\tsuccess: () => ({\n\t\t\t\t\t\ttitle: "Changes saved!",\n\t\t\t\t\t\tdescription: "Settings updated successfully.",\n\t\t\t\t\t\ttype: "success",\n\t\t\t\t\t}),\n\t\t\t\t\terror: (err) => ({\n\t\t\t\t\t\ttitle: "Save failed",\n\t\t\t\t\t\tdescription:\n\t\t\t\t\t\t\terr instanceof Error\n\t\t\t\t\t\t\t\t? err.message\n\t\t\t\t\t\t\t\t: "An error occurred.",\n\t\t\t\t\t\ttype: "error",\n\t\t\t\t\t}),\n\t\t\t\t},\n\t\t\t)\n\t\t\t.catch(() => {\n\t\t\t\tconsole.log("Error caught");\n\t\t\t});\n\t};\n\n\treturn (\n\t\t<Button variant="outline" onClick={runPromise}>\n\t\t\tRun Promise\n\t\t</Button>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-toast-promise",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/toast/promise/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-toast": {
+		name: "baseui-particles-toast",
+		description: "Comprehensive toast demo with positioning and types",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: [
+			"@craftdotui/baseui-toast",
+			"@craftdotui/baseui-button",
+		],
+		files: [
+			{
+				path: "packages/baseui/particles/toast/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/toast.tsx",
+				content:
+					'"use client";\n\nimport { Button } from "@/components/baseui/components/button";\nimport { toastManager } from "@/components/baseui/components/toast";\n\nexport default function Particle() {\n\treturn (\n\t\t<Button\n\t\t\tvariant="outline"\n\t\t\tsize="sm"\n\t\t\tonClick={() => {\n\t\t\t\ttoastManager.add({\n\t\t\t\t\ttitle: "Toast Title",\n\t\t\t\t\tdescription: "Toast description goes here",\n\t\t\t\t});\n\t\t\t}}\n\t\t>\n\t\t\tClick Here\n\t\t</Button>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-toast",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/toast/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-toast-undo-action": {
+		name: "baseui-particles-toast-undo-action",
+		description: "Toast with undo action example",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: [
+			"@craftdotui/baseui-toast",
+			"@craftdotui/baseui-button",
+		],
+		files: [
+			{
+				path: "packages/baseui/particles/toast/undo-action/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/toast-undo-action.tsx",
+				content:
+					'"use client";\n\nimport { Button } from "@/components/baseui/components/button";\nimport { toastManager } from "@/components/baseui/components/toast";\n\nexport default function Particle() {\n\treturn (\n\t\t<Button\n\t\t\tvariant="outline"\n\t\t\tonClick={() => {\n\t\t\t\tconst id = toastManager.add({\n\t\t\t\t\ttitle: "Message deleted",\n\t\t\t\t\tdescription: "The message has been moved to trash.",\n\t\t\t\t\ttype: "info",\n\t\t\t\t\tactionProps: {\n\t\t\t\t\t\tchildren: "Undo",\n\t\t\t\t\t\tonClick: () => {\n\t\t\t\t\t\t\ttoastManager.close(id);\n\t\t\t\t\t\t\ttoastManager.add({\n\t\t\t\t\t\t\t\ttitle: "Action undone",\n\t\t\t\t\t\t\t\tdescription: "The message has been restored.",\n\t\t\t\t\t\t\t});\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t});\n\t\t\t}}\n\t\t>\n\t\t\tDelete Message\n\t\t</Button>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-toast-undo-action",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/toast/undo-action/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-toast-varying-heights": {
+		name: "baseui-particles-toast-varying-heights",
+		description: "Toast with varying heights example",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: [
+			"@craftdotui/baseui-toast",
+			"@craftdotui/baseui-button",
+		],
+		files: [
+			{
+				path: "packages/baseui/particles/toast/varying-heights/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/toast-varying-heights.tsx",
+				content:
+					'"use client";\n\nimport { Button } from "@/components/baseui/components/button";\nimport { toastManager } from "@/components/baseui/components/toast";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex justify-center gap-2">\n\t\t\t<Button\n\t\t\t\tvariant="outline"\n\t\t\t\tonClick={() => {\n\t\t\t\t\ttoastManager.add({\n\t\t\t\t\t\ttitle: "Short Toast",\n\t\t\t\t\t\tdescription: "A simple notification.",\n\t\t\t\t\t});\n\t\t\t\t}}\n\t\t\t>\n\t\t\t\tShort\n\t\t\t</Button>\n\t\t\t<Button\n\t\t\t\tvariant="outline"\n\t\t\t\tonClick={() => {\n\t\t\t\t\ttoastManager.add({\n\t\t\t\t\t\ttitle: "Tall Toast",\n\t\t\t\t\t\tdescription:\n\t\t\t\t\t\t\t"This toast has a much longer description that will cause it to have more height than a standard one, demonstrating how the stack handles different dimensions.",\n\t\t\t\t\t});\n\t\t\t\t}}\n\t\t\t>\n\t\t\t\tTall\n\t\t\t</Button>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-toast-varying-heights",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/toast/varying-heights/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-toast-with-status": {
+		name: "baseui-particles-toast-with-status",
+		description: "Async with-status toast example",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: [
+			"@craftdotui/baseui-toast",
+			"@craftdotui/baseui-button",
+		],
+		files: [
+			{
+				path: "packages/baseui/particles/toast/with-status/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/toast-with-status.tsx",
+				content:
+					'"use client";\n\nimport { Button } from "@/components/baseui/components/button";\nimport { toastManager } from "@/components/baseui/components/toast";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="text-center space-x-2">\n\t\t\t{["info", "success", "warning", "error", "loading"].map(\n\t\t\t\t(status) => (\n\t\t\t\t\t<Button\n\t\t\t\t\t\tkey={status}\n\t\t\t\t\t\tvariant="outline"\n\t\t\t\t\t\tsize="sm"\n\t\t\t\t\t\tonClick={() => {\n\t\t\t\t\t\t\ttoastManager.add({\n\t\t\t\t\t\t\t\ttitle: "Toast title",\n\t\t\t\t\t\t\t\tdescription: "Toast description goes here.",\n\t\t\t\t\t\t\t\ttype: status,\n\t\t\t\t\t\t\t});\n\t\t\t\t\t\t}}\n\t\t\t\t\t>\n\t\t\t\t\t\t{status}\n\t\t\t\t\t</Button>\n\t\t\t\t),\n\t\t\t)}\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-toast-with-status",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/toast/with-status/index.tsx"
 				);
 				let Comp = mod.default;
 

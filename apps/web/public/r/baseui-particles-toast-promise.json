@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-toast-promise",
+	"description": "Async promise toast example",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/baseui-toast",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/baseui/particles/toast/promise/index.tsx",
+			"content": "\"use client\";\n\nimport { Button } from \"@/components/baseui/components/button\";\nimport { toastManager } from \"@/components/baseui/components/toast\";\n\nexport default function Particle() {\n\tconst runPromise = () => {\n\t\ttoastManager\n\t\t\t.promise(\n\t\t\t\tnew Promise((resolve, reject) => {\n\t\t\t\t\tsetTimeout(() => {\n\t\t\t\t\t\tif (Math.random() > 0.5) resolve(\"Data loaded!\");\n\t\t\t\t\t\telse reject(new Error(\"Failed to load\"));\n\t\t\t\t\t}, 2000);\n\t\t\t\t}),\n\t\t\t\t{\n\t\t\t\t\tloading: {\n\t\t\t\t\t\ttitle: \"Saving changes...\",\n\t\t\t\t\t\tdescription: \"Please wait.\",\n\t\t\t\t\t\ttype: \"loading\",\n\t\t\t\t\t},\n\t\t\t\t\tsuccess: () => ({\n\t\t\t\t\t\ttitle: \"Changes saved!\",\n\t\t\t\t\t\tdescription: \"Settings updated successfully.\",\n\t\t\t\t\t\ttype: \"success\",\n\t\t\t\t\t}),\n\t\t\t\t\terror: (err) => ({\n\t\t\t\t\t\ttitle: \"Save failed\",\n\t\t\t\t\t\tdescription:\n\t\t\t\t\t\t\terr instanceof Error\n\t\t\t\t\t\t\t\t? err.message\n\t\t\t\t\t\t\t\t: \"An error occurred.\",\n\t\t\t\t\t\ttype: \"error\",\n\t\t\t\t\t}),\n\t\t\t\t},\n\t\t\t)\n\t\t\t.catch(() => {\n\t\t\t\tconsole.log(\"Error caught\");\n\t\t\t});\n\t};\n\n\treturn (\n\t\t<Button variant=\"outline\" onClick={runPromise}>\n\t\t\tRun Promise\n\t\t</Button>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/toast-promise.tsx"
+		}
+	],
+	"type": "registry:component"
+}
