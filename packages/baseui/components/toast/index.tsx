@@ -231,7 +231,7 @@ function ToastProvider({
 	children,
 	position = "bottom-right",
 	...props
-}: ToastPrimitive.Provider.Props & { position: ToastPosition }) {
+}: ToastPrimitive.Provider.Props & { position?: ToastPosition }) {
 	return (
 		<ToastPrimitive.Provider {...props} toastManager={toastManager}>
 			{children}
