@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-toast-undo-action",
+	"description": "Toast with undo action example",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/baseui-toast",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/baseui/particles/toast/undo-action/index.tsx",
+			"content": "\"use client\";\n\nimport { Button } from \"@/components/baseui/components/button\";\nimport { toastManager } from \"@/components/baseui/components/toast\";\n\nexport default function Particle() {\n\treturn (\n\t\t<Button\n\t\t\tvariant=\"outline\"\n\t\t\tonClick={() => {\n\t\t\t\tconst id = toastManager.add({\n\t\t\t\t\ttitle: \"Message deleted\",\n\t\t\t\t\tdescription: \"The message has been moved to trash.\",\n\t\t\t\t\ttype: \"info\",\n\t\t\t\t\tactionProps: {\n\t\t\t\t\t\tchildren: \"Undo\",\n\t\t\t\t\t\tonClick: () => {\n\t\t\t\t\t\t\ttoastManager.close(id);\n\t\t\t\t\t\t\ttoastManager.add({\n\t\t\t\t\t\t\t\ttitle: \"Action undone\",\n\t\t\t\t\t\t\t\tdescription: \"The message has been restored.\",\n\t\t\t\t\t\t\t});\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t});\n\t\t\t}}\n\t\t>\n\t\t\tDelete Message\n\t\t</Button>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/toast-undo-action.tsx"
+		}
+	],
+	"type": "registry:component"
+}

@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-toast",
+	"type": "registry:component",
+	"description": "A Base UI toast component",
+	"dependencies": ["@base-ui/react"],
+	"registryDependencies": ["@craftdotui/utils"],
+	"files": [
+		{
+			"path": "packages/baseui/components/toast/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/components/toast.tsx"
+		}
+	]
+}

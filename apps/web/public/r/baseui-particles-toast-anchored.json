@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-toast-anchored",
+	"description": "Anchored contextual toast demo",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/baseui-toast",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/baseui/particles/toast/anchored/index.tsx",
+			"content": "\"use client\";\n\nimport React from \"react\";\nimport { Button } from \"@/components/baseui/components/button\";\nimport { anchoredToastManager } from \"@/components/baseui/components/toast\";\nimport { CheckIcon, CopyIcon } from \"lucide-react\";\n\nexport default function Particle() {\n\tconst ref1 = React.useRef<HTMLButtonElement>(null);\n\tconst ref2 = React.useRef<HTMLButtonElement>(null);\n\tconst [isCopied, setIsCopied] = React.useState(false);\n\tconst [isClicked, setIsClicked] = React.useState(false);\n\n\treturn (\n\t\t<div className=\"flex gap-2\">\n\t\t\t<Button\n\t\t\t\tvariant=\"outline\"\n\t\t\t\tsize=\"icon\"\n\t\t\t\tref={ref1}\n\t\t\t\tdisabled={isCopied}\n\t\t\t\tonClick={() => {\n\t\t\t\t\tsetIsCopied(true);\n\t\t\t\t\tanchoredToastManager.add({\n\t\t\t\t\t\ttitle: \"Toast title\",\n\t\t\t\t\t\tdescription: \"Toast description\",\n\t\t\t\t\t\tpositionerProps: {\n\t\t\t\t\t\t\tanchor: ref1.current,\n\t\t\t\t\t\t},\n\t\t\t\t\t\tdata: {\n\t\t\t\t\t\t\tshowAsTooltip: true,\n\t\t\t\t\t\t},\n\t\t\t\t\t\ttimeout: 1000,\n\t\t\t\t\t\tonClose: () => {\n\t\t\t\t\t\t\tsetIsCopied(false);\n\t\t\t\t\t\t},\n\t\t\t\t\t});\n\t\t\t\t}}\n\t\t\t>\n\t\t\t\t{isCopied ? <CheckIcon /> : <CopyIcon />}\n\t\t\t</Button>\n\n\t\t\t<Button\n\t\t\t\tvariant=\"outline\"\n\t\t\t\tref={ref2}\n\t\t\t\tdisabled={isClicked}\n\t\t\t\tonClick={() => {\n\t\t\t\t\tanchoredToastManager.add({\n\t\t\t\t\t\ttitle: \"Toast title\",\n\t\t\t\t\t\tdescription: \"Toast description\",\n\t\t\t\t\t\tpositionerProps: {\n\t\t\t\t\t\t\tanchor: ref2.current,\n\t\t\t\t\t\t},\n\t\t\t\t\t\ttimeout: 1000,\n\t\t\t\t\t\tonClose: () => {\n\t\t\t\t\t\t\tsetIsClicked(false);\n\t\t\t\t\t\t},\n\t\t\t\t\t});\n\t\t\t\t\tsetIsClicked(true);\n\t\t\t\t}}\n\t\t\t>\n\t\t\t\tAnchored As Toast\n\t\t\t</Button>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/toast-anchored.tsx"
+		}
+	],
+	"type": "registry:component"
+}

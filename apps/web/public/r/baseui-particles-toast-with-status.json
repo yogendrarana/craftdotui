@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-toast-with-status",
+	"description": "Async with-status toast example",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/baseui-toast",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/baseui/particles/toast/with-status/index.tsx",
+			"content": "\"use client\";\n\nimport { Button } from \"@/components/baseui/components/button\";\nimport { toastManager } from \"@/components/baseui/components/toast\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"text-center space-x-2\">\n\t\t\t{[\"info\", \"success\", \"warning\", \"error\", \"loading\"].map(\n\t\t\t\t(status) => (\n\t\t\t\t\t<Button\n\t\t\t\t\t\tkey={status}\n\t\t\t\t\t\tvariant=\"outline\"\n\t\t\t\t\t\tsize=\"sm\"\n\t\t\t\t\t\tonClick={() => {\n\t\t\t\t\t\t\ttoastManager.add({\n\t\t\t\t\t\t\t\ttitle: \"Toast title\",\n\t\t\t\t\t\t\t\tdescription: \"Toast description goes here.\",\n\t\t\t\t\t\t\t\ttype: status,\n\t\t\t\t\t\t\t});\n\t\t\t\t\t\t}}\n\t\t\t\t\t>\n\t\t\t\t\t\t{status}\n\t\t\t\t\t</Button>\n\t\t\t\t),\n\t\t\t)}\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/toast-with-status.tsx"
+		}
+	],
+	"type": "registry:component"
+}
