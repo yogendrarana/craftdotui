@@ -37,7 +37,6 @@ function AutocompleteInput({
 			)}
 
 			<AutocompletePrimitive.Input
-				onFocus={(e) => e.target.select()}
 				className={cn(
 					"h-10 w-full px-3 py-2 flex border border-input rounded-md bg-background text-sm",
 					startAddon && "pl-10",
@@ -196,8 +195,7 @@ function AutocompleteList({
 	return (
 		<AutocompletePrimitive.List
 			className={cn(
-				"max-h-[min(var(--available-height),300px)] p-1 overflow-y-auto",
-				"data-empty:p-0",
+				"max-h-[min(var(--available-height),300px)] p-1 overflow-y-auto overscroll-contain",
 				className,
 			)}
 			data-slot="autocomplete-list"

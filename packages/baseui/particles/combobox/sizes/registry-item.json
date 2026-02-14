@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-combobox-sizes",
+	"type": "registry:component",
+	"description": "Combobox in different sizes",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-combobox"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/combobox/sizes/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/particles/combobox-sizes.tsx"
+		}
+	]
+}

@@ -127,7 +127,9 @@ function MenuItem({
 			data-slot="menu-item"
 			data-inset={inset}
 			className={cn(
-				"relative flex cursor-pointer select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none transition-colors",
+				"relative",
+				"px-2 py-1.5 flex cursor-pointer select-none items-center gap-2",
+				"rounded-sm text-sm outline-none transition-colors",
 				"data-highlighted:bg-accent data-highlighted:text-accent-foreground",
 				"data-disabled:pointer-events-none data-disabled:opacity-50",
 				"data-inset:pl-8",
@@ -153,7 +155,9 @@ function MenuCheckboxItem({
 			data-slot="menu-checkbox-item"
 			data-inset={inset}
 			className={cn(
-				"relative flex cursor-pointer select-none items-center gap-2 rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors",
+				"relative",
+				"py-1.5 pl-8 pr-2 flex cursor-pointer select-none items-center gap-2",
+				"rounded-sm text-sm outline-none transition-colors",
 				"data-highlighted:bg-accent data-highlighted:text-accent-foreground",
 				"data-disabled:pointer-events-none data-disabled:opacity-50",
 				className,
@@ -196,7 +200,9 @@ function MenuRadioItem({
 			data-slot="menu-radio-item"
 			data-inset={inset}
 			className={cn(
-				"relative flex cursor-pointer select-none items-center gap-2 rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors",
+				"relative",
+				"py-1.5 pl-8 pr-2 flex cursor-pointer select-none items-center gap-2",
+				"rounded-sm text-sm outline-none transition-colors",
 				"data-highlighted:bg-accent data-highlighted:text-accent-foreground",
 				"data-disabled:pointer-events-none data-disabled:opacity-50",
 				className,
@@ -238,6 +244,10 @@ function MenuSubmenuRoot(props: MenuPrimitive.SubmenuRoot.Props) {
 	return <MenuPrimitive.SubmenuRoot data-slot="menu-submenu" {...props} />;
 }
 
+/* -------------------------------------------------------------------------- */
+/* Menu Submenu Trigger                                                       */
+/* -------------------------------------------------------------------------- */
+
 function MenuSubmenuTrigger({
 	className,
 	inset,
@@ -270,6 +280,10 @@ function MenuSubmenuTrigger({
 function MenuGroup(props: MenuPrimitive.Group.Props) {
 	return <MenuPrimitive.Group data-slot="menu-group" {...props} />;
 }
+
+/* -------------------------------------------------------------------------- */
+/* Menu Group Label                                                           */
+/* -------------------------------------------------------------------------- */
 
 function MenuGroupLabel({
 	className,

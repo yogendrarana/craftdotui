@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-combobox-with-multiple-selection",
+	"description": "Combobox with multiple selection",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/baseui-combobox"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/combobox/with-multiple-selection/index.tsx",
+			"content": "\"use client\";\n\nimport * as React from \"react\";\nimport { X } from \"lucide-react\";\nimport {\n\tComboboxRoot,\n\tComboboxPositioner,\n\tComboboxPopup,\n\tComboboxList,\n\tComboboxItem,\n\tComboboxPortal,\n\tComboboxChips,\n\tComboboxValue,\n\tComboboxChip,\n\tComboboxChipRemove,\n\tComboboxChipsInput,\n\tComboboxEmpty,\n} from \"@/components/baseui/components/combobox\";\n\ninterface Framework {\n\tvalue: string;\n\tlabel: string;\n}\n\nconst frameworks: Framework[] = [\n\t{ value: \"react\", label: \"React\" },\n\t{ value: \"vue\", label: \"Vue\" },\n\t{ value: \"svelte\", label: \"Svelte\" },\n\t{ value: \"solid\", label: \"Solid\" },\n\t{ value: \"nextjs\", label: \"Next.js\" },\n];\n\nexport default function Particle() {\n\tconst [value, setValue] = React.useState<Framework[]>([]);\n\tconst containerRef = React.useRef<HTMLDivElement | null>(null);\n\n\treturn (\n\t\t<div className=\"w-64 space-y-4\">\n\t\t\t<ComboboxRoot\n\t\t\t\tmultiple\n\t\t\t\tvalue={value}\n\t\t\t\tonValueChange={setValue}\n\t\t\t\titems={frameworks}\n\t\t\t>\n\t\t\t\t<ComboboxChips ref={containerRef}>\n\t\t\t\t\t<ComboboxValue>\n\t\t\t\t\t\t{(selectedValues: Framework[]) => (\n\t\t\t\t\t\t\t<>\n\t\t\t\t\t\t\t\t{selectedValues?.map((item) => (\n\t\t\t\t\t\t\t\t\t<ComboboxChip\n\t\t\t\t\t\t\t\t\t\taria-label={item.label}\n\t\t\t\t\t\t\t\t\t\tkey={item.value}\n\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\t{item.label}\n\t\t\t\t\t\t\t\t\t\t<ComboboxChipRemove>\n\t\t\t\t\t\t\t\t\t\t\t<X className=\"size-3\" />\n\t\t\t\t\t\t\t\t\t\t</ComboboxChipRemove>\n\t\t\t\t\t\t\t\t\t</ComboboxChip>\n\t\t\t\t\t\t\t\t))}\n\t\t\t\t\t\t\t\t<ComboboxChipsInput\n\t\t\t\t\t\t\t\t\taria-label=\"Select a item\"\n\t\t\t\t\t\t\t\t\tplaceholder={\n\t\t\t\t\t\t\t\t\t\tvalue.length > 0\n\t\t\t\t\t\t\t\t\t\t\t? undefined\n\t\t\t\t\t\t\t\t\t\t\t: \"Select a item...\"\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t</>\n\t\t\t\t\t\t)}\n\t\t\t\t\t</ComboboxValue>\n\t\t\t\t</ComboboxChips>\n\n\t\t\t\t<ComboboxPortal>\n\t\t\t\t\t<ComboboxPositioner anchor={containerRef}>\n\t\t\t\t\t\t<ComboboxPopup>\n\t\t\t\t\t\t\t<ComboboxEmpty>No items found.</ComboboxEmpty>\n\n\t\t\t\t\t\t\t<ComboboxList>\n\t\t\t\t\t\t\t\t{(item: Framework) => (\n\t\t\t\t\t\t\t\t\t<ComboboxItem key={item.value} value={item}>\n\t\t\t\t\t\t\t\t\t\t{item.label}\n\t\t\t\t\t\t\t\t\t</ComboboxItem>\n\t\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t\t</ComboboxList>\n\t\t\t\t\t\t</ComboboxPopup>\n\t\t\t\t\t</ComboboxPositioner>\n\t\t\t\t</ComboboxPortal>\n\t\t\t</ComboboxRoot>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/combobox-with-multiple-selection.tsx"
+		}
+	],
+	"type": "registry:component"
+}

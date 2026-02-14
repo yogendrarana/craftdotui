@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-combobox-with-groups",
+	"description": "Combobox with grouped items",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-combobox"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/combobox/with-groups/index.tsx",
+			"content": "\"use client\";\n\nimport {\n\tComboboxRoot,\n\tComboboxInput,\n\tComboboxPositioner,\n\tComboboxPopup,\n\tComboboxList,\n\tComboboxItem,\n\tComboboxPortal,\n\tComboboxGroup,\n\tComboboxGroupLabel,\n\tComboboxSeparator,\n\tComboboxCollection,\n\tComboboxEmpty,\n} from \"@/components/baseui/components/combobox\";\n\ninterface Food {\n\tvalue: string;\n\tlabel: string;\n}\n\ninterface FoodGroup {\n\tlabel: string;\n\titems: Food[];\n}\n\nconst foodGroups: FoodGroup[] = [\n\t{\n\t\tlabel: \"Fruits\",\n\t\titems: [\n\t\t\t{ value: \"apple\", label: \"Apple\" },\n\t\t\t{ value: \"banana\", label: \"Banana\" },\n\t\t\t{ value: \"blueberry\", label: \"Blueberry\" },\n\t\t],\n\t},\n\t{\n\t\tlabel: \"Vegetables\",\n\t\titems: [\n\t\t\t{ value: \"broccoli\", label: \"Broccoli\" },\n\t\t\t{ value: \"carrot\", label: \"Carrot\" },\n\t\t\t{ value: \"lettuce\", label: \"Lettuce\" },\n\t\t],\n\t},\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"max-w-64\">\n\t\t\t<ComboboxRoot items={foodGroups}>\n\t\t\t\t<ComboboxInput placeholder=\"Select food...\" showTrigger />\n\n\t\t\t\t<ComboboxPortal>\n\t\t\t\t\t<ComboboxPositioner>\n\t\t\t\t\t\t<ComboboxPopup>\n\t\t\t\t\t\t\t<ComboboxEmpty>\n\t\t\t\t\t\t\t\t<p>Fruit not found.</p>\n\t\t\t\t\t\t\t</ComboboxEmpty>\n\t\t\t\t\t\t\t<ComboboxList>\n\t\t\t\t\t\t\t\t{(group: FoodGroup) => (\n\t\t\t\t\t\t\t\t\t<div key={group.label}>\n\t\t\t\t\t\t\t\t\t\t<ComboboxGroup items={group.items}>\n\t\t\t\t\t\t\t\t\t\t\t<ComboboxGroupLabel>\n\t\t\t\t\t\t\t\t\t\t\t\t{group.label}\n\t\t\t\t\t\t\t\t\t\t\t</ComboboxGroupLabel>\n\t\t\t\t\t\t\t\t\t\t\t<ComboboxCollection>\n\t\t\t\t\t\t\t\t\t\t\t\t{(item: Food) => (\n\t\t\t\t\t\t\t\t\t\t\t\t\t<ComboboxItem\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tkey={item.value}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tvalue={item}\n\t\t\t\t\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t{item.label}\n\t\t\t\t\t\t\t\t\t\t\t\t\t</ComboboxItem>\n\t\t\t\t\t\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t\t\t\t\t\t</ComboboxCollection>\n\t\t\t\t\t\t\t\t\t\t</ComboboxGroup>\n\t\t\t\t\t\t\t\t\t\t{group.label === \"Fruits\" && (\n\t\t\t\t\t\t\t\t\t\t\t<ComboboxSeparator />\n\t\t\t\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t\t</ComboboxList>\n\t\t\t\t\t\t</ComboboxPopup>\n\t\t\t\t\t</ComboboxPositioner>\n\t\t\t\t</ComboboxPortal>\n\t\t\t</ComboboxRoot>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/combobox-with-groups.tsx"
+		}
+	],
+	"type": "registry:component"
+}

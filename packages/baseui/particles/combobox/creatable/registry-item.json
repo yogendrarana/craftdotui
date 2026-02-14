@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-combobox-creatable",
+	"type": "registry:component",
+	"description": "Combobox with creatable items",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/baseui-combobox"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/combobox/creatable/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/particles/combobox/creatable.tsx"
+		}
+	]
+}

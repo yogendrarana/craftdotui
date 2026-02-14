@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-combobox-with-auto-highlight",
+	"description": "Combobox with auto highlight functionality",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-combobox"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/combobox/with-auto-highlight/index.tsx",
+			"content": "\"use client\";\n\nimport {\n\tComboboxRoot,\n\tComboboxInput,\n\tComboboxPositioner,\n\tComboboxPopup,\n\tComboboxList,\n\tComboboxItem,\n\tComboboxPortal,\n\tComboboxEmpty,\n} from \"@/components/baseui/components/combobox\";\n\nconst items = [\n\t{ label: \"Apple\", value: \"apple\" },\n\t{ label: \"Banana\", value: \"banana\" },\n\t{ label: \"Orange\", value: \"orange\" },\n\t{ label: \"Grape\", value: \"grape\" },\n\t{ label: \"Strawberry\", value: \"strawberry\" },\n\t{ label: \"Mango\", value: \"mango\" },\n\t{ label: \"Pineapple\", value: \"pineapple\" },\n\t{ label: \"Kiwi\", value: \"kiwi\" },\n\t{ label: \"Peach\", value: \"peach\" },\n\t{ label: \"Pear\", value: \"pear\" },\n];\n\nexport default function ComboboxWithAutoHighlight() {\n\treturn (\n\t\t<div className=\"max-w-64\">\n\t\t\t<ComboboxRoot autoHighlight items={items}>\n\t\t\t\t<ComboboxInput\n\t\t\t\t\tplaceholder=\"Auto highlight enabled...\"\n\t\t\t\t\tshowTrigger\n\t\t\t\t/>\n\n\t\t\t\t<ComboboxPortal>\n\t\t\t\t\t<ComboboxPositioner>\n\t\t\t\t\t\t<ComboboxPopup>\n\t\t\t\t\t\t\t<ComboboxEmpty>No results found.</ComboboxEmpty>\n\n\t\t\t\t\t\t\t<ComboboxList>\n\t\t\t\t\t\t\t\t{(item) => (\n\t\t\t\t\t\t\t\t\t<ComboboxItem key={item.value} value={item}>\n\t\t\t\t\t\t\t\t\t\t{item.label}\n\t\t\t\t\t\t\t\t\t</ComboboxItem>\n\t\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t\t</ComboboxList>\n\t\t\t\t\t\t</ComboboxPopup>\n\t\t\t\t\t</ComboboxPositioner>\n\t\t\t\t</ComboboxPortal>\n\t\t\t</ComboboxRoot>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/combobox-with-auto-highlight.tsx"
+		}
+	],
+	"type": "registry:component"
+}

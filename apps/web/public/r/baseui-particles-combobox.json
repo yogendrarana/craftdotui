@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-combobox",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-combobox"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/combobox/index.tsx",
+			"content": "\"use client\";\n\nimport {\n\tComboboxRoot,\n\tComboboxInput,\n\tComboboxPositioner,\n\tComboboxPopup,\n\tComboboxList,\n\tComboboxItem,\n\tComboboxPortal,\n\tComboboxEmpty,\n} from \"@/components/baseui/components/combobox\";\n\ninterface Framework {\n\tvalue: string;\n\tlabel: string;\n}\n\nconst frameworks: Framework[] = [\n\t{ value: \"react\", label: \"React\" },\n\t{ value: \"vue\", label: \"Vue\" },\n\t{ value: \"svelte\", label: \"Svelte\" },\n\t{ value: \"solid\", label: \"Solid\" },\n];\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"max-w-64\">\n\t\t\t<ComboboxRoot items={frameworks}>\n\t\t\t\t<ComboboxInput\n\t\t\t\t\tplaceholder=\"Select framework…\"\n\t\t\t\t\tshowClear\n\t\t\t\t\tshowTrigger\n\t\t\t\t/>\n\n\t\t\t\t<ComboboxPortal>\n\t\t\t\t\t<ComboboxPositioner>\n\t\t\t\t\t\t<ComboboxPopup>\n\t\t\t\t\t\t\t<ComboboxEmpty>\n\t\t\t\t\t\t\t\t<p>No results found.</p>\n\t\t\t\t\t\t\t</ComboboxEmpty>\n\n\t\t\t\t\t\t\t<ComboboxList>\n\t\t\t\t\t\t\t\t{(item: Framework) => (\n\t\t\t\t\t\t\t\t\t<ComboboxItem key={item.value} value={item}>\n\t\t\t\t\t\t\t\t\t\t{item.label}\n\t\t\t\t\t\t\t\t\t</ComboboxItem>\n\t\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t\t</ComboboxList>\n\t\t\t\t\t\t</ComboboxPopup>\n\t\t\t\t\t</ComboboxPositioner>\n\t\t\t\t</ComboboxPortal>\n\t\t\t</ComboboxRoot>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/combobox.tsx"
+		}
+	],
+	"type": "registry:component"
+}

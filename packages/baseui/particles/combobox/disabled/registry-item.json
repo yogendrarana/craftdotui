@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-combobox-disabled",
+	"type": "registry:component",
+	"description": "Disabled combobox",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-combobox"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/combobox/disabled/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/particles/combobox-disabled.tsx"
+		}
+	]
+}

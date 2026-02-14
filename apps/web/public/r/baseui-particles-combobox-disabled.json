@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-combobox-disabled",
+	"description": "Disabled combobox",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-combobox"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/combobox/disabled/index.tsx",
+			"content": "\"use client\";\n\nimport {\n\tComboboxRoot,\n\tComboboxInput,\n\tComboboxPositioner,\n\tComboboxPopup,\n\tComboboxList,\n\tComboboxItem,\n\tComboboxPortal,\n} from \"@/components/baseui/components/combobox\";\n\nconst options = [\n\t{ value: \"1\", label: \"Option 1\" },\n\t{ value: \"2\", label: \"Option 2\" },\n];\n\nexport default function ComboboxDisabled() {\n\treturn (\n\t\t<ComboboxRoot disabled items={options}>\n\t\t\t<div className=\"w-64\">\n\t\t\t\t<ComboboxInput placeholder=\"Disabled combobox\" showTrigger />\n\t\t\t</div>\n\n\t\t\t<ComboboxPortal>\n\t\t\t\t<ComboboxPositioner>\n\t\t\t\t\t<ComboboxPopup>\n\t\t\t\t\t\t<ComboboxList>\n\t\t\t\t\t\t\t{(item) => (\n\t\t\t\t\t\t\t\t<ComboboxItem key={item.value} value={item}>\n\t\t\t\t\t\t\t\t\t{item.label}\n\t\t\t\t\t\t\t\t</ComboboxItem>\n\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t</ComboboxList>\n\t\t\t\t\t</ComboboxPopup>\n\t\t\t\t</ComboboxPositioner>\n\t\t\t</ComboboxPortal>\n\t\t</ComboboxRoot>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/combobox-disabled.tsx"
+		}
+	],
+	"type": "registry:component"
+}

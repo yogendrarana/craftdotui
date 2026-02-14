@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-combobox-with-input-inside-popup",
+	"description": "Combobox with an input inside the popup",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/baseui-combobox"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/combobox/with-input-inside-popup/index.tsx",
+			"content": "\"use client\";\n\nimport { Button } from \"@/components/baseui/components/button\";\nimport {\n\tComboboxRoot,\n\tComboboxInput,\n\tComboboxPositioner,\n\tComboboxPopup,\n\tComboboxList,\n\tComboboxItem,\n\tComboboxPortal,\n\tComboboxTrigger,\n\tComboboxValue,\n\tComboboxEmpty,\n\tComboboxIcon,\n} from \"@/components/baseui/components/combobox\";\n\ninterface Framework {\n\tvalue: string;\n\tlabel: string;\n}\n\nconst frameworks: Framework[] = [\n\t{ value: \"react\", label: \"React\" },\n\t{ value: \"vue\", label: \"Vue\" },\n\t{ value: \"svelte\", label: \"Svelte\" },\n\t{ value: \"solid\", label: \"Solid\" },\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<ComboboxRoot items={frameworks}>\n\t\t\t<ComboboxTrigger\n\t\t\t\trender={\n\t\t\t\t\t<Button\n\t\t\t\t\t\tvariant=\"outline\"\n\t\t\t\t\t\tclassName=\"w-48 flex justify-between\"\n\t\t\t\t\t/>\n\t\t\t\t}\n\t\t\t>\n\t\t\t\t<ComboboxValue>\n\t\t\t\t\t{(value: Framework) =>\n\t\t\t\t\t\tvalue ? (\n\t\t\t\t\t\t\tvalue.label\n\t\t\t\t\t\t) : (\n\t\t\t\t\t\t\t<span className=\"text-muted-foreground\">\n\t\t\t\t\t\t\t\tSelect Framework\n\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t)\n\t\t\t\t\t}\n\t\t\t\t</ComboboxValue>\n\t\t\t\t<ComboboxIcon />\n\t\t\t</ComboboxTrigger>\n\n\t\t\t<ComboboxPortal>\n\t\t\t\t<ComboboxPositioner align=\"start\">\n\t\t\t\t\t<ComboboxPopup>\n\t\t\t\t\t\t<div className=\"border-b p-2\">\n\t\t\t\t\t\t\t<ComboboxInput placeholder=\"Search...\" />\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<ComboboxEmpty>No frameworks found.</ComboboxEmpty>\n\n\t\t\t\t\t\t<ComboboxList>\n\t\t\t\t\t\t\t{(item: Framework) => (\n\t\t\t\t\t\t\t\t<ComboboxItem key={item.value} value={item}>\n\t\t\t\t\t\t\t\t\t{item.label}\n\t\t\t\t\t\t\t\t</ComboboxItem>\n\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t</ComboboxList>\n\t\t\t\t\t</ComboboxPopup>\n\t\t\t\t</ComboboxPositioner>\n\t\t\t</ComboboxPortal>\n\t\t</ComboboxRoot>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/combobox-with-input-inside-popup.tsx"
+		}
+	],
+	"type": "registry:component"
+}

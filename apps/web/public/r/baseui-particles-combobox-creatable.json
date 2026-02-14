@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-combobox-creatable",
+	"description": "Combobox with creatable items",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/baseui-combobox"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/combobox/creatable/index.tsx",
+			"content": "\"use client\";\n\nimport * as React from \"react\";\nimport { Plus } from \"lucide-react\";\nimport {\n\tComboboxRoot,\n\tComboboxInput,\n\tComboboxPositioner,\n\tComboboxPopup,\n\tComboboxList,\n\tComboboxItem,\n\tComboboxPortal,\n} from \"@/components/baseui/components/combobox\";\n\nconst initialFrameworks = [\n\t{ value: \"react\", label: \"React\" },\n\t{ value: \"vue\", label: \"Vue\" },\n\t{ value: \"svelte\", label: \"Svelte\" },\n];\n\nexport default function Particle() {\n\tconst [frameworks, setFrameworks] = React.useState(initialFrameworks);\n\tconst [searchValue, setSearchValue] = React.useState(\"\");\n\n\tconst showCreatable =\n\t\tsearchValue.length > 0 &&\n\t\t!frameworks.some(\n\t\t\t(f) => f.label.toLowerCase() === searchValue.toLowerCase(),\n\t\t);\n\n\tconst handleCreate = () => {\n\t\tconst newValue = searchValue.toLowerCase().replace(/\\s+/g, \"-\");\n\t\tconst newFramework = { value: newValue, label: searchValue };\n\t\tsetFrameworks([...frameworks, newFramework]);\n\t\tsetSearchValue(\"\");\n\t};\n\n\treturn (\n\t\t<div className=\"max-w-64\">\n\t\t\t<ComboboxRoot\n\t\t\t\titems={frameworks}\n\t\t\t\tinputValue={searchValue}\n\t\t\t\tonInputValueChange={setSearchValue}\n\t\t\t>\n\t\t\t\t<ComboboxInput placeholder=\"Select or create...\" showTrigger />\n\n\t\t\t\t<ComboboxPortal>\n\t\t\t\t\t<ComboboxPositioner>\n\t\t\t\t\t\t<ComboboxPopup>\n\t\t\t\t\t\t\t<ComboboxList>\n\t\t\t\t\t\t\t\t{(item) => (\n\t\t\t\t\t\t\t\t\t<ComboboxItem key={item.value} value={item}>\n\t\t\t\t\t\t\t\t\t\t{item.label}\n\t\t\t\t\t\t\t\t\t</ComboboxItem>\n\t\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t\t</ComboboxList>\n\t\t\t\t\t\t\t{showCreatable && (\n\t\t\t\t\t\t\t\t<div className=\"p-1 border-t border-border\">\n\t\t\t\t\t\t\t\t\t<button\n\t\t\t\t\t\t\t\t\t\ttype=\"button\"\n\t\t\t\t\t\t\t\t\t\tonClick={handleCreate}\n\t\t\t\t\t\t\t\t\t\tclassName=\"relative flex w-full cursor-pointer select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none hover:bg-accent hover:text-accent-foreground text-primary font-medium\"\n\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\t<Plus className=\"size-4\" />\n\t\t\t\t\t\t\t\t\t\tCreate \"{searchValue}\"\n\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t</ComboboxPopup>\n\t\t\t\t\t</ComboboxPositioner>\n\t\t\t\t</ComboboxPortal>\n\t\t\t</ComboboxRoot>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/combobox/creatable.tsx"
+		}
+	],
+	"type": "registry:component"
+}
