@@ -1,0 +1,20 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-form",
+	"type": "registry:component",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/baseui-form",
+		"@craftdotui/baseui-field",
+		"@craftdotui/baseui-input",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/baseui/particles/form/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/particles/form.tsx"
+		}
+	]
+}

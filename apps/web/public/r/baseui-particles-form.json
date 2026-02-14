@@ -1,0 +1,21 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-form",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/baseui-form",
+		"@craftdotui/baseui-field",
+		"@craftdotui/baseui-input",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/baseui/particles/form/index.tsx",
+			"content": "\"use client\";\n\nimport { useState } from \"react\";\nimport type { FormEvent } from \"react\";\n\nimport {\n\tField,\n\tFieldError,\n\tFieldLabel,\n} from \"@/components/baseui/components/field\";\nimport { Form } from \"@/components/baseui/components/form\";\nimport { Input } from \"@/components/baseui/components/input\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport default function Particle() {\n\tconst [loading, setLoading] = useState(false);\n\n\tconst onSubmit = async (e: FormEvent<HTMLFormElement>) => {\n\t\te.preventDefault();\n\t\tconst formData = new FormData(e.currentTarget);\n\t\tsetLoading(true);\n\t\tawait new Promise((r) => setTimeout(r, 800));\n\t\tsetLoading(false);\n\t\talert(`Email: ${formData.get(\"email\") || \"\"}`);\n\t};\n\n\treturn (\n\t\t<Form className=\"max-w-64\" onSubmit={onSubmit}>\n\t\t\t<Field name=\"email\">\n\t\t\t\t<FieldLabel>Email</FieldLabel>\n\t\t\t\t<Input\n\t\t\t\t\tdisabled={loading}\n\t\t\t\t\tplaceholder=\"example@gmail.com\"\n\t\t\t\t\trequired\n\t\t\t\t\ttype=\"email\"\n\t\t\t\t/>\n\t\t\t\t<FieldError>Please enter a valid email.</FieldError>\n\t\t\t</Field>\n\t\t\t<Button disabled={loading} type=\"submit\">\n\t\t\t\tSubmit\n\t\t\t</Button>\n\t\t</Form>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/form.tsx"
+		}
+	],
+	"type": "registry:component"
+}

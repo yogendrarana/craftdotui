@@ -3220,7 +3220,7 @@ export const Registry: Record<string, any> = {
 		type: "registry:component",
 		dependencies: ["@base-ui/react", "lucide-react"],
 		devDependencies: undefined,
-		registryDependencies: ["@craftdotui/utils"],
+		registryDependencies: ["@craftdotui/utils", "@craftdotui/baseui-input"],
 		files: [
 			{
 				path: "packages/baseui/components/combobox/index.tsx",
@@ -3432,6 +3432,55 @@ export const Registry: Record<string, any> = {
 			const LazyComp = React.lazy(async () => {
 				const mod = await import(
 					"@craftdotui/baseui/components/fieldset/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-form": {
+		name: "baseui-form",
+		description: "A Base UI form component",
+		type: "registry:component",
+		dependencies: ["@base-ui/react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/utils"],
+		files: [
+			{
+				path: "packages/baseui/components/form/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/form.tsx",
+				content:
+					'"use client";\n\nimport { Form as FormPrimitive } from "@base-ui/react/form";\n\nimport { cn } from "@/lib/utils";\n\nfunction Form({ className, ...props }: FormPrimitive.Props) {\n\treturn (\n\t\t<FormPrimitive\n\t\t\tclassName={cn("flex w-full flex-col gap-4", className)}\n\t\t\tdata-slot="form"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\nexport { Form };',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-form",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/components/form/index.tsx"
 				);
 				let Comp = mod.default;
 
@@ -7279,6 +7328,60 @@ export const Registry: Record<string, any> = {
 			const LazyComp = React.lazy(async () => {
 				const mod = await import(
 					"@craftdotui/baseui/particles/fieldset/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-form": {
+		name: "baseui-particles-form",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: [
+			"@craftdotui/baseui-form",
+			"@craftdotui/baseui-field",
+			"@craftdotui/baseui-input",
+			"@craftdotui/baseui-button",
+		],
+		files: [
+			{
+				path: "packages/baseui/particles/form/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/form.tsx",
+				content:
+					'"use client";\n\nimport { useState } from "react";\nimport type { FormEvent } from "react";\n\nimport {\n\tField,\n\tFieldError,\n\tFieldLabel,\n} from "@/components/baseui/components/field";\nimport { Form } from "@/components/baseui/components/form";\nimport { Input } from "@/components/baseui/components/input";\nimport { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\tconst [loading, setLoading] = useState(false);\n\n\tconst onSubmit = async (e: FormEvent<HTMLFormElement>) => {\n\t\te.preventDefault();\n\t\tconst formData = new FormData(e.currentTarget);\n\t\tsetLoading(true);\n\t\tawait new Promise((r) => setTimeout(r, 800));\n\t\tsetLoading(false);\n\t\talert(`Email: ${formData.get("email") || ""}`);\n\t};\n\n\treturn (\n\t\t<Form className="max-w-64" onSubmit={onSubmit}>\n\t\t\t<Field name="email">\n\t\t\t\t<FieldLabel>Email</FieldLabel>\n\t\t\t\t<Input\n\t\t\t\t\tdisabled={loading}\n\t\t\t\t\tplaceholder="example@gmail.com"\n\t\t\t\t\trequired\n\t\t\t\t\ttype="email"\n\t\t\t\t/>\n\t\t\t\t<FieldError>Please enter a valid email.</FieldError>\n\t\t\t</Field>\n\t\t\t<Button disabled={loading} type="submit">\n\t\t\t\tSubmit\n\t\t\t</Button>\n\t\t</Form>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-form",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/form/index.tsx"
 				);
 				let Comp = mod.default;
 

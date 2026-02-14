@@ -141,6 +141,10 @@ export const docsNavItems: Array<DocsNavItem> = [
 				href: "/docs/baseui/components/fieldset",
 			},
 			{
+				title: "Form",
+				href: "/docs/baseui/components/form",
+			},
+			{
 				title: "Input",
 				href: "/docs/baseui/components/input",
 			},
