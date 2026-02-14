@@ -260,6 +260,7 @@ function SelectItem({
 }: SelectPrimitive.Item.Props & { hideIndicator?: boolean }) {
 	return (
 		<SelectPrimitive.Item
+			data-slot="select-item"
 			className={cn(
 				"relative px-2 py-1.5 flex items-center justify-between gap-2",
 				"cursor-pointer select-none rounded-sm text-foreground outline-none",
@@ -267,7 +268,6 @@ function SelectItem({
 				"data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
 				className,
 			)}
-			data-slot="select-item"
 			{...props}
 		>
 			<SelectPrimitive.ItemText className="mr-auto">
@@ -275,6 +275,20 @@ function SelectItem({
 			</SelectPrimitive.ItemText>
 			{!hideIndicator && <SelectItemIndicator />}
 		</SelectPrimitive.Item>
+	);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Group                                                                      */
+/* -------------------------------------------------------------------------- */
+
+function SelectGroup({ className, ...props }: SelectPrimitive.Group.Props) {
+	return (
+		<SelectPrimitive.Group
+			className={cn("", className)}
+			data-slot="select-group"
+			{...props}
+		/>
 	);
 }
 
@@ -293,20 +307,6 @@ function SelectGroupLabel({
 				className,
 			)}
 			data-slot="select-group-label"
-			{...props}
-		/>
-	);
-}
-
-/* -------------------------------------------------------------------------- */
-/* Group                                                                      */
-/* -------------------------------------------------------------------------- */
-
-function SelectGroup({ className, ...props }: SelectPrimitive.Group.Props) {
-	return (
-		<SelectPrimitive.Group
-			className={cn("", className)}
-			data-slot="select-group"
 			{...props}
 		/>
 	);

@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-combobox-with-start-addon",
+	"description": "Combobox with a search icon start addon",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/baseui-combobox"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/combobox/with-start-addon/index.tsx",
+			"content": "\"use client\";\n\nimport { Search } from \"lucide-react\";\nimport {\n\tComboboxRoot,\n\tComboboxInput,\n\tComboboxPositioner,\n\tComboboxPopup,\n\tComboboxList,\n\tComboboxItem,\n\tComboboxPortal,\n\tComboboxEmpty,\n} from \"@/components/baseui/components/combobox\";\n\ninterface Fruit {\n\tvalue: string;\n\tlabel: string;\n}\n\nconst fruits: Fruit[] = [\n\t{ value: \"apple\", label: \"Apple\" },\n\t{ value: \"banana\", label: \"Banana\" },\n\t{ value: \"blueberry\", label: \"Blueberry\" },\n\t{ value: \"grapes\", label: \"Grapes\" },\n\t{ value: \"pineapple\", label: \"Pineapple\" },\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"max-w-64\">\n\t\t\t<ComboboxRoot items={fruits}>\n\t\t\t\t<ComboboxInput\n\t\t\t\t\tplaceholder=\"Search fruits...\"\n\t\t\t\t\tstartAddon={<Search className=\"size-4\" />}\n\t\t\t\t\tshowTrigger\n\t\t\t\t/>\n\n\t\t\t\t<ComboboxPortal>\n\t\t\t\t\t<ComboboxPositioner>\n\t\t\t\t\t\t<ComboboxPopup>\n\t\t\t\t\t\t\t<ComboboxEmpty>\n\t\t\t\t\t\t\t\t<p>Fruit not found.</p>\n\t\t\t\t\t\t\t</ComboboxEmpty>\n\t\t\t\t\t\t\t<ComboboxList>\n\t\t\t\t\t\t\t\t{(fruit: Fruit) => (\n\t\t\t\t\t\t\t\t\t<ComboboxItem\n\t\t\t\t\t\t\t\t\t\tkey={fruit.value}\n\t\t\t\t\t\t\t\t\t\tvalue={fruit}\n\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\t{fruit.label}\n\t\t\t\t\t\t\t\t\t</ComboboxItem>\n\t\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t\t</ComboboxList>\n\t\t\t\t\t\t</ComboboxPopup>\n\t\t\t\t\t</ComboboxPositioner>\n\t\t\t\t</ComboboxPortal>\n\t\t\t</ComboboxRoot>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/combobox-with-start-addon.tsx"
+		}
+	],
+	"type": "registry:component"
+}

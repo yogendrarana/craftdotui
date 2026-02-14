@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-combobox",
+	"type": "registry:component",
+	"description": "A Base UI combobox component",
+	"dependencies": ["@base-ui/react", "lucide-react"],
+	"registryDependencies": ["@craftdotui/utils", "@craftdotui/baseui-input"],
+	"files": [
+		{
+			"path": "packages/baseui/components/combobox/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/components/combobox.tsx"
+		}
+	]
+}

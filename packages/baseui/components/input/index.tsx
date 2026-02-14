@@ -10,22 +10,25 @@ import { cn } from "@craftdotui/lib/utils";
 
 const inputVariants = cva(
 	[
-		"relative",
-		"w-full min-w-0 bg-background border border-border rounded-md outline-none inline-flex",
+		"w-full min-w-0 p-2 bg-background border border-border rounded-md outline-none inline-flex",
 		"transition-all duration-200 ease-in-out",
 		"placeholder:text-muted-foreground/80 disabled:cursor-not-allowed",
 	],
 	{
 		variants: {
 			variant: {
-				default:
+				default: [
 					"focus-visible:ring-2 focus-visible:ring-ring/20 focus-visible:ring-offset-1",
+					"focus-within:ring-2 focus-within:ring-ring/20 focus-within:ring-offset-1",
+				],
 				ghost: "border-0 bg-transparent rounded-none focus:ring-0",
 			},
 			size: {
-				sm: "h-7 px-2 text-sm leading-7",
-				md: "h-8 px-3 text-sm leading-8",
-				lg: "h-9 px-3 text-base leading-9",
+				xs: "h-7 text-xs",
+				sm: "h-8 text-xs",
+				md: "h-8.5 text-sm",
+				lg: "h-9 text-sm",
+				xl: "h-9.5 text-base",
 			},
 		},
 		defaultVariants: {

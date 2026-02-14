@@ -7,7 +7,7 @@
 	"files": [
 		{
 			"path": "packages/baseui/particles/input/sizes/index.tsx",
-			"content": "import { Input } from \"@/components/baseui/components/input\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"max-w-64 space-y-4\">\n\t\t\t<Input size=\"sm\" placeholder=\"Small input\" />\n\t\t\t<Input size=\"md\" placeholder=\"Medium input\" />\n\t\t\t<Input size=\"lg\" placeholder=\"Large input\" />\n\t\t</div>\n\t);\n}\n",
+			"content": "import { Input } from \"@/components/baseui/components/input\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"max-w-64 space-y-4\">\n\t\t\t<Input size=\"xs\" placeholder=\"Extra small input\" />\n\t\t\t<Input size=\"sm\" placeholder=\"Small input\" />\n\t\t\t<Input size=\"md\" placeholder=\"Medium input\" />\n\t\t\t<Input size=\"lg\" placeholder=\"Large input\" />\n\t\t\t<Input size=\"xl\" placeholder=\"Extra large input\" />\n\t\t</div>\n\t);\n}\n",
 			"type": "registry:component",
 			"target": "components/baseui/particles/input-sizes.tsx"
 		}

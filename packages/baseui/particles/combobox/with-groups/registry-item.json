@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-combobox-with-groups",
+	"type": "registry:component",
+	"description": "Combobox with grouped items",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-combobox"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/combobox/with-groups/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/particles/combobox-with-groups.tsx"
+		}
+	]
+}
