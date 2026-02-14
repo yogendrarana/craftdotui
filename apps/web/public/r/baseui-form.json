@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-form",
+	"description": "A Base UI form component",
+	"dependencies": ["@base-ui/react"],
+	"registryDependencies": ["@craftdotui/utils"],
+	"files": [
+		{
+			"path": "packages/baseui/components/form/index.tsx",
+			"content": "\"use client\";\n\nimport { Form as FormPrimitive } from \"@base-ui/react/form\";\n\nimport { cn } from \"@/lib/utils\";\n\nfunction Form({ className, ...props }: FormPrimitive.Props) {\n\treturn (\n\t\t<FormPrimitive\n\t\t\tclassName={cn(\"flex w-full flex-col gap-4\", className)}\n\t\t\tdata-slot=\"form\"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\nexport { Form };\n",
+			"type": "registry:component",
+			"target": "components/baseui/components/form.tsx"
+		}
+	],
+	"type": "registry:component"
+}
