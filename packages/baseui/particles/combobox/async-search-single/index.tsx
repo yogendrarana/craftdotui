@@ -44,7 +44,7 @@ async function searchFrameworks(
 	return { frameworks, error: null };
 }
 
-export default function ComboboxAsyncSearchSingle() {
+export default function Particle() {
 	const [searchResults, setSearchResults] = React.useState<Framework[]>([]);
 	const [selectedValue, setSelectedValue] = React.useState<Framework | null>(
 		null,

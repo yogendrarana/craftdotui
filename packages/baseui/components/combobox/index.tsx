@@ -260,7 +260,7 @@ function ComboboxList({ className, ...props }: ComboboxPrimitive.List.Props) {
 			className={cn(
 				"max-h-[min(var(--available-height),400px)] p-1 space-y-0.5",
 				"outline-0 overflow-y-auto overscroll-contain",
-				"data-[empty]:p-0",
+				"data-empty:p-0",
 				className,
 			)}
 			{...props}

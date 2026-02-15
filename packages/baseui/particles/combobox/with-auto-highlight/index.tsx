@@ -24,7 +24,7 @@ const items = [
 	{ label: "Pear", value: "pear" },
 ];
 
-export default function ComboboxWithAutoHighlight() {
+export default function Particle() {
 	return (
 		<div className="max-w-64">
 			<ComboboxRoot autoHighlight items={items}>

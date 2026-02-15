@@ -15,7 +15,7 @@ const options = [
 	{ value: "2", label: "Option 2" },
 ];
 
-export default function ComboboxDisabled() {
+export default function Particle() {
 	return (
 		<ComboboxRoot disabled items={options}>
 			<div className="w-64">
