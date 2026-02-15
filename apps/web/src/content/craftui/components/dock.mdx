@@ -19,15 +19,42 @@ author:
 
 #### Dock
 
-| Prop      | Type      | Description                                     | Default |
-| --------- | --------- | ----------------------------------------------- | ------- |
-| children  | ReactNode | The content to be rendered inside the component | \_      |
-| className | string    | Custom class to apply to the component.         | \_      |
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      required: true,
+      description: "The content to be rendered inside the component",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Custom class to apply to the component.",
+    },
+  ]}
+/>
 
 #### DockItem
 
-| Prop      | Type      | Description                             | Default |
-| --------- | --------- | --------------------------------------- | ------- |
-| icon      | ReactNode | Icon component                          | \_      |
-| label     | string    | Text to show on tooltip                 | \_      |
-| className | string    | Custom class to apply to the component. | \_      |
+<PropsTable
+  data={[
+    {
+      prop: "icon",
+      type: "ReactNode",
+      required: true,
+      description: "Icon component",
+    },
+    {
+      prop: "label",
+      type: "string",
+      required: true,
+      description: "Text to show on tooltip",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Custom class to apply to the component.",
+    },
+  ]}
+/>

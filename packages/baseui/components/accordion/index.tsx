@@ -47,7 +47,7 @@ function AccordionTrigger({
 			<AccordionPrimitive.Trigger
 				data-slot="accordion-trigger"
 				className={cn(
-					"py-4 relative flex flex-1 items-start justify-between rounded-md border border-transparent text-left text-sm font-medium transition-all outline-none",
+					"py-3 relative flex flex-1 items-start justify-between rounded-md border border-transparent text-left text-sm font-medium transition-all outline-none",
 					"hover:cursor-pointer hover:underline disabled:pointer-events-none disabled:opacity-50",
 					"focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:border-ring focus-visible:after:border-ring",
 					"**:data-[slot=accordion-trigger-icon]:ml-auto **:data-[slot=accordion-trigger-icon]:size-4 **:data-[slot=accordion-trigger-icon]:text-muted-foreground",
@@ -80,13 +80,13 @@ function AccordionPanel({
 		<AccordionPrimitive.Panel
 			data-slot="accordion-content"
 			className={cn(
-				"h-(--accordion-panel-height) overflow-hidden text-sm transition-[height] duration-300 ease-in-out",
+				"h-(--accordion-panel-height) overflow-hidden text-sm text-muted-foreground transition-[height] duration-300 ease-in-out",
 				"data-starting-style:h-0 data-ending-style:h-0",
 				className,
 			)}
 			{...props}
 		>
-			<div className="pt-0 pb-4 text-muted-foreground">{children}</div>
+			<div className="pt-0 pb-3">{children}</div>
 		</AccordionPrimitive.Panel>
 	);
 }

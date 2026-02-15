@@ -29,44 +29,121 @@ author:
 
 #### Timeline
 
-| Prop        | Type      | Description                                                  | Default    |
-| ----------- | --------- | ------------------------------------------------------------ | ---------- |
-| children    | ReactNode | The content to be displayed inside the component             | \_         |
-| variant?    | string    | Accepted values are **vertical** or **horizontal**           | "vertical" |
-| className?  | string    | Additional CSS classes to style the Timeline component.      | ""         |
-| aria-label? | string    | Accessible label describing the timeline for screen readers. | ""         |
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      required: true,
+      description: "The content to be displayed inside the component",
+    },
+    {
+      prop: "variant",
+      type: "string",
+      default: '"vertical"',
+      description: "Accepted values are vertical or horizontal",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: '""',
+      description: "Additional CSS classes to style the Timeline component.",
+    },
+    {
+      prop: "aria-label",
+      type: "string",
+      default: '""',
+      description: "Accessible label describing the timeline for screen readers.",
+    },
+  ]}
+/>
 
 #### TimelineItem
 
-| Prop       | Type      | Description                                                   | Default |
-| ---------- | --------- | ------------------------------------------------------------- | ------- |
-| children   | ReactNode | The content to be displayed inside the TimelineItem component | \_      |
-| className? | string    | Additional CSS classes to style the TimelineItem component    | \_      |
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      required: true,
+      description: "The content to be displayed inside the TimelineItem component",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional CSS classes to style the TimelineItem component",
+    },
+  ]}
+/>
 
 #### TimelineMarker
 
-| Prop       | Type   | Description                                                        | Default |
-| ---------- | ------ | ------------------------------------------------------------------ | ------- |
-| variant    | string | Use **fill** for a solid marker, **empty** for an outlined marker. | "empty" |
-| className? | string | Additional CSS classes to style the TimelineMarker component       | \_      |
+<PropsTable
+  data={[
+    {
+      prop: "variant",
+      type: "string",
+      default: '"empty"',
+      description: "Use fill for a solid marker, empty for an outlined marker.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional CSS classes to style the TimelineMarker component",
+    },
+  ]}
+/>
 
 #### TimelineContent
 
-| Prop       | Type      | Description                                                      | Default |
-| ---------- | --------- | ---------------------------------------------------------------- | ------- |
-| children   | ReactNode | The content to be displayed inside the TimelineContent component | \_      |
-| className? | string    | Additional CSS classes to style the TimelineContent component    | \_      |
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      required: true,
+      description: "The content to be displayed inside the TimelineContent component",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional CSS classes to style the TimelineContent component",
+    },
+  ]}
+/>
 
 #### TimelineTitle
 
-| Prop       | Type      | Description                                                    | Default |
-| ---------- | --------- | -------------------------------------------------------------- | ------- |
-| children   | ReactNode | The content to be displayed inside the TimelineTitle component | \_      |
-| className? | string    | Additional CSS classes to style the TimelineTitle component    | \_      |
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      required: true,
+      description: "The content to be displayed inside the TimelineTitle component",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional CSS classes to style the TimelineTitle component",
+    },
+  ]}
+/>
 
 #### TimelineDescription
 
-| Prop       | Type      | Description                                                          | Default |
-| ---------- | --------- | -------------------------------------------------------------------- | ------- |
-| children   | ReactNode | The content to be displayed inside the TimelineDescription component | \_      |
-| className? | string    | Additional CSS classes to style the TimelineDescription component    | \_      |
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      required: true,
+      description: "The content to be displayed inside the TimelineDescription component",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional CSS classes to style the TimelineDescription component",
+    },
+  ]}
+/>

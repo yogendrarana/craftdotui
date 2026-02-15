@@ -34,57 +34,172 @@ author:
 
 #### Dialog
 
-| Prop         | Type                      | Description                                                                | Default   |
-| ------------ | ------------------------- | -------------------------------------------------------------------------- | --------- |
-| children     | ReactNode                 | The content to be rendered inside the component                            | \_        |
-| variants     | Object                    | Framer motion variants.                                                    | \_        |
-| transition   | Object                    | Framer motion transition.                                                  | \_        |
-| defaultOpen  | boolean                   | If true, the dialog is open by default.                                    | false     |
-| open         | boolean                   | Controls whether the dialog is open or closed.                             | undefined |
-| onOpenChange | (isOpen: boolean) => void | Callback function triggered whenever the open state of the dialog changes. | undefined |
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      required: true,
+      description: "The content to be rendered inside the component",
+    },
+    {
+      prop: "variants",
+      type: "Object",
+      description: "Framer motion variants.",
+    },
+    {
+      prop: "transition",
+      type: "Object",
+      description: "Framer motion transition.",
+    },
+    {
+      prop: "defaultOpen",
+      type: "boolean",
+      default: "false",
+      description: "If true, the dialog is open by default.",
+    },
+    {
+      prop: "open",
+      type: "boolean",
+      default: "undefined",
+      description: "Controls whether the dialog is open or closed.",
+    },
+    {
+      prop: "onOpenChange",
+      type: "(isOpen: boolean) => void",
+      default: "undefined",
+      description: "Callback function triggered whenever the open state of the dialog changes.",
+    },
+  ]}
+/>
 
 #### DialogTrigger
 
-| Prop      | Type      | Description                                          | Default |
-| --------- | --------- | ---------------------------------------------------- | ------- |
-| children  | ReactNode | The content to be rendered inside the component      | \_      |
-| className | string    | String of class                                      | \_      |
-| asChild   | boolean   | If false, returns button other wise returns children | false   |
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      required: true,
+      description: "The content to be rendered inside the component",
+    },
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: "If false, returns button other wise returns children",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "String of class",
+    },
+  ]}
+/>
 
 #### DialogHeader
 
-| Prop      | Type      | Description                                     | Default |
-| --------- | --------- | ----------------------------------------------- | ------- |
-| children  | ReactNode | The content to be rendered inside the component | \_      |
-| className | string    | String of class                                 | \_      |
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      required: true,
+      description: "The content to be rendered inside the component",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "String of class",
+    },
+  ]}
+/>
 
 #### DialogContent
 
-| Prop              | Type                 | Description                                          | Default   |
-| ----------------- | -------------------- | ---------------------------------------------------- | --------- |
-| children          | ReactNode            | The content to be rendered inside the component      | \_        |
-| className         | string               | String of class for main dialog content              | \_        |
-| backdropClassName | string               | String of class for dialog background                | \_        |
-| onClose           | onClose?: () => void | If false, returns button other wise returns children | undefined |
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      required: true,
+      description: "The content to be rendered inside the component",
+    },
+    {
+      prop: "backdropClassName",
+      type: "string",
+      description: "String of class for dialog background",
+    },
+    {
+      prop: "onClose",
+      type: "() => void",
+      default: "undefined",
+      description: "Optional callback when dialog closes",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "String of class for main dialog content",
+    },
+  ]}
+/>
 
 #### DialogTitle
 
-| Prop      | Type      | Description                                     | Default |
-| --------- | --------- | ----------------------------------------------- | ------- |
-| children  | ReactNode | The content to be rendered inside the component | \_      |
-| className | string    | String of class                                 | \_      |
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      required: true,
+      description: "The content to be rendered inside the component",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "String of class",
+    },
+  ]}
+/>
 
-#### DialogDesciption
+#### DialogDescription
 
-| Prop      | Type      | Description                                     | Default |
-| --------- | --------- | ----------------------------------------------- | ------- |
-| children  | ReactNode | The content to be rendered inside the component | \_      |
-| className | string    | String of class                                 | \_      |
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      required: true,
+      description: "The content to be rendered inside the component",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "String of class",
+    },
+  ]}
+/>
 
 #### DialogClose
 
-| Prop      | Type      | Description                                          | Default |
-| --------- | --------- | ---------------------------------------------------- | ------- |
-| children  | ReactNode | The content to be rendered inside the component      | \_      |
-| className | string    | String of class                                      | \_      |
-| asChild   | boolean   | If false, returns button other wise returns children | false   |
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      required: true,
+      description: "The content to be rendered inside the component",
+    },
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: "If false, returns button other wise returns children",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "String of class",
+    },
+  ]}
+/>

@@ -18,9 +18,29 @@ author:
 
 #### Tooltip
 
-| Prop       | Type       | Description                                                     | Default |
-| ---------- | ---------- | --------------------------------------------------------------- | ------- |
-| children   | ReactNode  | The content to be rendered inside this component                | \_      |
-| delay?     | number     | Delay in milliseconds before the tooltip appears or disappears. | 100     |
-| className? | string     | Custom class to apply to the tooltip.                           | \_      |
-| onClick?   | () => void | Callback function to be called when the tooltip is clicked.     | \_      |
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      required: true,
+      description: "The content to be rendered inside this component",
+    },
+    {
+      prop: "delay",
+      type: "number",
+      default: "100",
+      description: "Delay in milliseconds before the tooltip appears or disappears.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Custom class to apply to the tooltip.",
+    },
+    {
+      prop: "onClick",
+      type: "() => void",
+      description: "Callback function to be called when the tooltip is clicked.",
+    },
+  ]}
+/>

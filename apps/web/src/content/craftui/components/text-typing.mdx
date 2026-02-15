@@ -17,8 +17,27 @@ author:
 
 ## Props
 
-| Prop        | Type   | Description                         | Default         |
-| ----------- | ------ | ----------------------------------- | --------------- |
-| children    | string | The text to display initially.      | "Hello, World!" |
-| className   | string | Additional class names for styling. | ""              |
-| typingSpeed | number | Speed at which typing happens (ms). | 100             |
+#### TextTyping
+
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "string",
+      default: '"Hello, World!"',
+      description: "The text to display initially.",
+    },
+    {
+      prop: "typingSpeed",
+      type: "number",
+      default: "100",
+      description: "Speed at which typing happens (ms).",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: '""',
+      description: "Additional class names for styling.",
+    },
+  ]}
+/>

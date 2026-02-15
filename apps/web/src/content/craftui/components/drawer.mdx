@@ -33,58 +33,177 @@ author:
 
 #### Drawer
 
-| Prop          | Type                      | Description                                                                | Default   |
-| ------------- | ------------------------- | -------------------------------------------------------------------------- | --------- |
-| children      | ReactNode                 | The content to be rendered inside the component                            | \_        |
-| origin?       | string                    | left, right, top, bottom                                                   | right     |
-| variants?     | Object                    | Framer motion variants.                                                    | \_        |
-| transition?   | Object                    | Framer motion transition.                                                  | \_        |
-| defaultOpen?  | boolean                   | If true, the drawer is open by default.                                    | false     |
-| open?         | boolean                   | Controls whether the dawer is open or closed.                              | undefined |
-| onOpenChange? | (isOpen: boolean) => void | Callback function triggered whenever the open state of the drawer changes. | undefined |
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      required: true,
+      description: "The content to be rendered inside the component",
+    },
+    {
+      prop: "origin",
+      type: "string",
+      default: '"right"',
+      description: "left, right, top, bottom",
+    },
+    {
+      prop: "variants",
+      type: "Object",
+      description: "Framer motion variants.",
+    },
+    {
+      prop: "transition",
+      type: "Object",
+      description: "Framer motion transition.",
+    },
+    {
+      prop: "defaultOpen",
+      type: "boolean",
+      default: "false",
+      description: "If true, the drawer is open by default.",
+    },
+    {
+      prop: "open",
+      type: "boolean",
+      default: "undefined",
+      description: "Controls whether the dawer is open or closed.",
+    },
+    {
+      prop: "onOpenChange",
+      type: "(isOpen: boolean) => void",
+      default: "undefined",
+      description: "Callback function triggered whenever the open state of the drawer changes.",
+    },
+  ]}
+/>
 
 #### DrawerTrigger
 
-| Prop       | Type      | Description                                          | Default |
-| ---------- | --------- | ---------------------------------------------------- | ------- |
-| children   | ReactNode | The content to be rendered inside the drawer trigger | \_      |
-| className? | string    | Additional class names to style the DrawerTrigger    | \_      |
-| asChild?   | boolean   | If false, returns button other wise returns children | false   |
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      required: true,
+      description: "The content to be rendered inside the drawer trigger",
+    },
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: "If false, returns button other wise returns children",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional class names to style the DrawerTrigger",
+    },
+  ]}
+/>
 
 #### DrawerContent
 
-| Prop               | Type                 | Description                                            | Default   |
-| ------------------ | -------------------- | ------------------------------------------------------ | --------- |
-| children           | ReactNode            | The content to be rendered inside the DrawerContent    | \_        |
-| className?         | string               | Additional class names to style the DrawerContent      | \_        |
-| backdropClassName? | string               | Additional class names to style the backdrop of drawer | \_        |
-| onClose?           | onClose?: () => void | Function to run when drawer closes                     | undefined |
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      required: true,
+      description: "The content to be rendered inside the DrawerContent",
+    },
+    {
+      prop: "backdropClassName",
+      type: "string",
+      description: "Additional class names to style the backdrop of drawer",
+    },
+    {
+      prop: "onClose",
+      type: "() => void",
+      default: "undefined",
+      description: "Function to run when drawer closes",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional class names to style the DrawerContent",
+    },
+  ]}
+/>
 
 #### DrawerHeader
 
-| Prop       | Type      | Description                                        | Default |
-| ---------- | --------- | -------------------------------------------------- | ------- |
-| children   | ReactNode | The content to be rendered inside the DrawerHeader | \_      |
-| className? | string    | Additional class names to style the DrawerHeader   | \_      |
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      required: true,
+      description: "The content to be rendered inside the DrawerHeader",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional class names to style the DrawerHeader",
+    },
+  ]}
+/>
 
 #### DrawerTitle
 
-| Prop       | Type      | Description                                       | Default |
-| ---------- | --------- | ------------------------------------------------- | ------- |
-| children   | ReactNode | The content to be rendered inside the DrawerTitle | \_      |
-| className? | string    | Additional class names to style the DrawerTitle   | \_      |
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      required: true,
+      description: "The content to be rendered inside the DrawerTitle",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional class names to style the DrawerTitle",
+    },
+  ]}
+/>
 
 #### DrawerDescription
 
-| Prop       | Type      | Description                                             | Default |
-| ---------- | --------- | ------------------------------------------------------- | ------- |
-| children   | ReactNode | The content to be rendered inside the DrawerDescription | \_      |
-| className? | string    | Additional class names to style the DrawerDescription   | \_      |
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      required: true,
+      description: "The content to be rendered inside the DrawerDescription",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional class names to style the DrawerDescription",
+    },
+  ]}
+/>
 
 #### DrawerClose
 
-| Prop       | Type      | Description                                          | Default |
-| ---------- | --------- | ---------------------------------------------------- | ------- |
-| children?  | ReactNode | The content to be rendered inside the DrawerClose    | \_      |
-| className? | string    | Additional class names to style the DrawerClose      | \_      |
-| asChild?   | boolean   | If false, returns button other wise returns children | false   |
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      description: "The content to be rendered inside the DrawerClose",
+    },
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: "If false, returns button other wise returns children",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional class names to style the DrawerClose",
+    },
+  ]}
+/>

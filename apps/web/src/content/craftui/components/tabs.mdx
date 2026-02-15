@@ -30,43 +30,131 @@ author:
 
 #### Tabs
 
-| Prop           | Type      | Description                                                     | Default |
-| -------------- | --------- | --------------------------------------------------------------- | ------- |
-| children       | ReactNode | The content to be rendered inside it                            | \_      |
-| defaultTab     | string    | Initial active tab value when the component mounts              | \_      |
-| className?     | string    | Optional class names to style the Tabs component                | \_      |
-| animationType? | Variants  | Animation style for the active tab indicator                    | \_      |
-| instanceId?    | string    | Unique identifier for the tabs instance for animation isolation | \_      |
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      required: true,
+      description: "The content to be rendered inside it",
+    },
+    {
+      prop: "defaultTab",
+      type: "string",
+      description: "Initial active tab value when the component mounts",
+    },
+    {
+      prop: "animationType",
+      type: "Variants",
+      description: "Animation style for the active tab indicator",
+    },
+    {
+      prop: "instanceId",
+      type: "string",
+      description: "Unique identifier for the tabs instance for animation isolation",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Optional class names to style the Tabs component",
+    },
+  ]}
+/>
 
 #### Tablist
 
-| Prop       | Type      | Description                                   | Default |
-| ---------- | --------- | --------------------------------------------- | ------- |
-| children   | ReactNode | The content to be rendered inside the Tablist | \_      |
-| className? | string    | Optional class names to style the Tablist     | \_      |
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      required: true,
+      description: "The content to be rendered inside the Tablist",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Optional class names to style the Tablist",
+    },
+  ]}
+/>
 
 #### Tab
 
-| Prop       | Type      | Description                                                     | Default |
-| ---------- | --------- | --------------------------------------------------------------- | ------- |
-| children   | ReactNode | Content displayed as the tab button label                       | \_      |
-| value      | string    | Unique identifier that maps this tab to its corresponding panel | \_      |
-| className? | string    | Optional class names to style the Tab                           | \_      |
-| icon?      | ReactNode | Optional icon element rendered before the tab label             | \_      |
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      required: true,
+      description: "Content displayed as the tab button label",
+    },
+    {
+      prop: "value",
+      type: "string",
+      required: true,
+      description: "Unique identifier that maps this tab to its corresponding panel",
+    },
+    {
+      prop: "icon",
+      type: "ReactNode",
+      description: "Optional icon element rendered before the tab label",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Optional class names to style the Tab",
+    },
+  ]}
+/>
 
 #### TabPanels
 
-| Prop       | Type      | Description                                 | Default |
-| ---------- | --------- | ------------------------------------------- | ------- |
-| children?  | ReactNode | The content to be rendered inside TabPanels | \_      |
-| className? | string    | Optional class names to style TabPanels     | \_      |
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      description: "The content to be rendered inside TabPanels",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Optional class names to style TabPanels",
+    },
+  ]}
+/>
 
 #### TabPanel
 
-| Prop         | Type       | Description                                | Default |
-| ------------ | ---------- | ------------------------------------------ | ------- |
-| children     | ReactNode  | The content to be rendered inside TabPanel | \_      |
-| value        | string     | Unique value to distinguish the panel      | \_      |
-| className?   | string     | Optional class names to style the TabPanel | \_      |
-| variants?    | Variants   | Framer motion variants                     | \_      |
-| transition?? | Transition | Framer motion transition                   | \_      |
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      required: true,
+      description: "The content to be rendered inside TabPanel",
+    },
+    {
+      prop: "value",
+      type: "string",
+      required: true,
+      description: "Unique value to distinguish the panel",
+    },
+    {
+      prop: "variants",
+      type: "Variants",
+      description: "Framer motion variants",
+    },
+    {
+      prop: "transition",
+      type: "Transition",
+      description: "Framer motion transition",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Optional class names to style the TabPanel",
+    },
+  ]}
+/>

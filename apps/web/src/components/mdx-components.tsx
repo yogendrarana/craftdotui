@@ -11,6 +11,7 @@ import { useMDXComponent } from "@content-collections/mdx/react";
 import { ComponentSource } from "@/components/mdx/component-source";
 import { ComponentCodePreview } from "@/components/mdx/component-code-preview";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { PropsTable } from "@/components/mdx/props";
 
 const CustomLink = (props: any) => {
 	const href = props.href;
@@ -36,6 +37,7 @@ const components = {
 	ComponentPreview,
 	ComponentCodePreview,
 	Installation,
+	PropsTable,
 	Image,
 	h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
 		<h1

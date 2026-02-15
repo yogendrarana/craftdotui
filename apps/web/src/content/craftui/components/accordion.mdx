@@ -29,32 +29,96 @@ author:
 
 #### Accordion
 
-| Prop               | Type      | Description                                                 | Default |
-| ------------------ | --------- | ----------------------------------------------------------- | ------- |
-| children           | ReactNode | The content to be rendered inside the Accordion             | \_      |
-| defaultOpen?       | array     | An array of IDs of items that should be open by default.    | []      |
-| allowMultipleOpen? | boolean   | If true, allows multiple items to be open at the same time. | false   |
-| className?         | string    | Additional class names to style the Accordion.              | \_      |
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      required: true,
+      description: "The content to be rendered inside the Accordion",
+    },
+    {
+      prop: "defaultOpen",
+      type: "array",
+      default: "[]",
+      description: "An array of IDs of items that should be open by default.",
+    },
+    {
+      prop: "allowMultipleOpen",
+      type: "boolean",
+      default: "false",
+      description: "If true, allows multiple items to be open at the same time.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional class names to style the Accordion.",
+    },
+  ]}
+/>
 
 #### AccordionItem
 
-| Prop       | Type      | Description                                          | Default   |
-| ---------- | --------- | ---------------------------------------------------- | --------- |
-| children   | ReactNode | The content to be rendered inside the AccordionItem. | \_        |
-| id         | string    | A unique identifier for the AccordionItem.           | undefined |
-| className? | string    | Additional class names to style the AccordionItem.   | \_        |
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      required: true,
+      description: "The content to be rendered inside the AccordionItem.",
+    },
+    {
+      prop: "id",
+      type: "string",
+      required: true,
+      default: "undefined",
+      description: "A unique identifier for the AccordionItem.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional class names to style the AccordionItem.",
+    },
+  ]}
+/>
 
 #### AccordionTrigger
 
-| Prop       | Type      | Description                                                                 | Default |
-| ---------- | --------- | --------------------------------------------------------------------------- | ------- |
-| children   | ReactNode | The content to be rendered inside the trigger button for the AccordionItem. | \_      |
-| className? | string    | Additional class names to style the AccordionTrigger.                       | \_      |
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      required: true,
+      description: "The content to be rendered inside the trigger button for the AccordionItem.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional class names to style the AccordionTrigger.",
+    },
+  ]}
+/>
 
 #### AccordionContent
 
-| Prop       | Type      | Description                                                    | Default |
-| ---------- | --------- | -------------------------------------------------------------- | ------- |
-| children   | ReactNode | The content to be revealed when the AccordionItem is expanded. | \_      |
-| className? | string    | Additional class names to style the AccordionContent.          | \_      |
-| variants?  | Object    | Framer Motion variants for animating the AccordionContent.     | \_      |
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      required: true,
+      description: "The content to be revealed when the AccordionItem is expanded.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional class names to style the AccordionContent.",
+    },
+    {
+      prop: "variants",
+      type: "Object",
+      description: "Framer Motion variants for animating the AccordionContent.",
+    },
+  ]}
+/>

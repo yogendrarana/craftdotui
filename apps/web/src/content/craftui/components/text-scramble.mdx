@@ -30,13 +30,54 @@ author:
 
 ## Props
 
-| Prop          | Type     | Description                                 | Default         |
-| ------------- | -------- | ------------------------------------------- | --------------- |
-| children      | string   | The text to display                         | "Hello, World!" |
-| duration      | number   | Duration of the scrambling animation (s).   | 3               |
-| speed         | number   | The speed at which scrambling happens (ms). | 50              |
-| trigger       | boolean  | Trigger the animation.                      | true            |
-| characterSet  | string   | Custom characters used for scrambling.      | [A-Za-z0-9]     |
-| className     | string   | Additional class names for styling.         | \_              |
-| as            | string   | HTML tag name to wrap the text inside       | \_              |
-| onScrambleEnd | function | Function to run after the scrambling ends   | \_              |
+#### TextScramble
+
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "string",
+      default: '"Hello, World!"',
+      description: "The text to display",
+    },
+    {
+      prop: "duration",
+      type: "number",
+      default: "3",
+      description: "Duration of the scrambling animation (s).",
+    },
+    {
+      prop: "speed",
+      type: "number",
+      default: "50",
+      description: "The speed at which scrambling happens (ms).",
+    },
+    {
+      prop: "trigger",
+      type: "boolean",
+      default: "true",
+      description: "Trigger the animation.",
+    },
+    {
+      prop: "characterSet",
+      type: "string",
+      default: "[A-Za-z0-9]",
+      description: "Custom characters used for scrambling.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional class names for styling.",
+    },
+    {
+      prop: "as",
+      type: "ElementType",
+      description: "HTML tag name to wrap the text inside",
+    },
+    {
+      prop: "onScrambleEnd",
+      type: "() => void",
+      description: "Function to run after the scrambling ends",
+    },
+  ]}
+/>

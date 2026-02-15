@@ -28,12 +28,50 @@ If you want to use these icons you can visit [**svgl.app**](https://www.svgl.app
 
 ## Props
 
-| Prop         | Type              | Description                                     | Default |
-| ------------ | ----------------- | ----------------------------------------------- | ------- |
-| children     | ReactNode         | The content to be rendered inside the component | \_      |
-| className    | string            | Custom class to apply to the component.         | \_      |
-| duration     | number            | Duration of the animation in seconds            | 20      |
-| repeat       | number            | Number of times the animation should repeat.    | 2       |
-| direction    | "left" or "right" | Direction of the animation.                     | "left"  |
-| pauseOnHover | boolean           | Whether the animation pauses on hover.          | true    |
-| gap          | number            | Space between the animated items in pixels.     | 0       |
+#### Marquee
+
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      required: true,
+      description: "The content to be rendered inside the component",
+    },
+    {
+      prop: "duration",
+      type: "number",
+      default: "20",
+      description: "Duration of the animation in seconds",
+    },
+    {
+      prop: "repeat",
+      type: "number",
+      default: "2",
+      description: "Number of times the animation should repeat.",
+    },
+    {
+      prop: "direction",
+      type: '"left" | "right"',
+      default: '"left"',
+      description: "Direction of the animation.",
+    },
+    {
+      prop: "pauseOnHover",
+      type: "boolean",
+      default: "true",
+      description: "Whether the animation pauses on hover.",
+    },
+    {
+      prop: "gap",
+      type: "number",
+      default: "0",
+      description: "Space between the animated items in pixels.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Custom class to apply to the component.",
+    },
+  ]}
+/>

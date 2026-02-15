@@ -23,11 +23,28 @@ Returns a function to trigger confetti animations.
 
 #### ConfettiOptions
 
-| Prop          | Type   | Description                                                                            | Default |
-| ------------- | ------ | -------------------------------------------------------------------------------------- | ------- |
-| particleCount | number | The number of confetti and sequin particles                                            | 50      |
-| origin        | string | top \| bottom \| left \| right \| top-left \| top-right \| bottom-left \| bottom-right | center  |
-| duration      | number | Duration in milliseconds before the canvas is removed                                  | 3000    |
+<PropsTable
+  data={[
+    {
+      prop: "particleCount",
+      type: "number",
+      default: "50",
+      description: "The number of confetti and sequin particles",
+    },
+    {
+      prop: "origin",
+      type: "string",
+      default: '"center"',
+      description: "top | bottom | left | right | top-left | top-right | bottom-left | bottom-right",
+    },
+    {
+      prop: "duration",
+      type: "number",
+      default: "3000",
+      description: "Duration in milliseconds before the canvas is removed",
+    },
+  ]}
+/>
 
 ## Credits
 

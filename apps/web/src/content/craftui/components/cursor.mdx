@@ -21,8 +21,26 @@ author:
 
 ## Props
 
-| Prop      | Type      | Description                                     | Default |
-| --------- | --------- | ----------------------------------------------- | ------- |
-| children  | ReactNode | The content to be rendered inside the component | \_      |
-| cursor    | ReactNode | A component to be shown as cursor               | \_      |
-| className | string    | String of class                                 | \_      |
+#### Cursor
+
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      required: true,
+      description: "The content to be rendered inside the component",
+    },
+    {
+      prop: "cursor",
+      type: "ReactNode",
+      required: true,
+      description: "A component to be shown as cursor",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "String of class",
+    },
+  ]}
+/>
