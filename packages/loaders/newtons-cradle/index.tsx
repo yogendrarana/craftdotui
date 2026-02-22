@@ -1,48 +1,35 @@
 "use client";
 
-import React from "react";
+import { cn } from "@craftdotui/lib/utils";
 
 export default function NewtonsCradle() {
+	const dots = 5;
+
 	return (
-		<div className="h-10 w-10 relative flex items-center justify-center">
-			<div className="dot">
-				<div className="dot-inner bg-black dark:bg-white"></div>
-			</div>
-			<div className="dot">
-				<div className="dot-inner bg-black dark:bg-white"></div>
-			</div>
-			<div className="dot">
-				<div className="dot-inner bg-black dark:bg-white"></div>
-			</div>
-			<div className="dot">
-				<div className="dot-inner bg-black dark:bg-white"></div>
+		<>
+			<div className="relative flex items-center justify-center">
+				{Array.from({ length: dots }).map((_, index) => (
+					<div
+						key={index}
+						className={cn(
+							"h-10 flex items-center justify-center origin-top",
+							{
+								swing: index === 0,
+								swing2: index === dots - 1,
+							},
+						)}
+					>
+						<div className="bg-primary size-2 rounded-full"></div>
+					</div>
+				))}
 			</div>
 
-			<style jsx>{`
-                .dot {
-                    position: relative;
-                    display: flex;
-                    flex-shrink: 0;
-                    align-items: center;
-                    justify-content: center;
-                    height: 100%;
-                    width: 25%;
-                    transform-origin: center top;
-                }
-
-                .dot-inner {
-                    content: "";
-                    display: block;
-                    width: 100%;
-                    height: 25%;
-                    border-radius: 50%;
-                }
-
-                .dot:first-child {
+			<style>{`
+                .swing {
                     animation: swing 1.4s linear infinite;
                 }
 
-                .dot:last-child {
+                .swing2 {
                     animation: swing2 1.4s linear infinite;
                 }
 
@@ -59,6 +46,9 @@ export default function NewtonsCradle() {
                         transform: rotate(0deg);
                         animation-timing-function: linear;
                     }
+                    100% {
+                        transform: rotate(0deg);
+                    }
                 }
 
                 @keyframes swing2 {
@@ -74,8 +64,11 @@ export default function NewtonsCradle() {
                         transform: rotate(-70deg);
                         animation-timing-function: ease-in;
                     }
+                    100% {
+                        transform: rotate(0deg);
+                    }
                 }
             `}</style>
-		</div>
+		</>
 	);
 }

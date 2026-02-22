@@ -1,0 +1,17 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "loader-newtons-cradle",
+	"description": "A Newton's cradle loader animation",
+	"dependencies": [],
+	"devDependencies": [],
+	"registryDependencies": [],
+	"files": [
+		{
+			"path": "packages/loaders/newtons-cradle/index.tsx",
+			"content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport default function NewtonsCradle() {\n\tconst dots = 5;\n\n\treturn (\n\t\t<>\n\t\t\t<div className=\"relative flex items-center justify-center\">\n\t\t\t\t{Array.from({ length: dots }).map((_, index) => (\n\t\t\t\t\t<div\n\t\t\t\t\t\tkey={index}\n\t\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t\t\"h-10 flex items-center justify-center origin-top\",\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tswing: index === 0,\n\t\t\t\t\t\t\t\tswing2: index === dots - 1,\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t)}\n\t\t\t\t\t>\n\t\t\t\t\t\t<div className=\"bg-primary size-2 rounded-full\"></div>\n\t\t\t\t\t</div>\n\t\t\t\t))}\n\t\t\t</div>\n\n\t\t\t<style>{`\n                .swing {\n                    animation: swing 1.4s linear infinite;\n                }\n\n                .swing2 {\n                    animation: swing2 1.4s linear infinite;\n                }\n\n                @keyframes swing {\n                    0% {\n                        transform: rotate(0deg);\n                        animation-timing-function: ease-out;\n                    }\n                    25% {\n                        transform: rotate(70deg);\n                        animation-timing-function: ease-in;\n                    }\n                    50% {\n                        transform: rotate(0deg);\n                        animation-timing-function: linear;\n                    }\n                    100% {\n                        transform: rotate(0deg);\n                    }\n                }\n\n                @keyframes swing2 {\n                    0% {\n                        transform: rotate(0deg);\n                        animation-timing-function: linear;\n                    }\n                    50% {\n                        transform: rotate(0deg);\n                        animation-timing-function: ease-out;\n                    }\n                    75% {\n                        transform: rotate(-70deg);\n                        animation-timing-function: ease-in;\n                    }\n                    100% {\n                        transform: rotate(0deg);\n                    }\n                }\n            `}</style>\n\t\t</>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/loaders/newtons-cradle.tsx"
+		}
+	],
+	"type": "registry:component"
+}

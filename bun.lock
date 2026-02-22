@@ -17,6 +17,7 @@
         "@craftdotui/craftui": "workspace:*",
         "@craftdotui/hooks": "workspace:*",
         "@craftdotui/lib": "workspace:*",
+        "@craftdotui/loaders": "workspace:*",
         "@radix-ui/react-accordion": "^1.2.12",
         "@radix-ui/react-aspect-ratio": "^1.1.8",
         "@radix-ui/react-collapsible": "^1.1.12",
@@ -110,6 +111,14 @@
         "tailwind-merge": "^3.4.0",
       },
     },
+    "packages/loaders": {
+      "name": "@craftdotui/loaders",
+      "version": "0.1.0",
+      "peerDependencies": {
+        "framer-motion": "^12.0.0",
+        "react": "^19.0.0",
+      },
+    },
     "packages/tsconfig": {
       "name": "@craftdotui/tsconfig",
       "version": "0.1.0",
@@ -189,6 +198,8 @@
     "@craftdotui/hooks": ["@craftdotui/hooks@workspace:packages/hooks"],
 
     "@craftdotui/lib": ["@craftdotui/lib@workspace:packages/lib"],
+
+    "@craftdotui/loaders": ["@craftdotui/loaders@workspace:packages/loaders"],
 
     "@craftdotui/tsconfig": ["@craftdotui/tsconfig@workspace:packages/tsconfig"],
 

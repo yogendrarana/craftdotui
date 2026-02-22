@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "loader-leapfrog",
+	"description": "A leapfrog loader animation",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/lib/utils"],
+	"files": [
+		{
+			"path": "packages/loaders/leapfrog/index.tsx",
+			"content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport default function LeapFrog() {\n\tconst delays = [\"0s\", \"-0.833s\", \"-1.667s\"];\n\n\treturn (\n\t\t<div className=\"relative h-10 w-10\">\n\t\t\t{delays.map((delay, index) => (\n\t\t\t\t<div\n\t\t\t\t\tkey={index}\n\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t\"absolute inset-0\",\n\t\t\t\t\t\t\"w-full h-full flex items-center justify-start\",\n\t\t\t\t\t\t\"before:content-[''] before:block\",\n\t\t\t\t\t\t\"before:w-2 before:h-2\",\n\t\t\t\t\t\t\"before:rounded-full\",\n\t\t\t\t\t\t\"before:bg-black dark:before:bg-white\",\n\t\t\t\t\t\t\"before:transition-colors before:duration-300 before:ease-in-out\",\n\t\t\t\t\t\t\"animate-leapFrog\",\n\t\t\t\t\t)}\n\t\t\t\t\tstyle={{ animationDelay: delay }}\n\t\t\t\t/>\n\t\t\t))}\n\n\t\t\t<style>{`\n\t\t\t\t@keyframes leapFrog {\n\t\t\t\t\t0% {\n\t\t\t\t\t\ttransform: translateX(0) rotate(0deg);\n\t\t\t\t\t}\n\t\t\t\t\t33.333% {\n\t\t\t\t\t\ttransform: translateX(0) rotate(180deg);\n\t\t\t\t\t}\n\t\t\t\t\t66.666% {\n\t\t\t\t\t\ttransform: translateX(-15px) rotate(180deg);\n\t\t\t\t\t}\n\t\t\t\t\t99.999% {\n\t\t\t\t\t\ttransform: translateX(-31px) rotate(180deg);\n\t\t\t\t\t}\n\t\t\t\t\t100% {\n\t\t\t\t\t\ttransform: translateX(0) rotate(0deg);\n\t\t\t\t\t}\n\t\t\t\t}\n\n\t\t\t\t.animate-leapFrog {\n\t\t\t\t\tanimation: leapFrog 2.5s ease infinite;\n\t\t\t\t}\n\t\t\t`}</style>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/loaders/leapfrog.tsx"
+		}
+	],
+	"type": "registry:component"
+}

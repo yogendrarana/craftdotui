@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "loader-leapfrog",
+	"type": "registry:component",
+	"description": "A leapfrog loader animation",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/lib/utils"],
+	"files": [
+		{
+			"path": "packages/loaders/leapfrog/index.tsx",
+			"type": "registry:component",
+			"target": "components/loaders/leapfrog.tsx"
+		}
+	]
+}

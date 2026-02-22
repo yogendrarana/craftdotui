@@ -8,7 +8,8 @@
 			"content-collections": ["./.content-collections/generated"],
 			"@craftdotui/craftui/*": ["../../packages/craftui/*"],
 			"@craftdotui/hooks/*": ["../../packages/hooks/*"],
-			"@craftdotui/lib/*": ["../../packages/lib/*"]
+			"@craftdotui/lib/*": ["../../packages/lib/*"],
+			"@craftdotui/loaders/*": ["../../packages/loaders/*"]
 		}
 	},
 	"include": [

@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "loader-classic",
+	"description": "A classic spinner loader with size and color options",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/lib/utils"],
+	"files": [
+		{
+			"path": "packages/loaders/classic/index.tsx",
+			"content": "\"use client\";\n\nexport default function ClassicLoader() {\n\treturn (\n\t\t<div className=\"animate-spin size-8 border-2 rounded-full border-current border-t-transparent\" />\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/loaders/classic.tsx"
+		}
+	],
+	"type": "registry:component"
+}

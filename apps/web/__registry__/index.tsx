@@ -12946,4 +12946,541 @@ export const Registry: Record<string, any> = {
 			return LazyComp;
 		})(),
 	},
+	"loader-classic": {
+		name: "loader-classic",
+		description: "A classic spinner loader with size and color options",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/lib/utils"],
+		files: [
+			{
+				path: "packages/loaders/classic/index.tsx",
+				type: "registry:component",
+				target: "components/loaders/classic.tsx",
+				content:
+					'"use client";\n\nexport default function ClassicLoader() {\n\treturn (\n\t\t<div className="animate-spin size-8 border-2 rounded-full border-current border-t-transparent" />\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/loader-classic",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/loaders/classic/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"loader-jumping-dots": {
+		name: "loader-jumping-dots",
+		description: "A jumping dots loader animation",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/lib/utils"],
+		files: [
+			{
+				path: "packages/loaders/jumping-dots/index.tsx",
+				type: "registry:component",
+				target: "components/loaders/jumping-dots.tsx",
+				content:
+					'"use client";\n\nexport default function JumpingDots() {\n\tconst dots = 4;\n\n\treturn (\n\t\t<div className="flex items-end gap-1.5">\n\t\t\t{Array.from({ length: dots }).map((_, index) => (\n\t\t\t\t<div\n\t\t\t\t\tkey={index}\n\t\t\t\t\tclassName="w-2 h-2 rounded-full bg-black dark:bg-white animate-[jump_1s_ease-in-out_infinite]"\n\t\t\t\t\tstyle={{\n\t\t\t\t\t\tanimationDelay: `-${(dots - index) * 0.15}s`,\n\t\t\t\t\t}}\n\t\t\t\t/>\n\t\t\t))}\n\n\t\t\t<style>{`\n\t\t\t\t@keyframes jump {\n\t\t\t\t\t0%,\n\t\t\t\t\t100% {\n\t\t\t\t\t\ttransform: translateY(0);\n\t\t\t\t\t}\n\t\t\t\t\t50% {\n\t\t\t\t\t\ttransform: translateY(-200%);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t`}</style>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/loader-jumping-dots",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/loaders/jumping-dots/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"loader-leapfrog": {
+		name: "loader-leapfrog",
+		description: "A leapfrog loader animation",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/lib/utils"],
+		files: [
+			{
+				path: "packages/loaders/leapfrog/index.tsx",
+				type: "registry:component",
+				target: "components/loaders/leapfrog.tsx",
+				content:
+					'"use client";\n\nimport { cn } from "@/lib/utils";\n\nexport default function LeapFrog() {\n\tconst delays = ["0s", "-0.833s", "-1.667s"];\n\n\treturn (\n\t\t<div className="relative h-10 w-10">\n\t\t\t{delays.map((delay, index) => (\n\t\t\t\t<div\n\t\t\t\t\tkey={index}\n\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t"absolute inset-0",\n\t\t\t\t\t\t"w-full h-full flex items-center justify-start",\n\t\t\t\t\t\t"before:content-[\'\'] before:block",\n\t\t\t\t\t\t"before:w-2 before:h-2",\n\t\t\t\t\t\t"before:rounded-full",\n\t\t\t\t\t\t"before:bg-black dark:before:bg-white",\n\t\t\t\t\t\t"before:transition-colors before:duration-300 before:ease-in-out",\n\t\t\t\t\t\t"animate-leapFrog",\n\t\t\t\t\t)}\n\t\t\t\t\tstyle={{ animationDelay: delay }}\n\t\t\t\t/>\n\t\t\t))}\n\n\t\t\t<style>{`\n\t\t\t\t@keyframes leapFrog {\n\t\t\t\t\t0% {\n\t\t\t\t\t\ttransform: translateX(0) rotate(0deg);\n\t\t\t\t\t}\n\t\t\t\t\t33.333% {\n\t\t\t\t\t\ttransform: translateX(0) rotate(180deg);\n\t\t\t\t\t}\n\t\t\t\t\t66.666% {\n\t\t\t\t\t\ttransform: translateX(-15px) rotate(180deg);\n\t\t\t\t\t}\n\t\t\t\t\t99.999% {\n\t\t\t\t\t\ttransform: translateX(-31px) rotate(180deg);\n\t\t\t\t\t}\n\t\t\t\t\t100% {\n\t\t\t\t\t\ttransform: translateX(0) rotate(0deg);\n\t\t\t\t\t}\n\t\t\t\t}\n\n\t\t\t\t.animate-leapFrog {\n\t\t\t\t\tanimation: leapFrog 2.5s ease infinite;\n\t\t\t\t}\n\t\t\t`}</style>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/loader-leapfrog",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/loaders/leapfrog/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"loader-line-spinner": {
+		name: "loader-line-spinner",
+		description: "A line spinner loader using framer-motion",
+		type: "registry:component",
+		dependencies: ["motion"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/lib/utils"],
+		files: [
+			{
+				path: "packages/loaders/line-spinner/index.tsx",
+				type: "registry:component",
+				target: "components/loaders/line-spinner.tsx",
+				content:
+					'"use client";\n\nimport { motion } from "motion/react";\nimport { cn } from "@/lib/utils";\n\nexport default function LineSpinner() {\n\tconst lines = 12;\n\n\treturn (\n\t\t<div className="relative w-12 h-12">\n\t\t\t{Array.from({ length: lines }).map((_, i) => (\n\t\t\t\t<motion.div\n\t\t\t\t\tkey={i}\n\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t"absolute",\n\t\t\t\t\t\t"w-1 h-4",\n\t\t\t\t\t\t"rounded-full",\n\t\t\t\t\t\t"bg-black dark:bg-white",\n\t\t\t\t\t)}\n\t\t\t\t\tstyle={{\n\t\t\t\t\t\tleft: "50%",\n\t\t\t\t\t\ttop: "50%",\n\t\t\t\t\t\trotate: `-${i * 30}deg`,\n\t\t\t\t\t\ttransformOrigin: "0% 0%",\n\t\t\t\t\t}}\n\t\t\t\t\tanimate={{ opacity: [0.1, 1, 0.1] }}\n\t\t\t\t\ttransition={{\n\t\t\t\t\t\tduration: 1,\n\t\t\t\t\t\trepeat: Infinity,\n\t\t\t\t\t\tdelay: i * 0.1,\n\t\t\t\t\t\tease: "linear",\n\t\t\t\t\t}}\n\t\t\t\t/>\n\t\t\t))}\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/loader-line-spinner",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/loaders/line-spinner/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"loader-line-wobble": {
+		name: "loader-line-wobble",
+		description: "A line wobble loader animation",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: [],
+		registryDependencies: [],
+		files: [
+			{
+				path: "packages/loaders/line-wobble/index.tsx",
+				type: "registry:component",
+				target: "components/loaders/line-wobble.tsx",
+				content:
+					'"use client";\n\nexport default function LineWobble() {\n\treturn (\n\t\t<div className="relative flex items-center h-1 w-20 rounded-full overflow-hidden">\n\t\t\t{/* track */}\n\t\t\t<div className="absolute inset-0 bg-black/10 dark:bg-white/10" />\n\n\t\t\t{/* wobble bar */}\n\t\t\t<div className="h-full w-full rounded-full bg-black dark:bg-white animate-wobble" />\n\n\t\t\t<style>{`\n\t\t\t\t@keyframes wobble {\n\t\t\t\t\t0%,\n\t\t\t\t\t100% {\n\t\t\t\t\t\ttransform: translateX(-95%);\n\t\t\t\t\t}\n\t\t\t\t\t50% {\n\t\t\t\t\t\ttransform: translateX(95%);\n\t\t\t\t\t}\n\t\t\t\t}\n\n\t\t\t\t.animate-wobble {\n\t\t\t\t\tanimation: wobble 1.75s ease-in-out infinite;\n\t\t\t\t}\n\t\t\t`}</style>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/loader-line-wobble",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/loaders/line-wobble/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"loader-newtons-cradle": {
+		name: "loader-newtons-cradle",
+		description: "A Newton's cradle loader animation",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: [],
+		registryDependencies: [],
+		files: [
+			{
+				path: "packages/loaders/newtons-cradle/index.tsx",
+				type: "registry:component",
+				target: "components/loaders/newtons-cradle.tsx",
+				content:
+					'"use client";\n\nimport { cn } from "@/lib/utils";\n\nexport default function NewtonsCradle() {\n\tconst dots = 5;\n\n\treturn (\n\t\t<>\n\t\t\t<div className="relative flex items-center justify-center">\n\t\t\t\t{Array.from({ length: dots }).map((_, index) => (\n\t\t\t\t\t<div\n\t\t\t\t\t\tkey={index}\n\t\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t\t"h-10 flex items-center justify-center origin-top",\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tswing: index === 0,\n\t\t\t\t\t\t\t\tswing2: index === dots - 1,\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t)}\n\t\t\t\t\t>\n\t\t\t\t\t\t<div className="bg-primary size-2 rounded-full"></div>\n\t\t\t\t\t</div>\n\t\t\t\t))}\n\t\t\t</div>\n\n\t\t\t<style>{`\n                .swing {\n                    animation: swing 1.4s linear infinite;\n                }\n\n                .swing2 {\n                    animation: swing2 1.4s linear infinite;\n                }\n\n                @keyframes swing {\n                    0% {\n                        transform: rotate(0deg);\n                        animation-timing-function: ease-out;\n                    }\n                    25% {\n                        transform: rotate(70deg);\n                        animation-timing-function: ease-in;\n                    }\n                    50% {\n                        transform: rotate(0deg);\n                        animation-timing-function: linear;\n                    }\n                    100% {\n                        transform: rotate(0deg);\n                    }\n                }\n\n                @keyframes swing2 {\n                    0% {\n                        transform: rotate(0deg);\n                        animation-timing-function: linear;\n                    }\n                    50% {\n                        transform: rotate(0deg);\n                        animation-timing-function: ease-out;\n                    }\n                    75% {\n                        transform: rotate(-70deg);\n                        animation-timing-function: ease-in;\n                    }\n                    100% {\n                        transform: rotate(0deg);\n                    }\n                }\n            `}</style>\n\t\t</>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/loader-newtons-cradle",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/loaders/newtons-cradle/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"loader-orbit": {
+		name: "loader-orbit",
+		description: "An orbit loader animation",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: [],
+		registryDependencies: [],
+		files: [
+			{
+				path: "packages/loaders/orbit/index.tsx",
+				type: "registry:component",
+				target: "components/loaders/orbit.tsx",
+				content:
+					'"use client";\n\nimport type { CSSProperties } from "react";\nimport { cn } from "@/lib/utils";\n\nexport default function Orbit({ className }: { className?: string }) {\n\tconst size = 35; // px\n\tconst speed = 1.4; // seconds\n\n\treturn (\n\t\t<div\n\t\t\tclassName={cn("relative", className)}\n\t\t\tstyle={\n\t\t\t\t{\n\t\t\t\t\t"--orbit-size": `${size}px`,\n\t\t\t\t\t"--orbit-speed": `${speed}s`,\n\t\t\t\t} as CSSProperties\n\t\t\t}\n\t\t>\n\t\t\t{[0, 1].map((i) => (\n\t\t\t\t<div\n\t\t\t\t\tkey={i}\n\t\t\t\t\tclassName="bg-primary absolute left-0 top-1/2 size-4 -translate-y-1/2 rounded-full"\n\t\t\t\t\tstyle={{\n\t\t\t\t\t\tanimation: "orbit var(--orbit-speed) linear infinite",\n\t\t\t\t\t\tanimationDelay:\n\t\t\t\t\t\t\ti === 1 ? "calc(var(--orbit-speed) / -2)" : "0s",\n\t\t\t\t\t}}\n\t\t\t\t/>\n\t\t\t))}\n\n\t\t\t<style>\n\t\t\t\t{`\n                    @keyframes orbit {\n                    0% {\n                        transform: translateX(calc(var(--orbit-size) * 0.25)) scale(0.73684);\n                        opacity: 0.65;\n                    }\n                    5% {\n                        transform: translateX(calc(var(--orbit-size) * 0.235)) scale(0.684208);\n                        opacity: 0.58;\n                    }\n                    10% {\n                        transform: translateX(calc(var(--orbit-size) * 0.182)) scale(0.631576);\n                        opacity: 0.51;\n                    }\n                    15% {\n                        transform: translateX(calc(var(--orbit-size) * 0.129)) scale(0.578944);\n                        opacity: 0.44;\n                    }\n                    20% {\n                        transform: translateX(calc(var(--orbit-size) * 0.076)) scale(0.526312);\n                        opacity: 0.37;\n                    }\n                    25% {\n                        transform: translateX(0%) scale(0.47368);\n                        opacity: 0.3;\n                    }\n                    30% {\n                        transform: translateX(calc(var(--orbit-size) * -0.076)) scale(0.526312);\n                        opacity: 0.37;\n                    }\n                    35% {\n                        transform: translateX(calc(var(--orbit-size) * -0.129)) scale(0.578944);\n                        opacity: 0.44;\n                    }\n                    40% {\n                        transform: translateX(calc(var(--orbit-size) * -0.182)) scale(0.631576);\n                        opacity: 0.51;\n                    }\n                    45% {\n                        transform: translateX(calc(var(--orbit-size) * -0.235)) scale(0.684208);\n                        opacity: 0.58;\n                    }\n                    50% {\n                        transform: translateX(calc(var(--orbit-size) * -0.25)) scale(0.73684);\n                        opacity: 0.65;\n                    }\n                    55% {\n                        transform: translateX(calc(var(--orbit-size) * -0.235)) scale(0.789472);\n                        opacity: 0.72;\n                    }\n                    60% {\n                        transform: translateX(calc(var(--orbit-size) * -0.182)) scale(0.842104);\n                        opacity: 0.79;\n                    }\n                    65% {\n                        transform: translateX(calc(var(--orbit-size) * -0.129)) scale(0.894736);\n                        opacity: 0.86;\n                    }\n                    70% {\n                        transform: translateX(calc(var(--orbit-size) * -0.076)) scale(0.947368);\n                        opacity: 0.93;\n                    }\n                    75% {\n                        transform: translateX(0%) scale(1);\n                        opacity: 1;\n                    }\n                    80% {\n                        transform: translateX(calc(var(--orbit-size) * 0.076)) scale(0.947368);\n                        opacity: 0.93;\n                    }\n                    85% {\n                        transform: translateX(calc(var(--orbit-size) * 0.129)) scale(0.894736);\n                        opacity: 0.86;\n                    }\n                    90% {\n                        transform: translateX(calc(var(--orbit-size) * 0.182)) scale(0.842104);\n                        opacity: 0.79;\n                    }\n                    95% {\n                        transform: translateX(calc(var(--orbit-size) * 0.235)) scale(0.789472);\n                        opacity: 0.72;\n                    }\n                    100% {\n                        transform: translateX(calc(var(--orbit-size) * 0.25)) scale(0.73684);\n                        opacity: 0.65;\n                    }\n                }\n            `}\n\t\t\t</style>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/loader-orbit",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import("@craftdotui/loaders/orbit/index.tsx");
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"loader-pulsating-dots": {
+		name: "loader-pulsating-dots",
+		description: "A pulsating dots loader animation",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: [],
+		registryDependencies: [],
+		files: [
+			{
+				path: "packages/loaders/pulsating-dots/index.tsx",
+				type: "registry:component",
+				target: "components/loaders/pulsating-dots.tsx",
+				content:
+					'"use client";\n\nexport default function PulsingDots() {\n\tconst dotCount = 5;\n\tconst duration = 1.3;\n\n\treturn (\n\t\t<div className="relative flex items-center justify-between gap-1">\n\t\t\t{Array.from({ length: dotCount }).map((_, i) => {\n\t\t\t\tconst fraction =\n\t\t\t\t\tdotCount > 1 ? -0.25 * (i / (dotCount - 1)) : 0;\n\n\t\t\t\treturn (\n\t\t\t\t\t<div\n\t\t\t\t\t\tkey={i}\n\t\t\t\t\t\tclassName="w-[10.32px] h-[10.32px] rounded-full bg-black dark:bg-white"\n\t\t\t\t\t\tstyle={{\n\t\t\t\t\t\t\tanimation: `pulse ${duration}s ease-in-out infinite`,\n\t\t\t\t\t\t\tanimationDelay: `calc(${duration}s * ${fraction})`,\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\t\t\t\t);\n\t\t\t})}\n\n\t\t\t<style>{`\n\t\t\t\t@keyframes pulse {\n\t\t\t\t\t0%, 100% {\n\t\t\t\t\t\ttransform: scale(0);\n\t\t\t\t\t}\n\t\t\t\t\t50% {\n\t\t\t\t\t\ttransform: scale(1);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t`}</style>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/loader-pulsating-dots",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/loaders/pulsating-dots/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"loader-spinner": {
+		name: "loader-spinner",
+		description: "A simple spinner loader",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: [],
+		registryDependencies: [],
+		files: [
+			{
+				path: "packages/loaders/spinner/index.tsx",
+				type: "registry:component",
+				target: "components/loaders/spinner.tsx",
+				content:
+					'export default function Spinner() {\n\treturn (\n\t\t<div className="animate-spin rounded-full h-10 w-10 border-b-2 border-black dark:border-white">\n\t\t\t<span className="sr-only">Loading...</span>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/loader-spinner",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/loaders/spinner/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"loader-spiral": {
+		name: "loader-spiral",
+		description: "A spiral loader animation",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: [],
+		registryDependencies: [],
+		files: [
+			{
+				path: "packages/loaders/spiral/index.tsx",
+				type: "registry:component",
+				target: "components/loaders/spiral.tsx",
+				content:
+					'"use client";\n\nexport default function Spiral() {\n\tconst dotCount = 8;\n\tconst duration = 0.9;\n\n\treturn (\n\t\t<div className="relative flex items-center justify-start h-[40px] w-[40px]">\n\t\t\t{Array.from({ length: dotCount }).map((_, index) => {\n\t\t\t\tconst rotation = (360 / dotCount) * index;\n\n\t\t\t\treturn (\n\t\t\t\t\t<div\n\t\t\t\t\t\tkey={index}\n\t\t\t\t\t\tclassName="absolute top-0 left-0 flex items-center justify-start h-full w-full"\n\t\t\t\t\t\tstyle={{ transform: `rotate(${rotation}deg)` }}\n\t\t\t\t\t>\n\t\t\t\t\t\t<div\n\t\t\t\t\t\t\tclassName="h-[20%] w-[20%] rounded-full bg-black dark:bg-white"\n\t\t\t\t\t\t\tstyle={{\n\t\t\t\t\t\t\t\tanimation: `pulse ${duration}s ease-in-out infinite`,\n\t\t\t\t\t\t\t\tanimationDelay: `-${index * (duration / dotCount)}s`,\n\t\t\t\t\t\t\t}}\n\t\t\t\t\t\t/>\n\t\t\t\t\t</div>\n\t\t\t\t);\n\t\t\t})}\n\n\t\t\t<style>{`\n\t\t\t\t@keyframes pulse {\n\t\t\t\t\t0%, 100% {\n\t\t\t\t\t\ttransform: scale(0);\n\t\t\t\t\t\topacity: 0.5;\n\t\t\t\t\t}\n\t\t\t\t\t50% {\n\t\t\t\t\t\ttransform: scale(1);\n\t\t\t\t\t\topacity: 1;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t`}</style>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/loader-spiral",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/loaders/spiral/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"loader-zoomies": {
+		name: "loader-zoomies",
+		description: "A zoomies loader animation",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: [],
+		registryDependencies: [],
+		files: [
+			{
+				path: "packages/loaders/zoomies/index.tsx",
+				type: "registry:component",
+				target: "components/loaders/zoomies.tsx",
+				content:
+					'"use client";\n\nexport default function Zoomies() {\n\tconst duration = 1.4;\n\n\treturn (\n\t\t<div className="relative flex items-center justify-center h-[5px] w-[80px] rounded-[2.5px] overflow-hidden">\n\t\t\t{/* bg */}\n\t\t\t<div className="absolute inset-0 bg-black dark:bg-white opacity-10 transition-colors duration-300" />\n\n\t\t\t{/* moving bar */}\n\t\t\t<div\n\t\t\t\tclassName="h-full w-full rounded-[2.5px] bg-black dark:bg-white transition-colors duration-300"\n\t\t\t\tstyle={{\n\t\t\t\t\tanimation: `zoom ${duration}s ease-in-out infinite`,\n\t\t\t\t}}\n\t\t\t/>\n\n\t\t\t<style>\n\t\t\t\t{`\n                    @keyframes zoom {\n                        0% {\n                            transform: translateX(-100%);\n                        }\n                        100% {\n                            transform: translateX(100%);\n                        }\n                    }\n                `}\n\t\t\t</style>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/loader-zoomies",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/loaders/zoomies/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
 };

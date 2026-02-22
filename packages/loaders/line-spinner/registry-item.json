@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "loader-line-spinner",
+	"type": "registry:component",
+	"description": "A line spinner loader using framer-motion",
+	"dependencies": ["motion"],
+	"registryDependencies": ["@craftdotui/lib/utils"],
+	"files": [
+		{
+			"path": "packages/loaders/line-spinner/index.tsx",
+			"type": "registry:component",
+			"target": "components/loaders/line-spinner.tsx"
+		}
+	]
+}

@@ -40,6 +40,7 @@ async function buildRegistryFile() {
 		path.join(process.cwd(), "packages", "baseui"),
 		path.join(process.cwd(), "packages", "hooks"),
 		path.join(process.cwd(), "packages", "lib"),
+		path.join(process.cwd(), "packages", "loaders"),
 	];
 
 	const newItems: RegistryItem[] = [];
@@ -190,6 +191,8 @@ async function buildRegistryIndex() {
 						)}`;
 					} else if (filePath.startsWith("packages/lib/")) {
 						return `@craftdotui/lib/${filePath.replace("packages/lib/", "")}`;
+					} else if (filePath.startsWith("packages/loaders/")) {
+						return `@craftdotui/loaders/${filePath.replace("packages/loaders/", "")}`;
 					}
 					// Fallback
 					return `@/${filePath}`;

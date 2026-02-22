@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "loader-jumping-dots",
+	"description": "A jumping dots loader animation",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/lib/utils"],
+	"files": [
+		{
+			"path": "packages/loaders/jumping-dots/index.tsx",
+			"content": "\"use client\";\n\nexport default function JumpingDots() {\n\tconst dots = 4;\n\n\treturn (\n\t\t<div className=\"flex items-end gap-1.5\">\n\t\t\t{Array.from({ length: dots }).map((_, index) => (\n\t\t\t\t<div\n\t\t\t\t\tkey={index}\n\t\t\t\t\tclassName=\"w-2 h-2 rounded-full bg-black dark:bg-white animate-[jump_1s_ease-in-out_infinite]\"\n\t\t\t\t\tstyle={{\n\t\t\t\t\t\tanimationDelay: `-${(dots - index) * 0.15}s`,\n\t\t\t\t\t}}\n\t\t\t\t/>\n\t\t\t))}\n\n\t\t\t<style>{`\n\t\t\t\t@keyframes jump {\n\t\t\t\t\t0%,\n\t\t\t\t\t100% {\n\t\t\t\t\t\ttransform: translateY(0);\n\t\t\t\t\t}\n\t\t\t\t\t50% {\n\t\t\t\t\t\ttransform: translateY(-200%);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t`}</style>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/loaders/jumping-dots.tsx"
+		}
+	],
+	"type": "registry:component"
+}

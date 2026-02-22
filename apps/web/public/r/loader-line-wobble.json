@@ -1,0 +1,17 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "loader-line-wobble",
+	"description": "A line wobble loader animation",
+	"dependencies": [],
+	"devDependencies": [],
+	"registryDependencies": [],
+	"files": [
+		{
+			"path": "packages/loaders/line-wobble/index.tsx",
+			"content": "\"use client\";\n\nexport default function LineWobble() {\n\treturn (\n\t\t<div className=\"relative flex items-center h-1 w-20 rounded-full overflow-hidden\">\n\t\t\t{/* track */}\n\t\t\t<div className=\"absolute inset-0 bg-black/10 dark:bg-white/10\" />\n\n\t\t\t{/* wobble bar */}\n\t\t\t<div className=\"h-full w-full rounded-full bg-black dark:bg-white animate-wobble\" />\n\n\t\t\t<style>{`\n\t\t\t\t@keyframes wobble {\n\t\t\t\t\t0%,\n\t\t\t\t\t100% {\n\t\t\t\t\t\ttransform: translateX(-95%);\n\t\t\t\t\t}\n\t\t\t\t\t50% {\n\t\t\t\t\t\ttransform: translateX(95%);\n\t\t\t\t\t}\n\t\t\t\t}\n\n\t\t\t\t.animate-wobble {\n\t\t\t\t\tanimation: wobble 1.75s ease-in-out infinite;\n\t\t\t\t}\n\t\t\t`}</style>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/loaders/line-wobble.tsx"
+		}
+	],
+	"type": "registry:component"
+}
