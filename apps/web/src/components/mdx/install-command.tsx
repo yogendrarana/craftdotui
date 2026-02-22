@@ -2,17 +2,21 @@
 
 import React from "react";
 import {
-	DropdownMenu,
-	DropdownMenuTrigger,
-	DropdownMenuContent,
-	DropdownMenuItem,
-} from "@/components/ui/dropdown-menu";
+	MenuRoot,
+	MenuTrigger,
+	MenuItem,
+	MenuPortal,
+	MenuPositioner,
+	MenuPopup,
+} from "@craftdotui/baseui/components/menu";
 
 import {
 	Tooltip,
-	TooltipContent,
+	TooltipPortal,
+	TooltipPositioner,
+	TooltipPopup,
 	TooltipTrigger,
-} from "@/components/ui/tooltip";
+} from "@craftdotui/baseui/components/tooltip";
 
 import { cn } from "@craftdotui/lib/utils";
 import { CopyButton } from "./copy-button";
@@ -66,43 +70,57 @@ export function InstallCommandDropdown({ pkg }: { pkg: string }) {
 				className="px-3 py-1.5 text-xs transition-colors flex items-center gap-2 cursor-pointer max-w-[300px]"
 			>
 				<Tooltip>
-					<TooltipTrigger asChild>
+					<TooltipTrigger>
 						<span className="text-muted-foreground truncate">
 							{hasCopied ? "Copied!" : installCommand}
 						</span>
 					</TooltipTrigger>
-					<TooltipContent
-						align="center"
-						className="max-w-[600px] bg-muted"
-					>
-						<code className="text-xs">{installCommand}</code>
-					</TooltipContent>
+
+					<TooltipPortal>
+						<TooltipPositioner sideOffset={10}>
+							<TooltipPopup
+								hideTooltipArrow
+								className="max-w-[600px] bg-muted"
+							>
+								<code className="text-xs">
+									{installCommand}
+								</code>
+							</TooltipPopup>
+						</TooltipPositioner>
+					</TooltipPortal>
 				</Tooltip>
 			</button>
 
-			<DropdownMenu>
-				<DropdownMenuTrigger asChild>
-					<button
-						type="button"
-						className="h-full px-3 py-1.5 cursor-pointer text-xs font-medium bg-muted"
-					>
-						{packageManager}
-					</button>
-				</DropdownMenuTrigger>
-				<DropdownMenuContent align="end" className="w-24">
-					{["npm", "pnpm", "yarn", "bun"].map((pm) => (
-						<DropdownMenuItem
-							key={pm}
-							onClick={() =>
-								setPackageManager(pm as PackageManager)
-							}
-							className="text-xs"
+			<MenuRoot>
+				<MenuTrigger
+					render={
+						<button
+							type="button"
+							className="h-full px-3 py-1.5 cursor-pointer text-xs font-medium bg-muted"
 						>
-							{pm}
-						</DropdownMenuItem>
-					))}
-				</DropdownMenuContent>
-			</DropdownMenu>
+							{packageManager}
+						</button>
+					}
+				/>
+
+				<MenuPortal>
+					<MenuPositioner>
+						<MenuPopup className="w-28">
+							{["npm", "pnpm", "yarn", "bun"].map((pm) => (
+								<MenuItem
+									key={pm}
+									onClick={() =>
+										setPackageManager(pm as PackageManager)
+									}
+									className="text-xs"
+								>
+									{pm}
+								</MenuItem>
+							))}
+						</MenuPopup>
+					</MenuPositioner>
+				</MenuPortal>
+			</MenuRoot>
 		</div>
 	);
 }

@@ -8,6 +8,12 @@ import { Registry } from "@/__registry__";
 import { CodeRenderer } from "@/components/mdx/code-renderer";
 import { InstallCommandDropdown } from "./install-command";
 import { ComponentPreview } from "./component-preview";
+import {
+	Tabs,
+	TabsList,
+	TabsPanel,
+	TabsTab,
+} from "@craftdotui/baseui/components/tabs";
 
 interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
 	name: string;
@@ -21,9 +27,7 @@ export function ComponentCodePreview({
 	...props
 }: ComponentPreviewProps) {
 	const [key, _] = React.useState(0);
-	const [mode, setMode] = React.useState<"preview" | "code">("preview");
 
-	// Try to get from Registry first
 	const registryItem = Registry[name];
 
 	const Code = React.useMemo(() => {
@@ -38,40 +42,24 @@ export function ComponentCodePreview({
 	}, [registryItem, name]);
 
 	return (
-		<div className={cn("w-full flex flex-col", className)} {...props}>
+		<Tabs
+			defaultValue="preview"
+			className={cn("w-full flex flex-col", className)}
+			{...props}
+		>
 			{/* header */}
 			<div className="mb-2 flex items-center justify-between rounded-md">
-				<div className="flex items-center gap-2">
-					<div className="p-1 flex items-center rounded-lg bg-muted border border-dashed">
-						<button
-							type="button"
-							onClick={() => setMode("preview")}
-							className={cn(
-								"px-3 py-1.5 min-w-22.5 cursor-pointer rounded-md text-xs font-medium flex items-center gap-1.5 border transition-colors",
-								mode === "preview"
-									? "bg-background text-foreground border-border shadow-sm"
-									: "text-muted-foreground hover:text-foreground border-transparent",
-							)}
-						>
-							<EyeIcon className="h-3.5 w-3.5" />
-							Preview
-						</button>
+				<TabsList>
+					<TabsTab value="preview">
+						<EyeIcon className="size-4" />
+						Preview
+					</TabsTab>
 
-						<button
-							type="button"
-							onClick={() => setMode("code")}
-							className={cn(
-								"px-3 py-1.5 min-w-22.5 cursor-pointer rounded-md text-xs font-medium flex items-center gap-1.5 border transition-colors",
-								mode === "code"
-									? "bg-background text-foreground border-border shadow-sm"
-									: "text-muted-foreground hover:text-foreground border-transparent",
-							)}
-						>
-							<Code2Icon className="h-3.5 w-3.5" />
-							Code
-						</button>
-					</div>
-				</div>
+					<TabsTab value="code">
+						<Code2Icon className="size-4" />
+						Code
+					</TabsTab>
+				</TabsList>
 
 				<div className="flex items-center gap-2">
 					<InstallCommandDropdown pkg={registryItem.command} />
@@ -80,7 +68,7 @@ export function ComponentCodePreview({
 
 			{/* component and code */}
 			<div className="relative min-h-100 w-full border rounded-lg flex items-center justify-center p-1.5">
-				{mode === "preview" ? (
+				<TabsPanel value="preview" className="w-full">
 					<div className="h-100 w-full flex justify-center items-center border border-dashed rounded-md">
 						<ComponentPreview
 							name={name}
@@ -88,13 +76,15 @@ export function ComponentCodePreview({
 							hasReTrigger={hasReTrigger}
 						/>
 					</div>
-				) : (
+				</TabsPanel>
+
+				<TabsPanel value="code" className="w-full">
 					<CodeRenderer
 						className="h-100 w-full border rounded-md"
 						code={Code}
 					/>
-				)}
+				</TabsPanel>
 			</div>
-		</div>
+		</Tabs>
 	);
 }

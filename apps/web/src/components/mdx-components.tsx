@@ -10,7 +10,6 @@ import { ComponentPreview } from "./mdx/component-preview";
 import { useMDXComponent } from "@content-collections/mdx/react";
 import { ComponentSource } from "@/components/mdx/component-source";
 import { ComponentCodePreview } from "@/components/mdx/component-code-preview";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { PropsTable } from "@/components/mdx/props";
 
 const CustomLink = (props: any) => {
@@ -163,45 +162,6 @@ const components = {
 		<td
 			className={cn(
 				"border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right",
-				className,
-			)}
-			{...props}
-		/>
-	),
-	Tabs: ({ className, ...props }: React.ComponentProps<typeof Tabs>) => (
-		<Tabs className={cn("relative mt-6 w-full", className)} {...props} />
-	),
-	TabsList: ({
-		className,
-		...props
-	}: React.ComponentProps<typeof TabsList>) => (
-		<TabsList
-			className={cn(
-				"w-full justify-start rounded-none border-b bg-transparent p-0",
-				className,
-			)}
-			{...props}
-		/>
-	),
-	TabsTrigger: ({
-		className,
-		...props
-	}: React.ComponentProps<typeof TabsTrigger>) => (
-		<TabsTrigger
-			className={cn(
-				"relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none",
-				className,
-			)}
-			{...props}
-		/>
-	),
-	TabsContent: ({
-		className,
-		...props
-	}: React.ComponentProps<typeof TabsContent>) => (
-		<TabsContent
-			className={cn(
-				"relative [&_h3.font-heading]:text-base [&_h3.font-heading]:font-semibold",
 				className,
 			)}
 			{...props}

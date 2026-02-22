@@ -23,10 +23,6 @@ export const docsNavItems: Array<DocsNavItem> = [
 		title: "Craft UI",
 		items: [
 			{
-				title: "Accordion",
-				href: "/docs/craftui/components/accordion",
-			},
-			{
 				title: "Animate Tooltip",
 				href: "/docs/craftui/components/animated-tooltip",
 			},
@@ -39,16 +35,8 @@ export const docsNavItems: Array<DocsNavItem> = [
 				href: "/docs/craftui/components/cursor",
 			},
 			{
-				title: "Dialog",
-				href: "/docs/craftui/components/dialog",
-			},
-			{
 				title: "Dock",
 				href: "/docs/craftui/components/dock",
-			},
-			{
-				title: "Drawer",
-				href: "/docs/craftui/components/drawer",
 			},
 			{
 				title: "Magnetic",
@@ -59,16 +47,8 @@ export const docsNavItems: Array<DocsNavItem> = [
 				href: "/docs/craftui/components/marquee",
 			},
 			{
-				title: "Select",
-				href: "/docs/craftui/components/select",
-			},
-			{
 				title: "Stepper",
 				href: "/docs/craftui/components/stepper",
-			},
-			{
-				title: "Tabs",
-				href: "/docs/craftui/components/tabs",
 			},
 			{
 				title: "Text Scramble",

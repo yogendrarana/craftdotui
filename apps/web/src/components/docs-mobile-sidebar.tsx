@@ -6,9 +6,9 @@ import { Drawer } from "vaul";
 import { Menu, X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
 import type { DocsNavItem } from "@/config/docs";
 import type { NavItem } from "@/types/registry";
+import { Button } from "@craftdotui/baseui/components/button";
 
 interface DocsMobileSidebarProps {
 	items: DocsNavItem[];

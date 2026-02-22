@@ -12,6 +12,7 @@
 		"check": "bunx biome check --write"
 	},
 	"dependencies": {
+		"@craftdotui/baseui": "workspace:*",
 		"@craftdotui/craftui": "workspace:*",
 		"@craftdotui/hooks": "workspace:*",
 		"@craftdotui/lib": "workspace:*",

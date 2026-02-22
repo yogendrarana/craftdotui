@@ -73,7 +73,7 @@ function MenuPopup({ className, ...props }: MenuPrimitive.Popup.Props) {
 			data-slot="menu-popup"
 			className={cn(
 				"z-50",
-				"min-w-48 p-1",
+				"w-48 p-1",
 				"overflow-hidden rounded-md border border-border bg-popover text-popover-foreground shadow-md outline-none",
 				"data-open:animate-in data-closed:animate-out",
 				"data-open:fade-in data-closed:fade-out",

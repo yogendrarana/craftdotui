@@ -2,8 +2,15 @@
 
 import { cn } from "@/lib/utils";
 import { CopyButton } from "./copy-button";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Button } from "@craftdotui/baseui/components/button";
+import {
+	ScrollAreaContent,
+	ScrollAreaCorner,
+	ScrollAreaRoot,
+	ScrollAreaScrollbar,
+	ScrollAreaThumb,
+	ScrollAreaViewport,
+} from "@craftdotui/baseui/components/scroll-area";
 
 type CodeRendererProps = {
 	code: string;
@@ -21,9 +28,24 @@ export function CodeRenderer({
 	onClick,
 }: CodeRendererProps) {
 	return (
-		<ScrollArea
-			className={cn("h-full w-full overflow-hidden relative", className)}
+		<ScrollAreaRoot
+			className={cn(
+				"h-full w-full overflow-hidden relative border-none",
+				className,
+			)}
 		>
+			<ScrollAreaViewport>
+				<ScrollAreaContent>
+					<pre className="p-6 text-xs">{code}</pre>
+				</ScrollAreaContent>
+			</ScrollAreaViewport>
+
+			<ScrollAreaScrollbar>
+				<ScrollAreaThumb />
+			</ScrollAreaScrollbar>
+
+			<ScrollAreaCorner />
+
 			<div
 				className={cn(
 					"absolute top-4 right-4 flex items-center gap-2 cursor-pointer z-50",
@@ -41,10 +63,6 @@ export function CodeRenderer({
 				)}
 				<CopyButton value={code} />
 			</div>
-			<pre className="p-6 text-xs overflow-x-auto">{code}</pre>
-
-			<ScrollBar orientation="horizontal" />
-			<ScrollBar orientation="vertical" />
-		</ScrollArea>
+		</ScrollAreaRoot>
 	);
 }

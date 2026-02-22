@@ -1,9 +1,15 @@
 import { cn } from "@/lib/utils";
 import { Header } from "@/components/layout/header";
-import { Scrollbar } from "@radix-ui/react-scroll-area";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { DocsSidebar } from "@/components/docs-sidebar";
 import { MaxWidthContainer } from "@/components/max-width-container";
+import {
+	ScrollAreaContent,
+	ScrollAreaCorner,
+	ScrollAreaRoot,
+	ScrollAreaScrollbar,
+	ScrollAreaThumb,
+	ScrollAreaViewport,
+} from "@craftdotui/baseui/components/scroll-area";
 
 interface DocsLayoutProps {
 	children: React.ReactNode;
@@ -23,15 +29,19 @@ export default function DocsLayout({ children }: DocsLayoutProps) {
 				>
 					{/* sidebar */}
 					<div className="h-[calc(100vh-5rem)] p-2 hidden md:block md:sticky md:top-20">
-						<ScrollArea
-							hideScrollbar
-							scrollHideDelay={1}
-							type="hover"
-							className="h-full"
-						>
-							<DocsSidebar />
-							<Scrollbar />
-						</ScrollArea>
+						<ScrollAreaRoot className="h-full">
+							<ScrollAreaViewport>
+								<ScrollAreaContent>
+									<DocsSidebar />
+								</ScrollAreaContent>
+							</ScrollAreaViewport>
+
+							<ScrollAreaScrollbar>
+								<ScrollAreaThumb />
+							</ScrollAreaScrollbar>
+
+							<ScrollAreaCorner />
+						</ScrollAreaRoot>
 					</div>
 
 					{/* main content + toc */}

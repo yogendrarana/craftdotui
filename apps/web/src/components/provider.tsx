@@ -2,7 +2,7 @@
 
 import { ThemeProvider } from "next-themes";
 import { useEffect, useState } from "react";
-import { TooltipProvider } from "@/components/ui/tooltip";
+import { TooltipProvider } from "@craftdotui/baseui/components/tooltip";
 import {
 	AnchoredToastProvider,
 	ToastProvider,
@@ -29,9 +29,7 @@ export function Provider({ children }: { children: React.ReactNode }) {
 		>
 			<ToastProvider>
 				<AnchoredToastProvider>
-					<TooltipProvider delayDuration={100}>
-						{children}
-					</TooltipProvider>
+					<TooltipProvider delay={100}>{children}</TooltipProvider>
 				</AnchoredToastProvider>
 			</ToastProvider>
 		</ThemeProvider>

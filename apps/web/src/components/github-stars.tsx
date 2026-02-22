@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { Github } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@craftdotui/baseui/components/button";
 
 interface PropTypes {
 	className?: string;

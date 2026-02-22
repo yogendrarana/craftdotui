@@ -16,7 +16,7 @@ export function Header() {
 	const navLinks = [
 		{ href: "/docs/getting-started/introduction", label: "Docs" },
 		{
-			href: "/docs/craftui/components/accordion",
+			href: "/docs/baseui/components/accordion",
 			label: "Components",
 		},
 		{ href: "/docs/hooks/use-callback", label: "Hooks" },

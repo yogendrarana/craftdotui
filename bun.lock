@@ -14,6 +14,7 @@
       "name": "@craftdotui/web",
       "version": "0.1.0",
       "dependencies": {
+        "@craftdotui/baseui": "workspace:*",
         "@craftdotui/craftui": "workspace:*",
         "@craftdotui/hooks": "workspace:*",
         "@craftdotui/lib": "workspace:*",

@@ -3,7 +3,7 @@
 import { useTheme } from "next-themes";
 import { MoonIcon, SunIcon } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@craftdotui/baseui/components/button";
 
 export function ToggleMode() {
 	const { theme, setTheme } = useTheme();
