@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "loader-line-spinner",
+	"description": "A line spinner loader using framer-motion",
+	"dependencies": ["motion"],
+	"registryDependencies": ["@craftdotui/lib/utils"],
+	"files": [
+		{
+			"path": "packages/loaders/line-spinner/index.tsx",
+			"content": "\"use client\";\n\nimport { motion } from \"motion/react\";\nimport { cn } from \"@/lib/utils\";\n\nexport default function LineSpinner() {\n\tconst lines = 12;\n\n\treturn (\n\t\t<div className=\"relative w-12 h-12\">\n\t\t\t{Array.from({ length: lines }).map((_, i) => (\n\t\t\t\t<motion.div\n\t\t\t\t\tkey={i}\n\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t\"absolute\",\n\t\t\t\t\t\t\"w-1 h-4\",\n\t\t\t\t\t\t\"rounded-full\",\n\t\t\t\t\t\t\"bg-black dark:bg-white\",\n\t\t\t\t\t)}\n\t\t\t\t\tstyle={{\n\t\t\t\t\t\tleft: \"50%\",\n\t\t\t\t\t\ttop: \"50%\",\n\t\t\t\t\t\trotate: `-${i * 30}deg`,\n\t\t\t\t\t\ttransformOrigin: \"0% 0%\",\n\t\t\t\t\t}}\n\t\t\t\t\tanimate={{ opacity: [0.1, 1, 0.1] }}\n\t\t\t\t\ttransition={{\n\t\t\t\t\t\tduration: 1,\n\t\t\t\t\t\trepeat: Infinity,\n\t\t\t\t\t\tdelay: i * 0.1,\n\t\t\t\t\t\tease: \"linear\",\n\t\t\t\t\t}}\n\t\t\t\t/>\n\t\t\t))}\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/loaders/line-spinner.tsx"
+		}
+	],
+	"type": "registry:component"
+}

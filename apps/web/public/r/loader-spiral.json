@@ -1,0 +1,17 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "loader-spiral",
+	"description": "A spiral loader animation",
+	"dependencies": [],
+	"devDependencies": [],
+	"registryDependencies": [],
+	"files": [
+		{
+			"path": "packages/loaders/spiral/index.tsx",
+			"content": "\"use client\";\n\nexport default function Spiral() {\n\tconst dotCount = 8;\n\tconst duration = 0.9;\n\n\treturn (\n\t\t<div className=\"relative flex items-center justify-start h-[40px] w-[40px]\">\n\t\t\t{Array.from({ length: dotCount }).map((_, index) => {\n\t\t\t\tconst rotation = (360 / dotCount) * index;\n\n\t\t\t\treturn (\n\t\t\t\t\t<div\n\t\t\t\t\t\tkey={index}\n\t\t\t\t\t\tclassName=\"absolute top-0 left-0 flex items-center justify-start h-full w-full\"\n\t\t\t\t\t\tstyle={{ transform: `rotate(${rotation}deg)` }}\n\t\t\t\t\t>\n\t\t\t\t\t\t<div\n\t\t\t\t\t\t\tclassName=\"h-[20%] w-[20%] rounded-full bg-black dark:bg-white\"\n\t\t\t\t\t\t\tstyle={{\n\t\t\t\t\t\t\t\tanimation: `pulse ${duration}s ease-in-out infinite`,\n\t\t\t\t\t\t\t\tanimationDelay: `-${index * (duration / dotCount)}s`,\n\t\t\t\t\t\t\t}}\n\t\t\t\t\t\t/>\n\t\t\t\t\t</div>\n\t\t\t\t);\n\t\t\t})}\n\n\t\t\t<style>{`\n\t\t\t\t@keyframes pulse {\n\t\t\t\t\t0%, 100% {\n\t\t\t\t\t\ttransform: scale(0);\n\t\t\t\t\t\topacity: 0.5;\n\t\t\t\t\t}\n\t\t\t\t\t50% {\n\t\t\t\t\t\ttransform: scale(1);\n\t\t\t\t\t\topacity: 1;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t`}</style>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/loaders/spiral.tsx"
+		}
+	],
+	"type": "registry:component"
+}

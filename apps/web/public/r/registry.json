@@ -3719,6 +3719,167 @@
 					"target": "lib/utils.ts"
 				}
 			]
+		},
+		{
+			"name": "loader-classic",
+			"type": "registry:component",
+			"description": "A classic spinner loader with size and color options",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/lib/utils"],
+			"files": [
+				{
+					"path": "packages/loaders/classic/index.tsx",
+					"type": "registry:component",
+					"target": "components/loaders/classic.tsx"
+				}
+			]
+		},
+		{
+			"name": "loader-jumping-dots",
+			"type": "registry:component",
+			"description": "A jumping dots loader animation",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/lib/utils"],
+			"files": [
+				{
+					"path": "packages/loaders/jumping-dots/index.tsx",
+					"type": "registry:component",
+					"target": "components/loaders/jumping-dots.tsx"
+				}
+			]
+		},
+		{
+			"name": "loader-leapfrog",
+			"type": "registry:component",
+			"description": "A leapfrog loader animation",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/lib/utils"],
+			"files": [
+				{
+					"path": "packages/loaders/leapfrog/index.tsx",
+					"type": "registry:component",
+					"target": "components/loaders/leapfrog.tsx"
+				}
+			]
+		},
+		{
+			"name": "loader-line-spinner",
+			"type": "registry:component",
+			"description": "A line spinner loader using framer-motion",
+			"dependencies": ["motion"],
+			"registryDependencies": ["@craftdotui/lib/utils"],
+			"files": [
+				{
+					"path": "packages/loaders/line-spinner/index.tsx",
+					"type": "registry:component",
+					"target": "components/loaders/line-spinner.tsx"
+				}
+			]
+		},
+		{
+			"name": "loader-line-wobble",
+			"type": "registry:component",
+			"description": "A line wobble loader animation",
+			"dependencies": [],
+			"devDependencies": [],
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "packages/loaders/line-wobble/index.tsx",
+					"type": "registry:component",
+					"target": "components/loaders/line-wobble.tsx"
+				}
+			]
+		},
+		{
+			"name": "loader-newtons-cradle",
+			"type": "registry:component",
+			"description": "A Newton's cradle loader animation",
+			"dependencies": [],
+			"devDependencies": [],
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "packages/loaders/newtons-cradle/index.tsx",
+					"type": "registry:component",
+					"target": "components/loaders/newtons-cradle.tsx"
+				}
+			]
+		},
+		{
+			"name": "loader-orbit",
+			"type": "registry:component",
+			"description": "An orbit loader animation",
+			"dependencies": [],
+			"devDependencies": [],
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "packages/loaders/orbit/index.tsx",
+					"type": "registry:component",
+					"target": "components/loaders/orbit.tsx"
+				}
+			]
+		},
+		{
+			"name": "loader-pulsating-dots",
+			"type": "registry:component",
+			"description": "A pulsating dots loader animation",
+			"dependencies": [],
+			"devDependencies": [],
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "packages/loaders/pulsating-dots/index.tsx",
+					"type": "registry:component",
+					"target": "components/loaders/pulsating-dots.tsx"
+				}
+			]
+		},
+		{
+			"name": "loader-spinner",
+			"type": "registry:component",
+			"description": "A simple spinner loader",
+			"dependencies": [],
+			"devDependencies": [],
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "packages/loaders/spinner/index.tsx",
+					"type": "registry:component",
+					"target": "components/loaders/spinner.tsx"
+				}
+			]
+		},
+		{
+			"name": "loader-spiral",
+			"type": "registry:component",
+			"description": "A spiral loader animation",
+			"dependencies": [],
+			"devDependencies": [],
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "packages/loaders/spiral/index.tsx",
+					"type": "registry:component",
+					"target": "components/loaders/spiral.tsx"
+				}
+			]
+		},
+		{
+			"name": "loader-zoomies",
+			"type": "registry:component",
+			"description": "A zoomies loader animation",
+			"dependencies": [],
+			"devDependencies": [],
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "packages/loaders/zoomies/index.tsx",
+					"type": "registry:component",
+					"target": "components/loaders/zoomies.tsx"
+				}
+			]
 		}
 	]
 }

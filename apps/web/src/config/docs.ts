@@ -232,6 +232,56 @@ export const docsNavItems: Array<DocsNavItem> = [
 	},
 
 	{
+		title: "Loaders",
+		items: [
+			{
+				title: "Classic",
+				href: "/docs/loaders/classic",
+			},
+			{
+				title: "Jumping Dots",
+				href: "/docs/loaders/jumping-dots",
+			},
+			{
+				title: "Leapfrog",
+				href: "/docs/loaders/leapfrog",
+			},
+			{
+				title: "Line Spinner",
+				href: "/docs/loaders/line-spinner",
+			},
+			{
+				title: "Line Wobble",
+				href: "/docs/loaders/line-wobble",
+			},
+			{
+				title: "Newton's Cradle",
+				href: "/docs/loaders/newtons-cradle",
+			},
+			{
+				title: "Orbit",
+				href: "/docs/loaders/orbit",
+			},
+			{
+				title: "Pulsating Dots",
+				href: "/docs/loaders/pulsating-dots",
+			},
+			{
+				title: "Spinner",
+				href: "/docs/loaders/spinner",
+			},
+			{
+				title: "Spiral",
+				href: "/docs/loaders/spiral",
+			},
+			{
+				title: "Zoomies",
+				href: "/docs/loaders/zoomies",
+			},
+		],
+	},
+
+	{
 		title: "Hooks",
 		items: [
 			{

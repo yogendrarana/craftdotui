@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "loader-classic",
+	"type": "registry:component",
+	"description": "A classic spinner loader with size and color options",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/lib/utils"],
+	"files": [
+		{
+			"path": "packages/loaders/classic/index.tsx",
+			"type": "registry:component",
+			"target": "components/loaders/classic.tsx"
+		}
+	]
+}

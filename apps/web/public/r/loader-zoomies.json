@@ -1,0 +1,17 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "loader-zoomies",
+	"description": "A zoomies loader animation",
+	"dependencies": [],
+	"devDependencies": [],
+	"registryDependencies": [],
+	"files": [
+		{
+			"path": "packages/loaders/zoomies/index.tsx",
+			"content": "\"use client\";\n\nexport default function Zoomies() {\n\tconst duration = 1.4;\n\n\treturn (\n\t\t<div className=\"relative flex items-center justify-center h-[5px] w-[80px] rounded-[2.5px] overflow-hidden\">\n\t\t\t{/* bg */}\n\t\t\t<div className=\"absolute inset-0 bg-black dark:bg-white opacity-10 transition-colors duration-300\" />\n\n\t\t\t{/* moving bar */}\n\t\t\t<div\n\t\t\t\tclassName=\"h-full w-full rounded-[2.5px] bg-black dark:bg-white transition-colors duration-300\"\n\t\t\t\tstyle={{\n\t\t\t\t\tanimation: `zoom ${duration}s ease-in-out infinite`,\n\t\t\t\t}}\n\t\t\t/>\n\n\t\t\t<style>\n\t\t\t\t{`\n                    @keyframes zoom {\n                        0% {\n                            transform: translateX(-100%);\n                        }\n                        100% {\n                            transform: translateX(100%);\n                        }\n                    }\n                `}\n\t\t\t</style>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/loaders/zoomies.tsx"
+		}
+	],
+	"type": "registry:component"
+}

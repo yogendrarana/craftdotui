@@ -41,7 +41,9 @@ export function PropsTable({
 					<div className="flex-1 flex items-center">
 						<div className="flex-1 min-w-[140px]">Prop</div>
 						<div className="flex-1 min-w-[140px]">Type</div>
-						<div className="flex-1 min-w-[140px] text-left">Default</div>
+						<div className="flex-1 min-w-[140px] text-left">
+							Default
+						</div>
 					</div>
 					<div className="size-4 shrink-0" />
 				</div>

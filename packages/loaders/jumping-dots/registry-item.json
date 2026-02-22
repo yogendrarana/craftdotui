@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "loader-jumping-dots",
+	"type": "registry:component",
+	"description": "A jumping dots loader animation",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/lib/utils"],
+	"files": [
+		{
+			"path": "packages/loaders/jumping-dots/index.tsx",
+			"type": "registry:component",
+			"target": "components/loaders/jumping-dots.tsx"
+		}
+	]
+}

@@ -54,6 +54,7 @@ function DocsSidebarNavItems({
 				<li key={index}>
 					<Link
 						href={item.href}
+						scroll={false}
 						className={cn(
 							"py-1.5 px-2 group relative flex w-full items-center rounded-md transition-colors",
 							"hover:bg-muted/50",
