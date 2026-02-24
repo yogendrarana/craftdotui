@@ -3,7 +3,14 @@ import { allDocs } from "content-collections";
 
 import { cn } from "@/lib/utils";
 import { Mdx } from "@/components/mdx-components";
-import { TableOfContents } from "@/components/toc";
+import { TableOfContent } from "@/components/toc";
+import {
+	ScrollAreaContent,
+	ScrollAreaRoot,
+	ScrollAreaScrollbar,
+	ScrollAreaThumb,
+	ScrollAreaViewport,
+} from "@craftdotui/baseui/components/scroll-area";
 
 interface PageProps {
 	params: Promise<{ slug?: string[] }>;
@@ -26,7 +33,8 @@ export default async function DocsPage({ params }: PageProps) {
 	return (
 		<>
 			{/* main content */}
-			<div className="p-4 h-full border-x border-dashed">
+			<div className="px-4 py-2 h-full border-x border-dashed">
+				<div></div>
 				<div className="mb-6">
 					<h1 className={cn("mb-1 text-4xl font-bold")}>
 						{doc.title}
@@ -43,8 +51,18 @@ export default async function DocsPage({ params }: PageProps) {
 			</div>
 
 			{/* table of contents */}
-			<div className="hidden md:block md:sticky md:top-20">
-				<TableOfContents toc={doc.toc} />
+			<div className="h-[calc(100vh-5rem)] p-2 hidden md:block md:sticky md:top-20">
+				<ScrollAreaRoot className="border border-dashed rounded-md p-0">
+					<ScrollAreaViewport>
+						<ScrollAreaContent>
+							<TableOfContent toc={doc.toc} />
+						</ScrollAreaContent>
+					</ScrollAreaViewport>
+
+					<ScrollAreaScrollbar>
+						<ScrollAreaThumb />
+					</ScrollAreaScrollbar>
+				</ScrollAreaRoot>
 			</div>
 		</>
 	);

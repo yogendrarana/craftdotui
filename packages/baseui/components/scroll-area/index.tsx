@@ -13,7 +13,7 @@ function ScrollAreaRoot({
 }: ScrollAreaPrimitive.Root.Props) {
 	return (
 		<ScrollAreaPrimitive.Root
-			className={cn("border border-border rounded-md", className)}
+			className={cn("size-full min-h-0 p-2", className)}
 			data-slot="scroll-area"
 			{...props}
 		/>
@@ -52,7 +52,7 @@ function ScrollAreaContent({
 }: ScrollAreaPrimitive.Content.Props) {
 	return (
 		<ScrollAreaPrimitive.Content
-			className={cn("h-full w-full p-2", className)}
+			className={cn("h-full w-full", className)}
 			data-slot="scroll-area-content"
 			{...props}
 		/>

@@ -4,7 +4,6 @@ import { DocsSidebar } from "@/components/docs-sidebar";
 import { MaxWidthContainer } from "@/components/max-width-container";
 import {
 	ScrollAreaContent,
-	ScrollAreaCorner,
 	ScrollAreaRoot,
 	ScrollAreaScrollbar,
 	ScrollAreaThumb,
@@ -29,7 +28,7 @@ export default function DocsLayout({ children }: DocsLayoutProps) {
 				>
 					{/* sidebar */}
 					<div className="h-[calc(100vh-5rem)] p-2 hidden md:block md:sticky md:top-20">
-						<ScrollAreaRoot className="h-full">
+						<ScrollAreaRoot className="h-full border border-dashed rounded-md">
 							<ScrollAreaViewport>
 								<ScrollAreaContent>
 									<DocsSidebar />
@@ -39,8 +38,6 @@ export default function DocsLayout({ children }: DocsLayoutProps) {
 							<ScrollAreaScrollbar>
 								<ScrollAreaThumb />
 							</ScrollAreaScrollbar>
-
-							<ScrollAreaCorner />
 						</ScrollAreaRoot>
 					</div>
 

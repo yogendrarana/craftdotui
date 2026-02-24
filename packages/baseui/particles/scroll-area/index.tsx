@@ -9,7 +9,7 @@ import {
 
 export function Particle() {
 	return (
-		<ScrollAreaRoot className="h-48 max-w-96">
+		<ScrollAreaRoot className="h-48 max-w-96 border rounded-md">
 			<ScrollAreaViewport>
 				<ScrollAreaContent className="p-4 space-y-4">
 					Vernacular architecture is building done outside any

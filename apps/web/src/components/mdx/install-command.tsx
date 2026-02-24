@@ -64,32 +64,30 @@ export function InstallCommandDropdown({ pkg }: { pkg: string }) {
 
 	return (
 		<div className="hidden md:flex items-center justify-between cursor-pointer border border-border border-dashed rounded-md overflow-hidden">
-			<button
-				type="button"
-				onClick={onCopy}
-				className="px-3 py-1.5 text-xs transition-colors flex items-center gap-2 cursor-pointer max-w-[300px]"
-			>
-				<Tooltip>
-					<TooltipTrigger>
-						<span className="text-muted-foreground truncate">
+			<Tooltip>
+				<TooltipTrigger
+					render={
+						<button
+							type="button"
+							onClick={onCopy}
+							className="px-2 text-xs text-muted-foreground cursor-pointer max-w-75 truncate"
+						>
 							{hasCopied ? "Copied!" : installCommand}
-						</span>
-					</TooltipTrigger>
+						</button>
+					}
+				/>
 
-					<TooltipPortal>
-						<TooltipPositioner sideOffset={10}>
-							<TooltipPopup
-								hideTooltipArrow
-								className="max-w-[600px] bg-muted"
-							>
-								<code className="text-xs">
-									{installCommand}
-								</code>
-							</TooltipPopup>
-						</TooltipPositioner>
-					</TooltipPortal>
-				</Tooltip>
-			</button>
+				<TooltipPortal>
+					<TooltipPositioner sideOffset={10}>
+						<TooltipPopup
+							hideTooltipArrow
+							className="max-w-150 bg-muted"
+						>
+							<code className="text-xs">{installCommand}</code>
+						</TooltipPopup>
+					</TooltipPositioner>
+				</TooltipPortal>
+			</Tooltip>
 
 			<MenuRoot>
 				<MenuTrigger

@@ -9,7 +9,7 @@ import {
 
 export function Particle() {
 	return (
-		<ScrollAreaRoot className="h-48 w-96">
+		<ScrollAreaRoot className="h-48 w-96 border rounded-md">
 			<ScrollAreaViewport>
 				<ScrollAreaContent className="p-4">
 					<div className="w-[600px] flex flex-col gap-4">

@@ -75,20 +75,20 @@ function TooltipViewport({
 				"[--viewport-inline-padding:--spacing(2)]",
 
 				/* previous */
-				"[&_[data-previous]]:w-[calc(var(--popup-width)-2*var(--viewport-inline-padding))]",
-				"[&_[data-previous]]:translate-x-0",
-				"[&_[data-previous]]:opacity-100",
-				"[&_[data-previous]]:transition-[translate,opacity]",
-				"[&_[data-previous]]:duration-[350ms,175ms]",
-				"[&_[data-previous]]:ease-[cubic-bezier(0.22,1,0.36,1)]",
+				"**:data-previous:w-[calc(var(--popup-width)-2*var(--viewport-inline-padding))]",
+				"**:data-previous:translate-x-0",
+				"**:data-previous:opacity-100",
+				"**:data-previous:transition-[translate,opacity]",
+				"**:data-previous:duration-[350ms,175ms]",
+				"**:data-previous:ease-[cubic-bezier(0.22,1,0.36,1)]",
 
 				/* current */
-				"[&_[data-current]]:w-[calc(var(--popup-width)-2*var(--viewport-inline-padding))]",
-				"[&_[data-current]]:translate-x-0",
-				"[&_[data-current]]:opacity-100",
-				"[&_[data-current]]:transition-[translate,opacity]",
-				"[&_[data-current]]:duration-[350ms,175ms]",
-				"[&_[data-current]]:ease-[cubic-bezier(0.22,1,0.36,1)]",
+				"**:data-current:w-[calc(var(--popup-width)-2*var(--viewport-inline-padding))]",
+				"**:data-current:translate-x-0",
+				"**:data-current:opacity-100",
+				"**:data-current:transition-[translate,opacity]",
+				"**:data-current:duration-[350ms,175ms]",
+				"**:data-current:ease-[cubic-bezier(0.22,1,0.36,1)]",
 
 				/* directional animations */
 				"data-[activation-direction~='left']:[&_[data-current][data-starting-style]]:-translate-x-1/2",
@@ -168,9 +168,9 @@ function TooltipArrow({ className, ...props }: TooltipArrowProps) {
 			className={cn(
 				"flex bg-background",
 				"data-[side=top]:-bottom-2 data-[side=top]:rotate-180",
-				"data-[side=left]:right-[-11px] data-[side=left]:rotate-90",
+				"data-[side=left]:-right-2.75 data-[side=left]:rotate-90",
 				"data-[side=bottom]:-top-2 data-[side=bottom]:rotate-0",
-				"data-[side=right]:left-[-11px] data-[side=right]:-rotate-90",
+				"data-[side=right]:-left-2.75 data-[side=right]:-rotate-90",
 				className,
 			)}
 			{...props}

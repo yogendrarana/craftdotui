@@ -15,7 +15,7 @@ interface TableOfContentsProps {
 	toc: TocItem[];
 }
 
-export function TableOfContents({ toc }: TableOfContentsProps) {
+export function TableOfContent({ toc }: TableOfContentsProps) {
 	const itemIds = React.useMemo(
 		() =>
 			toc
@@ -45,7 +45,7 @@ export function TableOfContents({ toc }: TableOfContentsProps) {
 	}
 
 	return (
-		<div>
+		<div className="h-full">
 			<div className="px-4 py-3 border-b border-border border-dashed text-sm">
 				On this page
 			</div>
