@@ -4,7 +4,7 @@
 	"type": "registry:component",
 	"description": "A Base UI preview card component",
 	"dependencies": ["@base-ui/react"],
-	"registryDependencies": ["@craftdotui/utils"],
+	"registryDependencies": ["@craftdotui/utils", "@craftdotui/baseui-arrow"],
 	"files": [
 		{
 			"path": "packages/baseui/components/preview-card/index.tsx",

@@ -1,7 +1,9 @@
 "use client";
 
 import { Tooltip as TooltipPrimitive } from "@base-ui/react/tooltip";
+
 import { cn } from "@craftdotui/lib/utils";
+import { ARROW_STYLES, BaseArrow } from "@craftdotui/baseui/components/arrow";
 
 /* -------------------------------------------------------------------------- */
 /* Tooltip Provider                                                           */
@@ -165,21 +167,10 @@ interface TooltipArrowProps extends TooltipPrimitive.Arrow.Props {
 function TooltipArrow({ className, ...props }: TooltipArrowProps) {
 	return (
 		<TooltipPrimitive.Arrow
-			className={cn(
-				"flex bg-background",
-				"data-[side=top]:-bottom-2 data-[side=top]:rotate-180",
-				"data-[side=left]:-right-2.75 data-[side=left]:rotate-90",
-				"data-[side=bottom]:-top-2 data-[side=bottom]:rotate-0",
-				"data-[side=right]:-left-2.75 data-[side=right]:-rotate-90",
-				className,
-			)}
+			className={cn(ARROW_STYLES, className)}
 			{...props}
 		>
-			<svg width="12" height="6" viewBox="0 0 12 6">
-				<title>Tooltip Arrow</title>
-				<path d="M0 6L6 0L12 6Z" className="fill-background" />
-				<path d="M0 6L6 0L12 6Z" className="fill-none stroke-border" />
-			</svg>
+			<BaseArrow title="Tooltip Arrow" className="fill-background" />
 		</TooltipPrimitive.Arrow>
 	);
 }

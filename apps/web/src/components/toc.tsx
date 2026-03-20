@@ -46,10 +46,10 @@ export function TableOfContent({ toc }: TableOfContentsProps) {
 
 	return (
 		<div className="h-full">
-			<div className="px-4 py-3 border-b border-border border-dashed text-sm">
+			<div className="px-4 py-3 border-b border-border border-dashed text-sm text-muted-foreground">
 				On this page
 			</div>
-			<div className="p-4">
+			<div className="px-4 py-3">
 				<Tree tree={toc} activeItem={activeHeading} />
 			</div>
 		</div>

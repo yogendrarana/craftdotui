@@ -5,6 +5,7 @@ import { Check, ChevronRight, Dot } from "lucide-react";
 import { Menu as MenuPrimitive } from "@base-ui/react/menu";
 
 import { cn } from "@craftdotui/lib/utils";
+import { ARROW_STYLES, BaseArrow } from "@craftdotui/baseui/components/arrow";
 
 /* -------------------------------------------------------------------------- */
 /* Menu Root                                                                  */
@@ -95,20 +96,10 @@ function MenuArrow({ className, ...props }: MenuPrimitive.Arrow.Props) {
 	return (
 		<MenuPrimitive.Arrow
 			data-slot="menu-arrow"
-			className={cn(
-				"data-[side=bottom]:top-[-8px]",
-				"data-[side=top]:bottom-[-8px] data-[side=top]:rotate-180",
-				"data-[side=left]:right-[-13px] data-[side=left]:rotate-90",
-				"data-[side=right]:left-[-13px] data-[side=right]:-rotate-90",
-				className,
-			)}
+			className={cn(ARROW_STYLES, className)}
 			{...props}
 		>
-			<svg width="12" height="6" viewBox="0 0 12 6">
-				<title>Menu Arrow</title>
-				<path d="M0 6L6 0L12 6Z" className="fill-popover" />
-				<path d="M0 6L6 0L12 6Z" className="fill-none stroke-border" />
-			</svg>
+			<BaseArrow title="Menu Arrow" className="fill-popover" />
 		</MenuPrimitive.Arrow>
 	);
 }

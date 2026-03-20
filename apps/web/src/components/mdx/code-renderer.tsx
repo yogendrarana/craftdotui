@@ -2,7 +2,6 @@
 
 import { cn } from "@/lib/utils";
 import { CopyButton } from "./copy-button";
-import { Button } from "@craftdotui/baseui/components/button";
 import {
 	ScrollAreaContent,
 	ScrollAreaCorner,
@@ -11,6 +10,7 @@ import {
 	ScrollAreaThumb,
 	ScrollAreaViewport,
 } from "@craftdotui/baseui/components/scroll-area";
+import { Button } from "@craftdotui/baseui/components/button";
 
 type CodeRendererProps = {
 	code: string;

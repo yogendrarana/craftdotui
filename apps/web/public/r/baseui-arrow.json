@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-arrow",
+	"description": "Shared arrow component and styles for Base UI components",
+	"dependencies": ["@base-ui/react"],
+	"registryDependencies": ["@craftdotui/utils"],
+	"files": [
+		{
+			"path": "packages/baseui/components/arrow/index.tsx",
+			"content": "import type { SVGAttributes } from \"react\";\nimport { cn } from \"@/lib/utils\";\n\n/**\n * Shared styles for Base UI Arrow primitives.\n * Handles positioning and rotation based on the side the arrow is on.\n */\nexport const ARROW_STYLES = cn(\n\t\"data-[side=bottom]:top-[-8px]\",\n\t\"data-[side=top]:bottom-[-8px] data-[side=top]:rotate-180\",\n\t\"data-[side=left]:right-[-13px] data-[side=left]:rotate-90\",\n\t\"data-[side=right]:left-[-13px] data-[side=right]:-rotate-90\",\n);\n\ninterface BaseArrowProps extends SVGAttributes<SVGSVGElement> {\n\ttitle?: string;\n}\n\n/**\n * Shared SVG component for arrows.\n * By default, it uses `fill-current` for the main shape, allowing the color to be controlled via text color or direct fill class.\n */\nexport function BaseArrow({\n\tclassName,\n\ttitle = \"Arrow\",\n\t...props\n}: BaseArrowProps) {\n\treturn (\n\t\t<svg\n\t\t\twidth=\"12\"\n\t\t\theight=\"6\"\n\t\t\tviewBox=\"0 0 12 6\"\n\t\t\tclassName={cn(\"fill-current\", className)}\n\t\t\t{...props}\n\t\t>\n\t\t\t<title>{title}</title>\n\t\t\t<path d=\"M0 6L6 0L12 6Z\" className=\"fill-inherit\" />\n\t\t\t<path d=\"M0 6L6 0L12 6Z\" className=\"fill-none stroke-border\" />\n\t\t</svg>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/components/arrow/index.tsx"
+		}
+	],
+	"type": "registry:component"
+}

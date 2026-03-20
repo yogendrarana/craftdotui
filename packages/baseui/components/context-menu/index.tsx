@@ -5,6 +5,7 @@ import { Check, ChevronRight, Dot } from "lucide-react";
 import { ContextMenu as ContextMenuPrimitive } from "@base-ui/react/context-menu";
 
 import { cn } from "@craftdotui/lib/utils";
+import { ARROW_STYLES, BaseArrow } from "@craftdotui/baseui/components/arrow";
 
 /* -------------------------------------------------------------------------- */
 /* Root                                                                       */
@@ -103,9 +104,11 @@ function ContextMenuArrow({
 	return (
 		<ContextMenuPrimitive.Arrow
 			data-slot="context-menu-arrow"
-			className={cn("fill-border", className)}
+			className={cn(ARROW_STYLES, className)}
 			{...props}
-		/>
+		>
+			<BaseArrow title="Context Menu Arrow" className="fill-popover" />
+		</ContextMenuPrimitive.Arrow>
 	);
 }
 

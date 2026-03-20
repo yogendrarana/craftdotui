@@ -206,8 +206,6 @@ function TabsPanel({ className, ...props }: TabsPrimitive.Panel.Props) {
 		<TabsPrimitive.Panel
 			className={cn(
 				"flex-1 text-sm text-foreground",
-				"data-[orientation=vertical]:ml-1",
-				"data-[orientation=horizontal]:mt-1",
 				"data-hidden:hidden",
 				className,
 			)}

@@ -3,12 +3,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { cn } from "@/lib/utils";
 import { ToggleMode } from "@/components/toggle-mode";
 import { GithubStars } from "@/components/github-stars";
 import DocsMobileSidebar from "@/components/docs-mobile-sidebar";
 import { docsNavItems } from "@/config/docs";
 import { MaxWidthContainer } from "@/components/max-width-container";
-import { cn } from "@/lib/utils";
 
 export function Header() {
 	const pathname = usePathname();
@@ -19,6 +19,7 @@ export function Header() {
 			href: "/docs/baseui/components/accordion",
 			label: "Components",
 		},
+		{ href: "/docs/loaders/classic", label: "Loaders" },
 		{ href: "/docs/hooks/use-callback", label: "Hooks" },
 	];
 

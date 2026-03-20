@@ -1,7 +1,9 @@
 "use client";
 
 import { Popover as PopoverPrimitive } from "@base-ui/react/popover";
+
 import { cn } from "@craftdotui/lib/utils";
+import { ARROW_STYLES, BaseArrow } from "@craftdotui/baseui/components/arrow";
 
 /* -------------------------------------------------------------------------- */
 /* Root                                                                       */
@@ -101,21 +103,11 @@ function PopoverPopup({ className, ...props }: PopoverPrimitive.Popup.Props) {
 function PopoverArrow({ className, ...props }: PopoverPrimitive.Arrow.Props) {
 	return (
 		<PopoverPrimitive.Arrow
-			className={cn(
-				"data-[side=bottom]:top-[-8px]",
-				"data-[side=top]:bottom-[-8px] data-[side=top]:rotate-180",
-				"data-[side=left]:right-[-13px] data-[side=left]:rotate-90",
-				"data-[side=right]:left-[-13px] data-[side=right]:-rotate-90",
-				className,
-			)}
+			className={cn(ARROW_STYLES, className)}
 			data-slot="popover-arrow"
 			{...props}
 		>
-			<svg width="12" height="6" viewBox="0 0 12 6">
-				<title>Popover Arrow</title>
-				<path d="M0 6L6 0L12 6Z" className="fill-background" />
-				<path d="M0 6L6 0L12 6Z" className="fill-none stroke-border" />
-			</svg>
+			<BaseArrow title="Popover Arrow" className="fill-background" />
 		</PopoverPrimitive.Arrow>
 	);
 }

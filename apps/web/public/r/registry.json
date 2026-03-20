@@ -462,6 +462,20 @@
 			]
 		},
 		{
+			"name": "baseui-arrow",
+			"type": "registry:component",
+			"description": "Shared arrow component and styles for Base UI components",
+			"dependencies": ["@base-ui/react"],
+			"registryDependencies": ["@craftdotui/utils"],
+			"files": [
+				{
+					"path": "packages/baseui/components/arrow/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/arrow/index.tsx"
+				}
+			]
+		},
+		{
 			"name": "baseui-autocomplete",
 			"type": "registry:component",
 			"description": "A Base UI autocomplete component",
@@ -567,7 +581,10 @@
 			"type": "registry:component",
 			"description": "A Base UI context menu component",
 			"dependencies": ["@base-ui/react"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"registryDependencies": [
+				"@craftdotui/utils",
+				"@craftdotui/baseui-arrow"
+			],
 			"files": [
 				{
 					"path": "packages/baseui/components/context-menu/index.tsx",
@@ -657,7 +674,10 @@
 			"type": "registry:component",
 			"description": "A Base UI menu component",
 			"dependencies": ["@base-ui/react"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"registryDependencies": [
+				"@craftdotui/utils",
+				"@craftdotui/baseui-arrow"
+			],
 			"files": [
 				{
 					"path": "packages/baseui/components/menu/index.tsx",
@@ -731,7 +751,10 @@
 			"type": "registry:component",
 			"description": "A Base UI popover component",
 			"dependencies": ["@base-ui/react"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"registryDependencies": [
+				"@craftdotui/utils",
+				"@craftdotui/baseui-arrow"
+			],
 			"files": [
 				{
 					"path": "packages/baseui/components/popover/index.tsx",
@@ -745,7 +768,10 @@
 			"type": "registry:component",
 			"description": "A Base UI preview card component",
 			"dependencies": ["@base-ui/react"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"registryDependencies": [
+				"@craftdotui/utils",
+				"@craftdotui/baseui-arrow"
+			],
 			"files": [
 				{
 					"path": "packages/baseui/components/preview-card/index.tsx",
@@ -930,7 +956,10 @@
 			"type": "registry:component",
 			"description": "A Base UI tooltip component",
 			"dependencies": ["@base-ui/react", "lucide-react"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"registryDependencies": [
+				"@craftdotui/utils",
+				"@craftdotui/baseui-arrow"
+			],
 			"files": [
 				{
 					"path": "packages/baseui/components/tooltip/index.tsx",

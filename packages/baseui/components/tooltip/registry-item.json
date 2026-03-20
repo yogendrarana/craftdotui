@@ -4,7 +4,7 @@
 	"type": "registry:component",
 	"description": "A Base UI tooltip component",
 	"dependencies": ["@base-ui/react", "lucide-react"],
-	"registryDependencies": ["@craftdotui/utils"],
+	"registryDependencies": ["@craftdotui/utils", "@craftdotui/baseui-arrow"],
 	"files": [
 		{
 			"path": "packages/baseui/components/tooltip/index.tsx",

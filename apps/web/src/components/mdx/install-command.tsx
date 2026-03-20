@@ -21,14 +21,47 @@ import {
 import { cn } from "@craftdotui/lib/utils";
 import { CopyButton } from "./copy-button";
 import type { PackageManager } from "@/types";
-import { packageManagerCommands } from "@/constants";
+import { packageInstallCommands, packageManagerCommands } from "@/constants";
 
-function useInstallCommand(pkg: string) {
+function useInstallCommand(
+	pkg: string,
+	type: "package" | "registry" = "registry",
+) {
 	const [hasCopied, setHasCopied] = React.useState(false);
 	const [packageManager, setPackageManager] =
 		React.useState<PackageManager>("npm");
 
-	const installCommand = `${packageManagerCommands[packageManager]} ${pkg}`;
+	React.useEffect(() => {
+		const handleStorageChange = () => {
+			const saved = localStorage.getItem(
+				"craftdotui-pm",
+			) as PackageManager;
+			if (saved && ["npm", "pnpm", "yarn", "bun"].includes(saved)) {
+				setPackageManager(saved);
+			}
+		};
+
+		handleStorageChange();
+		window.addEventListener("storage", handleStorageChange);
+		window.addEventListener("craftdotui-pm-change", handleStorageChange);
+		return () => {
+			window.removeEventListener("storage", handleStorageChange);
+			window.removeEventListener(
+				"craftdotui-pm-change",
+				handleStorageChange,
+			);
+		};
+	}, []);
+
+	const handleSetPackageManager = (pm: PackageManager) => {
+		setPackageManager(pm);
+		localStorage.setItem("craftdotui-pm", pm);
+		window.dispatchEvent(new Event("craftdotui-pm-change"));
+	};
+
+	const commands =
+		type === "package" ? packageInstallCommands : packageManagerCommands;
+	const installCommand = `${commands[packageManager]} ${pkg}`;
 
 	const onCopy = () => {
 		navigator.clipboard.writeText(installCommand);
@@ -45,7 +78,7 @@ function useInstallCommand(pkg: string) {
 	return {
 		hasCopied,
 		packageManager,
-		setPackageManager,
+		setPackageManager: handleSetPackageManager,
 		installCommand,
 		onCopy,
 	};
@@ -53,14 +86,20 @@ function useInstallCommand(pkg: string) {
 
 // COMPONENT 1 — DROPDOWN VERSION
 
-export function InstallCommandDropdown({ pkg }: { pkg: string }) {
+export function InstallCommandDropdown({
+	pkg,
+	type = "registry",
+}: {
+	pkg: string;
+	type?: "package" | "registry";
+}) {
 	const {
 		hasCopied,
 		packageManager,
 		setPackageManager,
 		installCommand,
 		onCopy,
-	} = useInstallCommand(pkg);
+	} = useInstallCommand(pkg, type);
 
 	return (
 		<div className="hidden md:flex items-center justify-between cursor-pointer border border-border border-dashed rounded-md overflow-hidden">
@@ -123,17 +162,19 @@ export function InstallCommandDropdown({ pkg }: { pkg: string }) {
 	);
 }
 
-// COMPONENT 2 — TAB VERSION (Your custom UI)
+// COMPONENT 2 — TAB VERSION
 
 export function InstallCommandTabs({
 	pkg,
 	className,
+	type = "registry",
 }: {
 	pkg: string;
 	className?: string;
+	type: "package" | "registry";
 }) {
 	const { packageManager, setPackageManager, installCommand } =
-		useInstallCommand(pkg);
+		useInstallCommand(pkg, type);
 
 	return (
 		<div className={cn("rounded-md border text-sm", className)}>
@@ -141,7 +182,11 @@ export function InstallCommandTabs({
 			<div className="p-3 flex items-center justify-between">
 				<div className="flex gap-5">
 					{(
-						Object.keys(packageManagerCommands) as PackageManager[]
+						Object.keys(
+							type === "package"
+								? packageInstallCommands
+								: packageManagerCommands,
+						) as PackageManager[]
 					).map((pm) => (
 						<button
 							type="button"
