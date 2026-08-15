@@ -1,3 +1,5 @@
+
+
 # Craft UI
 
 This is a website with a collection of UI components for React.js and Next.js
@@ -7,15 +9,15 @@ This is a website with a collection of UI components for React.js and Next.js
 1. Fork the repo and clone it:
    ```bash
    git clone https://github.com/yogendrarana/craftui.git
-   cd craftui.com
+   cd craftui
 
 2. Install dependencies
     ```bash
-    yarn
+    bun install
 
 3. Run Project
     ```bash
-    yarn dev
+    bun dev
 
 ## Contributing
 
