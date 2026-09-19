@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-drawer-non-modal",
+	"type": "registry:component",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-drawer"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/drawer/non-modal/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/particles/drawer-non-modal.tsx"
+		}
+	]
+}

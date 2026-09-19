@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-drawer-inset-variant",
+	"type": "registry:component",
+	"description": "Example showing the inset layout variant for all drawer positions.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-drawer"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/drawer/inset-variant/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/particles/drawer-inset-variant.tsx"
+		}
+	]
+}

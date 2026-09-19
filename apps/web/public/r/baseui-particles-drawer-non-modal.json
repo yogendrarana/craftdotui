@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-drawer-non-modal",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-drawer"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/drawer/non-modal/index.tsx",
+			"content": "\"use client\";\n\nimport Drawer from \"@/components/baseui/components/drawer\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport default function Particle() {\n\treturn (\n\t\t<Drawer.Root modal={false} position=\"right\">\n\t\t\t<Drawer.Trigger\n\t\t\t\trender={<Button variant=\"outline\">Non-Modal Drawer</Button>}\n\t\t\t/>\n\n\t\t\t<Drawer.Portal>\n\t\t\t\t<Drawer.Viewport>\n\t\t\t\t\t<Drawer.Popup>\n\t\t\t\t\t\t<Drawer.Content>\n\t\t\t\t\t\t\t<Drawer.Title>Non-Modal Drawer</Drawer.Title>\n\t\t\t\t\t\t\t<Drawer.Description className=\"mt-1.5\">\n\t\t\t\t\t\t\t\tThis drawer does not trap focus or block\n\t\t\t\t\t\t\t\tinteraction with the rest of the page. You can\n\t\t\t\t\t\t\t\tstill click on elements behind it.\n\t\t\t\t\t\t\t</Drawer.Description>\n\t\t\t\t\t\t\t<div className=\"mt-6 flex justify-end\">\n\t\t\t\t\t\t\t\t<Drawer.Close\n\t\t\t\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t\t\t\t<Button variant=\"outline\">Close</Button>\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</Drawer.Content>\n\t\t\t\t\t</Drawer.Popup>\n\t\t\t\t</Drawer.Viewport>\n\t\t\t</Drawer.Portal>\n\t\t</Drawer.Root>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/drawer-non-modal.tsx"
+		}
+	],
+	"type": "registry:component"
+}

@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-drawer-positions",
+	"type": "registry:component",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-drawer"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/drawer/positions/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/particles/drawer-positions.tsx"
+		}
+	]
+}

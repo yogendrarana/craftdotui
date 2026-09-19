@@ -1757,7 +1757,7 @@ export const Registry: Record<string, any> = {
 				type: "registry:component",
 				target: "components/baseui/components/button.tsx",
 				content:
-					'"use client";\n\nimport type * as React from "react";\nimport { useRender } from "@base-ui/react/use-render";\nimport { mergeProps } from "@base-ui/react/merge-props";\nimport { cva, type VariantProps } from "class-variance-authority";\n\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Variants                                                                   */\n/* -------------------------------------------------------------------------- */\n\nconst buttonVariants = cva(\n\t[\n\t\t"relative inline-flex items-center justify-center shrink-0 gap-2",\n\t\t"border rounded-md text-sm whitespace-nowrap outline-none transition cursor-pointer",\n\t\t"focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",\n\t\t"disabled:pointer-events-none disabled:opacity-60",\n\t\t"[&_svg]:pointer-events-none [&_svg]:shrink-0",\n\t\t"[&_svg:not([class*=\'size-\'])]:size-4",\n\t].join(" "),\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault:\n\t\t\t\t\t"bg-primary text-primary-foreground border-primary hover:bg-primary/90",\n\t\t\t\tsecondary:\n\t\t\t\t\t"bg-secondary text-secondary-foreground border-transparent hover:bg-secondary/90",\n\t\t\t\tdestructive:\n\t\t\t\t\t"bg-destructive text-destructive-foreground border-destructive hover:bg-destructive/90",\n\t\t\t\toutline:\n\t\t\t\t\t"bg-background text-foreground border-border hover:bg-accent",\n\t\t\t\tghost: "border-transparent bg-transparent hover:bg-muted",\n\t\t\t\tlink: "border-transparent bg-transparent underline-offset-4 hover:underline",\n\t\t\t},\n\t\t\tsize: {\n\t\t\t\txs: "h-7 px-2 text-xs",\n\t\t\t\tsm: "h-8 px-3 text-sm",\n\t\t\t\tmd: "h-8.5 px-3",\n\t\t\t\tlg: "h-9 px-4",\n\t\t\t\txl: "h-9.5 px-6",\n\t\t\t\t"icon-xs": "size-7 p-0",\n\t\t\t\t"icon-sm": "size-7.5 p-0",\n\t\t\t\ticon: "size-8 p-0",\n\t\t\t\t"icon-lg": "size-8.5 p-0",\n\t\t\t\t"icon-xl": "size-9 p-0",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: "default",\n\t\t\tsize: "md",\n\t\t},\n\t},\n);\n\n/* -------------------------------------------------------------------------- */\n/* Props                                                                      */\n/* -------------------------------------------------------------------------- */\n\nexport interface ButtonProps\n\textends useRender.ComponentProps<"button">,\n\t\tVariantProps<typeof buttonVariants> {\n\tloading?: boolean;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Component                                                                  */\n/* -------------------------------------------------------------------------- */\n\nfunction Button({\n\tclassName,\n\tvariant,\n\tsize,\n\trender,\n\tloading,\n\tchildren,\n\t...props\n}: ButtonProps) {\n\t// Determine the type attribute based on whether we\'re rendering a native button\n\tconst type: React.ButtonHTMLAttributes<HTMLButtonElement>["type"] = render\n\t\t? undefined\n\t\t: "button";\n\n\t// Create children with loading spinner\n\tconst renderedChildren = (\n\t\t<>\n\t\t\t{loading && (\n\t\t\t\t<span\n\t\t\t\t\taria-hidden\n\t\t\t\t\tclassName="inline-flex size-4 animate-spin rounded-full border-2 border-current border-t-transparent"\n\t\t\t\t/>\n\t\t\t)}\n\t\t\t{children}\n\t\t</>\n\t);\n\n\t// Prepare default props for the button\n\tconst defaultProps = {\n\t\tclassName: cn(\n\t\t\tbuttonVariants({ variant, size }),\n\t\t\tloading && "cursor-wait opacity-80",\n\t\t\tclassName,\n\t\t),\n\t\ttype,\n\t\t"aria-busy": loading || undefined,\n\t\t"data-slot": "button",\n\t\tdisabled: props.disabled || loading,\n\t\tchildren: renderedChildren, // Make sure children are included\n\t};\n\n\t// Merge default props with user props\n\tconst mergedProps = mergeProps<"button">(defaultProps, props);\n\n\t// Use useRender hook which handles the rendering logic\n\t// According to Base UI docs, this returns a React element\n\treturn useRender({\n\t\tdefaultTagName: "button",\n\t\tprops: mergedProps,\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport { Button, buttonVariants };',
+					'"use client";\n\nimport type * as React from "react";\nimport { useRender } from "@base-ui/react/use-render";\nimport { mergeProps } from "@base-ui/react/merge-props";\nimport { cva, type VariantProps } from "class-variance-authority";\n\nimport { cn } from "@/lib/utils";\n\n/* -------------------------------------------------------------------------- */\n/* Variants                                                                   */\n/* -------------------------------------------------------------------------- */\n\nconst buttonVariants = cva(\n\tcn(\n\t\t"relative inline-flex items-center justify-center shrink-0 gap-2",\n\t\t"border rounded-md text-sm whitespace-nowrap outline-none transition cursor-pointer",\n\t\t"focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",\n\t\t"disabled:pointer-events-none disabled:opacity-60",\n\t\t"[&_svg]:pointer-events-none [&_svg]:shrink-0",\n\t\t"[&_svg:not([class*=\'size-\'])]:size-4",\n\t),\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault:\n\t\t\t\t\t"bg-primary text-primary-foreground border-primary hover:bg-primary/90",\n\t\t\t\tsecondary:\n\t\t\t\t\t"bg-secondary text-secondary-foreground border-transparent hover:bg-secondary/90",\n\t\t\t\tdestructive:\n\t\t\t\t\t"bg-destructive text-destructive-foreground border-destructive hover:bg-destructive/90",\n\t\t\t\toutline:\n\t\t\t\t\t"bg-background text-foreground border-border hover:bg-accent",\n\t\t\t\tghost: "border-transparent bg-transparent hover:bg-muted",\n\t\t\t\tlink: "border-transparent bg-transparent underline-offset-4 hover:underline",\n\t\t\t},\n\t\t\tsize: {\n\t\t\t\txs: "h-7 px-2 text-xs",\n\t\t\t\tsm: "h-8 px-3 text-sm",\n\t\t\t\tmd: "h-8.5 px-3",\n\t\t\t\tlg: "h-9 px-4",\n\t\t\t\txl: "h-9.5 px-6",\n\t\t\t\t"icon-xs": "size-7 p-0",\n\t\t\t\t"icon-sm": "size-7.5 p-0",\n\t\t\t\ticon: "size-8 p-0",\n\t\t\t\t"icon-lg": "size-8.5 p-0",\n\t\t\t\t"icon-xl": "size-9 p-0",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: "default",\n\t\t\tsize: "md",\n\t\t},\n\t},\n);\n\n/* -------------------------------------------------------------------------- */\n/* Props                                                                      */\n/* -------------------------------------------------------------------------- */\n\nexport interface ButtonProps\n\textends useRender.ComponentProps<"button">,\n\t\tVariantProps<typeof buttonVariants> {\n\tloading?: boolean;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Component                                                                  */\n/* -------------------------------------------------------------------------- */\n\nfunction Button({\n\tclassName,\n\tvariant,\n\tsize,\n\trender,\n\tloading,\n\tchildren,\n\t...props\n}: ButtonProps) {\n\t// Determine the type attribute based on whether we\'re rendering a native button\n\tconst type: React.ButtonHTMLAttributes<HTMLButtonElement>["type"] = render\n\t\t? undefined\n\t\t: "button";\n\n\t// Create children with loading spinner\n\tconst renderedChildren = (\n\t\t<>\n\t\t\t{loading && (\n\t\t\t\t<span\n\t\t\t\t\taria-hidden\n\t\t\t\t\tclassName="inline-flex size-4 animate-spin rounded-full border-2 border-current border-t-transparent"\n\t\t\t\t/>\n\t\t\t)}\n\t\t\t{children}\n\t\t</>\n\t);\n\n\t// Prepare default props for the button\n\tconst defaultProps = {\n\t\tclassName: cn(\n\t\t\tbuttonVariants({ variant, size }),\n\t\t\tloading && "cursor-wait opacity-80",\n\t\t\tclassName,\n\t\t),\n\t\ttype,\n\t\t"aria-busy": loading || undefined,\n\t\t"data-slot": "button",\n\t\tdisabled: props.disabled || loading,\n\t\tchildren: renderedChildren, // Make sure children are included\n\t};\n\n\t// Merge default props with user props\n\tconst mergedProps = mergeProps<"button">(defaultProps, props);\n\n\t// Use useRender hook which handles the rendering logic\n\t// According to Base UI docs, this returns a React element\n\treturn useRender({\n\t\tdefaultTagName: "button",\n\t\tprops: mergedProps,\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport { Button, buttonVariants };',
 			},
 		],
 		keywords: [],
@@ -2060,6 +2060,55 @@ export const Registry: Record<string, any> = {
 			const LazyComp = React.lazy(async () => {
 				const mod = await import(
 					"@craftdotui/baseui/components/dialog/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-drawer": {
+		name: "baseui-drawer",
+		description: "A Base UI drawer component",
+		type: "registry:component",
+		dependencies: ["@base-ui/react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/utils"],
+		files: [
+			{
+				path: "packages/baseui/components/drawer/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/components/drawer.tsx",
+				content:
+					'"use client";\n\nimport * as React from "react";\nimport { Drawer as DrawerPrimitive } from "@base-ui/react/drawer";\n\nimport { cn } from "@/lib/utils";\n\ntype DrawerPosition = "top" | "bottom" | "left" | "right";\ntype DrawerSwipeDirection = "up" | "down" | "left" | "right";\ntype DrawerRadius = "default" | "straight";\ntype DrawerVariant = "default" | "inset";\n\nconst positionToSwipeDirectionMap: Record<\n\tDrawerPosition,\n\tDrawerPrimitive.Root.Props["swipeDirection"]\n> = {\n\tbottom: "down",\n\tleft: "left",\n\tright: "right",\n\ttop: "up",\n};\n\n// ==================================================\n// Drawer Context\n// ==================================================\n\ninterface DrawerContextValue {\n\tposition: DrawerPosition;\n\tradius: DrawerRadius;\n\tvariant: DrawerVariant;\n\tmodal: DrawerPrimitive.Root.Props["modal"];\n}\n\nconst DrawerContext = React.createContext<DrawerContextValue>({\n\tposition: "bottom",\n\tradius: "default",\n\tvariant: "default",\n\tmodal: true,\n});\n\n// ==================================================\n// Drawer Provider\n// ==================================================\n\nfunction DrawerProvider(props: DrawerPrimitive.Provider.Props) {\n\treturn <DrawerPrimitive.Provider {...props} />;\n}\n\n// ==================================================\n// Drawer Root\n// ==================================================\n\ninterface DrawerRootProps extends DrawerPrimitive.Root.Props {\n\tposition?: DrawerPosition;\n\tradius?: DrawerRadius;\n\tvariant?: DrawerVariant;\n}\n\nfunction DrawerRoot({\n\tposition = "bottom",\n\tradius = "default",\n\tvariant = "default",\n\tswipeDirection,\n\tmodal = true,\n\t...props\n}: DrawerRootProps) {\n\treturn (\n\t\t<DrawerContext.Provider value={{ position, radius, variant, modal }}>\n\t\t\t<DrawerPrimitive.Root\n\t\t\t\tmodal={modal}\n\t\t\t\tswipeDirection={\n\t\t\t\t\tswipeDirection ?? positionToSwipeDirectionMap[position]\n\t\t\t\t}\n\t\t\t\t{...props}\n\t\t\t/>\n\t\t</DrawerContext.Provider>\n\t);\n}\n\n// ==================================================\n// Drawer Indent Background\n// ==================================================\n\nfunction DrawerIndentBackground({\n\tclassName,\n\t...props\n}: DrawerPrimitive.IndentBackground.Props) {\n\treturn (\n\t\t<DrawerPrimitive.IndentBackground\n\t\t\tdata-slot="drawer-indent-background"\n\t\t\tclassName={cn(\n\t\t\t\t"z-50 fixed inset-0 transition-all duration-300",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n// ==================================================\n// Drawer Indent\n// ==================================================\n\nfunction DrawerIndent({ className, ...props }: DrawerPrimitive.Indent.Props) {\n\tconst { radius } = React.useContext(DrawerContext);\n\treturn (\n\t\t<DrawerPrimitive.Indent\n\t\t\tdata-slot="drawer-indent"\n\t\t\tclassName={cn(\n\t\t\t\t"relative min-h-[500px] w-full bg-background overflow-hidden origin-top will-change-transform",\n\t\t\t\t"[transition:transform_500ms_cubic-bezier(0.32,0.72,0,1),border-radius_500ms_cubic-bezier(0.32,0.72,0,1)]",\n\t\t\t\t"data-[active]:scale-[0.95] data-[active]:rounded-xl data-[active]:shadow-2xl",\n\t\t\t\tradius === "straight" && "data-[active]:rounded-none",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n// ==================================================\n// Drawer Trigger\n// ==================================================\n\nfunction DrawerTrigger({ className, ...props }: DrawerPrimitive.Trigger.Props) {\n\treturn <DrawerPrimitive.Trigger data-slot="drawer-trigger" {...props} />;\n}\n\n// ==================================================\n// Drawer Portal\n// ==================================================\n\nfunction DrawerPortal({ className, ...props }: DrawerPrimitive.Portal.Props) {\n\treturn (\n\t\t<DrawerPrimitive.Portal\n\t\t\tdata-slot="drawer-portal"\n\t\t\tclassName={cn(className)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n// ==================================================\n// Drawer Backdrop\n// ==================================================\n\nfunction DrawerBackdrop({\n\tclassName,\n\t...props\n}: DrawerPrimitive.Backdrop.Props): React.ReactElement {\n\treturn (\n\t\t<DrawerPrimitive.Backdrop\n\t\t\tdata-slot="drawer-backdrop"\n\t\t\tclassName={cn(\n\t\t\t\t"fixed inset-0 z-50",\n\t\t\t\t"bg-black/40 backdrop-blur-sm",\n\t\t\t\t"transition-opacity duration-300 ease-out",\n\n\t\t\t\t// for swipe-driven opacity\n\t\t\t\t"opacity-[calc(1-var(--drawer-swipe-progress,0))]",\n\n\t\t\t\t// ensure backdrop is visible during snap points\n\t\t\t\t"data-swiping:opacity-[calc(1-var(--drawer-swipe-progress,0))]",\n\n\t\t\t\t"data-starting-style:opacity-0",\n\t\t\t\t"data-ending-style:opacity-0",\n\n\t\t\t\t// velocity based colsing\n\t\t\t\t"data-ending-style:duration-[calc(var(--drawer-swipe-strength,1)*300ms)]",\n\n\t\t\t\t// disable transition during swipe\n\t\t\t\t"data-swiping:transition-none",\n\n\t\t\t\t//iOS fix\n\t\t\t\t"supports-[-webkit-touch-callout:none]:absolute",\n\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n// ==================================================\n// Drawer Viewport\n// ==================================================\n\ninterface DrawerViewportProps extends DrawerPrimitive.Viewport.Props {\n\tposition?: DrawerPosition;\n}\n\nfunction DrawerViewport({\n\tclassName,\n\tposition: positionProp,\n\t...props\n}: DrawerViewportProps) {\n\tconst context = React.useContext(DrawerContext);\n\tconst position = positionProp ?? context.position;\n\tconst variant = context.variant;\n\tconst isModal = context.modal === true;\n\n\treturn (\n\t\t<DrawerPrimitive.Viewport\n\t\t\tdata-slot="drawer-viewport"\n\t\t\tclassName={cn(\n\t\t\t\t"fixed inset-0 z-50 flex",\n\t\t\t\t!isModal && "pointer-events-none",\n\t\t\t\tposition === "bottom" && "items-end justify-center",\n\t\t\t\tposition === "top" && "items-start justify-center",\n\t\t\t\tposition === "left" && "items-center justify-start",\n\t\t\t\tposition === "right" && "items-center justify-end",\n\t\t\t\tvariant === "inset" && "p-2 sm:p-4",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n// ==================================================\n// Drawer Popup\n// ==================================================\n\ninterface DrawerPopupProps extends DrawerPrimitive.Popup.Props {\n\tposition?: DrawerPosition;\n\tradius?: DrawerRadius;\n\tvariant?: DrawerVariant;\n}\n\nfunction DrawerPopup({\n\tclassName,\n\tposition: positionProp,\n\tradius: radiusProp,\n\tvariant: variantProp,\n\t...props\n}: DrawerPopupProps) {\n\tconst context = React.useContext(DrawerContext);\n\tconst position = positionProp ?? context.position;\n\tconst radius = radiusProp ?? context.radius;\n\tconst variant = variantProp ?? context.variant;\n\n\tconst isStraight = radius === "straight";\n\tconst isInset = variant === "inset";\n\n\treturn (\n\t\t<DrawerPrimitive.Popup\n\t\t\tdata-slot="drawer-popup"\n\t\t\tclassName={cn(\n\t\t\t\t"group/drawer-popup",\n\t\t\t\t"max-h-full min-h-0 w-full min-w-0 pointer-events-auto",\n\t\t\t\t"relative z-50 flex flex-col bg-background shadow-2xl overflow-y-auto overscroll-contain touch-auto will-change-transform",\n\t\t\t\t"transition-[transform,box-shadow,height] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)]",\n\n\t\t\t\t// no transition during swipe\n\t\t\t\t"data-swiping:transition-none data-swiping:select-none",\n\t\t\t\t"data-nested-drawer-swiping:transition-none",\n\n\t\t\t\t// velocity-based animation\n\t\t\t\t"data-ending-style:duration-[calc(var(--drawer-swipe-strength,1)*300ms)]",\n\n\t\t\t\t// Stacking CSS variables\n\t\t\t\t"[--peek:1.5rem] [--stack-step:0.05]",\n\t\t\t\t"[--scale-base:calc(max(0,1-(var(--nested-drawers,0)*var(--stack-step))))]",\n\t\t\t\t"[--scale:clamp(0,calc(var(--scale-base)+(var(--stack-step)*var(--stack-progress))),1)]",\n\t\t\t\t"[--shrink:calc(1-var(--scale))]",\n\t\t\t\t"[--stack-peek-offset:max(0px,calc((var(--nested-drawers,0)-var(--stack-progress))*var(--peek)))]",\n\t\t\t\t"[--stack-progress:clamp(0,var(--drawer-swipe-progress,0),1)]",\n\t\t\t\t"[--height:max(0px,calc(var(--drawer-frontmost-height,var(--drawer-height,auto))))]",\n\n\t\t\t\tisStraight && "[--stack-step:0]",\n\n\t\t\t\t// Dim overlay when nested drawer is open\n\t\t\t\t"after:pointer-events-none after:absolute after:inset-0 after:bg-transparent after:transition-colors after:duration-300 after:ease-[cubic-bezier(0.32,0.72,0,1)]",\n\t\t\t\t"data-nested-drawer-open:after:bg-black/5 dark:data-nested-drawer-open:after:bg-black/30",\n\t\t\t\t"data-nested-drawer-open:overflow-hidden",\n\n\t\t\t\t// Height for vertical drawers\n\t\t\t\t(position === "bottom" || position === "top") &&\n\t\t\t\t\t"h-[var(--drawer-height,auto)] data-nested-drawer-open:h-[var(--height)]",\n\n\t\t\t\t// bottom position\n\t\t\t\tposition === "bottom" &&\n\t\t\t\t\tcn(\n\t\t\t\t\t\t"w-full max-h-[85vh]",\n\t\t\t\t\t\tisInset ? "border" : "border-t",\n\t\t\t\t\t\tisStraight\n\t\t\t\t\t\t\t? "rounded-none"\n\t\t\t\t\t\t\t: isInset\n\t\t\t\t\t\t\t\t? "rounded-xl"\n\t\t\t\t\t\t\t\t: "rounded-t-xl",\n\t\t\t\t\t\t"[transform:translateY(calc(var(--drawer-swipe-movement-y,0px)_+_var(--drawer-snap-point-offset,0px)))]",\n\t\t\t\t\t\t"data-starting-style:[transform:translateY(calc(100%+2px))]",\n\t\t\t\t\t\t"data-ending-style:[transform:translateY(calc(100%+2px))]",\n\t\t\t\t\t\t"data-nested-drawer-open:[transform:translateY(calc(var(--drawer-swipe-movement-y,0px)_-_var(--stack-peek-offset)_-_(var(--shrink)*var(--height))))_scale(var(--scale))]",\n\t\t\t\t\t\t"origin-bottom",\n\t\t\t\t\t),\n\n\t\t\t\t// top position\n\t\t\t\tposition === "top" &&\n\t\t\t\t\tcn(\n\t\t\t\t\t\t"w-full max-h-[85vh]",\n\t\t\t\t\t\tisInset ? "border" : "border-b",\n\t\t\t\t\t\tisStraight\n\t\t\t\t\t\t\t? "rounded-none"\n\t\t\t\t\t\t\t: isInset\n\t\t\t\t\t\t\t\t? "rounded-xl"\n\t\t\t\t\t\t\t\t: "rounded-b-xl",\n\t\t\t\t\t\t"[transform:translateY(var(--drawer-swipe-movement-y,0px))]",\n\t\t\t\t\t\t"data-starting-style:[transform:translateY(calc(-100%-2px))]",\n\t\t\t\t\t\t"data-ending-style:[transform:translateY(calc(-100%-2px))]",\n\t\t\t\t\t\t"data-nested-drawer-open:[transform:translateY(calc(var(--drawer-swipe-movement-y,0px)_+_var(--stack-peek-offset)_+_(var(--shrink)*var(--height))))_scale(var(--scale))]",\n\t\t\t\t\t\t"origin-top",\n\t\t\t\t\t),\n\n\t\t\t\t// left position\n\t\t\t\tposition === "left" &&\n\t\t\t\t\tcn(\n\t\t\t\t\t\t"h-full w-[var(--drawer-width,auto)] max-w-[85vw]",\n\t\t\t\t\t\tisInset ? "border" : "border-r",\n\t\t\t\t\t\tisStraight\n\t\t\t\t\t\t\t? "rounded-none"\n\t\t\t\t\t\t\t: isInset\n\t\t\t\t\t\t\t\t? "rounded-xl"\n\t\t\t\t\t\t\t\t: "rounded-r-xl",\n\t\t\t\t\t\t"[transform:translateX(var(--drawer-swipe-movement-x,0px))]",\n\t\t\t\t\t\t"data-starting-style:[transform:translateX(calc(-100%-2px))]",\n\t\t\t\t\t\t"data-ending-style:[transform:translateX(calc(-100%-2px))]",\n\t\t\t\t\t\t"data-nested-drawer-open:[transform:translateX(calc(var(--drawer-swipe-movement-x,0px)_+_var(--stack-peek-offset)))_scale(var(--scale))]",\n\t\t\t\t\t\t"origin-right",\n\t\t\t\t\t),\n\n\t\t\t\t// right position\n\t\t\t\tposition === "right" &&\n\t\t\t\t\tcn(\n\t\t\t\t\t\t"[--bleed:0rem]",\n\t\t\t\t\t\t"h-full max-w-[85vw] w-[var(--drawer-width,calc(20rem+var(--bleed)))]",\n\t\t\t\t\t\tisInset ? "border" : "border-l",\n\t\t\t\t\t\tisStraight\n\t\t\t\t\t\t\t? "rounded-none"\n\t\t\t\t\t\t\t: isInset\n\t\t\t\t\t\t\t\t? "rounded-xl"\n\t\t\t\t\t\t\t\t: "rounded-l-xl",\n\t\t\t\t\t\t"-mr-[var(--bleed)]",\n\t\t\t\t\t\t"supports-[-webkit-touch-callout:none]:[--bleed:0px]",\n\n\t\t\t\t\t\t"[transform:translateX(var(--drawer-swipe-movement-x,0px))]",\n\n\t\t\t\t\t\t// life cycle\n\t\t\t\t\t\t"data-starting-style:[transform:translateX(calc(100%+2px))]",\n\t\t\t\t\t\t"data-ending-style:[transform:translateX(calc(100%+2px))]",\n\t\t\t\t\t\t"data-nested-drawer-open:[transform:translateX(calc(var(--drawer-swipe-movement-x,0px)_-_var(--stack-peek-offset)))_scale(var(--scale))]",\n\t\t\t\t\t\t"origin-left",\n\n\t\t\t\t\t\t// iOS fixes\n\t\t\t\t\t\t"supports-[-webkit-touch-callout:none]:mr-0",\n\t\t\t\t\t\t"supports-[-webkit-touch-callout:none]:w-[20rem]",\n\t\t\t\t\t\t"supports-[-webkit-touch-callout:none]:max-w-[calc(100vw-20px)]",\n\t\t\t\t\t\t!isStraight &&\n\t\t\t\t\t\t\t"supports-[-webkit-touch-callout:none]:rounded-[10px]",\n\t\t\t\t\t),\n\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n// ==================================================\n// Drawer Swipe Area\n// ==================================================\n\ninterface DrawerSwipeAreaProps extends DrawerPrimitive.SwipeArea.Props {\n\tposition?: DrawerPosition;\n}\n\nfunction DrawerSwipeArea({\n\tclassName,\n\tposition: propPosition,\n\t...props\n}: DrawerSwipeAreaProps) {\n\tconst { position: contextPosition } = React.useContext(DrawerContext);\n\tconst position = propPosition ?? contextPosition;\n\n\treturn (\n\t\t<DrawerPrimitive.SwipeArea\n\t\t\tdata-slot="drawer-swipe-area"\n\t\t\tclassName={cn(\n\t\t\t\t"absolute z-50",\n\t\t\t\tposition === "bottom" && "inset-x-0 bottom-0 h-10",\n\t\t\t\tposition === "top" && "inset-x-0 top-0 h-10",\n\t\t\t\tposition === "left" && "inset-y-0 left-0 w-10",\n\t\t\t\tposition === "right" && "inset-y-0 right-0 w-10",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n// ==================================================\n// Drawer Content\n// ==================================================\n\ninterface DrawerContentProps extends DrawerPrimitive.Content.Props {\n\tallowSelection?: boolean;\n}\n\nfunction DrawerContent({\n\tclassName,\n\tallowSelection = false,\n\trender,\n\t...props\n}: DrawerContentProps) {\n\tconst contentClassName = cn(\n\t\t"p-6 flex-1",\n\t\t"transition-opacity duration-300 ease-[cubic-bezier(0.32,0.72,0,1)]",\n\t\t// Hide content when nested drawer is open\n\t\t"group-data-[nested-drawer-open]/drawer-popup:opacity-0",\n\t\t// Show content when swiping nested drawer\n\t\t"group-data-[nested-drawer-swiping]/drawer-popup:opacity-100",\n\t\tclassName,\n\t);\n\n\tif (allowSelection) {\n\t\treturn (\n\t\t\t<DrawerPrimitive.Content\n\t\t\t\tdata-slot="drawer-content"\n\t\t\t\tclassName={contentClassName}\n\t\t\t\trender={render}\n\t\t\t\t{...props}\n\t\t\t/>\n\t\t);\n\t}\n\n\tif (\n\t\trender &&\n\t\tReact.isValidElement<\n\t\t\tReact.HTMLAttributes<HTMLElement> & { "data-slot"?: string }\n\t\t>(render)\n\t) {\n\t\treturn React.cloneElement(render, {\n\t\t\t"data-slot": "drawer-content",\n\t\t\tclassName: cn(contentClassName, render.props.className),\n\t\t\t...props,\n\t\t});\n\t}\n\n\treturn (\n\t\t<div\n\t\t\tdata-slot="drawer-content"\n\t\t\tclassName={contentClassName}\n\t\t\t{...(props as React.HTMLAttributes<HTMLDivElement>)}\n\t\t/>\n\t);\n}\n\n// ==================================================\n// Drawer Title\n// ==================================================\n\nfunction DrawerTitle({ className, ...props }: DrawerPrimitive.Title.Props) {\n\treturn (\n\t\t<DrawerPrimitive.Title\n\t\t\tdata-slot="drawer-title"\n\t\t\tclassName={cn("text-lg font-semibold leading-none", className)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n// ==================================================\n// Drawer Description\n// ==================================================\n\nfunction DrawerDescription({\n\tclassName,\n\t...props\n}: DrawerPrimitive.Description.Props) {\n\treturn (\n\t\t<DrawerPrimitive.Description\n\t\t\tdata-slot="drawer-description"\n\t\t\tclassName={cn("text-sm text-muted-foreground", className)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n// ==================================================\n// Drawer Close\n// ==================================================\n\nfunction DrawerClose(props: DrawerPrimitive.Close.Props): React.ReactElement {\n\treturn <DrawerPrimitive.Close data-slot="drawer-close" {...props} />;\n}\n\n// ==================================================\n// Drawer Handle\n// ==================================================\n\nfunction DrawerHandle({\n\tclassName,\n\tposition: positionProp,\n\t...props\n}: React.HTMLAttributes<HTMLDivElement> & {\n\tposition?: DrawerPosition;\n}) {\n\tconst { position: contextPosition } = React.useContext(DrawerContext);\n\tconst position = positionProp ?? contextPosition;\n\tconst horizontal = position === "left" || position === "right";\n\n\treturn (\n\t\t<div\n\t\t\tdata-slot="drawer-handle"\n\t\t\tclassName={cn(\n\t\t\t\t"absolute flex touch-none items-center justify-center p-3 before:rounded-full before:bg-input",\n\t\t\t\t"transition-opacity duration-200 ease-[cubic-bezier(0.32,0.72,0,1)]",\n\t\t\t\t"group-data-[nested-drawer-open]/drawer-popup:opacity-0",\n\t\t\t\t"group-data-[nested-drawer-swiping]/drawer-popup:opacity-100",\n\t\t\t\thorizontal\n\t\t\t\t\t? "inset-y-0 before:h-12 before:w-1"\n\t\t\t\t\t: "inset-x-0 before:h-1 before:w-12",\n\t\t\t\tposition === "top" && "bottom-0",\n\t\t\t\tposition === "bottom" && "top-0",\n\t\t\t\tposition === "left" && "right-0",\n\t\t\t\tposition === "right" && "left-0",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n// ==================================================\n// Drawer Object\n// ==================================================\n\nexport const Drawer = {\n\tProvider: DrawerProvider,\n\tIndentBackground: DrawerIndentBackground,\n\tIndent: DrawerIndent,\n\tRoot: DrawerRoot,\n\tTrigger: DrawerTrigger,\n\tSwipeArea: DrawerSwipeArea,\n\tPortal: DrawerPortal,\n\tBackdrop: DrawerBackdrop,\n\tViewport: DrawerViewport,\n\tPopup: DrawerPopup,\n\tContent: DrawerContent,\n\tTitle: DrawerTitle,\n\tDescription: DrawerDescription,\n\tClose: DrawerClose,\n\tHandle: DrawerHandle,\n\t// Utility functions\n\tcreateHandle: DrawerPrimitive.createHandle,\n};\n\n// ==================================================\n// Exports\n// ==================================================\n\nexport {\n\tDrawerProvider,\n\tDrawerIndentBackground,\n\tDrawerIndent,\n\tDrawerRoot,\n\tDrawerTrigger,\n\tDrawerSwipeArea,\n\tDrawerPortal,\n\tDrawerBackdrop,\n\tDrawerViewport,\n\tDrawerPopup,\n\tDrawerContent,\n\tDrawerTitle,\n\tDrawerDescription,\n\tDrawerClose,\n\tDrawerHandle,\n\tDrawerPrimitive,\n\ttype DrawerPosition,\n\ttype DrawerSwipeDirection,\n\ttype DrawerRadius,\n\ttype DrawerVariant,\n\ttype DrawerContentProps,\n};\n\nexport default Drawer;',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-drawer",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/components/drawer/index.tsx"
 				);
 				let Comp = mod.default;
 
@@ -2594,7 +2643,7 @@ export const Registry: Record<string, any> = {
 				type: "registry:component",
 				target: "components/baseui/components/preview-card.tsx",
 				content:
-					'"use client";\n\nimport { PreviewCard as PreviewCardPrimitive } from "@base-ui/react/preview-card";\n\nimport { cn } from "@/lib/utils";\nimport { ARROW_STYLES, BaseArrow } from "@/components/baseui/components/arrow";\n\n/* -------------------------------------------------------------------------- */\n/* Root                                                                       */\n/* -------------------------------------------------------------------------- */\n\nfunction PreviewCardRoot(props: PreviewCardPrimitive.Root.Props) {\n\treturn (\n\t\t<PreviewCardPrimitive.Root {...props} data-slot="preview-card-root" />\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Trigger                                                                    */\n/* -------------------------------------------------------------------------- */\n\nfunction PreviewCardTrigger({\n\tclassName,\n\thref,\n\t...props\n}: PreviewCardPrimitive.Trigger.Props) {\n\treturn (\n\t\t<PreviewCardPrimitive.Trigger\n\t\t\thref={href}\n\t\t\tclassName={cn(\n\t\t\t\t"underline font-medium cursor-default decoration-1 underline-offset-4",\n\t\t\t\t"focus-visible:rounded-sm focus-visible:no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-800",\n\t\t\t\t"data-[popup-open]:underline data-[popup-open]:focus-visible:no-underline",\n\t\t\t\thref && "text-blue-500",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="preview-card-trigger"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Portal                                                                     */\n/* -------------------------------------------------------------------------- */\n\nfunction PreviewCardPortal(props: PreviewCardPrimitive.Portal.Props) {\n\treturn (\n\t\t<PreviewCardPrimitive.Portal\n\t\t\t{...props}\n\t\t\tdata-slot="preview-card-portal"\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Positioner                                                                 */\n/* -------------------------------------------------------------------------- */\n\nfunction PreviewCardPositioner({\n\tclassName,\n\tsideOffset = 4,\n\t...props\n}: PreviewCardPrimitive.Positioner.Props) {\n\treturn (\n\t\t<PreviewCardPrimitive.Positioner\n\t\t\tsideOffset={sideOffset}\n\t\t\tclassName={cn("z-50", className)}\n\t\t\tdata-slot="preview-card-positioner"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Popup                                                                      */\n/* -------------------------------------------------------------------------- */\n\nfunction PreviewCardPopup({\n\tclassName,\n\tchildren,\n\tshowPreviewCardArrow = true,\n\t...props\n}: PreviewCardPrimitive.Popup.Props & { showPreviewCardArrow?: boolean }) {\n\treturn (\n\t\t<PreviewCardPrimitive.Popup\n\t\t\tclassName={cn(\n\t\t\t\t"w-64 p-3 origin-[var(--transform-origin)]",\n\t\t\t\t"flex bg-popover text-popover-foreground text-sm rounded-lg border border-border shadow",\n\t\t\t\t"transition-[transform,scale,opacity]",\n\t\t\t\t"data-[starting-style]:scale-90 data-[starting-style]:opacity-0",\n\t\t\t\t"data-[ending-style]:scale-90 data-[ending-style]:opacity-0",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="preview-card-popup"\n\t\t\t{...props}\n\t\t>\n\t\t\t{showPreviewCardArrow && <PreviewCardArrow />}\n\t\t\t{children}\n\t\t</PreviewCardPrimitive.Popup>\n\t);\n}\n\n\n/* -------------------------------------------------------------------------- */\n/* Arrow                                                                      */\n/* -------------------------------------------------------------------------- */\n\nfunction PreviewCardArrow({\n\tclassName,\n\t...props\n}: PreviewCardPrimitive.Arrow.Props) {\n\treturn (\n\t\t<PreviewCardPrimitive.Arrow\n\t\t\tclassName={cn(ARROW_STYLES, className)}\n\t\t\tdata-slot="preview-card-arrow"\n\t\t\t{...props}\n\t\t>\n\t\t\t<BaseArrow title="PreviewCard Arrow" className="fill-background" />\n\t\t</PreviewCardPrimitive.Arrow>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport {\n\tPreviewCardRoot,\n\tPreviewCardTrigger,\n\tPreviewCardPortal,\n\tPreviewCardPositioner,\n\tPreviewCardPopup,\n\tPreviewCardArrow,\n};',
+					'"use client";\n\nimport { PreviewCard as PreviewCardPrimitive } from "@base-ui/react/preview-card";\n\nimport { cn } from "@/lib/utils";\nimport { ARROW_STYLES, BaseArrow } from "@/components/baseui/components/arrow";\n\n/* -------------------------------------------------------------------------- */\n/* Root                                                                       */\n/* -------------------------------------------------------------------------- */\n\nfunction PreviewCardRoot(props: PreviewCardPrimitive.Root.Props) {\n\treturn (\n\t\t<PreviewCardPrimitive.Root {...props} data-slot="preview-card-root" />\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Trigger                                                                    */\n/* -------------------------------------------------------------------------- */\n\nfunction PreviewCardTrigger({\n\tclassName,\n\thref,\n\t...props\n}: PreviewCardPrimitive.Trigger.Props) {\n\treturn (\n\t\t<PreviewCardPrimitive.Trigger\n\t\t\thref={href}\n\t\t\tclassName={cn(\n\t\t\t\t"underline font-medium cursor-default decoration-1 underline-offset-4",\n\t\t\t\t"focus-visible:rounded-sm focus-visible:no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-800",\n\t\t\t\t"data-[popup-open]:underline data-[popup-open]:focus-visible:no-underline",\n\t\t\t\thref && "text-blue-500",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="preview-card-trigger"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Portal                                                                     */\n/* -------------------------------------------------------------------------- */\n\nfunction PreviewCardPortal(props: PreviewCardPrimitive.Portal.Props) {\n\treturn (\n\t\t<PreviewCardPrimitive.Portal\n\t\t\t{...props}\n\t\t\tdata-slot="preview-card-portal"\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Positioner                                                                 */\n/* -------------------------------------------------------------------------- */\n\nfunction PreviewCardPositioner({\n\tclassName,\n\tsideOffset = 4,\n\t...props\n}: PreviewCardPrimitive.Positioner.Props) {\n\treturn (\n\t\t<PreviewCardPrimitive.Positioner\n\t\t\tsideOffset={sideOffset}\n\t\t\tclassName={cn("z-50", className)}\n\t\t\tdata-slot="preview-card-positioner"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Popup                                                                      */\n/* -------------------------------------------------------------------------- */\n\nfunction PreviewCardPopup({\n\tclassName,\n\tchildren,\n\tshowPreviewCardArrow = true,\n\t...props\n}: PreviewCardPrimitive.Popup.Props & { showPreviewCardArrow?: boolean }) {\n\treturn (\n\t\t<PreviewCardPrimitive.Popup\n\t\t\tclassName={cn(\n\t\t\t\t"w-64 p-3 origin-[var(--transform-origin)]",\n\t\t\t\t"flex bg-popover text-popover-foreground text-sm rounded-lg border border-border shadow",\n\t\t\t\t"transition-[transform,scale,opacity]",\n\t\t\t\t"data-[starting-style]:scale-90 data-[starting-style]:opacity-0",\n\t\t\t\t"data-[ending-style]:scale-90 data-[ending-style]:opacity-0",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="preview-card-popup"\n\t\t\t{...props}\n\t\t>\n\t\t\t{showPreviewCardArrow && <PreviewCardArrow />}\n\t\t\t{children}\n\t\t</PreviewCardPrimitive.Popup>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Arrow                                                                      */\n/* -------------------------------------------------------------------------- */\n\nfunction PreviewCardArrow({\n\tclassName,\n\t...props\n}: PreviewCardPrimitive.Arrow.Props) {\n\treturn (\n\t\t<PreviewCardPrimitive.Arrow\n\t\t\tclassName={cn(ARROW_STYLES, className)}\n\t\t\tdata-slot="preview-card-arrow"\n\t\t\t{...props}\n\t\t>\n\t\t\t<BaseArrow title="PreviewCard Arrow" className="fill-background" />\n\t\t</PreviewCardPrimitive.Arrow>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport {\n\tPreviewCardRoot,\n\tPreviewCardTrigger,\n\tPreviewCardPortal,\n\tPreviewCardPositioner,\n\tPreviewCardPopup,\n\tPreviewCardArrow,\n};',
 			},
 		],
 		keywords: [],
@@ -3234,7 +3283,7 @@ export const Registry: Record<string, any> = {
 				type: "registry:component",
 				target: "components/baseui/components/tooltip.tsx",
 				content:
-					'"use client";\n\nimport { Tooltip as TooltipPrimitive } from "@base-ui/react/tooltip";\n\nimport { cn } from "@/lib/utils";\nimport { ARROW_STYLES, BaseArrow } from "@/components/baseui/components/arrow";\n\n/* -------------------------------------------------------------------------- */\n/* Tooltip Provider                                                           */\n/* -------------------------------------------------------------------------- */\n\nconst TooltipProvider = TooltipPrimitive.Provider;\n\n/* -------------------------------------------------------------------------- */\n/* Tooltip Root                                                               */\n/* -------------------------------------------------------------------------- */\n\nfunction Tooltip(props: TooltipPrimitive.Root.Props) {\n\treturn <TooltipPrimitive.Root data-slot="tooltip" {...props} />;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Tooltip Trigger                                                            */\n/* -------------------------------------------------------------------------- */\n\nfunction TooltipTrigger(props: TooltipPrimitive.Trigger.Props) {\n\treturn <TooltipPrimitive.Trigger data-slot="tooltip-trigger" {...props} />;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Tooltip Portal                                                             */\n/* -------------------------------------------------------------------------- */\n\nfunction TooltipPortal(props: TooltipPrimitive.Portal.Props) {\n\treturn <TooltipPrimitive.Portal data-slot="tooltip-portal" {...props} />;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Tooltip Positioner                                                         */\n/* -------------------------------------------------------------------------- */\n\nfunction TooltipPositioner(props: TooltipPrimitive.Positioner.Props) {\n\treturn (\n\t\t<TooltipPrimitive.Positioner\n\t\t\tdata-slot="tooltip-positioner"\n\t\t\tclassName={cn(\n\t\t\t\t"z-50",\n\t\t\t\t"h-(--positioner-height) w-(--positioner-width)",\n\t\t\t\t"max-w-(--available-width)",\n\t\t\t\t"transition-[top,left,right,bottom,transform]",\n\t\t\t\t"data-instant:transition-none",\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Tooltip Viewport                                                           */\n/* -------------------------------------------------------------------------- */\n\ninterface TooltipViewportProps extends TooltipPrimitive.Viewport.Props {\n\tclassName?: string;\n}\n\nfunction TooltipViewport({\n\tclassName,\n\tchildren,\n\t...props\n}: TooltipViewportProps) {\n\treturn (\n\t\t<TooltipPrimitive.Viewport\n\t\t\tdata-slot="tooltip-viewport"\n\t\t\tclassName={cn(\n\t\t\t\t"relative h-full w-full overflow-clip",\n\t\t\t\t"px-(--viewport-inline-padding) py-1",\n\t\t\t\t"[--viewport-inline-padding:--spacing(2)]",\n\n\t\t\t\t/* previous */\n\t\t\t\t"**:data-previous:w-[calc(var(--popup-width)-2*var(--viewport-inline-padding))]",\n\t\t\t\t"**:data-previous:translate-x-0",\n\t\t\t\t"**:data-previous:opacity-100",\n\t\t\t\t"**:data-previous:transition-[translate,opacity]",\n\t\t\t\t"**:data-previous:duration-[350ms,175ms]",\n\t\t\t\t"**:data-previous:ease-[cubic-bezier(0.22,1,0.36,1)]",\n\n\t\t\t\t/* current */\n\t\t\t\t"**:data-current:w-[calc(var(--popup-width)-2*var(--viewport-inline-padding))]",\n\t\t\t\t"**:data-current:translate-x-0",\n\t\t\t\t"**:data-current:opacity-100",\n\t\t\t\t"**:data-current:transition-[translate,opacity]",\n\t\t\t\t"**:data-current:duration-[350ms,175ms]",\n\t\t\t\t"**:data-current:ease-[cubic-bezier(0.22,1,0.36,1)]",\n\n\t\t\t\t/* directional animations */\n\t\t\t\t"data-[activation-direction~=\'left\']:[&_[data-current][data-starting-style]]:-translate-x-1/2",\n\t\t\t\t"data-[activation-direction~=\'left\']:[&_[data-current][data-starting-style]]:opacity-0",\n\t\t\t\t"data-[activation-direction~=\'right\']:[&_[data-current][data-starting-style]]:translate-x-1/2",\n\t\t\t\t"data-[activation-direction~=\'right\']:[&_[data-current][data-starting-style]]:opacity-0",\n\n\t\t\t\t"data-[activation-direction~=\'left\']:[&_[data-previous][data-ending-style]]:translate-x-1/2",\n\t\t\t\t"data-[activation-direction~=\'left\']:[&_[data-previous][data-ending-style]]:opacity-0",\n\t\t\t\t"data-[activation-direction~=\'right\']:[&_[data-previous][data-ending-style]]:-translate-x-1/2",\n\t\t\t\t"data-[activation-direction~=\'right\']:[&_[data-previous][data-ending-style]]:opacity-0",\n\n\t\t\t\t/* instant */\n\t\t\t\t"[[data-instant]_&_[data-previous]]:transition-none",\n\t\t\t\t"[[data-instant]_&_[data-current]]:transition-none",\n\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t{children}\n\t\t</TooltipPrimitive.Viewport>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Tooltip Popup                                                              */\n/* -------------------------------------------------------------------------- */\n\ninterface TooltipPopupProps extends TooltipPrimitive.Popup.Props {\n\tclassName?: string;\n\thideTooltipArrow?: boolean;\n}\n\nfunction TooltipPopup({\n\tclassName,\n\tchildren,\n\thideTooltipArrow = false,\n\t...props\n}: TooltipPopupProps) {\n\treturn (\n\t\t<TooltipPrimitive.Popup\n\t\t\tdata-slot="tooltip-popup"\n\t\t\tclassName={cn(\n\t\t\t\t"h-(--popup-height,auto) w-(--popup-width,auto)",\n\t\t\t\t"relative flex rounded-md border border-border",\n\t\t\t\t"bg-popover text-popover-foreground text-xs",\n\n\t\t\t\t/* animations */\n\t\t\t\t"origin-(--transform-origin)",\n\t\t\t\t"transition-[width,height,scale,opacity]",\n\t\t\t\t"data-starting-style:scale-98 data-ending-style:scale-98",\n\t\t\t\t"data-starting-style:opacity-0 data-ending-style:opacity-0",\n\t\t\t\t"data-instant:duration-0",\n\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t{!hideTooltipArrow && <TooltipArrow />}\n\t\t\t<TooltipViewport>{children}</TooltipViewport>\n\t\t</TooltipPrimitive.Popup>\n\t);\n}\n\n\n/* -------------------------------------------------------------------------- */\n/* Tooltip Arrow                                                              */\n/* -------------------------------------------------------------------------- */\n\ninterface TooltipArrowProps extends TooltipPrimitive.Arrow.Props {\n\tclassName?: string;\n}\n\nfunction TooltipArrow({ className, ...props }: TooltipArrowProps) {\n\treturn (\n\t\t<TooltipPrimitive.Arrow\n\t\t\tclassName={cn(ARROW_STYLES, className)}\n\t\t\t{...props}\n\t\t>\n\t\t\t<BaseArrow title="Tooltip Arrow" className="fill-background" />\n\t\t</TooltipPrimitive.Arrow>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport {\n\tTooltip,\n\tTooltipTrigger,\n\tTooltipPopup,\n\tTooltipProvider,\n\tTooltipPortal,\n\tTooltipPositioner,\n\tTooltipPrimitive,\n\tTooltipArrow,\n};',
+					'"use client";\n\nimport { Tooltip as TooltipPrimitive } from "@base-ui/react/tooltip";\n\nimport { cn } from "@/lib/utils";\nimport { ARROW_STYLES, BaseArrow } from "@/components/baseui/components/arrow";\n\n/* -------------------------------------------------------------------------- */\n/* Tooltip Provider                                                           */\n/* -------------------------------------------------------------------------- */\n\nconst TooltipProvider = TooltipPrimitive.Provider;\n\n/* -------------------------------------------------------------------------- */\n/* Tooltip Root                                                               */\n/* -------------------------------------------------------------------------- */\n\nfunction Tooltip(props: TooltipPrimitive.Root.Props) {\n\treturn <TooltipPrimitive.Root data-slot="tooltip" {...props} />;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Tooltip Trigger                                                            */\n/* -------------------------------------------------------------------------- */\n\nfunction TooltipTrigger(props: TooltipPrimitive.Trigger.Props) {\n\treturn <TooltipPrimitive.Trigger data-slot="tooltip-trigger" {...props} />;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Tooltip Portal                                                             */\n/* -------------------------------------------------------------------------- */\n\nfunction TooltipPortal(props: TooltipPrimitive.Portal.Props) {\n\treturn <TooltipPrimitive.Portal data-slot="tooltip-portal" {...props} />;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Tooltip Positioner                                                         */\n/* -------------------------------------------------------------------------- */\n\nfunction TooltipPositioner(props: TooltipPrimitive.Positioner.Props) {\n\treturn (\n\t\t<TooltipPrimitive.Positioner\n\t\t\tdata-slot="tooltip-positioner"\n\t\t\tclassName={cn(\n\t\t\t\t"z-50",\n\t\t\t\t"h-(--positioner-height) w-(--positioner-width)",\n\t\t\t\t"max-w-(--available-width)",\n\t\t\t\t"transition-[top,left,right,bottom,transform]",\n\t\t\t\t"data-instant:transition-none",\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Tooltip Viewport                                                           */\n/* -------------------------------------------------------------------------- */\n\ninterface TooltipViewportProps extends TooltipPrimitive.Viewport.Props {\n\tclassName?: string;\n}\n\nfunction TooltipViewport({\n\tclassName,\n\tchildren,\n\t...props\n}: TooltipViewportProps) {\n\treturn (\n\t\t<TooltipPrimitive.Viewport\n\t\t\tdata-slot="tooltip-viewport"\n\t\t\tclassName={cn(\n\t\t\t\t"relative h-full w-full overflow-clip",\n\t\t\t\t"px-(--viewport-inline-padding) py-1",\n\t\t\t\t"[--viewport-inline-padding:--spacing(2)]",\n\n\t\t\t\t/* previous */\n\t\t\t\t"**:data-previous:w-[calc(var(--popup-width)-2*var(--viewport-inline-padding))]",\n\t\t\t\t"**:data-previous:translate-x-0",\n\t\t\t\t"**:data-previous:opacity-100",\n\t\t\t\t"**:data-previous:transition-[translate,opacity]",\n\t\t\t\t"**:data-previous:duration-[350ms,175ms]",\n\t\t\t\t"**:data-previous:ease-[cubic-bezier(0.22,1,0.36,1)]",\n\n\t\t\t\t/* current */\n\t\t\t\t"**:data-current:w-[calc(var(--popup-width)-2*var(--viewport-inline-padding))]",\n\t\t\t\t"**:data-current:translate-x-0",\n\t\t\t\t"**:data-current:opacity-100",\n\t\t\t\t"**:data-current:transition-[translate,opacity]",\n\t\t\t\t"**:data-current:duration-[350ms,175ms]",\n\t\t\t\t"**:data-current:ease-[cubic-bezier(0.22,1,0.36,1)]",\n\n\t\t\t\t/* directional animations */\n\t\t\t\t"data-[activation-direction~=\'left\']:[&_[data-current][data-starting-style]]:-translate-x-1/2",\n\t\t\t\t"data-[activation-direction~=\'left\']:[&_[data-current][data-starting-style]]:opacity-0",\n\t\t\t\t"data-[activation-direction~=\'right\']:[&_[data-current][data-starting-style]]:translate-x-1/2",\n\t\t\t\t"data-[activation-direction~=\'right\']:[&_[data-current][data-starting-style]]:opacity-0",\n\n\t\t\t\t"data-[activation-direction~=\'left\']:[&_[data-previous][data-ending-style]]:translate-x-1/2",\n\t\t\t\t"data-[activation-direction~=\'left\']:[&_[data-previous][data-ending-style]]:opacity-0",\n\t\t\t\t"data-[activation-direction~=\'right\']:[&_[data-previous][data-ending-style]]:-translate-x-1/2",\n\t\t\t\t"data-[activation-direction~=\'right\']:[&_[data-previous][data-ending-style]]:opacity-0",\n\n\t\t\t\t/* instant */\n\t\t\t\t"[[data-instant]_&_[data-previous]]:transition-none",\n\t\t\t\t"[[data-instant]_&_[data-current]]:transition-none",\n\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t{children}\n\t\t</TooltipPrimitive.Viewport>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Tooltip Popup                                                              */\n/* -------------------------------------------------------------------------- */\n\ninterface TooltipPopupProps extends TooltipPrimitive.Popup.Props {\n\tclassName?: string;\n\thideTooltipArrow?: boolean;\n}\n\nfunction TooltipPopup({\n\tclassName,\n\tchildren,\n\thideTooltipArrow = false,\n\t...props\n}: TooltipPopupProps) {\n\treturn (\n\t\t<TooltipPrimitive.Popup\n\t\t\tdata-slot="tooltip-popup"\n\t\t\tclassName={cn(\n\t\t\t\t"h-(--popup-height,auto) w-(--popup-width,auto)",\n\t\t\t\t"relative flex rounded-md border border-border",\n\t\t\t\t"bg-popover text-popover-foreground text-xs",\n\n\t\t\t\t/* animations */\n\t\t\t\t"origin-(--transform-origin)",\n\t\t\t\t"transition-[width,height,scale,opacity]",\n\t\t\t\t"data-starting-style:scale-98 data-ending-style:scale-98",\n\t\t\t\t"data-starting-style:opacity-0 data-ending-style:opacity-0",\n\t\t\t\t"data-instant:duration-0",\n\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t{!hideTooltipArrow && <TooltipArrow />}\n\t\t\t<TooltipViewport>{children}</TooltipViewport>\n\t\t</TooltipPrimitive.Popup>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Tooltip Arrow                                                              */\n/* -------------------------------------------------------------------------- */\n\ninterface TooltipArrowProps extends TooltipPrimitive.Arrow.Props {\n\tclassName?: string;\n}\n\nfunction TooltipArrow({ className, ...props }: TooltipArrowProps) {\n\treturn (\n\t\t<TooltipPrimitive.Arrow\n\t\t\tclassName={cn(ARROW_STYLES, className)}\n\t\t\t{...props}\n\t\t>\n\t\t\t<BaseArrow title="Tooltip Arrow" className="fill-background" />\n\t\t</TooltipPrimitive.Arrow>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport {\n\tTooltip,\n\tTooltipTrigger,\n\tTooltipPopup,\n\tTooltipProvider,\n\tTooltipPortal,\n\tTooltipPositioner,\n\tTooltipPrimitive,\n\tTooltipArrow,\n};',
 			},
 		],
 		keywords: [],
@@ -5956,6 +6005,600 @@ export const Registry: Record<string, any> = {
 			const LazyComp = React.lazy(async () => {
 				const mod = await import(
 					"@craftdotui/baseui/particles/dialog/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-drawer-controlled": {
+		name: "baseui-particles-drawer-controlled",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-drawer"],
+		files: [
+			{
+				path: "packages/baseui/particles/drawer/controlled/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/drawer-controlled.tsx",
+				content:
+					'"use client";\n\nimport * as React from "react";\nimport Drawer from "@/components/baseui/components/drawer";\nimport { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\tconst [open, setOpen] = React.useState(false);\n\n\treturn (\n\t\t<div className="flex items-center gap-2">\n\t\t\t<Button variant="outline" onClick={() => setOpen(true)}>\n\t\t\t\tOpen\n\t\t\t</Button>\n\t\t\t<Button\n\t\t\t\tvariant="outline"\n\t\t\t\tonClick={() => setOpen(false)}\n\t\t\t\tdisabled={!open}\n\t\t\t>\n\t\t\t\tClose\n\t\t\t</Button>\n\n\t\t\t<Drawer.Root open={open} onOpenChange={setOpen}>\n\t\t\t\t<Drawer.Portal>\n\t\t\t\t\t<Drawer.Backdrop />\n\t\t\t\t\t<Drawer.Viewport>\n\t\t\t\t\t\t<Drawer.Popup>\n\t\t\t\t\t\t\t<Drawer.Handle />\n\t\t\t\t\t\t\t<Drawer.Content>\n\t\t\t\t\t\t\t\t<Drawer.Title>Controlled Drawer</Drawer.Title>\n\t\t\t\t\t\t\t\t<Drawer.Description className="mt-1.5">\n\t\t\t\t\t\t\t\t\tThis drawer is controlled externally via\n\t\t\t\t\t\t\t\t\t<code className="rounded bg-muted px-1 py-0.5 text-xs font-mono">\n\t\t\t\t\t\t\t\t\t\topen\n\t\t\t\t\t\t\t\t\t</code>\n\t\t\t\t\t\t\t\t\tand\n\t\t\t\t\t\t\t\t\t<code className="rounded bg-muted px-1 py-0.5 text-xs font-mono">\n\t\t\t\t\t\t\t\t\t\tonOpenChange\n\t\t\t\t\t\t\t\t\t</code>\n\t\t\t\t\t\t\t\t\tprops.\n\t\t\t\t\t\t\t\t</Drawer.Description>\n\t\t\t\t\t\t\t\t<div className="mt-6 flex justify-end">\n\t\t\t\t\t\t\t\t\t<Button\n\t\t\t\t\t\t\t\t\t\tvariant="outline"\n\t\t\t\t\t\t\t\t\t\tonClick={() => setOpen(false)}\n\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\tClose\n\t\t\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</Drawer.Content>\n\t\t\t\t\t\t</Drawer.Popup>\n\t\t\t\t\t</Drawer.Viewport>\n\t\t\t\t</Drawer.Portal>\n\t\t\t</Drawer.Root>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-drawer-controlled",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/drawer/controlled/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-drawer-detatched-triggers": {
+		name: "baseui-particles-drawer-detatched-triggers",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-drawer"],
+		files: [
+			{
+				path: "packages/baseui/particles/drawer/detatched-triggers/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/drawer-detatched-triggers.tsx",
+				content:
+					'"use client";\n\nimport { Button } from "@/components/baseui/components/button";\nimport Drawer from "@/components/baseui/components/drawer";\n\nconst drawerHandle = Drawer.createHandle<{ title: string }>();\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex gap-2">\n\t\t\t<Drawer.Trigger\n\t\t\t\thandle={drawerHandle}\n\t\t\t\tpayload={{ title: "Profile Settings" }}\n\t\t\t\trender={<Button variant="outline">Edit Profile</Button>}\n\t\t\t/>\n\n\t\t\t<Drawer.Trigger\n\t\t\t\thandle={drawerHandle}\n\t\t\t\tpayload={{ title: "Account Settings" }}\n\t\t\t\trender={<Button variant="outline">Account</Button>}\n\t\t\t/>\n\n\t\t\t<Drawer.Root handle={drawerHandle} position="right">\n\t\t\t\t{({ payload }) => {\n\t\t\t\t\tconst realPayload = payload as { title: string };\n\n\t\t\t\t\treturn (\n\t\t\t\t\t\t<Drawer.Portal>\n\t\t\t\t\t\t\t<Drawer.Backdrop />\n\t\t\t\t\t\t\t<Drawer.Viewport position="right">\n\t\t\t\t\t\t\t\t<Drawer.Popup position="right">\n\t\t\t\t\t\t\t\t\t<Drawer.Content>\n\t\t\t\t\t\t\t\t\t\t<Drawer.Title>\n\t\t\t\t\t\t\t\t\t\t\t{realPayload?.title}\n\t\t\t\t\t\t\t\t\t\t</Drawer.Title>\n\t\t\t\t\t\t\t\t\t\t<Drawer.Description className="mt-1.5">\n\t\t\t\t\t\t\t\t\t\t\tConfigure your{" "}\n\t\t\t\t\t\t\t\t\t\t\t{realPayload?.title?.toLowerCase()}{" "}\n\t\t\t\t\t\t\t\t\t\t\there. These triggers live outside\n\t\t\t\t\t\t\t\t\t\t\tthe drawer root.\n\t\t\t\t\t\t\t\t\t\t</Drawer.Description>\n\t\t\t\t\t\t\t\t\t\t<div className="mt-6 flex justify-end">\n\t\t\t\t\t\t\t\t\t\t\t<Drawer.Close\n\t\t\t\t\t\t\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t\t\t\t\t\t\t<Button variant="outline">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tClose\n\t\t\t\t\t\t\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</Drawer.Content>\n\t\t\t\t\t\t\t\t</Drawer.Popup>\n\t\t\t\t\t\t\t</Drawer.Viewport>\n\t\t\t\t\t\t</Drawer.Portal>\n\t\t\t\t\t);\n\t\t\t\t}}\n\t\t\t</Drawer.Root>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-drawer-detatched-triggers",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/drawer/detatched-triggers/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-drawer-inset-variant": {
+		name: "baseui-particles-drawer-inset-variant",
+		description:
+			"Example showing the inset layout variant for all drawer positions.",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-drawer"],
+		files: [
+			{
+				path: "packages/baseui/particles/drawer/inset-variant/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/drawer-inset-variant.tsx",
+				content:
+					'"use client";\n\nimport Drawer, {\n\ttype DrawerPosition,\n} from "@/components/baseui/components/drawer";\nimport { Button } from "@/components/baseui/components/button";\n\nconst positions = ["top", "bottom", "left", "right"];\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex flex-wrap gap-2">\n\t\t\t{positions.map((position) => (\n\t\t\t\t<Drawer.Root\n\t\t\t\t\tkey={position}\n\t\t\t\t\tposition={position as DrawerPosition}\n\t\t\t\t\tvariant="inset"\n\t\t\t\t>\n\t\t\t\t\t<Drawer.Trigger\n\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t<Button variant="outline" className="capitalize">\n\t\t\t\t\t\t\t\t{position}\n\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t}\n\t\t\t\t\t/>\n\t\t\t\t\t<Drawer.Portal>\n\t\t\t\t\t\t<Drawer.Backdrop />\n\t\t\t\t\t\t<Drawer.Viewport>\n\t\t\t\t\t\t\t<Drawer.Popup>\n\t\t\t\t\t\t\t\t<Drawer.Content>\n\t\t\t\t\t\t\t\t\t<Drawer.Title className="capitalize">\n\t\t\t\t\t\t\t\t\t\t{position} — Inset\n\t\t\t\t\t\t\t\t\t</Drawer.Title>\n\t\t\t\t\t\t\t\t\t<Drawer.Description className="mt-1.5">\n\t\t\t\t\t\t\t\t\t\tThis drawer floats with padding from the{" "}\n\t\t\t\t\t\t\t\t\t\t{position} edge, creating a card-like\n\t\t\t\t\t\t\t\t\t\tappearance.\n\t\t\t\t\t\t\t\t\t</Drawer.Description>\n\t\t\t\t\t\t\t\t\t<div className="mt-6 flex justify-end">\n\t\t\t\t\t\t\t\t\t\t<Drawer.Close\n\t\t\t\t\t\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t\t\t\t\t\t<Button variant="outline">\n\t\t\t\t\t\t\t\t\t\t\t\t\tClose\n\t\t\t\t\t\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</Drawer.Content>\n\t\t\t\t\t\t\t</Drawer.Popup>\n\t\t\t\t\t\t</Drawer.Viewport>\n\t\t\t\t\t</Drawer.Portal>\n\t\t\t\t</Drawer.Root>\n\t\t\t))}\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-drawer-inset-variant",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/drawer/inset-variant/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-drawer-nested-with-stacking": {
+		name: "baseui-particles-drawer-nested-with-stacking",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-drawer"],
+		files: [
+			{
+				path: "packages/baseui/particles/drawer/nested-with-stacking/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/drawer-nested-with-stacking.tsx",
+				content:
+					'"use client";\n\nimport Drawer from "@/components/baseui/components/drawer";\nimport { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\treturn (\n\t\t<Drawer.Root>\n\t\t\t<Drawer.Trigger\n\t\t\t\trender={<Button variant="outline">Open Drawer Stack</Button>}\n\t\t\t/>\n\t\t\t<Drawer.Portal>\n\t\t\t\t<Drawer.Backdrop />\n\t\t\t\t<Drawer.Viewport>\n\t\t\t\t\t<Drawer.Popup>\n\t\t\t\t\t\t<Drawer.Handle />\n\t\t\t\t\t\t<Drawer.Content className="mx-auto w-full max-w-[32rem]">\n\t\t\t\t\t\t\t<Drawer.Title className="text-center font-semibold text-lg">\n\t\t\t\t\t\t\t\tAccount\n\t\t\t\t\t\t\t</Drawer.Title>\n\t\t\t\t\t\t\t<Drawer.Description className="mt-1.5 text-center text-sm text-muted-foreground">\n\t\t\t\t\t\t\t\tNested drawers stack visually while each remains\n\t\t\t\t\t\t\t\tindependently focus managed.\n\t\t\t\t\t\t\t</Drawer.Description>\n\n\t\t\t\t\t\t\t<div className="mt-6 flex items-center justify-between">\n\t\t\t\t\t\t\t\t<Drawer.Root>\n\t\t\t\t\t\t\t\t\t<Drawer.Trigger\n\t\t\t\t\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t\t\t\t\t<Button variant="outline">\n\t\t\t\t\t\t\t\t\t\t\t\tSecurity\n\t\t\t\t\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t<Drawer.Portal>\n\t\t\t\t\t\t\t\t\t\t<Drawer.Viewport>\n\t\t\t\t\t\t\t\t\t\t\t<Drawer.Popup>\n\t\t\t\t\t\t\t\t\t\t\t\t<Drawer.Handle />\n\t\t\t\t\t\t\t\t\t\t\t\t<Drawer.Content className="mx-auto w-full max-w-[32rem]">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<Drawer.Title className="text-center font-semibold text-lg">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tSecurity\n\t\t\t\t\t\t\t\t\t\t\t\t\t</Drawer.Title>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<Drawer.Description className="mt-1.5 text-center text-sm text-muted-foreground">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tReview sign-in activity\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tand update your security\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tpreferences.\n\t\t\t\t\t\t\t\t\t\t\t\t\t</Drawer.Description>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div className="mt-4 rounded-lg border border-border bg-muted/30 p-3.5">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<ul className="space-y-2.5 text-sm text-muted-foreground">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li className="flex items-center gap-2">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span className="size-1.5 rounded-full bg-emerald-500" />\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tPasskeys enabled\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li className="flex items-center gap-2">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span className="size-1.5 rounded-full bg-emerald-500" />\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2FA via\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tauthenticator\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tapp\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li className="flex items-center gap-2">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span className="size-1.5 rounded-full bg-amber-500" />\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t3 signed-in\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tdevices\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div className="mt-6 flex items-center justify-between">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<Drawer.Root>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<Drawer.Trigger\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<Button variant="outline">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tAdvanced\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<Drawer.Portal>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<Drawer.Viewport>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<Drawer.Popup>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<Drawer.Handle />\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<Drawer.Content className="mx-auto w-full max-w-[32rem]">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<Drawer.Title className="text-center font-semibold text-lg">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tAdvanced\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</Drawer.Title>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<Drawer.Description className="mt-1.5 text-center text-sm text-muted-foreground">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tThis\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tis\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\ta\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tthird-level\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tnested\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tdrawer\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tdemonstrating\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tdeep\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tstacking.\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</Drawer.Description>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div className="mt-4 space-y-3">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div className="rounded-lg border border-border bg-muted/30 p-3">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p className="text-sm font-medium">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tSession\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\ttimeout\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p className="text-xs text-muted-foreground">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t30\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tminutes\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div className="rounded-lg border border-border bg-muted/30 p-3">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p className="text-sm font-medium">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tRecovery\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tcodes\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p className="text-xs text-muted-foreground">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t5\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tremaining\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div className="mt-6 flex justify-end">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<Drawer.Close>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<Button variant="outline">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tDone\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</Drawer.Close>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</Drawer.Content>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</Drawer.Popup>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</Drawer.Viewport>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</Drawer.Portal>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</Drawer.Root>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<Drawer.Close>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<Button variant="outline">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tClose\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</Drawer.Close>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</Drawer.Content>\n\t\t\t\t\t\t\t\t\t\t\t</Drawer.Popup>\n\t\t\t\t\t\t\t\t\t\t</Drawer.Viewport>\n\t\t\t\t\t\t\t\t\t</Drawer.Portal>\n\t\t\t\t\t\t\t\t</Drawer.Root>\n\n\t\t\t\t\t\t\t\t<Drawer.Close>\n\t\t\t\t\t\t\t\t\t<Button variant="outline">Close</Button>\n\t\t\t\t\t\t\t\t</Drawer.Close>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</Drawer.Content>\n\t\t\t\t\t</Drawer.Popup>\n\t\t\t\t</Drawer.Viewport>\n\t\t\t</Drawer.Portal>\n\t\t</Drawer.Root>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-drawer-nested-with-stacking",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/drawer/nested-with-stacking/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-drawer-non-modal": {
+		name: "baseui-particles-drawer-non-modal",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-drawer"],
+		files: [
+			{
+				path: "packages/baseui/particles/drawer/non-modal/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/drawer-non-modal.tsx",
+				content:
+					'"use client";\n\nimport Drawer from "@/components/baseui/components/drawer";\nimport { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\treturn (\n\t\t<Drawer.Root modal={false} position="right">\n\t\t\t<Drawer.Trigger\n\t\t\t\trender={<Button variant="outline">Non-Modal Drawer</Button>}\n\t\t\t/>\n\n\t\t\t<Drawer.Portal>\n\t\t\t\t<Drawer.Viewport>\n\t\t\t\t\t<Drawer.Popup>\n\t\t\t\t\t\t<Drawer.Content>\n\t\t\t\t\t\t\t<Drawer.Title>Non-Modal Drawer</Drawer.Title>\n\t\t\t\t\t\t\t<Drawer.Description className="mt-1.5">\n\t\t\t\t\t\t\t\tThis drawer does not trap focus or block\n\t\t\t\t\t\t\t\tinteraction with the rest of the page. You can\n\t\t\t\t\t\t\t\tstill click on elements behind it.\n\t\t\t\t\t\t\t</Drawer.Description>\n\t\t\t\t\t\t\t<div className="mt-6 flex justify-end">\n\t\t\t\t\t\t\t\t<Drawer.Close\n\t\t\t\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t\t\t\t<Button variant="outline">Close</Button>\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</Drawer.Content>\n\t\t\t\t\t</Drawer.Popup>\n\t\t\t\t</Drawer.Viewport>\n\t\t\t</Drawer.Portal>\n\t\t</Drawer.Root>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-drawer-non-modal",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/drawer/non-modal/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-drawer-positions": {
+		name: "baseui-particles-drawer-positions",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-drawer"],
+		files: [
+			{
+				path: "packages/baseui/particles/drawer/positions/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/drawer-positions.tsx",
+				content:
+					'"use client";\n\nimport Drawer, {\n\ttype DrawerPosition,\n} from "@/components/baseui/components/drawer";\nimport { Button } from "@/components/baseui/components/button";\n\nconst positions = ["right", "left", "top", "bottom"];\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex flex-wrap gap-2">\n\t\t\t{positions.map((p) => (\n\t\t\t\t<Drawer.Root position={p as DrawerPosition} key={p}>\n\t\t\t\t\t<Drawer.Trigger\n\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t<Button variant="outline" className="capitalize">\n\t\t\t\t\t\t\t\t{p}\n\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<Drawer.Portal>\n\t\t\t\t\t\t<Drawer.Backdrop />\n\t\t\t\t\t\t<Drawer.Viewport position={p as DrawerPosition}>\n\t\t\t\t\t\t\t<Drawer.Popup position={p as DrawerPosition}>\n\t\t\t\t\t\t\t\t<Drawer.Content>\n\t\t\t\t\t\t\t\t\t<Drawer.Title className="capitalize">\n\t\t\t\t\t\t\t\t\t\t{p} Drawer\n\t\t\t\t\t\t\t\t\t</Drawer.Title>\n\t\t\t\t\t\t\t\t\t<Drawer.Description className="mt-1.5">\n\t\t\t\t\t\t\t\t\t\tThis drawer slides in from the {p} edge\n\t\t\t\t\t\t\t\t\t\tof the screen.\n\t\t\t\t\t\t\t\t\t</Drawer.Description>\n\t\t\t\t\t\t\t\t\t<div className="mt-6 flex justify-end">\n\t\t\t\t\t\t\t\t\t\t<Drawer.Close\n\t\t\t\t\t\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t\t\t\t\t\t<Button variant="outline">\n\t\t\t\t\t\t\t\t\t\t\t\t\tClose\n\t\t\t\t\t\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</Drawer.Content>\n\t\t\t\t\t\t\t</Drawer.Popup>\n\t\t\t\t\t\t</Drawer.Viewport>\n\t\t\t\t\t</Drawer.Portal>\n\t\t\t\t</Drawer.Root>\n\t\t\t))}\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-drawer-positions",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/drawer/positions/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-drawer": {
+		name: "baseui-particles-drawer",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-drawer"],
+		files: [
+			{
+				path: "packages/baseui/particles/drawer/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/drawer.tsx",
+				content:
+					'"use client";\n\nimport Drawer from "@/components/baseui/components/drawer";\nimport { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\treturn (\n\t\t<Drawer.Root position="bottom">\n\t\t\t<Drawer.Trigger\n\t\t\t\trender={<Button variant="outline">Open Drawer</Button>}\n\t\t\t/>\n\t\t\t<Drawer.Portal>\n\t\t\t\t<Drawer.Backdrop />\n\t\t\t\t<Drawer.Viewport>\n\t\t\t\t\t<Drawer.Popup>\n\t\t\t\t\t\t<Drawer.Handle />\n\t\t\t\t\t\t<Drawer.Content>\n\t\t\t\t\t\t\t<Drawer.Title>Bottom Drawer</Drawer.Title>\n\t\t\t\t\t\t\t<Drawer.Description className="mt-1.5">\n\t\t\t\t\t\t\t\tA panel that slides up from the bottom of the\n\t\t\t\t\t\t\t\tscreen. Swipe down or click outside to dismiss.\n\t\t\t\t\t\t\t</Drawer.Description>\n\t\t\t\t\t\t\t<div className="mt-6 flex justify-end gap-2">\n\t\t\t\t\t\t\t\t<Drawer.Close\n\t\t\t\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t\t\t\t<Button variant="outline">\n\t\t\t\t\t\t\t\t\t\t\tCancel\n\t\t\t\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t<Drawer.Close>\n\t\t\t\t\t\t\t\t\t<Button>Confirm</Button>\n\t\t\t\t\t\t\t\t</Drawer.Close>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</Drawer.Content>\n\t\t\t\t\t</Drawer.Popup>\n\t\t\t\t</Drawer.Viewport>\n\t\t\t</Drawer.Portal>\n\t\t</Drawer.Root>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-drawer",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/drawer/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-drawer-scrollable": {
+		name: "baseui-particles-drawer-scrollable",
+		description:
+			"Example showing a scrollable drawer using the integrated ScrollArea.",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: [
+			"@craftdotui/baseui-drawer",
+			"@craftdotui/baseui-scroll-area",
+		],
+		files: [
+			{
+				path: "packages/baseui/particles/drawer/scrollable/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/drawer-scrollable.tsx",
+				content:
+					'"use client";\n\nimport Drawer from "@/components/baseui/components/drawer";\nimport { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\treturn (\n\t\t<Drawer.Root>\n\t\t\t<Drawer.Trigger\n\t\t\t\trender={\n\t\t\t\t\t<Button variant="outline">Open Scrollable Drawer</Button>\n\t\t\t\t}\n\t\t\t/>\n\t\t\t<Drawer.Portal>\n\t\t\t\t<Drawer.Backdrop />\n\t\t\t\t<Drawer.Viewport>\n\t\t\t\t\t<Drawer.Popup>\n\t\t\t\t\t\t<div className="shrink-0 border-b border-border px-6 pt-3.5 pb-4 select-none">\n\t\t\t\t\t\t\t<Drawer.Handle />\n\t\t\t\t\t\t\t<Drawer.Title>Scrollable Content</Drawer.Title>\n\t\t\t\t\t\t\t<Drawer.Description className="mt-1">\n\t\t\t\t\t\t\t\tThe content below scrolls independently of the\n\t\t\t\t\t\t\t\tdrawer&apos;s swipe gesture.\n\t\t\t\t\t\t\t</Drawer.Description>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<Drawer.Content className="overscroll-contain">\n\t\t\t\t\t\t\t<div className="space-y-3">\n\t\t\t\t\t\t\t\t{Array.from({ length: 20 }, (_, index) => (\n\t\t\t\t\t\t\t\t\t<div\n\t\t\t\t\t\t\t\t\t\tkey={index}\n\t\t\t\t\t\t\t\t\t\tclassName="flex items-center gap-3 rounded-lg border border-border bg-muted/30 p-4"\n\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\t<div className="flex size-8 shrink-0 items-center justify-center rounded-md bg-primary/10 text-sm font-semibold text-primary">\n\t\t\t\t\t\t\t\t\t\t\t{index + 1}\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t\t\t\t<p className="text-sm font-medium">\n\t\t\t\t\t\t\t\t\t\t\t\tItem {index + 1}\n\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t<p className="text-xs text-muted-foreground">\n\t\t\t\t\t\t\t\t\t\t\t\tScrollable list item description\n\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t))}\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</Drawer.Content>\n\t\t\t\t\t</Drawer.Popup>\n\t\t\t\t</Drawer.Viewport>\n\t\t\t</Drawer.Portal>\n\t\t</Drawer.Root>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-drawer-scrollable",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/drawer/scrollable/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-drawer-snap-points": {
+		name: "baseui-particles-drawer-snap-points",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-drawer"],
+		files: [
+			{
+				path: "packages/baseui/particles/drawer/snap-points/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/drawer-snap-points.tsx",
+				content:
+					'"use client";\n\nimport * as React from "react";\nimport Drawer from "@/components/baseui/components/drawer";\nimport { Button } from "@/components/baseui/components/button";\n\nconst TOP_MARGIN_REM = 1;\nconst VISIBLE_SNAP_POINTS_REM = [20];\n\nfunction toViewportSnapPoint(heightRem: number) {\n\treturn `${heightRem + TOP_MARGIN_REM}rem`;\n}\n\nconst snapPoints = [...VISIBLE_SNAP_POINTS_REM.map(toViewportSnapPoint), 1];\n\nexport default function Particle() {\n\treturn (\n\t\t<Drawer.Root snapPoints={snapPoints}>\n\t\t\t<Drawer.Trigger\n\t\t\t\trender={<Button variant="outline">Open Snap Drawer</Button>}\n\t\t\t/>\n\t\t\t<Drawer.Portal>\n\t\t\t\t<Drawer.Backdrop />\n\t\t\t\t<Drawer.Viewport className="touch-none">\n\t\t\t\t\t<Drawer.Popup\n\t\t\t\t\t\tclassName="touch-none [transform:translateY(calc(var(--drawer-snap-point-offset,0px)+var(--drawer-swipe-movement-y,0px)))] [padding-bottom:max(0px,calc(var(--drawer-snap-point-offset,0px)+var(--drawer-swipe-movement-y,0px)))]"\n\t\t\t\t\t\tstyle={\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t"--top-margin": `${TOP_MARGIN_REM}rem`,\n\t\t\t\t\t\t\t} as React.CSSProperties\n\t\t\t\t\t\t}\n\t\t\t\t\t>\n\t\t\t\t\t\t<div className="shrink-0 border-b border-border px-6 pt-3.5 pb-4 touch-none select-none">\n\t\t\t\t\t\t\t<div className="mx-auto mb-2.5 h-1 w-12 shrink-0 rounded-full bg-input" />\n\t\t\t\t\t\t\t<Drawer.Title className="cursor-default text-center text-base font-bold">\n\t\t\t\t\t\t\t\tSnap Points\n\t\t\t\t\t\t\t</Drawer.Title>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<Drawer.Content className="overflow-y-auto overscroll-contain touch-auto">\n\t\t\t\t\t\t\t<div className="mx-auto w-full max-w-[350px]">\n\t\t\t\t\t\t\t\t<Drawer.Description className="mb-4 text-center">\n\t\t\t\t\t\t\t\t\tDrag the sheet to snap between a compact\n\t\t\t\t\t\t\t\t\tpeek and a full-height view.\n\t\t\t\t\t\t\t\t</Drawer.Description>\n\n\t\t\t\t\t\t\t\t<div className="grid gap-3 mb-6" aria-hidden>\n\t\t\t\t\t\t\t\t\t{Array.from({ length: 20 }, (_, index) => (\n\t\t\t\t\t\t\t\t\t\t<div\n\t\t\t\t\t\t\t\t\t\t\tkey={index}\n\t\t\t\t\t\t\t\t\t\t\tclassName="h-12 rounded-lg border border-border bg-muted/50"\n\t\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t))}\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div className="flex items-center justify-end gap-3">\n\t\t\t\t\t\t\t\t\t<Drawer.Close\n\t\t\t\t\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t\t\t\t\t<Button variant="outline">\n\t\t\t\t\t\t\t\t\t\t\t\tClose\n\t\t\t\t\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</Drawer.Content>\n\t\t\t\t\t</Drawer.Popup>\n\t\t\t\t</Drawer.Viewport>\n\t\t\t</Drawer.Portal>\n\t\t</Drawer.Root>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-drawer-snap-points",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/drawer/snap-points/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-drawer-straight-radius": {
+		name: "baseui-particles-drawer-straight-radius",
+		description:
+			"Example showing a drawer with straight edges for all positions.",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-drawer"],
+		files: [
+			{
+				path: "packages/baseui/particles/drawer/straight-radius/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/drawer-straight-radius.tsx",
+				content:
+					'"use client";\n\nimport Drawer, {\n\ttype DrawerPosition,\n} from "@/components/baseui/components/drawer";\nimport { Button } from "@/components/baseui/components/button";\n\nconst positions = ["top", "bottom", "left", "right"];\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex flex-wrap gap-2">\n\t\t\t{positions.map((position) => (\n\t\t\t\t<Drawer.Root\n\t\t\t\t\tkey={position}\n\t\t\t\t\tposition={position as DrawerPosition}\n\t\t\t\t\tradius="straight"\n\t\t\t\t>\n\t\t\t\t\t<Drawer.Trigger\n\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t<Button variant="outline" className="capitalize">\n\t\t\t\t\t\t\t\t{position}\n\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t}\n\t\t\t\t\t/>\n\t\t\t\t\t<Drawer.Portal>\n\t\t\t\t\t\t<Drawer.Backdrop />\n\t\t\t\t\t\t<Drawer.Viewport position={position as DrawerPosition}>\n\t\t\t\t\t\t\t<Drawer.Popup position={position as DrawerPosition}>\n\t\t\t\t\t\t\t\t<Drawer.Content>\n\t\t\t\t\t\t\t\t\t<Drawer.Title className="capitalize">\n\t\t\t\t\t\t\t\t\t\t{position} — Straight\n\t\t\t\t\t\t\t\t\t</Drawer.Title>\n\t\t\t\t\t\t\t\t\t<Drawer.Description className="mt-1.5">\n\t\t\t\t\t\t\t\t\t\tThis drawer uses straight (square) edges\n\t\t\t\t\t\t\t\t\t\tinstead of rounded corners.\n\t\t\t\t\t\t\t\t\t</Drawer.Description>\n\t\t\t\t\t\t\t\t\t<div className="mt-6 flex justify-end">\n\t\t\t\t\t\t\t\t\t\t<Drawer.Close\n\t\t\t\t\t\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t\t\t\t\t\t<Button variant="outline">\n\t\t\t\t\t\t\t\t\t\t\t\t\tClose\n\t\t\t\t\t\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</Drawer.Content>\n\t\t\t\t\t\t\t</Drawer.Popup>\n\t\t\t\t\t\t</Drawer.Viewport>\n\t\t\t\t\t</Drawer.Portal>\n\t\t\t\t</Drawer.Root>\n\t\t\t))}\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-drawer-straight-radius",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/drawer/straight-radius/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-drawer-swipe-to-close": {
+		name: "baseui-particles-drawer-swipe-to-close",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-drawer"],
+		files: [
+			{
+				path: "packages/baseui/particles/drawer/swipe-to-close/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/drawer-swipe-to-close.tsx",
+				content:
+					'"use client";\n\nimport Drawer, {\n\ttype DrawerSwipeDirection,\n\ttype DrawerPosition,\n} from "@/components/baseui/components/drawer";\nimport { Button } from "@/components/baseui/components/button";\n\nconst positionAndSwipeDirection = [\n\t{ position: "right", swipeDirection: "right" },\n\t{ position: "left", swipeDirection: "left" },\n\t{ position: "top", swipeDirection: "up" },\n\t{ position: "bottom", swipeDirection: "down" },\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex flex-wrap gap-2">\n\t\t\t{positionAndSwipeDirection.map((p) => (\n\t\t\t\t<Drawer.Root\n\t\t\t\t\tposition={p.position as DrawerPosition}\n\t\t\t\t\tswipeDirection={p.swipeDirection as DrawerSwipeDirection}\n\t\t\t\t\tkey={p.position}\n\t\t\t\t>\n\t\t\t\t\t<Drawer.Trigger\n\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t<Button variant="outline" className="capitalize">\n\t\t\t\t\t\t\t\t{p.position}\n\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t}\n\t\t\t\t\t/>\n\t\t\t\t\t<Drawer.Portal>\n\t\t\t\t\t\t<Drawer.Backdrop />\n\t\t\t\t\t\t<Drawer.Viewport>\n\t\t\t\t\t\t\t<Drawer.Popup>\n\t\t\t\t\t\t\t\t<Drawer.Content>\n\t\t\t\t\t\t\t\t\t<Drawer.Title className="capitalize">\n\t\t\t\t\t\t\t\t\t\tSwipe {p.swipeDirection}\n\t\t\t\t\t\t\t\t\t</Drawer.Title>\n\t\t\t\t\t\t\t\t\t<Drawer.Description className="mt-1.5">\n\t\t\t\t\t\t\t\t\t\tSwipe {p.swipeDirection} to dismiss this\n\t\t\t\t\t\t\t\t\t\tdrawer from the {p.position} position.\n\t\t\t\t\t\t\t\t\t</Drawer.Description>\n\t\t\t\t\t\t\t\t\t<div className="mt-6 flex justify-end">\n\t\t\t\t\t\t\t\t\t\t<Drawer.Close\n\t\t\t\t\t\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t\t\t\t\t\t<Button variant="outline">\n\t\t\t\t\t\t\t\t\t\t\t\t\tClose\n\t\t\t\t\t\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</Drawer.Content>\n\t\t\t\t\t\t\t</Drawer.Popup>\n\t\t\t\t\t\t</Drawer.Viewport>\n\t\t\t\t\t</Drawer.Portal>\n\t\t\t\t</Drawer.Root>\n\t\t\t))}\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-drawer-swipe-to-close",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/drawer/swipe-to-close/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-drawer-swipe-to-open": {
+		name: "baseui-particles-drawer-swipe-to-open",
+		description: "",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-drawer"],
+		files: [
+			{
+				path: "packages/baseui/particles/drawer/swipe-to-open/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/drawer-swipe-to-open.tsx",
+				content:
+					'"use client";\n\nimport * as React from "react";\nimport Drawer from "@/components/baseui/components/drawer";\nimport { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\tconst [portalContainer, setPortalContainer] =\n\t\tReact.useState<HTMLDivElement | null>(null);\n\n\treturn (\n\t\t<div\n\t\t\tref={setPortalContainer}\n\t\t\tclassName="relative h-full w-full overflow-hidden"\n\t\t>\n\t\t\t<Drawer.Root position="right" modal={false}>\n\t\t\t\t<Drawer.SwipeArea className="w-10 border-l-2 border-dashed border-primary/30 bg-primary/5">\n\t\t\t\t\t<span className="pointer-events-none absolute right-0 top-1/2 mr-2 -translate-y-1/2 -rotate-90 origin-center whitespace-nowrap text-xs font-medium tracking-widest text-primary/60 uppercase">\n\t\t\t\t\t\tSwipe\n\t\t\t\t\t</span>\n\t\t\t\t</Drawer.SwipeArea>\n\t\t\t\t<div className="flex h-full items-center justify-center text-sm text-muted-foreground">\n\t\t\t\t\tSwipe from the right edge to open the drawer.\n\t\t\t\t</div>\n\t\t\t\t<Drawer.Portal container={portalContainer}>\n\t\t\t\t\t<Drawer.Backdrop className="absolute" />\n\t\t\t\t\t<Drawer.Viewport className="absolute inset-0 flex items-stretch justify-end">\n\t\t\t\t\t\t<Drawer.Popup>\n\t\t\t\t\t\t\t<Drawer.Content>\n\t\t\t\t\t\t\t\t<Drawer.Title>Library</Drawer.Title>\n\t\t\t\t\t\t\t\t<Drawer.Description className="mt-1.5">\n\t\t\t\t\t\t\t\t\tSwipe from the edge whenever you want to\n\t\t\t\t\t\t\t\t\tjump back into your playlists.\n\t\t\t\t\t\t\t\t</Drawer.Description>\n\t\t\t\t\t\t\t\t<div className="mt-6 flex justify-end">\n\t\t\t\t\t\t\t\t\t<Drawer.Close\n\t\t\t\t\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t\t\t\t\t<Button variant="outline">\n\t\t\t\t\t\t\t\t\t\t\t\tClose\n\t\t\t\t\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</Drawer.Content>\n\t\t\t\t\t\t</Drawer.Popup>\n\t\t\t\t\t</Drawer.Viewport>\n\t\t\t\t</Drawer.Portal>\n\t\t\t</Drawer.Root>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-drawer-swipe-to-open",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/drawer/swipe-to-open/index.tsx"
 				);
 				let Comp = mod.default;
 

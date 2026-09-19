@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-drawer",
+	"type": "registry:component",
+	"description": "A Base UI drawer component",
+	"dependencies": ["@base-ui/react"],
+	"registryDependencies": ["@craftdotui/utils"],
+	"files": [
+		{
+			"path": "packages/baseui/components/drawer/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/components/drawer.tsx"
+		}
+	]
+}

@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-drawer-positions",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-drawer"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/drawer/positions/index.tsx",
+			"content": "\"use client\";\n\nimport Drawer, {\n\ttype DrawerPosition,\n} from \"@/components/baseui/components/drawer\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nconst positions = [\"right\", \"left\", \"top\", \"bottom\"];\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t{positions.map((p) => (\n\t\t\t\t<Drawer.Root position={p as DrawerPosition} key={p}>\n\t\t\t\t\t<Drawer.Trigger\n\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t<Button variant=\"outline\" className=\"capitalize\">\n\t\t\t\t\t\t\t\t{p}\n\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<Drawer.Portal>\n\t\t\t\t\t\t<Drawer.Backdrop />\n\t\t\t\t\t\t<Drawer.Viewport position={p as DrawerPosition}>\n\t\t\t\t\t\t\t<Drawer.Popup position={p as DrawerPosition}>\n\t\t\t\t\t\t\t\t<Drawer.Content>\n\t\t\t\t\t\t\t\t\t<Drawer.Title className=\"capitalize\">\n\t\t\t\t\t\t\t\t\t\t{p} Drawer\n\t\t\t\t\t\t\t\t\t</Drawer.Title>\n\t\t\t\t\t\t\t\t\t<Drawer.Description className=\"mt-1.5\">\n\t\t\t\t\t\t\t\t\t\tThis drawer slides in from the {p} edge\n\t\t\t\t\t\t\t\t\t\tof the screen.\n\t\t\t\t\t\t\t\t\t</Drawer.Description>\n\t\t\t\t\t\t\t\t\t<div className=\"mt-6 flex justify-end\">\n\t\t\t\t\t\t\t\t\t\t<Drawer.Close\n\t\t\t\t\t\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t\t\t\t\t\t<Button variant=\"outline\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tClose\n\t\t\t\t\t\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</Drawer.Content>\n\t\t\t\t\t\t\t</Drawer.Popup>\n\t\t\t\t\t\t</Drawer.Viewport>\n\t\t\t\t\t</Drawer.Portal>\n\t\t\t\t</Drawer.Root>\n\t\t\t))}\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/drawer-positions.tsx"
+		}
+	],
+	"type": "registry:component"
+}

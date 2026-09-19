@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-drawer-inset-variant",
+	"description": "Example showing the inset layout variant for all drawer positions.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-drawer"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/drawer/inset-variant/index.tsx",
+			"content": "\"use client\";\n\nimport Drawer, {\n\ttype DrawerPosition,\n} from \"@/components/baseui/components/drawer\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nconst positions = [\"top\", \"bottom\", \"left\", \"right\"];\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t{positions.map((position) => (\n\t\t\t\t<Drawer.Root\n\t\t\t\t\tkey={position}\n\t\t\t\t\tposition={position as DrawerPosition}\n\t\t\t\t\tvariant=\"inset\"\n\t\t\t\t>\n\t\t\t\t\t<Drawer.Trigger\n\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t<Button variant=\"outline\" className=\"capitalize\">\n\t\t\t\t\t\t\t\t{position}\n\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t}\n\t\t\t\t\t/>\n\t\t\t\t\t<Drawer.Portal>\n\t\t\t\t\t\t<Drawer.Backdrop />\n\t\t\t\t\t\t<Drawer.Viewport>\n\t\t\t\t\t\t\t<Drawer.Popup>\n\t\t\t\t\t\t\t\t<Drawer.Content>\n\t\t\t\t\t\t\t\t\t<Drawer.Title className=\"capitalize\">\n\t\t\t\t\t\t\t\t\t\t{position} — Inset\n\t\t\t\t\t\t\t\t\t</Drawer.Title>\n\t\t\t\t\t\t\t\t\t<Drawer.Description className=\"mt-1.5\">\n\t\t\t\t\t\t\t\t\t\tThis drawer floats with padding from the{\" \"}\n\t\t\t\t\t\t\t\t\t\t{position} edge, creating a card-like\n\t\t\t\t\t\t\t\t\t\tappearance.\n\t\t\t\t\t\t\t\t\t</Drawer.Description>\n\t\t\t\t\t\t\t\t\t<div className=\"mt-6 flex justify-end\">\n\t\t\t\t\t\t\t\t\t\t<Drawer.Close\n\t\t\t\t\t\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t\t\t\t\t\t<Button variant=\"outline\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tClose\n\t\t\t\t\t\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</Drawer.Content>\n\t\t\t\t\t\t\t</Drawer.Popup>\n\t\t\t\t\t\t</Drawer.Viewport>\n\t\t\t\t\t</Drawer.Portal>\n\t\t\t\t</Drawer.Root>\n\t\t\t))}\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/drawer-inset-variant.tsx"
+		}
+	],
+	"type": "registry:component"
+}

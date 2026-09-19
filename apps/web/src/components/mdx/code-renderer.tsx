@@ -30,13 +30,13 @@ export function CodeRenderer({
 	return (
 		<ScrollAreaRoot
 			className={cn(
-				"h-full w-full overflow-hidden relative border-none",
+				"h-full w-full overflow-hidden relative border border-dashed",
 				className,
 			)}
 		>
 			<ScrollAreaViewport>
 				<ScrollAreaContent>
-					<pre className="p-6 text-xs">{code}</pre>
+					<pre className="p-4 text-xs">{code}</pre>
 				</ScrollAreaContent>
 			</ScrollAreaViewport>
 

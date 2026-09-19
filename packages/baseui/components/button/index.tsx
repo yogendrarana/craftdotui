@@ -12,14 +12,14 @@ import { cn } from "@craftdotui/lib/utils";
 /* -------------------------------------------------------------------------- */
 
 const buttonVariants = cva(
-	[
+	cn(
 		"relative inline-flex items-center justify-center shrink-0 gap-2",
 		"border rounded-md text-sm whitespace-nowrap outline-none transition cursor-pointer",
 		"focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
 		"disabled:pointer-events-none disabled:opacity-60",
 		"[&_svg]:pointer-events-none [&_svg]:shrink-0",
 		"[&_svg:not([class*='size-'])]:size-4",
-	].join(" "),
+	),
 	{
 		variants: {
 			variant: {

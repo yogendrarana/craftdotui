@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Sparkles } from "lucide-react";
 
 import { siteConfig } from "@/config/site";
 import { MaxWidthContainer } from "@/components/max-width-container";
@@ -16,11 +15,6 @@ export function Hero() {
 					transition={{ duration: 0.5 }}
 					className="h-full flex flex-col items-center justify-center space-y-10 text-center"
 				>
-					<div className="px-3 py-1 text-sm inline-flex items-center rounded-full border">
-						<Sparkles className="mr-2 h-3 w-3" />
-						Beautifully crafted UI components
-					</div>
-
 					<h1 className="text-primary mb-6 text-6xl md:text-8xl font-black tracking-tight space-x-4">
 						<span>Craft</span>
 						<span className="px-5 rounded-sm">UI</span>

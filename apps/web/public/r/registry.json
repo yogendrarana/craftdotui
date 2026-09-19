@@ -608,6 +608,20 @@
 			]
 		},
 		{
+			"name": "baseui-drawer",
+			"type": "registry:component",
+			"description": "A Base UI drawer component",
+			"dependencies": ["@base-ui/react"],
+			"registryDependencies": ["@craftdotui/utils"],
+			"files": [
+				{
+					"path": "packages/baseui/components/drawer/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/drawer.tsx"
+				}
+			]
+		},
+		{
 			"name": "baseui-field",
 			"type": "registry:component",
 			"description": "A Base UI field component",
@@ -1747,6 +1761,177 @@
 					"path": "packages/baseui/particles/dialog/index.tsx",
 					"type": "registry:component",
 					"target": "components/baseui/particles/dialog.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-drawer-controlled",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-drawer"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/drawer/controlled/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/drawer-controlled.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-drawer-detatched-triggers",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-drawer"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/drawer/detatched-triggers/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/drawer-detatched-triggers.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-drawer-inset-variant",
+			"type": "registry:component",
+			"description": "Example showing the inset layout variant for all drawer positions.",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-drawer"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/drawer/inset-variant/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/drawer-inset-variant.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-drawer-nested-with-stacking",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-drawer"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/drawer/nested-with-stacking/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/drawer-nested-with-stacking.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-drawer-non-modal",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-drawer"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/drawer/non-modal/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/drawer-non-modal.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-drawer-positions",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-drawer"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/drawer/positions/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/drawer-positions.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-drawer",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-drawer"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/drawer/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/drawer.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-drawer-scrollable",
+			"type": "registry:component",
+			"description": "Example showing a scrollable drawer using the integrated ScrollArea.",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/baseui-drawer",
+				"@craftdotui/baseui-scroll-area"
+			],
+			"files": [
+				{
+					"path": "packages/baseui/particles/drawer/scrollable/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/drawer-scrollable.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-drawer-snap-points",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-drawer"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/drawer/snap-points/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/drawer-snap-points.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-drawer-straight-radius",
+			"type": "registry:component",
+			"description": "Example showing a drawer with straight edges for all positions.",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-drawer"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/drawer/straight-radius/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/drawer-straight-radius.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-drawer-swipe-to-close",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-drawer"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/drawer/swipe-to-close/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/drawer-swipe-to-close.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-drawer-swipe-to-open",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-drawer"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/drawer/swipe-to-open/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/drawer-swipe-to-open.tsx"
 				}
 			]
 		},
