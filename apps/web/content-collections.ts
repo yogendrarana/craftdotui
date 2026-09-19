@@ -27,6 +27,9 @@ const docs = defineCollection({
 				twitter: z.string().optional(),
 			})
 			.optional(),
+
+		// other
+		content: z.string(),
 	}),
 	transform: async (document, context) => {
 		const body = await compileMDX(context, document, {
@@ -95,5 +98,5 @@ async function getTableOfContents(content: string) {
 }
 
 export default defineConfig({
-	collections: [docs],
+	content: [docs],
 });

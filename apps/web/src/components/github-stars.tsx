@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Github } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@craftdotui/baseui/components/button";
+import { GitHub } from "./icons/github";
 
 interface PropTypes {
 	className?: string;
@@ -59,7 +59,7 @@ export const GithubStars = ({ className }: PropTypes) => {
 		>
 			<span className="h-4 w-4">{stars}</span>
 			<span className="border-l h-full" />
-			<Github className="h-4 w-4" />
+			<GitHub className="h-4 w-4" />
 		</Link>
 	);
 };

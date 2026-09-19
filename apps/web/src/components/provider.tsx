@@ -1,7 +1,6 @@
 "use client";
 
 import { ThemeProvider } from "next-themes";
-import { useEffect, useState } from "react";
 import { TooltipProvider } from "@craftdotui/baseui/components/tooltip";
 import {
 	AnchoredToastProvider,
@@ -9,17 +8,6 @@ import {
 } from "@craftdotui/baseui/components/toast";
 
 export function Provider({ children }: { children: React.ReactNode }) {
-	const [mounted, setMounted] = useState(false);
-
-	useEffect(() => {
-		setMounted(true);
-	}, []);
-
-	if (!mounted) {
-		// we can also return a loader here
-		return null;
-	}
-
 	return (
 		<ThemeProvider
 			attribute="class"

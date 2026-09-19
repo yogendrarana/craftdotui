@@ -48,7 +48,7 @@ export default function RootLayout({
 	children,
 }: Readonly<{ children: React.ReactNode }>) {
 	return (
-		<html lang="en">
+		<html lang="en" >
 			<body
 				className={cn(
 					"w-full flex flex-col justify-center overflow-x-hidden scroll-smooth",
