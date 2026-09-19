@@ -2,9 +2,9 @@
 	"name": "craftdotui",
 	"version": "0.1.0",
 	"devDependencies": {
-		"@biomejs/biome": "2.4.11",
-		"tsx": "^4.21.0",
-		"typescript": "^6.0.2"
+		"@biomejs/biome": "2.5.14",
+		"tsx": "^4.23.13",
+		"typescript": "^7.0.2"
 	},
 	"license": "MIT",
 	"private": true,
