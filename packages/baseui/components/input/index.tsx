@@ -29,6 +29,13 @@ const inputVariants = cva(
 				md: "h-8.5 text-sm",
 				lg: "h-9 text-sm",
 				xl: "h-9.5 text-base",
+				"icon-xs": "size-7 p-0 text-xs justify-center text-center",
+				"icon-x": "size-7 p-0 text-xs justify-center text-center",
+				"icon-sm": "size-8 p-0 text-xs justify-center text-center",
+				icon: "size-8.5 p-0 text-sm justify-center text-center",
+				"icon-md": "size-8.5 p-0 text-sm justify-center text-center",
+				"icon-lg": "size-9 p-0 text-sm justify-center text-center",
+				"icon-xl": "size-10 p-0 text-base justify-center text-center",
 			},
 		},
 		defaultVariants: {
@@ -84,5 +91,7 @@ function Input({ className, size, variant, type, ...props }: InputProps) {
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
-export { Input, inputVariants };
+const InputRoot = Input;
+
+export { Input, InputRoot, inputVariants };
 export type { InputProps, InputVariants };

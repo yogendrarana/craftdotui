@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-otp-field-with-placeholder",
+	"type": "registry:component",
+	"description": "OTP field with placeholder dot hints",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-otp-field"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/otp-field/otp-field-with-placeholder/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/particles/otp-field-with-placeholder.tsx"
+		}
+	]
+}

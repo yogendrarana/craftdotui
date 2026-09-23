@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-otp-field-grouped",
+	"description": "OTP field with grouped layout and separator",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-otp-field"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/otp-field/otp-field-grouped/index.tsx",
+			"content": "import {\n\tOTPFieldRoot,\n\tOTPFieldInput,\n\tOTPFieldSeparator,\n} from \"@/components/baseui/components/otp-field\";\n\nconst OTP_LENGTH = 6;\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"flex flex-col items-center justify-center gap-2 text-center\">\n\t\t\t<label\n\t\t\t\thtmlFor=\"otp-grouped\"\n\t\t\t\tclassName=\"text-sm font-medium text-foreground\"\n\t\t\t>\n\t\t\t\tVerification code\n\t\t\t</label>\n\t\t\t<OTPFieldRoot id=\"otp-grouped\" length={OTP_LENGTH}>\n\t\t\t\t<div className=\"flex gap-2\">\n\t\t\t\t\t{Array.from({ length: 3 }, (_, index) => (\n\t\t\t\t\t\t<OTPFieldInput\n\t\t\t\t\t\t\tkey={index}\n\t\t\t\t\t\t\taria-label={\n\t\t\t\t\t\t\t\tindex === 0\n\t\t\t\t\t\t\t\t\t? undefined\n\t\t\t\t\t\t\t\t\t: `Character ${index + 1} of ${OTP_LENGTH}`\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t/>\n\t\t\t\t\t))}\n\t\t\t\t</div>\n\t\t\t\t<OTPFieldSeparator />\n\t\t\t\t<div className=\"flex gap-2\">\n\t\t\t\t\t{Array.from({ length: 3 }, (_, index) => (\n\t\t\t\t\t\t<OTPFieldInput\n\t\t\t\t\t\t\tkey={index + 3}\n\t\t\t\t\t\t\taria-label={`Character ${index + 4} of ${OTP_LENGTH}`}\n\t\t\t\t\t\t/>\n\t\t\t\t\t))}\n\t\t\t\t</div>\n\t\t\t</OTPFieldRoot>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/otp-field-grouped.tsx"
+		}
+	],
+	"type": "registry:component"
+}

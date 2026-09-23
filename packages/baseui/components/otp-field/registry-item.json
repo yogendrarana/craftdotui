@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-otp-field",
+	"type": "registry:component",
+	"description": "A Base UI otp field component",
+	"dependencies": ["@base-ui/react"],
+	"registryDependencies": [
+		"@craftdotui/utils",
+		"@craftdotui/baseui-separator",
+		"@craftdotui/baseui-input"
+	],
+	"files": [
+		{
+			"path": "packages/baseui/components/otp-field/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/components/otp-field.tsx"
+		}
+	]
+}

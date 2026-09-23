@@ -1,0 +1,20 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-otp-field",
+	"description": "A Base UI otp field component",
+	"dependencies": ["@base-ui/react"],
+	"registryDependencies": [
+		"@craftdotui/utils",
+		"@craftdotui/baseui-separator",
+		"@craftdotui/baseui-input"
+	],
+	"files": [
+		{
+			"path": "packages/baseui/components/otp-field/index.tsx",
+			"content": "\"use client\";\n\nimport { OTPField as OTPFieldPrimitive } from \"@base-ui/react/otp-field\";\n\nimport { cn } from \"@/lib/utils\";\nimport { SeparatorRoot } from \"@/components/baseui/components/separator\";\nimport {\n\tinputVariants,\n\ttype InputVariants,\n} from \"@/components/baseui/components/input\";\n\n/* -------------------------------------------------------------------------- */\n/* Types                                                                      */\n/* -------------------------------------------------------------------------- */\n\nconst otpFieldInputVariants = inputVariants;\ntype OTPFieldInputVariants = InputVariants;\n\ninterface OTPFieldInputProps\n\textends Omit<OTPFieldPrimitive.Input.Props, \"size\">,\n\t\tInputVariants {\n\tclassName?: string;\n}\n\n/* -------------------------------------------------------------------------- */\n/* OTP Field Root                                                             */\n/* -------------------------------------------------------------------------- */\n\nfunction OTPFieldRoot({ className, ...props }: OTPFieldPrimitive.Root.Props) {\n\treturn (\n\t\t<OTPFieldPrimitive.Root\n\t\t\tdata-slot=\"otp-field-root\"\n\t\t\tclassName={cn(\"flex items-center gap-2\", className)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* OTP Field Input                                                            */\n/* -------------------------------------------------------------------------- */\n\nconst sizeMap: Record<string, NonNullable<InputVariants[\"size\"]>> = {\n\txs: \"icon-xs\",\n\tsm: \"icon-sm\",\n\tmd: \"icon\",\n\tlg: \"icon-lg\",\n\txl: \"icon-xl\",\n};\n\nfunction OTPFieldInput({\n\tclassName,\n\tsize = \"icon\",\n\tvariant,\n\t...props\n}: OTPFieldInputProps) {\n\tconst resolvedSize =\n\t\t(size && size in sizeMap ? sizeMap[size] : size) ?? \"icon\";\n\n\treturn (\n\t\t<OTPFieldPrimitive.Input\n\t\t\tdata-slot=\"otp-field-input\"\n\t\t\tclassName={cn(\n\t\t\t\tinputVariants({ size: resolvedSize, variant }),\n\t\t\t\t\"data-[complete]:border-primary/50\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* OTP Field Separator                                                        */\n/* -------------------------------------------------------------------------- */\n\nfunction OTPFieldSeparator({\n\tclassName,\n\t...props\n}: OTPFieldPrimitive.Separator.Props) {\n\treturn (\n\t\t<OTPFieldPrimitive.Separator\n\t\t\tdata-slot=\"otp-field-separator\"\n\t\t\trender={\n\t\t\t\t<SeparatorRoot\n\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t\"rounded-full bg-input data-[orientation=horizontal]:h-0.5 data-[orientation=horizontal]:w-3\",\n\t\t\t\t\t\tclassName,\n\t\t\t\t\t)}\n\t\t\t\t/>\n\t\t\t}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const OTPField = {\n\tRoot: OTPFieldRoot,\n\tInput: OTPFieldInput,\n\tSeparator: OTPFieldSeparator,\n};\n\nexport {\n\tOTPFieldRoot,\n\tOTPFieldInput,\n\tOTPFieldSeparator,\n\tinputVariants,\n\totpFieldInputVariants,\n};\n\nexport type { OTPFieldInputProps, OTPFieldInputVariants };\n",
+			"type": "registry:component",
+			"target": "components/baseui/components/otp-field.tsx"
+		}
+	],
+	"type": "registry:component"
+}

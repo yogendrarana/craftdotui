@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-otp-field-grouped",
+	"type": "registry:component",
+	"description": "OTP field with grouped layout and separator",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-otp-field"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/otp-field/otp-field-grouped/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/particles/otp-field-grouped.tsx"
+		}
+	]
+}

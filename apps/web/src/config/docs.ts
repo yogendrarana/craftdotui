@@ -153,6 +153,10 @@ export const docsNavItems: Array<DocsNavItem> = [
 				href: "/docs/baseui/components/number-field",
 			},
 			{
+				title: "OTP Field",
+				href: "/docs/baseui/components/otp-field",
+			},
+			{
 				title: "Popover",
 				href: "/docs/baseui/components/popover",
 			},

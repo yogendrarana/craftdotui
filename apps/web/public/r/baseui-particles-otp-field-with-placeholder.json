@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-otp-field-with-placeholder",
+	"description": "OTP field with placeholder dot hints",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-otp-field"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/otp-field/otp-field-with-placeholder/index.tsx",
+			"content": "import {\n\tOTPFieldRoot,\n\tOTPFieldInput,\n} from \"@/components/baseui/components/otp-field\";\n\nconst CODE_LENGTH = 6;\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"flex flex-col items-center justify-center gap-2 text-center\">\n\t\t\t<label\n\t\t\t\thtmlFor=\"otp-placeholder\"\n\t\t\t\tclassName=\"text-sm font-medium text-foreground\"\n\t\t\t>\n\t\t\t\tVerification code\n\t\t\t</label>\n\t\t\t<OTPFieldRoot id=\"otp-placeholder\" length={CODE_LENGTH}>\n\t\t\t\t{Array.from({ length: CODE_LENGTH }, (_, index) => (\n\t\t\t\t\t<OTPFieldInput\n\t\t\t\t\t\tkey={index}\n\t\t\t\t\t\tplaceholder=\"-\"\n\t\t\t\t\t\taria-label={\n\t\t\t\t\t\t\tindex === 0\n\t\t\t\t\t\t\t\t? undefined\n\t\t\t\t\t\t\t\t: `Character ${index + 1} of ${CODE_LENGTH}`\n\t\t\t\t\t\t}\n\t\t\t\t\t/>\n\t\t\t\t))}\n\t\t\t</OTPFieldRoot>\n\t\t\t<p className=\"text-sm text-muted-foreground\">\n\t\t\t\tPlaceholder hints stay visible until the active slot is focused.\n\t\t\t</p>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/otp-field-with-placeholder.tsx"
+		}
+	],
+	"type": "registry:component"
+}
