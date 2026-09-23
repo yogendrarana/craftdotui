@@ -1,11 +1,7 @@
 "use client";
 
 import * as React from "react";
-import {
-	Collapsible,
-	CollapsibleContent,
-	CollapsibleTrigger,
-} from "@/components/ui/collapsible";
+import { Button } from "@craftdotui/baseui/components/button";
 
 import { cn } from "@/lib/utils";
 import { Registry } from "@/__registry__";
@@ -89,28 +85,29 @@ export function ComponentSource({
 				className,
 			)}
 		>
-			<Collapsible open={isExpanded} onOpenChange={setExpand}>
-				<CollapsibleContent
-					forceMount
-					className={cn(
-						"overflow-hidden",
-						!isExpanded && "max-h-100",
-					)}
-				>
-					{renderContent()}
-				</CollapsibleContent>
+			<div
+				className={cn(
+					"overflow-hidden transition-[max-height] duration-200 ease-in-out",
+					!isExpanded && "max-h-100",
+				)}
+			>
+				{renderContent()}
+			</div>
 
-				<div
-					className={cn(
-						"absolute inset-x-0 bottom-0",
-						"bg-accent/60 border-t flex items-center justify-center",
-					)}
+			<div
+				className={cn(
+					"absolute inset-x-0 bottom-0",
+					"bg-accent/60 border-t flex items-center justify-center backdrop-blur-xs",
+				)}
+			>
+				<Button
+					variant="ghost"
+					onClick={() => setExpand(!isExpanded)}
+					className="w-full py-3 h-auto cursor-pointer rounded-none text-xs font-medium hover:bg-transparent"
 				>
-					<CollapsibleTrigger className="w-full py-3 cursor-pointer">
-						{isExpanded ? "Collapse" : expandButtonTitle}
-					</CollapsibleTrigger>
-				</div>
-			</Collapsible>
+					{isExpanded ? "Collapse" : expandButtonTitle}
+				</Button>
+			</div>
 		</div>
 	);
 }

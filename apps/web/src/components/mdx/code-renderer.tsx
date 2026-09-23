@@ -29,10 +29,7 @@ export function CodeRenderer({
 }: CodeRendererProps) {
 	return (
 		<ScrollAreaRoot
-			className={cn(
-				"h-full w-full overflow-hidden relative border border-dashed",
-				className,
-			)}
+			className={cn("h-full w-full overflow-hidden relative", className)}
 		>
 			<ScrollAreaViewport>
 				<ScrollAreaContent>
@@ -48,7 +45,7 @@ export function CodeRenderer({
 
 			<div
 				className={cn(
-					"absolute top-4 right-4 flex items-center gap-2 cursor-pointer z-50",
+					"absolute top-4 right-4 flex items-center gap-2 cursor-pointer",
 				)}
 			>
 				{allowExpand && (

@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import type * as React from "react";
 import { Drawer } from "@craftdotui/baseui/components/drawer";
 import { Button } from "@craftdotui/baseui/components/button";
 
