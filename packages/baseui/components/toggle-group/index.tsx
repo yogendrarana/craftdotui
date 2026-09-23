@@ -5,7 +5,7 @@ import type { VariantProps } from "class-variance-authority";
 import { ToggleGroup as ToggleGroupPrimitive } from "@base-ui/react/toggle-group";
 import {
 	type toggleVariants,
-	Toggle as BaseuiToggle,
+	ToggleRoot as BaseuiToggle,
 	type ToggleProps,
 } from "@craftdotui/baseui/components/toggle";
 import { cn } from "@craftdotui/lib/utils";
@@ -25,7 +25,7 @@ const ToggleGroupContextValue = React.createContext<
 /* Toggle Group                                                               */
 /* -------------------------------------------------------------------------- */
 
-function ToggleGroup({
+function ToggleGroupRoot({
 	className,
 	children,
 	variant = "default",
@@ -88,4 +88,9 @@ function ToggleGroupItem({
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
-export { ToggleGroup, ToggleGroupItem };
+export const ToggleGroup = {
+	Root: ToggleGroupRoot,
+	Item: ToggleGroupItem,
+};
+
+export { ToggleGroupRoot, ToggleGroupItem };

@@ -1,7 +1,7 @@
 import { BoldIcon, ItalicIcon, UnderlineIcon } from "lucide-react";
 
 import {
-	Tooltip,
+	TooltipRoot,
 	TooltipPopup,
 	TooltipProvider,
 	TooltipTrigger,
@@ -11,14 +11,14 @@ import {
 
 import {
 	ToggleGroupItem,
-	ToggleGroup,
+	ToggleGroupRoot,
 } from "@craftdotui/baseui/components/toggle-group";
 
 export default function Particle() {
 	return (
 		<TooltipProvider>
-			<ToggleGroup defaultValue={["bold"]} multiple>
-				<Tooltip>
+			<ToggleGroupRoot defaultValue={["bold"]} multiple>
+				<TooltipRoot>
 					<TooltipTrigger
 						render={
 							<ToggleGroupItem
@@ -34,9 +34,9 @@ export default function Particle() {
 							<TooltipPopup>Bold</TooltipPopup>
 						</TooltipPositioner>
 					</TooltipPortal>
-				</Tooltip>
+				</TooltipRoot>
 
-				<Tooltip>
+				<TooltipRoot>
 					<TooltipTrigger
 						render={
 							<ToggleGroupItem
@@ -52,9 +52,9 @@ export default function Particle() {
 							<TooltipPopup>Italic</TooltipPopup>
 						</TooltipPositioner>
 					</TooltipPortal>
-				</Tooltip>
+				</TooltipRoot>
 
-				<Tooltip>
+				<TooltipRoot>
 					<TooltipTrigger
 						render={
 							<ToggleGroupItem
@@ -70,8 +70,8 @@ export default function Particle() {
 							<TooltipPopup>Underline</TooltipPopup>
 						</TooltipPositioner>
 					</TooltipPortal>
-				</Tooltip>
-			</ToggleGroup>
+				</TooltipRoot>
+			</ToggleGroupRoot>
 		</TooltipProvider>
 	);
 }

@@ -1,5 +1,5 @@
 import {
-	Autocomplete,
+	AutocompleteRoot,
 	AutocompleteInput,
 	AutocompletePopup,
 	AutocompleteList,
@@ -22,7 +22,7 @@ const tags: Tag[] = [
 
 export default function Particle() {
 	return (
-		<Autocomplete items={tags} autoHighlight>
+		<AutocompleteRoot items={tags} autoHighlight>
 			<AutocompleteInput placeholder="e.g. feature" />
 			<AutocompletePopup>
 				<AutocompleteEmpty>Fruit not found.</AutocompleteEmpty>
@@ -34,6 +34,6 @@ export default function Particle() {
 					)}
 				</AutocompleteList>
 			</AutocompletePopup>
-		</Autocomplete>
+		</AutocompleteRoot>
 	);
 }

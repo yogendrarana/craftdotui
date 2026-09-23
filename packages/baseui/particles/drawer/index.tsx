@@ -1,6 +1,6 @@
 "use client";
 
-import Drawer from "@craftdotui/baseui/components/drawer";
+import { Drawer } from "@craftdotui/baseui/components/drawer";
 import { Button } from "@craftdotui/baseui/components/button";
 
 export default function Particle() {

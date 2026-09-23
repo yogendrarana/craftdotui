@@ -1,5 +1,5 @@
 import {
-	Meter,
+	MeterRoot,
 	MeterLabel,
 	MeterTrack,
 	MeterIndicator,
@@ -8,7 +8,7 @@ import {
 
 export function MeterExampleCustom() {
 	return (
-		<Meter value={85} max={100} className="max-w-100">
+		<MeterRoot value={85} max={100} className="max-w-100">
 			<div className="flex items-center justify-between gap-2">
 				<MeterLabel>Storage usage</MeterLabel>
 				<MeterValue />
@@ -16,6 +16,6 @@ export function MeterExampleCustom() {
 			<MeterTrack>
 				<MeterIndicator className="bg-destructive" />
 			</MeterTrack>
-		</Meter>
+		</MeterRoot>
 	);
 }

@@ -1,5 +1,5 @@
 import {
-	Progress,
+	ProgressRoot,
 	ProgressTrack,
 	ProgressIndicator,
 	ProgressValue,
@@ -19,11 +19,11 @@ export function Particle() {
 	}, []);
 
 	return (
-		<Progress value={value} max={100} className="max-w-100">
+		<ProgressRoot value={value} max={100} className="max-w-100">
 			<ProgressTrack>
 				<ProgressIndicator />
 			</ProgressTrack>
 			<ProgressValue />
-		</Progress>
+		</ProgressRoot>
 	);
 }

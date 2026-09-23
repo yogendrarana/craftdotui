@@ -3,7 +3,7 @@
 import * as React from "react";
 
 import {
-	Autocomplete,
+	AutocompleteRoot,
 	AutocompleteCollection,
 	AutocompleteEmpty,
 	AutocompleteGroup,
@@ -79,7 +79,7 @@ const groupedFrameworks: FrameworkGroup[] = groupFrameworks(frameworksData);
 
 export default function Particle() {
 	return (
-		<Autocomplete items={groupedFrameworks}>
+		<AutocompleteRoot items={groupedFrameworks}>
 			<div className="flex flex-col items-start gap-2">
 				<AutocompleteInput
 					aria-label="Search frameworks"
@@ -113,6 +113,6 @@ export default function Particle() {
 					)}
 				</AutocompleteList>
 			</AutocompletePopup>
-		</Autocomplete>
+		</AutocompleteRoot>
 	);
 }

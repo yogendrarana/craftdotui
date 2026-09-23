@@ -124,6 +124,15 @@ function PreviewCardArrow({
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
+export const PreviewCard = {
+	Root: PreviewCardRoot,
+	Trigger: PreviewCardTrigger,
+	Portal: PreviewCardPortal,
+	Positioner: PreviewCardPositioner,
+	Popup: PreviewCardPopup,
+	Arrow: PreviewCardArrow,
+};
+
 export {
 	PreviewCardRoot,
 	PreviewCardTrigger,

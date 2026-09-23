@@ -1,5 +1,5 @@
 import {
-	Tabs,
+	TabsRoot,
 	TabsList,
 	TabsTab,
 	TabsPanel,
@@ -8,7 +8,7 @@ import { User, Settings } from "lucide-react";
 
 export function Particle() {
 	return (
-		<Tabs defaultValue="account" className="w-[400px]">
+		<TabsRoot defaultValue="account" className="w-[400px]">
 			<TabsList>
 				<TabsTab value="account">
 					<User className="w-4 h-4" />
@@ -32,6 +32,6 @@ export function Particle() {
 			>
 				Settings
 			</TabsPanel>
-		</Tabs>
+		</TabsRoot>
 	);
 }

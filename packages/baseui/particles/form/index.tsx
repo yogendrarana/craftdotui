@@ -4,11 +4,11 @@ import { useState } from "react";
 import type { FormEvent } from "react";
 
 import {
-	Field,
+	FieldRoot,
 	FieldError,
 	FieldLabel,
 } from "@craftdotui/baseui/components/field";
-import { Form } from "@craftdotui/baseui/components/form";
+import { FormRoot } from "@craftdotui/baseui/components/form";
 import { Input } from "@craftdotui/baseui/components/input";
 import { Button } from "@craftdotui/baseui/components/button";
 
@@ -25,8 +25,8 @@ export default function Particle() {
 	};
 
 	return (
-		<Form className="max-w-64" onSubmit={onSubmit}>
-			<Field name="email">
+		<FormRoot className="max-w-64" onSubmit={onSubmit}>
+			<FieldRoot name="email">
 				<FieldLabel>Email</FieldLabel>
 				<Input
 					disabled={loading}
@@ -35,10 +35,10 @@ export default function Particle() {
 					type="email"
 				/>
 				<FieldError>Please enter a valid email.</FieldError>
-			</Field>
+			</FieldRoot>
 			<Button disabled={loading} type="submit">
 				Submit
 			</Button>
-		</Form>
+		</FormRoot>
 	);
 }

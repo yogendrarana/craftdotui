@@ -1,5 +1,5 @@
 import {
-	Select,
+	SelectRoot,
 	SelectTrigger,
 	SelectValue,
 	SelectPortal,
@@ -16,7 +16,7 @@ export default function Particle() {
 				<span className="text-xs font-medium text-muted-foreground">
 					Small (sm)
 				</span>
-				<Select defaultValue="apple">
+				<SelectRoot defaultValue="apple">
 					<SelectTrigger size="sm">
 						<SelectValue />
 					</SelectTrigger>
@@ -33,14 +33,14 @@ export default function Particle() {
 							</SelectPopup>
 						</SelectPositioner>
 					</SelectPortal>
-				</Select>
+				</SelectRoot>
 			</div>
 
 			<div className="flex flex-col gap-2">
 				<span className="text-xs font-medium text-muted-foreground">
 					Medium (md)
 				</span>
-				<Select defaultValue="apple">
+				<SelectRoot defaultValue="apple">
 					<SelectTrigger size="md">
 						<SelectValue />
 					</SelectTrigger>
@@ -57,14 +57,14 @@ export default function Particle() {
 							</SelectPopup>
 						</SelectPositioner>
 					</SelectPortal>
-				</Select>
+				</SelectRoot>
 			</div>
 
 			<div className="flex flex-col gap-2">
 				<span className="text-xs font-medium text-muted-foreground">
 					Large (lg)
 				</span>
-				<Select defaultValue="apple">
+				<SelectRoot defaultValue="apple">
 					<SelectTrigger size="lg">
 						<SelectValue />
 					</SelectTrigger>
@@ -81,7 +81,7 @@ export default function Particle() {
 							</SelectPopup>
 						</SelectPositioner>
 					</SelectPortal>
-				</Select>
+				</SelectRoot>
 			</div>
 		</div>
 	);

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import {
-	Accordion,
+	AccordionRoot,
 	AccordionItem,
 	AccordionTrigger,
 	AccordionPanel,
@@ -14,7 +14,7 @@ export default function Particle() {
 
 	return (
 		<div className="w-full max-w-md space-y-4">
-			<Accordion value={value} onValueChange={setValue}>
+			<AccordionRoot value={value} onValueChange={setValue}>
 				<AccordionItem value="item-1">
 					<AccordionTrigger>Who won 2022 World Cup?</AccordionTrigger>
 					<AccordionPanel>
@@ -40,7 +40,7 @@ export default function Particle() {
 						play.
 					</AccordionPanel>
 				</AccordionItem>
-			</Accordion>
+			</AccordionRoot>
 
 			<div className="flex gap-2">
 				<Button

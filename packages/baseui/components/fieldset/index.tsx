@@ -7,7 +7,7 @@ import { cn } from "@craftdotui/lib/utils";
 /* Fieldset Root                                                              */
 /* -------------------------------------------------------------------------- */
 
-function Fieldset({ className, ...props }: FieldsetPrimitive.Root.Props) {
+function FieldsetRoot({ className, ...props }: FieldsetPrimitive.Root.Props) {
 	return (
 		<FieldsetPrimitive.Root
 			className={cn(
@@ -41,4 +41,9 @@ function FieldsetLegend({
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
-export { Fieldset, FieldsetLegend };
+export const Fieldset = {
+	Root: FieldsetRoot,
+	Legend: FieldsetLegend,
+};
+
+export { FieldsetRoot, FieldsetLegend };

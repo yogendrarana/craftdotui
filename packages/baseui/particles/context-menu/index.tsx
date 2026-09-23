@@ -1,5 +1,5 @@
 import {
-	ContextMenu,
+	ContextMenuRoot,
 	ContextMenuTrigger,
 	ContextMenuPortal,
 	ContextMenuPositioner,
@@ -18,7 +18,7 @@ import {
 
 export default function Particle() {
 	return (
-		<ContextMenu>
+		<ContextMenuRoot>
 			<ContextMenuTrigger className="flex h-32 w-64 items-center justify-center rounded-md border text-sm">
 				Right click here
 			</ContextMenuTrigger>
@@ -87,6 +87,6 @@ export default function Particle() {
 					</ContextMenuPopup>
 				</ContextMenuPositioner>
 			</ContextMenuPortal>
-		</ContextMenu>
+		</ContextMenuRoot>
 	);
 }

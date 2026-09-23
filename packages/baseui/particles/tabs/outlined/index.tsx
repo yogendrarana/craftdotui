@@ -1,5 +1,5 @@
 import {
-	Tabs,
+	TabsRoot,
 	TabsList,
 	TabsTab,
 	TabsPanel,
@@ -7,7 +7,7 @@ import {
 
 export function Particle() {
 	return (
-		<Tabs defaultValue="overview" className="w-[400px]">
+		<TabsRoot defaultValue="overview" className="w-[400px]">
 			<TabsList variant="outlined">
 				<TabsTab value="overview">Overview</TabsTab>
 				<TabsTab value="analytics">Analytics</TabsTab>
@@ -25,6 +25,6 @@ export function Particle() {
 			>
 				Analytics Content
 			</TabsPanel>
-		</Tabs>
+		</TabsRoot>
 	);
 }

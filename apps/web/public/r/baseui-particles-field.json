@@ -7,7 +7,7 @@
 	"files": [
 		{
 			"path": "packages/baseui/particles/field/index.tsx",
-			"content": "import {\n\tField,\n\tFieldLabel,\n\tFieldControl,\n\tFieldDescription,\n} from \"@/components/baseui/components/field\";\n\nexport function Particle() {\n\treturn (\n\t\t<Field>\n\t\t\t<FieldLabel>Email</FieldLabel>\n\t\t\t<FieldControl placeholder=\"you@example.com\" />\n\t\t\t<FieldDescription>We’ll never share your email.</FieldDescription>\n\t\t</Field>\n\t);\n}\n",
+			"content": "import {\n\tFieldRoot,\n\tFieldLabel,\n\tFieldControl,\n\tFieldDescription,\n} from \"@/components/baseui/components/field\";\n\nexport function Particle() {\n\treturn (\n\t\t<FieldRoot>\n\t\t\t<FieldLabel>Email</FieldLabel>\n\t\t\t<FieldControl placeholder=\"you@example.com\" />\n\t\t\t<FieldDescription>We’ll never share your email.</FieldDescription>\n\t\t</FieldRoot>\n\t);\n}\n",
 			"type": "registry:component",
 			"target": "components/baseui/particles/field.tsx"
 		}

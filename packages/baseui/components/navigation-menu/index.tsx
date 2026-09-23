@@ -292,6 +292,22 @@ function NavigationMenuViewport({
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
+export const NavigationMenu = {
+	Root: NavigationMenuRoot,
+	List: NavigationMenuList,
+	Item: NavigationMenuItem,
+	Trigger: NavigationMenuTrigger,
+	Content: NavigationMenuContent,
+	Link: NavigationMenuLink,
+	Icon: NavigationMenuIcon,
+	Portal: NavigationMenuPortal,
+	Backdrop: NavigationMenuBackdrop,
+	Positioner: NavigationMenuPositioner,
+	Popup: NavigationMenuPopup,
+	Arrow: NavigationMenuArrow,
+	Viewport: NavigationMenuViewport,
+};
+
 export {
 	NavigationMenuRoot,
 	NavigationMenuList,
@@ -306,6 +322,5 @@ export {
 	NavigationMenuPopup,
 	NavigationMenuArrow,
 	NavigationMenuViewport,
-	NavigationMenuPrimitive,
 	navigationMenuLinkStyle,
 };

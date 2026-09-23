@@ -9,7 +9,7 @@ import { cn } from "@craftdotui/lib/utils";
 /* Accordion                                                                  */
 /* -------------------------------------------------------------------------- */
 
-function Accordion({ className, ...props }: AccordionPrimitive.Root.Props) {
+function AccordionRoot({ className, ...props }: AccordionPrimitive.Root.Props) {
 	return (
 		<AccordionPrimitive.Root
 			data-slot="accordion"
@@ -91,4 +91,15 @@ function AccordionPanel({
 	);
 }
 
-export { Accordion, AccordionItem, AccordionTrigger, AccordionPanel };
+/* -------------------------------------------------------------------------- */
+/* Exports                                                                    */
+/* -------------------------------------------------------------------------- */
+
+export const Accordion = {
+	Root: AccordionRoot,
+	Item: AccordionItem,
+	Trigger: AccordionTrigger,
+	Panel: AccordionPanel,
+};
+
+export { AccordionRoot, AccordionItem, AccordionTrigger, AccordionPanel };

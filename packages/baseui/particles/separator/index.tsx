@@ -1,4 +1,4 @@
-import { Separator } from "@craftdotui/baseui/components/separator";
+import { SeparatorRoot } from "@craftdotui/baseui/components/separator";
 
 export function Particle() {
 	return (
@@ -9,12 +9,12 @@ export function Particle() {
 					A collection of react and tailwind components.
 				</p>
 			</div>
-			<Separator />
+			<SeparatorRoot />
 			<div className="flex h-5 items-center text-sm">
 				<div>Blog</div>
-				<Separator orientation="vertical" />
+				<SeparatorRoot orientation="vertical" />
 				<div>Docs</div>
-				<Separator orientation="vertical" />
+				<SeparatorRoot orientation="vertical" />
 				<div>Source</div>
 			</div>
 		</div>

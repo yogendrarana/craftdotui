@@ -439,7 +439,7 @@ function DrawerContent({
 			React.HTMLAttributes<HTMLElement> & { "data-slot"?: string }
 		>(render)
 	) {
-		return React.cloneElement(render, {
+		return React.cloneElement(render as React.ReactElement<any>, {
 			"data-slot": "drawer-content",
 			className: cn(contentClassName, render.props.className),
 			...props,
@@ -532,7 +532,7 @@ function DrawerHandle({
 }
 
 // ==================================================
-// Drawer Object
+// Exports
 // ==================================================
 
 export const Drawer = {
@@ -551,13 +551,9 @@ export const Drawer = {
 	Description: DrawerDescription,
 	Close: DrawerClose,
 	Handle: DrawerHandle,
-	// Utility functions
-	createHandle: DrawerPrimitive.createHandle,
 };
 
-// ==================================================
-// Exports
-// ==================================================
+const createHandle = DrawerPrimitive.createHandle;
 
 export {
 	DrawerProvider,
@@ -575,12 +571,10 @@ export {
 	DrawerDescription,
 	DrawerClose,
 	DrawerHandle,
-	DrawerPrimitive,
+	createHandle,
 	type DrawerPosition,
 	type DrawerSwipeDirection,
 	type DrawerRadius,
 	type DrawerVariant,
 	type DrawerContentProps,
 };
-
-export default Drawer;

@@ -15,7 +15,7 @@ const TooltipProvider = TooltipPrimitive.Provider;
 /* Tooltip Root                                                               */
 /* -------------------------------------------------------------------------- */
 
-function Tooltip(props: TooltipPrimitive.Root.Props) {
+function TooltipRoot(props: TooltipPrimitive.Root.Props) {
 	return <TooltipPrimitive.Root data-slot="tooltip" {...props} />;
 }
 
@@ -179,13 +179,27 @@ function TooltipArrow({ className, ...props }: TooltipArrowProps) {
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
+export const Tooltip = {
+	Root: TooltipRoot,
+	Trigger: TooltipTrigger,
+	Popup: TooltipPopup,
+	Provider: TooltipProvider,
+	Portal: TooltipPortal,
+	Positioner: TooltipPositioner,
+	Viewport: TooltipViewport,
+	Arrow: TooltipArrow,
+};
+
+const createHandle = TooltipPrimitive.createHandle;
+
 export {
-	Tooltip,
+	TooltipRoot,
 	TooltipTrigger,
 	TooltipPopup,
 	TooltipProvider,
 	TooltipPortal,
 	TooltipPositioner,
-	TooltipPrimitive,
+	TooltipViewport,
 	TooltipArrow,
+	createHandle,
 };

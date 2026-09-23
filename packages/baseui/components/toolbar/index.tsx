@@ -111,6 +111,15 @@ function ToolbarInput(props: ToolbarPrimitive.Input.Props) {
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
+export const Toolbar = {
+	Root: ToolbarRoot,
+	Button: ToolbarButton,
+	Link: ToolbarLink,
+	Separator: ToolbarSeparator,
+	Group: ToolbarGroup,
+	Input: ToolbarInput,
+};
+
 export {
 	ToolbarRoot,
 	ToolbarButton,
@@ -118,5 +127,4 @@ export {
 	ToolbarSeparator,
 	ToolbarGroup,
 	ToolbarInput,
-	ToolbarPrimitive,
 };

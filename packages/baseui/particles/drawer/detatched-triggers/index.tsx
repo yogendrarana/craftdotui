@@ -1,9 +1,9 @@
 "use client";
 
 import { Button } from "@craftdotui/baseui/components/button";
-import Drawer from "@craftdotui/baseui/components/drawer";
+import { Drawer, createHandle } from "@craftdotui/baseui/components/drawer";
 
-const drawerHandle = Drawer.createHandle<{ title: string }>();
+const drawerHandle = createHandle<{ title: string }>();
 
 export default function Particle() {
 	return (

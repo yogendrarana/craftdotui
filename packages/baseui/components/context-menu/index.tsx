@@ -11,7 +11,7 @@ import { ARROW_STYLES, BaseArrow } from "@craftdotui/baseui/components/arrow";
 /* Root                                                                       */
 /* -------------------------------------------------------------------------- */
 
-function ContextMenu(props: ContextMenuPrimitive.Root.Props) {
+function ContextMenuRoot(props: ContextMenuPrimitive.Root.Props) {
 	return <ContextMenuPrimitive.Root data-slot="context-menu" {...props} />;
 }
 
@@ -361,8 +361,29 @@ function ContextMenuShortcut({
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
+export const ContextMenu = {
+	Root: ContextMenuRoot,
+	Trigger: ContextMenuTrigger,
+	Portal: ContextMenuPortal,
+	Positioner: ContextMenuPositioner,
+	Popup: ContextMenuPopup,
+	Item: ContextMenuItem,
+	Shortcut: ContextMenuShortcut,
+	Arrow: ContextMenuArrow,
+	Separator: ContextMenuSeparator,
+	Submenu: ContextMenuSubmenu,
+	SubmenuTrigger: ContextMenuSubmenuTrigger,
+	Group: ContextMenuGroup,
+	GroupLabel: ContextMenuGroupLabel,
+	RadioGroup: ContextMenuRadioGroup,
+	RadioItem: ContextMenuRadioItem,
+	RadioItemIndicator: ContextMenuRadioItemIndicator,
+	CheckboxItem: ContextMenuCheckboxItem,
+	CheckboxItemIndicator: ContextMenuCheckboxItemIndicator,
+};
+
 export {
-	ContextMenu,
+	ContextMenuRoot,
 	ContextMenuTrigger,
 	ContextMenuPortal,
 	ContextMenuPositioner,

@@ -5,7 +5,7 @@ import { cn } from "@craftdotui/lib/utils";
  * Shared styles for Base UI Arrow primitives.
  * Handles positioning and rotation based on the side the arrow is on.
  */
-export const ARROW_STYLES = cn(
+const ARROW_STYLES = cn(
 	"data-[side=bottom]:top-[-8px]",
 	"data-[side=top]:bottom-[-8px] data-[side=top]:rotate-180",
 	"data-[side=left]:right-[-13px] data-[side=left]:rotate-90",
@@ -20,11 +20,7 @@ interface BaseArrowProps extends SVGAttributes<SVGSVGElement> {
  * Shared SVG component for arrows.
  * By default, it uses `fill-current` for the main shape, allowing the color to be controlled via text color or direct fill class.
  */
-export function BaseArrow({
-	className,
-	title = "Arrow",
-	...props
-}: BaseArrowProps) {
+function BaseArrow({ className, title = "Arrow", ...props }: BaseArrowProps) {
 	return (
 		<svg
 			width="12"
@@ -39,3 +35,11 @@ export function BaseArrow({
 		</svg>
 	);
 }
+
+const Arrow = {
+	BaseArrow,
+	ARROW_STYLES,
+};
+
+export { Arrow, BaseArrow, ARROW_STYLES };
+export type { BaseArrowProps };

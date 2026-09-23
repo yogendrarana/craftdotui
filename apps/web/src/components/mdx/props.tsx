@@ -2,7 +2,7 @@
 
 import type { HTMLAttributes } from "react";
 import {
-	Accordion,
+	AccordionRoot,
 	AccordionItem,
 	AccordionPanel,
 	AccordionTrigger,
@@ -48,7 +48,7 @@ export function PropsTable({
 					<div className="size-4 shrink-0" />
 				</div>
 
-				<Accordion multiple className="w-full">
+				<AccordionRoot multiple className="w-full">
 					{data.map((item) => (
 						<AccordionItem
 							key={item.prop}
@@ -78,7 +78,7 @@ export function PropsTable({
 							</AccordionPanel>
 						</AccordionItem>
 					))}
-				</Accordion>
+				</AccordionRoot>
 			</div>
 		</div>
 	);

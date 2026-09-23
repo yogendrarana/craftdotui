@@ -10,10 +10,10 @@ import {
 	PopoverArrow,
 	PopoverTitle,
 	PopoverDescription,
-	PopoverPrimitive,
+	createHandle,
 } from "@craftdotui/baseui/components/popover";
 
-const demoPopover = PopoverPrimitive.createHandle();
+const demoPopover = createHandle();
 
 export default function Particle() {
 	return (

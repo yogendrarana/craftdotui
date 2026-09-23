@@ -1,5 +1,5 @@
-import { Toggle } from "@craftdotui/baseui/components/toggle";
+import { ToggleRoot } from "@craftdotui/baseui/components/toggle";
 
 export function Particle() {
-	return <Toggle>Toggle</Toggle>;
+	return <ToggleRoot>Toggle</ToggleRoot>;
 }

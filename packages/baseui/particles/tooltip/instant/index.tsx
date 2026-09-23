@@ -1,5 +1,5 @@
 import {
-	Tooltip,
+	TooltipRoot,
 	TooltipPopup,
 	TooltipPositioner,
 	TooltipPortal,
@@ -11,7 +11,7 @@ import { Button } from "@craftdotui/baseui/components/button";
 export function Particle() {
 	return (
 		<TooltipProvider delay={0}>
-			<Tooltip>
+			<TooltipRoot>
 				<TooltipTrigger
 					render={
 						<Button variant="outline">Instant Animation</Button>
@@ -22,7 +22,7 @@ export function Particle() {
 						<TooltipPopup>Custom Styled & Animated</TooltipPopup>
 					</TooltipPositioner>
 				</TooltipPortal>
-			</Tooltip>
+			</TooltipRoot>
 		</TooltipProvider>
 	);
 }

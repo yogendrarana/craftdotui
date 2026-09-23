@@ -333,6 +333,30 @@ function MenuShortcut({
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
+export const Menu = {
+	Root: MenuRoot,
+	Trigger: MenuTrigger,
+	Portal: MenuPortal,
+	Backdrop: MenuBackdrop,
+	Positioner: MenuPositioner,
+	Popup: MenuPopup,
+	Arrow: MenuArrow,
+	Item: MenuItem,
+	Separator: MenuSeparator,
+	Group: MenuGroup,
+	GroupLabel: MenuGroupLabel,
+	RadioGroup: MenuRadioGroup,
+	RadioItem: MenuRadioItem,
+	RadioItemIndicator: MenuRadioItemIndicator,
+	CheckboxItem: MenuCheckboxItem,
+	CheckboxItemIndicator: MenuCheckboxItemIndicator,
+	SubmenuRoot: MenuSubmenuRoot,
+	SubmenuTrigger: MenuSubmenuTrigger,
+	Shortcut: MenuShortcut,
+};
+
+const createHandle = MenuPrimitive.createHandle;
+
 export {
 	MenuRoot,
 	MenuTrigger,
@@ -353,5 +377,5 @@ export {
 	MenuSubmenuRoot,
 	MenuSubmenuTrigger,
 	MenuShortcut,
-	MenuPrimitive,
+	createHandle,
 };

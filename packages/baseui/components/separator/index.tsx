@@ -7,7 +7,7 @@ import { cn } from "@craftdotui/lib/utils";
 /* Separator                                                                  */
 /* -------------------------------------------------------------------------- */
 
-function Separator({ className, ...props }: SeparatorPrimitive.Props) {
+function SeparatorRoot({ className, ...props }: SeparatorPrimitive.Props) {
 	return (
 		<SeparatorPrimitive
 			className={cn(
@@ -26,4 +26,8 @@ function Separator({ className, ...props }: SeparatorPrimitive.Props) {
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
-export { Separator };
+export const Separator = {
+	Root: SeparatorRoot,
+};
+
+export { SeparatorRoot };

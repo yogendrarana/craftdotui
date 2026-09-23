@@ -51,7 +51,7 @@ interface ToggleProps extends TogglePrimitive.Props, ToggleVariants {
 /* Toggle                                                                     */
 /* -------------------------------------------------------------------------- */
 
-function Toggle({ className, size, variant, ...props }: ToggleProps) {
+function ToggleRoot({ className, size, variant, ...props }: ToggleProps) {
 	return (
 		<TogglePrimitive
 			data-slot="toggle"
@@ -69,5 +69,9 @@ function Toggle({ className, size, variant, ...props }: ToggleProps) {
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
-export { Toggle, toggleVariants };
+export const Toggle = {
+	Root: ToggleRoot,
+};
+
+export { ToggleRoot, toggleVariants };
 export type { ToggleProps };

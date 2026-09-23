@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Switch } from "@craftdotui/baseui/components/switch";
+import { SwitchRoot } from "@craftdotui/baseui/components/switch";
 
 const items = [
 	{
@@ -50,7 +50,7 @@ export function Particle() {
 							{item.description}
 						</p>
 					</div>
-					<Switch
+					<SwitchRoot
 						id={item.id}
 						checked={selected.includes(item.id)}
 						onCheckedChange={() => toggle(item.id)}

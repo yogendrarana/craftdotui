@@ -1,5 +1,5 @@
 import {
-	Slider,
+	SliderRoot,
 	SliderControl,
 	SliderTrack,
 	SliderIndicator,
@@ -9,14 +9,18 @@ import {
 export function Particle() {
 	return (
 		<div className="h-40 flex items-center justify-center">
-			<Slider defaultValue={50} orientation="vertical" className="h-full">
+			<SliderRoot
+				defaultValue={50}
+				orientation="vertical"
+				className="h-full"
+			>
 				<SliderControl>
 					<SliderTrack>
 						<SliderIndicator />
 						<SliderThumb />
 					</SliderTrack>
 				</SliderControl>
-			</Slider>
+			</SliderRoot>
 		</div>
 	);
 }

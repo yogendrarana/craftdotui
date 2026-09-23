@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import {
-	Checkbox,
+	CheckboxRoot,
 	CheckboxIndicator,
 } from "@craftdotui/baseui/components/checkbox";
 
@@ -38,14 +38,14 @@ export default function Particle() {
 					htmlFor={plan.id}
 					className="relative flex items-start gap-3 p-3 border rounded-lg cursor-pointer transition-colors hover:bg-muted has-checked:border has-checked:bg-muted"
 				>
-					<Checkbox
+					<CheckboxRoot
 						id={plan.id}
 						checked={selected === plan.id}
 						onCheckedChange={() => setSelected(plan.id)}
 						className="mt-0.5"
 					>
 						<CheckboxIndicator />
-					</Checkbox>
+					</CheckboxRoot>
 					<div className="flex-1">
 						<div className="flex items-center justify-between">
 							<span className="font-medium">{plan.name}</span>

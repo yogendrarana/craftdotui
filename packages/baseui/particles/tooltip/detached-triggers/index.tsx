@@ -1,16 +1,16 @@
 import {
-	Tooltip,
+	TooltipRoot,
 	TooltipPopup,
 	TooltipPositioner,
 	TooltipPortal,
-	TooltipPrimitive,
 	TooltipProvider,
 	TooltipTrigger,
+	createHandle,
 } from "@craftdotui/baseui/components/tooltip";
 import { Button } from "@craftdotui/baseui/components/button";
 import { Info } from "lucide-react";
 
-const demoTooltip = TooltipPrimitive.createHandle();
+const demoTooltip = createHandle();
 
 export function Particle() {
 	return (
@@ -25,7 +25,7 @@ export function Particle() {
 					}
 				/>
 
-				<Tooltip handle={demoTooltip}>
+				<TooltipRoot handle={demoTooltip}>
 					<TooltipPortal>
 						<TooltipPositioner sideOffset={10}>
 							<TooltipPopup>
@@ -33,7 +33,7 @@ export function Particle() {
 							</TooltipPopup>
 						</TooltipPositioner>
 					</TooltipPortal>
-				</Tooltip>
+				</TooltipRoot>
 			</div>
 		</TooltipProvider>
 	);

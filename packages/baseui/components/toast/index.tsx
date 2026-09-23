@@ -494,10 +494,36 @@ function ToastArrow({ className, ...props }: ToastPrimitive.Arrow.Props) {
 	);
 }
 
+export const Toast = {
+	Provider: ToastProvider,
+	AnchoredProvider: AnchoredToastProvider,
+	Portal: ToastPortal,
+	Viewport: ToastViewport,
+	Content: ToastContent,
+	Title: ToastTitle,
+	Description: ToastDescription,
+	Action: ToastAction,
+	Close: ToastClose,
+	Icon: ToastIcon,
+	Root: ToastRoot,
+	Positioner: ToastPositioner,
+	Arrow: ToastArrow,
+};
+
 export {
 	ToastProvider,
 	AnchoredToastProvider,
+	ToastPortal,
+	ToastViewport,
+	ToastContent,
+	ToastTitle,
+	ToastDescription,
+	ToastAction,
+	ToastClose,
+	ToastIcon,
+	ToastRoot,
+	ToastPositioner,
+	ToastArrow,
 	toastManager,
 	anchoredToastManager,
-	ToastPrimitive,
 };

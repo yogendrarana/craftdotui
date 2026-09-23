@@ -12,7 +12,7 @@ import { cn } from "@craftdotui/lib/utils";
 /* Field Root                                                                 */
 /* -------------------------------------------------------------------------- */
 
-function Field({ className, ...props }: FieldPrimitive.Root.Props) {
+function FieldRoot({ className, ...props }: FieldPrimitive.Root.Props) {
 	return (
 		<FieldPrimitive.Root
 			className={cn("flex flex-col gap-1.5", className)}
@@ -117,8 +117,18 @@ function FieldValidity({ ...props }: FieldPrimitive.Validity.Props) {
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
+export const Field = {
+	Root: FieldRoot,
+	Label: FieldLabel,
+	Control: FieldControl,
+	Description: FieldDescription,
+	Item: FieldItem,
+	Error: FieldError,
+	Validity: FieldValidity,
+};
+
 export {
-	Field,
+	FieldRoot,
 	FieldLabel,
 	FieldControl,
 	FieldDescription,

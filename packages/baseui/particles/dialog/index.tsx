@@ -1,5 +1,5 @@
 import {
-	Dialog,
+	DialogRoot,
 	DialogTrigger,
 	DialogPortal,
 	DialogBackdrop,
@@ -14,7 +14,7 @@ import { Button } from "@craftdotui/baseui/components/button";
 
 export function Particle() {
 	return (
-		<Dialog>
+		<DialogRoot>
 			<DialogTrigger
 				render={<Button variant={"outline"}>Open Dialog</Button>}
 			/>
@@ -40,6 +40,6 @@ export function Particle() {
 					</DialogPopup>
 				</DialogViewport>
 			</DialogPortal>
-		</Dialog>
+		</DialogRoot>
 	);
 }

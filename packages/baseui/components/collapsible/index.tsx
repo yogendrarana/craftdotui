@@ -8,7 +8,7 @@ import { cn } from "@craftdotui/lib/utils";
 /* Collapsible Root                                                           */
 /* -------------------------------------------------------------------------- */
 
-function Collapsible({
+function CollapsibleRoot({
 	className,
 	children,
 	...props
@@ -78,7 +78,13 @@ function CollapsiblePanel({
 }
 
 /* -------------------------------------------------------------------------- */
-/* Export                                                                     */
+/* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
-export { Collapsible, CollapsibleTrigger, CollapsiblePanel };
+export const Collapsible = {
+	Root: CollapsibleRoot,
+	Trigger: CollapsibleTrigger,
+	Panel: CollapsiblePanel,
+};
+
+export { CollapsibleRoot, CollapsibleTrigger, CollapsiblePanel };

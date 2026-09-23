@@ -6,7 +6,7 @@
 	"files": [
 		{
 			"path": "packages/baseui/particles/toggle/outline/index.tsx",
-			"content": "import { Toggle } from \"@/components/baseui/components/toggle\";\n\nexport function Particle() {\n\treturn <Toggle variant=\"outline\">Toggle Outline</Toggle>;\n}\n",
+			"content": "import { ToggleRoot } from \"@/components/baseui/components/toggle\";\n\nexport function Particle() {\n\treturn <ToggleRoot variant=\"outline\">Toggle Outline</ToggleRoot>;\n}\n",
 			"type": "registry:component",
 			"target": "components/baseui/particles/toggle-outline.tsx"
 		}

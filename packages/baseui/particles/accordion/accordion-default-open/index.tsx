@@ -1,5 +1,5 @@
 import {
-	Accordion,
+	AccordionRoot,
 	AccordionItem,
 	AccordionPanel,
 	AccordionTrigger,
@@ -26,13 +26,13 @@ export default function Particle() {
 	];
 
 	return (
-		<Accordion className="w-full md:w-125" defaultValue={["1"]}>
+		<AccordionRoot className="w-full md:w-125" defaultValue={["1"]}>
 			{items.map((item) => (
 				<AccordionItem key={item.id} value={item.id}>
 					<AccordionTrigger>{item.title}</AccordionTrigger>
 					<AccordionPanel>{item.content}</AccordionPanel>
 				</AccordionItem>
 			))}
-		</Accordion>
+		</AccordionRoot>
 	);
 }

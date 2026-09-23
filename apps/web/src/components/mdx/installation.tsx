@@ -1,7 +1,7 @@
 "use client";
 
 import {
-	Tabs,
+	TabsRoot,
 	TabsList,
 	TabsPanel,
 	TabsTab,
@@ -29,7 +29,7 @@ export function Installation({ name, className }: PropType) {
 	}
 
 	return (
-		<Tabs
+		<TabsRoot
 			defaultValue="cli"
 			className={cn("w-full flex flex-col gap-4", className)}
 		>
@@ -84,6 +84,6 @@ export function Installation({ name, className }: PropType) {
 					</div>
 				</div>
 			</TabsPanel>
-		</Tabs>
+		</TabsRoot>
 	);
 }

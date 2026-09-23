@@ -1,5 +1,5 @@
 import {
-	Tooltip,
+	TooltipRoot,
 	TooltipPopup,
 	TooltipPositioner,
 	TooltipPortal,
@@ -12,7 +12,7 @@ export function Particle() {
 	return (
 		<TooltipProvider>
 			<div className="grid grid-cols-2 grid-rows-2 gap-2">
-				<Tooltip>
+				<TooltipRoot>
 					<TooltipTrigger
 						render={
 							<Button className="w-20" variant="outline">
@@ -25,9 +25,9 @@ export function Particle() {
 							<TooltipPopup>Tooltip on top</TooltipPopup>
 						</TooltipPositioner>
 					</TooltipPortal>
-				</Tooltip>
+				</TooltipRoot>
 
-				<Tooltip>
+				<TooltipRoot>
 					<TooltipTrigger
 						render={
 							<Button className="w-20" variant="outline">
@@ -40,9 +40,9 @@ export function Particle() {
 							<TooltipPopup>Tooltip on right</TooltipPopup>
 						</TooltipPositioner>
 					</TooltipPortal>
-				</Tooltip>
+				</TooltipRoot>
 
-				<Tooltip>
+				<TooltipRoot>
 					<TooltipTrigger
 						render={
 							<Button className="w-20" variant="outline">
@@ -55,9 +55,9 @@ export function Particle() {
 							<TooltipPopup>Tooltip on left</TooltipPopup>
 						</TooltipPositioner>
 					</TooltipPortal>
-				</Tooltip>
+				</TooltipRoot>
 
-				<Tooltip>
+				<TooltipRoot>
 					<TooltipTrigger
 						render={
 							<Button className="w-20" variant="outline">
@@ -70,7 +70,7 @@ export function Particle() {
 							<TooltipPopup>Tooltip on bottom</TooltipPopup>
 						</TooltipPositioner>
 					</TooltipPortal>
-				</Tooltip>
+				</TooltipRoot>
 			</div>
 		</TooltipProvider>
 	);

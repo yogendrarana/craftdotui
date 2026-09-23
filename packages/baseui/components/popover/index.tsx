@@ -221,6 +221,23 @@ function PopoverViewport({
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
+export const Popover = {
+	Root: PopoverRoot,
+	Trigger: PopoverTrigger,
+	Portal: PopoverPortal,
+	Backdrop: PopoverBackdrop,
+	Positioner: PopoverPositioner,
+	Popup: PopoverPopup,
+	Arrow: PopoverArrow,
+	Title: PopoverTitle,
+	Description: PopoverDescription,
+	Close: PopoverClose,
+	Viewport: PopoverViewport,
+};
+
+const createHandle = PopoverPrimitive.createHandle;
+type PopoverChangeEventDetails = PopoverPrimitive.Root.ChangeEventDetails;
+
 export {
 	PopoverRoot,
 	PopoverTrigger,
@@ -233,5 +250,6 @@ export {
 	PopoverDescription,
 	PopoverClose,
 	PopoverViewport,
-	PopoverPrimitive,
+	createHandle,
+	type PopoverChangeEventDetails,
 };

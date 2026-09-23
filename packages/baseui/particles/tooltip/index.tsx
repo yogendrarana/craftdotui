@@ -1,5 +1,5 @@
 import {
-	Tooltip,
+	TooltipRoot,
 	TooltipPopup,
 	TooltipPositioner,
 	TooltipPortal,
@@ -11,7 +11,7 @@ import { Button } from "@craftdotui/baseui/components/button";
 export function Particle() {
 	return (
 		<TooltipProvider>
-			<Tooltip>
+			<TooltipRoot>
 				<TooltipTrigger
 					render={<Button variant="outline">Hover me</Button>}
 				/>
@@ -20,7 +20,7 @@ export function Particle() {
 						<TooltipPopup>Add to library</TooltipPopup>
 					</TooltipPositioner>
 				</TooltipPortal>
-			</Tooltip>
+			</TooltipRoot>
 		</TooltipProvider>
 	);
 }

@@ -7,7 +7,7 @@ import { cn } from "@craftdotui/lib/utils";
 /* Meter                                                                      */
 /* -------------------------------------------------------------------------- */
 
-function Meter({ className, ...props }: MeterPrimitive.Root.Props) {
+function MeterRoot({ className, ...props }: MeterPrimitive.Root.Props) {
 	return (
 		<MeterPrimitive.Root
 			className={cn("w-full", "flex flex-col gap-2", className)}
@@ -90,4 +90,12 @@ function MeterValue({ className, ...props }: MeterPrimitive.Value.Props) {
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
-export { Meter, MeterLabel, MeterTrack, MeterIndicator, MeterValue };
+export const Meter = {
+	Root: MeterRoot,
+	Label: MeterLabel,
+	Track: MeterTrack,
+	Indicator: MeterIndicator,
+	Value: MeterValue,
+};
+
+export { MeterRoot, MeterLabel, MeterTrack, MeterIndicator, MeterValue };

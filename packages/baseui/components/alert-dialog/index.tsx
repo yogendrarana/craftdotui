@@ -7,7 +7,7 @@ import { cn } from "@craftdotui/lib/utils";
 /* Root                                                                       */
 /* -------------------------------------------------------------------------- */
 
-const AlertDialog = AlertDialogPrimitive.Root;
+const AlertDialogRoot = AlertDialogPrimitive.Root;
 
 /* -------------------------------------------------------------------------- */
 /* Trigger                                                                    */
@@ -185,8 +185,22 @@ function AlertDialogClose(props: AlertDialogPrimitive.Close.Props) {
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
+export const AlertDialog = {
+	Root: AlertDialogRoot,
+	Trigger: AlertDialogTrigger,
+	Portal: AlertDialogPortal,
+	Backdrop: AlertDialogBackdrop,
+	Viewport: AlertDialogViewport,
+	Popup: AlertDialogPopup,
+	Header: AlertDialogHeader,
+	Footer: AlertDialogFooter,
+	Title: AlertDialogTitle,
+	Description: AlertDialogDescription,
+	Close: AlertDialogClose,
+};
+
 export {
-	AlertDialog,
+	AlertDialogRoot,
 	AlertDialogTrigger,
 	AlertDialogPortal,
 	AlertDialogBackdrop,

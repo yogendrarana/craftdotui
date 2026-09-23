@@ -502,6 +502,36 @@ function ComboboxChipsInput({
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
+export const Combobox = {
+	Root: ComboboxRoot,
+	Input: ComboboxInput,
+	Trigger: ComboboxTrigger,
+	Icon: ComboboxIcon,
+	Clear: ComboboxClear,
+	Value: ComboboxValue,
+	Portal: ComboboxPortal,
+	Backdrop: ComboboxBackdrop,
+	Positioner: ComboboxPositioner,
+	Popup: ComboboxPopup,
+	Arrow: ComboboxArrow,
+	List: ComboboxList,
+	Item: ComboboxItem,
+	ItemIndicator: ComboboxItemIndicator,
+	Empty: ComboboxEmpty,
+	Group: ComboboxGroup,
+	GroupLabel: ComboboxGroupLabel,
+	Separator: ComboboxSeparator,
+	Status: ComboboxStatus,
+	Collection: ComboboxCollection,
+	Row: ComboboxRow,
+	Chips: ComboboxChips,
+	Chip: ComboboxChip,
+	ChipRemove: ComboboxChipRemove,
+	ChipsInput: ComboboxChipsInput,
+};
+
+const useFilter = ComboboxPrimitive.useFilter;
+
 export {
 	ComboboxRoot,
 	ComboboxInput,
@@ -528,5 +558,5 @@ export {
 	ComboboxChip,
 	ComboboxChipRemove,
 	ComboboxChipsInput,
-	ComboboxPrimitive,
+	useFilter,
 };

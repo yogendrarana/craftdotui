@@ -1,5 +1,5 @@
 import {
-	Select,
+	SelectRoot,
 	SelectTrigger,
 	SelectValue,
 	SelectPortal,
@@ -40,7 +40,7 @@ function renderValue(value: Language[]) {
 export default function Particle() {
 	return (
 		<div className="w-full max-w-50">
-			<Select defaultValue={["javascript", "typescript"]} multiple>
+			<SelectRoot defaultValue={["javascript", "typescript"]} multiple>
 				<SelectTrigger>
 					<SelectValue>{renderValue}</SelectValue>
 				</SelectTrigger>
@@ -58,7 +58,7 @@ export default function Particle() {
 						</SelectPopup>
 					</SelectPositioner>
 				</SelectPortal>
-			</Select>
+			</SelectRoot>
 		</div>
 	);
 }

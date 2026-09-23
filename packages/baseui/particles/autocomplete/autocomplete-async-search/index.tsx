@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import {
-	Autocomplete,
+	AutocompleteRoot,
 	AutocompleteInput,
 	AutocompletePopup,
 	AutocompleteList,
@@ -67,7 +67,7 @@ export default function Particle() {
 	}, [query]);
 
 	return (
-		<Autocomplete
+		<AutocompleteRoot
 			items={items}
 			value={value}
 			onValueChange={setValue}
@@ -99,6 +99,6 @@ export default function Particle() {
 					</AutocompleteList>
 				</AutocompletePopup>
 			)}
-		</Autocomplete>
+		</AutocompleteRoot>
 	);
 }

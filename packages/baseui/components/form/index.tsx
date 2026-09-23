@@ -4,7 +4,7 @@ import { Form as FormPrimitive } from "@base-ui/react/form";
 
 import { cn } from "@craftdotui/lib/utils";
 
-function Form({ className, ...props }: FormPrimitive.Props) {
+function FormRoot({ className, ...props }: FormPrimitive.Props) {
 	return (
 		<FormPrimitive
 			className={cn("flex w-full flex-col gap-4", className)}
@@ -14,4 +14,8 @@ function Form({ className, ...props }: FormPrimitive.Props) {
 	);
 }
 
-export { Form };
+export const Form = {
+	Root: FormRoot,
+};
+
+export { FormRoot };

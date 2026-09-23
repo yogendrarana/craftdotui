@@ -1,5 +1,5 @@
 import {
-	Select,
+	SelectRoot,
 	SelectTrigger,
 	SelectValue,
 	SelectPortal,
@@ -20,7 +20,7 @@ const fonts = [
 export default function Particle() {
 	return (
 		<div className="w-full max-w-50">
-			<Select items={fonts}>
+			<SelectRoot items={fonts}>
 				<SelectTrigger>
 					<SelectValue />
 				</SelectTrigger>
@@ -41,7 +41,7 @@ export default function Particle() {
 						</SelectPopup>
 					</SelectPositioner>
 				</SelectPortal>
-			</Select>
+			</SelectRoot>
 		</div>
 	);
 }

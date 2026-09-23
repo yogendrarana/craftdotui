@@ -1,6 +1,7 @@
 "use client";
 
-import Drawer, {
+import {
+	Drawer,
 	type DrawerSwipeDirection,
 	type DrawerPosition,
 } from "@craftdotui/baseui/components/drawer";

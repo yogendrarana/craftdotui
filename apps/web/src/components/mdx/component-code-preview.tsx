@@ -9,7 +9,7 @@ import { CodeRenderer } from "@/components/mdx/code-renderer";
 import { InstallCommandDropdown } from "./install-command";
 import { ComponentPreview } from "./component-preview";
 import {
-	Tabs,
+	TabsRoot,
 	TabsList,
 	TabsPanel,
 	TabsTab,
@@ -42,7 +42,7 @@ export function ComponentCodePreview({
 	}, [registryItem, name]);
 
 	return (
-		<Tabs
+		<TabsRoot
 			defaultValue="preview"
 			className={cn("w-full flex flex-col", className)}
 			{...props}
@@ -85,6 +85,6 @@ export function ComponentCodePreview({
 					/>
 				</TabsPanel>
 			</div>
-		</Tabs>
+		</TabsRoot>
 	);
 }

@@ -7,7 +7,7 @@
 	"files": [
 		{
 			"path": "packages/baseui/particles/slider/index.tsx",
-			"content": "import {\n\tSlider,\n\tSliderControl,\n\tSliderTrack,\n\tSliderIndicator,\n\tSliderThumb,\n} from \"@/components/baseui/components/slider\";\n\nexport function Particle() {\n\treturn (\n\t\t<Slider defaultValue={50} className=\"w-full max-w-sm\">\n\t\t\t<SliderControl>\n\t\t\t\t<SliderTrack>\n\t\t\t\t\t<SliderIndicator />\n\t\t\t\t\t<SliderThumb />\n\t\t\t\t</SliderTrack>\n\t\t\t</SliderControl>\n\t\t</Slider>\n\t);\n}\n",
+			"content": "import {\n\tSliderRoot,\n\tSliderControl,\n\tSliderTrack,\n\tSliderIndicator,\n\tSliderThumb,\n} from \"@/components/baseui/components/slider\";\n\nexport function Particle() {\n\treturn (\n\t\t<SliderRoot defaultValue={50} className=\"w-full max-w-sm\">\n\t\t\t<SliderControl>\n\t\t\t\t<SliderTrack>\n\t\t\t\t\t<SliderIndicator />\n\t\t\t\t\t<SliderThumb />\n\t\t\t\t</SliderTrack>\n\t\t\t</SliderControl>\n\t\t</SliderRoot>\n\t);\n}\n",
 			"type": "registry:component",
 			"target": "components/baseui/particles/slider.tsx"
 		}

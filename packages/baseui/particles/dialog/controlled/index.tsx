@@ -1,6 +1,6 @@
 import { useState } from "react";
 import {
-	Dialog,
+	DialogRoot,
 	DialogTrigger,
 	DialogPortal,
 	DialogBackdrop,
@@ -17,7 +17,7 @@ export function Particle() {
 	const [open, setOpen] = useState<boolean>(false);
 
 	return (
-		<Dialog open={open} onOpenChange={setOpen}>
+		<DialogRoot open={open} onOpenChange={setOpen}>
 			<DialogTrigger
 				render={<Button variant={"outline"}>Open Dialog</Button>}
 			/>
@@ -43,6 +43,6 @@ export function Particle() {
 					</DialogPopup>
 				</DialogViewport>
 			</DialogPortal>
-		</Dialog>
+		</DialogRoot>
 	);
 }

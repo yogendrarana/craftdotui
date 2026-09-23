@@ -10,7 +10,7 @@ import { cn } from "@craftdotui/lib/utils";
 /* Root                                                                       */
 /* -------------------------------------------------------------------------- */
 
-const Select = SelectPrimitive.Root;
+const SelectRoot = SelectPrimitive.Root;
 
 /* -------------------------------------------------------------------------- */
 /* SelectValue                                                                */
@@ -333,8 +333,25 @@ function SelectSeparator({
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
+export const Select = {
+	Root: SelectRoot,
+	Trigger: SelectTrigger,
+	Value: SelectValue,
+	Icon: SelectIcon,
+	Portal: SelectPortal,
+	Positioner: SelectPositioner,
+	Popup: SelectPopup,
+	Item: SelectItem,
+	ItemList: SelectItemList,
+	Group: SelectGroup,
+	GroupLabel: SelectGroupLabel,
+	Separator: SelectSeparator,
+	ScrollUpArrow: SelectScrollUpArrow,
+	ScrollDownArrow: SelectScrollDownArrow,
+};
+
 export {
-	Select,
+	SelectRoot,
 	SelectTrigger,
 	SelectValue,
 	SelectIcon,

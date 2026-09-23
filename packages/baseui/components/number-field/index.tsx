@@ -186,6 +186,16 @@ function NumberFieldDecrement({
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
+export const NumberField = {
+	Root: NumberFieldRoot,
+	ScrubArea: NumberFieldScrubArea,
+	ScrubAreaCursor: NumberFieldScrubAreaCursor,
+	Group: NumberFieldGroup,
+	Input: NumberFieldInput,
+	Increment: NumberFieldIncrement,
+	Decrement: NumberFieldDecrement,
+};
+
 export {
 	NumberFieldRoot,
 	NumberFieldScrubArea,
@@ -194,5 +204,4 @@ export {
 	NumberFieldInput,
 	NumberFieldIncrement,
 	NumberFieldDecrement,
-	NumberFieldPrimitive,
 };

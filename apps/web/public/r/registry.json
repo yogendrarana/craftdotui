@@ -761,6 +761,24 @@
 			]
 		},
 		{
+			"name": "baseui-otp-field",
+			"type": "registry:component",
+			"description": "A Base UI otp field component",
+			"dependencies": ["@base-ui/react"],
+			"registryDependencies": [
+				"@craftdotui/utils",
+				"@craftdotui/baseui-separator",
+				"@craftdotui/baseui-input"
+			],
+			"files": [
+				{
+					"path": "packages/baseui/components/otp-field/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/components/otp-field.tsx"
+				}
+			]
+		},
+		{
 			"name": "baseui-popover",
 			"type": "registry:component",
 			"description": "A Base UI popover component",
@@ -2352,6 +2370,75 @@
 					"path": "packages/baseui/particles/number-field/with-step/index.tsx",
 					"type": "registry:component",
 					"target": "components/baseui/particles/number-field-with-step.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-otp-field-alphanumeric",
+			"type": "registry:component",
+			"description": "OTP field with alphanumeric validation for recovery codes",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-otp-field"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/otp-field/otp-field-alphanumeric/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/otp-field-alphanumeric.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-otp-field-grouped",
+			"type": "registry:component",
+			"description": "OTP field with grouped layout and separator",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-otp-field"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/otp-field/otp-field-grouped/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/otp-field-grouped.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-otp-field-masked",
+			"type": "registry:component",
+			"description": "OTP field with masked character entry",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-otp-field"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/otp-field/otp-field-masked/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/otp-field-masked.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-otp-field-with-placeholder",
+			"type": "registry:component",
+			"description": "OTP field with placeholder dot hints",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-otp-field"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/otp-field/otp-field-with-placeholder/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/otp-field-with-placeholder.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-otp-field",
+			"type": "registry:component",
+			"description": "A simple otp field demo",
+			"registryDependencies": ["@craftdotui/baseui-otp-field"],
+			"files": [
+				{
+					"path": "packages/baseui/particles/otp-field/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/otp-field.tsx"
 				}
 			]
 		},

@@ -1,6 +1,6 @@
 "use client";
 
-import { Menubar } from "@craftdotui/baseui/components/menubar";
+import { MenubarRoot } from "@craftdotui/baseui/components/menubar";
 import {
 	MenuRoot,
 	MenuTrigger,
@@ -16,7 +16,7 @@ import { Button } from "@craftdotui/baseui/components/button";
 
 export function Particle() {
 	return (
-		<Menubar orientation="vertical">
+		<MenubarRoot orientation="vertical">
 			<MenuRoot>
 				<MenuTrigger render={<Button variant="ghost">File</Button>} />
 				<MenuPortal>
@@ -90,6 +90,6 @@ export function Particle() {
 			<MenuRoot disabled>
 				<MenuTrigger render={<Button variant="ghost">Help</Button>} />
 			</MenuRoot>
-		</Menubar>
+		</MenubarRoot>
 	);
 }

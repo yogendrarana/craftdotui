@@ -11,7 +11,7 @@ interface AvatarRootProps extends AvatarPrimitive.Root.Props {
 	className?: string;
 }
 
-function Avatar({ className, ...props }: AvatarRootProps) {
+function AvatarRoot({ className, ...props }: AvatarRootProps) {
 	return (
 		<AvatarPrimitive.Root
 			className={cn(
@@ -63,7 +63,14 @@ function AvatarFallback({
 }
 
 /* -------------------------------------------------------------------------- */
-/* Export                                                           */
+/* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
-export { Avatar, AvatarImage, AvatarFallback };
+export const Avatar = {
+	Root: AvatarRoot,
+	Image: AvatarImage,
+	Fallback: AvatarFallback,
+};
+
+export { AvatarRoot, AvatarImage, AvatarFallback };
+export type { AvatarRootProps, AvatarImageProps };

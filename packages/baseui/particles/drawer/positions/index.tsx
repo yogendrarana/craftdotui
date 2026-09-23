@@ -1,6 +1,7 @@
 "use client";
 
-import Drawer, {
+import {
+	Drawer,
 	type DrawerPosition,
 } from "@craftdotui/baseui/components/drawer";
 import { Button } from "@craftdotui/baseui/components/button";

@@ -125,4 +125,6 @@ function Button({
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
-export { Button, buttonVariants };
+const ButtonRoot = Button;
+
+export { Button, ButtonRoot, buttonVariants };

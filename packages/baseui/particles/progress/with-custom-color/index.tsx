@@ -1,5 +1,5 @@
 import {
-	Progress,
+	ProgressRoot,
 	ProgressLabel,
 	ProgressTrack,
 	ProgressIndicator,
@@ -20,7 +20,7 @@ export function Particle() {
 	}, []);
 
 	return (
-		<Progress value={value} max={100} className="max-w-100">
+		<ProgressRoot value={value} max={100} className="max-w-100">
 			<div className="flex items-center justify-between gap-2">
 				<ProgressLabel>Storage usage</ProgressLabel>
 				<ProgressValue />
@@ -28,6 +28,6 @@ export function Particle() {
 			<ProgressTrack>
 				<ProgressIndicator className="bg-destructive" />
 			</ProgressTrack>
-		</Progress>
+		</ProgressRoot>
 	);
 }

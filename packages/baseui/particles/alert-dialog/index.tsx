@@ -1,7 +1,7 @@
 "use client";
 
 import {
-	AlertDialog,
+	AlertDialogRoot,
 	AlertDialogTrigger,
 	AlertDialogPopup,
 	AlertDialogHeader,
@@ -14,7 +14,7 @@ import { Button } from "@craftdotui/baseui/components/button";
 
 function DeleteAlert() {
 	return (
-		<AlertDialog>
+		<AlertDialogRoot>
 			<AlertDialogTrigger render={<Button variant="destructive" />}>
 				Delete
 			</AlertDialogTrigger>
@@ -41,7 +41,7 @@ function DeleteAlert() {
 					</AlertDialogClose>
 				</AlertDialogFooter>
 			</AlertDialogPopup>
-		</AlertDialog>
+		</AlertDialogRoot>
 	);
 }
 

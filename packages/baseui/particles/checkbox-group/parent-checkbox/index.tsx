@@ -1,10 +1,10 @@
 "use client";
 import * as React from "react";
 import {
-	Checkbox,
+	CheckboxRoot,
 	CheckboxIndicator,
 } from "@craftdotui/baseui/components/checkbox";
-import { CheckboxGroup } from "@craftdotui/baseui/components/checkbox-group";
+import { CheckboxGroupRoot } from "@craftdotui/baseui/components/checkbox-group";
 
 const frameworks = [
 	{ id: "react", label: "React" },
@@ -17,7 +17,7 @@ export default function Particle() {
 	const [value, setValue] = React.useState<string[]>([]);
 
 	return (
-		<CheckboxGroup
+		<CheckboxGroupRoot
 			aria-labelledby={id}
 			defaultValue={["react"]}
 			value={value}
@@ -26,9 +26,9 @@ export default function Particle() {
 			className="flex flex-col items-start gap-1"
 		>
 			<div className="flex items-center gap-2 cursor-pointer">
-				<Checkbox name="JavaScript" parent>
+				<CheckboxRoot name="JavaScript" parent>
 					<CheckboxIndicator />
-				</Checkbox>
+				</CheckboxRoot>
 				<span>JavaScript</span>
 			</div>
 
@@ -37,12 +37,15 @@ export default function Particle() {
 					key={framework.id}
 					className="ms-4 flex items-center gap-2 cursor-pointer"
 				>
-					<Checkbox id={`${id}-${framework.id}`} value={framework.id}>
+					<CheckboxRoot
+						id={`${id}-${framework.id}`}
+						value={framework.id}
+					>
 						<CheckboxIndicator />
-					</Checkbox>
+					</CheckboxRoot>
 					<span>{framework.label}</span>
 				</div>
 			))}
-		</CheckboxGroup>
+		</CheckboxGroupRoot>
 	);
 }

@@ -11,7 +11,7 @@ import {
 } from "@craftdotui/baseui/components/menu";
 
 import {
-	Tooltip,
+	TooltipRoot,
 	TooltipPortal,
 	TooltipPositioner,
 	TooltipPopup,
@@ -103,7 +103,7 @@ export function InstallCommandDropdown({
 
 	return (
 		<div className="hidden md:flex items-center justify-between cursor-pointer border border-border border-dashed rounded-md overflow-hidden">
-			<Tooltip>
+			<TooltipRoot>
 				<TooltipTrigger
 					render={
 						<button
@@ -115,18 +115,14 @@ export function InstallCommandDropdown({
 						</button>
 					}
 				/>
-
 				<TooltipPortal>
-					<TooltipPositioner sideOffset={10}>
-						<TooltipPopup
-							hideTooltipArrow
-							className="max-w-150 bg-muted"
-						>
-							<code className="text-xs">{installCommand}</code>
+					<TooltipPositioner sideOffset={5}>
+						<TooltipPopup className="bg-popover text-foreground">
+							{hasCopied ? "Copied!" : "Click to copy"}
 						</TooltipPopup>
 					</TooltipPositioner>
 				</TooltipPortal>
-			</Tooltip>
+			</TooltipRoot>
 
 			<MenuRoot>
 				<MenuTrigger

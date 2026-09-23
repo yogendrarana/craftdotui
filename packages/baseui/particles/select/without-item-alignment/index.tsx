@@ -1,5 +1,5 @@
 import {
-	Select,
+	SelectRoot,
 	SelectTrigger,
 	SelectValue,
 	SelectPortal,
@@ -12,7 +12,7 @@ import {
 export default function FrontendFrameworksSelect() {
 	return (
 		<div className="w-full max-w-50">
-			<Select defaultValue="react">
+			<SelectRoot defaultValue="react">
 				<SelectTrigger>
 					<SelectValue />
 				</SelectTrigger>
@@ -27,7 +27,7 @@ export default function FrontendFrameworksSelect() {
 						</SelectPopup>
 					</SelectPositioner>
 				</SelectPortal>
-			</Select>
+			</SelectRoot>
 		</div>
 	);
 }

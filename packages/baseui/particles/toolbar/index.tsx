@@ -8,12 +8,12 @@ import {
 } from "@craftdotui/baseui/components/toolbar";
 
 import {
-	ToggleGroup,
+	ToggleGroupRoot,
 	ToggleGroupItem,
 } from "@craftdotui/baseui/components/toggle-group";
 
 import {
-	Select,
+	SelectRoot,
 	SelectTrigger,
 	SelectValue,
 	SelectPortal,
@@ -46,7 +46,7 @@ export function Particle() {
 		<div>
 			<ToolbarRoot>
 				{/* Text formatting */}
-				<ToggleGroup multiple className="flex gap-0.5">
+				<ToggleGroupRoot multiple className="flex gap-0.5">
 					<ToolbarButton
 						render={
 							<ToggleGroupItem value="bold">
@@ -76,12 +76,15 @@ export function Particle() {
 						aria-label="Underline"
 						size="icon"
 					/>
-				</ToggleGroup>
+				</ToggleGroupRoot>
 
 				<ToolbarSeparator />
 
 				{/* Text alignment */}
-				<ToggleGroup defaultValue={["left"]} className="flex gap-0.5">
+				<ToggleGroupRoot
+					defaultValue={["left"]}
+					className="flex gap-0.5"
+				>
 					<ToolbarButton
 						render={
 							<ToggleGroupItem value="left">
@@ -111,12 +114,12 @@ export function Particle() {
 						aria-label="Align right"
 						size="icon"
 					/>
-				</ToggleGroup>
+				</ToggleGroupRoot>
 
 				<ToolbarSeparator />
 
 				{/* Font family */}
-				<Select defaultValue="inter">
+				<SelectRoot defaultValue="inter">
 					<ToolbarButton render={<SelectTrigger className="w-30" />}>
 						<SelectValue />
 					</ToolbarButton>
@@ -132,7 +135,7 @@ export function Particle() {
 							</SelectPopup>
 						</SelectPositioner>
 					</SelectPortal>
-				</Select>
+				</SelectRoot>
 
 				<ToolbarSeparator />
 

@@ -7,7 +7,7 @@ import { cn } from "@craftdotui/lib/utils";
 /* Slider                                                                     */
 /* -------------------------------------------------------------------------- */
 
-function Slider({ className, ...props }: SliderPrimitive.Root.Props) {
+function SliderRoot({ className, ...props }: SliderPrimitive.Root.Props) {
 	return (
 		<SliderPrimitive.Root
 			className={cn(
@@ -125,8 +125,17 @@ function SliderThumb({ className, ...props }: SliderPrimitive.Thumb.Props) {
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
+export const Slider = {
+	Root: SliderRoot,
+	Value: SliderValue,
+	Control: SliderControl,
+	Track: SliderTrack,
+	Indicator: SliderIndicator,
+	Thumb: SliderThumb,
+};
+
 export {
-	Slider,
+	SliderRoot,
 	SliderValue,
 	SliderControl,
 	SliderTrack,

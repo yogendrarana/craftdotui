@@ -6,10 +6,10 @@ import {
 	MenuPositioner,
 	MenuPopup,
 	MenuItem,
-	MenuPrimitive,
+	createHandle,
 } from "@craftdotui/baseui/components/menu";
 
-const demoMenu = MenuPrimitive.createHandle();
+const demoMenu = createHandle();
 
 export function Particle() {
 	return (

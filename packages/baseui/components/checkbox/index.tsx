@@ -8,7 +8,7 @@ import { cn } from "@craftdotui/lib/utils";
 /* Checkbox Root                                                              */
 /* -------------------------------------------------------------------------- */
 
-function Checkbox({ className, ...props }: CheckboxPrimitive.Root.Props) {
+function CheckboxRoot({ className, ...props }: CheckboxPrimitive.Root.Props) {
 	return (
 		<CheckboxPrimitive.Root
 			className={cn(
@@ -95,7 +95,12 @@ function MinusIcon({ className, ...props }: React.ComponentProps<"svg">) {
 }
 
 /* -------------------------------------------------------------------------- */
-/* Export                                                                     */
+/* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
-export { Checkbox, CheckboxIndicator };
+export const Checkbox = {
+	Root: CheckboxRoot,
+	Indicator: CheckboxIndicator,
+};
+
+export { CheckboxRoot, CheckboxIndicator };

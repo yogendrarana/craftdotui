@@ -8,7 +8,7 @@ import { cn } from "@craftdotui/lib/utils";
 /* Dialog Root                                                                */
 /* -------------------------------------------------------------------------- */
 
-const Dialog = DialogPrimitive.Root;
+const DialogRoot = DialogPrimitive.Root;
 
 /* -------------------------------------------------------------------------- */
 /* Dialog Trigger                                                             */
@@ -158,11 +158,24 @@ function DialogFooter(props: React.HTMLAttributes<HTMLDivElement>) {
 }
 
 /* -------------------------------------------------------------------------- */
-/* Export                                                                     */
+/* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
+export const Dialog = {
+	Root: DialogRoot,
+	Trigger: DialogTrigger,
+	Portal: DialogPortal,
+	Backdrop: DialogBackdrop,
+	Viewport: DialogViewport,
+	Popup: DialogPopup,
+	Title: DialogTitle,
+	Description: DialogDescription,
+	Close: DialogClose,
+	Footer: DialogFooter,
+};
+
 export {
-	Dialog,
+	DialogRoot,
 	DialogTrigger,
 	DialogPortal,
 	DialogBackdrop,

@@ -130,7 +130,7 @@ function ScrollAreaCorner({
 /* Composed ScrollArea                                                        */
 /* -------------------------------------------------------------------------- */
 
-function ScrollArea({
+function ScrollAreaComposed({
 	className,
 	children,
 	...props
@@ -158,9 +158,18 @@ function ScrollArea({
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
+export const ScrollArea = {
+	Root: ScrollAreaRoot,
+	Viewport: ScrollAreaViewport,
+	Content: ScrollAreaContent,
+	Scrollbar: ScrollAreaScrollbar,
+	Thumb: ScrollAreaThumb,
+	Corner: ScrollAreaCorner,
+	Composed: ScrollAreaComposed,
+};
+
 export {
 	ScrollAreaRoot,
-	ScrollArea,
 	ScrollAreaViewport,
 	ScrollAreaContent,
 	ScrollAreaScrollbar,

@@ -2,10 +2,10 @@
 
 import * as React from "react";
 import {
-	Checkbox,
+	CheckboxRoot,
 	CheckboxIndicator,
 } from "@craftdotui/baseui/components/checkbox";
-import { CheckboxGroup } from "@craftdotui/baseui/components/checkbox-group";
+import { CheckboxGroupRoot } from "@craftdotui/baseui/components/checkbox-group";
 
 const frontendFrameworks = ["react", "vue", "svelte"];
 const reactFrameworks = ["next", "remix"];
@@ -15,7 +15,7 @@ export default function LanguageFrameworkTree() {
 	const [reactValues, setReactValues] = React.useState<string[]>([]);
 
 	return (
-		<CheckboxGroup
+		<CheckboxGroupRoot
 			value={frontendValues}
 			allValues={frontendFrameworks}
 			onValueChange={(value) => {
@@ -32,7 +32,7 @@ export default function LanguageFrameworkTree() {
 			}}
 		>
 			<div className="flex items-center gap-2 cursor-pointer">
-				<Checkbox
+				<CheckboxRoot
 					name="javascript"
 					parent
 					indeterminate={
@@ -43,25 +43,25 @@ export default function LanguageFrameworkTree() {
 					}
 				>
 					<CheckboxIndicator />
-				</Checkbox>
+				</CheckboxRoot>
 				<span>Frontend</span>
 			</div>
 
 			<div className="ms-4 flex items-center gap-2 cursor-pointer">
-				<Checkbox value="vue">
+				<CheckboxRoot value="vue">
 					<CheckboxIndicator />
-				</Checkbox>
+				</CheckboxRoot>
 				<span>Vue</span>
 			</div>
 
 			<div className="ms-4 flex items-center gap-2 cursor-pointer">
-				<Checkbox value="svelte">
+				<CheckboxRoot value="svelte">
 					<CheckboxIndicator />
-				</Checkbox>
+				</CheckboxRoot>
 				<span>Svelte</span>
 			</div>
 
-			<CheckboxGroup
+			<CheckboxGroupRoot
 				value={reactValues}
 				allValues={reactFrameworks}
 				onValueChange={(value) => {
@@ -79,7 +79,7 @@ export default function LanguageFrameworkTree() {
 				}}
 			>
 				<div className="ms-4 flex items-center gap-2 cursor-pointer">
-					<Checkbox
+					<CheckboxRoot
 						parent
 						indeterminate={
 							reactValues.length > 0 &&
@@ -87,7 +87,7 @@ export default function LanguageFrameworkTree() {
 						}
 					>
 						<CheckboxIndicator />
-					</Checkbox>
+					</CheckboxRoot>
 					<span>React</span>
 				</div>
 
@@ -96,13 +96,13 @@ export default function LanguageFrameworkTree() {
 						key={framework}
 						className="ms-8 flex items-center gap-2 cursor-pointer"
 					>
-						<Checkbox name={framework} value={framework}>
+						<CheckboxRoot name={framework} value={framework}>
 							<CheckboxIndicator />
-						</Checkbox>
+						</CheckboxRoot>
 						<span className="capitalize">{framework}</span>
 					</div>
 				))}
-			</CheckboxGroup>
-		</CheckboxGroup>
+			</CheckboxGroupRoot>
+		</CheckboxGroupRoot>
 	);
 }

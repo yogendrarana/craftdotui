@@ -7,7 +7,7 @@ import { cn } from "@craftdotui/lib/utils";
 /* Switch                                                                     */
 /* -------------------------------------------------------------------------- */
 
-function Switch({ className, ...props }: SwitchPrimitive.Root.Props) {
+function SwitchRoot({ className, ...props }: SwitchPrimitive.Root.Props) {
 	return (
 		<SwitchPrimitive.Root
 			className={cn(
@@ -50,4 +50,9 @@ function SwitchThumb({ className, ...props }: SwitchPrimitive.Thumb.Props) {
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
-export { Switch };
+export const Switch = {
+	Root: SwitchRoot,
+	Thumb: SwitchThumb,
+};
+
+export { SwitchRoot, SwitchThumb };

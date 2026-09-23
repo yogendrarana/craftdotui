@@ -1,5 +1,5 @@
 import {
-	Checkbox,
+	CheckboxRoot,
 	CheckboxIndicator,
 } from "@craftdotui/baseui/components/checkbox";
 
@@ -7,9 +7,9 @@ export default function Particle() {
 	return (
 		<div className="flex flex-col gap-4">
 			<div className="flex items-center gap-2">
-				<Checkbox id="disabled-unchecked" disabled>
+				<CheckboxRoot id="disabled-unchecked" disabled>
 					<CheckboxIndicator />
-				</Checkbox>
+				</CheckboxRoot>
 				<label
 					htmlFor="disabled-unchecked"
 					className="text-sm text-muted-foreground cursor-not-allowed"
@@ -18,9 +18,9 @@ export default function Particle() {
 				</label>
 			</div>
 			<div className="flex items-center gap-2">
-				<Checkbox id="disabled-checked" disabled defaultChecked>
+				<CheckboxRoot id="disabled-checked" disabled defaultChecked>
 					<CheckboxIndicator />
-				</Checkbox>
+				</CheckboxRoot>
 				<label
 					htmlFor="disabled-checked"
 					className="text-sm text-muted-foreground cursor-not-allowed"

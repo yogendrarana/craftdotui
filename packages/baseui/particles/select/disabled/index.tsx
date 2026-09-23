@@ -1,5 +1,5 @@
 import {
-	Select,
+	SelectRoot,
 	SelectTrigger,
 	SelectValue,
 	SelectPortal,
@@ -12,7 +12,7 @@ import {
 export default function Particle() {
 	return (
 		<div className="w-full max-w-50">
-			<Select defaultValue="apple" disabled>
+			<SelectRoot defaultValue="apple" disabled>
 				<SelectTrigger>
 					<SelectValue />
 				</SelectTrigger>
@@ -28,7 +28,7 @@ export default function Particle() {
 						</SelectPopup>
 					</SelectPositioner>
 				</SelectPortal>
-			</Select>
+			</SelectRoot>
 		</div>
 	);
 }

@@ -1,5 +1,5 @@
 import {
-	Field,
+	FieldRoot,
 	FieldLabel,
 	FieldControl,
 	FieldDescription,
@@ -7,10 +7,10 @@ import {
 
 export function Particle() {
 	return (
-		<Field>
+		<FieldRoot>
 			<FieldLabel>Email</FieldLabel>
 			<FieldControl placeholder="you@example.com" />
 			<FieldDescription>We’ll never share your email.</FieldDescription>
-		</Field>
+		</FieldRoot>
 	);
 }

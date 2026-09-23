@@ -9,7 +9,7 @@ import { cn } from "@craftdotui/lib/utils";
 /* Tabs Root                                                                  */
 /* -------------------------------------------------------------------------- */
 
-function Tabs({ className, ...props }: TabsPrimitive.Root.Props) {
+function TabsRoot({ className, ...props }: TabsPrimitive.Root.Props) {
 	return (
 		<TabsPrimitive.Root
 			className={cn(
@@ -216,8 +216,19 @@ function TabsPanel({ className, ...props }: TabsPrimitive.Panel.Props) {
 }
 
 /* -------------------------------------------------------------------------- */
-/* Exports                                                                    */
-/* -------------------------------------------------------------------------- */
+export const Tabs = {
+	Root: TabsRoot,
+	List: TabsList,
+	Tab: TabsTab,
+	Panel: TabsPanel,
+};
 
-export { Tabs, TabsList, TabsTab, TabsPanel, TabsPrimitive };
+export {
+	TabsRoot,
+	TabsList,
+	TabsTab,
+	TabsPanel,
+	tabsListVariants,
+	tabsTabVariants,
+};
 export type { TabsListProps };

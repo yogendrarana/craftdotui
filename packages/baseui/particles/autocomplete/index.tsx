@@ -1,5 +1,5 @@
 import {
-	Autocomplete,
+	AutocompleteRoot,
 	AutocompleteInput,
 	AutocompletePopup,
 	AutocompleteList,
@@ -22,7 +22,7 @@ const tags: Tag[] = [
 export default function Example() {
 	return (
 		<div className="space-y-2">
-			<Autocomplete items={tags}>
+			<AutocompleteRoot items={tags}>
 				<AutocompleteInput placeholder="e.g. feature" />
 
 				<AutocompletePopup>
@@ -35,7 +35,7 @@ export default function Example() {
 						)}
 					</AutocompleteList>
 				</AutocompletePopup>
-			</Autocomplete>
+			</AutocompleteRoot>
 		</div>
 	);
 }

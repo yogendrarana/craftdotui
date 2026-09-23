@@ -1,28 +1,28 @@
 import {
-	Field,
+	FieldRoot,
 	FieldLabel,
 	FieldControl,
 } from "@craftdotui/baseui/components/field";
 
 import {
-	Fieldset,
+	FieldsetRoot,
 	FieldsetLegend,
 } from "@craftdotui/baseui/components/fieldset";
 
 export function FieldsetExampleWithFields() {
 	return (
-		<Fieldset>
+		<FieldsetRoot>
 			<FieldsetLegend>Account details</FieldsetLegend>
 
-			<Field>
+			<FieldRoot>
 				<FieldLabel>Email</FieldLabel>
 				<FieldControl type="email" />
-			</Field>
+			</FieldRoot>
 
-			<Field>
+			<FieldRoot>
 				<FieldLabel>Password</FieldLabel>
 				<FieldControl type="password" />
-			</Field>
-		</Fieldset>
+			</FieldRoot>
+		</FieldsetRoot>
 	);
 }

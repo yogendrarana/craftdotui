@@ -1,5 +1,5 @@
 import {
-	Slider,
+	SliderRoot,
 	SliderControl,
 	SliderTrack,
 	SliderIndicator,
@@ -8,7 +8,7 @@ import {
 
 export function Particle() {
 	return (
-		<Slider defaultValue={[25, 75]} className="w-full max-w-sm">
+		<SliderRoot defaultValue={[25, 75]} className="w-full max-w-sm">
 			<SliderControl>
 				<SliderTrack>
 					<SliderIndicator />
@@ -16,6 +16,6 @@ export function Particle() {
 					<SliderThumb index={1} />
 				</SliderTrack>
 			</SliderControl>
-		</Slider>
+		</SliderRoot>
 	);
 }

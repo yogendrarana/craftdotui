@@ -7,7 +7,7 @@ import { cn } from "@craftdotui/lib/utils";
 /* Progress                                                                   */
 /* -------------------------------------------------------------------------- */
 
-function Progress({ className, ...props }: ProgressPrimitive.Root.Props) {
+function ProgressRoot({ className, ...props }: ProgressPrimitive.Root.Props) {
 	return (
 		<ProgressPrimitive.Root
 			className={cn("w-full", "flex flex-col gap-2", className)}
@@ -90,8 +90,16 @@ function ProgressValue({ className, ...props }: ProgressPrimitive.Value.Props) {
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
+export const Progress = {
+	Root: ProgressRoot,
+	Label: ProgressLabel,
+	Track: ProgressTrack,
+	Indicator: ProgressIndicator,
+	Value: ProgressValue,
+};
+
 export {
-	Progress,
+	ProgressRoot,
 	ProgressLabel,
 	ProgressTrack,
 	ProgressIndicator,

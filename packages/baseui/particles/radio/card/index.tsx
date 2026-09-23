@@ -1,4 +1,4 @@
-import { Radio, RadioGroup } from "@craftdotui/baseui/components/radio";
+import { RadioGroupRoot, RadioRoot } from "@craftdotui/baseui/components/radio";
 
 const plans = [
 	{
@@ -23,14 +23,18 @@ const plans = [
 
 export function Particle() {
 	return (
-		<RadioGroup defaultValue="free" className="w-full max-w-md gap-3">
+		<RadioGroupRoot defaultValue="free" className="w-full max-w-md gap-3">
 			{plans.map((plan) => (
 				<label
 					key={plan.id}
 					htmlFor={plan.id}
 					className="relative flex items-start gap-3 p-3 border rounded-lg cursor-pointer transition-colors hover:bg-muted has-checked:border-primary has-checked:bg-muted"
 				>
-					<Radio value={plan.id} id={plan.id} className="mt-0.5" />
+					<RadioRoot
+						value={plan.id}
+						id={plan.id}
+						className="mt-0.5"
+					/>
 					<div className="flex-1">
 						<div className="flex items-center justify-between">
 							<span className="font-medium">{plan.name}</span>
@@ -44,6 +48,6 @@ export function Particle() {
 					</div>
 				</label>
 			))}
-		</RadioGroup>
+		</RadioGroupRoot>
 	);
 }

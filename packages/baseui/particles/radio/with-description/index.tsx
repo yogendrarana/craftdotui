@@ -1,10 +1,10 @@
-import { Radio, RadioGroup } from "@craftdotui/baseui/components/radio";
+import { RadioGroupRoot, RadioRoot } from "@craftdotui/baseui/components/radio";
 
 export function Particle() {
 	return (
-		<RadioGroup defaultValue="all">
+		<RadioGroupRoot defaultValue="all">
 			<div className="flex items-start gap-2">
-				<Radio value="all" id="all" className="mt-0.5" />
+				<RadioRoot value="all" id="all" className="mt-0.5" />
 				<div className="flex flex-col gap-1">
 					<label
 						htmlFor="all"
@@ -19,7 +19,7 @@ export function Particle() {
 			</div>
 
 			<div className="flex items-start gap-2">
-				<Radio value="mentions" id="mentions" className="mt-0.5" />
+				<RadioRoot value="mentions" id="mentions" className="mt-0.5" />
 				<div className="flex flex-col gap-1">
 					<label
 						htmlFor="mentions"
@@ -34,7 +34,7 @@ export function Particle() {
 			</div>
 
 			<div className="flex items-start gap-2">
-				<Radio value="none" id="none" className="mt-0.5" />
+				<RadioRoot value="none" id="none" className="mt-0.5" />
 				<div className="flex flex-col gap-1">
 					<label
 						htmlFor="none"
@@ -47,6 +47,6 @@ export function Particle() {
 					</p>
 				</div>
 			</div>
-		</RadioGroup>
+		</RadioGroupRoot>
 	);
 }

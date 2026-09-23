@@ -1,9 +1,9 @@
-import { Switch } from "@craftdotui/baseui/components/switch";
+import { SwitchRoot } from "@craftdotui/baseui/components/switch";
 
 export function Particle() {
 	return (
 		<div className="flex items-start space-x-2">
-			<Switch id="marketing-emails" defaultChecked />
+			<SwitchRoot id="marketing-emails" defaultChecked />
 			<div className="grid gap-1.5 leading-none">
 				<label
 					htmlFor="marketing-emails"

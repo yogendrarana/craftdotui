@@ -1,21 +1,21 @@
 import { BoldIcon, ItalicIcon, UnderlineIcon } from "lucide-react";
 
 import {
-	Tooltip,
+	TooltipRoot,
 	TooltipPopup,
 	TooltipProvider,
 	TooltipTrigger,
 	TooltipPortal,
 	TooltipPositioner,
-	TooltipPrimitive,
+	createHandle,
 } from "@craftdotui/baseui/components/tooltip";
 
 import {
 	ToggleGroupItem,
-	ToggleGroup,
+	ToggleGroupRoot,
 } from "@craftdotui/baseui/components/toggle-group";
 
-const tooltipHandle = TooltipPrimitive.createHandle();
+const tooltipHandle = createHandle();
 
 const BoldTooltip = () => <span>Apply bold to text.</span>;
 const ItalicTooltip = () => <span>Italicizing the text is fun.</span>;
@@ -26,7 +26,7 @@ const UnderlineTooltip = () => (
 export default function Particle() {
 	return (
 		<TooltipProvider delay={100}>
-			<ToggleGroup>
+			<ToggleGroupRoot>
 				<TooltipTrigger
 					handle={tooltipHandle}
 					payload={BoldTooltip}
@@ -68,9 +68,9 @@ export default function Particle() {
 				>
 					<UnderlineIcon />
 				</TooltipTrigger>
-			</ToggleGroup>
+			</ToggleGroupRoot>
 
-			<Tooltip handle={tooltipHandle}>
+			<TooltipRoot handle={tooltipHandle}>
 				{({ payload }) => {
 					const Payload = payload as React.ComponentType | undefined;
 
@@ -84,7 +84,7 @@ export default function Particle() {
 						</TooltipPortal>
 					);
 				}}
-			</Tooltip>
+			</TooltipRoot>
 		</TooltipProvider>
 	);
 }

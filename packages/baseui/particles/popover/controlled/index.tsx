@@ -9,12 +9,13 @@ import {
 	PopoverPopup,
 	PopoverTitle,
 	PopoverDescription,
-	PopoverPrimitive,
 	PopoverArrow,
+	createHandle,
+	type PopoverChangeEventDetails,
 } from "@craftdotui/baseui/components/popover";
 import { Button } from "@craftdotui/baseui/components/button";
 
-const demoPopover = PopoverPrimitive.createHandle();
+const demoPopover = createHandle();
 
 export default function Particle() {
 	const [open, setOpen] = React.useState(false);
@@ -22,7 +23,7 @@ export default function Particle() {
 
 	const handleOpenChange = (
 		isOpen: boolean,
-		eventDetails: PopoverPrimitive.Root.ChangeEventDetails,
+		eventDetails: PopoverChangeEventDetails,
 	) => {
 		setOpen(isOpen);
 		setTriggerId(eventDetails.trigger?.id ?? null);

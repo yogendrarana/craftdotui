@@ -1,7 +1,7 @@
 "use client";
 
 import {
-	Select,
+	SelectRoot,
 	SelectTrigger,
 	SelectValue,
 	SelectPortal,
@@ -20,7 +20,7 @@ const items = [
 export default function Particle() {
 	return (
 		<div className="w-full max-w-80">
-			<Select
+			<SelectRoot
 				defaultValue={items[0]}
 				itemToStringValue={(item) => item.value}
 			>
@@ -56,7 +56,7 @@ export default function Particle() {
 						</SelectPopup>
 					</SelectPositioner>
 				</SelectPortal>
-			</Select>
+			</SelectRoot>
 		</div>
 	);
 }

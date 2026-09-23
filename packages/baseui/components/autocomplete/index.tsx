@@ -9,7 +9,7 @@ import { cn } from "@craftdotui/lib/utils";
 /* Autocomplete                                                               */
 /* -------------------------------------------------------------------------- */
 
-const Autocomplete = AutocompletePrimitive.Root;
+const AutocompleteRoot = AutocompletePrimitive.Root;
 
 /* -------------------------------------------------------------------------- */
 /* AutocompleteInput                                                          */
@@ -359,8 +359,25 @@ function AutocompleteStatus({
 /* Export                                                                     */
 /* -------------------------------------------------------------------------- */
 
+export const Autocomplete = {
+	Root: AutocompleteRoot,
+	Input: AutocompleteInput,
+	Trigger: AutocompleteTrigger,
+	Clear: AutocompleteClear,
+	Icon: AutocompleteIcon,
+	Popup: AutocompletePopup,
+	List: AutocompleteList,
+	Item: AutocompleteItem,
+	Empty: AutocompleteEmpty,
+	Separator: AutocompleteSeparator,
+	Group: AutocompleteGroup,
+	GroupLabel: AutocompleteGroupLabel,
+	Status: AutocompleteStatus,
+	Collection: AutocompleteCollection,
+};
+
 export {
-	Autocomplete,
+	AutocompleteRoot,
 	AutocompleteInput,
 	AutocompleteTrigger,
 	AutocompleteClear,

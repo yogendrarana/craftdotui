@@ -7,7 +7,7 @@
 	"files": [
 		{
 			"path": "packages/baseui/components/form/index.tsx",
-			"content": "\"use client\";\n\nimport { Form as FormPrimitive } from \"@base-ui/react/form\";\n\nimport { cn } from \"@/lib/utils\";\n\nfunction Form({ className, ...props }: FormPrimitive.Props) {\n\treturn (\n\t\t<FormPrimitive\n\t\t\tclassName={cn(\"flex w-full flex-col gap-4\", className)}\n\t\t\tdata-slot=\"form\"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\nexport { Form };\n",
+			"content": "\"use client\";\n\nimport { Form as FormPrimitive } from \"@base-ui/react/form\";\n\nimport { cn } from \"@/lib/utils\";\n\nfunction FormRoot({ className, ...props }: FormPrimitive.Props) {\n\treturn (\n\t\t<FormPrimitive\n\t\t\tclassName={cn(\"flex w-full flex-col gap-4\", className)}\n\t\t\tdata-slot=\"form\"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\nexport const Form = {\n\tRoot: FormRoot,\n};\n\nexport { FormRoot };\n",
 			"type": "registry:component",
 			"target": "components/baseui/components/form.tsx"
 		}

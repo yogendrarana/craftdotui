@@ -7,7 +7,7 @@
 	"files": [
 		{
 			"path": "packages/baseui/particles/input/with-field/index.tsx",
-			"content": "import {\n\tField,\n\tFieldLabel,\n\tFieldDescription,\n} from \"@/components/baseui/components/field\";\nimport { Input } from \"@/components/baseui/components/input\";\n\nexport function InputExampleWithField() {\n\treturn (\n\t\t<Field>\n\t\t\t<FieldLabel>Email</FieldLabel>\n\t\t\t<Input type=\"email\" placeholder=\"you@example.com\" />\n\t\t\t<FieldDescription>We’ll never share your email.</FieldDescription>\n\t\t</Field>\n\t);\n}\n",
+			"content": "import {\n\tFieldRoot,\n\tFieldLabel,\n\tFieldDescription,\n} from \"@/components/baseui/components/field\";\nimport { Input } from \"@/components/baseui/components/input\";\n\nexport function InputExampleWithField() {\n\treturn (\n\t\t<FieldRoot>\n\t\t\t<FieldLabel>Email</FieldLabel>\n\t\t\t<Input type=\"email\" placeholder=\"you@example.com\" />\n\t\t\t<FieldDescription>We’ll never share your email.</FieldDescription>\n\t\t</FieldRoot>\n\t);\n}\n",
 			"type": "registry:component",
 			"target": "components/baseui/particles/inputp-with-field.tsx"
 		}

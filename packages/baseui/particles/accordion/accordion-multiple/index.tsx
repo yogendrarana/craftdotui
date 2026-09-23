@@ -1,7 +1,7 @@
 "use client";
 
 import {
-	Accordion,
+	AccordionRoot,
 	AccordionItem,
 	AccordionTrigger,
 	AccordionPanel,
@@ -9,7 +9,7 @@ import {
 
 export default function Particle() {
 	return (
-		<Accordion multiple className="w-full max-w-md">
+		<AccordionRoot multiple className="w-full max-w-md">
 			<AccordionItem value="item-1">
 				<AccordionTrigger>What is your refund policy?</AccordionTrigger>
 				<AccordionPanel>
@@ -37,6 +37,6 @@ export default function Particle() {
 					and delivery times vary by location.
 				</AccordionPanel>
 			</AccordionItem>
-		</Accordion>
+		</AccordionRoot>
 	);
 }

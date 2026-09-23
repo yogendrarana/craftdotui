@@ -11,12 +11,12 @@ import {
 	PopoverViewport,
 	PopoverTitle,
 	PopoverDescription,
-	PopoverPrimitive,
 	PopoverArrow,
+	createHandle,
 } from "@craftdotui/baseui/components/popover";
 import { Button } from "@craftdotui/baseui/components/button";
 
-const animatedPopover = PopoverPrimitive.createHandle<React.ComponentType>();
+const animatedPopover = createHandle<React.ComponentType>();
 
 export default function PopoverAnimatedDemo() {
 	return (

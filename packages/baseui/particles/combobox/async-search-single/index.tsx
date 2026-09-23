@@ -12,7 +12,7 @@ import {
 	ComboboxPortal,
 	ComboboxEmpty,
 	ComboboxStatus,
-	ComboboxPrimitive,
+	useFilter,
 } from "@craftdotui/baseui/components/combobox";
 
 interface Framework {
@@ -53,7 +53,7 @@ export default function Particle() {
 	const [error, setError] = React.useState<string | null>(null);
 	const [isPending, startTransition] = React.useTransition();
 
-	const { contains } = ComboboxPrimitive.useFilter();
+	const { contains } = useFilter();
 	const abortControllerRef = React.useRef<AbortController | null>(null);
 
 	const trimmedSearchValue = searchValue.trim();

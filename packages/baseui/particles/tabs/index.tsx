@@ -1,5 +1,5 @@
 import {
-	Tabs,
+	TabsRoot,
 	TabsList,
 	TabsTab,
 	TabsPanel,
@@ -7,7 +7,7 @@ import {
 
 export function Particle() {
 	return (
-		<Tabs defaultValue="account" className="w-[400px]">
+		<TabsRoot defaultValue="account" className="w-[400px]">
 			<TabsList>
 				<TabsTab value="account">Account</TabsTab>
 				<TabsTab value="password">Password</TabsTab>
@@ -30,6 +30,6 @@ export function Particle() {
 					Change your password here.
 				</p>
 			</TabsPanel>
-		</Tabs>
+		</TabsRoot>
 	);
 }

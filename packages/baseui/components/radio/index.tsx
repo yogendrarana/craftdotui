@@ -8,7 +8,7 @@ import { cn } from "@craftdotui/lib/utils";
 /* Radio Group                                                                */
 /* -------------------------------------------------------------------------- */
 
-function RadioGroup({ className, ...props }: RadioGroupPrimitive.Props) {
+function RadioGroupRoot({ className, ...props }: RadioGroupPrimitive.Props) {
 	return (
 		<RadioGroupPrimitive
 			className={cn("flex flex-col gap-2", className)}
@@ -43,7 +43,7 @@ function RadioIndicator({
 /* Radio                                                                      */
 /* -------------------------------------------------------------------------- */
 
-function Radio({ className, ...props }: RadioPrimitive.Root.Props) {
+function RadioRoot({ className, ...props }: RadioPrimitive.Root.Props) {
 	return (
 		<RadioPrimitive.Root
 			className={cn(
@@ -67,4 +67,14 @@ function Radio({ className, ...props }: RadioPrimitive.Root.Props) {
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
-export { RadioGroup, Radio };
+export const Radio = {
+	Root: RadioRoot,
+	Indicator: RadioIndicator,
+	Group: RadioGroupRoot,
+};
+
+export const RadioGroup = {
+	Root: RadioGroupRoot,
+};
+
+export { RadioGroupRoot, RadioRoot, RadioIndicator };

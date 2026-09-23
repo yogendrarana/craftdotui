@@ -1,5 +1,5 @@
 import {
-	Meter,
+	MeterRoot,
 	MeterTrack,
 	MeterIndicator,
 	MeterValue,
@@ -7,11 +7,11 @@ import {
 
 export function MeterExampleMinimal() {
 	return (
-		<Meter value={85} max={100} className="max-w-100">
+		<MeterRoot value={85} max={100} className="max-w-100">
 			<MeterTrack>
 				<MeterIndicator />
 			</MeterTrack>
 			<MeterValue />
-		</Meter>
+		</MeterRoot>
 	);
 }

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import {
-	Slider,
+	SliderRoot,
 	SliderControl,
 	SliderTrack,
 	SliderIndicator,
@@ -18,7 +18,7 @@ export function Particle() {
 				<span className="text-sm font-medium">Volume</span>
 				<span className="text-sm text-muted-foreground">{value}%</span>
 			</div>
-			<Slider
+			<SliderRoot
 				value={value}
 				onValueChange={(val) => setValue(val as number)}
 				className="w-full"
@@ -29,7 +29,7 @@ export function Particle() {
 						<SliderThumb />
 					</SliderTrack>
 				</SliderControl>
-			</Slider>
+			</SliderRoot>
 		</div>
 	);
 }

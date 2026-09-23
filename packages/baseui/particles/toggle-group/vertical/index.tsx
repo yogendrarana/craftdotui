@@ -1,12 +1,12 @@
 import {
-	ToggleGroup,
+	ToggleGroupRoot,
 	ToggleGroupItem,
 } from "@craftdotui/baseui/components/toggle-group";
 import { Bold, Italic, Underline } from "lucide-react";
 
 export function Particle() {
 	return (
-		<ToggleGroup
+		<ToggleGroupRoot
 			defaultValue={["bold"]}
 			orientation="vertical"
 			variant="outline"
@@ -28,6 +28,6 @@ export function Particle() {
 			>
 				<Underline className="h-4 w-4" />
 			</ToggleGroupItem>
-		</ToggleGroup>
+		</ToggleGroupRoot>
 	);
 }

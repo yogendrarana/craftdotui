@@ -7,7 +7,7 @@ import { cn } from "@craftdotui/lib/utils";
 /* Menubar Root                                                               */
 /* -------------------------------------------------------------------------- */
 
-function Menubar({ className, ...props }: MenubarPrimitive.Props) {
+function MenubarRoot({ className, ...props }: MenubarPrimitive.Props) {
 	return (
 		<MenubarPrimitive
 			data-slot="menubar-root"
@@ -24,4 +24,8 @@ function Menubar({ className, ...props }: MenubarPrimitive.Props) {
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
-export { Menubar };
+export const Menubar = {
+	Root: MenubarRoot,
+};
+
+export { MenubarRoot };

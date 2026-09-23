@@ -1,6 +1,6 @@
 import { useState } from "react";
 import {
-	Tooltip,
+	TooltipRoot,
 	TooltipPopup,
 	TooltipPositioner,
 	TooltipPortal,
@@ -15,7 +15,7 @@ export function Particle() {
 	return (
 		<TooltipProvider>
 			<div className="flex items-center gap-4">
-				<Tooltip open={open} onOpenChange={setOpen}>
+				<TooltipRoot open={open} onOpenChange={setOpen}>
 					<TooltipTrigger
 						render={
 							<Button variant="outline" aria-label="Open Tooltip">
@@ -28,7 +28,7 @@ export function Particle() {
 							<TooltipPopup>Controlled Tooltip</TooltipPopup>
 						</TooltipPositioner>
 					</TooltipPortal>
-				</Tooltip>
+				</TooltipRoot>
 
 				<Button
 					onClick={() => setOpen((prev) => !prev)}

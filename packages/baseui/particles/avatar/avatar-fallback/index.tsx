@@ -1,9 +1,12 @@
-import { Avatar, AvatarFallback } from "@craftdotui/baseui/components/avatar";
+import {
+	AvatarRoot,
+	AvatarFallback,
+} from "@craftdotui/baseui/components/avatar";
 
 export default function Particle() {
 	return (
-		<Avatar>
+		<AvatarRoot>
 			<AvatarFallback>YR</AvatarFallback>
-		</Avatar>
+		</AvatarRoot>
 	);
 }

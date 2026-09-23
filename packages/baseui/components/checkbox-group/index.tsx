@@ -7,7 +7,10 @@ import { cn } from "@craftdotui/lib/utils";
 /* Checkbox Group                                                             */
 /* -------------------------------------------------------------------------- */
 
-function CheckboxGroup({ className, ...props }: CheckboxGroupPrimitive.Props) {
+function CheckboxGroupRoot({
+	className,
+	...props
+}: CheckboxGroupPrimitive.Props) {
 	return (
 		<CheckboxGroupPrimitive
 			className={cn("flex flex-col items-start gap-3", className)}
@@ -17,7 +20,11 @@ function CheckboxGroup({ className, ...props }: CheckboxGroupPrimitive.Props) {
 }
 
 /* -------------------------------------------------------------------------- */
-/* Export                                                                     */
+/* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
-export { CheckboxGroup };
+export const CheckboxGroup = {
+	Root: CheckboxGroupRoot,
+};
+
+export { CheckboxGroupRoot };

@@ -8,7 +8,7 @@ import {
 	MenuItem,
 } from "@craftdotui/baseui/components/menu";
 import {
-	AlertDialog,
+	AlertDialogRoot,
 	AlertDialogPortal,
 	AlertDialogViewport,
 	AlertDialogPopup,
@@ -41,7 +41,7 @@ export function Particle() {
 				</MenuPortal>
 			</MenuRoot>
 
-			<AlertDialog open={openDialog} onOpenChange={setOpenDialog}>
+			<AlertDialogRoot open={openDialog} onOpenChange={setOpenDialog}>
 				<AlertDialogPortal>
 					<AlertDialogViewport>
 						<AlertDialogPopup>
@@ -66,7 +66,7 @@ export function Particle() {
 						</AlertDialogPopup>
 					</AlertDialogViewport>
 				</AlertDialogPortal>
-			</AlertDialog>
+			</AlertDialogRoot>
 		</>
 	);
 }
