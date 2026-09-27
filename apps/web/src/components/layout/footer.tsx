@@ -6,13 +6,15 @@ import { MaxWidthContainer } from "@/components/max-width-container";
 
 export function Footer() {
 	return (
-		<footer className="">
-			<MaxWidthContainer className="sm:border-l sm:border-r border-dashed">
+		<footer className="bg-muted/20">
+			<MaxWidthContainer className="sm:border-l sm:border-r">
 				<div
-					className={cn("py-6 flex justify-between items-end gap-4")}
+					className={cn(
+						"flex flex-col gap-4 py-5 sm:flex-row sm:items-center sm:justify-between",
+					)}
 				>
 					<div className="space-y-2">
-						<span className="text-xl font-semibold">
+						<span className="text-base font-semibold">
 							{siteConfig.name}
 						</span>
 						<p className="text-sm text-gray-500">
@@ -27,14 +29,8 @@ export function Footer() {
 						</p>
 					</div>
 
-					<p
-						className={cn(
-							"text-start text-3xl font-bold bg-clip-text text-transparent bg-linear-to-b from-neutral-50  to-neutral-300",
-							"md:text-3xl lg:text-5xl",
-							"dark:from-neutral-950 dark:to-neutral-800",
-						)}
-					>
-						Craft UI
+					<p className="text-sm text-muted-foreground">
+						Open source components for React interfaces.
 					</p>
 				</div>
 			</MaxWidthContainer>

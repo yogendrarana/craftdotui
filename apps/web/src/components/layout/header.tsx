@@ -24,15 +24,18 @@ export function Header() {
 	];
 
 	return (
-		<header className="bg-background sticky top-0 z-50 border-b border-dashed">
-			<MaxWidthContainer className="sm:border-l sm:border-r border-dashed">
-				<nav className="h-20 flex items-center justify-between">
-					<Link href="/" className="text-2xl font-bold">
+		<header className="sticky top-0 z-50 border-b bg-background/85 backdrop-blur-xl">
+			<MaxWidthContainer className="sm:border-l sm:border-r">
+				<nav className="flex h-16 items-center justify-between gap-4">
+					<Link
+						href="/"
+						className="inline-flex items-center text-lg font-bold"
+					>
 						Craft UI
 					</Link>
 
 					{/* Desktop Navigation */}
-					<div className="hidden md:flex mx-auto items-center gap-6">
+					<div className="hidden items-center rounded-full border bg-muted/40 p-1 md:flex">
 						{navLinks.map(({ href, label }) => {
 							const isActive = pathname.startsWith(href);
 							return (
@@ -40,9 +43,9 @@ export function Header() {
 									key={href}
 									href={href}
 									className={cn(
-										"text-sm transition-colors",
+										"rounded-full px-3 py-1.5 text-sm transition-colors",
 										isActive
-											? "text-foreground font-medium"
+											? "bg-background text-foreground border"
 											: "text-muted-foreground hover:text-foreground",
 									)}
 								>
@@ -53,7 +56,7 @@ export function Header() {
 					</div>
 
 					<div className="hidden md:flex items-center gap-2">
-						<GithubStars />
+						<GithubStars className="rounded-md" />
 						<ToggleMode />
 					</div>
 

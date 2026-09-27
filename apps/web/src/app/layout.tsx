@@ -48,10 +48,10 @@ export default function RootLayout({
 	children,
 }: Readonly<{ children: React.ReactNode }>) {
 	return (
-		<html lang="en" suppressHydrationWarning>
+		<html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
 			<body
 				className={cn(
-					"w-full flex flex-col justify-center overflow-x-hidden scroll-smooth",
+					"w-full flex flex-col justify-center overflow-x-hidden scroll-smooth antialiased",
 					inter.className,
 				)}
 			>

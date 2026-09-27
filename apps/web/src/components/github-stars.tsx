@@ -53,7 +53,7 @@ export const GithubStars = ({ className }: PropTypes) => {
 			rel="noopener noreferrer"
 			className={cn(
 				buttonVariants({ variant: "outline", size: "sm" }),
-				"hidden sm:flex rounded-none",
+				"hidden sm:flex rounded-md",
 				className,
 			)}
 		>

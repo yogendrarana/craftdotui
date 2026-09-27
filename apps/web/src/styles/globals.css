@@ -17,8 +17,18 @@ body {
 		@apply border-border;
 	}
 	body {
-		@apply bg-background;
+		background:
+			radial-gradient(
+				circle at top left,
+				color-mix(in oklch, var(--muted) 70%, transparent),
+				transparent 28rem
+			),
+			var(--background);
 		color: var(--foreground);
+	}
+	::selection {
+		background: var(--foreground);
+		color: var(--background);
 	}
 }
 
