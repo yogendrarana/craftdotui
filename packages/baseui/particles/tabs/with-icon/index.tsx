@@ -1,7 +1,7 @@
 import {
 	TabsRoot,
 	TabsList,
-	TabsTab,
+	Tab,
 	TabsPanel,
 } from "@craftdotui/baseui/components/tabs";
 import { User, Settings } from "lucide-react";
@@ -10,14 +10,14 @@ export function Particle() {
 	return (
 		<TabsRoot defaultValue="account" className="w-[400px]">
 			<TabsList>
-				<TabsTab value="account">
+				<Tab value="account">
 					<User className="w-4 h-4" />
 					Account
-				</TabsTab>
-				<TabsTab value="settings">
+				</Tab>
+				<Tab value="settings">
 					<Settings className="w-4 h-4" />
 					Settings
-				</TabsTab>
+				</Tab>
 			</TabsList>
 
 			<TabsPanel

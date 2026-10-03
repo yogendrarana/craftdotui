@@ -2,12 +2,12 @@ import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
-import { MaxWidthContainer } from "@/components/max-width-container";
+import { Container } from "@/components/container";
 
 export function Footer() {
 	return (
 		<footer className="bg-muted/20">
-			<MaxWidthContainer className="sm:border-l sm:border-r">
+			<Container size="2xl" className="sm:border-l sm:border-r">
 				<div
 					className={cn(
 						"flex flex-col gap-4 py-5 sm:flex-row sm:items-center sm:justify-between",
@@ -33,7 +33,7 @@ export function Footer() {
 						Open source components for React interfaces.
 					</p>
 				</div>
-			</MaxWidthContainer>
+			</Container>
 		</footer>
 	);
 }

@@ -30,9 +30,9 @@ interface TabsListProps extends TabsPrimitive.List.Props {
 	tabsListFullWidth?: boolean;
 	hideIndicator?: boolean;
 	variant?: VariantProps<typeof tabsListVariants>["variant"];
-	tabShape?: VariantProps<typeof tabsTabVariants>["shape"];
-	tabSize?: VariantProps<typeof tabsTabVariants>["size"];
-	tabVariant?: VariantProps<typeof tabsTabVariants>["variant"];
+	tabShape?: VariantProps<typeof tabVariants>["shape"];
+	tabSize?: VariantProps<typeof tabVariants>["size"];
+	tabVariant?: VariantProps<typeof tabVariants>["variant"];
 }
 
 const TabsListContext = createContext<TabsListProps>({});
@@ -141,7 +141,7 @@ function TabsIndicator() {
 /* Tabs Tab                                                                   */
 /* -------------------------------------------------------------------------- */
 
-const tabsTabVariants = cva(
+const tabVariants = cva(
 	[
 		"relative inline-flex items-center justify-center gap-2 z-10 rounded-md",
 		"cursor-pointer font-medium text-muted-foreground border border-transparent transition-[color,background-color,box-shadow]",
@@ -174,14 +174,14 @@ const tabsTabVariants = cva(
 	},
 );
 
-function TabsTab({ className, ...props }: TabsPrimitive.Tab.Props) {
+function Tab({ className, ...props }: TabsPrimitive.Tab.Props) {
 	const { variant, tabShape, tabSize, tabVariant, tabsListFullWidth } =
 		useContext(TabsListContext);
 
 	return (
 		<TabsPrimitive.Tab
 			className={cn(
-				tabsTabVariants({
+				tabVariants({
 					variant: tabVariant,
 					size: tabSize,
 					shape: tabShape,
@@ -219,16 +219,9 @@ function TabsPanel({ className, ...props }: TabsPrimitive.Panel.Props) {
 export const Tabs = {
 	Root: TabsRoot,
 	List: TabsList,
-	Tab: TabsTab,
+	Tab,
 	Panel: TabsPanel,
 };
 
-export {
-	TabsRoot,
-	TabsList,
-	TabsTab,
-	TabsPanel,
-	tabsListVariants,
-	tabsTabVariants,
-};
+export { TabsRoot, TabsList, Tab, TabsPanel, tabsListVariants, tabVariants };
 export type { TabsListProps };

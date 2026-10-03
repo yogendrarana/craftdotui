@@ -26,7 +26,7 @@ async function getDocFromParams(paramsPromise: PageProps["params"]) {
 export default async function DocsPage({ params }: PageProps) {
 	const doc = await getDocFromParams(params);
 
-	if (!doc || !doc.published) {
+	if (!doc?.published) {
 		notFound();
 	}
 

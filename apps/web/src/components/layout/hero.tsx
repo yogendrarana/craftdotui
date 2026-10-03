@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Code2, Component, Terminal } from "lucide-react";
 
 import { siteConfig } from "@/config/site";
-import { MaxWidthContainer } from "@/components/max-width-container";
+import { Container } from "@/components/container";
 
 const featureSections = [
 	{
@@ -31,7 +31,10 @@ export function Hero() {
 	return (
 		<>
 			<section className="relative overflow-hidden border-b bg-background">
-				<MaxWidthContainer className="relative sm:border-l sm:border-r">
+				<Container
+					size="2xl"
+					className="relative sm:border-l sm:border-r"
+				>
 					<motion.div
 						initial={{ opacity: 0, y: 18 }}
 						animate={{ opacity: 1, y: 0 }}
@@ -48,11 +51,11 @@ export function Hero() {
 							</p>
 						</div>
 					</motion.div>
-				</MaxWidthContainer>
+				</Container>
 			</section>
 
 			<section className="border-b bg-muted/20">
-				<MaxWidthContainer className="sm:border-l sm:border-r">
+				<Container size="2xl" className="sm:border-l sm:border-r">
 					<div className="grid gap-0 md:grid-cols-3">
 						{featureSections.map(
 							({ title, description, icon: Icon }) => (
@@ -71,7 +74,7 @@ export function Hero() {
 							),
 						)}
 					</div>
-				</MaxWidthContainer>
+				</Container>
 			</section>
 		</>
 	);

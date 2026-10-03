@@ -12,7 +12,7 @@ import {
 	TabsRoot,
 	TabsList,
 	TabsPanel,
-	TabsTab,
+	Tab,
 } from "@craftdotui/baseui/components/tabs";
 
 interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -50,15 +50,15 @@ export function ComponentCodePreview({
 			{/* header */}
 			<div className="mb-2 flex items-center justify-between rounded-md">
 				<TabsList>
-					<TabsTab value="preview">
+					<Tab value="preview">
 						<EyeIcon className="size-4" />
 						Preview
-					</TabsTab>
+					</Tab>
 
-					<TabsTab value="code">
+					<Tab value="code">
 						<Code2Icon className="size-4" />
 						Code
-					</TabsTab>
+					</Tab>
 				</TabsList>
 
 				<div className="flex items-center gap-2">

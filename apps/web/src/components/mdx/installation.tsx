@@ -4,7 +4,7 @@ import {
 	TabsRoot,
 	TabsList,
 	TabsPanel,
-	TabsTab,
+	Tab,
 } from "@craftdotui/baseui/components/tabs";
 import { cn } from "@/lib/utils";
 import { Registry } from "@/__registry__";
@@ -34,8 +34,8 @@ export function Installation({ name, className }: PropType) {
 			className={cn("w-full flex flex-col gap-4", className)}
 		>
 			<TabsList>
-				<TabsTab value="cli">CLI</TabsTab>
-				<TabsTab value="manual">Manual</TabsTab>
+				<Tab value="cli">CLI</Tab>
+				<Tab value="manual">Manual</Tab>
 			</TabsList>
 
 			<TabsPanel value="cli">

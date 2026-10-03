@@ -1,5 +1,6 @@
 "use client";
 
+import type * as React from "react";
 import { AlertDialog as AlertDialogPrimitive } from "@base-ui/react/alert-dialog";
 import { cn } from "@craftdotui/lib/utils";
 
@@ -36,17 +37,23 @@ const AlertDialogPortal: typeof AlertDialogPrimitive.Portal =
 /* Backdrop                                                                   */
 /* -------------------------------------------------------------------------- */
 
-function AlertDialogBackdrop(props: AlertDialogPrimitive.Backdrop.Props) {
+function AlertDialogBackdrop(
+	props: AlertDialogPrimitive.Backdrop.Props,
+): React.ReactElement {
 	const { className, ...rest } = props;
 
 	return (
 		<AlertDialogPrimitive.Backdrop
+			data-slot="alert-dialog-backdrop"
 			className={cn(
-				"fixed inset-0 z-50 bg-muted/50 backdrop-blur-sm transition-opacity duration-200 ease-out",
-				"data-ending-style:opacity-0 data-starting-style:opacity-0",
+				"fixed inset-0 z-50",
+				"bg-black/40 backdrop-blur-sm",
+				"transition-opacity duration-300 ease-out",
+				"data-starting-style:opacity-0",
+				"data-ending-style:opacity-0",
+				"supports-[-webkit-touch-callout:none]:absolute",
 				className,
 			)}
-			data-slot="alert-dialog-backdrop"
 			{...rest}
 		/>
 	);

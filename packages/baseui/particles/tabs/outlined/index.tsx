@@ -1,7 +1,7 @@
 import {
 	TabsRoot,
 	TabsList,
-	TabsTab,
+	Tab,
 	TabsPanel,
 } from "@craftdotui/baseui/components/tabs";
 
@@ -9,8 +9,8 @@ export function Particle() {
 	return (
 		<TabsRoot defaultValue="overview" className="w-[400px]">
 			<TabsList variant="outlined">
-				<TabsTab value="overview">Overview</TabsTab>
-				<TabsTab value="analytics">Analytics</TabsTab>
+				<Tab value="overview">Overview</Tab>
+				<Tab value="analytics">Analytics</Tab>
 			</TabsList>
 
 			<TabsPanel

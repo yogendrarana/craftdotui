@@ -8,7 +8,7 @@ import { ToggleMode } from "@/components/toggle-mode";
 import { GithubStars } from "@/components/github-stars";
 import DocsMobileSidebar from "@/components/docs-mobile-sidebar";
 import { docsNavItems } from "@/config/docs";
-import { MaxWidthContainer } from "@/components/max-width-container";
+import { Container } from "@/components/container";
 
 export function Header() {
 	const pathname = usePathname();
@@ -24,8 +24,8 @@ export function Header() {
 	];
 
 	return (
-		<header className="sticky top-0 z-50 border-b bg-background/85 backdrop-blur-xl">
-			<MaxWidthContainer className="sm:border-l sm:border-r">
+		<header className="sticky top-0 z-50 border-b bg-background backdrop-blur-xl">
+			<Container size="2xl" className="sm:border-l sm:border-r">
 				<nav className="flex h-16 items-center justify-between gap-4">
 					<Link
 						href="/"
@@ -64,7 +64,7 @@ export function Header() {
 						<DocsMobileSidebar items={docsNavItems} />
 					</div>
 				</nav>
-			</MaxWidthContainer>
+			</Container>
 		</header>
 	);
 }

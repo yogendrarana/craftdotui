@@ -1,5 +1,6 @@
 "use client";
 
+import type * as React from "react";
 import { Dialog as DialogPrimitive } from "@base-ui/react/dialog";
 
 import { cn } from "@craftdotui/lib/utils";
@@ -37,15 +38,19 @@ const DialogPortal = DialogPrimitive.Portal;
 function DialogBackdrop({
 	className,
 	...props
-}: DialogPrimitive.Backdrop.Props) {
+}: DialogPrimitive.Backdrop.Props): React.ReactElement {
 	return (
 		<DialogPrimitive.Backdrop
+			data-slot="dialog-backdrop"
 			className={cn(
-				"fixed inset-0 z-50 bg-muted/50 backdrop-blur-sm transition-opacity duration-200 ease-out",
-				"data-ending-style:opacity-0 data-starting-style:opacity-0",
+				"fixed inset-0 z-50",
+				"bg-black/40 backdrop-blur-sm",
+				"transition-opacity duration-300 ease-out",
+				"data-starting-style:opacity-0",
+				"data-ending-style:opacity-0",
+				"supports-[-webkit-touch-callout:none]:absolute",
 				className,
 			)}
-			data-slot="dialog-backdrop"
 			{...props}
 		/>
 	);

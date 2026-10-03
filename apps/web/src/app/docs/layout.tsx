@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Header } from "@/components/layout/header";
 import { DocsSidebar } from "@/components/docs-sidebar";
-import { MaxWidthContainer } from "@/components/max-width-container";
+import { Container } from "@/components/container";
 import {
 	ScrollAreaContent,
 	ScrollAreaRoot,
@@ -19,7 +19,11 @@ export default function DocsLayout({ children }: DocsLayoutProps) {
 		<div className="min-h-screen flex flex-col">
 			<Header />
 
-			<MaxWidthContainer className="border-b sm:border-l sm:border-r border-dashed px-0">
+			<Container
+				size="2xl"
+				padding="none"
+				className="border-b sm:border-l sm:border-r border-dashed"
+			>
 				<div
 					className={cn(
 						"flex-1 items-start overflow-hidden md:overflow-visible",
@@ -44,7 +48,7 @@ export default function DocsLayout({ children }: DocsLayoutProps) {
 					{/* main content + toc */}
 					{children}
 				</div>
-			</MaxWidthContainer>
+			</Container>
 		</div>
 	);
 }
