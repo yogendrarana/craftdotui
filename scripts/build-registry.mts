@@ -40,6 +40,7 @@ async function buildRegistryFile() {
 		path.join(process.cwd(), "packages", "baseui"),
 		path.join(process.cwd(), "packages", "hooks"),
 		path.join(process.cwd(), "packages", "loaders"),
+		path.join(process.cwd(), "packages", "styles"),
 	];
 
 	const newItems: RegistryItem[] = [];
@@ -65,7 +66,13 @@ async function buildRegistryFile() {
 			],
 			registryDependencies: [],
 			cssVars: {},
-			files: [],
+			files: [
+				{
+					path: "packages/styles/globals.css",
+					type: "registry:style",
+					target: "styles/globals.css",
+				},
+			],
 		},
 		...newItems,
 	];
@@ -172,6 +179,12 @@ async function buildRegistryIndex() {
 		const componentPath = item.files[0]?.path
 			? (() => {
 					const filePath = item.files[0].path;
+					if (
+						filePath.endsWith(".css") ||
+						item.type === "registry:style"
+					) {
+						return "";
+					}
 					// For workspace packages, use workspace imports
 					if (filePath.startsWith("packages/craftui/")) {
 						return `@craftdotui/craftui/${filePath.replace(

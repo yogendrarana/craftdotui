@@ -13,6 +13,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 	code?: string;
 	expandButtonTitle?: string;
 	useCollapsible?: boolean;
+	defaultExpanded?: boolean;
 }
 
 export function ComponentSource({
@@ -21,8 +22,9 @@ export function ComponentSource({
 	name,
 	code: directCode,
 	useCollapsible = true,
+	defaultExpanded = false,
 }: Props) {
-	const [isExpanded, setExpand] = React.useState(false);
+	const [isExpanded, setExpand] = React.useState(defaultExpanded);
 
 	const codeToRender = React.useMemo(() => {
 		// If direct code is provided, use it

@@ -1,11 +1,8 @@
 {
 	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
-	"name": "index",
-	"dependencies": [
-		"tw-animate-css",
-		"class-variance-authority",
-		"lucide-react"
-	],
+	"name": "styles",
+	"description": "OKLCH design tokens and base styles for Craft UI and shadcn/ui",
+	"dependencies": ["tw-animate-css"],
 	"registryDependencies": [],
 	"files": [
 		{
@@ -15,6 +12,5 @@
 			"target": "styles/globals.css"
 		}
 	],
-	"cssVars": {},
 	"type": "registry:style"
 }

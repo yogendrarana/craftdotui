@@ -29,13 +29,13 @@ export function Header() {
 				<nav className="flex h-16 items-center justify-between gap-4">
 					<Link
 						href="/"
-						className="inline-flex items-center text-lg font-bold"
+						className="inline-flex items-center gap-2 text-base font-semibold tracking-tight"
 					>
-						Craft UI
+						Craft Dot UI
 					</Link>
 
 					{/* Desktop Navigation */}
-					<div className="hidden items-center rounded-full border bg-muted/40 p-1 md:flex">
+					<div className="hidden items-center rounded-full border border-border bg-secondary/80 p-0.5 md:flex">
 						{navLinks.map(({ href, label }) => {
 							const isActive = pathname.startsWith(href);
 							return (
@@ -43,9 +43,9 @@ export function Header() {
 									key={href}
 									href={href}
 									className={cn(
-										"rounded-full px-3 py-1.5 text-sm transition-colors",
+										"rounded-full px-3 py-1 text-sm transition-colors",
 										isActive
-											? "bg-background text-foreground border"
+											? "bg-background text-foreground border border-border shadow-xs font-medium"
 											: "text-muted-foreground hover:text-foreground",
 									)}
 								>

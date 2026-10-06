@@ -21,9 +21,9 @@ export function Installation({ name, className }: PropType) {
 
 	if (!registryItem) {
 		return (
-			<div className="py-10 border bord-border border-dashed rounded-sm">
-				Component <code className="mx-1">{name}</code> not found (404
-				NOT FOUND)
+			<div className="py-10 text-center text-sm text-muted-foreground border border-border border-dashed rounded-md">
+				Component <code className="mx-1 font-mono text-xs">{name}</code>{" "}
+				not found (404 NOT FOUND)
 			</div>
 		);
 	}

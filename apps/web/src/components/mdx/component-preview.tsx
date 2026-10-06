@@ -74,7 +74,7 @@ export function ComponentPreview({
 					className="absolute right-4 top-3 cursor-pointer"
 					onClick={reTrigger}
 				>
-					<RotateCw className="h-4 w-4 text-zinc-500" />
+					<RotateCw className="h-4 w-4 text-muted-foreground hover:text-foreground transition-colors" />
 				</button>
 			)}
 			{renderComponent()}

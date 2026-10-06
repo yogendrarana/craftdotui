@@ -13,7 +13,13 @@
 			],
 			"registryDependencies": [],
 			"cssVars": {},
-			"files": []
+			"files": [
+				{
+					"path": "packages/styles/globals.css",
+					"type": "registry:style",
+					"target": "styles/globals.css"
+				}
+			]
 		},
 		{
 			"name": "craftui-animated-tooltip",
@@ -3757,6 +3763,20 @@
 					"path": "packages/loaders/zoomies/index.tsx",
 					"type": "registry:component",
 					"target": "components/loaders/zoomies.tsx"
+				}
+			]
+		},
+		{
+			"name": "styles",
+			"type": "registry:style",
+			"description": "OKLCH design tokens and base styles for Craft UI and shadcn/ui",
+			"dependencies": ["tw-animate-css"],
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "packages/styles/globals.css",
+					"type": "registry:style",
+					"target": "styles/globals.css"
 				}
 			]
 		}

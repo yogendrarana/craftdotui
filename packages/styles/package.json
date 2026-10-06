@@ -1,0 +1,12 @@
+{
+	"name": "@craftdotui/styles",
+	"version": "0.1.0",
+	"description": "OKLCH design tokens and base styles for Craft UI and shadcn/ui",
+	"exports": {
+		"./globals.css": "./globals.css",
+		"./index.css": "./globals.css",
+		".": "./globals.css"
+	},
+	"private": true,
+	"type": "module"
+}

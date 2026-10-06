@@ -16,6 +16,7 @@
 		"@craftdotui/craftui": "workspace:*",
 		"@craftdotui/hooks": "workspace:*",
 		"@craftdotui/loaders": "workspace:*",
+		"@craftdotui/styles": "workspace:*",
 		"@vercel/analytics": "^2.0.1",
 		"geist": "^1.7.2",
 		"lucide-react": "^1.47.0",
@@ -28,7 +29,6 @@
 		"react-syntax-highlighter": "^16.1.1",
 		"sonner": "^2.0.8",
 		"tailwindcss-animate": "^1.0.7",
-		"vaul": "^1.1.2",
 		"zod": "^4.6.5",
 		"zustand": "^5.0.15"
 	},

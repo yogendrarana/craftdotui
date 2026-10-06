@@ -1,0 +1,96 @@
+---
+published: true
+title: Styling
+description: OKLCH design tokens, shadcn/ui compatibility, and semantic extensions.
+---
+
+## Overview
+
+Craft UI design tokens are defined using the modern **OKLCH** color space and integrated with **Tailwind CSS v4** via `@theme inline`. The system provides a neutral foundation designed to be flexible, fully themeable, and easily customized to match any design language.
+
+
+## Shadcn/UI Compatibility
+
+The token system is engineered to be **100% drop-in compatible with shadcn/ui**. If your project already uses shadcn/ui or you plan to mix and match components, all standard semantic tokens align identically:
+
+### Colors
+- `--background`
+- `--foreground`
+- `--card`
+- `--card-foreground`
+- `--popover`
+- `--popover-foreground`
+- `--primary`
+- `--primary-foreground`
+- `--secondary`
+- `--secondary-foreground`
+- `--muted`
+- `--muted-foreground`
+- `--accent`
+- `--accent-foreground`
+- `--destructive`
+- `--destructive-foreground`
+- `--border`
+- `--input`
+- `--ring`
+
+### Charts
+- `--chart-1`
+- `--chart-2`
+- `--chart-3`
+- `--chart-4`
+- `--chart-5`
+
+### Sidebar
+- `--sidebar`
+- `--sidebar-foreground`
+- `--sidebar-primary`
+- `--sidebar-primary-foreground`
+- `--sidebar-accent`
+- `--sidebar-accent-foreground`
+- `--sidebar-border`
+- `--sidebar-ring`
+
+### Typography
+- `--font-sans`
+- `--font-serif`
+- `--font-mono`
+- `--tracking-normal`
+
+### Radius
+- `--radius`
+
+### Spacing
+- `--spacing`
+
+### Shadow Primitives
+- `--shadow-x`
+- `--shadow-y`
+- `--shadow-blur`
+- `--shadow-spread`
+- `--shadow-opacity`
+- `--shadow-color`
+
+### Shadow Scale
+- `--shadow-2xs`
+- `--shadow-xs`
+- `--shadow-sm`
+- `--shadow`
+- `--shadow-md`
+- `--shadow-lg`
+- `--shadow-xl`
+- `--shadow-2xl`
+
+## Semantic Extensions
+
+- `--success` & `--success-foreground`: Background and text colors for success/positive outcomes.
+- `--warning` & `--warning-foreground`: Background and text colors for warnings, cautions, and pending states.
+- `--info` & `--info-foreground`: Background and text colors for informational hints, tips, and guidance.
+- `--invert` & `--invert-foreground`: Background and text colors for high-contrast inverted surfaces.
+
+## Installation
+
+Add the design tokens and base styles to your project:
+
+<ComponentSource name="styles" defaultExpanded />
+

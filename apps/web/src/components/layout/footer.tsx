@@ -17,7 +17,7 @@ export function Footer() {
 						<span className="text-base font-semibold">
 							{siteConfig.name}
 						</span>
-						<p className="text-sm text-gray-500">
+						<p className="text-sm text-muted-foreground">
 							Crafted by{" "}
 							<Link
 								href={siteConfig.author.links.website}

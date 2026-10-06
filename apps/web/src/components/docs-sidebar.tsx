@@ -57,10 +57,10 @@ function DocsSidebarNavItems({
 						scroll={false}
 						className={cn(
 							"py-1.5 px-2 group relative flex w-full items-center rounded-md transition-colors",
-							"hover:bg-muted/50",
+							"hover:bg-accent hover:text-accent-foreground",
 							item.disabled && "cursor-not-allowed opacity-60",
 							pathname === item.href
-								? "text-foreground"
+								? "text-foreground font-medium"
 								: "text-muted-foreground",
 						)}
 						target={item.external ? "_blank" : ""}
@@ -73,7 +73,7 @@ function DocsSidebarNavItems({
 						{pathname === item.href && (
 							<motion.div
 								layoutId={groupId}
-								className="h-2 w-2 rounded-full bg-primary ml-2"
+								className="h-1.5 w-1.5 rounded-full bg-primary ml-auto"
 								initial={false}
 								transition={{
 									type: "spring",
@@ -86,13 +86,13 @@ function DocsSidebarNavItems({
 						)}
 
 						{item?.label && (
-							<span className="relative z-10 ml-2 rounded-md bg-[#FFBD7A] px-1.5 py-0.5 text-xs leading-none text-[#000000] no-underline group-hover:no-underline">
+							<span className="relative z-10 ml-2 rounded-sm border border-warning/30 bg-warning/10 px-1.5 py-0.5 font-mono text-[10px] tracking-wide text-warning uppercase leading-none no-underline group-hover:no-underline">
 								{item.label}
 							</span>
 						)}
 
 						{item?.paid && (
-							<span className="relative z-10 ml-2 rounded-md bg-[#4ade80] px-1.5 py-0.5 text-xs leading-none text-[#000000] no-underline group-hover:no-underline">
+							<span className="relative z-10 ml-2 rounded-sm border border-primary/30 bg-primary/10 px-1.5 py-0.5 font-mono text-[10px] tracking-wide text-primary uppercase leading-none no-underline group-hover:no-underline">
 								Paid
 							</span>
 						)}

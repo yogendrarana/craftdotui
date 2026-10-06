@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "styles",
+	"type": "registry:style",
+	"description": "OKLCH design tokens and base styles for Craft UI and shadcn/ui",
+	"dependencies": ["tw-animate-css"],
+	"registryDependencies": [],
+	"files": [
+		{
+			"path": "packages/styles/globals.css",
+			"type": "registry:style",
+			"target": "styles/globals.css"
+		}
+	]
+}
