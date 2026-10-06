@@ -214,9 +214,4 @@
 	html {
 		scroll-behavior: smooth;
 	}
-
-	::selection {
-		background: var(--foreground);
-		color: var(--background);
-	}
 }
