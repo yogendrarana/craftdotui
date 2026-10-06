@@ -3,8 +3,8 @@
 	"name": "baseui-scroll-area",
 	"type": "registry:component",
 	"description": "A Base UI scroll-area component",
-	"dependencies": ["@base-ui/react"],
-	"registryDependencies": ["@craftdotui/utils"],
+	"dependencies": ["@base-ui/react", "cn"],
+	"registryDependencies": [],
 	"files": [
 		{
 			"path": "packages/baseui/components/scroll-area/index.tsx",

@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { Toast as ToastPrimitive } from "@base-ui/react/toast";
 
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 import { buttonVariants } from "@craftdotui/baseui/components/button";
 
 /* -------------------------------------------------------------------------- */

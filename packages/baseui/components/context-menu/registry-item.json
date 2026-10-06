@@ -3,8 +3,8 @@
 	"name": "baseui-context-menu",
 	"type": "registry:component",
 	"description": "A Base UI context menu component",
-	"dependencies": ["@base-ui/react"],
-	"registryDependencies": ["@craftdotui/utils", "@craftdotui/baseui-arrow"],
+	"dependencies": ["@base-ui/react", "cn"],
+	"registryDependencies": ["@craftdotui/baseui-arrow"],
 	"files": [
 		{
 			"path": "packages/baseui/components/context-menu/index.tsx",

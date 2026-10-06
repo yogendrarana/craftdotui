@@ -3,8 +3,8 @@
 	"name": "baseui-progress",
 	"type": "registry:component",
 	"description": "A Base UI progress component",
-	"dependencies": ["@base-ui/react"],
-	"registryDependencies": ["@craftdotui/utils"],
+	"dependencies": ["@base-ui/react", "cn"],
+	"registryDependencies": [],
 	"files": [
 		{
 			"path": "packages/baseui/components/progress/index.tsx",

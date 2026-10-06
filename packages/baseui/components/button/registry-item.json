@@ -3,8 +3,8 @@
 	"name": "baseui-button",
 	"type": "registry:component",
 	"description": "A Base UI button component",
-	"dependencies": ["@base-ui/react"],
-	"registryDependencies": ["@craftdotui/utils"],
+	"dependencies": ["@base-ui/react", "cn"],
+	"registryDependencies": [],
 	"files": [
 		{
 			"path": "packages/baseui/components/button/index.tsx",

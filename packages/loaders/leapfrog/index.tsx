@@ -1,7 +1,5 @@
 "use client";
 
-import { cn } from "@craftdotui/lib/utils";
-
 export default function LeapFrog() {
 	const delays = ["0s", "-0.833s", "-1.667s"];
 
@@ -10,22 +8,13 @@ export default function LeapFrog() {
 			{delays.map((delay, index) => (
 				<div
 					key={index}
-					className={cn(
-						"absolute inset-0",
-						"w-full h-full flex items-center justify-start",
-						"before:content-[''] before:block",
-						"before:w-2 before:h-2",
-						"before:rounded-full",
-						"before:bg-black dark:before:bg-white",
-						"before:transition-colors before:duration-300 before:ease-in-out",
-						"animate-leapFrog",
-					)}
+					className="absolute inset-0 w-full h-full flex items-center justify-start before:content-[''] before:block before:w-2 before:h-2 before:rounded-full before:bg-black dark:before:bg-white before:transition-colors before:duration-300 before:ease-in-out animate-leap-frog"
 					style={{ animationDelay: delay }}
 				/>
 			))}
 
 			<style>{`
-				@keyframes leapFrog {
+				@keyframes leap-frog {
 					0% {
 						transform: translateX(0) rotate(0deg);
 					}
@@ -43,8 +32,8 @@ export default function LeapFrog() {
 					}
 				}
 
-				.animate-leapFrog {
-					animation: leapFrog 2.5s ease infinite;
+				.animate-leap-frog {
+					animation: leap-frog 2.5s ease infinite;
 				}
 			`}</style>
 		</div>

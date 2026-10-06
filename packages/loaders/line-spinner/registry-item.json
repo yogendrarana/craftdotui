@@ -4,7 +4,7 @@
 	"type": "registry:component",
 	"description": "A line spinner loader using framer-motion",
 	"dependencies": ["motion"],
-	"registryDependencies": ["@craftdotui/lib/utils"],
+	"registryDependencies": [],
 	"files": [
 		{
 			"path": "packages/loaders/line-spinner/index.tsx",

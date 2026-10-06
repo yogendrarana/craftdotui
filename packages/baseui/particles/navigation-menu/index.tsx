@@ -15,7 +15,6 @@ import {
 	NavigationMenuIcon,
 	navigationMenuLinkStyle,
 } from "@craftdotui/baseui/components/navigation-menu";
-import { cn } from "@craftdotui/lib/utils";
 
 const homeLinks = [
 	{
@@ -126,9 +125,7 @@ export default function Particle() {
 									<NavigationMenuList>
 										<NavigationMenuItem>
 											<NavigationMenuTrigger
-												className={cn(
-													navigationMenuLinkStyle(),
-												)}
+												className={navigationMenuLinkStyle()}
 											>
 												<h3 className="flex gap-1 items-center">
 													Components

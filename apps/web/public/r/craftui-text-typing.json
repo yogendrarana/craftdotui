@@ -2,7 +2,7 @@
 	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
 	"name": "craftui-text-typing",
 	"description": "A typing animation effect component",
-	"dependencies": ["motion"],
+	"dependencies": ["motion", "cn"],
 	"registryDependencies": [],
 	"files": [
 		{

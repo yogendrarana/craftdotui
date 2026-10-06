@@ -2,7 +2,7 @@
 
 import { Popover as PopoverPrimitive } from "@base-ui/react/popover";
 
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 import { ARROW_STYLES, BaseArrow } from "@craftdotui/baseui/components/arrow";
 
 /* -------------------------------------------------------------------------- */

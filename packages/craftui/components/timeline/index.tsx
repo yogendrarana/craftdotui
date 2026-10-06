@@ -3,7 +3,7 @@
 import React, { useId } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 
 // Define variants
 const timelineVariants = cva("relative", {

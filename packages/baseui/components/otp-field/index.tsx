@@ -2,7 +2,7 @@
 
 import { OTPField as OTPFieldPrimitive } from "@base-ui/react/otp-field";
 
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 import { SeparatorRoot } from "@craftdotui/baseui/components/separator";
 import {
 	inputVariants,

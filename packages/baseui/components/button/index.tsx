@@ -1,11 +1,10 @@
 "use client";
 
 import type * as React from "react";
+import { cn } from "cn";
 import { useRender } from "@base-ui/react/use-render";
 import { mergeProps } from "@base-ui/react/merge-props";
 import { cva, type VariantProps } from "class-variance-authority";
-
-import { cn } from "@craftdotui/lib/utils";
 
 /* -------------------------------------------------------------------------- */
 /* Variants                                                                   */

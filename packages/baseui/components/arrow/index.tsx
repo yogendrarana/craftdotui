@@ -1,5 +1,5 @@
 import type { SVGAttributes } from "react";
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 
 /**
  * Shared styles for Base UI Arrow primitives.

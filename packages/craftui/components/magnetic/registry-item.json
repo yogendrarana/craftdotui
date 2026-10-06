@@ -3,7 +3,7 @@
 	"name": "craftui-magnetic",
 	"type": "registry:component",
 	"description": "A magnetic hover effect component",
-	"dependencies": ["gsap"],
+	"dependencies": ["gsap", "cn"],
 	"registryDependencies": [],
 	"files": [
 		{

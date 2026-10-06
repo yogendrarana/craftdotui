@@ -3,8 +3,8 @@
 	"name": "craftui-cursor",
 	"type": "registry:component",
 	"description": "A custom cursor component",
-	"dependencies": [],
-	"registryDependencies": ["@craftdotui/utils"],
+	"dependencies": ["cn"],
+	"registryDependencies": [],
 	"files": [
 		{
 			"path": "packages/craftui/components/cursor/index.tsx",

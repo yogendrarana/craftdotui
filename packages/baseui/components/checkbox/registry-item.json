@@ -3,8 +3,8 @@
 	"name": "baseui-checkbox",
 	"type": "registry:component",
 	"description": "A Base UI checkbox component",
-	"dependencies": ["@base-ui/react"],
-	"registryDependencies": ["@craftdotui/utils"],
+	"dependencies": ["@base-ui/react", "cn"],
+	"registryDependencies": [],
 	"files": [
 		{
 			"path": "packages/baseui/components/checkbox/index.tsx",

@@ -4,9 +4,10 @@
 	"private": true,
 	"type": "module",
 	"dependencies": {
-		"motion": "^12.23.26",
+		"canvas-confetti": "^1.9.4",
+		"cn": "^0.4.0",
 		"gsap": "^3.14.2",
-		"canvas-confetti": "^1.9.4"
+		"motion": "^12.23.26"
 	},
 	"peerDependencies": {
 		"react": "^19.0.0",

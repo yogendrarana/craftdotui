@@ -4,7 +4,7 @@
 	"type": "registry:component",
 	"description": "A jumping dots loader animation",
 	"dependencies": [],
-	"registryDependencies": ["@craftdotui/lib/utils"],
+	"registryDependencies": [],
 	"files": [
 		{
 			"path": "packages/loaders/jumping-dots/index.tsx",

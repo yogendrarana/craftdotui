@@ -3,8 +3,8 @@
 	"name": "craftui-dock",
 	"type": "registry:component",
 	"description": "A dock component",
-	"dependencies": ["motion"],
-	"registryDependencies": ["@craftdotui/utils"],
+	"dependencies": ["motion", "cn"],
+	"registryDependencies": [],
 	"files": [
 		{
 			"path": "packages/craftui/components/dock/index.tsx",

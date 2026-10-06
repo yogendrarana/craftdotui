@@ -1,7 +1,7 @@
 "use client";
 
 import { Meter as MeterPrimitive } from "@base-ui/react/meter";
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 
 /* -------------------------------------------------------------------------- */
 /* Meter                                                                      */

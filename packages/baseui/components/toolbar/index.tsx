@@ -2,7 +2,7 @@
 
 import { Toolbar as ToolbarPrimitive } from "@base-ui/react/toolbar";
 
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 import {
 	buttonVariants,
 	type ButtonProps,

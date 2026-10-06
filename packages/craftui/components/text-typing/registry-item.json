@@ -3,7 +3,7 @@
 	"name": "craftui-text-typing",
 	"type": "registry:component",
 	"description": "A typing animation effect component",
-	"dependencies": ["motion"],
+	"dependencies": ["motion", "cn"],
 	"registryDependencies": [],
 	"files": [
 		{

@@ -3,9 +3,8 @@
 	"name": "baseui-number-field",
 	"type": "registry:component",
 	"description": "A Base UI number field component",
-	"dependencies": ["@base-ui/react"],
+	"dependencies": ["@base-ui/react", "cn"],
 	"registryDependencies": [
-		"@craftdotui/utils",
 		"@craftdotui/baseui-button",
 		"@craftdotui/baseui-input"
 	],

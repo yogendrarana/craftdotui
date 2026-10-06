@@ -3,7 +3,7 @@
 	"name": "baseui-particles-toolbar",
 	"description": "A Base UI toolbar component",
 	"dependencies": ["@base-ui/react", "lucide-react"],
-	"registryDependencies": ["@craftdotui/utils"],
+	"registryDependencies": ["@craftdotui/baseui-toolbar"],
 	"files": [
 		{
 			"path": "packages/baseui/particles/toolbar/index.tsx",

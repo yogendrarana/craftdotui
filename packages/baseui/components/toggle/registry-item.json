@@ -3,8 +3,8 @@
 	"name": "baseui-toggle",
 	"type": "registry:component",
 	"description": "A Base UI toggle component",
-	"dependencies": ["@base-ui/react", "cva"],
-	"registryDependencies": ["@craftdotui/utils"],
+	"dependencies": ["@base-ui/react", "cn"],
+	"registryDependencies": [],
 	"files": [
 		{
 			"path": "packages/baseui/components/toggle/index.tsx",

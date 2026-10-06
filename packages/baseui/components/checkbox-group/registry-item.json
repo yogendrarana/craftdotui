@@ -3,8 +3,8 @@
 	"name": "baseui-checkbox-group",
 	"type": "registry:component",
 	"description": "A Base UI checkbox group component",
-	"dependencies": ["@base-ui/react"],
-	"registryDependencies": ["@craftdotui/utils"],
+	"dependencies": ["@base-ui/react", "cn"],
+	"registryDependencies": [],
 	"files": [
 		{
 			"path": "packages/baseui/components/checkbox-group/index.tsx",

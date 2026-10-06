@@ -1,7 +1,6 @@
 "use client";
 
 import type { CSSProperties } from "react";
-import { cn } from "@craftdotui/lib/utils";
 
 export default function Orbit({ className }: { className?: string }) {
 	const size = 35; // px
@@ -9,7 +8,7 @@ export default function Orbit({ className }: { className?: string }) {
 
 	return (
 		<div
-			className={cn("relative", className)}
+			className={`relative ${className ?? ""}`.trim()}
 			style={
 				{
 					"--orbit-size": `${size}px`,

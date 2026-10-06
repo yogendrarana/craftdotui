@@ -4,7 +4,7 @@
 	"type": "registry:component",
 	"description": "A classic spinner loader with size and color options",
 	"dependencies": [],
-	"registryDependencies": ["@craftdotui/lib/utils"],
+	"registryDependencies": [],
 	"files": [
 		{
 			"path": "packages/loaders/classic/index.tsx",

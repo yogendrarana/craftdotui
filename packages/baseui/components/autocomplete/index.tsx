@@ -3,7 +3,7 @@
 import type * as React from "react";
 import { Search, X, ChevronsUpDown } from "lucide-react";
 import { Autocomplete as AutocompletePrimitive } from "@base-ui/react/autocomplete";
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 
 /* -------------------------------------------------------------------------- */
 /* Autocomplete                                                               */

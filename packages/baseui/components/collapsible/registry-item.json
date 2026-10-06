@@ -3,8 +3,8 @@
 	"name": "baseui-collapsible",
 	"type": "registry:component",
 	"description": "A Base UI collapsible component",
-	"dependencies": ["@base-ui/react", "lucide-react"],
-	"registryDependencies": ["@craftdotui/utils"],
+	"dependencies": ["@base-ui/react", "cn"],
+	"registryDependencies": [],
 	"files": [
 		{
 			"path": "packages/baseui/components/collapsible/index.tsx",

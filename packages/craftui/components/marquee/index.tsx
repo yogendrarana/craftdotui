@@ -1,7 +1,7 @@
 "use client";
 
 import type React from "react";
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 
 interface MarqueeProps {
 	duration?: number;

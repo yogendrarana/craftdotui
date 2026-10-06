@@ -3,8 +3,8 @@
 	"name": "baseui-popover",
 	"type": "registry:component",
 	"description": "A Base UI popover component",
-	"dependencies": ["@base-ui/react"],
-	"registryDependencies": ["@craftdotui/utils", "@craftdotui/baseui-arrow"],
+	"dependencies": ["@base-ui/react", "cn"],
+	"registryDependencies": ["@craftdotui/baseui-arrow"],
 	"files": [
 		{
 			"path": "packages/baseui/components/popover/index.tsx",

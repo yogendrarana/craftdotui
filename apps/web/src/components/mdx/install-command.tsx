@@ -18,7 +18,7 @@ import {
 	TooltipTrigger,
 } from "@craftdotui/baseui/components/tooltip";
 
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "@/lib/utils";
 import { CopyButton } from "./copy-button";
 import type { PackageManager } from "@/types";
 import { packageInstallCommands, packageManagerCommands } from "@/constants";

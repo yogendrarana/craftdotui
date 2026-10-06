@@ -3,8 +3,8 @@
 	"name": "craftui-timeline",
 	"type": "registry:component",
 	"description": "A timeline component with vertical and horizontal variants",
-	"dependencies": ["class-variance-authority"],
-	"registryDependencies": ["@craftdotui/utils"],
+	"dependencies": ["class-variance-authority", "cn"],
+	"registryDependencies": [],
 	"files": [
 		{
 			"path": "packages/craftui/components/timeline/index.tsx",

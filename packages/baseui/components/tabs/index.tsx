@@ -3,7 +3,7 @@
 import { Tabs as TabsPrimitive } from "@base-ui/react/tabs";
 import { cva, type VariantProps } from "class-variance-authority";
 import { createContext, useContext } from "react";
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 
 /* -------------------------------------------------------------------------- */
 /* Tabs Root                                                                  */

@@ -3,8 +3,8 @@
 	"name": "baseui-alert-dialog",
 	"type": "registry:component",
 	"description": "A Base UI alert dialog component",
-	"dependencies": ["lucide-react", "@base-ui/react"],
-	"registryDependencies": ["@craftdotui/utils"],
+	"dependencies": ["@base-ui/react", "cn"],
+	"registryDependencies": [],
 	"files": [
 		{
 			"path": "packages/baseui/components/alert-dialog/index.tsx",

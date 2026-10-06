@@ -3,7 +3,6 @@
 	"compilerOptions": {
 		"paths": {
 			"@craftdotui/craftui/*": ["./*"],
-			"@craftdotui/lib/*": ["../lib/*"],
 			"@craftdotui/hooks/*": ["../hooks/*"]
 		}
 	},

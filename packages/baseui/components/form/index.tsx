@@ -2,7 +2,7 @@
 
 import { Form as FormPrimitive } from "@base-ui/react/form";
 
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 
 function FormRoot({ className, ...props }: FormPrimitive.Props) {
 	return (

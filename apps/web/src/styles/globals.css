@@ -5,11 +5,6 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-	/* ─────────────────────────────────────────────
-	   GLOBAL TOKENS
-	   Values that do not change between themes.
-	   ───────────────────────────────────────────── */
-
 	--radius: 0.5rem;
 
 	/* Shadow */
@@ -37,10 +32,6 @@
 		0px 1px 2px 0px hsl(0 0% 0% / 0.18),
 		0px 8px 10px -1px hsl(0 0% 0% / 0.18);
 	--shadow-2xl: 0px 1px 2px 0px hsl(0 0% 0% / 0.45);
-
-	/* ─────────────────────────────────────────────
-	   THEME TOKENS — LIGHT
-	   ───────────────────────────────────────────── */
 
 	/* Base */
 	--background: oklch(0.99 0 0);
@@ -154,11 +145,6 @@
 }
 
 @theme inline {
-	/* ─────────────────────────────────────────────
-	   TAILWIND TOKEN MAPPINGS
-	   Maps application CSS variables to Tailwind.
-	   ───────────────────────────────────────────── */
-
 	/* Radius */
 	--radius-sm: calc(var(--radius) - 4px);
 	--radius-md: calc(var(--radius) - 2px);

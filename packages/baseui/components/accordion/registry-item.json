@@ -3,8 +3,8 @@
 	"name": "baseui-accordion",
 	"type": "registry:component",
 	"description": "A Base UI accordion component",
-	"dependencies": ["lucide-react", "@base-ui/react"],
-	"registryDependencies": ["@craftdotui/utils"],
+	"dependencies": ["@base-ui/react", "cn"],
+	"registryDependencies": [],
 	"files": [
 		{
 			"path": "packages/baseui/components/accordion/index.tsx",

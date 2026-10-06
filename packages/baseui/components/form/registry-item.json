@@ -3,8 +3,8 @@
 	"name": "baseui-form",
 	"type": "registry:component",
 	"description": "A Base UI form component",
-	"dependencies": ["@base-ui/react"],
-	"registryDependencies": ["@craftdotui/utils"],
+	"dependencies": ["@base-ui/react", "cn"],
+	"registryDependencies": [],
 	"files": [
 		{
 			"path": "packages/baseui/components/form/index.tsx",

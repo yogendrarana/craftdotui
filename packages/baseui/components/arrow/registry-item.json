@@ -3,8 +3,8 @@
 	"name": "baseui-arrow",
 	"type": "registry:component",
 	"description": "Shared arrow component and styles for Base UI components",
-	"dependencies": ["@base-ui/react"],
-	"registryDependencies": ["@craftdotui/utils"],
+	"dependencies": ["@base-ui/react", "cn"],
+	"registryDependencies": [],
 	"files": [
 		{
 			"path": "packages/baseui/components/arrow/index.tsx",

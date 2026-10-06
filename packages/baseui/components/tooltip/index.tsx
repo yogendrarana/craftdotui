@@ -2,7 +2,7 @@
 
 import { Tooltip as TooltipPrimitive } from "@base-ui/react/tooltip";
 
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 import { ARROW_STYLES, BaseArrow } from "@craftdotui/baseui/components/arrow";
 
 /* -------------------------------------------------------------------------- */

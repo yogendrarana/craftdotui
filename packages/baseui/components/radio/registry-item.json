@@ -3,8 +3,8 @@
 	"name": "baseui-radio",
 	"type": "registry:component",
 	"description": "A Base UI radio component",
-	"dependencies": ["@base-ui/react"],
-	"registryDependencies": ["@craftdotui/utils"],
+	"dependencies": ["@base-ui/react", "cn"],
+	"registryDependencies": [],
 	"files": [
 		{
 			"path": "packages/baseui/components/radio/index.tsx",

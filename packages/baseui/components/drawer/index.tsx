@@ -3,7 +3,7 @@
 import * as React from "react";
 import { Drawer as DrawerPrimitive } from "@base-ui/react/drawer";
 
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 
 type DrawerPosition = "top" | "bottom" | "left" | "right";
 type DrawerSwipeDirection = "up" | "down" | "left" | "right";

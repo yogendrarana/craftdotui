@@ -2,7 +2,7 @@
 
 import { ChevronRight } from "lucide-react";
 import { Collapsible as CollapsiblePrimitive } from "@base-ui/react/collapsible";
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 
 /* -------------------------------------------------------------------------- */
 /* Collapsible Root                                                           */

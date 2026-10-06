@@ -3,8 +3,8 @@
 	"name": "baseui-navigation-menu",
 	"type": "registry:component",
 	"description": "A Base UI navigation menu component",
-	"dependencies": ["@base-ui/react"],
-	"registryDependencies": ["@craftdotui/utils"],
+	"dependencies": ["@base-ui/react", "cn"],
+	"registryDependencies": [],
 	"files": [
 		{
 			"path": "packages/baseui/components/navigation-menu/index.tsx",

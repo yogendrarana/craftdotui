@@ -3,8 +3,8 @@
 	"name": "craftui-marquee",
 	"type": "registry:component",
 	"description": "A marquee component for scrolling content horizontally",
-	"dependencies": [],
-	"registryDependencies": ["@craftdotui/utils"],
+	"dependencies": ["cn"],
+	"registryDependencies": [],
 	"files": [
 		{
 			"path": "packages/craftui/components/marquee/index.tsx",

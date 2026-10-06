@@ -3,8 +3,8 @@
 	"name": "craftui-text-scramble",
 	"type": "registry:component",
 	"description": "A text scrambling animation effect component",
-	"dependencies": [],
-	"registryDependencies": ["@craftdotui/utils"],
+	"dependencies": ["cn"],
+	"registryDependencies": [],
 	"files": [
 		{
 			"path": "packages/craftui/components/text-scramble/index.tsx",

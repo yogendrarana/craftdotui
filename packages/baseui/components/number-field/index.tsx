@@ -5,7 +5,7 @@ import type { VariantProps } from "class-variance-authority";
 import { MinusIcon, MoveHorizontal, PlusIcon } from "lucide-react";
 import { NumberField as NumberFieldPrimitive } from "@base-ui/react/number-field";
 
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 import { inputVariants } from "@craftdotui/baseui/components/input";
 import { buttonVariants } from "@craftdotui/baseui/components/button";
 

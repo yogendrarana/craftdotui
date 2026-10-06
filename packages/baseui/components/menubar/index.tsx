@@ -1,7 +1,7 @@
 "use client";
 
 import { Menubar as MenubarPrimitive } from "@base-ui/react/menubar";
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 
 /* -------------------------------------------------------------------------- */
 /* Menubar Root                                                               */

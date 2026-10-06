@@ -4,7 +4,7 @@ import { Check, ChevronsUpDown } from "lucide-react";
 import { Select as SelectPrimitive } from "@base-ui/react/select";
 import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 
 /* -------------------------------------------------------------------------- */
 /* Root                                                                       */

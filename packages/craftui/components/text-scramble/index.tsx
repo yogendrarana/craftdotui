@@ -3,7 +3,7 @@
 import type React from "react";
 import { useState, useEffect, useCallback } from "react";
 
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 
 interface PropType {
 	children: string;

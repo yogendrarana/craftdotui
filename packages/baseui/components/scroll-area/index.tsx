@@ -1,7 +1,7 @@
 "use client";
 
 import { ScrollArea as ScrollAreaPrimitive } from "@base-ui/react/scroll-area";
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 
 /* -------------------------------------------------------------------------- */
 /* Root                                                                       */

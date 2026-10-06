@@ -2,7 +2,7 @@
 
 import type * as React from "react";
 import { Checkbox as CheckboxPrimitive } from "@base-ui/react/checkbox";
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 
 /* -------------------------------------------------------------------------- */
 /* Checkbox Root                                                              */

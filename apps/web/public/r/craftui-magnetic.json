@@ -2,7 +2,7 @@
 	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
 	"name": "craftui-magnetic",
 	"description": "A magnetic hover effect component",
-	"dependencies": ["gsap"],
+	"dependencies": ["gsap", "cn"],
 	"registryDependencies": [],
 	"files": [
 		{

@@ -3,8 +3,8 @@
 	"name": "baseui-toggle-group",
 	"type": "registry:component",
 	"description": "A Base UI toggle group component",
-	"dependencies": ["@base-ui/react"],
-	"registryDependencies": ["@craftdotui/baseui-toggle", "@craftdotui/utils"],
+	"dependencies": ["@base-ui/react", "cn"],
+	"registryDependencies": ["@craftdotui/baseui-toggle"],
 	"files": [
 		{
 			"path": "packages/baseui/components/toggle-group/index.tsx",

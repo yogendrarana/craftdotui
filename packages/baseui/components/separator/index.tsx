@@ -1,7 +1,7 @@
 "use client";
 
 import { Separator as SeparatorPrimitive } from "@base-ui/react/separator";
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 
 /* -------------------------------------------------------------------------- */
 /* Separator                                                                  */

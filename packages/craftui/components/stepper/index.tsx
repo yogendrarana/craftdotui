@@ -9,7 +9,7 @@ import React from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 
 interface StepperContextType {
 	currentStep: number;

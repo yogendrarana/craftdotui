@@ -2,7 +2,7 @@
 
 import { Input as InputPrimitive } from "@base-ui/react/input";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 
 /* -------------------------------------------------------------------------- */
 /* Input Variants                                                             */

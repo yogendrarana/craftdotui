@@ -1,7 +1,7 @@
 "use client";
 
 import { Fieldset as FieldsetPrimitive } from "@base-ui/react/fieldset";
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 
 /* -------------------------------------------------------------------------- */
 /* Fieldset Root                                                              */

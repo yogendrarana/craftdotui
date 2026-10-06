@@ -2,7 +2,7 @@
 
 import { PreviewCard as PreviewCardPrimitive } from "@base-ui/react/preview-card";
 
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 import { ARROW_STYLES, BaseArrow } from "@craftdotui/baseui/components/arrow";
 
 /* -------------------------------------------------------------------------- */

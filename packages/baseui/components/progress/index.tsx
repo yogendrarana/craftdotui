@@ -1,7 +1,7 @@
 "use client";
 
 import { Progress as ProgressPrimitive } from "@base-ui/react/progress";
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 
 /* -------------------------------------------------------------------------- */
 /* Progress                                                                   */

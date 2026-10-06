@@ -3,8 +3,8 @@
 	"name": "baseui-separator",
 	"type": "registry:component",
 	"description": "A Base UI separator component",
-	"dependencies": ["@base-ui/react"],
-	"registryDependencies": ["@craftdotui/utils"],
+	"dependencies": ["@base-ui/react", "cn"],
+	"registryDependencies": [],
 	"files": [
 		{
 			"path": "packages/baseui/components/separator/index.tsx",

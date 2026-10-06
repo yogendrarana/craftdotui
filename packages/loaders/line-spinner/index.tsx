@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "motion/react";
-import { cn } from "@craftdotui/lib/utils";
 
 export default function LineSpinner() {
 	const lines = 12;
@@ -11,12 +10,7 @@ export default function LineSpinner() {
 			{Array.from({ length: lines }).map((_, i) => (
 				<motion.div
 					key={i}
-					className={cn(
-						"absolute",
-						"w-1 h-4",
-						"rounded-full",
-						"bg-black dark:bg-white",
-					)}
+					className="absolute w-1 h-4 rounded-full bg-black dark:bg-white"
 					style={{
 						left: "50%",
 						top: "50%",

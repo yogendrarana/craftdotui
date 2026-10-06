@@ -5,7 +5,7 @@ import { Check, ChevronsUpDown, X } from "lucide-react";
 import type { VariantProps } from "class-variance-authority";
 import { Combobox as ComboboxPrimitive } from "@base-ui/react/combobox";
 
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 import { Input, inputVariants } from "@craftdotui/baseui/components/input";
 
 /* -------------------------------------------------------------------------- */

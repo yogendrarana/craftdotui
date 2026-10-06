@@ -3,8 +3,8 @@
 	"name": "craftui-animated-tooltip",
 	"type": "registry:component",
 	"description": "An animated tooltip component",
-	"dependencies": ["motion"],
-	"registryDependencies": ["@craftdotui/utils"],
+	"dependencies": ["motion", "cn"],
+	"registryDependencies": [],
 	"files": [
 		{
 			"path": "packages/craftui/components/animated-tooltip/index.tsx",

@@ -1,7 +1,5 @@
 "use client";
 
-import { cn } from "@craftdotui/lib/utils";
-
 export default function NewtonsCradle() {
 	const dots = 5;
 
@@ -11,13 +9,13 @@ export default function NewtonsCradle() {
 				{Array.from({ length: dots }).map((_, index) => (
 					<div
 						key={index}
-						className={cn(
-							"h-10 flex items-center justify-center origin-top",
-							{
-								swing: index === 0,
-								swing2: index === dots - 1,
-							},
-						)}
+						className={`h-10 flex items-center justify-center origin-top ${
+							index === 0
+								? "swing"
+								: index === dots - 1
+									? "swing-2"
+									: ""
+						}`.trim()}
 					>
 						<div className="bg-primary size-2 rounded-full"></div>
 					</div>
@@ -29,8 +27,8 @@ export default function NewtonsCradle() {
                     animation: swing 1.4s linear infinite;
                 }
 
-                .swing2 {
-                    animation: swing2 1.4s linear infinite;
+                .swing-2 {
+                    animation: swing-2 1.4s linear infinite;
                 }
 
                 @keyframes swing {
@@ -51,7 +49,7 @@ export default function NewtonsCradle() {
                     }
                 }
 
-                @keyframes swing2 {
+                @keyframes swing-2 {
                     0% {
                         transform: rotate(0deg);
                         animation-timing-function: linear;

@@ -4,7 +4,7 @@ import type * as React from "react";
 import { Check, ChevronRight, Dot } from "lucide-react";
 import { ContextMenu as ContextMenuPrimitive } from "@base-ui/react/context-menu";
 
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 import { ARROW_STYLES, BaseArrow } from "@craftdotui/baseui/components/arrow";
 
 /* -------------------------------------------------------------------------- */

@@ -3,7 +3,7 @@
 import type { CSSProperties } from "react";
 import { cva } from "class-variance-authority";
 import { NavigationMenu as NavigationMenuPrimitive } from "@base-ui/react/navigation-menu";
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 
 /* -------------------------------------------------------------------------- */
 /* Navigation Menu Root                                                        */

@@ -39,7 +39,6 @@ async function buildRegistryFile() {
 		path.join(process.cwd(), "packages", "craftui"),
 		path.join(process.cwd(), "packages", "baseui"),
 		path.join(process.cwd(), "packages", "hooks"),
-		path.join(process.cwd(), "packages", "lib"),
 		path.join(process.cwd(), "packages", "loaders"),
 	];
 
@@ -64,7 +63,7 @@ async function buildRegistryFile() {
 				"class-variance-authority",
 				"lucide-react",
 			],
-			registryDependencies: ["utils"],
+			registryDependencies: [],
 			cssVars: {},
 			files: [],
 		},

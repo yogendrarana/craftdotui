@@ -11,7 +11,7 @@
 				"class-variance-authority",
 				"lucide-react"
 			],
-			"registryDependencies": ["utils"],
+			"registryDependencies": [],
 			"cssVars": {},
 			"files": []
 		},
@@ -19,8 +19,8 @@
 			"name": "craftui-animated-tooltip",
 			"type": "registry:component",
 			"description": "An animated tooltip component",
-			"dependencies": ["motion"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["motion", "cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/craftui/components/animated-tooltip/index.tsx",
@@ -33,8 +33,8 @@
 			"name": "craftui-cursor",
 			"type": "registry:component",
 			"description": "A custom cursor component",
-			"dependencies": [],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/craftui/components/cursor/index.tsx",
@@ -47,8 +47,8 @@
 			"name": "craftui-dock",
 			"type": "registry:component",
 			"description": "A dock component",
-			"dependencies": ["motion"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["motion", "cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/craftui/components/dock/index.tsx",
@@ -61,7 +61,7 @@
 			"name": "craftui-magnetic",
 			"type": "registry:component",
 			"description": "A magnetic hover effect component",
-			"dependencies": ["gsap"],
+			"dependencies": ["gsap", "cn"],
 			"registryDependencies": [],
 			"files": [
 				{
@@ -75,8 +75,8 @@
 			"name": "craftui-marquee",
 			"type": "registry:component",
 			"description": "A marquee component for scrolling content horizontally",
-			"dependencies": [],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/craftui/components/marquee/index.tsx",
@@ -89,8 +89,8 @@
 			"name": "craftui-ui-stepper",
 			"type": "registry:component",
 			"description": "A stepper/wizard component",
-			"dependencies": ["motion", "lucide-react"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["motion", "lucide-react", "cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/craftui/components/stepper/index.tsx",
@@ -103,8 +103,8 @@
 			"name": "craftui-text-scramble",
 			"type": "registry:component",
 			"description": "A text scrambling animation effect component",
-			"dependencies": [],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/craftui/components/text-scramble/index.tsx",
@@ -117,7 +117,7 @@
 			"name": "craftui-text-typing",
 			"type": "registry:component",
 			"description": "A typing animation effect component",
-			"dependencies": ["motion"],
+			"dependencies": ["motion", "cn"],
 			"registryDependencies": [],
 			"files": [
 				{
@@ -131,8 +131,8 @@
 			"name": "craftui-timeline",
 			"type": "registry:component",
 			"description": "A timeline component with vertical and horizontal variants",
-			"dependencies": ["class-variance-authority"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["class-variance-authority", "cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/craftui/components/timeline/index.tsx",
@@ -437,8 +437,8 @@
 			"name": "baseui-accordion",
 			"type": "registry:component",
 			"description": "A Base UI accordion component",
-			"dependencies": ["lucide-react", "@base-ui/react"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/baseui/components/accordion/index.tsx",
@@ -451,8 +451,8 @@
 			"name": "baseui-alert-dialog",
 			"type": "registry:component",
 			"description": "A Base UI alert dialog component",
-			"dependencies": ["lucide-react", "@base-ui/react"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/baseui/components/alert-dialog/index.tsx",
@@ -465,8 +465,8 @@
 			"name": "baseui-arrow",
 			"type": "registry:component",
 			"description": "Shared arrow component and styles for Base UI components",
-			"dependencies": ["@base-ui/react"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/baseui/components/arrow/index.tsx",
@@ -479,8 +479,8 @@
 			"name": "baseui-autocomplete",
 			"type": "registry:component",
 			"description": "A Base UI autocomplete component",
-			"dependencies": ["lucide-react", "@base-ui/react"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/baseui/components/autocomplete/index.tsx",
@@ -493,8 +493,8 @@
 			"name": "baseui-avatar",
 			"type": "registry:component",
 			"description": "A Base UI avatar component",
-			"dependencies": ["@base-ui/react"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/baseui/components/avatar/index.tsx",
@@ -507,8 +507,8 @@
 			"name": "baseui-button",
 			"type": "registry:component",
 			"description": "A Base UI button component",
-			"dependencies": ["@base-ui/react"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/baseui/components/button/index.tsx",
@@ -521,8 +521,8 @@
 			"name": "baseui-checkbox",
 			"type": "registry:component",
 			"description": "A Base UI checkbox component",
-			"dependencies": ["@base-ui/react"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/baseui/components/checkbox/index.tsx",
@@ -535,8 +535,8 @@
 			"name": "baseui-checkbox-group",
 			"type": "registry:component",
 			"description": "A Base UI checkbox group component",
-			"dependencies": ["@base-ui/react"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/baseui/components/checkbox-group/index.tsx",
@@ -549,8 +549,8 @@
 			"name": "baseui-collapsible",
 			"type": "registry:component",
 			"description": "A Base UI collapsible component",
-			"dependencies": ["@base-ui/react", "lucide-react"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/baseui/components/collapsible/index.tsx",
@@ -563,11 +563,8 @@
 			"name": "baseui-combobox",
 			"type": "registry:component",
 			"description": "A Base UI combobox component",
-			"dependencies": ["@base-ui/react", "lucide-react"],
-			"registryDependencies": [
-				"@craftdotui/utils",
-				"@craftdotui/baseui-input"
-			],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": ["@craftdotui/baseui-input"],
 			"files": [
 				{
 					"path": "packages/baseui/components/combobox/index.tsx",
@@ -580,11 +577,8 @@
 			"name": "baseui-context-menu",
 			"type": "registry:component",
 			"description": "A Base UI context menu component",
-			"dependencies": ["@base-ui/react"],
-			"registryDependencies": [
-				"@craftdotui/utils",
-				"@craftdotui/baseui-arrow"
-			],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": ["@craftdotui/baseui-arrow"],
 			"files": [
 				{
 					"path": "packages/baseui/components/context-menu/index.tsx",
@@ -597,8 +591,8 @@
 			"name": "baseui-dialog",
 			"type": "registry:component",
 			"description": "A Base UI dialog component",
-			"dependencies": ["@base-ui/react"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/baseui/components/dialog/index.tsx",
@@ -611,8 +605,8 @@
 			"name": "baseui-drawer",
 			"type": "registry:component",
 			"description": "A Base UI drawer component",
-			"dependencies": ["@base-ui/react"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/baseui/components/drawer/index.tsx",
@@ -625,11 +619,8 @@
 			"name": "baseui-field",
 			"type": "registry:component",
 			"description": "A Base UI field component",
-			"dependencies": ["@base-ui/react"],
-			"registryDependencies": [
-				"@craftdotui/utils",
-				"@craftdotui/baseui-input"
-			],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": ["@craftdotui/baseui-input"],
 			"files": [
 				{
 					"path": "packages/baseui/components/field/index.tsx",
@@ -642,11 +633,8 @@
 			"name": "baseui-fieldset",
 			"type": "registry:component",
 			"description": "A Base UI fieldset component",
-			"dependencies": ["@base-ui/react"],
-			"registryDependencies": [
-				"@craftdotui/utils",
-				"@craftdotui/baseui-field"
-			],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": ["@craftdotui/baseui-field"],
 			"files": [
 				{
 					"path": "packages/baseui/components/fieldset/index.tsx",
@@ -659,8 +647,8 @@
 			"name": "baseui-form",
 			"type": "registry:component",
 			"description": "A Base UI form component",
-			"dependencies": ["@base-ui/react"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/baseui/components/form/index.tsx",
@@ -673,8 +661,8 @@
 			"name": "baseui-input",
 			"type": "registry:component",
 			"description": "A Base UI input component",
-			"dependencies": ["@base-ui/react"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/baseui/components/input/index.tsx",
@@ -687,11 +675,8 @@
 			"name": "baseui-menu",
 			"type": "registry:component",
 			"description": "A Base UI menu component",
-			"dependencies": ["@base-ui/react"],
-			"registryDependencies": [
-				"@craftdotui/utils",
-				"@craftdotui/baseui-arrow"
-			],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": ["@craftdotui/baseui-arrow"],
 			"files": [
 				{
 					"path": "packages/baseui/components/menu/index.tsx",
@@ -704,8 +689,8 @@
 			"name": "baseui-menubar",
 			"type": "registry:component",
 			"description": "A Base UI menubar component",
-			"dependencies": ["@base-ui/react"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/baseui/components/menubar/index.tsx",
@@ -718,8 +703,8 @@
 			"name": "baseui-meter",
 			"type": "registry:component",
 			"description": "A Base UI meter component",
-			"dependencies": ["@base-ui/react"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/baseui/components/meter/index.tsx",
@@ -732,8 +717,8 @@
 			"name": "baseui-navigation-menu",
 			"type": "registry:component",
 			"description": "A Base UI navigation menu component",
-			"dependencies": ["@base-ui/react"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/baseui/components/navigation-menu/index.tsx",
@@ -746,9 +731,8 @@
 			"name": "baseui-number-field",
 			"type": "registry:component",
 			"description": "A Base UI number field component",
-			"dependencies": ["@base-ui/react"],
+			"dependencies": ["@base-ui/react", "cn"],
 			"registryDependencies": [
-				"@craftdotui/utils",
 				"@craftdotui/baseui-button",
 				"@craftdotui/baseui-input"
 			],
@@ -764,9 +748,8 @@
 			"name": "baseui-otp-field",
 			"type": "registry:component",
 			"description": "A Base UI otp field component",
-			"dependencies": ["@base-ui/react"],
+			"dependencies": ["@base-ui/react", "cn"],
 			"registryDependencies": [
-				"@craftdotui/utils",
 				"@craftdotui/baseui-separator",
 				"@craftdotui/baseui-input"
 			],
@@ -782,11 +765,8 @@
 			"name": "baseui-popover",
 			"type": "registry:component",
 			"description": "A Base UI popover component",
-			"dependencies": ["@base-ui/react"],
-			"registryDependencies": [
-				"@craftdotui/utils",
-				"@craftdotui/baseui-arrow"
-			],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": ["@craftdotui/baseui-arrow"],
 			"files": [
 				{
 					"path": "packages/baseui/components/popover/index.tsx",
@@ -799,11 +779,8 @@
 			"name": "baseui-preview-card",
 			"type": "registry:component",
 			"description": "A Base UI preview card component",
-			"dependencies": ["@base-ui/react"],
-			"registryDependencies": [
-				"@craftdotui/utils",
-				"@craftdotui/baseui-arrow"
-			],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": ["@craftdotui/baseui-arrow"],
 			"files": [
 				{
 					"path": "packages/baseui/components/preview-card/index.tsx",
@@ -816,8 +793,8 @@
 			"name": "baseui-progress",
 			"type": "registry:component",
 			"description": "A Base UI progress component",
-			"dependencies": ["@base-ui/react"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/baseui/components/progress/index.tsx",
@@ -830,8 +807,8 @@
 			"name": "baseui-radio",
 			"type": "registry:component",
 			"description": "A Base UI radio component",
-			"dependencies": ["@base-ui/react"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/baseui/components/radio/index.tsx",
@@ -844,8 +821,8 @@
 			"name": "baseui-scroll-area",
 			"type": "registry:component",
 			"description": "A Base UI scroll-area component",
-			"dependencies": ["@base-ui/react"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/baseui/components/scroll-area/index.tsx",
@@ -858,8 +835,8 @@
 			"name": "baseui-select",
 			"type": "registry:component",
 			"description": "A Base UI select component",
-			"dependencies": ["@base-ui/react"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/baseui/components/select/index.tsx",
@@ -872,8 +849,8 @@
 			"name": "baseui-separator",
 			"type": "registry:component",
 			"description": "A Base UI separator component",
-			"dependencies": ["@base-ui/react"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/baseui/components/separator/index.tsx",
@@ -886,8 +863,8 @@
 			"name": "baseui-slider",
 			"type": "registry:component",
 			"description": "A Base UI slider component",
-			"dependencies": ["@base-ui/react"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/baseui/components/slider/index.tsx",
@@ -900,8 +877,8 @@
 			"name": "baseui-switch",
 			"type": "registry:component",
 			"description": "A Base UI switch component",
-			"dependencies": ["@base-ui/react"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/baseui/components/switch/index.tsx",
@@ -914,8 +891,8 @@
 			"name": "baseui-tabs",
 			"type": "registry:component",
 			"description": "A Base UI tabs component",
-			"dependencies": ["@base-ui/react"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/baseui/components/tabs/index.tsx",
@@ -928,8 +905,8 @@
 			"name": "baseui-toast",
 			"type": "registry:component",
 			"description": "A Base UI toast component",
-			"dependencies": ["@base-ui/react"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/baseui/components/toast/index.tsx",
@@ -942,8 +919,8 @@
 			"name": "baseui-toggle",
 			"type": "registry:component",
 			"description": "A Base UI toggle component",
-			"dependencies": ["@base-ui/react", "cva"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/baseui/components/toggle/index.tsx",
@@ -956,11 +933,8 @@
 			"name": "baseui-toggle-group",
 			"type": "registry:component",
 			"description": "A Base UI toggle group component",
-			"dependencies": ["@base-ui/react"],
-			"registryDependencies": [
-				"@craftdotui/baseui-toggle",
-				"@craftdotui/utils"
-			],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": ["@craftdotui/baseui-toggle"],
 			"files": [
 				{
 					"path": "packages/baseui/components/toggle-group/index.tsx",
@@ -973,8 +947,8 @@
 			"name": "baseui-toolbar",
 			"type": "registry:component",
 			"description": "A Base UI toolbar component",
-			"dependencies": ["@base-ui/react", "lucide-react"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/baseui/components/toolbar/index.tsx",
@@ -987,11 +961,8 @@
 			"name": "baseui-tooltip",
 			"type": "registry:component",
 			"description": "A Base UI tooltip component",
-			"dependencies": ["@base-ui/react", "lucide-react"],
-			"registryDependencies": [
-				"@craftdotui/utils",
-				"@craftdotui/baseui-arrow"
-			],
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": ["@craftdotui/baseui-arrow"],
 			"files": [
 				{
 					"path": "packages/baseui/components/tooltip/index.tsx",
@@ -3341,7 +3312,7 @@
 			"type": "registry:component",
 			"description": "A Base UI toolbar component",
 			"dependencies": ["@base-ui/react", "lucide-react"],
-			"registryDependencies": ["@craftdotui/utils"],
+			"registryDependencies": ["@craftdotui/baseui-toolbar"],
 			"files": [
 				{
 					"path": "packages/baseui/particles/toolbar/index.tsx",
@@ -3629,26 +3600,11 @@
 			]
 		},
 		{
-			"name": "utils",
-			"type": "registry:lib",
-			"description": "Utility functions including cn for merging Tailwind classes",
-			"dependencies": ["clsx", "tailwind-merge"],
-			"devDependencies": [],
-			"registryDependencies": [],
-			"files": [
-				{
-					"path": "packages/lib/utils/index.ts",
-					"type": "registry:lib",
-					"target": "lib/utils.ts"
-				}
-			]
-		},
-		{
 			"name": "loader-classic",
 			"type": "registry:component",
 			"description": "A classic spinner loader with size and color options",
 			"dependencies": [],
-			"registryDependencies": ["@craftdotui/lib/utils"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/loaders/classic/index.tsx",
@@ -3662,7 +3618,7 @@
 			"type": "registry:component",
 			"description": "A jumping dots loader animation",
 			"dependencies": [],
-			"registryDependencies": ["@craftdotui/lib/utils"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/loaders/jumping-dots/index.tsx",
@@ -3676,7 +3632,7 @@
 			"type": "registry:component",
 			"description": "A leapfrog loader animation",
 			"dependencies": [],
-			"registryDependencies": ["@craftdotui/lib/utils"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/loaders/leapfrog/index.tsx",
@@ -3690,7 +3646,7 @@
 			"type": "registry:component",
 			"description": "A line spinner loader using framer-motion",
 			"dependencies": ["motion"],
-			"registryDependencies": ["@craftdotui/lib/utils"],
+			"registryDependencies": [],
 			"files": [
 				{
 					"path": "packages/loaders/line-spinner/index.tsx",

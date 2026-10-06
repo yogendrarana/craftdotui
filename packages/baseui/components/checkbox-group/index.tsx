@@ -1,7 +1,7 @@
 "use client";
 
 import { CheckboxGroup as CheckboxGroupPrimitive } from "@base-ui/react/checkbox-group";
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 
 /* -------------------------------------------------------------------------- */
 /* Checkbox Group                                                             */

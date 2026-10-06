@@ -8,7 +8,7 @@ import {
 	ToggleRoot as BaseuiToggle,
 	type ToggleProps,
 } from "@craftdotui/baseui/components/toggle";
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 
 /* -------------------------------------------------------------------------- */
 /* Toggle Group Context                                                       */

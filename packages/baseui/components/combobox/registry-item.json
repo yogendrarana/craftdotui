@@ -3,8 +3,8 @@
 	"name": "baseui-combobox",
 	"type": "registry:component",
 	"description": "A Base UI combobox component",
-	"dependencies": ["@base-ui/react", "lucide-react"],
-	"registryDependencies": ["@craftdotui/utils", "@craftdotui/baseui-input"],
+	"dependencies": ["@base-ui/react", "cn"],
+	"registryDependencies": ["@craftdotui/baseui-input"],
 	"files": [
 		{
 			"path": "packages/baseui/components/combobox/index.tsx",

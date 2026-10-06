@@ -6,7 +6,7 @@ import {
 	inputVariants,
 } from "@craftdotui/baseui/components/input";
 
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 
 /* -------------------------------------------------------------------------- */
 /* Field Root                                                                 */

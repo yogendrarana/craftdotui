@@ -3,9 +3,8 @@
 	"name": "baseui-otp-field",
 	"type": "registry:component",
 	"description": "A Base UI otp field component",
-	"dependencies": ["@base-ui/react"],
+	"dependencies": ["@base-ui/react", "cn"],
 	"registryDependencies": [
-		"@craftdotui/utils",
 		"@craftdotui/baseui-separator",
 		"@craftdotui/baseui-input"
 	],

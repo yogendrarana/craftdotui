@@ -3,8 +3,8 @@
 	"name": "craftui-ui-stepper",
 	"type": "registry:component",
 	"description": "A stepper/wizard component",
-	"dependencies": ["motion", "lucide-react"],
-	"registryDependencies": ["@craftdotui/utils"],
+	"dependencies": ["motion", "lucide-react", "cn"],
+	"registryDependencies": [],
 	"files": [
 		{
 			"path": "packages/craftui/components/stepper/index.tsx",

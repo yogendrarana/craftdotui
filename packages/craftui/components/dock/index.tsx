@@ -4,7 +4,7 @@ import type React from "react";
 import { useState } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 
 export interface DockItemProps {
 	icon: React.ReactNode;

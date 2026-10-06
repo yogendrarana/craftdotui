@@ -4,7 +4,7 @@
 	"type": "registry:component",
 	"description": "A leapfrog loader animation",
 	"dependencies": [],
-	"registryDependencies": ["@craftdotui/lib/utils"],
+	"registryDependencies": [],
 	"files": [
 		{
 			"path": "packages/loaders/leapfrog/index.tsx",

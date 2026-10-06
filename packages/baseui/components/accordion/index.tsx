@@ -3,7 +3,7 @@
 import { ChevronDownIcon } from "lucide-react";
 import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion";
 
-import { cn } from "@craftdotui/lib/utils";
+import { cn } from "cn";
 
 /* -------------------------------------------------------------------------- */
 /* Accordion                                                                  */

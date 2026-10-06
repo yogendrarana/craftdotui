@@ -3,8 +3,8 @@
 	"name": "baseui-field",
 	"type": "registry:component",
 	"description": "A Base UI field component",
-	"dependencies": ["@base-ui/react"],
-	"registryDependencies": ["@craftdotui/utils", "@craftdotui/baseui-input"],
+	"dependencies": ["@base-ui/react", "cn"],
+	"registryDependencies": ["@craftdotui/baseui-input"],
 	"files": [
 		{
 			"path": "packages/baseui/components/field/index.tsx",
