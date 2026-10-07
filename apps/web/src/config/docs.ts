@@ -23,51 +23,6 @@ export const docsNavItems: Array<DocsNavItem> = [
 			},
 		],
 	},
-	{
-		title: "Craft UI",
-		items: [
-			{
-				title: "Animate Tooltip",
-				href: "/docs/craftui/components/animated-tooltip",
-			},
-			{
-				title: "Confetti",
-				href: "/docs/craftui/components/confetti",
-			},
-			{
-				title: "Cursor",
-				href: "/docs/craftui/components/cursor",
-			},
-			{
-				title: "Dock",
-				href: "/docs/craftui/components/dock",
-			},
-			{
-				title: "Magnetic",
-				href: "/docs/craftui/components/magnetic",
-			},
-			{
-				title: "Marquee",
-				href: "/docs/craftui/components/marquee",
-			},
-			{
-				title: "Stepper",
-				href: "/docs/craftui/components/stepper",
-			},
-			{
-				title: "Text Scramble",
-				href: "/docs/craftui/components/text-scramble",
-			},
-			{
-				title: "Text Typing",
-				href: "/docs/craftui/components/text-typing",
-			},
-			{
-				title: "Timeline",
-				href: "/docs/craftui/components/timeline",
-			},
-		],
-	},
 
 	{
 		title: "Base UI",
@@ -219,6 +174,52 @@ export const docsNavItems: Array<DocsNavItem> = [
 			{
 				title: "Tooltip",
 				href: "/docs/baseui/components/tooltip",
+			},
+		],
+	},
+
+	{
+		title: "Craft UI",
+		items: [
+			{
+				title: "Animate Tooltip",
+				href: "/docs/craftui/components/animated-tooltip",
+			},
+			{
+				title: "Confetti",
+				href: "/docs/craftui/components/confetti",
+			},
+			{
+				title: "Cursor",
+				href: "/docs/craftui/components/cursor",
+			},
+			{
+				title: "Dock",
+				href: "/docs/craftui/components/dock",
+			},
+			{
+				title: "Magnetic",
+				href: "/docs/craftui/components/magnetic",
+			},
+			{
+				title: "Marquee",
+				href: "/docs/craftui/components/marquee",
+			},
+			{
+				title: "Stepper",
+				href: "/docs/craftui/components/stepper",
+			},
+			{
+				title: "Text Scramble",
+				href: "/docs/craftui/components/text-scramble",
+			},
+			{
+				title: "Text Typing",
+				href: "/docs/craftui/components/text-typing",
+			},
+			{
+				title: "Timeline",
+				href: "/docs/craftui/components/timeline",
 			},
 		],
 	},

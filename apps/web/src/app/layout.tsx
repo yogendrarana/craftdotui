@@ -1,11 +1,9 @@
-import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
 
 import "@/styles/globals.css";
 import { siteConfig } from "@/config/site";
 import { Provider } from "@/components/provider";
-import { fontSans, fontMono } from "@/lib/fonts";
 
 // metadata
 export const metadata: Metadata = {
@@ -46,14 +44,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
 	return (
 		<html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
-			<body
-				className={cn(
-					"w-full flex flex-col justify-center overflow-x-hidden scroll-smooth antialiased font-sans",
-					fontSans.variable,
-					fontMono.variable,
-					fontSans.className,
-				)}
-			>
+			<body>
 				<Provider>
 					<main className="root">{children}</main>
 				</Provider>
