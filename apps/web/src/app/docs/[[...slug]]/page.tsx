@@ -51,8 +51,8 @@ export default async function DocsPage({ params }: PageProps) {
 			</div>
 
 			{/* table of contents */}
-			<div className="h-[calc(100vh-5rem)] p-2 hidden md:block md:sticky md:top-20">
-				<ScrollAreaRoot className="border border-dashed rounded-md p-0">
+			<div className="h-[calc(100vh-4rem)] p-2 hidden md:block md:sticky md:top-16">
+				<ScrollAreaRoot className="h-full border border-dashed rounded-md p-0">
 					<ScrollAreaViewport>
 						<ScrollAreaContent>
 							<TableOfContent toc={doc.toc} />

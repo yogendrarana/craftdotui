@@ -5,8 +5,6 @@ import { Container } from "@/components/container";
 import {
 	ScrollAreaContent,
 	ScrollAreaRoot,
-	ScrollAreaScrollbar,
-	ScrollAreaThumb,
 	ScrollAreaViewport,
 } from "@craftdotui/baseui/components/scroll-area";
 
@@ -31,17 +29,17 @@ export default function DocsLayout({ children }: DocsLayoutProps) {
 					)}
 				>
 					{/* sidebar */}
-					<div className="h-[calc(100vh-5rem)] p-2 hidden md:block md:sticky md:top-20">
+					<div className="h-[calc(100vh-4rem)] p-2 hidden md:block md:sticky md:top-16">
 						<ScrollAreaRoot className="h-full border border-dashed rounded-md">
 							<ScrollAreaViewport>
 								<ScrollAreaContent>
 									<DocsSidebar />
 								</ScrollAreaContent>
 							</ScrollAreaViewport>
-
+							{/* 
 							<ScrollAreaScrollbar>
 								<ScrollAreaThumb />
-							</ScrollAreaScrollbar>
+							</ScrollAreaScrollbar> */}
 						</ScrollAreaRoot>
 					</div>
 
