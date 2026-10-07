@@ -176,7 +176,10 @@ function ComboboxBackdrop({
 	return (
 		<ComboboxPrimitive.Backdrop
 			data-slot="combobox-backdrop"
-			className={cn("fixed inset-0 z-50 bg-black/30", className)}
+			className={cn(
+				"fixed inset-0 z-50 bg-backdrop backdrop-blur-xs",
+				className,
+			)}
 			{...props}
 		/>
 	);

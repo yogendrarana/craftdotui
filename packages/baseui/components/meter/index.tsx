@@ -62,7 +62,7 @@ function MeterIndicator({
 		<MeterPrimitive.Indicator
 			className={cn(
 				"h-full w-full",
-				"transition-[width] duration-300 ease-out",
+				"transition-[width] duration-200 ease-out",
 				"bg-primary",
 				className,
 			)}

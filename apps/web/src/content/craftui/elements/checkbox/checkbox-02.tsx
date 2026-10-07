@@ -14,7 +14,7 @@ export default function Checkbox() {
 					"relative w-7 h-7 outline-none appearance-none border-2 rounded-md transition-all cursor-pointer duration-500",
 					"border-black dark:border-white",
 					"bg-white dark:bg-black",
-					"before:content-[''] before:absolute before:w-5 before:h-5 before:top-1/2 before:left-1/2 before:transform before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-sm before:bg-black dark:before:bg-white before:transition-[transform] before:duration-300",
+					"before:content-[''] before:absolute before:w-5 before:h-5 before:top-1/2 before:left-1/2 before:transform before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-sm before:bg-black dark:before:bg-white before:transition-[transform] before:duration-200",
 					isChecked && "before:scale-100",
 					!isChecked && "before:scale-0",
 				)}

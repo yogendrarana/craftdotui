@@ -39,7 +39,7 @@ function PopoverBackdrop({
 		<PopoverPrimitive.Backdrop
 			className={cn(
 				"fixed inset-0 z-50",
-				"bg-background/70",
+				"bg-backdrop backdrop-blur-xs",
 				"data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0",
 				className,
 			)}
@@ -64,7 +64,7 @@ function PopoverPositioner({
 			className={cn(
 				"z-50",
 				"h-(--positioner-height) w-(--positioner-width) max-w-(--available-width)",
-				"transition-[top,left,right,bottom,transform] ease-[cubic-bezier(0.22,1,0.36,1)] duration-300",
+				"transition-[top,left,right,bottom,transform] ease-[cubic-bezier(0.22,1,0.36,1)] duration-200",
 				"data-instant:transition-none",
 				className,
 			)}
@@ -85,7 +85,7 @@ function PopoverPopup({ className, ...props }: PopoverPrimitive.Popup.Props) {
 				"relative",
 				"h-(--popup-height, auto) w-(--popup-width, auto) p-4 space-y-2",
 				"z-50 border border-border bg-popover text-popover-foreground rounded-md shadow-xs outline-none",
-				"origin-(--transform-origin) transition-[height,width,transform,scale,opacity] ease-[cubic-bezier(0.22,1,0.36,1)] duration-300",
+				"origin-(--transform-origin) transition-[height,width,transform,scale,opacity] ease-[cubic-bezier(0.22,1,0.36,1)] duration-200",
 				"data-starting-style:scale-90 data-starting-style:opacity-0",
 				"data-ending-style:scale-90 data-ending-style:opacity-0",
 				className,
@@ -179,14 +179,14 @@ function PopoverViewport({
 				"[&_[data-current]]:opacity-100",
 				"[&_[data-current]]:scale-100",
 				"[&_[data-current]]:transition-[transform,opacity]",
-				"[&_[data-current]]:duration-300",
+				"[&_[data-current]]:duration-200",
 				"[&_[data-current]]:ease-[cubic-bezier(0.22,1,0.36,1)]",
 
 				"[&_[data-previous]]:translate-x-0",
 				"[&_[data-previous]]:opacity-100",
 				"[&_[data-previous]]:scale-100",
 				"[&_[data-previous]]:transition-[transform,opacity]",
-				"[&_[data-previous]]:duration-300",
+				"[&_[data-previous]]:duration-200",
 				"[&_[data-previous]]:ease-[cubic-bezier(0.22,1,0.36,1)]",
 
 				/* horizontal directions */

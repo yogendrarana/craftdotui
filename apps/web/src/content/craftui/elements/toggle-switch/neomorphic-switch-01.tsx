@@ -24,7 +24,7 @@ export default function NeomorphicSwitch() {
 			<div
 				className={`
                     w-6 h-6 rounded-full 
-                    transform duration-300 ease-in-out
+                    transform duration-200 ease-in-out
                     ${
 						isOn
 							? "translate-x-8 bg-white dark:bg-gray-200 shadow-[0_2px_4px_rgba(0,0,0,0.1)] dark:shadow-[0_2px_4px_rgba(0,0,0,0.3)]"

@@ -15,7 +15,7 @@ const NeumorphicButton = forwardRef<HTMLButtonElement, NeumorphicButtonProps>(
 			<button
 				ref={ref}
 				className={cn(
-					"h-12 w-24 rounded-md border transition-all duration-300 cursor-pointer",
+					"h-12 w-24 rounded-md border transition-all duration-200 cursor-pointer",
 					"bg-[#fafafa] text-[#333] shadow-[4px_4px_8px_#cbcbcb,_-4px_-4px_8px_#ffffff]",
 					"active:shadow-[inset_2px_2px_4px_#c9c9c9,_inset_-2px_-2px_4px_#ffffff]",
 					"active:shadow-[inset_4px_4px_8px_#c9c9c9,_inset_-4px_-4px_8px_#ffffff]",

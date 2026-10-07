@@ -14,7 +14,7 @@ export default function Checkbox() {
 			<input
 				type="checkbox"
 				className="
-                    appearance-none w-7 h-7 bg-white border-2 border-gray-300 duration-300
+                    appearance-none w-7 h-7 bg-white border-2 border-gray-300 duration-200
                     rounded shadow-md checked:bg-blue-400 checked:border-blue-500 
                     relative group cursor-pointer
                 "

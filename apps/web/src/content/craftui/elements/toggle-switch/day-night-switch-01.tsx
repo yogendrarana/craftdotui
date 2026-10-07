@@ -16,10 +16,10 @@ export default function DayNightSwitch() {
 			/>
 			<span
 				className={cn(
-					"absolute inset-0 rounded-full transition-all duration-300 ease-in-out",
+					"absolute inset-0 rounded-full transition-all duration-200 ease-in-out",
 					isChecked ? "bg-indigo-900" : "bg-sky-400",
 					"before:content-[''] before:absolute before:w-8 before:h-8 before:rounded-full before:left-1 before:top-1",
-					"before:transition-all before:duration-300 before:ease-in-out",
+					"before:transition-all before:duration-200 before:ease-in-out",
 					isChecked
 						? "before:bg-yellow-200 before:translate-x-10 before:scale-[0.75] before:shadow-[inset_-4px_-2px_0px_0px_#eab308]"
 						: "before:bg-yellow-300 before:scale-100 before:shadow-[inset_8px_-4px_0px_0px_#fbbf24]",

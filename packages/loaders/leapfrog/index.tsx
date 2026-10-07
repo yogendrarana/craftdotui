@@ -8,7 +8,7 @@ export default function LeapFrog() {
 			{delays.map((delay, index) => (
 				<div
 					key={index}
-					className="absolute inset-0 w-full h-full flex items-center justify-start before:content-[''] before:block before:w-2 before:h-2 before:rounded-full before:bg-black dark:before:bg-white before:transition-colors before:duration-300 before:ease-in-out animate-leap-frog"
+					className="absolute inset-0 w-full h-full flex items-center justify-start before:content-[''] before:block before:w-2 before:h-2 before:rounded-full before:bg-black dark:before:bg-white before:transition-colors before:duration-200 before:ease-in-out animate-leap-frog"
 					style={{ animationDelay: delay }}
 				/>
 			))}

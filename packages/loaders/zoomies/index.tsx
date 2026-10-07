@@ -6,11 +6,11 @@ export default function Zoomies() {
 	return (
 		<div className="relative flex items-center justify-center h-[5px] w-[80px] rounded-[2.5px] overflow-hidden">
 			{/* bg */}
-			<div className="absolute inset-0 bg-black dark:bg-white opacity-10 transition-colors duration-300" />
+			<div className="absolute inset-0 bg-black dark:bg-white opacity-10 transition-colors duration-200" />
 
 			{/* moving bar */}
 			<div
-				className="h-full w-full rounded-[2.5px] bg-black dark:bg-white transition-colors duration-300"
+				className="h-full w-full rounded-[2.5px] bg-black dark:bg-white transition-colors duration-200"
 				style={{
 					animation: `zoom ${duration}s ease-in-out infinite`,
 				}}

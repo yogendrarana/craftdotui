@@ -62,7 +62,7 @@ function ProgressIndicator({
 		<ProgressPrimitive.Indicator
 			className={cn(
 				"h-full w-0",
-				"transition-[width] duration-300 ease-out",
+				"transition-[width] duration-200 ease-out",
 				"bg-primary",
 				className,
 			)}

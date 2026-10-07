@@ -16,7 +16,7 @@ export default function EmojiSwitch() {
                   flex items-center 
                   rounded-full p-1 
                   cursor-pointer 
-                  transition-colors duration-300
+                  transition-colors duration-200
                   ${isOn ? "bg-yellow-400 dark:bg-yellow-500" : "bg-gray-300 dark:bg-gray-600"}
                 `}
 				onClick={handleToggle}
@@ -27,7 +27,7 @@ export default function EmojiSwitch() {
                       flex items-center justify-center 
                       rounded-full 
                       text-2xl 
-                      transform transition-transform duration-300
+                      transform transition-transform duration-200
                       ${isOn ? "translate-x-9" : "translate-x-0"}
                     `}
 				>

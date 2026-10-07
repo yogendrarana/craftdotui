@@ -313,7 +313,7 @@ const StepIndicator = ({
 							key={index}
 							onClick={() => goToStep(index)}
 							className={cn(
-								"w-6 h-6 rounded flex items-center justify-center text-xs transition-all duration-300",
+								"w-6 h-6 rounded flex items-center justify-center text-xs transition-all duration-200",
 								{
 									"bg-black dark:bg-zinc-700 text-white":
 										index === currentStep,
@@ -338,7 +338,7 @@ const StepIndicator = ({
 							key={index}
 							onClick={() => goToStep(index)}
 							className={cn(
-								"text-sm font-medium transition-all duration-300",
+								"text-sm font-medium transition-all duration-200",
 								{
 									"text-black dark:text-gray-200":
 										index === currentStep,

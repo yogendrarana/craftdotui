@@ -14,7 +14,7 @@ export default function Checkbox() {
 				className="absolute opacity-0"
 			/>
 			<div
-				className={`w-[30px] h-[30px] relative border-2 border-[#b7b7b7] rounded-[5px] shadow-[3px_3px_#b7b7b7] transition-all duration-300
+				className={`w-[30px] h-[30px] relative border-2 border-[#b7b7b7] rounded-[5px] shadow-[3px_3px_#b7b7b7] transition-all duration-200
                 ${isChecked ? "bg-blue-500 border-blue-500" : "bg-[#fff]"}`}
 			>
 				{isChecked && (

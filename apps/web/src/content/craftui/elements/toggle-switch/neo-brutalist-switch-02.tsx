@@ -14,7 +14,7 @@ export default function NeoBrutalistSwitch() {
                     relative w-20 h-9
                     bg-black dark:bg-white 
                     border-4 border-black dark:border-white
-                    transition-all duration-300 ease-in-out
+                    transition-all duration-200 ease-in-out
                 `}
 				onClick={toggleSwitch}
 				aria-checked={isOn}
@@ -24,7 +24,7 @@ export default function NeoBrutalistSwitch() {
 					className={`
                     absolute top-0 left-0 w-1/2 h-full 
                     bg-white dark:bg-black
-                    transform transition-transform duration-300 ease-in-out
+                    transform transition-transform duration-200 ease-in-out
                     flex items-center justify-center
                     ${isOn ? "translate-x-full" : "translate-x-0"}
                 `}

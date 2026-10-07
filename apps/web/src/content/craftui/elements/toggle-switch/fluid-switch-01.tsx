@@ -42,7 +42,7 @@ export default function FluidSwitch() {
 						width="116"
 						y="42"
 						x="13"
-						className={`transition-transform duration-300 origin-center ${
+						className={`transition-transform duration-200 origin-center ${
 							isChecked ? "translate-x-[150px]" : ""
 						}`}
 					/>

@@ -44,8 +44,8 @@ function DialogBackdrop({
 			data-slot="dialog-backdrop"
 			className={cn(
 				"fixed inset-0 z-50",
-				"bg-black/40 backdrop-blur-sm",
-				"transition-opacity duration-300 ease-out",
+				"bg-backdrop backdrop-blur-xs",
+				"transition-opacity duration-200 ease-out",
 				"data-starting-style:opacity-0",
 				"data-ending-style:opacity-0",
 				"supports-[-webkit-touch-callout:none]:absolute",

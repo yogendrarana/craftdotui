@@ -17,7 +17,7 @@ const SkeuomorphicButton = forwardRef<
 		<button
 			ref={ref}
 			className={cn(
-				"h-12 w-24 rounded-md font-semibold transition-all duration-300",
+				"h-12 w-24 rounded-md font-semibold transition-all duration-200",
 				"bg-gradient-to-b from-[#f0f0f0] to-[#d0d0d0]",
 				"text-[#333] border border-[#bbb]",
 				"shadow-[0_2px_4px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.5)]",

@@ -19,7 +19,7 @@ export default function ClassicSwitch() {
 				onClick={toggleSwitch}
 			>
 				<span
-					className={`bg-white dark:bg-gray-200 w-6 h-6 rounded-full shadow-md transform transition-transform duration-300 ease-in-out ${
+					className={`bg-white dark:bg-gray-200 w-6 h-6 rounded-full shadow-md transform transition-transform duration-200 ease-in-out ${
 						isOn ? "translate-x-6" : ""
 					}`}
 				></span>

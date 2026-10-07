@@ -167,7 +167,7 @@ function NavigationMenuBackdrop({
 		<NavigationMenuPrimitive.Backdrop
 			data-slot="navigation-menu-backdrop"
 			className={cn(
-				"fixed inset-0 z-50 bg-background/80 backdrop-blur-sm",
+				"fixed inset-0 z-50 bg-backdrop backdrop-blur-xs",
 				className,
 			)}
 			{...props}

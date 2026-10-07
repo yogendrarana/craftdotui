@@ -41,6 +41,8 @@
 	--color-invert: var(--invert);
 	--color-invert-foreground: var(--invert-foreground);
 
+	--color-backdrop: var(--backdrop);
+
 	/* colors - form */
 	--color-border: var(--border);
 	--color-input: var(--input);
@@ -128,6 +130,8 @@
 	--invert: oklch(0.145 0 0);
 	--invert-foreground: oklch(0.985 0 0);
 
+	--backdrop: oklch(0% 0 0 / 35%);
+
 	--border: oklch(0.922 0 0);
 	--input: oklch(0.922 0 0);
 	--ring: oklch(0.708 0 0);
@@ -212,6 +216,8 @@
 
 	--invert: oklch(0.985 0 0);
 	--invert-foreground: oklch(0.145 0 0);
+
+	--backdrop: oklch(0% 0 0 / 50%);
 
 	--border: oklch(0.269 0 0);
 	--input: oklch(0.269 0 0);

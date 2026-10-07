@@ -89,7 +89,7 @@ function DrawerIndentBackground({
 		<DrawerPrimitive.IndentBackground
 			data-slot="drawer-indent-background"
 			className={cn(
-				"z-50 fixed inset-0 transition-all duration-300",
+				"z-50 fixed inset-0 transition-all duration-200",
 				className,
 			)}
 			{...props}
@@ -153,8 +153,8 @@ function DrawerBackdrop({
 			data-slot="drawer-backdrop"
 			className={cn(
 				"fixed inset-0 z-50",
-				"bg-black/40 backdrop-blur-sm",
-				"transition-opacity duration-300 ease-out",
+				"bg-backdrop backdrop-blur-xs",
+				"transition-opacity duration-200 ease-out",
 
 				// for swipe-driven opacity
 				"opacity-[calc(1-var(--drawer-swipe-progress,0))]",
@@ -249,7 +249,7 @@ function DrawerPopup({
 				"group/drawer-popup",
 				"max-h-full min-h-0 w-full min-w-0 pointer-events-auto",
 				"relative z-50 flex flex-col bg-background shadow-2xl overflow-y-auto overscroll-contain touch-auto will-change-transform",
-				"transition-[transform,box-shadow,height] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)]",
+				"transition-[transform,box-shadow,height] duration-200 ease-[cubic-bezier(0.32,0.72,0,1)]",
 
 				// no transition during swipe
 				"data-swiping:transition-none data-swiping:select-none",
@@ -270,7 +270,7 @@ function DrawerPopup({
 				isStraight && "[--stack-step:0]",
 
 				// Dim overlay when nested drawer is open
-				"after:pointer-events-none after:absolute after:inset-0 after:bg-transparent after:transition-colors after:duration-300 after:ease-[cubic-bezier(0.32,0.72,0,1)]",
+				"after:pointer-events-none after:absolute after:inset-0 after:bg-transparent after:transition-colors after:duration-200 after:ease-[cubic-bezier(0.32,0.72,0,1)]",
 				"data-nested-drawer-open:after:bg-black/5 dark:data-nested-drawer-open:after:bg-black/30",
 				"data-nested-drawer-open:overflow-hidden",
 
@@ -414,7 +414,7 @@ function DrawerContent({
 }: DrawerContentProps) {
 	const contentClassName = cn(
 		"p-6 flex-1",
-		"transition-opacity duration-300 ease-[cubic-bezier(0.32,0.72,0,1)]",
+		"transition-opacity duration-200 ease-[cubic-bezier(0.32,0.72,0,1)]",
 		// Hide content when nested drawer is open
 		"group-data-[nested-drawer-open]/drawer-popup:opacity-0",
 		// Show content when swiping nested drawer
