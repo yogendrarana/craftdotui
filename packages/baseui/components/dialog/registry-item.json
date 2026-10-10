@@ -3,8 +3,13 @@
 	"name": "baseui-dialog",
 	"type": "registry:component",
 	"description": "A Base UI dialog component",
-	"dependencies": ["@base-ui/react", "cn"],
-	"registryDependencies": [],
+	"dependencies": [
+		"@base-ui/react",
+		"cn",
+		"class-variance-authority",
+		"lucide-react"
+	],
+	"registryDependencies": ["@craftdotui/baseui-scroll-area"],
 	"files": [
 		{
 			"path": "packages/baseui/components/dialog/index.tsx",

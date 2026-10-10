@@ -1,45 +1,74 @@
-import {
-	DialogRoot,
-	DialogTrigger,
-	DialogPortal,
-	DialogBackdrop,
-	DialogViewport,
-	DialogPopup,
-	DialogTitle,
-	DialogDescription,
-	DialogClose,
-	DialogFooter,
-} from "@craftdotui/baseui/components/dialog";
+"use client";
+
 import { Button } from "@craftdotui/baseui/components/button";
+import {
+	DialogClose,
+	DialogContent,
+	DialogDescription,
+	DialogFooter,
+	DialogHeader,
+	DialogPanel,
+	DialogRoot,
+	DialogTitle,
+	DialogTrigger,
+} from "@craftdotui/baseui/components/dialog";
+import { Input } from "@craftdotui/baseui/components/input";
 
 export function Particle() {
 	return (
 		<DialogRoot>
 			<DialogTrigger
-				render={<Button variant={"outline"}>Open Dialog</Button>}
+				render={<Button variant="outline">Edit Profile</Button>}
 			/>
 
-			<DialogPortal>
-				<DialogBackdrop />
-				<DialogViewport>
-					<DialogPopup>
-						<DialogTitle>Edit profile</DialogTitle>
-						<DialogDescription>
-							Make changes to your profile and save them.
-						</DialogDescription>
+			<DialogContent showCloseButton>
+				<DialogHeader>
+					<DialogTitle>Edit Profile</DialogTitle>
+					<DialogDescription>
+						Make changes to your public profile here. Click save
+						when done.
+					</DialogDescription>
+				</DialogHeader>
 
-						<DialogFooter>
-							<DialogClose render={<Button variant="ghost" />}>
-								Cancel
-							</DialogClose>
+				<DialogPanel>
+					<div className="flex flex-col gap-1.5">
+						<label
+							htmlFor="dialog-name"
+							className="text-xs font-medium text-foreground"
+						>
+							Name
+						</label>
+						<Input
+							id="dialog-name"
+							defaultValue="Yogendra Rana"
+							placeholder="Enter your name"
+						/>
+					</div>
 
-							<DialogClose render={<Button variant="outline" />}>
-								Confirm
-							</DialogClose>
-						</DialogFooter>
-					</DialogPopup>
-				</DialogViewport>
-			</DialogPortal>
+					<div className="flex flex-col gap-1.5">
+						<label
+							htmlFor="dialog-username"
+							className="text-xs font-medium text-foreground"
+						>
+							Username
+						</label>
+						<Input
+							id="dialog-username"
+							defaultValue="@yooogendrarana"
+							placeholder="Enter your username"
+						/>
+					</div>
+				</DialogPanel>
+
+				<DialogFooter>
+					<DialogClose
+						render={<Button variant="ghost">Cancel</Button>}
+					/>
+					<Button>Save Changes</Button>
+				</DialogFooter>
+			</DialogContent>
 		</DialogRoot>
 	);
 }
+
+export default Particle;

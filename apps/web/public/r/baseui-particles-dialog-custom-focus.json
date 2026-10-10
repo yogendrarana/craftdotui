@@ -1,0 +1,20 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-dialog-custom-focus",
+	"description": "Custom focus management using initialFocus and finalFocus",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/baseui-dialog",
+		"@craftdotui/baseui-button",
+		"@craftdotui/baseui-input"
+	],
+	"files": [
+		{
+			"path": "packages/baseui/particles/dialog/custom-focus/index.tsx",
+			"content": "\"use client\";\n\nimport { useRef } from \"react\";\nimport { Button } from \"@/components/baseui/components/button\";\nimport {\n\tDialogClose,\n\tDialogContent,\n\tDialogDescription,\n\tDialogFooter,\n\tDialogHeader,\n\tDialogPanel,\n\tDialogRoot,\n\tDialogTitle,\n\tDialogTrigger,\n} from \"@/components/baseui/components/dialog\";\nimport { Input } from \"@/components/baseui/components/input\";\n\nexport function Particle() {\n\tconst initialFocusRef = useRef<HTMLInputElement | null>(null);\n\tconst returnFocusRef = useRef<HTMLButtonElement | null>(null);\n\n\treturn (\n\t\t<div className=\"flex flex-col items-center gap-4\">\n\t\t\t<div className=\"flex items-center gap-3\">\n\t\t\t\t<DialogRoot>\n\t\t\t\t\t<DialogTrigger\n\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t<Button variant=\"outline\">Open Quick Search</Button>\n\t\t\t\t\t\t}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<DialogContent\n\t\t\t\t\t\tshowCloseButton\n\t\t\t\t\t\tinitialFocus={initialFocusRef}\n\t\t\t\t\t\tfinalFocus={returnFocusRef}\n\t\t\t\t\t>\n\t\t\t\t\t\t<DialogHeader>\n\t\t\t\t\t\t\t<DialogTitle>Quick Navigation</DialogTitle>\n\t\t\t\t\t\t\t<DialogDescription>\n\t\t\t\t\t\t\t\tFocus is automatically placed directly into the\n\t\t\t\t\t\t\t\tsearch input on mount.\n\t\t\t\t\t\t\t</DialogDescription>\n\t\t\t\t\t\t</DialogHeader>\n\n\t\t\t\t\t\t<DialogPanel>\n\t\t\t\t\t\t\t<div className=\"flex flex-col gap-1.5\">\n\t\t\t\t\t\t\t\t<label\n\t\t\t\t\t\t\t\t\thtmlFor=\"quick-search-input\"\n\t\t\t\t\t\t\t\t\tclassName=\"text-xs font-medium text-foreground\"\n\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\tQuery\n\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t\t\t<Input\n\t\t\t\t\t\t\t\t\tref={initialFocusRef}\n\t\t\t\t\t\t\t\t\tid=\"quick-search-input\"\n\t\t\t\t\t\t\t\t\tplaceholder=\"Search documentation, components, or recipes…\"\n\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</DialogPanel>\n\n\t\t\t\t\t\t<DialogFooter variant=\"default\">\n\t\t\t\t\t\t\t<DialogClose render={<Button variant=\"ghost\" />}>\n\t\t\t\t\t\t\t\tCancel\n\t\t\t\t\t\t\t</DialogClose>\n\t\t\t\t\t\t\t<DialogClose render={<Button variant=\"default\" />}>\n\t\t\t\t\t\t\t\tSearch\n\t\t\t\t\t\t\t</DialogClose>\n\t\t\t\t\t\t</DialogFooter>\n\t\t\t\t\t</DialogContent>\n\t\t\t\t</DialogRoot>\n\n\t\t\t\t{/* Element targeted by finalFocus */}\n\t\t\t\t<Button ref={returnFocusRef} variant=\"outline\">\n\t\t\t\t\tReturn Target\n\t\t\t\t</Button>\n\t\t\t</div>\n\n\t\t\t<p className=\"text-xs text-muted-foreground text-center max-w-sm\">\n\t\t\t\tWhen the dialog opens, it auto-focuses the input instead of the\n\t\t\t\tfirst button. On dismiss, focus returns specifically to the\n\t\t\t\tReturn Target button.\n\t\t\t</p>\n\t\t</div>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/dialog-custom-focus.tsx"
+		}
+	],
+	"type": "registry:component"
+}

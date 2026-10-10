@@ -1,0 +1,18 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-dialog-outside-scroll",
+	"type": "registry:component",
+	"description": "Outside scroll dialog with viewport scrolling",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/baseui-dialog",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/baseui/particles/dialog/outside-scroll/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/particles/dialog-outside-scroll.tsx"
+		}
+	]
+}

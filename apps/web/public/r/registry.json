@@ -597,8 +597,13 @@
 			"name": "baseui-dialog",
 			"type": "registry:component",
 			"description": "A Base UI dialog component",
-			"dependencies": ["@base-ui/react", "cn"],
-			"registryDependencies": [],
+			"dependencies": [
+				"@base-ui/react",
+				"cn",
+				"class-variance-authority",
+				"lucide-react"
+			],
+			"registryDependencies": ["@craftdotui/baseui-scroll-area"],
 			"files": [
 				{
 					"path": "packages/baseui/components/dialog/index.tsx",
@@ -1732,11 +1737,33 @@
 			]
 		},
 		{
+			"name": "baseui-particles-dialog-close-confirmation",
+			"type": "registry:component",
+			"description": "Dialog close confirmation for unsaved changes",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/baseui-dialog",
+				"@craftdotui/baseui-alert-dialog",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/baseui/particles/dialog/close-confirmation/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/dialog-close-confirmation.tsx"
+				}
+			]
+		},
+		{
 			"name": "baseui-particles-dialog-controlled",
 			"type": "registry:component",
-			"description": "",
+			"description": "Controlled dialog example",
 			"dependencies": [],
-			"registryDependencies": ["@craftdotui/baseui-dialog"],
+			"registryDependencies": [
+				"@craftdotui/baseui-dialog",
+				"@craftdotui/baseui-button",
+				"@craftdotui/baseui-input"
+			],
 			"files": [
 				{
 					"path": "packages/baseui/particles/dialog/controlled/index.tsx",
@@ -1746,11 +1773,119 @@
 			]
 		},
 		{
+			"name": "baseui-particles-dialog-custom-focus",
+			"type": "registry:component",
+			"description": "Custom focus management using initialFocus and finalFocus",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/baseui-dialog",
+				"@craftdotui/baseui-button",
+				"@craftdotui/baseui-input"
+			],
+			"files": [
+				{
+					"path": "packages/baseui/particles/dialog/custom-focus/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/dialog-custom-focus.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-dialog-detached-triggers",
+			"type": "registry:component",
+			"description": "Detached triggers with typed payloads",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/baseui-dialog",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/baseui/particles/dialog/detached-triggers/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/dialog-detached-triggers.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-dialog-from-menu",
+			"type": "registry:component",
+			"description": "Opening a dialog from a dropdown menu action",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": [
+				"@craftdotui/baseui-dialog",
+				"@craftdotui/baseui-button",
+				"@craftdotui/baseui-menu"
+			],
+			"files": [
+				{
+					"path": "packages/baseui/particles/dialog/from-menu/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/dialog-from-menu.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-dialog-inside-scroll",
+			"type": "registry:component",
+			"description": "Inside scroll dialog with fixed header and footer",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/baseui-dialog",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/baseui/particles/dialog/inside-scroll/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/dialog-inside-scroll.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-dialog-nested",
+			"type": "registry:component",
+			"description": "Nested dialogs with layered stacking",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/baseui-dialog",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/baseui/particles/dialog/nested/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/dialog-nested.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-dialog-outside-scroll",
+			"type": "registry:component",
+			"description": "Outside scroll dialog with viewport scrolling",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": [
+				"@craftdotui/baseui-dialog",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/baseui/particles/dialog/outside-scroll/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/dialog-outside-scroll.tsx"
+				}
+			]
+		},
+		{
 			"name": "baseui-particles-dialog",
 			"type": "registry:component",
-			"description": "",
+			"description": "Default dialog component example",
 			"dependencies": [],
-			"registryDependencies": ["@craftdotui/baseui-dialog"],
+			"registryDependencies": [
+				"@craftdotui/baseui-dialog",
+				"@craftdotui/baseui-button",
+				"@craftdotui/baseui-input"
+			],
 			"files": [
 				{
 					"path": "packages/baseui/particles/dialog/index.tsx",

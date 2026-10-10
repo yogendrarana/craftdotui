@@ -1,9 +1,9 @@
 ---
 title: Dialog
 description: A Base UI dialog component
-slug: /baseui/components/collapsible
+slug: /baseui/components/dialog
 published: true
-date: 2025-12-27T00:00:00.000Z
+date: 2026-04-10T00:00:00.000Z
 author:
   name: Yogendra Rana
   twitter: "https://twitter.com/yooogendra_rana"
@@ -11,13 +11,91 @@ author:
 
 <ComponentCodePreview name="baseui-particles-dialog" />
 
-
 ## Installation
 
 <Installation name="baseui-dialog" />
+
+## Composition
+
+#### Composite
+
+```tsx
+<DialogRoot>
+    <DialogTrigger>Open Dialog</DialogTrigger>
+
+    <DialogContent showCloseButton>
+        <DialogHeader>
+            <DialogTitle>Dialog Title</DialogTitle>
+            <DialogDescription>Dialog Description</DialogDescription>
+        </DialogHeader>
+
+        <DialogPanel>Content</DialogPanel>
+
+        <DialogFooter>
+            <DialogClose>Close</DialogClose>
+        </DialogFooter>
+    </DialogContent>
+</DialogRoot>
+```
+
+#### Primitives
+
+```tsx
+<DialogRoot>
+    <DialogTrigger>Open Dialog</DialogTrigger>
+
+    <DialogPortal>
+        <DialogBackdrop />
+        <DialogViewport>
+            <DialogPopup>
+                <DialogClose />
+
+                <DialogHeader>
+                    <DialogTitle>Dialog Title</DialogTitle>
+                    <DialogDescription>Dialog Description</DialogDescription>
+                </DialogHeader>
+
+                <DialogPanel>Content</DialogPanel>
+
+                <DialogFooter>
+                    <DialogClose>Close</DialogClose>
+                </DialogFooter>
+            </DialogPopup>
+        </DialogViewport>
+    </DialogPortal>
+</DialogRoot>
+```
 
 ## Demo
 
 #### Controlled
 
 <ComponentCodePreview name="baseui-particles-dialog-controlled" />
+
+#### Inside Scroll
+
+<ComponentCodePreview name="baseui-particles-dialog-inside-scroll" />
+
+#### Outside Scroll
+
+<ComponentCodePreview name="baseui-particles-dialog-outside-scroll" />
+
+#### Detached Triggers
+
+<ComponentCodePreview name="baseui-particles-dialog-detached-triggers" />
+
+#### Nested Dialogs
+
+<ComponentCodePreview name="baseui-particles-dialog-nested" />
+
+#### Custom Focus Management
+
+<ComponentCodePreview name="baseui-particles-dialog-custom-focus" />
+
+#### Close Confirmation
+
+<ComponentCodePreview name="baseui-particles-dialog-close-confirmation" />
+
+#### Open from Menu
+
+<ComponentCodePreview name="baseui-particles-dialog-from-menu" />

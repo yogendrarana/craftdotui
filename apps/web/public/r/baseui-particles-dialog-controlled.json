@@ -1,13 +1,17 @@
 {
 	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
 	"name": "baseui-particles-dialog-controlled",
-	"description": "",
+	"description": "Controlled dialog example",
 	"dependencies": [],
-	"registryDependencies": ["@craftdotui/baseui-dialog"],
+	"registryDependencies": [
+		"@craftdotui/baseui-dialog",
+		"@craftdotui/baseui-button",
+		"@craftdotui/baseui-input"
+	],
 	"files": [
 		{
 			"path": "packages/baseui/particles/dialog/controlled/index.tsx",
-			"content": "import { useState } from \"react\";\nimport {\n\tDialogRoot,\n\tDialogTrigger,\n\tDialogPortal,\n\tDialogBackdrop,\n\tDialogViewport,\n\tDialogPopup,\n\tDialogTitle,\n\tDialogDescription,\n\tDialogClose,\n\tDialogFooter,\n} from \"@/components/baseui/components/dialog\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport function Particle() {\n\tconst [open, setOpen] = useState<boolean>(false);\n\n\treturn (\n\t\t<DialogRoot open={open} onOpenChange={setOpen}>\n\t\t\t<DialogTrigger\n\t\t\t\trender={<Button variant={\"outline\"}>Open Dialog</Button>}\n\t\t\t/>\n\n\t\t\t<DialogPortal>\n\t\t\t\t<DialogBackdrop />\n\t\t\t\t<DialogViewport>\n\t\t\t\t\t<DialogPopup>\n\t\t\t\t\t\t<DialogTitle>Edit profile</DialogTitle>\n\t\t\t\t\t\t<DialogDescription>\n\t\t\t\t\t\t\tMake changes to your profile and save them.\n\t\t\t\t\t\t</DialogDescription>\n\n\t\t\t\t\t\t<DialogFooter>\n\t\t\t\t\t\t\t<DialogClose render={<Button variant=\"ghost\" />}>\n\t\t\t\t\t\t\t\tCancel\n\t\t\t\t\t\t\t</DialogClose>\n\n\t\t\t\t\t\t\t<DialogClose render={<Button variant=\"outline\" />}>\n\t\t\t\t\t\t\t\tConfirm\n\t\t\t\t\t\t\t</DialogClose>\n\t\t\t\t\t\t</DialogFooter>\n\t\t\t\t\t</DialogPopup>\n\t\t\t\t</DialogViewport>\n\t\t\t</DialogPortal>\n\t\t</DialogRoot>\n\t);\n}\n",
+			"content": "\"use client\";\n\nimport { useState } from \"react\";\nimport { Button } from \"@/components/baseui/components/button\";\nimport {\n\tDialogClose,\n\tDialogContent,\n\tDialogDescription,\n\tDialogFooter,\n\tDialogHeader,\n\tDialogPanel,\n\tDialogRoot,\n\tDialogTitle,\n} from \"@/components/baseui/components/dialog\";\nimport { Input } from \"@/components/baseui/components/input\";\n\nexport function Particle() {\n\tconst [open, setOpen] = useState(false);\n\n\treturn (\n\t\t<div className=\"flex flex-col items-center gap-3\">\n\t\t\t<Button variant=\"outline\" onClick={() => setOpen(true)}>\n\t\t\t\tOpen Controlled Dialog\n\t\t\t</Button>\n\n\t\t\t<DialogRoot open={open} onOpenChange={setOpen}>\n\t\t\t\t<DialogContent showCloseButton>\n\t\t\t\t\t<DialogHeader>\n\t\t\t\t\t\t<DialogTitle>Controlled Server Config</DialogTitle>\n\t\t\t\t\t\t<DialogDescription>\n\t\t\t\t\t\t\tThis dialog’s open state is controlled externally\n\t\t\t\t\t\t\tvia React state.\n\t\t\t\t\t\t</DialogDescription>\n\t\t\t\t\t</DialogHeader>\n\n\t\t\t\t\t<DialogPanel>\n\t\t\t\t\t\t<div className=\"flex flex-col gap-1.5\">\n\t\t\t\t\t\t\t<label\n\t\t\t\t\t\t\t\thtmlFor=\"server-name\"\n\t\t\t\t\t\t\t\tclassName=\"text-xs font-medium text-foreground\"\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\tServer Environment\n\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t\t<Input\n\t\t\t\t\t\t\t\tid=\"server-name\"\n\t\t\t\t\t\t\t\tdefaultValue=\"Production US-East\"\n\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</DialogPanel>\n\n\t\t\t\t\t<DialogFooter variant=\"default\">\n\t\t\t\t\t\t<DialogClose render={<Button variant=\"ghost\" />}>\n\t\t\t\t\t\t\tCancel\n\t\t\t\t\t\t</DialogClose>\n\t\t\t\t\t\t<Button\n\t\t\t\t\t\t\tvariant=\"default\"\n\t\t\t\t\t\t\tonClick={() => {\n\t\t\t\t\t\t\t\tsetOpen(false);\n\t\t\t\t\t\t\t}}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\tApply Changes\n\t\t\t\t\t\t</Button>\n\t\t\t\t\t</DialogFooter>\n\t\t\t\t</DialogContent>\n\t\t\t</DialogRoot>\n\t\t</div>\n\t);\n}\n\nexport default Particle;\n",
 			"type": "registry:component",
 			"target": "components/baseui/particles/dialog-controlled.tsx"
 		}

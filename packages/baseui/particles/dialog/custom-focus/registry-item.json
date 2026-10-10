@@ -1,8 +1,8 @@
 {
 	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
-	"name": "baseui-particles-dialog",
+	"name": "baseui-particles-dialog-custom-focus",
 	"type": "registry:component",
-	"description": "Default dialog component example",
+	"description": "Custom focus management using initialFocus and finalFocus",
 	"dependencies": [],
 	"registryDependencies": [
 		"@craftdotui/baseui-dialog",
@@ -11,9 +11,9 @@
 	],
 	"files": [
 		{
-			"path": "packages/baseui/particles/dialog/index.tsx",
+			"path": "packages/baseui/particles/dialog/custom-focus/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/dialog.tsx"
+			"target": "components/baseui/particles/dialog-custom-focus.tsx"
 		}
 	]
 }

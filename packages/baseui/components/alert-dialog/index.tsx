@@ -93,6 +93,8 @@ function AlertDialogPopup(props: AlertDialogPrimitive.Popup.Props) {
 					className={cn(
 						"w-full max-w-lg p-6 rounded-lg border border-border bg-background shadow-sm",
 						"transition-all duration-200 ease-out",
+						"scale-[calc(1-0.08*var(--nested-dialogs,0))] translate-y-[calc(-1rem*var(--nested-dialogs,0))]",
+						"after:pointer-events-none after:absolute after:inset-0 after:rounded-[inherit] after:bg-black/10 dark:after:bg-black/40 after:opacity-0 after:transition-opacity after:duration-200 after:ease-out data-nested-dialog-open:after:opacity-100",
 						"data-starting-style:opacity-0 data-starting-style:scale-95",
 						"data-ending-style:opacity-0 data-ending-style:scale-95",
 						"focus:outline-none",

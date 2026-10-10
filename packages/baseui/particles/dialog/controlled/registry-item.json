@@ -2,9 +2,13 @@
 	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
 	"name": "baseui-particles-dialog-controlled",
 	"type": "registry:component",
-	"description": "",
+	"description": "Controlled dialog example",
 	"dependencies": [],
-	"registryDependencies": ["@craftdotui/baseui-dialog"],
+	"registryDependencies": [
+		"@craftdotui/baseui-dialog",
+		"@craftdotui/baseui-button",
+		"@craftdotui/baseui-input"
+	],
 	"files": [
 		{
 			"path": "packages/baseui/particles/dialog/controlled/index.tsx",

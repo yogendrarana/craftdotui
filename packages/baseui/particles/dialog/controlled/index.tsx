@@ -1,48 +1,70 @@
+"use client";
+
 import { useState } from "react";
-import {
-	DialogRoot,
-	DialogTrigger,
-	DialogPortal,
-	DialogBackdrop,
-	DialogViewport,
-	DialogPopup,
-	DialogTitle,
-	DialogDescription,
-	DialogClose,
-	DialogFooter,
-} from "@craftdotui/baseui/components/dialog";
 import { Button } from "@craftdotui/baseui/components/button";
+import {
+	DialogClose,
+	DialogContent,
+	DialogDescription,
+	DialogFooter,
+	DialogHeader,
+	DialogPanel,
+	DialogRoot,
+	DialogTitle,
+} from "@craftdotui/baseui/components/dialog";
+import { Input } from "@craftdotui/baseui/components/input";
 
 export function Particle() {
-	const [open, setOpen] = useState<boolean>(false);
+	const [open, setOpen] = useState(false);
 
 	return (
-		<DialogRoot open={open} onOpenChange={setOpen}>
-			<DialogTrigger
-				render={<Button variant={"outline"}>Open Dialog</Button>}
-			/>
+		<div className="flex flex-col items-center gap-3">
+			<Button variant="outline" onClick={() => setOpen(true)}>
+				Open Controlled Dialog
+			</Button>
 
-			<DialogPortal>
-				<DialogBackdrop />
-				<DialogViewport>
-					<DialogPopup>
-						<DialogTitle>Edit profile</DialogTitle>
+			<DialogRoot open={open} onOpenChange={setOpen}>
+				<DialogContent showCloseButton>
+					<DialogHeader>
+						<DialogTitle>Controlled Server Config</DialogTitle>
 						<DialogDescription>
-							Make changes to your profile and save them.
+							This dialog’s open state is controlled externally
+							via React state.
 						</DialogDescription>
+					</DialogHeader>
 
-						<DialogFooter>
-							<DialogClose render={<Button variant="ghost" />}>
-								Cancel
-							</DialogClose>
+					<DialogPanel>
+						<div className="flex flex-col gap-1.5">
+							<label
+								htmlFor="server-name"
+								className="text-xs font-medium text-foreground"
+							>
+								Server Environment
+							</label>
+							<Input
+								id="server-name"
+								defaultValue="Production US-East"
+							/>
+						</div>
+					</DialogPanel>
 
-							<DialogClose render={<Button variant="outline" />}>
-								Confirm
-							</DialogClose>
-						</DialogFooter>
-					</DialogPopup>
-				</DialogViewport>
-			</DialogPortal>
-		</DialogRoot>
+					<DialogFooter variant="default">
+						<DialogClose render={<Button variant="ghost" />}>
+							Cancel
+						</DialogClose>
+						<Button
+							variant="default"
+							onClick={() => {
+								setOpen(false);
+							}}
+						>
+							Apply Changes
+						</Button>
+					</DialogFooter>
+				</DialogContent>
+			</DialogRoot>
+		</div>
 	);
 }
+
+export default Particle;

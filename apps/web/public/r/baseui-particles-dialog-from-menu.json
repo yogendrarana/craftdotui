@@ -1,0 +1,20 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-dialog-from-menu",
+	"description": "Opening a dialog from a dropdown menu action",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/baseui-dialog",
+		"@craftdotui/baseui-button",
+		"@craftdotui/baseui-menu"
+	],
+	"files": [
+		{
+			"path": "packages/baseui/particles/dialog/from-menu/index.tsx",
+			"content": "\"use client\";\n\nimport { useState } from \"react\";\nimport { Archive, ChevronDown, ExternalLink, Info } from \"lucide-react\";\nimport { Button } from \"@/components/baseui/components/button\";\nimport {\n\tDialogClose,\n\tDialogContent,\n\tDialogDescription,\n\tDialogFooter,\n\tDialogHeader,\n\tDialogPanel,\n\tDialogRoot,\n\tDialogTitle,\n} from \"@/components/baseui/components/dialog\";\nimport {\n\tMenuItem,\n\tMenuPopup,\n\tMenuPortal,\n\tMenuPositioner,\n\tMenuRoot,\n\tMenuSeparator,\n\tMenuTrigger,\n} from \"@/components/baseui/components/menu\";\n\nexport function Particle() {\n\tconst [dialogOpen, setDialogOpen] = useState(false);\n\n\treturn (\n\t\t<div className=\"flex justify-center\">\n\t\t\t{/* Menu triggering Dialog */}\n\t\t\t<MenuRoot>\n\t\t\t\t<MenuTrigger\n\t\t\t\t\trender={\n\t\t\t\t\t\t<Button variant=\"outline\" className=\"gap-2\">\n\t\t\t\t\t\t\tRepository Options\n\t\t\t\t\t\t\t<ChevronDown className=\"size-4 opacity-60\" />\n\t\t\t\t\t\t</Button>\n\t\t\t\t\t}\n\t\t\t\t/>\n\n\t\t\t\t<MenuPortal>\n\t\t\t\t\t<MenuPositioner sideOffset={6} align=\"start\">\n\t\t\t\t\t\t<MenuPopup className=\"w-52\">\n\t\t\t\t\t\t\t<MenuItem className=\"gap-2\">\n\t\t\t\t\t\t\t\t<ExternalLink className=\"size-4 text-muted-foreground\" />\n\t\t\t\t\t\t\t\t<span>View on GitHub</span>\n\t\t\t\t\t\t\t</MenuItem>\n\t\t\t\t\t\t\t<MenuItem className=\"gap-2\">\n\t\t\t\t\t\t\t\t<Info className=\"size-4 text-muted-foreground\" />\n\t\t\t\t\t\t\t\t<span>Repository Details</span>\n\t\t\t\t\t\t\t</MenuItem>\n\t\t\t\t\t\t\t<MenuSeparator />\n\t\t\t\t\t\t\t<MenuItem\n\t\t\t\t\t\t\t\tclassName=\"gap-2 text-destructive focus:text-destructive\"\n\t\t\t\t\t\t\t\tonClick={() => setDialogOpen(true)}\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t<Archive className=\"size-4\" />\n\t\t\t\t\t\t\t\t<span>Archive Repository…</span>\n\t\t\t\t\t\t\t</MenuItem>\n\t\t\t\t\t\t</MenuPopup>\n\t\t\t\t\t</MenuPositioner>\n\t\t\t\t</MenuPortal>\n\t\t\t</MenuRoot>\n\n\t\t\t{/* Controlled Dialog */}\n\t\t\t<DialogRoot open={dialogOpen} onOpenChange={setDialogOpen}>\n\t\t\t\t<DialogContent showCloseButton className=\"max-w-md\">\n\t\t\t\t\t<DialogHeader>\n\t\t\t\t\t\t<DialogTitle>Archive Repository</DialogTitle>\n\t\t\t\t\t\t<DialogDescription>\n\t\t\t\t\t\t\tAre you sure you want to archive craftdotui?\n\t\t\t\t\t\t</DialogDescription>\n\t\t\t\t\t</DialogHeader>\n\n\t\t\t\t\t<DialogPanel className=\"text-sm\">\n\t\t\t\t\t\t<p className=\"text-muted-foreground leading-relaxed\">\n\t\t\t\t\t\t\tArchiving this repository will make it read-only.\n\t\t\t\t\t\t\tIssues, pull requests, and releases can still be\n\t\t\t\t\t\t\tviewed, but no new commits or changes can be pushed.\n\t\t\t\t\t\t</p>\n\t\t\t\t\t</DialogPanel>\n\n\t\t\t\t\t<DialogFooter variant=\"default\">\n\t\t\t\t\t\t<DialogClose render={<Button variant=\"outline\" />}>\n\t\t\t\t\t\t\tCancel\n\t\t\t\t\t\t</DialogClose>\n\t\t\t\t\t\t<Button\n\t\t\t\t\t\t\tvariant=\"destructive\"\n\t\t\t\t\t\t\tonClick={() => setDialogOpen(false)}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\tArchive Repository\n\t\t\t\t\t\t</Button>\n\t\t\t\t\t</DialogFooter>\n\t\t\t\t</DialogContent>\n\t\t\t</DialogRoot>\n\t\t</div>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/dialog-from-menu.tsx"
+		}
+	],
+	"type": "registry:component"
+}

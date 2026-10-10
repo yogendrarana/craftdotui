@@ -1,13 +1,17 @@
 {
 	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
 	"name": "baseui-particles-dialog",
-	"description": "",
+	"description": "Default dialog component example",
 	"dependencies": [],
-	"registryDependencies": ["@craftdotui/baseui-dialog"],
+	"registryDependencies": [
+		"@craftdotui/baseui-dialog",
+		"@craftdotui/baseui-button",
+		"@craftdotui/baseui-input"
+	],
 	"files": [
 		{
 			"path": "packages/baseui/particles/dialog/index.tsx",
-			"content": "import {\n\tDialogRoot,\n\tDialogTrigger,\n\tDialogPortal,\n\tDialogBackdrop,\n\tDialogViewport,\n\tDialogPopup,\n\tDialogTitle,\n\tDialogDescription,\n\tDialogClose,\n\tDialogFooter,\n} from \"@/components/baseui/components/dialog\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport function Particle() {\n\treturn (\n\t\t<DialogRoot>\n\t\t\t<DialogTrigger\n\t\t\t\trender={<Button variant={\"outline\"}>Open Dialog</Button>}\n\t\t\t/>\n\n\t\t\t<DialogPortal>\n\t\t\t\t<DialogBackdrop />\n\t\t\t\t<DialogViewport>\n\t\t\t\t\t<DialogPopup>\n\t\t\t\t\t\t<DialogTitle>Edit profile</DialogTitle>\n\t\t\t\t\t\t<DialogDescription>\n\t\t\t\t\t\t\tMake changes to your profile and save them.\n\t\t\t\t\t\t</DialogDescription>\n\n\t\t\t\t\t\t<DialogFooter>\n\t\t\t\t\t\t\t<DialogClose render={<Button variant=\"ghost\" />}>\n\t\t\t\t\t\t\t\tCancel\n\t\t\t\t\t\t\t</DialogClose>\n\n\t\t\t\t\t\t\t<DialogClose render={<Button variant=\"outline\" />}>\n\t\t\t\t\t\t\t\tConfirm\n\t\t\t\t\t\t\t</DialogClose>\n\t\t\t\t\t\t</DialogFooter>\n\t\t\t\t\t</DialogPopup>\n\t\t\t\t</DialogViewport>\n\t\t\t</DialogPortal>\n\t\t</DialogRoot>\n\t);\n}\n",
+			"content": "\"use client\";\n\nimport { Button } from \"@/components/baseui/components/button\";\nimport {\n\tDialogClose,\n\tDialogContent,\n\tDialogDescription,\n\tDialogFooter,\n\tDialogHeader,\n\tDialogPanel,\n\tDialogRoot,\n\tDialogTitle,\n\tDialogTrigger,\n} from \"@/components/baseui/components/dialog\";\nimport { Input } from \"@/components/baseui/components/input\";\n\nexport function Particle() {\n\treturn (\n\t\t<DialogRoot>\n\t\t\t<DialogTrigger\n\t\t\t\trender={<Button variant=\"outline\">Edit Profile</Button>}\n\t\t\t/>\n\n\t\t\t<DialogContent showCloseButton>\n\t\t\t\t<DialogHeader>\n\t\t\t\t\t<DialogTitle>Edit Profile</DialogTitle>\n\t\t\t\t\t<DialogDescription>\n\t\t\t\t\t\tMake changes to your public profile here. Click save\n\t\t\t\t\t\twhen done.\n\t\t\t\t\t</DialogDescription>\n\t\t\t\t</DialogHeader>\n\n\t\t\t\t<DialogPanel>\n\t\t\t\t\t<div className=\"flex flex-col gap-1.5\">\n\t\t\t\t\t\t<label\n\t\t\t\t\t\t\thtmlFor=\"dialog-name\"\n\t\t\t\t\t\t\tclassName=\"text-xs font-medium text-foreground\"\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\tName\n\t\t\t\t\t\t</label>\n\t\t\t\t\t\t<Input\n\t\t\t\t\t\t\tid=\"dialog-name\"\n\t\t\t\t\t\t\tdefaultValue=\"Yogendra Rana\"\n\t\t\t\t\t\t\tplaceholder=\"Enter your name\"\n\t\t\t\t\t\t/>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div className=\"flex flex-col gap-1.5\">\n\t\t\t\t\t\t<label\n\t\t\t\t\t\t\thtmlFor=\"dialog-username\"\n\t\t\t\t\t\t\tclassName=\"text-xs font-medium text-foreground\"\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\tUsername\n\t\t\t\t\t\t</label>\n\t\t\t\t\t\t<Input\n\t\t\t\t\t\t\tid=\"dialog-username\"\n\t\t\t\t\t\t\tdefaultValue=\"@yooogendrarana\"\n\t\t\t\t\t\t\tplaceholder=\"Enter your username\"\n\t\t\t\t\t\t/>\n\t\t\t\t\t</div>\n\t\t\t\t</DialogPanel>\n\n\t\t\t\t<DialogFooter>\n\t\t\t\t\t<DialogClose\n\t\t\t\t\t\trender={<Button variant=\"ghost\">Cancel</Button>}\n\t\t\t\t\t/>\n\t\t\t\t\t<Button>Save Changes</Button>\n\t\t\t\t</DialogFooter>\n\t\t\t</DialogContent>\n\t\t</DialogRoot>\n\t);\n}\n\nexport default Particle;\n",
 			"type": "registry:component",
 			"target": "components/baseui/particles/dialog.tsx"
 		}

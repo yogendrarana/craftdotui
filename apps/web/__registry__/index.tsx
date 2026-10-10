@@ -1569,7 +1569,7 @@ export const Registry: Record<string, any> = {
 				type: "registry:component",
 				target: "components/baseui/components/alert-dialog.tsx",
 				content:
-					'"use client";\n\nimport type * as React from "react";\nimport { AlertDialog as AlertDialogPrimitive } from "@base-ui/react/alert-dialog";\nimport { cn } from "cn";\n\n/* -------------------------------------------------------------------------- */\n/* Root                                                                       */\n/* -------------------------------------------------------------------------- */\n\nconst AlertDialogRoot = AlertDialogPrimitive.Root;\n\n/* -------------------------------------------------------------------------- */\n/* Trigger                                                                    */\n/* -------------------------------------------------------------------------- */\n\nfunction AlertDialogTrigger(props: AlertDialogPrimitive.Trigger.Props) {\n\tconst { className, ...rest } = props;\n\n\treturn (\n\t\t<AlertDialogPrimitive.Trigger\n\t\t\tclassName={cn("cursor-pointer", className)}\n\t\t\tdata-slot="alert-dialog-trigger"\n\t\t\t{...rest}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Portal                                                                     */\n/* -------------------------------------------------------------------------- */\n\nconst AlertDialogPortal: typeof AlertDialogPrimitive.Portal =\n\tAlertDialogPrimitive.Portal;\n\n/* -------------------------------------------------------------------------- */\n/* Backdrop                                                                   */\n/* -------------------------------------------------------------------------- */\n\nfunction AlertDialogBackdrop(\n\tprops: AlertDialogPrimitive.Backdrop.Props,\n): React.ReactElement {\n\tconst { className, ...rest } = props;\n\n\treturn (\n\t\t<AlertDialogPrimitive.Backdrop\n\t\t\tdata-slot="alert-dialog-backdrop"\n\t\t\tclassName={cn(\n\t\t\t\t"fixed inset-0 z-50",\n\t\t\t\t"bg-backdrop backdrop-blur-xs",\n\t\t\t\t"transition-opacity duration-200 ease-out",\n\t\t\t\t"data-starting-style:opacity-0",\n\t\t\t\t"data-ending-style:opacity-0",\n\t\t\t\t"supports-[-webkit-touch-callout:none]:absolute",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...rest}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Viewport                                                                   */\n/* -------------------------------------------------------------------------- */\n\nfunction AlertDialogViewport(props: AlertDialogPrimitive.Viewport.Props) {\n\tconst { className, ...rest } = props;\n\n\treturn (\n\t\t<AlertDialogPrimitive.Viewport\n\t\t\tclassName={cn(\n\t\t\t\t"p-4 fixed inset-0 z-50 flex items-center justify-center",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="alert-dialog-viewport"\n\t\t\t{...rest}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Popup / Content                                                            */\n/* -------------------------------------------------------------------------- */\n\nfunction AlertDialogPopup(props: AlertDialogPrimitive.Popup.Props) {\n\tconst { className, ...rest } = props;\n\n\treturn (\n\t\t<AlertDialogPortal>\n\t\t\t<AlertDialogBackdrop />\n\t\t\t<AlertDialogViewport>\n\t\t\t\t<AlertDialogPrimitive.Popup\n\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t"w-full max-w-lg p-6 rounded-lg border border-border bg-background shadow-sm",\n\t\t\t\t\t\t"transition-all duration-200 ease-out",\n\t\t\t\t\t\t"data-starting-style:opacity-0 data-starting-style:scale-95",\n\t\t\t\t\t\t"data-ending-style:opacity-0 data-ending-style:scale-95",\n\t\t\t\t\t\t"focus:outline-none",\n\t\t\t\t\t\tclassName,\n\t\t\t\t\t)}\n\t\t\t\t\tdata-slot="alert-dialog-popup"\n\t\t\t\t\t{...rest}\n\t\t\t\t/>\n\t\t\t</AlertDialogViewport>\n\t\t</AlertDialogPortal>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Layout Helpers                                                             */\n/* -------------------------------------------------------------------------- */\n\nfunction AlertDialogHeader(props: React.HTMLAttributes<HTMLDivElement>) {\n\tconst { className, ...rest } = props;\n\n\treturn (\n\t\t<div\n\t\t\tclassName={cn("flex flex-col gap-2", className)}\n\t\t\tdata-slot="alert-dialog-header"\n\t\t\t{...rest}\n\t\t/>\n\t);\n}\n\nfunction AlertDialogFooter(props: React.HTMLAttributes<HTMLDivElement>) {\n\tconst { className, ...rest } = props;\n\n\treturn (\n\t\t<div\n\t\t\tclassName={cn(\n\t\t\t\t"mt-6 flex flex-col-reverse gap-1 sm:flex-row sm:justify-end",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="alert-dialog-footer"\n\t\t\t{...rest}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Title                                                                      */\n/* -------------------------------------------------------------------------- */\n\nfunction AlertDialogTitle(props: AlertDialogPrimitive.Title.Props) {\n\tconst { className, ...rest } = props;\n\n\treturn (\n\t\t<AlertDialogPrimitive.Title\n\t\t\tclassName={cn(\n\t\t\t\t"text-lg font-semibold leading-none text-foreground",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="alert-dialog-title"\n\t\t\t{...rest}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Description                                                                */\n/* -------------------------------------------------------------------------- */\n\nfunction AlertDialogDescription(props: AlertDialogPrimitive.Description.Props) {\n\tconst { className, ...rest } = props;\n\n\treturn (\n\t\t<AlertDialogPrimitive.Description\n\t\t\tclassName={cn("text-sm text-muted-foreground", className)}\n\t\t\tdata-slot="alert-dialog-description"\n\t\t\t{...rest}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Close                                                                      */\n/* -------------------------------------------------------------------------- */\n\nfunction AlertDialogClose(props: AlertDialogPrimitive.Close.Props) {\n\tconst { className, ...rest } = props;\n\n\treturn (\n\t\t<AlertDialogPrimitive.Close\n\t\t\tclassName={cn(className)}\n\t\t\tdata-slot="alert-dialog-close"\n\t\t\t{...rest}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const AlertDialog = {\n\tRoot: AlertDialogRoot,\n\tTrigger: AlertDialogTrigger,\n\tPortal: AlertDialogPortal,\n\tBackdrop: AlertDialogBackdrop,\n\tViewport: AlertDialogViewport,\n\tPopup: AlertDialogPopup,\n\tHeader: AlertDialogHeader,\n\tFooter: AlertDialogFooter,\n\tTitle: AlertDialogTitle,\n\tDescription: AlertDialogDescription,\n\tClose: AlertDialogClose,\n};\n\nexport {\n\tAlertDialogRoot,\n\tAlertDialogTrigger,\n\tAlertDialogPortal,\n\tAlertDialogBackdrop,\n\tAlertDialogViewport,\n\tAlertDialogPopup,\n\tAlertDialogHeader,\n\tAlertDialogFooter,\n\tAlertDialogTitle,\n\tAlertDialogDescription,\n\tAlertDialogClose,\n};',
+					'"use client";\n\nimport type * as React from "react";\nimport { AlertDialog as AlertDialogPrimitive } from "@base-ui/react/alert-dialog";\nimport { cn } from "cn";\n\n/* -------------------------------------------------------------------------- */\n/* Root                                                                       */\n/* -------------------------------------------------------------------------- */\n\nconst AlertDialogRoot = AlertDialogPrimitive.Root;\n\n/* -------------------------------------------------------------------------- */\n/* Trigger                                                                    */\n/* -------------------------------------------------------------------------- */\n\nfunction AlertDialogTrigger(props: AlertDialogPrimitive.Trigger.Props) {\n\tconst { className, ...rest } = props;\n\n\treturn (\n\t\t<AlertDialogPrimitive.Trigger\n\t\t\tclassName={cn("cursor-pointer", className)}\n\t\t\tdata-slot="alert-dialog-trigger"\n\t\t\t{...rest}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Portal                                                                     */\n/* -------------------------------------------------------------------------- */\n\nconst AlertDialogPortal: typeof AlertDialogPrimitive.Portal =\n\tAlertDialogPrimitive.Portal;\n\n/* -------------------------------------------------------------------------- */\n/* Backdrop                                                                   */\n/* -------------------------------------------------------------------------- */\n\nfunction AlertDialogBackdrop(\n\tprops: AlertDialogPrimitive.Backdrop.Props,\n): React.ReactElement {\n\tconst { className, ...rest } = props;\n\n\treturn (\n\t\t<AlertDialogPrimitive.Backdrop\n\t\t\tdata-slot="alert-dialog-backdrop"\n\t\t\tclassName={cn(\n\t\t\t\t"fixed inset-0 z-50",\n\t\t\t\t"bg-backdrop backdrop-blur-xs",\n\t\t\t\t"transition-opacity duration-200 ease-out",\n\t\t\t\t"data-starting-style:opacity-0",\n\t\t\t\t"data-ending-style:opacity-0",\n\t\t\t\t"supports-[-webkit-touch-callout:none]:absolute",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...rest}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Viewport                                                                   */\n/* -------------------------------------------------------------------------- */\n\nfunction AlertDialogViewport(props: AlertDialogPrimitive.Viewport.Props) {\n\tconst { className, ...rest } = props;\n\n\treturn (\n\t\t<AlertDialogPrimitive.Viewport\n\t\t\tclassName={cn(\n\t\t\t\t"p-4 fixed inset-0 z-50 flex items-center justify-center",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="alert-dialog-viewport"\n\t\t\t{...rest}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Popup / Content                                                            */\n/* -------------------------------------------------------------------------- */\n\nfunction AlertDialogPopup(props: AlertDialogPrimitive.Popup.Props) {\n\tconst { className, ...rest } = props;\n\n\treturn (\n\t\t<AlertDialogPortal>\n\t\t\t<AlertDialogBackdrop />\n\t\t\t<AlertDialogViewport>\n\t\t\t\t<AlertDialogPrimitive.Popup\n\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t"w-full max-w-lg p-6 rounded-lg border border-border bg-background shadow-sm",\n\t\t\t\t\t\t"transition-all duration-200 ease-out",\n\t\t\t\t\t\t"scale-[calc(1-0.08*var(--nested-dialogs,0))] translate-y-[calc(-1rem*var(--nested-dialogs,0))]",\n\t\t\t\t\t\t"after:pointer-events-none after:absolute after:inset-0 after:rounded-[inherit] after:bg-black/10 dark:after:bg-black/40 after:opacity-0 after:transition-opacity after:duration-200 after:ease-out data-nested-dialog-open:after:opacity-100",\n\t\t\t\t\t\t"data-starting-style:opacity-0 data-starting-style:scale-95",\n\t\t\t\t\t\t"data-ending-style:opacity-0 data-ending-style:scale-95",\n\t\t\t\t\t\t"focus:outline-none",\n\t\t\t\t\t\tclassName,\n\t\t\t\t\t)}\n\t\t\t\t\tdata-slot="alert-dialog-popup"\n\t\t\t\t\t{...rest}\n\t\t\t\t/>\n\t\t\t</AlertDialogViewport>\n\t\t</AlertDialogPortal>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Layout Helpers                                                             */\n/* -------------------------------------------------------------------------- */\n\nfunction AlertDialogHeader(props: React.HTMLAttributes<HTMLDivElement>) {\n\tconst { className, ...rest } = props;\n\n\treturn (\n\t\t<div\n\t\t\tclassName={cn("flex flex-col gap-2", className)}\n\t\t\tdata-slot="alert-dialog-header"\n\t\t\t{...rest}\n\t\t/>\n\t);\n}\n\nfunction AlertDialogFooter(props: React.HTMLAttributes<HTMLDivElement>) {\n\tconst { className, ...rest } = props;\n\n\treturn (\n\t\t<div\n\t\t\tclassName={cn(\n\t\t\t\t"mt-6 flex flex-col-reverse gap-1 sm:flex-row sm:justify-end",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="alert-dialog-footer"\n\t\t\t{...rest}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Title                                                                      */\n/* -------------------------------------------------------------------------- */\n\nfunction AlertDialogTitle(props: AlertDialogPrimitive.Title.Props) {\n\tconst { className, ...rest } = props;\n\n\treturn (\n\t\t<AlertDialogPrimitive.Title\n\t\t\tclassName={cn(\n\t\t\t\t"text-lg font-semibold leading-none text-foreground",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="alert-dialog-title"\n\t\t\t{...rest}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Description                                                                */\n/* -------------------------------------------------------------------------- */\n\nfunction AlertDialogDescription(props: AlertDialogPrimitive.Description.Props) {\n\tconst { className, ...rest } = props;\n\n\treturn (\n\t\t<AlertDialogPrimitive.Description\n\t\t\tclassName={cn("text-sm text-muted-foreground", className)}\n\t\t\tdata-slot="alert-dialog-description"\n\t\t\t{...rest}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Close                                                                      */\n/* -------------------------------------------------------------------------- */\n\nfunction AlertDialogClose(props: AlertDialogPrimitive.Close.Props) {\n\tconst { className, ...rest } = props;\n\n\treturn (\n\t\t<AlertDialogPrimitive.Close\n\t\t\tclassName={cn(className)}\n\t\t\tdata-slot="alert-dialog-close"\n\t\t\t{...rest}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const AlertDialog = {\n\tRoot: AlertDialogRoot,\n\tTrigger: AlertDialogTrigger,\n\tPortal: AlertDialogPortal,\n\tBackdrop: AlertDialogBackdrop,\n\tViewport: AlertDialogViewport,\n\tPopup: AlertDialogPopup,\n\tHeader: AlertDialogHeader,\n\tFooter: AlertDialogFooter,\n\tTitle: AlertDialogTitle,\n\tDescription: AlertDialogDescription,\n\tClose: AlertDialogClose,\n};\n\nexport {\n\tAlertDialogRoot,\n\tAlertDialogTrigger,\n\tAlertDialogPortal,\n\tAlertDialogBackdrop,\n\tAlertDialogViewport,\n\tAlertDialogPopup,\n\tAlertDialogHeader,\n\tAlertDialogFooter,\n\tAlertDialogTitle,\n\tAlertDialogDescription,\n\tAlertDialogClose,\n};',
 			},
 		],
 		keywords: [],
@@ -2050,16 +2050,21 @@ export const Registry: Record<string, any> = {
 		name: "baseui-dialog",
 		description: "A Base UI dialog component",
 		type: "registry:component",
-		dependencies: ["@base-ui/react", "cn"],
+		dependencies: [
+			"@base-ui/react",
+			"cn",
+			"class-variance-authority",
+			"lucide-react",
+		],
 		devDependencies: undefined,
-		registryDependencies: [],
+		registryDependencies: ["@craftdotui/baseui-scroll-area"],
 		files: [
 			{
 				path: "packages/baseui/components/dialog/index.tsx",
 				type: "registry:component",
 				target: "components/baseui/components/dialog.tsx",
 				content:
-					'"use client";\n\nimport type * as React from "react";\nimport { Dialog as DialogPrimitive } from "@base-ui/react/dialog";\n\nimport { cn } from "cn";\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Root                                                                */\n/* -------------------------------------------------------------------------- */\n\nconst DialogRoot = DialogPrimitive.Root;\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Trigger                                                             */\n/* -------------------------------------------------------------------------- */\n\nfunction DialogTrigger({ className, ...props }: DialogPrimitive.Trigger.Props) {\n\treturn (\n\t\t<DialogPrimitive.Trigger\n\t\t\tclassName={cn(className)}\n\t\t\tdata-slot="dialog-trigger"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Portal                                                              */\n/* -------------------------------------------------------------------------- */\n\nconst DialogPortal = DialogPrimitive.Portal;\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Backdrop                                                            */\n/* -------------------------------------------------------------------------- */\n\nfunction DialogBackdrop({\n\tclassName,\n\t...props\n}: DialogPrimitive.Backdrop.Props): React.ReactElement {\n\treturn (\n\t\t<DialogPrimitive.Backdrop\n\t\t\tdata-slot="dialog-backdrop"\n\t\t\tclassName={cn(\n\t\t\t\t"fixed inset-0 z-50",\n\t\t\t\t"bg-backdrop backdrop-blur-xs",\n\t\t\t\t"transition-opacity duration-200 ease-out",\n\t\t\t\t"data-starting-style:opacity-0",\n\t\t\t\t"data-ending-style:opacity-0",\n\t\t\t\t"supports-[-webkit-touch-callout:none]:absolute",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Viewport                                                            */\n/* -------------------------------------------------------------------------- */\n\nfunction DialogViewport({\n\tclassName,\n\t...props\n}: DialogPrimitive.Viewport.Props) {\n\treturn (\n\t\t<DialogPrimitive.Viewport\n\t\t\tclassName={cn(\n\t\t\t\t"fixed inset-0 p-4 z-50 flex items-center justify-center",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="dialog-viewport"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Popup                                                               */\n/* -------------------------------------------------------------------------- */\n\nfunction DialogPopup({ className, ...props }: DialogPrimitive.Popup.Props) {\n\treturn (\n\t\t<DialogPrimitive.Popup\n\t\t\tclassName={cn(\n\t\t\t\t"relative",\n\t\t\t\t"w-full max-w-lg p-6 rounded-lg border border-border bg-background shadow-sm",\n\t\t\t\t"transition-all duration-200 ease-out",\n\t\t\t\t"data-starting-style:opacity-0 data-starting-style:scale-95 data-ending-style:opacity-0 data-ending-style:scale-95",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="dialog-popup"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Title                                                               */\n/* -------------------------------------------------------------------------- */\n\nfunction DialogTitle({ className, ...props }: DialogPrimitive.Title.Props) {\n\treturn (\n\t\t<DialogPrimitive.Title\n\t\t\tclassName={cn(\n\t\t\t\t"text-lg font-semibold leading-none text-foreground",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="dialog-title"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Description                                                         */\n/* -------------------------------------------------------------------------- */\n\nfunction DialogDescription({\n\tclassName,\n\t...props\n}: DialogPrimitive.Description.Props) {\n\treturn (\n\t\t<DialogPrimitive.Description\n\t\t\tclassName={cn("mt-2 text-sm text-muted-foreground", className)}\n\t\t\tdata-slot="dialog-description"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Close                                                               */\n/* -------------------------------------------------------------------------- */\n\nfunction DialogClose({ className, ...props }: DialogPrimitive.Close.Props) {\n\treturn (\n\t\t<DialogPrimitive.Close\n\t\t\tclassName={cn("cursor-pointer", className)}\n\t\t\tdata-slot="dialog-close"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Footer                                                              */\n/* -------------------------------------------------------------------------- */\nfunction DialogFooter(props: React.HTMLAttributes<HTMLDivElement>) {\n\tconst { className, ...rest } = props;\n\n\treturn (\n\t\t<div\n\t\t\tclassName={cn(\n\t\t\t\t"mt-6 flex flex-col-reverse gap-1 sm:flex-row sm:justify-end",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="alert-dialog-footer"\n\t\t\t{...rest}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const Dialog = {\n\tRoot: DialogRoot,\n\tTrigger: DialogTrigger,\n\tPortal: DialogPortal,\n\tBackdrop: DialogBackdrop,\n\tViewport: DialogViewport,\n\tPopup: DialogPopup,\n\tTitle: DialogTitle,\n\tDescription: DialogDescription,\n\tClose: DialogClose,\n\tFooter: DialogFooter,\n};\n\nexport {\n\tDialogRoot,\n\tDialogTrigger,\n\tDialogPortal,\n\tDialogBackdrop,\n\tDialogViewport,\n\tDialogPopup,\n\tDialogTitle,\n\tDialogDescription,\n\tDialogClose,\n\tDialogFooter,\n};',
+					'"use client";\n\nimport { cn } from "cn";\nimport { X } from "lucide-react";\nimport * as React from "react";\nimport { useRender } from "@base-ui/react/use-render";\nimport { mergeProps } from "@base-ui/react/merge-props";\nimport { Dialog as DialogPrimitive } from "@base-ui/react/dialog";\nimport { cva, type VariantProps } from "class-variance-authority";\n\nimport {\n\tScrollAreaContent,\n\tScrollAreaRoot,\n\tScrollAreaScrollbar,\n\tScrollAreaThumb,\n\tScrollAreaViewport,\n} from "../scroll-area";\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Handle                                                              */\n/* -------------------------------------------------------------------------- */\n\nconst createHandle = DialogPrimitive.createHandle;\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Context                                                             */\n/* -------------------------------------------------------------------------- */\n\ninterface DialogContextValue {\n\tscroll?: "inside" | "outside";\n}\n\nconst DialogContext = React.createContext<DialogContextValue>({\n\tscroll: "inside",\n});\n\nfunction useDialogContext() {\n\treturn React.useContext(DialogContext);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Root                                                                */\n/* -------------------------------------------------------------------------- */\n\ninterface DialogRootProps extends DialogPrimitive.Root.Props {\n\tscroll?: "inside" | "outside";\n}\n\nfunction DialogRoot({\n\tscroll = "inside",\n\tchildren,\n\t...props\n}: DialogRootProps): React.ReactElement {\n\treturn (\n\t\t<DialogContext.Provider value={{ scroll }}>\n\t\t\t<DialogPrimitive.Root {...props}>{children}</DialogPrimitive.Root>\n\t\t</DialogContext.Provider>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Trigger                                                             */\n/* -------------------------------------------------------------------------- */\n\nfunction DialogTrigger({ className, ...props }: DialogPrimitive.Trigger.Props) {\n\treturn (\n\t\t<DialogPrimitive.Trigger\n\t\t\tclassName={cn("cursor-pointer", className)}\n\t\t\tdata-slot="dialog-trigger"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Portal                                                              */\n/* -------------------------------------------------------------------------- */\n\nconst DialogPortal = DialogPrimitive.Portal;\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Backdrop                                                            */\n/* -------------------------------------------------------------------------- */\n\nfunction DialogBackdrop({\n\tclassName,\n\t...props\n}: DialogPrimitive.Backdrop.Props): React.ReactElement {\n\treturn (\n\t\t<DialogPrimitive.Backdrop\n\t\t\tdata-slot="dialog-backdrop"\n\t\t\tclassName={cn(\n\t\t\t\t"fixed inset-0 z-50",\n\t\t\t\t"bg-backdrop backdrop-blur-xs",\n\t\t\t\t"transition-opacity duration-200 ease-out",\n\t\t\t\t"data-starting-style:opacity-0",\n\t\t\t\t"data-ending-style:opacity-0",\n\t\t\t\t"supports-[-webkit-touch-callout:none]:absolute",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Viewport                                                            */\n/* -------------------------------------------------------------------------- */\n\nfunction DialogViewport({\n\tclassName,\n\t...props\n}: DialogPrimitive.Viewport.Props) {\n\treturn (\n\t\t<DialogPrimitive.Viewport\n\t\t\tclassName={cn(\n\t\t\t\t"fixed inset-0 p-4 z-50 flex items-center justify-center overflow-hidden",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="dialog-viewport"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Popup                                                               */\n/* -------------------------------------------------------------------------- */\n\nfunction DialogPopup({ className, ...props }: DialogPrimitive.Popup.Props) {\n\treturn (\n\t\t<DialogPrimitive.Popup\n\t\t\tclassName={cn(\n\t\t\t\t"relative flex flex-col min-h-0",\n\t\t\t\t"w-full max-w-lg rounded-xl border border-border bg-background shadow-lg",\n\t\t\t\t"transition-all duration-200 ease-out",\n\t\t\t\t"scale-[calc(1-0.08*var(--nested-dialogs,0))] translate-y-[calc(-1rem*var(--nested-dialogs,0))]",\n\t\t\t\t"after:pointer-events-none after:absolute after:inset-0 after:rounded-[inherit] after:bg-black/10 dark:after:bg-black/40 after:opacity-0 after:transition-opacity after:duration-200 after:ease-out data-nested-dialog-open:after:opacity-100",\n\t\t\t\t"data-starting-style:opacity-0 data-starting-style:scale-95",\n\t\t\t\t"data-ending-style:opacity-0 data-ending-style:scale-95",\n\t\t\t\t"focus:outline-none",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="dialog-popup"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Title                                                               */\n/* -------------------------------------------------------------------------- */\n\nfunction DialogTitle({ className, ...props }: DialogPrimitive.Title.Props) {\n\treturn (\n\t\t<DialogPrimitive.Title\n\t\t\tclassName={cn(\n\t\t\t\t"text-base font-semibold leading-none text-foreground",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="dialog-title"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Description                                                         */\n/* -------------------------------------------------------------------------- */\n\nfunction DialogDescription({\n\tclassName,\n\t...props\n}: DialogPrimitive.Description.Props) {\n\treturn (\n\t\t<DialogPrimitive.Description\n\t\t\tclassName={cn("text-sm text-muted-foreground", className)}\n\t\t\tdata-slot="dialog-description"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Close                                                               */\n/* -------------------------------------------------------------------------- */\n\nfunction DialogClose({ className, ...props }: DialogPrimitive.Close.Props) {\n\treturn (\n\t\t<DialogPrimitive.Close\n\t\t\tclassName={cn("cursor-pointer", className)}\n\t\t\tdata-slot="dialog-close"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Header (Custom Primitive)                                           */\n/* -------------------------------------------------------------------------- */\n\ninterface DialogHeaderProps extends useRender.ComponentProps<"div"> {}\n\nfunction DialogHeader({\n\tclassName,\n\trender,\n\t...props\n}: DialogHeaderProps): React.ReactElement {\n\tconst defaultProps = {\n\t\tclassName: cn("flex flex-col gap-1.5 p-6 pb-2 shrink-0", className),\n\t\t"data-slot": "dialog-header",\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: "div",\n\t\tprops: mergeProps<"div">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Content (Composite Component)                                       */\n/* -------------------------------------------------------------------------- */\n\ninterface DialogContentProps extends DialogPrimitive.Popup.Props {\n\tportalProps?: DialogPrimitive.Portal.Props;\n\tbackdropProps?: DialogPrimitive.Backdrop.Props;\n\tviewportProps?: DialogPrimitive.Viewport.Props;\n\tshowCloseButton?: boolean;\n}\n\nfunction DialogContent({\n\tclassName,\n\tchildren,\n\tportalProps,\n\tbackdropProps,\n\tviewportProps,\n\tshowCloseButton = false,\n\t...props\n}: DialogContentProps): React.ReactElement {\n\tconst { scroll } = useDialogContext();\n\n\tif (scroll === "outside") {\n\t\treturn (\n\t\t\t<DialogPortal {...portalProps}>\n\t\t\t\t<DialogBackdrop {...backdropProps} />\n\t\t\t\t<DialogViewport\n\t\t\t\t\t{...viewportProps}\n\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t"group/dialog fixed inset-0",\n\t\t\t\t\t\tviewportProps?.className,\n\t\t\t\t\t)}\n\t\t\t\t>\n\t\t\t\t\t<ScrollAreaRoot\n\t\t\t\t\t\tstyle={{ position: undefined }}\n\t\t\t\t\t\tclassName="h-full w-full p-0 overscroll-contain group-data-ending-style/dialog:pointer-events-none"\n\t\t\t\t\t>\n\t\t\t\t\t\t<ScrollAreaViewport className="h-full overscroll-contain group-data-ending-style/dialog:pointer-events-none">\n\t\t\t\t\t\t\t<ScrollAreaContent className="flex min-h-full items-center justify-center">\n\t\t\t\t\t\t\t\t<DialogPopup\n\t\t\t\t\t\t\t\t\tclassName={cn("my-16 mx-auto", className)}\n\t\t\t\t\t\t\t\t\t{...props}\n\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t{showCloseButton && (\n\t\t\t\t\t\t\t\t\t\t<DialogClose\n\t\t\t\t\t\t\t\t\t\t\tclassName="absolute right-4 top-4 rounded-sm text-muted-foreground transition-colors hover:text-foreground focus:outline-none"\n\t\t\t\t\t\t\t\t\t\t\taria-label="Close"\n\t\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\t\t<X className="size-4" />\n\t\t\t\t\t\t\t\t\t\t</DialogClose>\n\t\t\t\t\t\t\t\t\t)}\n\n\t\t\t\t\t\t\t\t\t{children}\n\t\t\t\t\t\t\t\t</DialogPopup>\n\t\t\t\t\t\t\t</ScrollAreaContent>\n\t\t\t\t\t\t</ScrollAreaViewport>\n\t\t\t\t\t\t<ScrollAreaScrollbar>\n\t\t\t\t\t\t\t<ScrollAreaThumb />\n\t\t\t\t\t\t</ScrollAreaScrollbar>\n\t\t\t\t\t</ScrollAreaRoot>\n\t\t\t\t</DialogViewport>\n\t\t\t</DialogPortal>\n\t\t);\n\t}\n\n\treturn (\n\t\t<DialogPortal {...portalProps}>\n\t\t\t<DialogBackdrop {...backdropProps} />\n\t\t\t<DialogViewport {...viewportProps}>\n\t\t\t\t<DialogPopup className={cn("max-h-full", className)} {...props}>\n\t\t\t\t\t{showCloseButton && (\n\t\t\t\t\t\t<DialogClose\n\t\t\t\t\t\t\tclassName="absolute right-4 top-4 rounded-sm text-muted-foreground transition-colors hover:text-foreground focus:outline-none"\n\t\t\t\t\t\t\taria-label="Close"\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t<X className="size-4" />\n\t\t\t\t\t\t</DialogClose>\n\t\t\t\t\t)}\n\n\t\t\t\t\t{children}\n\t\t\t\t</DialogPopup>\n\t\t\t</DialogViewport>\n\t\t</DialogPortal>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Panel (Custom Primitive)                                            */\n/* -------------------------------------------------------------------------- */\n\ninterface DialogPanelProps extends useRender.ComponentProps<"div"> {\n\tscrollable?: boolean;\n}\n\nfunction DialogPanel({\n\tclassName,\n\trender,\n\tchildren,\n\tscrollable,\n\t...props\n}: DialogPanelProps): React.ReactElement {\n\tconst context = useDialogContext();\n\tconst isScrollable = scrollable ?? context.scroll !== "outside";\n\n\tconst defaultProps = {\n\t\tclassName: cn("flex flex-col gap-3 px-6 py-4", className),\n\t\t"data-slot": "dialog-panel",\n\t};\n\n\tconst element = useRender({\n\t\tdefaultTagName: "div",\n\t\tprops: mergeProps<"div">(defaultProps, {\n\t\t\tchildren,\n\t\t\t...props,\n\t\t}),\n\t\trender,\n\t});\n\n\tif (!isScrollable) {\n\t\treturn element;\n\t}\n\n\treturn (\n\t\t<ScrollAreaRoot className="relative flex flex-1 flex-col min-h-0 overflow-hidden w-full p-0">\n\t\t\t<ScrollAreaViewport className="flex-1 min-h-0 overflow-y-auto overscroll-contain outline-none">\n\t\t\t\t<ScrollAreaContent>{element}</ScrollAreaContent>\n\t\t\t</ScrollAreaViewport>\n\t\t\t<ScrollAreaScrollbar>\n\t\t\t\t<ScrollAreaThumb />\n\t\t\t</ScrollAreaScrollbar>\n\t\t</ScrollAreaRoot>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Dialog Footer (Custom Primitive)                                           */\n/* -------------------------------------------------------------------------- */\n\nconst dialogFooterVariants = cva(\n\t"flex flex-col-reverse gap-2 px-6 shrink-0 sm:flex-row sm:justify-end sm:rounded-b-[calc(var(--radius-2xl)-1px)]",\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault: "border-t border-border bg-muted/50 py-4",\n\t\t\t\tbare: "in-[[data-slot=dialog-popup]:has([data-slot=dialog-panel])]:pt-3 pt-4 pb-6",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: "default",\n\t\t},\n\t},\n);\n\ntype DialogFooterVariants = VariantProps<typeof dialogFooterVariants>;\n\ninterface DialogFooterProps\n\textends useRender.ComponentProps<"div">,\n\t\tDialogFooterVariants {}\n\nfunction DialogFooter({\n\tclassName,\n\tvariant,\n\trender,\n\t...props\n}: DialogFooterProps): React.ReactElement {\n\tconst defaultProps = {\n\t\tclassName: cn(dialogFooterVariants({ variant }), className),\n\t\t"data-slot": "dialog-footer",\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: "div",\n\t\tprops: mergeProps<"div">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const Dialog = {\n\tRoot: DialogRoot,\n\tTrigger: DialogTrigger,\n\tPortal: DialogPortal,\n\tBackdrop: DialogBackdrop,\n\tViewport: DialogViewport,\n\tPopup: DialogPopup,\n\tHeader: DialogHeader,\n\tTitle: DialogTitle,\n\tDescription: DialogDescription,\n\tClose: DialogClose,\n\tContent: DialogContent,\n\tPanel: DialogPanel,\n\tFooter: DialogFooter,\n\tcreateHandle,\n};\n\nexport {\n\tDialogRoot,\n\tDialogTrigger,\n\tDialogPortal,\n\tDialogBackdrop,\n\tDialogViewport,\n\tDialogPopup,\n\tDialogContent,\n\tDialogHeader,\n\tDialogPanel,\n\tDialogTitle,\n\tDialogDescription,\n\tDialogClose,\n\tDialogFooter,\n\tdialogFooterVariants,\n\ttype DialogFooterVariants,\n\ttype DialogContentProps,\n\ttype DialogHeaderProps,\n\ttype DialogPanelProps,\n\ttype DialogFooterProps,\n\tcreateHandle,\n};',
 			},
 		],
 		keywords: [],
@@ -2849,7 +2854,7 @@ export const Registry: Record<string, any> = {
 				type: "registry:component",
 				target: "components/baseui/components/scroll-area.tsx",
 				content:
-					'"use client";\n\nimport { ScrollArea as ScrollAreaPrimitive } from "@base-ui/react/scroll-area";\nimport { cn } from "cn";\n\n/* -------------------------------------------------------------------------- */\n/* Root                                                                       */\n/* -------------------------------------------------------------------------- */\n\nfunction ScrollAreaRoot({\n\tclassName,\n\t...props\n}: ScrollAreaPrimitive.Root.Props) {\n\treturn (\n\t\t<ScrollAreaPrimitive.Root\n\t\t\tclassName={cn("size-full min-h-0 p-2", className)}\n\t\t\tdata-slot="scroll-area"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Viewport                                                                   */\n/* -------------------------------------------------------------------------- */\n\nfunction ScrollAreaViewport({\n\tclassName,\n\t...props\n}: ScrollAreaPrimitive.Viewport.Props) {\n\treturn (\n\t\t<ScrollAreaPrimitive.Viewport\n\t\t\tclassName={cn(\n\t\t\t\t"h-full rounded-[inherit] outline-none transition-shadows",\n\t\t\t\t"focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:ring-offset-background",\n\t\t\t\t"data-has-overflow-x:overscroll-x-contain",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="scroll-area-viewport"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Content                                                                    */\n/* -------------------------------------------------------------------------- */\n\nfunction ScrollAreaContent({\n\tclassName,\n\t...props\n}: ScrollAreaPrimitive.Content.Props) {\n\treturn (\n\t\t<ScrollAreaPrimitive.Content\n\t\t\tclassName={cn("h-full w-full", className)}\n\t\t\tdata-slot="scroll-area-content"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Scrollbar                                                                  */\n/* -------------------------------------------------------------------------- */\n\nfunction ScrollAreaScrollbar({\n\tclassName,\n\t...props\n}: ScrollAreaPrimitive.Scrollbar.Props) {\n\treturn (\n\t\t<ScrollAreaPrimitive.Scrollbar\n\t\t\tclassName={cn(\n\t\t\t\t"m-1.25 flex select-none touch-none",\n\t\t\t\t"opacity-0 transition-opacity pointer-events-none duration-150",\n\t\t\t\t"data-visible:opacity-100 data-visible:pointer-events-auto data-visible:delay-0",\n\t\t\t\t"data-hovering:opacity-100 data-hovering:pointer-events-auto data-hovering:delay-0",\n\t\t\t\t"data-scrolling:opacity-100 data-scrolling:pointer-events-auto data-scrolling:duration-0",\n\n\t\t\t\t// orientation\n\t\t\t\t"data-[orientation=vertical]:w-1.25",\n\t\t\t\t"data-[orientation=horizontal]:h-1.25",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="scroll-area-scrollbar"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Thumb                                                                      */\n/* -------------------------------------------------------------------------- */\n\nfunction ScrollAreaThumb({\n\tclassName,\n\t...props\n}: ScrollAreaPrimitive.Thumb.Props) {\n\treturn (\n\t\t<ScrollAreaPrimitive.Thumb\n\t\t\tclassName={cn(\n\t\t\t\t"relative rounded-full bg-foreground/20 hover:bg-foreground/30 transition-colors",\n\t\t\t\t"data-[orientation=vertical]:w-full",\n\t\t\t\t"data-[orientation=horizontal]:h-full",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="scroll-area-thumb"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Corner                                                                     */\n/* -------------------------------------------------------------------------- */\n\nfunction ScrollAreaCorner({\n\tclassName,\n\t...props\n}: ScrollAreaPrimitive.Corner.Props) {\n\treturn (\n\t\t<ScrollAreaPrimitive.Corner\n\t\t\tclassName={cn("", className)}\n\t\t\tdata-slot="scroll-area-corner"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Composed ScrollArea                                                        */\n/* -------------------------------------------------------------------------- */\n\nfunction ScrollAreaComposed({\n\tclassName,\n\tchildren,\n\t...props\n}: ScrollAreaPrimitive.Root.Props) {\n\treturn (\n\t\t<ScrollAreaRoot className={className} {...props}>\n\t\t\t<ScrollAreaViewport>\n\t\t\t\t<ScrollAreaContent>{children}</ScrollAreaContent>\n\t\t\t</ScrollAreaViewport>\n\n\t\t\t<ScrollAreaScrollbar>\n\t\t\t\t<ScrollAreaThumb />\n\t\t\t</ScrollAreaScrollbar>\n\n\t\t\t<ScrollAreaScrollbar orientation="horizontal">\n\t\t\t\t<ScrollAreaThumb />\n\t\t\t</ScrollAreaScrollbar>\n\n\t\t\t<ScrollAreaCorner />\n\t\t</ScrollAreaRoot>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const ScrollArea = {\n\tRoot: ScrollAreaRoot,\n\tViewport: ScrollAreaViewport,\n\tContent: ScrollAreaContent,\n\tScrollbar: ScrollAreaScrollbar,\n\tThumb: ScrollAreaThumb,\n\tCorner: ScrollAreaCorner,\n\tComposed: ScrollAreaComposed,\n};\n\nexport {\n\tScrollAreaRoot,\n\tScrollAreaViewport,\n\tScrollAreaContent,\n\tScrollAreaScrollbar,\n\tScrollAreaThumb,\n\tScrollAreaCorner,\n};',
+					'"use client";\n\nimport { ScrollArea as ScrollAreaPrimitive } from "@base-ui/react/scroll-area";\nimport { cn } from "cn";\n\n/* -------------------------------------------------------------------------- */\n/* Root                                                                       */\n/* -------------------------------------------------------------------------- */\n\nfunction ScrollAreaRoot({\n\tclassName,\n\t...props\n}: ScrollAreaPrimitive.Root.Props) {\n\treturn (\n\t\t<ScrollAreaPrimitive.Root\n\t\t\tclassName={cn("size-full min-h-0 p-2", className)}\n\t\t\tdata-slot="scroll-area"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Viewport                                                                   */\n/* -------------------------------------------------------------------------- */\n\nfunction ScrollAreaViewport({\n\tclassName,\n\t...props\n}: ScrollAreaPrimitive.Viewport.Props) {\n\treturn (\n\t\t<ScrollAreaPrimitive.Viewport\n\t\t\tclassName={cn(\n\t\t\t\t"h-full rounded-[inherit] outline-none transition-shadows",\n\t\t\t\t"focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:ring-offset-background",\n\t\t\t\t"data-has-overflow-x:overscroll-x-contain",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="scroll-area-viewport"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Content                                                                    */\n/* -------------------------------------------------------------------------- */\n\nfunction ScrollAreaContent({\n\tclassName,\n\t...props\n}: ScrollAreaPrimitive.Content.Props) {\n\treturn (\n\t\t<ScrollAreaPrimitive.Content\n\t\t\tclassName={cn("min-w-full w-full", className)}\n\t\t\tdata-slot="scroll-area-content"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Scrollbar                                                                  */\n/* -------------------------------------------------------------------------- */\n\nfunction ScrollAreaScrollbar({\n\tclassName,\n\t...props\n}: ScrollAreaPrimitive.Scrollbar.Props) {\n\treturn (\n\t\t<ScrollAreaPrimitive.Scrollbar\n\t\t\tclassName={cn(\n\t\t\t\t"m-1.25 flex select-none touch-none",\n\t\t\t\t"opacity-0 transition-opacity pointer-events-none duration-150",\n\t\t\t\t"data-visible:opacity-100 data-visible:pointer-events-auto data-visible:delay-0",\n\t\t\t\t"data-hovering:opacity-100 data-hovering:pointer-events-auto data-hovering:delay-0",\n\t\t\t\t"data-scrolling:opacity-100 data-scrolling:pointer-events-auto data-scrolling:duration-0",\n\n\t\t\t\t// orientation\n\t\t\t\t"data-[orientation=vertical]:w-1.25",\n\t\t\t\t"data-[orientation=horizontal]:h-1.25",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="scroll-area-scrollbar"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Thumb                                                                      */\n/* -------------------------------------------------------------------------- */\n\nfunction ScrollAreaThumb({\n\tclassName,\n\t...props\n}: ScrollAreaPrimitive.Thumb.Props) {\n\treturn (\n\t\t<ScrollAreaPrimitive.Thumb\n\t\t\tclassName={cn(\n\t\t\t\t"relative rounded-full bg-foreground/20 hover:bg-foreground/30 transition-colors",\n\t\t\t\t"data-[orientation=vertical]:w-full",\n\t\t\t\t"data-[orientation=horizontal]:h-full",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="scroll-area-thumb"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Corner                                                                     */\n/* -------------------------------------------------------------------------- */\n\nfunction ScrollAreaCorner({\n\tclassName,\n\t...props\n}: ScrollAreaPrimitive.Corner.Props) {\n\treturn (\n\t\t<ScrollAreaPrimitive.Corner\n\t\t\tclassName={cn("", className)}\n\t\t\tdata-slot="scroll-area-corner"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Composed ScrollArea                                                        */\n/* -------------------------------------------------------------------------- */\n\nfunction ScrollArea({\n\tclassName,\n\tchildren,\n\t...props\n}: ScrollAreaPrimitive.Root.Props) {\n\treturn (\n\t\t<ScrollAreaRoot className={className} {...props}>\n\t\t\t<ScrollAreaViewport>\n\t\t\t\t<ScrollAreaContent>{children}</ScrollAreaContent>\n\t\t\t</ScrollAreaViewport>\n\n\t\t\t<ScrollAreaScrollbar>\n\t\t\t\t<ScrollAreaThumb />\n\t\t\t</ScrollAreaScrollbar>\n\n\t\t\t<ScrollAreaScrollbar orientation="horizontal">\n\t\t\t\t<ScrollAreaThumb />\n\t\t\t</ScrollAreaScrollbar>\n\n\t\t\t<ScrollAreaCorner />\n\t\t</ScrollAreaRoot>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport {\n\tScrollAreaRoot,\n\tScrollAreaViewport,\n\tScrollAreaContent,\n\tScrollAreaScrollbar,\n\tScrollAreaThumb,\n\tScrollAreaCorner,\n};\n\nexport { ScrollArea };',
 			},
 		],
 		keywords: [],
@@ -5990,20 +5995,77 @@ export const Registry: Record<string, any> = {
 			return LazyComp;
 		})(),
 	},
-	"baseui-particles-dialog-controlled": {
-		name: "baseui-particles-dialog-controlled",
-		description: "",
+	"baseui-particles-dialog-close-confirmation": {
+		name: "baseui-particles-dialog-close-confirmation",
+		description: "Dialog close confirmation for unsaved changes",
 		type: "registry:component",
 		dependencies: [],
 		devDependencies: undefined,
-		registryDependencies: ["@craftdotui/baseui-dialog"],
+		registryDependencies: [
+			"@craftdotui/baseui-dialog",
+			"@craftdotui/baseui-alert-dialog",
+			"@craftdotui/baseui-button",
+		],
+		files: [
+			{
+				path: "packages/baseui/particles/dialog/close-confirmation/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/dialog-close-confirmation.tsx",
+				content:
+					'"use client";\n\nimport { useState } from "react";\nimport { Button } from "@/components/baseui/components/button";\nimport {\n\tDialogClose,\n\tDialogContent,\n\tDialogDescription,\n\tDialogFooter,\n\tDialogHeader,\n\tDialogPanel,\n\tDialogRoot,\n\tDialogTitle,\n\tDialogTrigger,\n} from "@/components/baseui/components/dialog";\nimport {\n\tAlertDialogClose,\n\tAlertDialogDescription,\n\tAlertDialogFooter,\n\tAlertDialogHeader,\n\tAlertDialogPopup,\n\tAlertDialogRoot,\n\tAlertDialogTitle,\n} from "@/components/baseui/components/alert-dialog";\n\nexport function Particle() {\n\tconst [dialogOpen, setDialogOpen] = useState(false);\n\tconst [confirmOpen, setConfirmOpen] = useState(false);\n\tconst [note, setNote] = useState("");\n\n\tconst handleOpenChange = (nextOpen: boolean) => {\n\t\tif (!nextOpen && note.trim().length > 0) {\n\t\t\t// Prevent dismiss and open confirmation prompt\n\t\t\tsetConfirmOpen(true);\n\t\t} else {\n\t\t\tsetDialogOpen(nextOpen);\n\t\t\tif (!nextOpen) setNote("");\n\t\t}\n\t};\n\n\tconst handleDiscard = () => {\n\t\tsetConfirmOpen(false);\n\t\tsetDialogOpen(false);\n\t\tsetNote("");\n\t};\n\n\treturn (\n\t\t<div className="flex justify-center">\n\t\t\t<DialogRoot open={dialogOpen} onOpenChange={handleOpenChange}>\n\t\t\t\t<DialogTrigger\n\t\t\t\t\trender={<Button variant="outline">Write Note</Button>}\n\t\t\t\t/>\n\n\t\t\t\t<DialogContent showCloseButton>\n\t\t\t\t\t<DialogHeader>\n\t\t\t\t\t\t<DialogTitle>Quick Note</DialogTitle>\n\t\t\t\t\t\t<DialogDescription>\n\t\t\t\t\t\t\tType something below. Closing while dirty will\n\t\t\t\t\t\t\tprompt for confirmation.\n\t\t\t\t\t\t</DialogDescription>\n\t\t\t\t\t</DialogHeader>\n\n\t\t\t\t\t<DialogPanel>\n\t\t\t\t\t\t<textarea\n\t\t\t\t\t\t\tvalue={note}\n\t\t\t\t\t\t\tonChange={(e) => setNote(e.target.value)}\n\t\t\t\t\t\t\tplaceholder="Draft your note here… (type here to test close guard)"\n\t\t\t\t\t\t\tclassName="min-h-24 w-full rounded-md border border-border bg-background p-3 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring resize-none"\n\t\t\t\t\t\t/>\n\t\t\t\t\t</DialogPanel>\n\n\t\t\t\t\t<DialogFooter variant="default">\n\t\t\t\t\t\t<DialogClose render={<Button variant="ghost" />}>\n\t\t\t\t\t\t\tCancel\n\t\t\t\t\t\t</DialogClose>\n\t\t\t\t\t\t<Button\n\t\t\t\t\t\t\tvariant="default"\n\t\t\t\t\t\t\tonClick={() => {\n\t\t\t\t\t\t\t\tsetDialogOpen(false);\n\t\t\t\t\t\t\t\tsetNote("");\n\t\t\t\t\t\t\t}}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\tSave Note\n\t\t\t\t\t\t</Button>\n\t\t\t\t\t</DialogFooter>\n\t\t\t\t</DialogContent>\n\t\t\t</DialogRoot>\n\n\t\t\t{/* Confirmation Alert Dialog */}\n\t\t\t<AlertDialogRoot open={confirmOpen} onOpenChange={setConfirmOpen}>\n\t\t\t\t<AlertDialogPopup className="max-w-sm">\n\t\t\t\t\t<AlertDialogHeader>\n\t\t\t\t\t\t<AlertDialogTitle className="text-destructive">\n\t\t\t\t\t\t\tDiscard Unsaved Changes?\n\t\t\t\t\t\t</AlertDialogTitle>\n\t\t\t\t\t\t<AlertDialogDescription>\n\t\t\t\t\t\t\tYou have unsaved changes in your note. Are you sure\n\t\t\t\t\t\t\tyou want to discard them?\n\t\t\t\t\t\t</AlertDialogDescription>\n\t\t\t\t\t</AlertDialogHeader>\n\n\t\t\t\t\t<AlertDialogFooter>\n\t\t\t\t\t\t<AlertDialogClose\n\t\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t\t<Button variant="ghost">Keep Editing</Button>\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t/>\n\t\t\t\t\t\t<Button variant="destructive" onClick={handleDiscard}>\n\t\t\t\t\t\t\tDiscard\n\t\t\t\t\t\t</Button>\n\t\t\t\t\t</AlertDialogFooter>\n\t\t\t\t</AlertDialogPopup>\n\t\t\t</AlertDialogRoot>\n\t\t</div>\n\t);\n}\n\nexport default Particle;',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-dialog-close-confirmation",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/dialog/close-confirmation/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-dialog-controlled": {
+		name: "baseui-particles-dialog-controlled",
+		description: "Controlled dialog example",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: [
+			"@craftdotui/baseui-dialog",
+			"@craftdotui/baseui-button",
+			"@craftdotui/baseui-input",
+		],
 		files: [
 			{
 				path: "packages/baseui/particles/dialog/controlled/index.tsx",
 				type: "registry:component",
 				target: "components/baseui/particles/dialog-controlled.tsx",
 				content:
-					'import { useState } from "react";\nimport {\n\tDialogRoot,\n\tDialogTrigger,\n\tDialogPortal,\n\tDialogBackdrop,\n\tDialogViewport,\n\tDialogPopup,\n\tDialogTitle,\n\tDialogDescription,\n\tDialogClose,\n\tDialogFooter,\n} from "@/components/baseui/components/dialog";\nimport { Button } from "@/components/baseui/components/button";\n\nexport function Particle() {\n\tconst [open, setOpen] = useState<boolean>(false);\n\n\treturn (\n\t\t<DialogRoot open={open} onOpenChange={setOpen}>\n\t\t\t<DialogTrigger\n\t\t\t\trender={<Button variant={"outline"}>Open Dialog</Button>}\n\t\t\t/>\n\n\t\t\t<DialogPortal>\n\t\t\t\t<DialogBackdrop />\n\t\t\t\t<DialogViewport>\n\t\t\t\t\t<DialogPopup>\n\t\t\t\t\t\t<DialogTitle>Edit profile</DialogTitle>\n\t\t\t\t\t\t<DialogDescription>\n\t\t\t\t\t\t\tMake changes to your profile and save them.\n\t\t\t\t\t\t</DialogDescription>\n\n\t\t\t\t\t\t<DialogFooter>\n\t\t\t\t\t\t\t<DialogClose render={<Button variant="ghost" />}>\n\t\t\t\t\t\t\t\tCancel\n\t\t\t\t\t\t\t</DialogClose>\n\n\t\t\t\t\t\t\t<DialogClose render={<Button variant="outline" />}>\n\t\t\t\t\t\t\t\tConfirm\n\t\t\t\t\t\t\t</DialogClose>\n\t\t\t\t\t\t</DialogFooter>\n\t\t\t\t\t</DialogPopup>\n\t\t\t\t</DialogViewport>\n\t\t\t</DialogPortal>\n\t\t</DialogRoot>\n\t);\n}',
+					'"use client";\n\nimport { useState } from "react";\nimport { Button } from "@/components/baseui/components/button";\nimport {\n\tDialogClose,\n\tDialogContent,\n\tDialogDescription,\n\tDialogFooter,\n\tDialogHeader,\n\tDialogPanel,\n\tDialogRoot,\n\tDialogTitle,\n} from "@/components/baseui/components/dialog";\nimport { Input } from "@/components/baseui/components/input";\n\nexport function Particle() {\n\tconst [open, setOpen] = useState(false);\n\n\treturn (\n\t\t<div className="flex flex-col items-center gap-3">\n\t\t\t<Button variant="outline" onClick={() => setOpen(true)}>\n\t\t\t\tOpen Controlled Dialog\n\t\t\t</Button>\n\n\t\t\t<DialogRoot open={open} onOpenChange={setOpen}>\n\t\t\t\t<DialogContent showCloseButton>\n\t\t\t\t\t<DialogHeader>\n\t\t\t\t\t\t<DialogTitle>Controlled Server Config</DialogTitle>\n\t\t\t\t\t\t<DialogDescription>\n\t\t\t\t\t\t\tThis dialog’s open state is controlled externally\n\t\t\t\t\t\t\tvia React state.\n\t\t\t\t\t\t</DialogDescription>\n\t\t\t\t\t</DialogHeader>\n\n\t\t\t\t\t<DialogPanel>\n\t\t\t\t\t\t<div className="flex flex-col gap-1.5">\n\t\t\t\t\t\t\t<label\n\t\t\t\t\t\t\t\thtmlFor="server-name"\n\t\t\t\t\t\t\t\tclassName="text-xs font-medium text-foreground"\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\tServer Environment\n\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t\t<Input\n\t\t\t\t\t\t\t\tid="server-name"\n\t\t\t\t\t\t\t\tdefaultValue="Production US-East"\n\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</DialogPanel>\n\n\t\t\t\t\t<DialogFooter variant="default">\n\t\t\t\t\t\t<DialogClose render={<Button variant="ghost" />}>\n\t\t\t\t\t\t\tCancel\n\t\t\t\t\t\t</DialogClose>\n\t\t\t\t\t\t<Button\n\t\t\t\t\t\t\tvariant="default"\n\t\t\t\t\t\t\tonClick={() => {\n\t\t\t\t\t\t\t\tsetOpen(false);\n\t\t\t\t\t\t\t}}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\tApply Changes\n\t\t\t\t\t\t</Button>\n\t\t\t\t\t</DialogFooter>\n\t\t\t\t</DialogContent>\n\t\t\t</DialogRoot>\n\t\t</div>\n\t);\n}\n\nexport default Particle;',
 			},
 		],
 		keywords: [],
@@ -6039,20 +6101,339 @@ export const Registry: Record<string, any> = {
 			return LazyComp;
 		})(),
 	},
-	"baseui-particles-dialog": {
-		name: "baseui-particles-dialog",
-		description: "",
+	"baseui-particles-dialog-custom-focus": {
+		name: "baseui-particles-dialog-custom-focus",
+		description:
+			"Custom focus management using initialFocus and finalFocus",
 		type: "registry:component",
 		dependencies: [],
 		devDependencies: undefined,
-		registryDependencies: ["@craftdotui/baseui-dialog"],
+		registryDependencies: [
+			"@craftdotui/baseui-dialog",
+			"@craftdotui/baseui-button",
+			"@craftdotui/baseui-input",
+		],
+		files: [
+			{
+				path: "packages/baseui/particles/dialog/custom-focus/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/dialog-custom-focus.tsx",
+				content:
+					'"use client";\n\nimport { useRef } from "react";\nimport { Button } from "@/components/baseui/components/button";\nimport {\n\tDialogClose,\n\tDialogContent,\n\tDialogDescription,\n\tDialogFooter,\n\tDialogHeader,\n\tDialogPanel,\n\tDialogRoot,\n\tDialogTitle,\n\tDialogTrigger,\n} from "@/components/baseui/components/dialog";\nimport { Input } from "@/components/baseui/components/input";\n\nexport function Particle() {\n\tconst initialFocusRef = useRef<HTMLInputElement | null>(null);\n\tconst returnFocusRef = useRef<HTMLButtonElement | null>(null);\n\n\treturn (\n\t\t<div className="flex flex-col items-center gap-4">\n\t\t\t<div className="flex items-center gap-3">\n\t\t\t\t<DialogRoot>\n\t\t\t\t\t<DialogTrigger\n\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t<Button variant="outline">Open Quick Search</Button>\n\t\t\t\t\t\t}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<DialogContent\n\t\t\t\t\t\tshowCloseButton\n\t\t\t\t\t\tinitialFocus={initialFocusRef}\n\t\t\t\t\t\tfinalFocus={returnFocusRef}\n\t\t\t\t\t>\n\t\t\t\t\t\t<DialogHeader>\n\t\t\t\t\t\t\t<DialogTitle>Quick Navigation</DialogTitle>\n\t\t\t\t\t\t\t<DialogDescription>\n\t\t\t\t\t\t\t\tFocus is automatically placed directly into the\n\t\t\t\t\t\t\t\tsearch input on mount.\n\t\t\t\t\t\t\t</DialogDescription>\n\t\t\t\t\t\t</DialogHeader>\n\n\t\t\t\t\t\t<DialogPanel>\n\t\t\t\t\t\t\t<div className="flex flex-col gap-1.5">\n\t\t\t\t\t\t\t\t<label\n\t\t\t\t\t\t\t\t\thtmlFor="quick-search-input"\n\t\t\t\t\t\t\t\t\tclassName="text-xs font-medium text-foreground"\n\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\tQuery\n\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t\t\t<Input\n\t\t\t\t\t\t\t\t\tref={initialFocusRef}\n\t\t\t\t\t\t\t\t\tid="quick-search-input"\n\t\t\t\t\t\t\t\t\tplaceholder="Search documentation, components, or recipes…"\n\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</DialogPanel>\n\n\t\t\t\t\t\t<DialogFooter variant="default">\n\t\t\t\t\t\t\t<DialogClose render={<Button variant="ghost" />}>\n\t\t\t\t\t\t\t\tCancel\n\t\t\t\t\t\t\t</DialogClose>\n\t\t\t\t\t\t\t<DialogClose render={<Button variant="default" />}>\n\t\t\t\t\t\t\t\tSearch\n\t\t\t\t\t\t\t</DialogClose>\n\t\t\t\t\t\t</DialogFooter>\n\t\t\t\t\t</DialogContent>\n\t\t\t\t</DialogRoot>\n\n\t\t\t\t{/* Element targeted by finalFocus */}\n\t\t\t\t<Button ref={returnFocusRef} variant="outline">\n\t\t\t\t\tReturn Target\n\t\t\t\t</Button>\n\t\t\t</div>\n\n\t\t\t<p className="text-xs text-muted-foreground text-center max-w-sm">\n\t\t\t\tWhen the dialog opens, it auto-focuses the input instead of the\n\t\t\t\tfirst button. On dismiss, focus returns specifically to the\n\t\t\t\tReturn Target button.\n\t\t\t</p>\n\t\t</div>\n\t);\n}\n\nexport default Particle;',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-dialog-custom-focus",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/dialog/custom-focus/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-dialog-detached-triggers": {
+		name: "baseui-particles-dialog-detached-triggers",
+		description: "Detached triggers with typed payloads",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: [
+			"@craftdotui/baseui-dialog",
+			"@craftdotui/baseui-button",
+		],
+		files: [
+			{
+				path: "packages/baseui/particles/dialog/detached-triggers/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/dialog-detached-triggers.tsx",
+				content:
+					'"use client";\n\nimport { Button } from "@/components/baseui/components/button";\nimport {\n\tDialogClose,\n\tDialogContent,\n\tDialogDescription,\n\tDialogFooter,\n\tDialogHeader,\n\tDialogPanel,\n\tDialogRoot,\n\tDialogTitle,\n\tDialogTrigger,\n\tcreateHandle,\n} from "@/components/baseui/components/dialog";\n\ninterface PlanPayload {\n\tname: string;\n\tprice: string;\n\tfeatures: string[];\n}\n\nconst planDialogHandle = createHandle<PlanPayload>();\n\nconst PLANS: PlanPayload[] = [\n\t{\n\t\tname: "Starter Plan",\n\t\tprice: "$19/mo",\n\t\tfeatures: ["Up to 5 projects", "Basic analytics", "Community support"],\n\t},\n\t{\n\t\tname: "Pro Plan",\n\t\tprice: "$49/mo",\n\t\tfeatures: [\n\t\t\t"Unlimited projects",\n\t\t\t"Real-time analytics",\n\t\t\t"Priority support",\n\t\t\t"Custom domains",\n\t\t],\n\t},\n\t{\n\t\tname: "Enterprise Plan",\n\t\tprice: "$199/mo",\n\t\tfeatures: [\n\t\t\t"Dedicated SLA",\n\t\t\t"SSO / SAML login",\n\t\t\t"24/7 Phone support",\n\t\t\t"Custom contracts",\n\t\t],\n\t},\n];\n\nexport function Particle() {\n\treturn (\n\t\t<div className="flex flex-col items-center gap-6">\n\t\t\t<div className="flex flex-wrap items-center justify-center gap-3">\n\t\t\t\t{PLANS.map((plan) => (\n\t\t\t\t\t<DialogTrigger\n\t\t\t\t\t\tkey={plan.name}\n\t\t\t\t\t\thandle={planDialogHandle}\n\t\t\t\t\t\tpayload={plan}\n\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t<Button\n\t\t\t\t\t\t\t\tvariant="outline"\n\t\t\t\t\t\t\t\tclassName="flex flex-col h-auto py-2 px-4 items-start text-left"\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t<span className="font-semibold text-sm">\n\t\t\t\t\t\t\t\t\t{plan.name}\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t<span className=" text-muted-foreground">\n\t\t\t\t\t\t\t\t\t{plan.price}\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t}\n\t\t\t\t\t/>\n\t\t\t\t))}\n\t\t\t</div>\n\n\t\t\t{/* Dialog Root linked via handle */}\n\t\t\t<DialogRoot handle={planDialogHandle}>\n\t\t\t\t{({ payload }) => {\n\t\t\t\t\tconst plan = payload as PlanPayload | undefined;\n\n\t\t\t\t\treturn (\n\t\t\t\t\t\t<DialogContent showCloseButton>\n\t\t\t\t\t\t\t<DialogHeader>\n\t\t\t\t\t\t\t\t<DialogTitle>\n\t\t\t\t\t\t\t\t\tUpgrade to {plan?.name ?? "Selected Plan"}\n\t\t\t\t\t\t\t\t</DialogTitle>\n\t\t\t\t\t\t\t\t<DialogDescription>\n\t\t\t\t\t\t\t\t\tSelected tier price:{" "}\n\t\t\t\t\t\t\t\t\t<strong className="text-foreground">\n\t\t\t\t\t\t\t\t\t\t{plan?.price}\n\t\t\t\t\t\t\t\t\t</strong>\n\t\t\t\t\t\t\t\t</DialogDescription>\n\t\t\t\t\t\t\t</DialogHeader>\n\n\t\t\t\t\t\t\t<DialogPanel>\n\t\t\t\t\t\t\t\t<p className="text-xs font-medium text-foreground">\n\t\t\t\t\t\t\t\t\tIncluded features:\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t<ul className="text-xs text-muted-foreground space-y-1 list-disc list-inside">\n\t\t\t\t\t\t\t\t\t{plan?.features.map((feature) => (\n\t\t\t\t\t\t\t\t\t\t<li key={feature}>{feature}</li>\n\t\t\t\t\t\t\t\t\t))}\n\t\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t</DialogPanel>\n\n\t\t\t\t\t\t\t<DialogFooter variant="default">\n\t\t\t\t\t\t\t\t<DialogClose\n\t\t\t\t\t\t\t\t\trender={<Button variant="ghost" />}\n\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\tCancel\n\t\t\t\t\t\t\t\t</DialogClose>\n\t\t\t\t\t\t\t\t<DialogClose\n\t\t\t\t\t\t\t\t\trender={<Button variant="default" />}\n\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\tConfirm Subscription\n\t\t\t\t\t\t\t\t</DialogClose>\n\t\t\t\t\t\t\t</DialogFooter>\n\t\t\t\t\t\t</DialogContent>\n\t\t\t\t\t);\n\t\t\t\t}}\n\t\t\t</DialogRoot>\n\t\t</div>\n\t);\n}\n\nexport default Particle;',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-dialog-detached-triggers",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/dialog/detached-triggers/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-dialog-from-menu": {
+		name: "baseui-particles-dialog-from-menu",
+		description: "Opening a dialog from a dropdown menu action",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: [
+			"@craftdotui/baseui-dialog",
+			"@craftdotui/baseui-button",
+			"@craftdotui/baseui-menu",
+		],
+		files: [
+			{
+				path: "packages/baseui/particles/dialog/from-menu/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/dialog-from-menu.tsx",
+				content:
+					'"use client";\n\nimport { useState } from "react";\nimport { Archive, ChevronDown, ExternalLink, Info } from "lucide-react";\nimport { Button } from "@/components/baseui/components/button";\nimport {\n\tDialogClose,\n\tDialogContent,\n\tDialogDescription,\n\tDialogFooter,\n\tDialogHeader,\n\tDialogPanel,\n\tDialogRoot,\n\tDialogTitle,\n} from "@/components/baseui/components/dialog";\nimport {\n\tMenuItem,\n\tMenuPopup,\n\tMenuPortal,\n\tMenuPositioner,\n\tMenuRoot,\n\tMenuSeparator,\n\tMenuTrigger,\n} from "@/components/baseui/components/menu";\n\nexport function Particle() {\n\tconst [dialogOpen, setDialogOpen] = useState(false);\n\n\treturn (\n\t\t<div className="flex justify-center">\n\t\t\t{/* Menu triggering Dialog */}\n\t\t\t<MenuRoot>\n\t\t\t\t<MenuTrigger\n\t\t\t\t\trender={\n\t\t\t\t\t\t<Button variant="outline" className="gap-2">\n\t\t\t\t\t\t\tRepository Options\n\t\t\t\t\t\t\t<ChevronDown className="size-4 opacity-60" />\n\t\t\t\t\t\t</Button>\n\t\t\t\t\t}\n\t\t\t\t/>\n\n\t\t\t\t<MenuPortal>\n\t\t\t\t\t<MenuPositioner sideOffset={6} align="start">\n\t\t\t\t\t\t<MenuPopup className="w-52">\n\t\t\t\t\t\t\t<MenuItem className="gap-2">\n\t\t\t\t\t\t\t\t<ExternalLink className="size-4 text-muted-foreground" />\n\t\t\t\t\t\t\t\t<span>View on GitHub</span>\n\t\t\t\t\t\t\t</MenuItem>\n\t\t\t\t\t\t\t<MenuItem className="gap-2">\n\t\t\t\t\t\t\t\t<Info className="size-4 text-muted-foreground" />\n\t\t\t\t\t\t\t\t<span>Repository Details</span>\n\t\t\t\t\t\t\t</MenuItem>\n\t\t\t\t\t\t\t<MenuSeparator />\n\t\t\t\t\t\t\t<MenuItem\n\t\t\t\t\t\t\t\tclassName="gap-2 text-destructive focus:text-destructive"\n\t\t\t\t\t\t\t\tonClick={() => setDialogOpen(true)}\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t<Archive className="size-4" />\n\t\t\t\t\t\t\t\t<span>Archive Repository…</span>\n\t\t\t\t\t\t\t</MenuItem>\n\t\t\t\t\t\t</MenuPopup>\n\t\t\t\t\t</MenuPositioner>\n\t\t\t\t</MenuPortal>\n\t\t\t</MenuRoot>\n\n\t\t\t{/* Controlled Dialog */}\n\t\t\t<DialogRoot open={dialogOpen} onOpenChange={setDialogOpen}>\n\t\t\t\t<DialogContent showCloseButton className="max-w-md">\n\t\t\t\t\t<DialogHeader>\n\t\t\t\t\t\t<DialogTitle>Archive Repository</DialogTitle>\n\t\t\t\t\t\t<DialogDescription>\n\t\t\t\t\t\t\tAre you sure you want to archive craftdotui?\n\t\t\t\t\t\t</DialogDescription>\n\t\t\t\t\t</DialogHeader>\n\n\t\t\t\t\t<DialogPanel className="text-sm">\n\t\t\t\t\t\t<p className="text-muted-foreground leading-relaxed">\n\t\t\t\t\t\t\tArchiving this repository will make it read-only.\n\t\t\t\t\t\t\tIssues, pull requests, and releases can still be\n\t\t\t\t\t\t\tviewed, but no new commits or changes can be pushed.\n\t\t\t\t\t\t</p>\n\t\t\t\t\t</DialogPanel>\n\n\t\t\t\t\t<DialogFooter variant="default">\n\t\t\t\t\t\t<DialogClose render={<Button variant="outline" />}>\n\t\t\t\t\t\t\tCancel\n\t\t\t\t\t\t</DialogClose>\n\t\t\t\t\t\t<Button\n\t\t\t\t\t\t\tvariant="destructive"\n\t\t\t\t\t\t\tonClick={() => setDialogOpen(false)}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\tArchive Repository\n\t\t\t\t\t\t</Button>\n\t\t\t\t\t</DialogFooter>\n\t\t\t\t</DialogContent>\n\t\t\t</DialogRoot>\n\t\t</div>\n\t);\n}\n\nexport default Particle;',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-dialog-from-menu",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/dialog/from-menu/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-dialog-inside-scroll": {
+		name: "baseui-particles-dialog-inside-scroll",
+		description: "Inside scroll dialog with fixed header and footer",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: [
+			"@craftdotui/baseui-dialog",
+			"@craftdotui/baseui-button",
+		],
+		files: [
+			{
+				path: "packages/baseui/particles/dialog/inside-scroll/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/dialog-inside-scroll.tsx",
+				content:
+					'"use client";\n\nimport { Button } from "@/components/baseui/components/button";\nimport {\n\tDialogClose,\n\tDialogContent,\n\tDialogDescription,\n\tDialogFooter,\n\tDialogHeader,\n\tDialogPanel,\n\tDialogRoot,\n\tDialogTitle,\n\tDialogTrigger,\n} from "@/components/baseui/components/dialog";\n\nconst TERMS_SECTIONS = [\n\t{\n\t\ttitle: "1. Overview & Acceptance",\n\t\tbody: "By creating an account or accessing craftdotui, you agree to be bound by these Terms and our Privacy Policy. If you do not agree to these terms, do not use our services.",\n\t},\n\t{\n\t\ttitle: "2. User Accounts and Security",\n\t\tbody: "You are responsible for maintaining the confidentiality of your login credentials and for all activities that occur under your account. Notify us immediately of any unauthorized use.",\n\t},\n\t{\n\t\ttitle: "3. Intellectual Property Rights",\n\t\tbody: "All materials, software, and documentation provided remain the intellectual property of their respective authors. You receive a limited, revocable license to use components in your applications.",\n\t},\n\t{\n\t\ttitle: "4. Permitted Use & Restrictions",\n\t\tbody: "You may not reverse-engineer, distribute malicious payloads, or attempt to disrupt the integrity or security of the hosted registries or API endpoints.",\n\t},\n\t{\n\t\ttitle: "5. Termination & Suspension",\n\t\tbody: "We reserve the right to suspend or terminate accounts that violate our code of conduct or breach these Terms without prior notice.",\n\t},\n\t{\n\t\ttitle: "6. Limitation of Liability",\n\t\tbody: "To the maximum extent permitted by applicable law, craftdotui is provided \'as is\' without warranty of any kind, express or implied.",\n\t},\n\t{\n\t\ttitle: "7. Privacy and Data Handling",\n\t\tbody: "We process personal data in accordance with our Privacy Policy. By utilizing our tools, you acknowledge and agree that certain telemetry and anonymous usage metrics may be gathered to improve reliability.",\n\t},\n\t{\n\t\ttitle: "8. Modifications to Terms",\n\t\tbody: "We may revise these Terms periodically to reflect evolving regulatory frameworks or platform enhancements. Continued access after updates constitutes binding consent to the revised terms.",\n\t},\n\t{\n\t\ttitle: "9. Governing Law & Jurisdiction",\n\t\tbody: "These Terms and any disputes arising out of or related to them shall be governed by and construed under the laws of the applicable jurisdiction, without regard to conflict of law principles.",\n\t},\n\t{\n\t\ttitle: "10. Contact & Support",\n\t\tbody: "If you have questions, inquiries, or security disclosures regarding these Terms, please reach out to our legal and support team at legal@craftdotui.com.",\n\t},\n];\n\nexport function Particle() {\n\treturn (\n\t\t<DialogRoot>\n\t\t\t<DialogTrigger\n\t\t\t\trender={\n\t\t\t\t\t<Button variant="outline">View Terms of Service</Button>\n\t\t\t\t}\n\t\t\t/>\n\n\t\t\t<DialogContent showCloseButton>\n\t\t\t\t<DialogHeader className="border-b border-border pb-4">\n\t\t\t\t\t<DialogTitle>Terms of Service</DialogTitle>\n\t\t\t\t\t<DialogDescription>\n\t\t\t\t\t\tScroll inside the popup to read the full agreement.\n\t\t\t\t\t</DialogDescription>\n\t\t\t\t</DialogHeader>\n\n\t\t\t\t<DialogPanel className="space-y-4 text-sm text-muted-foreground">\n\t\t\t\t\t{TERMS_SECTIONS.map((section) => (\n\t\t\t\t\t\t<div key={section.title} className="space-y-1">\n\t\t\t\t\t\t\t<h4 className="font-semibold text-foreground text-sm">\n\t\t\t\t\t\t\t\t{section.title}\n\t\t\t\t\t\t\t</h4>\n\t\t\t\t\t\t\t<p className="leading-relaxed">{section.body}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t))}\n\t\t\t\t</DialogPanel>\n\n\t\t\t\t<DialogFooter variant="default">\n\t\t\t\t\t<DialogClose render={<Button variant="ghost" />}>\n\t\t\t\t\t\tDecline\n\t\t\t\t\t</DialogClose>\n\t\t\t\t\t<DialogClose render={<Button variant="default" />}>\n\t\t\t\t\t\tI Accept\n\t\t\t\t\t</DialogClose>\n\t\t\t\t</DialogFooter>\n\t\t\t</DialogContent>\n\t\t</DialogRoot>\n\t);\n}\n\nexport default Particle;',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-dialog-inside-scroll",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/dialog/inside-scroll/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-dialog-nested": {
+		name: "baseui-particles-dialog-nested",
+		description: "Nested dialogs with layered stacking",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: [
+			"@craftdotui/baseui-dialog",
+			"@craftdotui/baseui-button",
+		],
+		files: [
+			{
+				path: "packages/baseui/particles/dialog/nested/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/dialog-nested.tsx",
+				content:
+					'"use client";\n\nimport { useState } from "react";\nimport { Button } from "@/components/baseui/components/button";\nimport {\n\tDialogClose,\n\tDialogContent,\n\tDialogDescription,\n\tDialogFooter,\n\tDialogHeader,\n\tDialogPanel,\n\tDialogRoot,\n\tDialogTitle,\n\tDialogTrigger,\n} from "@/components/baseui/components/dialog";\n\nexport function Particle() {\n\tconst [childOpen, setChildOpen] = useState(false);\n\tconst [parentOpen, setParentOpen] = useState(false);\n\n\tconst handleDeleteConfirm = () => {\n\t\tsetChildOpen(false);\n\t\tsetParentOpen(false);\n\t};\n\n\treturn (\n\t\t<div className="flex justify-center">\n\t\t\t{/* Parent Dialog */}\n\t\t\t<DialogRoot open={parentOpen} onOpenChange={setParentOpen}>\n\t\t\t\t<DialogTrigger\n\t\t\t\t\trender={\n\t\t\t\t\t\t<Button variant="outline">Open Settings Dialog</Button>\n\t\t\t\t\t}\n\t\t\t\t/>\n\n\t\t\t\t<DialogContent showCloseButton>\n\t\t\t\t\t<DialogHeader>\n\t\t\t\t\t\t<DialogTitle>Project Settings</DialogTitle>\n\t\t\t\t\t\t<DialogDescription>\n\t\t\t\t\t\t\tManage workspace configuration and danger zone\n\t\t\t\t\t\t\toptions.\n\t\t\t\t\t\t</DialogDescription>\n\t\t\t\t\t</DialogHeader>\n\n\t\t\t\t\t<DialogPanel>\n\t\t\t\t\t\t<div className="rounded-md border border-destructive/20 bg-destructive/5 p-4 flex flex-col gap-2">\n\t\t\t\t\t\t\t<p className="text-xs font-semibold text-destructive">\n\t\t\t\t\t\t\t\tDanger Zone\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t<p className="text-xs text-muted-foreground">\n\t\t\t\t\t\t\t\tDeleting this project removes all data\n\t\t\t\t\t\t\t\tpermanently. This action cannot be reversed once\n\t\t\t\t\t\t\t\tconfirmed.\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</DialogPanel>\n\n\t\t\t\t\t<DialogFooter variant="default">\n\t\t\t\t\t\t<DialogClose render={<Button variant="outline" />}>\n\t\t\t\t\t\t\tCancel\n\t\t\t\t\t\t</DialogClose>\n\n\t\t\t\t\t\t{/* Nested Dialog Trigger */}\n\t\t\t\t\t\t<DialogRoot\n\t\t\t\t\t\t\topen={childOpen}\n\t\t\t\t\t\t\tonOpenChange={setChildOpen}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t<DialogTrigger\n\t\t\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t\t\t<Button variant="destructive">\n\t\t\t\t\t\t\t\t\t\tDelete Project\n\t\t\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t/>\n\n\t\t\t\t\t\t\t{/* Child Nested Dialog */}\n\t\t\t\t\t\t\t<DialogContent showCloseButton className="max-w-md">\n\t\t\t\t\t\t\t\t<DialogHeader>\n\t\t\t\t\t\t\t\t\t<DialogTitle className="text-destructive">\n\t\t\t\t\t\t\t\t\t\tConfirm Deletion\n\t\t\t\t\t\t\t\t\t</DialogTitle>\n\t\t\t\t\t\t\t\t\t<DialogDescription>\n\t\t\t\t\t\t\t\t\t\tThis action cannot be undone. Are you\n\t\t\t\t\t\t\t\t\t\tsure you want to permanently delete this\n\t\t\t\t\t\t\t\t\t\tproject?\n\t\t\t\t\t\t\t\t\t</DialogDescription>\n\t\t\t\t\t\t\t\t</DialogHeader>\n\n\t\t\t\t\t\t\t\t<DialogFooter variant="default">\n\t\t\t\t\t\t\t\t\t<DialogClose\n\t\t\t\t\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t\t\t\t\t<Button variant="ghost">\n\t\t\t\t\t\t\t\t\t\t\t\tCancel\n\t\t\t\t\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t<Button\n\t\t\t\t\t\t\t\t\t\tvariant="destructive"\n\t\t\t\t\t\t\t\t\t\tonClick={handleDeleteConfirm}\n\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\tYes, Delete\n\t\t\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t\t\t</DialogFooter>\n\t\t\t\t\t\t\t</DialogContent>\n\t\t\t\t\t\t</DialogRoot>\n\t\t\t\t\t</DialogFooter>\n\t\t\t\t</DialogContent>\n\t\t\t</DialogRoot>\n\t\t</div>\n\t);\n}\n\nexport default Particle;',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-dialog-nested",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/dialog/nested/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-dialog-outside-scroll": {
+		name: "baseui-particles-dialog-outside-scroll",
+		description: "Outside scroll dialog with viewport scrolling",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: [
+			"@craftdotui/baseui-dialog",
+			"@craftdotui/baseui-button",
+		],
+		files: [
+			{
+				path: "packages/baseui/particles/dialog/outside-scroll/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/dialog-outside-scroll.tsx",
+				content:
+					'"use client";\n\nimport { Button } from "@/components/baseui/components/button";\nimport {\n\tDialogClose,\n\tDialogContent,\n\tDialogDescription,\n\tDialogFooter,\n\tDialogHeader,\n\tDialogPanel,\n\tDialogRoot,\n\tDialogTitle,\n\tDialogTrigger,\n} from "@/components/baseui/components/dialog";\n\nconst FAQ_ITEMS = [\n\t{\n\t\tq: "What is an outside scroll dialog?",\n\t\ta: "In an outside scroll dialog, the viewport container itself scrolls rather than the popup body. This gives a natural document-like scrolling feel where the entire modal moves along the viewport.",\n\t},\n\t{\n\t\tq: "When should I prefer outside scrolling over inside scrolling?",\n\t\ta: "Use outside scrolling for long forms, multi-step wizards, or legal agreements where you want natural page scrolling mechanics and comfortable vertical margins at the top and bottom.",\n\t},\n\t{\n\t\tq: "How does it handle backdrop clicks?",\n\t\ta: "Clicking anywhere in the viewport outside the popup bubble still triggers close, preserving the modal dismissal UX.",\n\t},\n\t{\n\t\tq: "Does this affect mobile accessibility?",\n\t\ta: "On mobile viewports, outside scrolling lets users pan naturally using the native browser gesture engine without getting trapped in internal scroll boundaries.",\n\t},\n\t{\n\t\tq: "Can I combine this with sticky buttons?",\n\t\ta: "Yes! You can choose to keep the popup completely native or anchor headers/footers depending on your interface requirements.",\n\t},\n\t{\n\t\tq: "How do keyboard navigation and focus trapping work?",\n\t\ta: "Focus remains strictly trapped within the dialog element. Navigating with keyboard arrows, Page Up/Down, or the Space bar naturally scrolls the outer viewport container.",\n\t},\n\t{\n\t\tq: "Can I customize the scrollbar appearance?",\n\t\ta: "Absolutely. The scrollbar uses the Base UI Scroll Area primitive under the hood, allowing full Tailwind customization for thumb colors, rail widths, and fade transitions.",\n\t},\n\t{\n\t\tq: "How does outside scroll prevent background page scrolling?",\n\t\ta: "Base UI automatically manages document scroll lock when the dialog opens, preventing unwanted double-scrollbar scrolling on the body element.",\n\t},\n\t{\n\t\tq: "What happens on small or low-height screens?",\n\t\ta: "The outer scroll container guarantees that users on small laptops or mobile screens can scroll to reveal both the top header and bottom confirmation actions without clipping.",\n\t},\n\t{\n\t\tq: "Can I mix interactive form controls with outside scroll?",\n\t\ta: "Yes. Text inputs, selects, and checkboxes maintain their natural focus states and scroll into view automatically when tabbed through.",\n\t},\n\t{\n\t\tq: "How do animations perform with outside scrolling?",\n\t\ta: "Entry and exit animations operate smoothly via data attributes on the popup, while the scroll container remains responsive without causing layout reflows.",\n\t},\n];\n\nexport function Particle() {\n\treturn (\n\t\t<DialogRoot scroll="outside">\n\t\t\t<DialogTrigger\n\t\t\t\trender={<Button variant="outline">Open FAQ</Button>}\n\t\t\t/>\n\n\t\t\t<DialogContent showCloseButton className="max-w-xl">\n\t\t\t\t<DialogHeader>\n\t\t\t\t\t<DialogTitle>Frequently Asked Questions</DialogTitle>\n\t\t\t\t\t<DialogDescription>\n\t\t\t\t\t\tScroll the viewport outside the dialog to read all\n\t\t\t\t\t\tquestions.\n\t\t\t\t\t</DialogDescription>\n\t\t\t\t</DialogHeader>\n\n\t\t\t\t<DialogPanel className="gap-4 text-sm">\n\t\t\t\t\t{FAQ_ITEMS.map((item) => (\n\t\t\t\t\t\t<div\n\t\t\t\t\t\t\tkey={item.q}\n\t\t\t\t\t\t\tclassName="rounded-lg border border-border/60 bg-muted/30 p-4 space-y-1.5"\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t<h4 className="font-semibold text-foreground">\n\t\t\t\t\t\t\t\t{item.q}\n\t\t\t\t\t\t\t</h4>\n\t\t\t\t\t\t\t<p className="text-muted-foreground leading-relaxed">\n\t\t\t\t\t\t\t\t{item.a}\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t))}\n\t\t\t\t</DialogPanel>\n\n\t\t\t\t<DialogFooter variant="default">\n\t\t\t\t\t<DialogClose render={<Button variant="default" />}>\n\t\t\t\t\t\tGot it\n\t\t\t\t\t</DialogClose>\n\t\t\t\t</DialogFooter>\n\t\t\t</DialogContent>\n\t\t</DialogRoot>\n\t);\n}\n\nexport default Particle;',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-dialog-outside-scroll",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/dialog/outside-scroll/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-dialog": {
+		name: "baseui-particles-dialog",
+		description: "Default dialog component example",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: [
+			"@craftdotui/baseui-dialog",
+			"@craftdotui/baseui-button",
+			"@craftdotui/baseui-input",
+		],
 		files: [
 			{
 				path: "packages/baseui/particles/dialog/index.tsx",
 				type: "registry:component",
 				target: "components/baseui/particles/dialog.tsx",
 				content:
-					'import {\n\tDialogRoot,\n\tDialogTrigger,\n\tDialogPortal,\n\tDialogBackdrop,\n\tDialogViewport,\n\tDialogPopup,\n\tDialogTitle,\n\tDialogDescription,\n\tDialogClose,\n\tDialogFooter,\n} from "@/components/baseui/components/dialog";\nimport { Button } from "@/components/baseui/components/button";\n\nexport function Particle() {\n\treturn (\n\t\t<DialogRoot>\n\t\t\t<DialogTrigger\n\t\t\t\trender={<Button variant={"outline"}>Open Dialog</Button>}\n\t\t\t/>\n\n\t\t\t<DialogPortal>\n\t\t\t\t<DialogBackdrop />\n\t\t\t\t<DialogViewport>\n\t\t\t\t\t<DialogPopup>\n\t\t\t\t\t\t<DialogTitle>Edit profile</DialogTitle>\n\t\t\t\t\t\t<DialogDescription>\n\t\t\t\t\t\t\tMake changes to your profile and save them.\n\t\t\t\t\t\t</DialogDescription>\n\n\t\t\t\t\t\t<DialogFooter>\n\t\t\t\t\t\t\t<DialogClose render={<Button variant="ghost" />}>\n\t\t\t\t\t\t\t\tCancel\n\t\t\t\t\t\t\t</DialogClose>\n\n\t\t\t\t\t\t\t<DialogClose render={<Button variant="outline" />}>\n\t\t\t\t\t\t\t\tConfirm\n\t\t\t\t\t\t\t</DialogClose>\n\t\t\t\t\t\t</DialogFooter>\n\t\t\t\t\t</DialogPopup>\n\t\t\t\t</DialogViewport>\n\t\t\t</DialogPortal>\n\t\t</DialogRoot>\n\t);\n}',
+					'"use client";\n\nimport { Button } from "@/components/baseui/components/button";\nimport {\n\tDialogClose,\n\tDialogContent,\n\tDialogDescription,\n\tDialogFooter,\n\tDialogHeader,\n\tDialogPanel,\n\tDialogRoot,\n\tDialogTitle,\n\tDialogTrigger,\n} from "@/components/baseui/components/dialog";\nimport { Input } from "@/components/baseui/components/input";\n\nexport function Particle() {\n\treturn (\n\t\t<DialogRoot>\n\t\t\t<DialogTrigger\n\t\t\t\trender={<Button variant="outline">Edit Profile</Button>}\n\t\t\t/>\n\n\t\t\t<DialogContent showCloseButton>\n\t\t\t\t<DialogHeader>\n\t\t\t\t\t<DialogTitle>Edit Profile</DialogTitle>\n\t\t\t\t\t<DialogDescription>\n\t\t\t\t\t\tMake changes to your public profile here. Click save\n\t\t\t\t\t\twhen done.\n\t\t\t\t\t</DialogDescription>\n\t\t\t\t</DialogHeader>\n\n\t\t\t\t<DialogPanel>\n\t\t\t\t\t<div className="flex flex-col gap-1.5">\n\t\t\t\t\t\t<label\n\t\t\t\t\t\t\thtmlFor="dialog-name"\n\t\t\t\t\t\t\tclassName="text-xs font-medium text-foreground"\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\tName\n\t\t\t\t\t\t</label>\n\t\t\t\t\t\t<Input\n\t\t\t\t\t\t\tid="dialog-name"\n\t\t\t\t\t\t\tdefaultValue="Yogendra Rana"\n\t\t\t\t\t\t\tplaceholder="Enter your name"\n\t\t\t\t\t\t/>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div className="flex flex-col gap-1.5">\n\t\t\t\t\t\t<label\n\t\t\t\t\t\t\thtmlFor="dialog-username"\n\t\t\t\t\t\t\tclassName="text-xs font-medium text-foreground"\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\tUsername\n\t\t\t\t\t\t</label>\n\t\t\t\t\t\t<Input\n\t\t\t\t\t\t\tid="dialog-username"\n\t\t\t\t\t\t\tdefaultValue="@yooogendrarana"\n\t\t\t\t\t\t\tplaceholder="Enter your username"\n\t\t\t\t\t\t/>\n\t\t\t\t\t</div>\n\t\t\t\t</DialogPanel>\n\n\t\t\t\t<DialogFooter>\n\t\t\t\t\t<DialogClose\n\t\t\t\t\t\trender={<Button variant="ghost">Cancel</Button>}\n\t\t\t\t\t/>\n\t\t\t\t\t<Button>Save Changes</Button>\n\t\t\t\t</DialogFooter>\n\t\t\t</DialogContent>\n\t\t</DialogRoot>\n\t);\n}\n\nexport default Particle;',
 			},
 		],
 		keywords: [],

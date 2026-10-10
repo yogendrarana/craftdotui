@@ -52,7 +52,7 @@ function ScrollAreaContent({
 }: ScrollAreaPrimitive.Content.Props) {
 	return (
 		<ScrollAreaPrimitive.Content
-			className={cn("h-full w-full", className)}
+			className={cn("min-w-full w-full", className)}
 			data-slot="scroll-area-content"
 			{...props}
 		/>
@@ -130,7 +130,7 @@ function ScrollAreaCorner({
 /* Composed ScrollArea                                                        */
 /* -------------------------------------------------------------------------- */
 
-function ScrollAreaComposed({
+function ScrollArea({
 	className,
 	children,
 	...props
@@ -158,16 +158,6 @@ function ScrollAreaComposed({
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
-export const ScrollArea = {
-	Root: ScrollAreaRoot,
-	Viewport: ScrollAreaViewport,
-	Content: ScrollAreaContent,
-	Scrollbar: ScrollAreaScrollbar,
-	Thumb: ScrollAreaThumb,
-	Corner: ScrollAreaCorner,
-	Composed: ScrollAreaComposed,
-};
-
 export {
 	ScrollAreaRoot,
 	ScrollAreaViewport,
@@ -176,3 +166,5 @@ export {
 	ScrollAreaThumb,
 	ScrollAreaCorner,
 };
+
+export { ScrollArea };
