@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-alert-dialog-multiple-triggers",
+	"description": "",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/baseui-alert-dialog",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/baseui/particles/alert-dialog/multiple-triggers/index.tsx",
+			"content": "\"use client\";\n\nimport { Trash2, KeyRound, UserMinus } from \"lucide-react\";\nimport { Button } from \"@/components/baseui/components/button\";\nimport {\n\tAlertDialogClose,\n\tAlertDialogContent,\n\tAlertDialogDescription,\n\tAlertDialogFooter,\n\tAlertDialogHeader,\n\tAlertDialogRoot,\n\tAlertDialogTitle,\n\tAlertDialogTrigger,\n\tcreateHandle,\n} from \"@/components/baseui/components/alert-dialog\";\n\ninterface ActionPayload {\n\ttitle: string;\n\tdescription: string;\n\tconfirmLabel: string;\n}\n\nconst actionHandle = createHandle<ActionPayload>();\n\nconst ACTIONS = [\n\t{\n\t\tid: \"repo\",\n\t\tlabel: \"Delete Branch\",\n\t\ticon: Trash2,\n\t\tpayload: {\n\t\t\ttitle: \"Delete feature/auth-v2 branch?\",\n\t\t\tdescription:\n\t\t\t\t\"This branch has unmerged commits. Deleting it will permanently discard those changes from the remote repository.\",\n\t\t\tconfirmLabel: \"Delete Branch\",\n\t\t},\n\t},\n\t{\n\t\tid: \"token\",\n\t\tlabel: \"Revoke API Key\",\n\t\ticon: KeyRound,\n\t\tpayload: {\n\t\t\ttitle: \"Revoke production API key?\",\n\t\t\tdescription:\n\t\t\t\t\"Applications and CI/CD pipelines relying on this key will immediately stop working. A new key must be generated.\",\n\t\t\tconfirmLabel: \"Revoke Key\",\n\t\t},\n\t},\n\t{\n\t\tid: \"member\",\n\t\tlabel: \"Remove Member\",\n\t\ticon: UserMinus,\n\t\tpayload: {\n\t\t\ttitle: \"Remove team member?\",\n\t\t\tdescription:\n\t\t\t\t\"This will revoke all organization access and permissions for sarah@craftdotui.dev. They can be re-invited at any time.\",\n\t\t\tconfirmLabel: \"Remove Member\",\n\t\t},\n\t},\n];\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"flex flex-col items-center gap-6\">\n\t\t\t<div className=\"flex flex-wrap items-center justify-center gap-3\">\n\t\t\t\t{ACTIONS.map((action) => {\n\t\t\t\t\tconst Icon = action.icon;\n\t\t\t\t\treturn (\n\t\t\t\t\t\t<AlertDialogTrigger\n\t\t\t\t\t\t\tkey={action.id}\n\t\t\t\t\t\t\thandle={actionHandle}\n\t\t\t\t\t\t\tpayload={action.payload}\n\t\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t\t<Button variant=\"outline\" className=\"gap-2\">\n\t\t\t\t\t\t\t\t\t<Icon className=\"size-4 text-destructive\" />\n\t\t\t\t\t\t\t\t\t{action.label}\n\t\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t/>\n\t\t\t\t\t);\n\t\t\t\t})}\n\t\t\t</div>\n\n\t\t\t<AlertDialogRoot handle={actionHandle}>\n\t\t\t\t{({ payload }) => (\n\t\t\t\t\t<AlertDialogContent>\n\t\t\t\t\t\t<AlertDialogHeader>\n\t\t\t\t\t\t\t<AlertDialogTitle>\n\t\t\t\t\t\t\t\t{payload?.title ?? \"Confirm Action\"}\n\t\t\t\t\t\t\t</AlertDialogTitle>\n\t\t\t\t\t\t\t<AlertDialogDescription>\n\t\t\t\t\t\t\t\t{payload?.description ??\n\t\t\t\t\t\t\t\t\t\"Are you sure you want to proceed with this destructive action?\"}\n\t\t\t\t\t\t\t</AlertDialogDescription>\n\t\t\t\t\t\t</AlertDialogHeader>\n\n\t\t\t\t\t\t<AlertDialogFooter>\n\t\t\t\t\t\t\t<AlertDialogClose\n\t\t\t\t\t\t\t\trender={<Button variant=\"outline\" />}\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\tCancel\n\t\t\t\t\t\t\t</AlertDialogClose>\n\t\t\t\t\t\t\t<AlertDialogClose\n\t\t\t\t\t\t\t\trender={<Button variant=\"destructive\" />}\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t{payload?.confirmLabel ?? \"Confirm\"}\n\t\t\t\t\t\t\t</AlertDialogClose>\n\t\t\t\t\t\t</AlertDialogFooter>\n\t\t\t\t\t</AlertDialogContent>\n\t\t\t\t)}\n\t\t\t</AlertDialogRoot>\n\t\t</div>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/alert-dialog-multiple-triggers.tsx"
+		}
+	],
+	"type": "registry:component"
+}

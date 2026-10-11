@@ -14,3 +14,72 @@ author:
 ## Installation
 
 <Installation name="baseui-alert-dialog" />
+
+## Anatomy
+
+#### Composite
+
+```tsx
+<AlertDialogRoot>
+    <AlertDialogTrigger>Open Alert Dialog</AlertDialogTrigger>
+
+    <AlertDialogContent>
+        <AlertDialogHeader>
+            <AlertDialogTitle>Alert Title</AlertDialogTitle>
+            <AlertDialogDescription>Alert Description</AlertDialogDescription>
+        </AlertDialogHeader>
+
+        <AlertDialogFooter>
+            <AlertDialogClose>Cancel</AlertDialogClose>
+            <AlertDialogClose>Confirm</AlertDialogClose>
+        </AlertDialogFooter>
+    </AlertDialogContent>
+</AlertDialogRoot>
+```
+
+#### Primitives
+
+```tsx
+<AlertDialogRoot>
+    <AlertDialogTrigger>Open Alert Dialog</AlertDialogTrigger>
+
+    <AlertDialogPortal>
+        <AlertDialogBackdrop />
+        <AlertDialogViewport>
+            <AlertDialogPopup>
+                <AlertDialogHeader>
+                    <AlertDialogTitle>Alert Title</AlertDialogTitle>
+                    <AlertDialogDescription>Alert Description</AlertDialogDescription>
+                </AlertDialogHeader>
+
+                <AlertDialogFooter>
+                    <AlertDialogClose>Cancel</AlertDialogClose>
+                    <AlertDialogClose>Confirm</AlertDialogClose>
+                </AlertDialogFooter>
+            </AlertDialogPopup>
+        </AlertDialogViewport>
+    </AlertDialogPortal>
+</AlertDialogRoot>
+```
+
+## Demo
+
+#### Controlled
+
+<ComponentCodePreview name="baseui-particles-alert-dialog-controlled" />
+
+#### Detached Triggers
+
+<ComponentCodePreview name="baseui-particles-alert-dialog-detached-triggers" />
+
+#### Multiple Triggers
+
+<ComponentCodePreview name="baseui-particles-alert-dialog-multiple-triggers" />
+
+#### Close Confirmation
+
+<ComponentCodePreview name="baseui-particles-alert-dialog-close-confirmation" />
+
+#### Open from Menu
+
+<ComponentCodePreview name="baseui-particles-alert-dialog-from-menu" />

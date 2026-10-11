@@ -1,14 +1,14 @@
 "use client";
 
 import {
-	AlertDialogRoot,
-	AlertDialogTrigger,
-	AlertDialogPopup,
-	AlertDialogHeader,
-	AlertDialogFooter,
-	AlertDialogTitle,
-	AlertDialogDescription,
 	AlertDialogClose,
+	AlertDialogContent,
+	AlertDialogDescription,
+	AlertDialogFooter,
+	AlertDialogHeader,
+	AlertDialogRoot,
+	AlertDialogTitle,
+	AlertDialogTrigger,
 } from "@craftdotui/baseui/components/alert-dialog";
 import { Button } from "@craftdotui/baseui/components/button";
 
@@ -16,33 +16,34 @@ function DeleteAlert() {
 	return (
 		<AlertDialogRoot>
 			<AlertDialogTrigger render={<Button variant="destructive" />}>
-				Delete
+				Delete Account
 			</AlertDialogTrigger>
 
-			<AlertDialogPopup>
+			<AlertDialogContent>
 				<AlertDialogHeader>
 					<AlertDialogTitle>
 						Are you absolutely sure?
 					</AlertDialogTitle>
-
 					<AlertDialogDescription>
 						This action cannot be undone. This will permanently
-						delete your data from our servers.
+						delete your account and remove your data from our
+						servers.
 					</AlertDialogDescription>
 				</AlertDialogHeader>
 
 				<AlertDialogFooter>
-					<AlertDialogClose render={<Button variant="ghost" />}>
+					<AlertDialogClose render={<Button variant="outline" />}>
 						Cancel
 					</AlertDialogClose>
 
-					<AlertDialogClose render={<Button variant="outline" />}>
+					<AlertDialogClose render={<Button variant="destructive" />}>
 						Confirm
 					</AlertDialogClose>
 				</AlertDialogFooter>
-			</AlertDialogPopup>
+			</AlertDialogContent>
 		</AlertDialogRoot>
 	);
 }
 
 export { DeleteAlert };
+export default DeleteAlert;

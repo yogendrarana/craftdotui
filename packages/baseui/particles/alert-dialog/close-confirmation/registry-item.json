@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-alert-dialog-close-confirmation",
+	"type": "registry:component",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/baseui-dialog",
+		"@craftdotui/baseui-alert-dialog",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/baseui/particles/alert-dialog/close-confirmation/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/particles/alert-dialog-close-confirmation.tsx"
+		}
+	]
+}

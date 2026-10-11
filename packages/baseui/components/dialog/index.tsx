@@ -362,7 +362,7 @@ const dialogFooterVariants = cva(
 		variants: {
 			variant: {
 				default: "border-t border-border bg-muted/50 py-4",
-				bare: "in-[[data-slot=dialog-popup]:has([data-slot=dialog-panel])]:pt-3 pt-4 pb-6",
+				bare: "in-[[data-slot=dialog-popup]:has([data-slot=dialog-panel])]:pt-3 in-[[data-slot=alert-dialog-popup]:has([data-slot=alert-dialog-panel])]:pt-3 pt-4 pb-6",
 			},
 		},
 		defaultVariants: {

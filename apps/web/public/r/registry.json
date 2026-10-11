@@ -457,8 +457,12 @@
 			"name": "baseui-alert-dialog",
 			"type": "registry:component",
 			"description": "A Base UI alert dialog component",
-			"dependencies": ["@base-ui/react", "cn"],
-			"registryDependencies": [],
+			"dependencies": [
+				"@base-ui/react",
+				"cn",
+				"class-variance-authority"
+			],
+			"registryDependencies": ["@craftdotui/baseui-dialog"],
 			"files": [
 				{
 					"path": "packages/baseui/components/alert-dialog/index.tsx",
@@ -1042,11 +1046,101 @@
 			]
 		},
 		{
-			"name": "baseui-particles-alert-dialog",
+			"name": "baseui-particles-alert-dialog-close-confirmation",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/baseui-dialog",
+				"@craftdotui/baseui-alert-dialog",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/baseui/particles/alert-dialog/close-confirmation/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/alert-dialog-close-confirmation.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-alert-dialog-controlled",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/baseui-alert-dialog",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/baseui/particles/alert-dialog/controlled/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/alert-dialog-controlled.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-alert-dialog-detached-triggers",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/baseui-alert-dialog",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/baseui/particles/alert-dialog/detached-triggers/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/alert-dialog-detached-triggers.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-alert-dialog-from-menu",
 			"type": "registry:component",
 			"description": "",
 			"dependencies": ["lucide-react"],
-			"registryDependencies": ["@craftdotui/baseui-alert-dialog"],
+			"registryDependencies": [
+				"@craftdotui/baseui-alert-dialog",
+				"@craftdotui/baseui-menu",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/baseui/particles/alert-dialog/from-menu/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/alert-dialog-from-menu.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-alert-dialog-multiple-triggers",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": [
+				"@craftdotui/baseui-alert-dialog",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/baseui/particles/alert-dialog/multiple-triggers/index.tsx",
+					"type": "registry:component",
+					"target": "components/baseui/particles/alert-dialog-multiple-triggers.tsx"
+				}
+			]
+		},
+		{
+			"name": "baseui-particles-alert-dialog",
+			"type": "registry:component",
+			"description": "",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/baseui-alert-dialog",
+				"@craftdotui/baseui-button"
+			],
 			"files": [
 				{
 					"path": "packages/baseui/particles/alert-dialog/index.tsx",

@@ -1,0 +1,20 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-alert-dialog-from-menu",
+	"description": "",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/baseui-alert-dialog",
+		"@craftdotui/baseui-menu",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/baseui/particles/alert-dialog/from-menu/index.tsx",
+			"content": "\"use client\";\n\nimport { useState } from \"react\";\nimport { ChevronDown, ExternalLink, Settings, Trash2 } from \"lucide-react\";\nimport { Button } from \"@/components/baseui/components/button\";\nimport {\n\tAlertDialogClose,\n\tAlertDialogContent,\n\tAlertDialogDescription,\n\tAlertDialogFooter,\n\tAlertDialogHeader,\n\tAlertDialogRoot,\n\tAlertDialogTitle,\n} from \"@/components/baseui/components/alert-dialog\";\nimport {\n\tMenuItem,\n\tMenuPopup,\n\tMenuPortal,\n\tMenuPositioner,\n\tMenuRoot,\n\tMenuSeparator,\n\tMenuTrigger,\n} from \"@/components/baseui/components/menu\";\n\nexport function Particle() {\n\tconst [dialogOpen, setDialogOpen] = useState(false);\n\n\treturn (\n\t\t<div className=\"flex justify-center\">\n\t\t\t<MenuRoot>\n\t\t\t\t<MenuTrigger\n\t\t\t\t\trender={\n\t\t\t\t\t\t<Button variant=\"outline\" className=\"gap-2\">\n\t\t\t\t\t\t\tProject Settings\n\t\t\t\t\t\t\t<ChevronDown className=\"size-4 opacity-60\" />\n\t\t\t\t\t\t</Button>\n\t\t\t\t\t}\n\t\t\t\t/>\n\n\t\t\t\t<MenuPortal>\n\t\t\t\t\t<MenuPositioner sideOffset={6} align=\"start\">\n\t\t\t\t\t\t<MenuPopup className=\"w-52\">\n\t\t\t\t\t\t\t<MenuItem className=\"gap-2\">\n\t\t\t\t\t\t\t\t<Settings className=\"size-4 text-muted-foreground\" />\n\t\t\t\t\t\t\t\t<span>General Settings</span>\n\t\t\t\t\t\t\t</MenuItem>\n\t\t\t\t\t\t\t<MenuItem className=\"gap-2\">\n\t\t\t\t\t\t\t\t<ExternalLink className=\"size-4 text-muted-foreground\" />\n\t\t\t\t\t\t\t\t<span>View Analytics</span>\n\t\t\t\t\t\t\t</MenuItem>\n\t\t\t\t\t\t\t<MenuSeparator />\n\t\t\t\t\t\t\t<MenuItem\n\t\t\t\t\t\t\t\tclassName=\"gap-2 text-destructive focus:text-destructive\"\n\t\t\t\t\t\t\t\tonClick={() => setDialogOpen(true)}\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t<Trash2 className=\"size-4\" />\n\t\t\t\t\t\t\t\t<span>Delete Project…</span>\n\t\t\t\t\t\t\t</MenuItem>\n\t\t\t\t\t\t</MenuPopup>\n\t\t\t\t\t</MenuPositioner>\n\t\t\t\t</MenuPortal>\n\t\t\t</MenuRoot>\n\n\t\t\t<AlertDialogRoot open={dialogOpen} onOpenChange={setDialogOpen}>\n\t\t\t\t<AlertDialogContent className=\"max-w-md\">\n\t\t\t\t\t<AlertDialogHeader>\n\t\t\t\t\t\t<AlertDialogTitle>Delete Project</AlertDialogTitle>\n\t\t\t\t\t\t<AlertDialogDescription>\n\t\t\t\t\t\t\tAre you sure you want to delete this project? All\n\t\t\t\t\t\t\tassociated deployments, custom domains, and\n\t\t\t\t\t\t\tenvironment variables will be permanently removed.\n\t\t\t\t\t\t</AlertDialogDescription>\n\t\t\t\t\t</AlertDialogHeader>\n\n\t\t\t\t\t<AlertDialogFooter>\n\t\t\t\t\t\t<AlertDialogClose render={<Button variant=\"outline\" />}>\n\t\t\t\t\t\t\tCancel\n\t\t\t\t\t\t</AlertDialogClose>\n\t\t\t\t\t\t<Button\n\t\t\t\t\t\t\tvariant=\"destructive\"\n\t\t\t\t\t\t\tonClick={() => setDialogOpen(false)}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\tDelete Project\n\t\t\t\t\t\t</Button>\n\t\t\t\t\t</AlertDialogFooter>\n\t\t\t\t</AlertDialogContent>\n\t\t\t</AlertDialogRoot>\n\t\t</div>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/alert-dialog-from-menu.tsx"
+		}
+	],
+	"type": "registry:component"
+}

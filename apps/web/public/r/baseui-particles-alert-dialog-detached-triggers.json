@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-alert-dialog-detached-triggers",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/baseui-alert-dialog",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/baseui/particles/alert-dialog/detached-triggers/index.tsx",
+			"content": "\"use client\";\n\nimport { Button } from \"@/components/baseui/components/button\";\nimport {\n\tAlertDialogClose,\n\tAlertDialogContent,\n\tAlertDialogDescription,\n\tAlertDialogFooter,\n\tAlertDialogHeader,\n\tAlertDialogRoot,\n\tAlertDialogTitle,\n\tAlertDialogTrigger,\n\tcreateHandle,\n} from \"@/components/baseui/components/alert-dialog\";\n\nconst purgeCacheHandle = createHandle();\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"flex flex-col items-center gap-4\">\n\t\t\t<AlertDialogTrigger\n\t\t\t\thandle={purgeCacheHandle}\n\t\t\t\trender={<Button variant=\"destructive\" />}\n\t\t\t>\n\t\t\t\tPurge System Cache\n\t\t\t</AlertDialogTrigger>\n\n\t\t\t{/* AlertDialogRoot mounted separately via handle */}\n\t\t\t<AlertDialogRoot handle={purgeCacheHandle}>\n\t\t\t\t<AlertDialogContent>\n\t\t\t\t\t<AlertDialogHeader>\n\t\t\t\t\t\t<AlertDialogTitle>Purge System Cache?</AlertDialogTitle>\n\t\t\t\t\t\t<AlertDialogDescription>\n\t\t\t\t\t\t\tThis will invalidate all cached static assets and\n\t\t\t\t\t\t\tedge responses. Initial page loads may experience\n\t\t\t\t\t\t\thigher latency while the cache warms up.\n\t\t\t\t\t\t</AlertDialogDescription>\n\t\t\t\t\t</AlertDialogHeader>\n\n\t\t\t\t\t<AlertDialogFooter>\n\t\t\t\t\t\t<AlertDialogClose render={<Button variant=\"outline\" />}>\n\t\t\t\t\t\t\tCancel\n\t\t\t\t\t\t</AlertDialogClose>\n\t\t\t\t\t\t<AlertDialogClose\n\t\t\t\t\t\t\trender={<Button variant=\"destructive\" />}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\tPurge Cache\n\t\t\t\t\t\t</AlertDialogClose>\n\t\t\t\t\t</AlertDialogFooter>\n\t\t\t\t</AlertDialogContent>\n\t\t\t</AlertDialogRoot>\n\t\t</div>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/alert-dialog-detached-triggers.tsx"
+		}
+	],
+	"type": "registry:component"
+}

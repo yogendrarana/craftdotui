@@ -15,10 +15,10 @@ import {
 } from "@craftdotui/baseui/components/dialog";
 import {
 	AlertDialogClose,
+	AlertDialogContent,
 	AlertDialogDescription,
 	AlertDialogFooter,
 	AlertDialogHeader,
-	AlertDialogPopup,
 	AlertDialogRoot,
 	AlertDialogTitle,
 } from "@craftdotui/baseui/components/alert-dialog";
@@ -88,7 +88,7 @@ export function Particle() {
 
 			{/* Confirmation Alert Dialog */}
 			<AlertDialogRoot open={confirmOpen} onOpenChange={setConfirmOpen}>
-				<AlertDialogPopup className="max-w-sm">
+				<AlertDialogContent className="max-w-sm">
 					<AlertDialogHeader>
 						<AlertDialogTitle className="text-destructive">
 							Discard Unsaved Changes?
@@ -109,7 +109,7 @@ export function Particle() {
 							Discard
 						</Button>
 					</AlertDialogFooter>
-				</AlertDialogPopup>
+				</AlertDialogContent>
 			</AlertDialogRoot>
 		</div>
 	);

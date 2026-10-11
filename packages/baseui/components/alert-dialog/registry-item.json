@@ -3,8 +3,8 @@
 	"name": "baseui-alert-dialog",
 	"type": "registry:component",
 	"description": "A Base UI alert dialog component",
-	"dependencies": ["@base-ui/react", "cn"],
-	"registryDependencies": [],
+	"dependencies": ["@base-ui/react", "cn", "class-variance-authority"],
+	"registryDependencies": ["@craftdotui/baseui-dialog"],
 	"files": [
 		{
 			"path": "packages/baseui/components/alert-dialog/index.tsx",

@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-alert-dialog-controlled",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/baseui-alert-dialog",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/baseui/particles/alert-dialog/controlled/index.tsx",
+			"content": "\"use client\";\n\nimport { useState } from \"react\";\nimport { Button } from \"@/components/baseui/components/button\";\nimport {\n\tAlertDialogClose,\n\tAlertDialogContent,\n\tAlertDialogDescription,\n\tAlertDialogFooter,\n\tAlertDialogHeader,\n\tAlertDialogRoot,\n\tAlertDialogTitle,\n} from \"@/components/baseui/components/alert-dialog\";\n\nexport function Particle() {\n\tconst [open, setOpen] = useState(false);\n\n\treturn (\n\t\t<div className=\"flex flex-col items-center gap-3\">\n\t\t\t<Button variant=\"destructive\" onClick={() => setOpen(true)}>\n\t\t\t\tDelete Environment\n\t\t\t</Button>\n\n\t\t\t<AlertDialogRoot open={open} onOpenChange={setOpen}>\n\t\t\t\t<AlertDialogContent>\n\t\t\t\t\t<AlertDialogHeader>\n\t\t\t\t\t\t<AlertDialogTitle>\n\t\t\t\t\t\t\tDelete Staging Environment?\n\t\t\t\t\t\t</AlertDialogTitle>\n\t\t\t\t\t\t<AlertDialogDescription>\n\t\t\t\t\t\t\tThis will terminate all running services, drop\n\t\t\t\t\t\t\ttemporary databases, and purge active deployment\n\t\t\t\t\t\t\tpreviews. This action cannot be undone.\n\t\t\t\t\t\t</AlertDialogDescription>\n\t\t\t\t\t</AlertDialogHeader>\n\n\t\t\t\t\t<AlertDialogFooter>\n\t\t\t\t\t\t<AlertDialogClose render={<Button variant=\"outline\" />}>\n\t\t\t\t\t\t\tCancel\n\t\t\t\t\t\t</AlertDialogClose>\n\t\t\t\t\t\t<Button\n\t\t\t\t\t\t\tvariant=\"destructive\"\n\t\t\t\t\t\t\tonClick={() => setOpen(false)}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\tConfirm Deletion\n\t\t\t\t\t\t</Button>\n\t\t\t\t\t</AlertDialogFooter>\n\t\t\t\t</AlertDialogContent>\n\t\t\t</AlertDialogRoot>\n\t\t</div>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/alert-dialog-controlled.tsx"
+		}
+	],
+	"type": "registry:component"
+}
