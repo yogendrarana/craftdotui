@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-collapsible-hidden-until-found",
+	"description": "Collapsible with hiddenUntilFound enabling in-page browser search discovery.",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/baseui-collapsible"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/collapsible/collapsible-hidden-until-found/index.tsx",
+			"content": "import { Search, ShieldAlert } from \"lucide-react\";\nimport {\n\tCollapsiblePanel,\n\tCollapsibleRoot,\n\tCollapsibleTrigger,\n} from \"@/components/baseui/components/collapsible\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"flex w-full flex-col items-center gap-2 p-4\">\n\t\t\t<p className=\"max-w-sm text-center text-xs text-muted-foreground\">\n\t\t\t\tPress{\" \"}\n\t\t\t\t<kbd className=\"rounded border bg-muted px-1.5 py-0.5 font-mono text-[11px]\">\n\t\t\t\t\tCmd+F\n\t\t\t\t</kbd>{\" \"}\n\t\t\t\tor{\" \"}\n\t\t\t\t<kbd className=\"rounded border bg-muted px-1.5 py-0.5 font-mono text-[11px]\">\n\t\t\t\t\tCtrl+F\n\t\t\t\t</kbd>{\" \"}\n\t\t\t\tand search for{\" \"}\n\t\t\t\t<strong className=\"text-foreground\">\n\t\t\t\t\t&quot;quantum-encryption-key&quot;\n\t\t\t\t</strong>{\" \"}\n\t\t\t\tto reveal the hidden panel automatically.\n\t\t\t</p>\n\n\t\t\t<CollapsibleRoot className=\"w-full max-w-sm\">\n\t\t\t\t<CollapsibleTrigger variant=\"outline\">\n\t\t\t\t\t<span className=\"flex items-center gap-2\">\n\t\t\t\t\t\t<Search className=\"size-4 text-muted-foreground\" />\n\t\t\t\t\t\t<span>Searchable Security Policies</span>\n\t\t\t\t\t</span>\n\t\t\t\t</CollapsibleTrigger>\n\t\t\t\t<CollapsiblePanel hiddenUntilFound>\n\t\t\t\t\t<div className=\"pt-2\">\n\t\t\t\t\t\t<div className=\"flex flex-col gap-2 rounded-md border border-border/60 bg-muted/40 p-3 text-xs leading-relaxed text-muted-foreground\">\n\t\t\t\t\t\t\t<div className=\"flex items-center gap-1.5 font-medium text-foreground\">\n\t\t\t\t\t\t\t\t<ShieldAlert className=\"size-4 text-amber-500\" />\n\t\t\t\t\t\t\t\t<span>Zero-Trust Architecture Spec</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\tAll data payloads in transit must be signed with\n\t\t\t\t\t\t\t\tour proprietary{\" \"}\n\t\t\t\t\t\t\t\t<span className=\"font-mono font-semibold text-foreground\">\n\t\t\t\t\t\t\t\t\tquantum-encryption-key\n\t\t\t\t\t\t\t\t</span>{\" \"}\n\t\t\t\t\t\t\t\tprior to network egress.\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</CollapsiblePanel>\n\t\t\t</CollapsibleRoot>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/collapsible-hidden-until-found.tsx"
+		}
+	],
+	"type": "registry:component"
+}

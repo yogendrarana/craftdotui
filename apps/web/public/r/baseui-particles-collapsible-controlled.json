@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-collapsible-controlled",
+	"description": "Collapsible with controlled state management.",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/baseui-collapsible",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/baseui/particles/collapsible/collapsible-controlled/index.tsx",
+			"content": "\"use client\";\n\nimport { useState } from \"react\";\nimport { FolderGit2, Sparkles } from \"lucide-react\";\nimport {\n\tCollapsibleRoot,\n\tCollapsiblePanel,\n\tCollapsibleTrigger,\n} from \"@/components/baseui/components/collapsible\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport default function Particle() {\n\tconst [isOpen, setIsOpen] = useState(false);\n\n\treturn (\n\t\t<div className=\"flex w-full items-center justify-center gap-3 p-4\">\n\t\t\t<CollapsibleRoot\n\t\t\t\topen={isOpen}\n\t\t\t\tonOpenChange={setIsOpen}\n\t\t\t\tclassName=\"w-full max-w-sm\"\n\t\t\t>\n\t\t\t\t<CollapsibleTrigger variant=\"outline\">\n\t\t\t\t\t<span className=\"flex items-center gap-2\">\n\t\t\t\t\t\t<FolderGit2 className=\"size-4 text-muted-foreground\" />\n\t\t\t\t\t\t<span>Repository Branches</span>\n\t\t\t\t\t</span>\n\t\t\t\t</CollapsibleTrigger>\n\t\t\t\t<CollapsiblePanel>\n\t\t\t\t\t<div className=\"pt-2\">\n\t\t\t\t\t\t<div className=\"flex flex-col gap-1 rounded-md border border-border/60 bg-muted/30 p-2.5 text-xs\">\n\t\t\t\t\t\t\t<div className=\"flex items-center justify-between rounded px-2 py-1.5 hover:bg-muted/60\">\n\t\t\t\t\t\t\t\t<span className=\"font-medium text-foreground\">\n\t\t\t\t\t\t\t\t\tmain\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t<span className=\"text-[11px] text-muted-foreground\">\n\t\t\t\t\t\t\t\t\tDefault\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div className=\"flex items-center justify-between rounded px-2 py-1.5 hover:bg-muted/60\">\n\t\t\t\t\t\t\t\t<span className=\"font-medium text-foreground\">\n\t\t\t\t\t\t\t\t\tfeature/collapsible-baseui\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t<span className=\"flex items-center gap-1 text-[11px] text-primary\">\n\t\t\t\t\t\t\t\t\t<Sparkles className=\"size-3\" /> Active\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div className=\"flex items-center justify-between rounded px-2 py-1.5 hover:bg-muted/60\">\n\t\t\t\t\t\t\t\t<span className=\"font-medium text-foreground\">\n\t\t\t\t\t\t\t\t\tv0.1-release\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t<span className=\"text-[11px] text-muted-foreground\">\n\t\t\t\t\t\t\t\t\tUpdated 2d ago\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</CollapsiblePanel>\n\t\t\t</CollapsibleRoot>\n\n\t\t\t<Button\n\t\t\t\tonClick={() => setIsOpen((prev) => !prev)}\n\t\t\t\tvariant=\"secondary\"\n\t\t\t\tclassName=\"border\"\n\t\t\t>\n\t\t\t\tClick\n\t\t\t</Button>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/collapsible-controlled.tsx"
+		}
+	],
+	"type": "registry:component"
+}

@@ -1,6 +1,7 @@
 import { z } from "zod";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
+import GithubSlugger from "github-slugger";
 import { codeImport } from "remark-code-import";
 import { compileMDX } from "@content-collections/mdx";
 import { defineCollection, defineConfig } from "@content-collections/core";
@@ -43,7 +44,7 @@ const docs = defineCollection({
 			...document,
 			slug: `/${document._meta.path}`,
 			slugAsParams: document._meta.path.split("/").join("/"),
-			toc: toc as any,
+			toc: toc as TocSection[],
 			body: {
 				raw: document.content,
 				code: body,
@@ -52,7 +53,7 @@ const docs = defineCollection({
 	},
 });
 
-interface TocSection {
+type TocSection = {
 	title: string;
 	url: string;
 	items: {
@@ -60,37 +61,47 @@ interface TocSection {
 		url: string;
 		items?: { title: string; url: string }[];
 	}[];
-}
+};
 
 async function getTableOfContents(content: string) {
+	const slugger = new GithubSlugger();
 	const toc: TocSection[] = [];
 
 	const lines = content.split("\n");
 	let currentSection: TocSection | null = null;
+	let inCodeBlock = false;
 
 	for (const line of lines) {
-		if (line.startsWith("## ")) {
-			const title = line.replace("## ", "").trim();
-			const slug = title
-				.toLowerCase()
-				.replace(/[^\w\s-]/g, "")
-				.replace(/\s+/g, "-");
-			currentSection = { title, url: `#${slug}`, items: [] };
-			toc.push(currentSection);
-		} else if (line.startsWith("#### ")) {
-			const title = line.replace("#### ", "").trim();
-			const slug = title
-				.toLowerCase()
-				.replace(/[^\w\s-]/g, "")
-				.replace(/\s+/g, "-");
+		const trimmed = line.trim();
+		if (trimmed.startsWith("```")) {
+			inCodeBlock = !inCodeBlock;
+			continue;
+		}
+		if (inCodeBlock) continue;
 
-			// If we have a currentSection, add as item to section
+		if (trimmed.startsWith("## ")) {
+			const rawTitle = trimmed.replace(/^##\s+/, "").trim();
+			const cleanTitle = rawTitle.replace(/`([^`]+)`/g, "$1");
+			const slug = slugger.slug(cleanTitle);
+			currentSection = { title: cleanTitle, url: `#${slug}`, items: [] };
+			toc.push(currentSection);
+		} else if (trimmed.startsWith("### ") || trimmed.startsWith("#### ")) {
+			const rawTitle = trimmed.replace(/^#{3,4}\s+/, "").trim();
+			const cleanTitle = rawTitle.replace(/`([^`]+)`/g, "$1");
+			const slug = slugger.slug(cleanTitle);
+
 			if (currentSection) {
-				currentSection.items.push({ title, url: `#${slug}` });
-			}
-			// If no section exists yet, create a top-level item
-			else {
-				toc.push({ title, url: `#${slug}`, items: [] });
+				currentSection.items.push({
+					title: cleanTitle,
+					url: `#${slug}`,
+				});
+			} else {
+				currentSection = {
+					title: cleanTitle,
+					url: `#${slug}`,
+					items: [],
+				};
+				toc.push(currentSection);
 			}
 		}
 	}

@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-collapsible-default-open",
+	"type": "registry:component",
+	"description": "Collapsible with panel open by default.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-collapsible"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/collapsible/collapsible-default-open/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/particles/collapsible-default-open.tsx"
+		}
+	]
+}

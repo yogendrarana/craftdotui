@@ -1903,7 +1903,12 @@ export const Registry: Record<string, any> = {
 		name: "baseui-collapsible",
 		description: "A Base UI collapsible component",
 		type: "registry:component",
-		dependencies: ["@base-ui/react", "cn"],
+		dependencies: [
+			"@base-ui/react",
+			"cn",
+			"class-variance-authority",
+			"lucide-react",
+		],
 		devDependencies: undefined,
 		registryDependencies: [],
 		files: [
@@ -1912,7 +1917,7 @@ export const Registry: Record<string, any> = {
 				type: "registry:component",
 				target: "components/baseui/components/collapsible.tsx",
 				content:
-					'"use client";\n\nimport { ChevronRight } from "lucide-react";\nimport { Collapsible as CollapsiblePrimitive } from "@base-ui/react/collapsible";\nimport { cn } from "cn";\n\n/* -------------------------------------------------------------------------- */\n/* Collapsible Root                                                           */\n/* -------------------------------------------------------------------------- */\n\nfunction CollapsibleRoot({\n\tclassName,\n\tchildren,\n\t...props\n}: CollapsiblePrimitive.Root.Props) {\n\treturn (\n\t\t<CollapsiblePrimitive.Root\n\t\t\tclassName={cn("w-48 flex flex-col gap-2", className)}\n\t\t\tdata-slot="collapsible-root"\n\t\t\t{...props}\n\t\t>\n\t\t\t{children}\n\t\t</CollapsiblePrimitive.Root>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Collapsible Trigger                                                        */\n/* -------------------------------------------------------------------------- */\n\nfunction CollapsibleTrigger({\n\tclassName,\n\tchildren,\n\t...props\n}: CollapsiblePrimitive.Trigger.Props) {\n\treturn (\n\t\t<CollapsiblePrimitive.Trigger\n\t\t\tclassName={cn(\n\t\t\t\t"group px-3 py-2 flex items-center justify-between cursor-pointer rounded-md font-medium text-sm bg-muted",\n\t\t\t\t"hover:bg-muted/80 transition-colors",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="collapsible-trigger"\n\t\t\t{...props}\n\t\t>\n\t\t\t{children}\n\t\t\t<ChevronRight className="size-4 transition-transform duration-200 group-data-panel-open:rotate-90" />\n\t\t</CollapsiblePrimitive.Trigger>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Collapsible Panel                                                          */\n/* -------------------------------------------------------------------------- */\n\nfunction CollapsiblePanel({\n\tclassName,\n\tchildren,\n\thiddenUntilFound = false,\n\tkeepMounted = false,\n\t...props\n}: CollapsiblePrimitive.Panel.Props) {\n\treturn (\n\t\t<CollapsiblePrimitive.Panel\n\t\t\thiddenUntilFound={hiddenUntilFound}\n\t\t\tkeepMounted={keepMounted}\n\t\t\tclassName={cn(\n\t\t\t\t"w-full overflow-hidden text-sm transition-[height] duration-200 ease-in-out",\n\t\t\t\t"data-starting-style:h-0 data-ending-style:h-0 data-closed:h-0 data-open:h-auto",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tdata-slot="collapsible-panel"\n\t\t\t{...props}\n\t\t>\n\t\t\t{children}\n\t\t</CollapsiblePrimitive.Panel>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const Collapsible = {\n\tRoot: CollapsibleRoot,\n\tTrigger: CollapsibleTrigger,\n\tPanel: CollapsiblePanel,\n};\n\nexport { CollapsibleRoot, CollapsibleTrigger, CollapsiblePanel };',
+					'"use client";\n\nimport * as React from "react";\nimport { ChevronRight } from "lucide-react";\nimport { Collapsible as CollapsiblePrimitive } from "@base-ui/react/collapsible";\nimport { cva, type VariantProps } from "class-variance-authority";\nimport { cn } from "cn";\n\n/* -------------------------------------------------------------------------- */\n/* Collapsible Root                                                           */\n/* -------------------------------------------------------------------------- */\n\ntype CollapsibleRootProps = CollapsiblePrimitive.Root.Props;\n\nfunction CollapsibleRoot({ className, ...props }: CollapsibleRootProps) {\n\treturn (\n\t\t<CollapsiblePrimitive.Root\n\t\t\tdata-slot="collapsible-root"\n\t\t\tclassName={cn("flex w-full flex-col", className)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Collapsible Icon                                                           */\n/* -------------------------------------------------------------------------- */\n\ninterface CollapsibleIconProps extends React.ComponentProps<"svg"> {\n\ticon?: React.ElementType | React.ReactNode;\n}\n\nfunction CollapsibleIcon({ className, icon, ...props }: CollapsibleIconProps) {\n\tconst iconClassName = cn(\n\t\t"size-4 shrink-0 pointer-events-none transition-transform duration-200 ease-out",\n\t\t"group-data-[panel-open]:rotate-90 group-data-panel-open:rotate-90 data-[panel-open]:rotate-90",\n\t\tclassName,\n\t);\n\n\tif (React.isValidElement(icon)) {\n\t\treturn React.cloneElement(icon as React.ReactElement<any>, {\n\t\t\t"data-slot": "collapsible-icon",\n\t\t\tclassName: cn(\n\t\t\t\ticonClassName,\n\t\t\t\t(icon.props as { className?: string })?.className,\n\t\t\t),\n\t\t});\n\t}\n\n\tconst IconComponent = (icon as React.ElementType) ?? ChevronRight;\n\n\treturn (\n\t\t<IconComponent\n\t\t\tdata-slot="collapsible-icon"\n\t\t\tclassName={iconClassName}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Collapsible Trigger                                                        */\n/* -------------------------------------------------------------------------- */\n\nconst collapsibleTriggerVariants = cva(\n\t[\n\t\t"group relative flex w-full items-center justify-between gap-2 rounded-md font-medium text-sm outline-none transition-colors select-none cursor-pointer",\n\t\t"focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",\n\t\t"disabled:pointer-events-none disabled:opacity-50 data-[disabled]:pointer-events-none data-[disabled]:opacity-50",\n\t\t"[&[data-panel-open]_[data-slot=collapsible-icon]]:rotate-90",\n\t],\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault: "bg-muted text-foreground hover:bg-muted/80",\n\t\t\t\tsecondary:\n\t\t\t\t\t"bg-secondary text-secondary-foreground hover:bg-secondary/90",\n\t\t\t\toutline:\n\t\t\t\t\t"border border-border bg-background text-foreground hover:bg-accent hover:text-accent-foreground",\n\t\t\t\tghost: "bg-transparent text-foreground hover:bg-muted",\n\t\t\t},\n\t\t\tsize: {\n\t\t\t\tsm: "h-8 px-2.5 text-xs",\n\t\t\t\tdefault: "h-9 px-3 text-sm",\n\t\t\t\tlg: "h-10 px-4 text-sm",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: "default",\n\t\t\tsize: "default",\n\t\t},\n\t},\n);\n\ninterface CollapsibleTriggerProps\n\textends CollapsiblePrimitive.Trigger.Props,\n\t\tVariantProps<typeof collapsibleTriggerVariants> {\n\t/**\n\t * Whether to automatically display the collapsible icon.\n\t * Set to `false` if providing your own icon or omitting it.\n\t * @default true\n\t */\n\tshowCollapsibleIcon?: boolean;\n\t/**\n\t * Optional custom icon component or element to display instead of the default ChevronRight.\n\t */\n\ticon?: React.ElementType | React.ReactNode;\n}\n\nfunction CollapsibleTrigger({\n\tclassName,\n\tchildren,\n\tvariant,\n\tsize,\n\tshowCollapsibleIcon = true,\n\ticon,\n\t...props\n}: CollapsibleTriggerProps) {\n\treturn (\n\t\t<CollapsiblePrimitive.Trigger\n\t\t\tdata-slot="collapsible-trigger"\n\t\t\tclassName={cn(\n\t\t\t\tcollapsibleTriggerVariants({ variant, size }),\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t{children}\n\t\t\t{showCollapsibleIcon && <CollapsibleIcon icon={icon} />}\n\t\t</CollapsiblePrimitive.Trigger>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Collapsible Panel                                                          */\n/* -------------------------------------------------------------------------- */\n\ninterface CollapsiblePanelProps extends CollapsiblePrimitive.Panel.Props {\n\t/**\n\t * The orientation of the collapsible transition.\n\t * @default "vertical"\n\t */\n\torientation?: "vertical" | "horizontal";\n}\n\nfunction CollapsiblePanel({\n\tclassName,\n\tchildren,\n\torientation = "vertical",\n\t...props\n}: CollapsiblePanelProps) {\n\treturn (\n\t\t<CollapsiblePrimitive.Panel\n\t\t\tdata-slot="collapsible-panel"\n\t\t\tclassName={cn(\n\t\t\t\t"overflow-hidden [&[hidden]:not([hidden=\'until-found\'])]:hidden",\n\t\t\t\torientation === "vertical" && [\n\t\t\t\t\t"h-[var(--collapsible-panel-height)] flex flex-col justify-end text-sm transition-[height] duration-150 ease-[ease-out]",\n\t\t\t\t\t"data-starting-style:h-0 data-ending-style:h-0",\n\t\t\t\t],\n\t\t\t\torientation === "horizontal" && [\n\t\t\t\t\t"w-[var(--collapsible-panel-width)] flex justify-end text-sm transition-[width] duration-150 ease-[ease-out]",\n\t\t\t\t\t"data-starting-style:w-0 data-ending-style:w-0",\n\t\t\t\t],\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t{children}\n\t\t</CollapsiblePrimitive.Panel>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const Collapsible = {\n\tRoot: CollapsibleRoot,\n\tTrigger: CollapsibleTrigger,\n\tPanel: CollapsiblePanel,\n\tIcon: CollapsibleIcon,\n};\n\nexport {\n\tCollapsibleRoot,\n\tCollapsibleTrigger,\n\tCollapsiblePanel,\n\tCollapsibleIcon,\n\tcollapsibleTriggerVariants,\n\ttype CollapsibleRootProps,\n\ttype CollapsibleTriggerProps,\n\ttype CollapsiblePanelProps,\n\ttype CollapsibleIconProps,\n};',
 			},
 		],
 		keywords: [],
@@ -5423,6 +5428,403 @@ export const Registry: Record<string, any> = {
 			return LazyComp;
 		})(),
 	},
+	"baseui-particles-collapsible-card": {
+		name: "baseui-particles-collapsible-card",
+		description: "Collapsible nested inside a rich repository card.",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-collapsible"],
+		files: [
+			{
+				path: "packages/baseui/particles/collapsible/collapsible-card/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/collapsible-card.tsx",
+				content:
+					'import { GitBranch, GitCommit, Star, Tag } from "lucide-react";\nimport {\n\tCollapsibleRoot,\n\tCollapsiblePanel,\n\tCollapsibleTrigger,\n\tCollapsibleIcon,\n} from "@/components/baseui/components/collapsible";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex w-full justify-center p-4">\n\t\t\t<CollapsibleRoot className="w-full max-w-md rounded-xl border border-border bg-card text-card-foreground shadow-xs">\n\t\t\t\t<div className="p-4 flex items-start justify-between gap-4">\n\t\t\t\t\t<div className="flex flex-col gap-1">\n\t\t\t\t\t\t<div className="flex items-center gap-2">\n\t\t\t\t\t\t\t<span className="font-semibold text-sm text-foreground">\n\t\t\t\t\t\t\t\t@craftdotui/baseui\n\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t<span className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-medium text-primary">\n\t\t\t\t\t\t\t\tv0.1.0\n\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<p className="text-xs text-muted-foreground">\n\t\t\t\t\t\t\tAccessible, unstyled React primitives tailored with\n\t\t\t\t\t\t\tTailwind CSS.\n\t\t\t\t\t\t</p>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div className="flex items-center gap-1.5 text-xs text-muted-foreground">\n\t\t\t\t\t\t<Star className="size-3.5 fill-amber-400 text-amber-400" />\n\t\t\t\t\t\t<span>1.2k</span>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div className="px-4 py-1 flex items-center justify-between border-t border-border/50">\n\t\t\t\t\t<div className="flex items-center gap-3 text-xs text-muted-foreground">\n\t\t\t\t\t\t<span className="flex items-center gap-1">\n\t\t\t\t\t\t\t<GitBranch className="size-3" /> main\n\t\t\t\t\t\t</span>\n\t\t\t\t\t\t<span className="flex items-center gap-1">\n\t\t\t\t\t\t\t<Tag className="size-3" /> latest\n\t\t\t\t\t\t</span>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<CollapsibleTrigger\n\t\t\t\t\t\tshowCollapsibleIcon={false}\n\t\t\t\t\t\tvariant="ghost"\n\t\t\t\t\t\tsize="sm"\n\t\t\t\t\t\tclassName="w-auto p-0 text-xs font-normal text-muted-foreground hover:bg-mutec-foreground hover:text-foreground"\n\t\t\t\t\t>\n\t\t\t\t\t\t<span>Recent commits</span>\n\t\t\t\t\t\t<CollapsibleIcon className="size-3.5" />\n\t\t\t\t\t</CollapsibleTrigger>\n\t\t\t\t</div>\n\n\t\t\t\t<CollapsiblePanel>\n\t\t\t\t\t<div className="pt-2">\n\t\t\t\t\t\t<div className="flex flex-col gap-1.5 rounded-lg bg-muted/40 p-2.5 text-xs text-muted-foreground">\n\t\t\t\t\t\t\t<div className="flex items-center justify-between">\n\t\t\t\t\t\t\t\t<div className="flex items-center gap-1.5 truncate">\n\t\t\t\t\t\t\t\t\t<GitCommit className="size-3.5 shrink-0 text-primary" />\n\t\t\t\t\t\t\t\t\t<span className="truncate font-mono text-[11px] text-foreground">\n\t\t\t\t\t\t\t\t\t\tfeat(collapsible): add Base UI\n\t\t\t\t\t\t\t\t\t\tprimitives & css variables\n\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<span className="shrink-0 text-[10px] text-muted-foreground/80">\n\t\t\t\t\t\t\t\t\tjust now\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div className="flex items-center justify-between">\n\t\t\t\t\t\t\t\t<div className="flex items-center gap-1.5 truncate">\n\t\t\t\t\t\t\t\t\t<GitCommit className="size-3.5 shrink-0 text-muted-foreground" />\n\t\t\t\t\t\t\t\t\t<span className="truncate font-mono text-[11px]">\n\t\t\t\t\t\t\t\t\t\tdocs(collapsible): add interactive demo\n\t\t\t\t\t\t\t\t\t\t& API reference\n\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<span className="shrink-0 text-[10px] text-muted-foreground/80">\n\t\t\t\t\t\t\t\t\t1h ago\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</CollapsiblePanel>\n\t\t\t</CollapsibleRoot>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-collapsible-card",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/collapsible/collapsible-card/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-collapsible-controlled": {
+		name: "baseui-particles-collapsible-controlled",
+		description: "Collapsible with controlled state management.",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: [
+			"@craftdotui/baseui-collapsible",
+			"@craftdotui/baseui-button",
+		],
+		files: [
+			{
+				path: "packages/baseui/particles/collapsible/collapsible-controlled/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/collapsible-controlled.tsx",
+				content:
+					'"use client";\n\nimport { useState } from "react";\nimport { FolderGit2, Sparkles } from "lucide-react";\nimport {\n\tCollapsibleRoot,\n\tCollapsiblePanel,\n\tCollapsibleTrigger,\n} from "@/components/baseui/components/collapsible";\nimport { Button } from "@/components/baseui/components/button";\n\nexport default function Particle() {\n\tconst [isOpen, setIsOpen] = useState(false);\n\n\treturn (\n\t\t<div className="flex w-full items-center justify-center gap-3 p-4">\n\t\t\t<CollapsibleRoot\n\t\t\t\topen={isOpen}\n\t\t\t\tonOpenChange={setIsOpen}\n\t\t\t\tclassName="w-full max-w-sm"\n\t\t\t>\n\t\t\t\t<CollapsibleTrigger variant="outline">\n\t\t\t\t\t<span className="flex items-center gap-2">\n\t\t\t\t\t\t<FolderGit2 className="size-4 text-muted-foreground" />\n\t\t\t\t\t\t<span>Repository Branches</span>\n\t\t\t\t\t</span>\n\t\t\t\t</CollapsibleTrigger>\n\t\t\t\t<CollapsiblePanel>\n\t\t\t\t\t<div className="pt-2">\n\t\t\t\t\t\t<div className="flex flex-col gap-1 rounded-md border border-border/60 bg-muted/30 p-2.5 text-xs">\n\t\t\t\t\t\t\t<div className="flex items-center justify-between rounded px-2 py-1.5 hover:bg-muted/60">\n\t\t\t\t\t\t\t\t<span className="font-medium text-foreground">\n\t\t\t\t\t\t\t\t\tmain\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t<span className="text-[11px] text-muted-foreground">\n\t\t\t\t\t\t\t\t\tDefault\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div className="flex items-center justify-between rounded px-2 py-1.5 hover:bg-muted/60">\n\t\t\t\t\t\t\t\t<span className="font-medium text-foreground">\n\t\t\t\t\t\t\t\t\tfeature/collapsible-baseui\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t<span className="flex items-center gap-1 text-[11px] text-primary">\n\t\t\t\t\t\t\t\t\t<Sparkles className="size-3" /> Active\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div className="flex items-center justify-between rounded px-2 py-1.5 hover:bg-muted/60">\n\t\t\t\t\t\t\t\t<span className="font-medium text-foreground">\n\t\t\t\t\t\t\t\t\tv0.1-release\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t<span className="text-[11px] text-muted-foreground">\n\t\t\t\t\t\t\t\t\tUpdated 2d ago\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</CollapsiblePanel>\n\t\t\t</CollapsibleRoot>\n\n\t\t\t<Button\n\t\t\t\tonClick={() => setIsOpen((prev) => !prev)}\n\t\t\t\tvariant="secondary"\n\t\t\t\tclassName="border"\n\t\t\t>\n\t\t\t\tClick\n\t\t\t</Button>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-collapsible-controlled",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/collapsible/collapsible-controlled/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-collapsible-custom-icon": {
+		name: "baseui-particles-collapsible-custom-icon",
+		description:
+			"Collapsible with custom icon prop and direct CollapsibleIcon indicator.",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-collapsible"],
+		files: [
+			{
+				path: "packages/baseui/particles/collapsible/collapsible-custom-icon/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/collapsible-custom-icon.tsx",
+				content:
+					'import { ArrowRight, ChevronsUpDown, Sparkles } from "lucide-react";\nimport {\n\tCollapsibleRoot,\n\tCollapsiblePanel,\n\tCollapsibleTrigger,\n\tCollapsibleIcon,\n} from "@/components/baseui/components/collapsible";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex w-full flex-col items-center gap-4 p-4">\n\t\t\t{/* Custom Icon via Trigger icon prop */}\n\t\t\t<CollapsibleRoot className="w-full max-w-sm">\n\t\t\t\t<CollapsibleTrigger icon={ChevronsUpDown}>\n\t\t\t\t\t<span className="flex items-center gap-2">\n\t\t\t\t\t\t<Sparkles className="size-4 text-primary" />\n\t\t\t\t\t\t<span>Trigger with icon prop</span>\n\t\t\t\t\t</span>\n\t\t\t\t</CollapsibleTrigger>\n\t\t\t\t<CollapsiblePanel>\n\t\t\t\t\t<div className="pt-2">\n\t\t\t\t\t\t<div className="rounded-md border border-border/60 bg-muted/40 p-3 text-xs text-muted-foreground">\n\t\t\t\t\t\t\tThe <code className="text-foreground">icon</code>{" "}\n\t\t\t\t\t\t\tprop replaces the default ChevronRight with any\n\t\t\t\t\t\t\tcustom icon component.\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</CollapsiblePanel>\n\t\t\t</CollapsibleRoot>\n\n\t\t\t{/* Direct CollapsibleIcon Component */}\n\t\t\t<CollapsibleRoot className="w-full max-w-sm">\n\t\t\t\t<CollapsibleTrigger\n\t\t\t\t\tvariant="outline"\n\t\t\t\t\tshowCollapsibleIcon={false}\n\t\t\t\t>\n\t\t\t\t\t<span className="flex items-center gap-2">\n\t\t\t\t\t\t<span>Direct CollapsibleIcon</span>\n\t\t\t\t\t</span>\n\t\t\t\t\t<CollapsibleIcon\n\t\t\t\t\t\ticon={ArrowRight}\n\t\t\t\t\t\tclassName="size-4 text-primary"\n\t\t\t\t\t/>\n\t\t\t\t</CollapsibleTrigger>\n\t\t\t\t<CollapsiblePanel>\n\t\t\t\t\t<div className="pt-2">\n\t\t\t\t\t\t<div className="rounded-md border border-border/60 bg-muted/40 p-3 text-xs text-muted-foreground">\n\t\t\t\t\t\t\tUsing{" "}\n\t\t\t\t\t\t\t<code className="text-foreground">\n\t\t\t\t\t\t\t\t&lt;CollapsibleIcon /&gt;\n\t\t\t\t\t\t\t</code>{" "}\n\t\t\t\t\t\t\tdirectly gives you complete control over icon\n\t\t\t\t\t\t\tplacement and styling.\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</CollapsiblePanel>\n\t\t\t</CollapsibleRoot>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-collapsible-custom-icon",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/collapsible/collapsible-custom-icon/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-collapsible-default-open": {
+		name: "baseui-particles-collapsible-default-open",
+		description: "Collapsible with panel open by default.",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-collapsible"],
+		files: [
+			{
+				path: "packages/baseui/particles/collapsible/collapsible-default-open/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/collapsible-default-open.tsx",
+				content:
+					'import { SlidersHorizontal } from "lucide-react";\nimport {\n\tCollapsibleRoot,\n\tCollapsiblePanel,\n\tCollapsibleTrigger,\n} from "@/components/baseui/components/collapsible";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex w-full justify-center p-4">\n\t\t\t<CollapsibleRoot defaultOpen className="w-full max-w-sm">\n\t\t\t\t<CollapsibleTrigger>\n\t\t\t\t\t<span className="flex items-center gap-2">\n\t\t\t\t\t\t<SlidersHorizontal className="size-4 text-muted-foreground" />\n\t\t\t\t\t\t<span>API Configuration</span>\n\t\t\t\t\t</span>\n\t\t\t\t</CollapsibleTrigger>\n\t\t\t\t<CollapsiblePanel>\n\t\t\t\t\t<div className="pt-2">\n\t\t\t\t\t\t<div className="flex flex-col gap-2 rounded-md border border-border/60 bg-card p-3 text-xs text-muted-foreground">\n\t\t\t\t\t\t\t<div className="flex items-center justify-between">\n\t\t\t\t\t\t\t\t<span className="font-medium text-foreground">\n\t\t\t\t\t\t\t\t\tEndpoint:\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t<code className="font-mono text-[11px] text-primary">\n\t\t\t\t\t\t\t\t\thttps://api.craftdotui.com/v1\n\t\t\t\t\t\t\t\t</code>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div className="flex items-center justify-between">\n\t\t\t\t\t\t\t\t<span className="font-medium text-foreground">\n\t\t\t\t\t\t\t\t\tTimeout:\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t<span>5000ms</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div className="flex items-center justify-between">\n\t\t\t\t\t\t\t\t<span className="font-medium text-foreground">\n\t\t\t\t\t\t\t\t\tEnvironment:\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t<span className="rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-medium text-emerald-600 dark:text-emerald-400">\n\t\t\t\t\t\t\t\t\tProduction\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</CollapsiblePanel>\n\t\t\t</CollapsibleRoot>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-collapsible-default-open",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/collapsible/collapsible-default-open/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-collapsible-ghost": {
+		name: "baseui-particles-collapsible-ghost",
+		description: "Collapsible with ghost trigger variant.",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-collapsible"],
+		files: [
+			{
+				path: "packages/baseui/particles/collapsible/collapsible-ghost/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/collapsible-ghost.tsx",
+				content:
+					'import { Terminal } from "lucide-react";\nimport {\n\tCollapsibleRoot,\n\tCollapsiblePanel,\n\tCollapsibleTrigger,\n} from "@/components/baseui/components/collapsible";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex w-full justify-center p-4">\n\t\t\t<CollapsibleRoot className="w-full max-w-sm">\n\t\t\t\t<CollapsibleTrigger variant="ghost">\n\t\t\t\t\t<span className="flex items-center gap-2">\n\t\t\t\t\t\t<Terminal className="size-4 text-muted-foreground" />\n\t\t\t\t\t\t<span>Ghost Variant</span>\n\t\t\t\t\t</span>\n\t\t\t\t</CollapsibleTrigger>\n\t\t\t\t<CollapsiblePanel>\n\t\t\t\t\t<div className="pt-2">\n\t\t\t\t\t\t<div className="rounded-md bg-muted/40 p-3 text-xs text-muted-foreground">\n\t\t\t\t\t\t\tTransparent trigger optimal for inline disclosures,\n\t\t\t\t\t\t\ttrees, or minimal interfaces.\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</CollapsiblePanel>\n\t\t\t</CollapsibleRoot>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-collapsible-ghost",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/collapsible/collapsible-ghost/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-collapsible-hidden-until-found": {
+		name: "baseui-particles-collapsible-hidden-until-found",
+		description:
+			"Collapsible with hiddenUntilFound enabling in-page browser search discovery.",
+		type: "registry:component",
+		dependencies: ["lucide-react"],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-collapsible"],
+		files: [
+			{
+				path: "packages/baseui/particles/collapsible/collapsible-hidden-until-found/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/collapsible-hidden-until-found.tsx",
+				content:
+					'import { Search, ShieldAlert } from "lucide-react";\nimport {\n\tCollapsiblePanel,\n\tCollapsibleRoot,\n\tCollapsibleTrigger,\n} from "@/components/baseui/components/collapsible";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex w-full flex-col items-center gap-2 p-4">\n\t\t\t<p className="max-w-sm text-center text-xs text-muted-foreground">\n\t\t\t\tPress{" "}\n\t\t\t\t<kbd className="rounded border bg-muted px-1.5 py-0.5 font-mono text-[11px]">\n\t\t\t\t\tCmd+F\n\t\t\t\t</kbd>{" "}\n\t\t\t\tor{" "}\n\t\t\t\t<kbd className="rounded border bg-muted px-1.5 py-0.5 font-mono text-[11px]">\n\t\t\t\t\tCtrl+F\n\t\t\t\t</kbd>{" "}\n\t\t\t\tand search for{" "}\n\t\t\t\t<strong className="text-foreground">\n\t\t\t\t\t&quot;quantum-encryption-key&quot;\n\t\t\t\t</strong>{" "}\n\t\t\t\tto reveal the hidden panel automatically.\n\t\t\t</p>\n\n\t\t\t<CollapsibleRoot className="w-full max-w-sm">\n\t\t\t\t<CollapsibleTrigger variant="outline">\n\t\t\t\t\t<span className="flex items-center gap-2">\n\t\t\t\t\t\t<Search className="size-4 text-muted-foreground" />\n\t\t\t\t\t\t<span>Searchable Security Policies</span>\n\t\t\t\t\t</span>\n\t\t\t\t</CollapsibleTrigger>\n\t\t\t\t<CollapsiblePanel hiddenUntilFound>\n\t\t\t\t\t<div className="pt-2">\n\t\t\t\t\t\t<div className="flex flex-col gap-2 rounded-md border border-border/60 bg-muted/40 p-3 text-xs leading-relaxed text-muted-foreground">\n\t\t\t\t\t\t\t<div className="flex items-center gap-1.5 font-medium text-foreground">\n\t\t\t\t\t\t\t\t<ShieldAlert className="size-4 text-amber-500" />\n\t\t\t\t\t\t\t\t<span>Zero-Trust Architecture Spec</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\tAll data payloads in transit must be signed with\n\t\t\t\t\t\t\t\tour proprietary{" "}\n\t\t\t\t\t\t\t\t<span className="font-mono font-semibold text-foreground">\n\t\t\t\t\t\t\t\t\tquantum-encryption-key\n\t\t\t\t\t\t\t\t</span>{" "}\n\t\t\t\t\t\t\t\tprior to network egress.\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</CollapsiblePanel>\n\t\t\t</CollapsibleRoot>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-collapsible-hidden-until-found",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/collapsible/collapsible-hidden-until-found/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-collapsible-outline": {
+		name: "baseui-particles-collapsible-outline",
+		description: "Collapsible with outline trigger variant.",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-collapsible"],
+		files: [
+			{
+				path: "packages/baseui/particles/collapsible/collapsible-outline/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/collapsible-outline.tsx",
+				content:
+					'import { Layers } from "lucide-react";\nimport {\n\tCollapsibleRoot,\n\tCollapsiblePanel,\n\tCollapsibleTrigger,\n} from "@/components/baseui/components/collapsible";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex w-full justify-center p-4">\n\t\t\t<CollapsibleRoot className="w-full max-w-sm">\n\t\t\t\t<CollapsibleTrigger variant="outline">\n\t\t\t\t\t<span className="flex items-center gap-2">\n\t\t\t\t\t\t<Layers className="size-4 text-muted-foreground" />\n\t\t\t\t\t\t<span>Outline Variant</span>\n\t\t\t\t\t</span>\n\t\t\t\t</CollapsibleTrigger>\n\t\t\t\t<CollapsiblePanel>\n\t\t\t\t\t<div className="pt-2">\n\t\t\t\t\t\t<div className="rounded-md border border-border/60 bg-background p-3 text-xs text-muted-foreground">\n\t\t\t\t\t\t\tClean bordered trigger suited for distinct form\n\t\t\t\t\t\t\tsections or card expansions.\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</CollapsiblePanel>\n\t\t\t</CollapsibleRoot>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-collapsible-outline",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/collapsible/collapsible-outline/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
+	"baseui-particles-collapsible-secondary": {
+		name: "baseui-particles-collapsible-secondary",
+		description: "Collapsible with secondary trigger variant.",
+		type: "registry:component",
+		dependencies: [],
+		devDependencies: undefined,
+		registryDependencies: ["@craftdotui/baseui-collapsible"],
+		files: [
+			{
+				path: "packages/baseui/particles/collapsible/collapsible-secondary/index.tsx",
+				type: "registry:component",
+				target: "components/baseui/particles/collapsible-secondary.tsx",
+				content:
+					'import { Palette } from "lucide-react";\nimport {\n\tCollapsibleRoot,\n\tCollapsiblePanel,\n\tCollapsibleTrigger,\n} from "@/components/baseui/components/collapsible";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className="flex w-full justify-center p-4">\n\t\t\t<CollapsibleRoot className="w-full max-w-sm">\n\t\t\t\t<CollapsibleTrigger variant="secondary">\n\t\t\t\t\t<span className="flex items-center gap-2">\n\t\t\t\t\t\t<Palette className="size-4 text-secondary-foreground" />\n\t\t\t\t\t\t<span>Secondary Variant</span>\n\t\t\t\t\t</span>\n\t\t\t\t</CollapsibleTrigger>\n\t\t\t\t<CollapsiblePanel>\n\t\t\t\t\t<div className="pt-2">\n\t\t\t\t\t\t<div className="rounded-md border border-border/50 bg-secondary/50 p-3 text-xs text-secondary-foreground">\n\t\t\t\t\t\t\tSecondary trigger variant matching secondary button\n\t\t\t\t\t\t\tstyling with smooth animated expansion.\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</CollapsiblePanel>\n\t\t\t</CollapsibleRoot>\n\t\t</div>\n\t);\n}',
+			},
+		],
+		keywords: [],
+		command: "@craftdotui/baseui-particles-collapsible-secondary",
+		component: (() => {
+			const LazyComp = React.lazy(async () => {
+				const mod = await import(
+					"@craftdotui/baseui/particles/collapsible/collapsible-secondary/index.tsx"
+				);
+				let Comp = mod.default;
+
+				if (!Comp) {
+					const exportName =
+						Object.keys(mod).find((key) => {
+							const value = mod[key];
+							return (
+								typeof value === "function" ||
+								typeof value === "object"
+							);
+						}) || "default";
+
+					Comp = mod[exportName];
+				}
+
+				if (mod.animations) {
+					(LazyComp as any).animations = mod.animations;
+				}
+
+				return { default: Comp };
+			});
+
+			LazyComp.demoProps = {};
+			return LazyComp;
+		})(),
+	},
 	"baseui-particles-collapsible": {
 		name: "baseui-particles-collapsible",
 		description: "",
@@ -5436,7 +5838,7 @@ export const Registry: Record<string, any> = {
 				type: "registry:component",
 				target: "components/baseui/particles/collapsible.tsx",
 				content:
-					'import {\n\tCollapsibleRoot,\n\tCollapsiblePanel,\n\tCollapsibleTrigger,\n} from "@/components/baseui/components/collapsible";\n\nexport default function Particle() {\n\treturn (\n\t\t<CollapsibleRoot>\n\t\t\t<CollapsibleTrigger>Recovery Keys</CollapsibleTrigger>\n\t\t\t<CollapsiblePanel>\n\t\t\t\t<div className="flex flex-col gap-2 p-3 bg-muted rounded-md">\n\t\t\t\t\t<div>alien-bean-pasta</div>\n\t\t\t\t\t<div>wild-irish-burrito</div>\n\t\t\t\t\t<div>horse-battery-staple</div>\n\t\t\t\t</div>\n\t\t\t</CollapsiblePanel>\n\t\t</CollapsibleRoot>\n\t);\n}',
+					'import { KeyRound } from "lucide-react";\nimport {\n\tCollapsibleRoot,\n\tCollapsiblePanel,\n\tCollapsibleTrigger,\n} from "@/components/baseui/components/collapsible";\n\nexport default function Particle() {\n\treturn (\n\t\t<CollapsibleRoot className="w-full max-w-xs">\n\t\t\t<CollapsibleTrigger>\n\t\t\t\t<span className="flex items-center gap-2">\n\t\t\t\t\t<KeyRound className="size-4 text-muted-foreground" />\n\t\t\t\t\t<span>Recovery Keys</span>\n\t\t\t\t</span>\n\t\t\t</CollapsibleTrigger>\n\t\t\t<CollapsiblePanel>\n\t\t\t\t<div className="pt-2">\n\t\t\t\t\t<div className="flex flex-col gap-1.5 rounded-md border border-border/60 bg-muted/50 p-2.5 font-mono text-xs text-muted-foreground">\n\t\t\t\t\t\t<div className="rounded px-2 py-1 text-foreground">\n\t\t\t\t\t\t\talien-bean-pasta\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div className="rounded px-2 py-1 text-foreground">\n\t\t\t\t\t\t\twild-irish-burrito\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div className="rounded px-2 py-1 text-foreground">\n\t\t\t\t\t\t\thorse-battery-staple\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</CollapsiblePanel>\n\t\t</CollapsibleRoot>\n\t);\n}',
 			},
 		],
 		keywords: [],

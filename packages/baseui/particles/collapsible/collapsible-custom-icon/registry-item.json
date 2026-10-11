@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-collapsible-custom-icon",
+	"type": "registry:component",
+	"description": "Collapsible with custom icon prop and direct CollapsibleIcon indicator.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-collapsible"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/collapsible/collapsible-custom-icon/index.tsx",
+			"type": "registry:component",
+			"target": "components/baseui/particles/collapsible-custom-icon.tsx"
+		}
+	]
+}

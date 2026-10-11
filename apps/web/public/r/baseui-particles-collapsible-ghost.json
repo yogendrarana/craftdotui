@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-collapsible-ghost",
+	"description": "Collapsible with ghost trigger variant.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-collapsible"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/collapsible/collapsible-ghost/index.tsx",
+			"content": "import { Terminal } from \"lucide-react\";\nimport {\n\tCollapsibleRoot,\n\tCollapsiblePanel,\n\tCollapsibleTrigger,\n} from \"@/components/baseui/components/collapsible\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"flex w-full justify-center p-4\">\n\t\t\t<CollapsibleRoot className=\"w-full max-w-sm\">\n\t\t\t\t<CollapsibleTrigger variant=\"ghost\">\n\t\t\t\t\t<span className=\"flex items-center gap-2\">\n\t\t\t\t\t\t<Terminal className=\"size-4 text-muted-foreground\" />\n\t\t\t\t\t\t<span>Ghost Variant</span>\n\t\t\t\t\t</span>\n\t\t\t\t</CollapsibleTrigger>\n\t\t\t\t<CollapsiblePanel>\n\t\t\t\t\t<div className=\"pt-2\">\n\t\t\t\t\t\t<div className=\"rounded-md bg-muted/40 p-3 text-xs text-muted-foreground\">\n\t\t\t\t\t\t\tTransparent trigger optimal for inline disclosures,\n\t\t\t\t\t\t\ttrees, or minimal interfaces.\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</CollapsiblePanel>\n\t\t\t</CollapsibleRoot>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/collapsible-ghost.tsx"
+		}
+	],
+	"type": "registry:component"
+}

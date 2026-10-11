@@ -3,7 +3,12 @@
 	"name": "baseui-collapsible",
 	"type": "registry:component",
 	"description": "A Base UI collapsible component",
-	"dependencies": ["@base-ui/react", "cn"],
+	"dependencies": [
+		"@base-ui/react",
+		"cn",
+		"class-variance-authority",
+		"lucide-react"
+	],
 	"registryDependencies": [],
 	"files": [
 		{
