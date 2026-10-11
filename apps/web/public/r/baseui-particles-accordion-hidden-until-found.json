@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-accordion-hidden-until-found",
+	"description": "Accordion utilizing hiddenUntilFound for browser page search discovery.",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/baseui-accordion"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/accordion/accordion-hidden-until-found/index.tsx",
+			"content": "import { Search, ShieldCheck } from \"lucide-react\";\nimport {\n\tAccordionItem,\n\tAccordionPanel,\n\tAccordionRoot,\n\tAccordionTrigger,\n} from \"@/components/baseui/components/accordion\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"flex w-full flex-col items-center gap-3 p-4\">\n\t\t\t<p className=\"max-w-md text-center text-xs text-muted-foreground\">\n\t\t\t\tPress{\" \"}\n\t\t\t\t<kbd className=\"rounded border bg-muted px-1.5 py-0.5 font-mono text-[11px]\">\n\t\t\t\t\tCmd+F\n\t\t\t\t</kbd>{\" \"}\n\t\t\t\tor{\" \"}\n\t\t\t\t<kbd className=\"rounded border bg-muted px-1.5 py-0.5 font-mono text-[11px]\">\n\t\t\t\t\tCtrl+F\n\t\t\t\t</kbd>{\" \"}\n\t\t\t\tand search for{\" \"}\n\t\t\t\t<strong className=\"text-foreground\">\n\t\t\t\t\t&quot;distributed-consensus-protocol&quot;\n\t\t\t\t</strong>{\" \"}\n\t\t\t\tto automatically expand the hidden panel.\n\t\t\t</p>\n\n\t\t\t<AccordionRoot hiddenUntilFound className=\"w-full max-w-md\">\n\t\t\t\t<AccordionItem value=\"item-1\">\n\t\t\t\t\t<AccordionTrigger>\n\t\t\t\t\t\t<span className=\"flex items-center gap-2\">\n\t\t\t\t\t\t\t<Search className=\"size-4 text-muted-foreground\" />\n\t\t\t\t\t\t\t<span>System Architecture Overview</span>\n\t\t\t\t\t\t</span>\n\t\t\t\t\t</AccordionTrigger>\n\t\t\t\t\t<AccordionPanel>\n\t\t\t\t\t\tOur core cluster utilizes an event-driven architecture\n\t\t\t\t\t\tproviding resilient fault tolerance across multiple\n\t\t\t\t\t\tgeographic availability zones.\n\t\t\t\t\t</AccordionPanel>\n\t\t\t\t</AccordionItem>\n\n\t\t\t\t<AccordionItem value=\"item-2\">\n\t\t\t\t\t<AccordionTrigger>\n\t\t\t\t\t\t<span className=\"flex items-center gap-2\">\n\t\t\t\t\t\t\t<ShieldCheck className=\"size-4 text-muted-foreground\" />\n\t\t\t\t\t\t\t<span>Consensus &amp; Replication Spec</span>\n\t\t\t\t\t\t</span>\n\t\t\t\t\t</AccordionTrigger>\n\t\t\t\t\t<AccordionPanel>\n\t\t\t\t\t\t<p className=\"leading-relaxed\">\n\t\t\t\t\t\t\tState replication relies on our proprietary{\" \"}\n\t\t\t\t\t\t\t<span className=\"font-mono font-semibold text-foreground\">\n\t\t\t\t\t\t\t\tdistributed-consensus-protocol\n\t\t\t\t\t\t\t</span>{\" \"}\n\t\t\t\t\t\t\tto maintain Byzantine fault-tolerant quorum under\n\t\t\t\t\t\t\thigh concurrency.\n\t\t\t\t\t\t</p>\n\t\t\t\t\t</AccordionPanel>\n\t\t\t\t</AccordionItem>\n\t\t\t</AccordionRoot>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/accordion-hidden-until-found.tsx"
+		}
+	],
+	"type": "registry:component"
+}

@@ -27,30 +27,49 @@ function CollapsibleRoot({ className, ...props }: CollapsibleRootProps) {
 /* -------------------------------------------------------------------------- */
 
 interface CollapsibleIconProps extends React.ComponentProps<"svg"> {
-	icon?: React.ElementType | React.ReactNode;
+	children?: React.ReactNode;
 }
 
-function CollapsibleIcon({ className, icon, ...props }: CollapsibleIconProps) {
+function CollapsibleIcon({
+	className,
+	children,
+	...props
+}: CollapsibleIconProps) {
 	const iconClassName = cn(
 		"size-4 shrink-0 pointer-events-none transition-transform duration-200 ease-out",
 		"group-data-[panel-open]:rotate-90 group-data-panel-open:rotate-90 data-[panel-open]:rotate-90",
 		className,
 	);
 
-	if (React.isValidElement(icon)) {
-		return React.cloneElement(icon as React.ReactElement<any>, {
-			"data-slot": "collapsible-icon",
-			className: cn(
-				iconClassName,
-				(icon.props as { className?: string })?.className,
-			),
-		});
+	if (children) {
+		if (React.isValidElement(children)) {
+			return React.cloneElement(
+				children as React.ReactElement<
+					React.ComponentProps<"svg"> & { "data-slot"?: string }
+				>,
+				{
+					"data-slot": "collapsible-icon",
+					className: cn(
+						iconClassName,
+						(children.props as { className?: string })?.className,
+					),
+				},
+			);
+		}
+
+		return (
+			<span
+				data-slot="collapsible-icon"
+				className={iconClassName}
+				{...(props as React.ComponentProps<"span">)}
+			>
+				{children}
+			</span>
+		);
 	}
 
-	const IconComponent = (icon as React.ElementType) ?? ChevronRight;
-
 	return (
-		<IconComponent
+		<ChevronRight
 			data-slot="collapsible-icon"
 			className={iconClassName}
 			{...props}
@@ -101,10 +120,6 @@ interface CollapsibleTriggerProps
 	 * @default true
 	 */
 	showCollapsibleIcon?: boolean;
-	/**
-	 * Optional custom icon component or element to display instead of the default ChevronRight.
-	 */
-	icon?: React.ElementType | React.ReactNode;
 }
 
 function CollapsibleTrigger({
@@ -113,9 +128,16 @@ function CollapsibleTrigger({
 	variant,
 	size,
 	showCollapsibleIcon = true,
-	icon,
 	...props
 }: CollapsibleTriggerProps) {
+	const hasCustomIcon = React.Children.toArray(children).some(
+		(child) =>
+			React.isValidElement(child) &&
+			(child.type === CollapsibleIcon ||
+				(child.props as { "data-slot"?: string })?.["data-slot"] ===
+					"collapsible-icon"),
+	);
+
 	return (
 		<CollapsiblePrimitive.Trigger
 			data-slot="collapsible-trigger"
@@ -126,7 +148,7 @@ function CollapsibleTrigger({
 			{...props}
 		>
 			{children}
-			{showCollapsibleIcon && <CollapsibleIcon icon={icon} />}
+			{showCollapsibleIcon && !hasCustomIcon && <CollapsibleIcon />}
 		</CollapsiblePrimitive.Trigger>
 	);
 }

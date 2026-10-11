@@ -3,7 +3,7 @@
 	"name": "baseui-accordion",
 	"type": "registry:component",
 	"description": "A Base UI accordion component",
-	"dependencies": ["@base-ui/react", "cn"],
+	"dependencies": ["@base-ui/react", "cn", "lucide-react"],
 	"registryDependencies": [],
 	"files": [
 		{

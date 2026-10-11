@@ -1,15 +1,18 @@
 "use client";
 
-import { ChevronDownIcon } from "lucide-react";
+import * as React from "react";
+import { ChevronDown } from "lucide-react";
 import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion";
 
 import { cn } from "cn";
 
 /* -------------------------------------------------------------------------- */
-/* Accordion                                                                  */
+/* Accordion Root                                                             */
 /* -------------------------------------------------------------------------- */
 
-function AccordionRoot({ className, ...props }: AccordionPrimitive.Root.Props) {
+type AccordionRootProps = AccordionPrimitive.Root.Props;
+
+function AccordionRoot({ className, ...props }: AccordionRootProps) {
 	return (
 		<AccordionPrimitive.Root
 			data-slot="accordion"
@@ -20,10 +23,12 @@ function AccordionRoot({ className, ...props }: AccordionPrimitive.Root.Props) {
 }
 
 /* -------------------------------------------------------------------------- */
-/* AccordionItem                                                              */
+/* Accordion Item                                                             */
 /* -------------------------------------------------------------------------- */
 
-function AccordionItem({ className, ...props }: AccordionPrimitive.Item.Props) {
+type AccordionItemProps = AccordionPrimitive.Item.Props;
+
+function AccordionItem({ className, ...props }: AccordionItemProps) {
 	return (
 		<AccordionPrimitive.Item
 			data-slot="accordion-item"
@@ -34,59 +39,132 @@ function AccordionItem({ className, ...props }: AccordionPrimitive.Item.Props) {
 }
 
 /* -------------------------------------------------------------------------- */
-/* AccordionTrigger                                                           */
+/* Accordion Icon                                                             */
 /* -------------------------------------------------------------------------- */
+
+interface AccordionIconProps extends React.ComponentProps<"svg"> {
+	children?: React.ReactNode;
+}
+
+function AccordionIcon({ className, children, ...props }: AccordionIconProps) {
+	const iconClassName = cn(
+		"ml-auto size-4 shrink-0 pointer-events-none text-muted-foreground transition-transform duration-200 ease-out",
+		"group-data-[panel-open]:rotate-180 group-data-panel-open:rotate-180 data-[panel-open]:rotate-180",
+		className,
+	);
+
+	if (children) {
+		if (React.isValidElement(children)) {
+			return React.cloneElement(
+				children as React.ReactElement<
+					React.ComponentProps<"svg"> & { "data-slot"?: string }
+				>,
+				{
+					"data-slot": "accordion-trigger-icon",
+					className: cn(
+						iconClassName,
+						(children.props as { className?: string })?.className,
+					),
+				},
+			);
+		}
+
+		return (
+			<span
+				data-slot="accordion-trigger-icon"
+				className={iconClassName}
+				{...(props as React.ComponentProps<"span">)}
+			>
+				{children}
+			</span>
+		);
+	}
+
+	return (
+		<ChevronDown
+			data-slot="accordion-trigger-icon"
+			className={iconClassName}
+			{...props}
+		/>
+	);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Accordion Trigger                                                          */
+/* -------------------------------------------------------------------------- */
+
+interface AccordionTriggerProps extends AccordionPrimitive.Trigger.Props {
+	/**
+	 * Whether to automatically display the accordion trigger icon.
+	 * Set to `false` if providing your own icon or omitting it.
+	 * @default true
+	 */
+	showAccordionIcon?: boolean;
+}
 
 function AccordionTrigger({
 	className,
 	children,
+	showAccordionIcon = true,
 	...props
-}: AccordionPrimitive.Trigger.Props) {
+}: AccordionTriggerProps) {
+	const hasCustomIcon = React.Children.toArray(children).some(
+		(child) =>
+			React.isValidElement(child) &&
+			(child.type === AccordionIcon ||
+				(child.props as { "data-slot"?: string })?.["data-slot"] ===
+					"accordion-trigger-icon"),
+	);
+
 	return (
 		<AccordionPrimitive.Header className="flex">
 			<AccordionPrimitive.Trigger
 				data-slot="accordion-trigger"
 				className={cn(
-					"py-3 relative flex flex-1 items-start justify-between rounded-md border border-transparent text-left text-sm font-medium transition-all outline-none",
-					"hover:cursor-pointer hover:underline disabled:pointer-events-none disabled:opacity-50",
+					"group relative flex flex-1 items-center justify-between gap-2 py-3 rounded-md border border-transparent text-left text-sm font-medium transition-all outline-none select-none cursor-pointer",
+					"hover:underline hover:cursor-pointer disabled:pointer-events-none disabled:opacity-50 data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
 					"focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:border-ring focus-visible:after:border-ring",
-					"**:data-[slot=accordion-trigger-icon]:ml-auto **:data-[slot=accordion-trigger-icon]:size-4 **:data-[slot=accordion-trigger-icon]:text-muted-foreground",
-					"[&[data-panel-open]>[data-slot=accordion-trigger-icon]]:rotate-180",
+					"[&[data-panel-open]_[data-slot=accordion-trigger-icon]]:rotate-180",
 					className,
 				)}
 				{...props}
 			>
 				{children}
-
-				<ChevronDownIcon
-					data-slot="accordion-trigger-icon"
-					className="pointer-events-none shrink-0 transition-transform duration-200"
-				/>
+				{showAccordionIcon && !hasCustomIcon && <AccordionIcon />}
 			</AccordionPrimitive.Trigger>
 		</AccordionPrimitive.Header>
 	);
 }
 
 /* -------------------------------------------------------------------------- */
-/* AccordionPanel                                                             */
+/* Accordion Panel                                                            */
 /* -------------------------------------------------------------------------- */
+
+interface AccordionPanelProps extends AccordionPrimitive.Panel.Props {
+	/**
+	 * Additional class name for the inner content wrapper.
+	 */
+	innerClassName?: string;
+}
 
 function AccordionPanel({
 	className,
+	innerClassName,
 	children,
 	...props
-}: AccordionPrimitive.Panel.Props) {
+}: AccordionPanelProps) {
 	return (
 		<AccordionPrimitive.Panel
-			data-slot="accordion-content"
+			data-slot="accordion-panel"
 			className={cn(
 				"h-(--accordion-panel-height) overflow-hidden text-sm text-muted-foreground transition-[height] duration-200 ease-in-out",
 				"data-starting-style:h-0 data-ending-style:h-0",
+				"[&[hidden]:not([hidden='until-found'])]:hidden",
 				className,
 			)}
 			{...props}
 		>
-			<div className="pt-0 pb-3">{children}</div>
+			<div className={cn("pt-0 pb-3", innerClassName)}>{children}</div>
 		</AccordionPrimitive.Panel>
 	);
 }
@@ -100,6 +178,18 @@ export const Accordion = {
 	Item: AccordionItem,
 	Trigger: AccordionTrigger,
 	Panel: AccordionPanel,
+	Icon: AccordionIcon,
 };
 
-export { AccordionRoot, AccordionItem, AccordionTrigger, AccordionPanel };
+export {
+	AccordionRoot,
+	AccordionItem,
+	AccordionTrigger,
+	AccordionPanel,
+	AccordionIcon,
+	type AccordionRootProps,
+	type AccordionItemProps,
+	type AccordionTriggerProps,
+	type AccordionPanelProps,
+	type AccordionIconProps,
+};

@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-accordion-custom-icon",
+	"description": "Accordion with a custom rotating plus icon.",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/baseui-accordion"],
+	"files": [
+		{
+			"path": "packages/baseui/particles/accordion/accordion-custom-icon/index.tsx",
+			"content": "import { Plus } from \"lucide-react\";\nimport {\n\tAccordionIcon,\n\tAccordionItem,\n\tAccordionPanel,\n\tAccordionRoot,\n\tAccordionTrigger,\n} from \"@/components/baseui/components/accordion\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"flex w-full justify-center p-4\">\n\t\t\t<AccordionRoot\n\t\t\t\tdefaultValue={[\"item-1\"]}\n\t\t\t\tclassName=\"w-full max-w-md\"\n\t\t\t>\n\t\t\t\t<AccordionItem value=\"item-1\">\n\t\t\t\t\t<AccordionTrigger>\n\t\t\t\t\t\t<span>What is Base UI?</span>\n\t\t\t\t\t\t<AccordionIcon>\n\t\t\t\t\t\t\t<Plus />\n\t\t\t\t\t\t</AccordionIcon>\n\t\t\t\t\t</AccordionTrigger>\n\t\t\t\t\t<AccordionPanel>\n\t\t\t\t\t\tBase UI is an unstyled, accessible React component\n\t\t\t\t\t\tlibrary designed for building modern design systems and\n\t\t\t\t\t\tinteractive web apps with maximum styling flexibility.\n\t\t\t\t\t</AccordionPanel>\n\t\t\t\t</AccordionItem>\n\n\t\t\t\t<AccordionItem value=\"item-2\">\n\t\t\t\t\t<AccordionTrigger>\n\t\t\t\t\t\t<span>How do I customize the animations?</span>\n\t\t\t\t\t\t<AccordionIcon>\n\t\t\t\t\t\t\t<Plus />\n\t\t\t\t\t\t</AccordionIcon>\n\t\t\t\t\t</AccordionTrigger>\n\t\t\t\t\t<AccordionPanel>\n\t\t\t\t\t\tPanels export CSS variables such as{\" \"}\n\t\t\t\t\t\t<code className=\"rounded bg-muted px-1 py-0.5 font-mono text-xs text-foreground\">\n\t\t\t\t\t\t\t--accordion-panel-height\n\t\t\t\t\t\t</code>{\" \"}\n\t\t\t\t\t\tand transition states like{\" \"}\n\t\t\t\t\t\t<code className=\"rounded bg-muted px-1 py-0.5 font-mono text-xs text-foreground\">\n\t\t\t\t\t\t\tdata-starting-style\n\t\t\t\t\t\t</code>\n\t\t\t\t\t\t, allowing pure CSS height keyframes.\n\t\t\t\t\t</AccordionPanel>\n\t\t\t\t</AccordionItem>\n\n\t\t\t\t<AccordionItem value=\"item-3\">\n\t\t\t\t\t<AccordionTrigger>\n\t\t\t\t\t\t<span>Can I use it with Tailwind CSS v4?</span>\n\t\t\t\t\t\t<AccordionIcon>\n\t\t\t\t\t\t\t<Plus />\n\t\t\t\t\t\t</AccordionIcon>\n\t\t\t\t\t</AccordionTrigger>\n\t\t\t\t\t<AccordionPanel>\n\t\t\t\t\t\tYes! Craft Dot UI components use standard Tailwind CSS\n\t\t\t\t\t\tclasses and modern CSS variables, working out of the box\n\t\t\t\t\t\twith zero extra setup.\n\t\t\t\t\t</AccordionPanel>\n\t\t\t\t</AccordionItem>\n\t\t\t</AccordionRoot>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/baseui/particles/accordion-custom-icon.tsx"
+		}
+	],
+	"type": "registry:component"
+}

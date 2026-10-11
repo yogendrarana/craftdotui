@@ -15,9 +15,24 @@ author:
 
 <Installation name="baseui-accordion" />
 
+## Anatomy
+
+```tsx
+<AccordionRoot>
+  <AccordionItem>
+    <AccordionTrigger>
+      Trigger
+      <AccordionIcon />
+    </AccordionTrigger>
+    <AccordionPanel>Panel</AccordionPanel>
+  </AccordionItem>
+</AccordionRoot>
+```
+
 ## Demo
 
 #### Default Open
+
 <ComponentCodePreview name="baseui-particles-accordion-default-open" />
 
 #### Multiple Open
@@ -27,3 +42,11 @@ author:
 #### Controlled
 
 <ComponentCodePreview name="baseui-particles-accordion-controlled" />
+
+#### Hidden Until Found
+
+<ComponentCodePreview name="baseui-particles-accordion-hidden-until-found" />
+
+#### Custom Icon
+
+<ComponentCodePreview name="baseui-particles-accordion-custom-icon" />
