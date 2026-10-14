@@ -61,10 +61,37 @@ author:
 
 #### ComboboxInput
 
-| Prop         | Type        | Description                                              | Default |
-| ------------ | ----------- | -------------------------------------------------------- | ------- |
-| size?        | "sm"\|"md"\|"lg" | The size of the input                                    | "md"    |
-| showClear?   | boolean     | If true, shows a clear button to reset the selection     | false   |
-| showTrigger? | boolean     | If true, shows a trigger button to open the dropdown     | false   |
-| startAddon?  | ReactNode   | Provide startAddon like search icon to show on the front | null    |
-| autoHighlight?| boolean     | If true, highlights the first option on open             | false   |
+<PropsTable
+  data={[
+    {
+      prop: "size",
+      type: '"sm" | "md" | "lg"',
+      default: '"md"',
+      description: "The size of the input",
+    },
+    {
+      prop: "showClear",
+      type: "boolean",
+      default: "false",
+      description: "If true, shows a clear button to reset the selection",
+    },
+    {
+      prop: "showTrigger",
+      type: "boolean",
+      default: "false",
+      description: "If true, shows a trigger button to open the dropdown",
+    },
+    {
+      prop: "startAddon",
+      type: "ReactNode",
+      default: "null",
+      description: "Provide startAddon like search icon to show on the front",
+    },
+    {
+      prop: "autoHighlight",
+      type: "boolean",
+      default: "false",
+      description: "If true, highlights the first option on open",
+    },
+  ]}
+/>

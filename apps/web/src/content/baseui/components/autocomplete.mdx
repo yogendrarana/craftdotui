@@ -15,6 +15,51 @@ author:
 
 <Installation name="baseui-autocomplete" />
 
+## Anatomy
+
+#### Composite
+
+```tsx
+<AutocompleteRoot items={items}>
+  <AutocompleteInput placeholder="Search..." />
+
+  <AutocompleteContent>
+    <AutocompleteEmpty>No results found.</AutocompleteEmpty>
+    <AutocompleteList>
+      {(item) => (
+        <AutocompleteItem key={item.id} value={item}>
+          {item.label}
+        </AutocompleteItem>
+      )}
+    </AutocompleteList>
+  </AutocompleteContent>
+</AutocompleteRoot>
+```
+
+#### Primitives
+
+```tsx
+<AutocompleteRoot items={items}>
+  <AutocompleteInput placeholder="Search..." />
+
+  <AutocompletePortal>
+    <AutocompleteBackdrop />
+    <AutocompletePositioner sideOffset={4}>
+      <AutocompletePopup>
+        <AutocompleteEmpty>No results found.</AutocompleteEmpty>
+        <AutocompleteList>
+          {(item) => (
+            <AutocompleteItem key={item.id} value={item}>
+              {item.label}
+            </AutocompleteItem>
+          )}
+        </AutocompleteList>
+      </AutocompletePopup>
+    </AutocompletePositioner>
+  </AutocompletePortal>
+</AutocompleteRoot>
+```
+
 ## Demo
 
 
@@ -47,15 +92,68 @@ author:
 
 #### AutocompleteInput
 
-| Prop         | Type      | Description                                              | Default |
-| ------------ | --------- | -------------------------------------------------------- | ------- |
-| showClear?   | boolean   | If true, shows a clear button to reset the input         | false   |
-| showTrigger? | boolean   | If true, shows a trigger button to open the dropdown     | false   |
-| startAddon?  | ReactNode | Provide startAddon like search icon to show on the front | null    |
+<PropsTable
+  data={[
+    {
+      prop: "size",
+      type: '"sm" | "md" | "lg"',
+      default: '"md"',
+      description: "The size of the input",
+    },
+    {
+      prop: "showClear",
+      type: "boolean",
+      default: "false",
+      description: "If true, shows a clear button to reset the input",
+    },
+    {
+      prop: "showTrigger",
+      type: "boolean",
+      default: "false",
+      description: "If true, shows a trigger button to open the dropdown",
+    },
+    {
+      prop: "startAddon",
+      type: "ReactNode",
+      default: "null",
+      description: "Provide startAddon like search icon to show on the front",
+    },
+  ]}
+/>
 
-#### AutocompletePopup
+#### AutocompleteContent
 
-| Prop         | Type    | Description                                | Default |
-| ------------ | ------- | ------------------------------------------ | ------- |
-| sideOffset?  | number  | The distance in pixels from the input      | 4       |
-| hasBackdrop? | boolean | If true, shows a backdrop behind the popup | false   |
+<PropsTable
+  data={[
+    {
+      prop: "sideOffset",
+      type: "number",
+      default: "4",
+      description: "The distance in pixels from the anchor element",
+    },
+    {
+      prop: "hasBackdrop",
+      type: "boolean",
+      default: "false",
+      description: "If true, shows a backdrop behind the popup",
+    },
+    {
+      prop: "portalProps",
+      type: "AutocompletePrimitive.Portal.Props",
+      default: "undefined",
+      description: "Props forwarded to the Portal primitive",
+    },
+    {
+      prop: "backdropProps",
+      type: "AutocompletePrimitive.Backdrop.Props",
+      default: "undefined",
+      description: "Props forwarded to the Backdrop primitive",
+    },
+    {
+      prop: "positionerProps",
+      type: "AutocompletePrimitive.Positioner.Props",
+      default: "undefined",
+      description: "Props forwarded to the Positioner primitive",
+    },
+  ]}
+/>

@@ -490,7 +490,7 @@
 			"type": "registry:component",
 			"description": "A Base UI autocomplete component",
 			"dependencies": ["@base-ui/react", "cn"],
-			"registryDependencies": [],
+			"registryDependencies": ["@craftdotui/baseui-input"],
 			"files": [
 				{
 					"path": "packages/baseui/components/autocomplete/index.tsx",

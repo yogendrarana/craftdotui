@@ -1,39 +1,43 @@
 import {
 	AutocompleteRoot,
 	AutocompleteInput,
-	AutocompletePopup,
+	AutocompleteContent,
 	AutocompleteList,
 	AutocompleteItem,
 	AutocompleteEmpty,
 } from "@craftdotui/baseui/components/autocomplete";
 
-interface Tag {
+interface Fruit {
 	id: string;
 	value: string;
 }
 
-const tags: Tag[] = [
-	{ id: "1", value: "apple" },
-	{ id: "2", value: "mango" },
-	{ id: "3", value: "banana" },
-	{ id: "4", value: "pineapple" },
-	{ id: "5", value: "coconut" },
+const fruits: Fruit[] = [
+	{ id: "apple", value: "Apple" },
+	{ id: "banana", value: "Banana" },
+	{ id: "blueberry", value: "Blueberry" },
+	{ id: "grapes", value: "Grapes" },
+	{ id: "mango", value: "Mango" },
+	{ id: "pineapple", value: "Pineapple" },
+	{ id: "watermelon", value: "Watermelon" },
 ];
 
 export default function Particle() {
 	return (
-		<AutocompleteRoot items={tags} autoHighlight>
-			<AutocompleteInput placeholder="e.g. feature" />
-			<AutocompletePopup>
-				<AutocompleteEmpty>Fruit not found.</AutocompleteEmpty>
-				<AutocompleteList>
-					{(tag: Tag) => (
-						<AutocompleteItem key={tag.id} value={tag}>
-							{tag.value}
-						</AutocompleteItem>
-					)}
-				</AutocompleteList>
-			</AutocompletePopup>
-		</AutocompleteRoot>
+		<div className="w-64">
+			<AutocompleteRoot items={fruits} autoHighlight>
+				<AutocompleteInput placeholder="Search fruits (e.g. Apple)..." />
+				<AutocompleteContent>
+					<AutocompleteEmpty>No fruits found.</AutocompleteEmpty>
+					<AutocompleteList>
+						{(fruit: Fruit) => (
+							<AutocompleteItem key={fruit.id} value={fruit}>
+								{fruit.value}
+							</AutocompleteItem>
+						)}
+					</AutocompleteList>
+				</AutocompleteContent>
+			</AutocompleteRoot>
+		</div>
 	);
 }

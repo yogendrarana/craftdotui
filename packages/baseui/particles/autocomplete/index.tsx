@@ -1,7 +1,7 @@
 import {
 	AutocompleteRoot,
 	AutocompleteInput,
-	AutocompletePopup,
+	AutocompleteContent,
 	AutocompleteList,
 	AutocompleteItem,
 	AutocompleteEmpty,
@@ -13,19 +13,20 @@ interface Tag {
 }
 
 const tags: Tag[] = [
-	{ id: "t1", value: "feature" },
-	{ id: "t2", value: "fix" },
-	{ id: "t3", value: "bug" },
-	{ id: "t4", value: "docs" },
+	{ id: "feature", value: "Feature" },
+	{ id: "bug", value: "Bug" },
+	{ id: "enhancement", value: "Enhancement" },
+	{ id: "documentation", value: "Documentation" },
+	{ id: "design", value: "Design" },
 ];
 
 export default function Example() {
 	return (
-		<div className="space-y-2">
+		<div className="w-64">
 			<AutocompleteRoot items={tags}>
-				<AutocompleteInput placeholder="e.g. feature" />
+				<AutocompleteInput placeholder="Search tags (e.g. Feature)..." />
 
-				<AutocompletePopup>
+				<AutocompleteContent>
 					<AutocompleteEmpty>No tags found.</AutocompleteEmpty>
 					<AutocompleteList>
 						{(tag: Tag) => (
@@ -34,7 +35,7 @@ export default function Example() {
 							</AutocompleteItem>
 						)}
 					</AutocompleteList>
-				</AutocompletePopup>
+				</AutocompleteContent>
 			</AutocompleteRoot>
 		</div>
 	);

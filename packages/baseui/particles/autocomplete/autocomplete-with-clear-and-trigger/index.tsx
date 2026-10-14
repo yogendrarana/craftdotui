@@ -1,7 +1,7 @@
 import {
 	AutocompleteRoot,
 	AutocompleteInput,
-	AutocompletePopup,
+	AutocompleteContent,
 	AutocompleteList,
 	AutocompleteItem,
 	AutocompleteEmpty,
@@ -13,31 +13,33 @@ interface Tag {
 }
 
 const tags: Tag[] = [
-	{ id: "t1", value: "feature" },
-	{ id: "t2", value: "fix" },
-	{ id: "t3", value: "bug" },
-	{ id: "t4", value: "docs" },
-	{ id: "t5", value: "refactor" },
+	{ id: "bug", value: "Bug" },
+	{ id: "documentation", value: "Documentation" },
+	{ id: "enhancement", value: "Enhancement" },
+	{ id: "feature", value: "Feature" },
+	{ id: "refactor", value: "Refactor" },
 ];
 
 export default function Particle() {
 	return (
-		<AutocompleteRoot items={tags}>
-			<AutocompleteInput
-				placeholder="Search tags..."
-				showClear
-				showTrigger
-			/>
-			<AutocompletePopup>
-				<AutocompleteEmpty>No tags found.</AutocompleteEmpty>
-				<AutocompleteList>
-					{(tag: Tag) => (
-						<AutocompleteItem key={tag.id} value={tag}>
-							{tag.value}
-						</AutocompleteItem>
-					)}
-				</AutocompleteList>
-			</AutocompletePopup>
-		</AutocompleteRoot>
+		<div className="w-64">
+			<AutocompleteRoot items={tags}>
+				<AutocompleteInput
+					placeholder="Select or search tags..."
+					showClear
+					showTrigger
+				/>
+				<AutocompleteContent>
+					<AutocompleteEmpty>No tags found.</AutocompleteEmpty>
+					<AutocompleteList>
+						{(tag: Tag) => (
+							<AutocompleteItem key={tag.id} value={tag}>
+								{tag.value}
+							</AutocompleteItem>
+						)}
+					</AutocompleteList>
+				</AutocompleteContent>
+			</AutocompleteRoot>
+		</div>
 	);
 }

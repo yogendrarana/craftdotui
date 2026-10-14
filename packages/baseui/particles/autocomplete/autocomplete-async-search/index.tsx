@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import {
 	AutocompleteRoot,
 	AutocompleteInput,
-	AutocompletePopup,
+	AutocompleteContent,
 	AutocompleteList,
 	AutocompleteItem,
 	AutocompleteEmpty,
@@ -19,7 +19,7 @@ interface User {
 
 // Simulated API call
 const searchUsers = async (query: string): Promise<User[]> => {
-	await new Promise((resolve) => setTimeout(resolve, 1000));
+	await new Promise((resolve) => setTimeout(resolve, 400));
 	const users = [
 		{ id: "1", name: "John Doe", email: "john@example.com" },
 		{ id: "2", name: "Jane Smith", email: "jane@example.com" },
@@ -50,8 +50,6 @@ export default function Particle() {
 				Searching...
 			</div>
 		);
-	} else if (query.length === 0 && value) {
-		status = `Movie or year "${value}" does not exist in the Top 100 IMDb movies`;
 	}
 
 	useEffect(() => {
@@ -67,38 +65,40 @@ export default function Particle() {
 	}, [query]);
 
 	return (
-		<AutocompleteRoot
-			items={items}
-			value={value}
-			onValueChange={setValue}
-			itemToStringValue={(item) => item.name}
-			filter={null}
-		>
-			<AutocompleteInput
-				placeholder="Search users..."
-				onChange={(e) => setQuery(e.target.value)}
-			/>
+		<div className="w-64">
+			<AutocompleteRoot
+				items={items}
+				value={value}
+				onValueChange={setValue}
+				itemToStringValue={(item) => item.name}
+				filter={null}
+			>
+				<AutocompleteInput
+					placeholder="Search users (e.g. John)..."
+					onChange={(e) => setQuery(e.target.value)}
+				/>
 
-			{shouldRenderPopup && (
-				<AutocompletePopup>
-					<AutocompleteStatus>{status}</AutocompleteStatus>
-					<AutocompleteEmpty>No users found.</AutocompleteEmpty>
-					<AutocompleteList>
-						{(user: User) => (
-							<AutocompleteItem key={user.id} value={user}>
-								<div className="flex flex-col">
-									<span className="font-medium">
-										{user.name}
-									</span>
-									<span className="text-xs text-muted-foreground">
-										{user.email}
-									</span>
-								</div>
-							</AutocompleteItem>
-						)}
-					</AutocompleteList>
-				</AutocompletePopup>
-			)}
-		</AutocompleteRoot>
+				{shouldRenderPopup && (
+					<AutocompleteContent>
+						<AutocompleteStatus>{status}</AutocompleteStatus>
+						<AutocompleteEmpty>No users found.</AutocompleteEmpty>
+						<AutocompleteList>
+							{(user: User) => (
+								<AutocompleteItem key={user.id} value={user}>
+									<div className="flex flex-col">
+										<span className="font-medium">
+											{user.name}
+										</span>
+										<span className="text-xs text-muted-foreground">
+											{user.email}
+										</span>
+									</div>
+								</AutocompleteItem>
+							)}
+						</AutocompleteList>
+					</AutocompleteContent>
+				)}
+			</AutocompleteRoot>
+		</div>
 	);
 }

@@ -1,43 +1,47 @@
 import {
 	AutocompleteRoot,
 	AutocompleteInput,
-	AutocompletePopup,
+	AutocompleteContent,
 	AutocompleteList,
 	AutocompleteItem,
 	AutocompleteEmpty,
 } from "@craftdotui/baseui/components/autocomplete";
 import { Search } from "lucide-react";
 
-interface Tag {
+interface Fruit {
 	id: string;
 	value: string;
 }
 
-const tags: Tag[] = [
+const fruits: Fruit[] = [
 	{ id: "apple", value: "Apple" },
-	{ id: "ball", value: "Ball" },
-	{ id: "cat", value: "Cat" },
-	{ id: "dog", value: "Dog" },
-	{ id: "eagle", value: "Eagle" },
+	{ id: "banana", value: "Banana" },
+	{ id: "blueberry", value: "Blueberry" },
+	{ id: "grapes", value: "Grapes" },
+	{ id: "mango", value: "Mango" },
+	{ id: "orange", value: "Orange" },
+	{ id: "strawberry", value: "Strawberry" },
 ];
 
 export default function Particle() {
 	return (
-		<AutocompleteRoot items={tags}>
-			<AutocompleteInput
-				placeholder="Search tags..."
-				startAddon={<Search className="size-4" />}
-			/>
-			<AutocompletePopup>
-				<AutocompleteEmpty>No tags found.</AutocompleteEmpty>
-				<AutocompleteList>
-					{(tag: Tag) => (
-						<AutocompleteItem key={tag.id} value={tag}>
-							{tag.value}
-						</AutocompleteItem>
-					)}
-				</AutocompleteList>
-			</AutocompletePopup>
-		</AutocompleteRoot>
+		<div className="w-64">
+			<AutocompleteRoot items={fruits}>
+				<AutocompleteInput
+					placeholder="Search fruits..."
+					startAddon={<Search className="size-4" />}
+				/>
+				<AutocompleteContent>
+					<AutocompleteEmpty>No fruits found.</AutocompleteEmpty>
+					<AutocompleteList>
+						{(fruit: Fruit) => (
+							<AutocompleteItem key={fruit.id} value={fruit}>
+								{fruit.value}
+							</AutocompleteItem>
+						)}
+					</AutocompleteList>
+				</AutocompleteContent>
+			</AutocompleteRoot>
+		</div>
 	);
 }

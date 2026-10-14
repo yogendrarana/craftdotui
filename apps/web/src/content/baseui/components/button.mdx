@@ -71,12 +71,46 @@ author:
 
 #### Button
 
-| Prop       | Type                                                                          | Description                                              | Default   |
-| ---------- | ----------------------------------------------------------------------------- | -------------------------------------------------------- | --------- |
-| variant    | "default" \| "secondary" \| "destructive" \| "outline" \| "ghost" \| "link"   | The visual style variant of the button                   | "default" |
-| size       | "xs" \| "sm" \| "default" \| "lg" \| "xl" \| "icon" \| "icon-sm" \| "icon-lg" | The size of the button                                   | "default" |
-| loading    | boolean                                                                       | If true, shows a loading spinner and disables the button | false     |
-| disabled   | boolean                                                                       | If true, disables the button                             | false     |
-| className? | string                                                                        | Additional class names to style the Button               | \_        |
-| render?    | React.ReactElement                                                            | Custom element to render (e.g., Link component)          | \_        |
-| children   | ReactNode                                                                     | The content to be rendered inside the Button             | \_        |
+<PropsTable
+  data={[
+    {
+      prop: "variant",
+      type: '"default" | "secondary" | "destructive" | "outline" | "ghost" | "link"',
+      default: '"default"',
+      description: "The visual style variant of the button",
+    },
+    {
+      prop: "size",
+      type: '"xs" | "sm" | "default" | "lg" | "xl" | "icon" | "icon-sm" | "icon-lg"',
+      default: '"default"',
+      description: "The size of the button",
+    },
+    {
+      prop: "loading",
+      type: "boolean",
+      default: "false",
+      description: "If true, shows a loading spinner and disables the button",
+    },
+    {
+      prop: "disabled",
+      type: "boolean",
+      default: "false",
+      description: "If true, disables the button",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional class names to style the Button",
+    },
+    {
+      prop: "render",
+      type: "React.ReactElement",
+      description: "Custom element to render (e.g., Link component)",
+    },
+    {
+      prop: "children",
+      type: "ReactNode",
+      description: "The content to be rendered inside the Button",
+    },
+  ]}
+/>
