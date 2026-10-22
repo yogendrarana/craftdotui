@@ -123,7 +123,13 @@ function DrawerIndent({ className, ...props }: DrawerPrimitive.Indent.Props) {
 // ==================================================
 
 function DrawerTrigger({ className, ...props }: DrawerPrimitive.Trigger.Props) {
-	return <DrawerPrimitive.Trigger data-slot="drawer-trigger" {...props} />;
+	return (
+		<DrawerPrimitive.Trigger
+			data-slot="drawer-trigger"
+			className={cn(className)}
+			{...props}
+		/>
+	);
 }
 
 // ==================================================

@@ -18,7 +18,7 @@ export function ToggleMode() {
 		return (
 			<Button
 				variant="outline"
-				size="icon-sm"
+				size="icon-md"
 				className="cursor-pointer rounded-md"
 				aria-label="Toggle theme"
 			>
@@ -30,7 +30,7 @@ export function ToggleMode() {
 	return (
 		<Button
 			variant="outline"
-			size="icon-sm"
+			size="icon-md"
 			className="cursor-pointer rounded-md"
 			onClick={() =>
 				setTheme(resolvedTheme === "dark" ? "light" : "dark")

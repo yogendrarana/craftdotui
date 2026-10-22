@@ -1,19 +1,27 @@
 "use client";
 
 import * as React from "react";
-import { EyeIcon, Code2Icon } from "lucide-react";
+import { XIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Registry } from "@/__registry__";
 import { CodeRenderer } from "@/components/mdx/code-renderer";
 import { InstallCommandDropdown } from "./install-command";
 import { ComponentPreview } from "./component-preview";
+
 import {
-	TabsRoot,
-	TabsList,
-	TabsPanel,
-	Tab,
-} from "@craftdotui/baseui/components/tabs";
+	DrawerRoot,
+	DrawerTrigger,
+	DrawerPortal,
+	DrawerBackdrop,
+	DrawerViewport,
+	DrawerPopup,
+	DrawerContent,
+	DrawerTitle,
+	DrawerClose,
+} from "@craftdotui/baseui/components/drawer";
+
+import { buttonVariants } from "@craftdotui/baseui/components/button";
 
 interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
 	name: string;
@@ -26,65 +34,87 @@ export function ComponentCodePreview({
 	hasReTrigger = false,
 	...props
 }: ComponentPreviewProps) {
-	const [key, _] = React.useState(0);
+	const [key] = React.useState(0);
 
 	const registryItem = Registry[name];
 
-	const Code = React.useMemo(() => {
+	const code = React.useMemo(() => {
 		if (registryItem?.files?.[0]?.content) {
 			return registryItem.files[0].content;
 		}
-		return (
-			<p className="text-sm text-muted-foreground">
-				Code for <code className="mx-1">{name}</code> not found.
-			</p>
-		);
+		return `// Code for ${name} not found.`;
 	}, [registryItem, name]);
 
 	return (
-		<TabsRoot
-			defaultValue="preview"
-			className={cn("w-full flex flex-col", className)}
+		<div
+			className={cn(
+				"relative w-full border border-border rounded-xl overflow-hidden bg-background",
+				className,
+			)}
 			{...props}
 		>
-			{/* header */}
-			<div className="mb-2 flex items-center justify-between rounded-md">
-				<TabsList>
-					<Tab value="preview">
-						<EyeIcon className="size-4" />
-						Preview
-					</Tab>
-
-					<Tab value="code">
-						<Code2Icon className="size-4" />
-						Code
-					</Tab>
-				</TabsList>
-
-				<div className="flex items-center gap-2">
-					<InstallCommandDropdown pkg={registryItem.command} />
-				</div>
+			{/* Component preview */}
+			<div className="relative h-100 w-full p-2 flex items-center justify-center">
+				<ComponentPreview
+					name={name}
+					key={key}
+					hasReTrigger={hasReTrigger}
+				/>
 			</div>
 
-			{/* component and code */}
-			<div className="relative min-h-100 w-full border rounded-lg flex items-center justify-center p-1.5">
-				<TabsPanel value="preview" className="w-full">
-					<div className="h-100 w-full flex justify-center items-center border border-dashed rounded-md">
-						<ComponentPreview
-							name={name}
-							key={key}
-							hasReTrigger={hasReTrigger}
-						/>
-					</div>
-				</TabsPanel>
+			{/* Bottom action bar */}
+			<div className="px-3 py-2.5 flex items-center justify-end gap-2 border-t border-border bg-muted/10">
+				<InstallCommandDropdown pkg={registryItem?.command} />
 
-				<TabsPanel value="code" className="w-full">
-					<CodeRenderer
-						className="h-100 w-full border rounded-md"
-						code={Code}
-					/>
-				</TabsPanel>
+				<DrawerRoot position="right" variant="inset">
+					<DrawerTrigger
+						className={cn(
+							buttonVariants({ variant: "outline", size: "sm" }),
+							"gap-1.5 h-8 text-xs font-medium cursor-pointer rounded-md",
+						)}
+					>
+						View code
+					</DrawerTrigger>
+
+					<DrawerPortal>
+						<DrawerBackdrop />
+						<DrawerViewport>
+							<DrawerPopup className="w-full sm:w-[550px] md:w-[640px]">
+								<div className="flex items-center justify-between px-6 pt-5 pb-3 border-b border-border select-none shrink-0">
+									<div>
+										<DrawerTitle className="text-base font-semibold">
+											Installation
+										</DrawerTitle>
+									</div>
+
+									<DrawerClose
+										className={cn(
+											buttonVariants({
+												variant: "ghost",
+												size: "icon-sm",
+											}),
+											"rounded-md cursor-pointer",
+										)}
+										aria-label="Close code drawer"
+									>
+										<XIcon className="size-4" />
+									</DrawerClose>
+								</div>
+
+								<DrawerContent
+									allowSelection
+									className="p-4 sm:p-6 flex-1 overflow-hidden flex flex-col"
+								>
+									<CodeRenderer
+										code={code}
+										className="h-full w-full border rounded-lg"
+									/>
+								</DrawerContent>
+							</DrawerPopup>
+						</DrawerViewport>
+					</DrawerPortal>
+				</DrawerRoot>
 			</div>
-		</TabsRoot>
+		</div>
 	);
 }

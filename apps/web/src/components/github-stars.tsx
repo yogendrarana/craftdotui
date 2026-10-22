@@ -52,7 +52,7 @@ export const GithubStars = ({ className }: PropTypes) => {
 			target="_blank"
 			rel="noopener noreferrer"
 			className={cn(
-				buttonVariants({ variant: "outline", size: "sm" }),
+				buttonVariants({ variant: "outline" }),
 				"hidden sm:flex rounded-md",
 				className,
 			)}

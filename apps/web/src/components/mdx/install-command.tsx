@@ -1,15 +1,7 @@
 "use client";
 
 import React from "react";
-import {
-	MenuRoot,
-	MenuTrigger,
-	MenuItem,
-	MenuPortal,
-	MenuPositioner,
-	MenuPopup,
-} from "@craftdotui/baseui/components/menu";
-
+import { Check, Copy } from "lucide-react";
 import {
 	TooltipRoot,
 	TooltipPortal,
@@ -22,6 +14,16 @@ import { cn } from "@/lib/utils";
 import { CopyButton } from "./copy-button";
 import type { PackageManager } from "@/types";
 import { packageInstallCommands, packageManagerCommands } from "@/constants";
+import {
+	SelectItem,
+	SelectItemList,
+	SelectPopup,
+	SelectPortal,
+	SelectPositioner,
+	SelectRoot,
+	SelectTrigger,
+	SelectValue,
+} from "@craftdotui/baseui/components/select";
 
 function useInstallCommand(
 	pkg: string,
@@ -61,9 +63,10 @@ function useInstallCommand(
 
 	const commands =
 		type === "package" ? packageInstallCommands : packageManagerCommands;
-	const installCommand = `${commands[packageManager]} ${pkg}`;
+	const installCommand = pkg ? `${commands[packageManager]} ${pkg}` : "";
 
 	const onCopy = () => {
+		if (!installCommand) return;
 		navigator.clipboard.writeText(installCommand);
 		setHasCopied(true);
 	};
@@ -84,14 +87,18 @@ function useInstallCommand(
 	};
 }
 
+const PACKAGE_MANAGERS: PackageManager[] = ["npm", "pnpm", "yarn", "bun"];
+
 // COMPONENT 1 — DROPDOWN VERSION
 
 export function InstallCommandDropdown({
 	pkg,
 	type = "registry",
+	className,
 }: {
-	pkg: string;
+	pkg?: string;
 	type?: "package" | "registry";
+	className?: string;
 }) {
 	const {
 		hasCopied,
@@ -99,22 +106,67 @@ export function InstallCommandDropdown({
 		setPackageManager,
 		installCommand,
 		onCopy,
-	} = useInstallCommand(pkg, type);
+	} = useInstallCommand(pkg ?? "", type);
+
+	if (!pkg) return null;
 
 	return (
-		<div className="hidden md:flex items-center justify-between cursor-pointer border border-border border-dashed rounded-md overflow-hidden">
+		<div
+			className={cn(
+				"inline-flex items-center border border-border rounded-md overflow-hidden bg-background h-8 text-xs",
+				className,
+			)}
+		>
+			<SelectRoot
+				value={packageManager}
+				onValueChange={(val) => {
+					if (val) setPackageManager(val as PackageManager);
+				}}
+			>
+				<SelectTrigger
+					variant="unstyled"
+					className="h-full px-2.5 text-xs font-medium bg-muted/40 hover:bg-muted border-r border-border rounded-none cursor-pointer gap-1.5 w-auto select-none"
+				>
+					<SelectValue />
+				</SelectTrigger>
+
+				<SelectPortal>
+					<SelectPositioner sideOffset={4} align="start">
+						<SelectPopup className="min-w-24">
+							<SelectItemList>
+								{PACKAGE_MANAGERS.map((pm) => (
+									<SelectItem
+										key={pm}
+										value={pm}
+										className="text-xs"
+									>
+										{pm}
+									</SelectItem>
+								))}
+							</SelectItemList>
+						</SelectPopup>
+					</SelectPositioner>
+				</SelectPortal>
+			</SelectRoot>
+
 			<TooltipRoot>
 				<TooltipTrigger
 					render={
 						<button
 							type="button"
 							onClick={onCopy}
-							className="px-2 text-xs text-muted-foreground cursor-pointer max-w-75 truncate"
+							className="px-2.5 h-full inline-flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground cursor-pointer max-w-72 truncate transition-colors font-mono"
 						>
-							{hasCopied ? "Copied!" : installCommand}
+							<span className="truncate">{installCommand}</span>
+							{hasCopied ? (
+								<Check className="size-3.5 text-green-500 shrink-0" />
+							) : (
+								<Copy className="size-3.5 text-muted-foreground shrink-0" />
+							)}
 						</button>
 					}
 				/>
+
 				<TooltipPortal>
 					<TooltipPositioner sideOffset={5}>
 						<TooltipPopup className="bg-popover text-foreground">
@@ -123,37 +175,6 @@ export function InstallCommandDropdown({
 					</TooltipPositioner>
 				</TooltipPortal>
 			</TooltipRoot>
-
-			<MenuRoot>
-				<MenuTrigger
-					render={
-						<button
-							type="button"
-							className="h-full px-3 py-1.5 cursor-pointer text-xs font-medium bg-muted"
-						>
-							{packageManager}
-						</button>
-					}
-				/>
-
-				<MenuPortal>
-					<MenuPositioner>
-						<MenuPopup className="w-28">
-							{["npm", "pnpm", "yarn", "bun"].map((pm) => (
-								<MenuItem
-									key={pm}
-									onClick={() =>
-										setPackageManager(pm as PackageManager)
-									}
-									className="text-xs"
-								>
-									{pm}
-								</MenuItem>
-							))}
-						</MenuPopup>
-					</MenuPositioner>
-				</MenuPortal>
-			</MenuRoot>
 		</div>
 	);
 }

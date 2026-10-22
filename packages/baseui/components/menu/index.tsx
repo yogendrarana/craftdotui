@@ -20,7 +20,13 @@ function MenuRoot(props: MenuPrimitive.Root.Props) {
 /* -------------------------------------------------------------------------- */
 
 function MenuTrigger({ className, ...props }: MenuPrimitive.Trigger.Props) {
-	return <MenuPrimitive.Trigger data-slot="menu-trigger" {...props} />;
+	return (
+		<MenuPrimitive.Trigger
+			data-slot="menu-trigger"
+			className={cn(className)}
+			{...props}
+		/>
+	);
 }
 
 /* -------------------------------------------------------------------------- */
