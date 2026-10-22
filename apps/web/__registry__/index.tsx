@@ -7384,15 +7384,15 @@ export const Registry: Record<string, any> = {
             name: "baseui-particles-menu-with-alert-dialog",
             description: "",
             type: "registry:component",
-            dependencies: [],
+            dependencies: ["lucide-react"],
             devDependencies: undefined,
-            registryDependencies: ["@craftdotui/baseui-menu"],
+            registryDependencies: ["@craftdotui/baseui-menu","@craftdotui/baseui-alert-dialog","@craftdotui/baseui-button"],
             files: [
   {
     "path": "packages/baseui/particles/menu/with-alert-dialog/index.tsx",
     "type": "registry:component",
     "target": "components/baseui/particles/menu-with-alert-dialog.tsx",
-    "content": ""
+    "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport { Trash2 } from \"lucide-react\";\nimport { Button } from \"@/components/baseui/components/button\";\nimport {\n\tAlertDialogClose,\n\tAlertDialogContent,\n\tAlertDialogDescription,\n\tAlertDialogFooter,\n\tAlertDialogHeader,\n\tAlertDialogRoot,\n\tAlertDialogTitle,\n} from \"@/components/baseui/components/alert-dialog\";\nimport {\n\tMenuItem,\n\tMenuPopup,\n\tMenuPortal,\n\tMenuPositioner,\n\tMenuRoot,\n\tMenuTrigger,\n} from \"@/components/baseui/components/menu\";\n\nexport function Particle() {\n\tconst [openDialog, setOpenDialog] = useState(false);\n\n\treturn (\n\t\t<>\n\t\t\t<MenuRoot>\n\t\t\t\t<MenuTrigger\n\t\t\t\t\trender={<Button variant=\"outline\">Open Menu</Button>}\n\t\t\t\t/>\n\t\t\t\t<MenuPortal>\n\t\t\t\t\t<MenuPositioner>\n\t\t\t\t\t\t<MenuPopup>\n\t\t\t\t\t\t\t<MenuItem>Profile</MenuItem>\n\t\t\t\t\t\t\t<MenuItem>Billing</MenuItem>\n\t\t\t\t\t\t\t<MenuItem\n\t\t\t\t\t\t\t\tclassName=\"text-destructive focus:text-destructive\"\n\t\t\t\t\t\t\t\tonClick={() => setOpenDialog(true)}\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t<Trash2 className=\"size-4\" />\n\t\t\t\t\t\t\t\tDelete account\n\t\t\t\t\t\t\t</MenuItem>\n\t\t\t\t\t\t</MenuPopup>\n\t\t\t\t\t</MenuPositioner>\n\t\t\t\t</MenuPortal>\n\t\t\t</MenuRoot>\n\n\t\t\t<AlertDialogRoot open={openDialog} onOpenChange={setOpenDialog}>\n\t\t\t\t<AlertDialogContent>\n\t\t\t\t\t<AlertDialogHeader>\n\t\t\t\t\t\t<AlertDialogTitle>Delete account</AlertDialogTitle>\n\t\t\t\t\t\t<AlertDialogDescription>\n\t\t\t\t\t\t\tAre you sure you want to delete your account? This\n\t\t\t\t\t\t\taction cannot be undone.\n\t\t\t\t\t\t</AlertDialogDescription>\n\t\t\t\t\t</AlertDialogHeader>\n\n\t\t\t\t\t<AlertDialogFooter>\n\t\t\t\t\t\t<AlertDialogClose render={<Button variant=\"outline\" />}>\n\t\t\t\t\t\t\tCancel\n\t\t\t\t\t\t</AlertDialogClose>\n\n\t\t\t\t\t\t<AlertDialogClose\n\t\t\t\t\t\t\trender={<Button variant=\"destructive\" />}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\tConfirm\n\t\t\t\t\t\t</AlertDialogClose>\n\t\t\t\t\t</AlertDialogFooter>\n\t\t\t\t</AlertDialogContent>\n\t\t\t</AlertDialogRoot>\n\t\t</>\n\t);\n}\n\nexport default Particle;"
   }
 ],
             keywords: [],
@@ -11348,7 +11348,7 @@ export const Registry: Record<string, any> = {
     "path": "packages/baseui/particles/tooltip/multiple-triggers/index.tsx",
     "type": "registry:component",
     "target": "components/baseui/particles/tooltip-multiple-triggers.tsx",
-    "content": ""
+    "content": "\"use client\";\n\nimport {\n\tTooltipRoot,\n\tTooltipPopup,\n\tTooltipPositioner,\n\tTooltipPortal,\n\tTooltipProvider,\n\tTooltipTrigger,\n\tcreateHandle,\n} from \"@/components/baseui/components/tooltip\";\nimport { Button } from \"@/components/baseui/components/button\";\nimport { HelpCircle, Info } from \"lucide-react\";\n\nconst sharedTooltip = createHandle();\n\nexport function Particle() {\n\treturn (\n\t\t<TooltipProvider>\n\t\t\t<div className=\"flex items-center gap-4\">\n\t\t\t\t<TooltipTrigger\n\t\t\t\t\thandle={sharedTooltip}\n\t\t\t\t\trender={\n\t\t\t\t\t\t<Button variant=\"outline\" size=\"icon\">\n\t\t\t\t\t\t\t<Info className=\"h-4 w-4\" />\n\t\t\t\t\t\t</Button>\n\t\t\t\t\t}\n\t\t\t\t/>\n\t\t\t\t<TooltipTrigger\n\t\t\t\t\thandle={sharedTooltip}\n\t\t\t\t\trender={\n\t\t\t\t\t\t<Button variant=\"outline\" size=\"icon\">\n\t\t\t\t\t\t\t<HelpCircle className=\"h-4 w-4\" />\n\t\t\t\t\t\t</Button>\n\t\t\t\t\t}\n\t\t\t\t/>\n\n\t\t\t\t<TooltipRoot handle={sharedTooltip}>\n\t\t\t\t\t<TooltipPortal>\n\t\t\t\t\t\t<TooltipPositioner sideOffset={8}>\n\t\t\t\t\t\t\t<TooltipPopup>\n\t\t\t\t\t\t\t\tTooltip triggered by multiple elements\n\t\t\t\t\t\t\t</TooltipPopup>\n\t\t\t\t\t\t</TooltipPositioner>\n\t\t\t\t\t</TooltipPortal>\n\t\t\t\t</TooltipRoot>\n\t\t\t</div>\n\t\t</TooltipProvider>\n\t);\n}\n\nexport default Particle;"
   }
 ],
             keywords: [],

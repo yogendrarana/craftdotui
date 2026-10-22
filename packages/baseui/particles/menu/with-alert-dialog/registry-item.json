@@ -3,8 +3,12 @@
 	"name": "baseui-particles-menu-with-alert-dialog",
 	"type": "registry:component",
 	"description": "",
-	"dependencies": [],
-	"registryDependencies": ["@craftdotui/baseui-menu"],
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/baseui-menu",
+		"@craftdotui/baseui-alert-dialog",
+		"@craftdotui/baseui-button"
+	],
 	"files": [
 		{
 			"path": "packages/baseui/particles/menu/with-alert-dialog/index.tsx",
