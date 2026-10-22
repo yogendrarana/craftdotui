@@ -15,6 +15,77 @@ author:
 
 <Installation name="baseui-combobox" />
 
+## Anatomy
+
+#### Composite
+
+```tsx
+<Combobox.Root items={items}>
+  <Combobox.InputGroup inputProps={{ placeholder: "Select framework..." }} />
+
+  <Combobox.Content>
+    <Combobox.Empty>No results found.</Combobox.Empty>
+    <Combobox.List>
+      {(item) => (
+        <Combobox.Item key={item.value} value={item}>
+          {item.label}
+        </Combobox.Item>
+      )}
+    </Combobox.List>
+  </Combobox.Content>
+</Combobox.Root>
+```
+
+#### Primitives (Base UI)
+
+```tsx
+<Combobox.Root>
+  <Combobox.Label />
+
+  <Combobox.InputGroup>
+    <Combobox.Input />
+    <Combobox.Trigger />
+    <Combobox.Icon />
+    <Combobox.Clear />
+    <Combobox.Value />
+
+    <Combobox.Chips>
+      <Combobox.Chip>
+        <Combobox.ChipRemove />
+      </Combobox.Chip>
+    </Combobox.Chips>
+  </Combobox.InputGroup>
+
+  <Combobox.Portal>
+    <Combobox.Backdrop />
+    <Combobox.Positioner>
+      <Combobox.Popup>
+        <Combobox.Arrow />
+
+        <Combobox.Status />
+        <Combobox.Empty />
+
+        <Combobox.List>
+          <Combobox.Row>
+            <Combobox.Item>
+              <Combobox.ItemIndicator />
+            </Combobox.Item>
+          </Combobox.Row>
+
+          <Combobox.Separator />
+
+          <Combobox.Group>
+            <Combobox.GroupLabel />
+          </Combobox.Group>
+
+          <Combobox.Collection />
+        </Combobox.List>
+      </Combobox.Popup>
+    </Combobox.Positioner>
+  </Combobox.Portal>
+</Combobox.Root>
+```
+
 ## Demo
 
 #### Sizes
@@ -59,6 +130,80 @@ author:
 
 ## Props
 
+#### ComboboxInputGroup
+
+<PropsTable
+  data={[
+    {
+      prop: "inputProps",
+      type: "ComboboxInputProps",
+      default: "undefined",
+      description: "Props forwarded to the ComboboxInput component",
+    },
+    {
+      prop: "startAddon",
+      type: "ReactNode",
+      default: "undefined",
+      description: "Start addon element to display before the input",
+    },
+    {
+      prop: "triggerProps",
+      type: "ComboboxPrimitive.Trigger.Props",
+      default: "undefined",
+      description: "Props forwarded to the ComboboxTrigger component",
+    },
+    {
+      prop: "showTrigger",
+      type: "boolean",
+      default: "false",
+      description: "If true, shows a dropdown trigger chevron button",
+    },
+    {
+      prop: "clearProps",
+      type: "ComboboxPrimitive.Clear.Props",
+      default: "undefined",
+      description: "Props forwarded to the ComboboxClear component",
+    },
+    {
+      prop: "showClear",
+      type: "boolean",
+      default: "false",
+      description: "If true, shows a clear button",
+    },
+  ]}
+/>
+
+#### ComboboxContent
+
+<PropsTable
+  data={[
+    {
+      prop: "hasBackdrop",
+      type: "boolean",
+      default: "false",
+      description: "If true, shows a backdrop behind the popup",
+    },
+    {
+      prop: "portalProps",
+      type: "ComboboxPrimitive.Portal.Props",
+      default: "undefined",
+      description: "Props forwarded to the Portal primitive",
+    },
+    {
+      prop: "backdropProps",
+      type: "ComboboxPrimitive.Backdrop.Props",
+      default: "undefined",
+      description: "Props forwarded to the Backdrop primitive",
+    },
+    {
+      prop: "positionerProps",
+      type: "ComboboxPrimitive.Positioner.Props",
+      default: "undefined",
+      description: "Props forwarded to the Positioner primitive",
+    },
+  ]}
+/>
+
 #### ComboboxInput
 
 <PropsTable
@@ -70,28 +215,28 @@ author:
       description: "The size of the input",
     },
     {
-      prop: "showClear",
-      type: "boolean",
-      default: "false",
-      description: "If true, shows a clear button to reset the selection",
+      prop: "variant",
+      type: '"default" | "error" | "success"',
+      default: '"default"',
+      description: "The visual variant of the input",
     },
     {
-      prop: "showTrigger",
+      prop: "hasStartAddon",
       type: "boolean",
       default: "false",
-      description: "If true, shows a trigger button to open the dropdown",
+      description: "Adds padding for a start addon icon",
     },
     {
-      prop: "startAddon",
-      type: "ReactNode",
-      default: "null",
-      description: "Provide startAddon like search icon to show on the front",
-    },
-    {
-      prop: "autoHighlight",
+      prop: "hasClear",
       type: "boolean",
       default: "false",
-      description: "If true, highlights the first option on open",
+      description: "Adds padding for a clear button",
+    },
+    {
+      prop: "hasTrigger",
+      type: "boolean",
+      default: "false",
+      description: "Adds padding for a dropdown trigger button",
     },
   ]}
 />

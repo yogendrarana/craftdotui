@@ -4,7 +4,8 @@ import * as React from "react";
 import { Loader2 } from "lucide-react";
 import {
 	ComboboxRoot,
-	ComboboxInput,
+	ComboboxLabel,
+	ComboboxInputGroup,
 	ComboboxPositioner,
 	ComboboxPopup,
 	ComboboxList,
@@ -125,14 +126,13 @@ export default function Particle() {
 				filter={null}
 			>
 				<div className="flex flex-col gap-2">
-					<label htmlFor="fw-search" className="text-sm font-medium">
-						Frameworks
-					</label>
-					<ComboboxInput
-						id="fw-search"
-						placeholder="Start typing..."
-						showClear
-						showTrigger
+					<ComboboxLabel>Frameworks</ComboboxLabel>
+					<ComboboxInputGroup
+						inputProps={{
+							placeholder: "Start typing...",
+						}}
+						clearProps={{}}
+						triggerProps={{}}
 						className="w-full"
 					/>
 				</div>
@@ -144,9 +144,7 @@ export default function Particle() {
 								className="p-0 overflow-hidden h-fit"
 								aria-busy={isPending}
 							>
-								<ComboboxStatus className="empty:hidden">
-									{getStatus()}
-								</ComboboxStatus>
+								<ComboboxStatus>{getStatus()}</ComboboxStatus>
 								<ComboboxEmpty className="p-4">
 									Try a different search term.
 								</ComboboxEmpty>

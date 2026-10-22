@@ -117,10 +117,22 @@ author:
       description: "Props forwarded to the AutocompleteInput component",
     },
     {
-      prop: "iconProps",
-      type: "AutocompletePrimitive.Icon.Props",
+      prop: "startAddon",
+      type: "ReactNode",
       default: "undefined",
-      description: "Props forwarded to the AutocompleteIcon component",
+      description: "Start addon element to display before the input",
+    },
+    {
+      prop: "triggerProps",
+      type: "AutocompletePrimitive.Trigger.Props",
+      default: "undefined",
+      description: "Props forwarded to the AutocompleteTrigger component",
+    },
+    {
+      prop: "showTrigger",
+      type: "boolean",
+      default: "false",
+      description: "If true, shows a dropdown trigger chevron button",
     },
     {
       prop: "clearProps",
@@ -129,10 +141,10 @@ author:
       description: "Props forwarded to the AutocompleteClear component",
     },
     {
-      prop: "triggerProps",
-      type: "AutocompletePrimitive.Trigger.Props",
-      default: "undefined",
-      description: "Props forwarded to the AutocompleteTrigger component",
+      prop: "showClear",
+      type: "boolean",
+      default: "false",
+      description: "If true, shows a clear button",
     },
   ]}
 />
@@ -164,6 +176,43 @@ author:
       type: "AutocompletePrimitive.Positioner.Props",
       default: "undefined",
       description: "Props forwarded to the Positioner primitive",
+    },
+  ]}
+/>
+
+#### AutocompleteInput
+
+<PropsTable
+  data={[
+    {
+      prop: "size",
+      type: '"sm" | "md" | "lg"',
+      default: '"md"',
+      description: "The size of the input",
+    },
+    {
+      prop: "variant",
+      type: '"default" | "error" | "success"',
+      default: '"default"',
+      description: "The visual variant of the input",
+    },
+    {
+      prop: "hasStartAddon",
+      type: "boolean",
+      default: "false",
+      description: "Adds padding for a start addon icon",
+    },
+    {
+      prop: "hasClear",
+      type: "boolean",
+      default: "false",
+      description: "Adds padding for a clear button",
+    },
+    {
+      prop: "hasTrigger",
+      type: "boolean",
+      default: "false",
+      description: "Adds padding for a dropdown trigger button",
     },
   ]}
 />

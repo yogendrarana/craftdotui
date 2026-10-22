@@ -54,7 +54,8 @@
 				"**/dist/**",
 				"**/build/**",
 				"**/out/**",
-				"**/.turbo/**"
+				"**/.turbo/**",
+				"**/__registry__/**"
 			],
 			"formatter": {
 				"enabled": false

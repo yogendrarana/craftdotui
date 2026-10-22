@@ -2,12 +2,10 @@
 
 import {
 	ComboboxRoot,
-	ComboboxInput,
-	ComboboxPositioner,
-	ComboboxPopup,
+	ComboboxInputGroup,
+	ComboboxContent,
 	ComboboxList,
 	ComboboxItem,
-	ComboboxPortal,
 	ComboboxGroup,
 	ComboboxGroupLabel,
 	ComboboxSeparator,
@@ -48,41 +46,40 @@ export default function Particle() {
 	return (
 		<div className="max-w-64">
 			<ComboboxRoot items={foodGroups}>
-				<ComboboxInput placeholder="Select food..." showTrigger />
+				<ComboboxInputGroup
+					inputProps={{ placeholder: "Select food..." }}
+					triggerProps={{}}
+				/>
 
-				<ComboboxPortal>
-					<ComboboxPositioner>
-						<ComboboxPopup>
-							<ComboboxEmpty>
-								<p>Fruit not found.</p>
-							</ComboboxEmpty>
-							<ComboboxList>
-								{(group: FoodGroup) => (
-									<div key={group.label}>
-										<ComboboxGroup items={group.items}>
-											<ComboboxGroupLabel>
-												{group.label}
-											</ComboboxGroupLabel>
-											<ComboboxCollection>
-												{(item: Food) => (
-													<ComboboxItem
-														key={item.value}
-														value={item}
-													>
-														{item.label}
-													</ComboboxItem>
-												)}
-											</ComboboxCollection>
-										</ComboboxGroup>
-										{group.label === "Fruits" && (
-											<ComboboxSeparator />
+				<ComboboxContent>
+					<ComboboxEmpty>
+						<p>Fruit not found.</p>
+					</ComboboxEmpty>
+					<ComboboxList>
+						{(group: FoodGroup) => (
+							<div key={group.label}>
+								<ComboboxGroup items={group.items}>
+									<ComboboxGroupLabel>
+										{group.label}
+									</ComboboxGroupLabel>
+									<ComboboxCollection>
+										{(item: Food) => (
+											<ComboboxItem
+												key={item.value}
+												value={item}
+											>
+												{item.label}
+											</ComboboxItem>
 										)}
-									</div>
+									</ComboboxCollection>
+								</ComboboxGroup>
+								{group.label === "Fruits" && (
+									<ComboboxSeparator />
 								)}
-							</ComboboxList>
-						</ComboboxPopup>
-					</ComboboxPositioner>
-				</ComboboxPortal>
+							</div>
+						)}
+					</ComboboxList>
+				</ComboboxContent>
 			</ComboboxRoot>
 		</div>
 	);

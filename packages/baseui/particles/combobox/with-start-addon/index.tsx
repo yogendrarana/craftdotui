@@ -3,12 +3,10 @@
 import { Search } from "lucide-react";
 import {
 	ComboboxRoot,
-	ComboboxInput,
-	ComboboxPositioner,
-	ComboboxPopup,
+	ComboboxInputGroup,
+	ComboboxContent,
 	ComboboxList,
 	ComboboxItem,
-	ComboboxPortal,
 	ComboboxEmpty,
 } from "@craftdotui/baseui/components/combobox";
 
@@ -29,31 +27,24 @@ export default function Particle() {
 	return (
 		<div className="max-w-64">
 			<ComboboxRoot items={fruits}>
-				<ComboboxInput
-					placeholder="Search fruits..."
+				<ComboboxInputGroup
+					inputProps={{ placeholder: "Search fruits..." }}
 					startAddon={<Search className="size-4" />}
-					showTrigger
+					triggerProps={{}}
 				/>
 
-				<ComboboxPortal>
-					<ComboboxPositioner>
-						<ComboboxPopup>
-							<ComboboxEmpty>
-								<p>Fruit not found.</p>
-							</ComboboxEmpty>
-							<ComboboxList>
-								{(fruit: Fruit) => (
-									<ComboboxItem
-										key={fruit.value}
-										value={fruit}
-									>
-										{fruit.label}
-									</ComboboxItem>
-								)}
-							</ComboboxList>
-						</ComboboxPopup>
-					</ComboboxPositioner>
-				</ComboboxPortal>
+				<ComboboxContent>
+					<ComboboxEmpty>
+						<p>Fruit not found.</p>
+					</ComboboxEmpty>
+					<ComboboxList>
+						{(fruit: Fruit) => (
+							<ComboboxItem key={fruit.value} value={fruit}>
+								{fruit.label}
+							</ComboboxItem>
+						)}
+					</ComboboxList>
+				</ComboboxContent>
 			</ComboboxRoot>
 		</div>
 	);

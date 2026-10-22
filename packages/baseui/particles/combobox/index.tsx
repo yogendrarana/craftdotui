@@ -2,12 +2,10 @@
 
 import {
 	ComboboxRoot,
-	ComboboxInput,
-	ComboboxPositioner,
-	ComboboxPopup,
+	ComboboxInputGroup,
+	ComboboxContent,
 	ComboboxList,
 	ComboboxItem,
-	ComboboxPortal,
 	ComboboxEmpty,
 } from "@craftdotui/baseui/components/combobox";
 
@@ -27,29 +25,23 @@ export function Particle() {
 	return (
 		<div className="max-w-64">
 			<ComboboxRoot items={frameworks}>
-				<ComboboxInput
-					placeholder="Select framework…"
-					showClear
-					showTrigger
+				<ComboboxInputGroup
+					inputProps={{ placeholder: "Select framework…" }}
 				/>
 
-				<ComboboxPortal>
-					<ComboboxPositioner>
-						<ComboboxPopup>
-							<ComboboxEmpty>
-								<p>No results found.</p>
-							</ComboboxEmpty>
+				<ComboboxContent>
+					<ComboboxEmpty>
+						<p>No results found.</p>
+					</ComboboxEmpty>
 
-							<ComboboxList>
-								{(item: Framework) => (
-									<ComboboxItem key={item.value} value={item}>
-										{item.label}
-									</ComboboxItem>
-								)}
-							</ComboboxList>
-						</ComboboxPopup>
-					</ComboboxPositioner>
-				</ComboboxPortal>
+					<ComboboxList>
+						{(item: Framework) => (
+							<ComboboxItem key={item.value} value={item}>
+								{item.label}
+							</ComboboxItem>
+						)}
+					</ComboboxList>
+				</ComboboxContent>
 			</ComboboxRoot>
 		</div>
 	);

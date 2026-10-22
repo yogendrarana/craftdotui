@@ -43,60 +43,130 @@ function ComboboxRoot<Value, Multiple extends boolean | undefined = false>({
 }
 
 /* -------------------------------------------------------------------------- */
+/* Combobox Label                                                             */
+/* -------------------------------------------------------------------------- */
+
+type ComboboxLabelProps = ComboboxPrimitive.Label.Props;
+
+function ComboboxLabel({ className, ...props }: ComboboxLabelProps) {
+	return (
+		<ComboboxPrimitive.Label
+			data-slot="combobox-label"
+			className={cn("text-sm font-medium text-foreground", className)}
+			{...props}
+		/>
+	);
+}
+
+/* -------------------------------------------------------------------------- */
 /* Combobox Input                                                             */
 /* -------------------------------------------------------------------------- */
 
 type ComboboxInputInterface = Omit<ComboboxPrimitive.Input.Props, "size"> & {
 	size?: VariantProps<typeof inputVariants>["size"];
-	showClear?: boolean;
-	showTrigger?: boolean;
-	startAddon?: React.ReactNode;
+	variant?: VariantProps<typeof inputVariants>["variant"];
+	hasStartAddon?: boolean;
+	hasClear?: boolean;
+	hasTrigger?: boolean;
 };
+
+type ComboboxInputProps = ComboboxInputInterface;
 
 function ComboboxInput({
 	className,
 	size = "md",
-	showClear = false,
-	showTrigger = false,
-	startAddon,
+	variant,
+	hasStartAddon = false,
+	hasClear = false,
+	hasTrigger = false,
 	...props
-}: ComboboxInputInterface) {
+}: ComboboxInputProps) {
 	return (
-		<div className="relative w-full not-has-[>*.w-full]:w-fit">
+		<ComboboxPrimitive.Input
+			data-slot="combobox-input"
+			className={cn(
+				hasStartAddon && "pl-10",
+				hasClear && hasTrigger
+					? "pr-16"
+					: hasClear || hasTrigger
+						? "pr-10"
+						: "",
+				className,
+			)}
+			render={<Input size={size} variant={variant} />}
+			{...props}
+		/>
+	);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Combobox Input Group (Composite Component)                                 */
+/* -------------------------------------------------------------------------- */
+
+interface ComboboxInputGroupProps
+	extends Omit<ComboboxPrimitive.InputGroup.Props, "children"> {
+	inputProps?: ComboboxInputProps;
+	startAddon?: React.ReactNode;
+	showTrigger?: boolean;
+	triggerProps?: ComboboxPrimitive.Trigger.Props;
+	showClear?: boolean;
+	clearProps?: ComboboxPrimitive.Clear.Props;
+}
+
+type ComboboxInputGroupInterface = ComboboxInputGroupProps;
+
+function ComboboxInputGroup({
+	inputProps,
+	className,
+	startAddon,
+	triggerProps,
+	showTrigger = false,
+	clearProps,
+	showClear = false,
+	...props
+}: ComboboxInputGroupProps): React.ReactElement {
+	const hasClear = Boolean(clearProps) || showClear;
+	const hasTrigger = Boolean(triggerProps) || showTrigger;
+	const hasStartAddon = Boolean(startAddon);
+
+	return (
+		<ComboboxPrimitive.InputGroup
+			data-slot="combobox-input-group"
+			className={cn(
+				"relative w-full not-has-[>*.w-full]:w-fit",
+				className,
+			)}
+			{...props}
+		>
 			{startAddon && (
-				<div className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+				<div className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none z-10">
 					{startAddon}
 				</div>
 			)}
 
-			<ComboboxPrimitive.Input
-				data-slot="combobox-input"
-				className={cn(
-					startAddon && "pl-10",
-					showClear && showTrigger
-						? "pr-16"
-						: showClear || showTrigger
-							? "pr-10"
-							: "",
-					className,
-				)}
-				render={<Input size={size} />}
-				{...props}
+			<ComboboxInput
+				hasStartAddon={hasStartAddon}
+				hasClear={hasClear}
+				hasTrigger={hasTrigger}
+				{...inputProps}
 			/>
 
-			<div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-0.5">
-				{showClear && (
-					<ComboboxClear>
-						<X className="size-4" />
-					</ComboboxClear>
-				)}
-				{showTrigger && (
-					<ComboboxTrigger>
-						<ComboboxIcon />
-					</ComboboxTrigger>
-				)}
-			</div>
-		</div>
+			{(hasClear || hasTrigger) && (
+				<div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-0.5">
+					{hasClear && (
+						<ComboboxClear {...clearProps}>
+							{clearProps?.children ?? <X className="size-4" />}
+						</ComboboxClear>
+					)}
+
+					{hasTrigger && (
+						<ComboboxTrigger {...triggerProps}>
+							{triggerProps?.children ?? <ComboboxIcon />}
+						</ComboboxTrigger>
+					)}
+				</div>
+			)}
+		</ComboboxPrimitive.InputGroup>
 	);
 }
 
@@ -107,9 +177,16 @@ function ComboboxInput({
 function ComboboxTrigger({
 	className,
 	...props
-}: React.ComponentProps<typeof ComboboxPrimitive.Trigger>) {
+}: ComboboxPrimitive.Trigger.Props) {
 	return (
-		<ComboboxPrimitive.Trigger data-slot="combobox-trigger" {...props} />
+		<ComboboxPrimitive.Trigger
+			data-slot="combobox-trigger"
+			className={cn(
+				"p-1 text-muted-foreground hover:text-foreground transition-colors cursor-pointer",
+				className,
+			)}
+			{...props}
+		/>
 	);
 }
 
@@ -119,14 +196,17 @@ function ComboboxTrigger({
 
 function ComboboxIcon({
 	className,
+	children,
 	...props
-}: React.HTMLAttributes<SVGSVGElement>) {
+}: ComboboxPrimitive.Icon.Props) {
 	return (
-		<ChevronsUpDown
+		<ComboboxPrimitive.Icon
 			data-slot="combobox-icon"
 			className={cn("size-4 opacity-70", className)}
 			{...props}
-		/>
+		>
+			{children ?? <ChevronsUpDown className="size-4" />}
+		</ComboboxPrimitive.Icon>
 	);
 }
 
@@ -191,7 +271,7 @@ function ComboboxBackdrop({
 
 function ComboboxPositioner({
 	className,
-	sideOffset = 8,
+	sideOffset = 4,
 	...props
 }: ComboboxPrimitive.Positioner.Props) {
 	return (
@@ -502,11 +582,51 @@ function ComboboxChipsInput({
 }
 
 /* -------------------------------------------------------------------------- */
+/* Combobox Content (Composite Component)                                     */
+/* -------------------------------------------------------------------------- */
+
+interface ComboboxContentProps extends ComboboxPrimitive.Popup.Props {
+	hasBackdrop?: boolean;
+	className?: string;
+	children?: React.ReactNode;
+	portalProps?: ComboboxPrimitive.Portal.Props;
+	backdropProps?: ComboboxPrimitive.Backdrop.Props;
+	positionerProps?: ComboboxPrimitive.Positioner.Props;
+}
+
+type ComboboxContentInterface = ComboboxContentProps;
+
+function ComboboxContent({
+	className,
+	children,
+	hasBackdrop = false,
+	portalProps,
+	backdropProps,
+	positionerProps = { sideOffset: 4 },
+	...props
+}: ComboboxContentProps) {
+	return (
+		<ComboboxPortal {...portalProps}>
+			{hasBackdrop && <ComboboxBackdrop {...backdropProps} />}
+			<ComboboxPositioner sideOffset={4} {...positionerProps}>
+				<ComboboxPopup className={className} {...props}>
+					{children}
+				</ComboboxPopup>
+			</ComboboxPositioner>
+		</ComboboxPortal>
+	);
+}
+
+/* -------------------------------------------------------------------------- */
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
+const useFilter = ComboboxPrimitive.useFilter;
+
 export const Combobox = {
 	Root: ComboboxRoot,
+	Label: ComboboxLabel,
+	InputGroup: ComboboxInputGroup,
 	Input: ComboboxInput,
 	Trigger: ComboboxTrigger,
 	Icon: ComboboxIcon,
@@ -517,6 +637,7 @@ export const Combobox = {
 	Positioner: ComboboxPositioner,
 	Popup: ComboboxPopup,
 	Arrow: ComboboxArrow,
+	Content: ComboboxContent,
 	List: ComboboxList,
 	Item: ComboboxItem,
 	ItemIndicator: ComboboxItemIndicator,
@@ -531,12 +652,13 @@ export const Combobox = {
 	Chip: ComboboxChip,
 	ChipRemove: ComboboxChipRemove,
 	ChipsInput: ComboboxChipsInput,
+	useFilter,
 };
-
-const useFilter = ComboboxPrimitive.useFilter;
 
 export {
 	ComboboxRoot,
+	ComboboxLabel,
+	ComboboxInputGroup,
 	ComboboxInput,
 	ComboboxTrigger,
 	ComboboxIcon,
@@ -547,6 +669,7 @@ export {
 	ComboboxPositioner,
 	ComboboxPopup,
 	ComboboxArrow,
+	ComboboxContent,
 	ComboboxList,
 	ComboboxItem,
 	ComboboxItemIndicator,
@@ -562,4 +685,12 @@ export {
 	ComboboxChipRemove,
 	ComboboxChipsInput,
 	useFilter,
+	type ComboboxRootInterface,
+	type ComboboxLabelProps,
+	type ComboboxInputGroupProps,
+	type ComboboxInputGroupInterface,
+	type ComboboxInputProps,
+	type ComboboxInputInterface,
+	type ComboboxContentProps,
+	type ComboboxContentInterface,
 };

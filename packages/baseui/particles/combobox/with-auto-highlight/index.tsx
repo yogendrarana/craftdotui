@@ -2,12 +2,10 @@
 
 import {
 	ComboboxRoot,
-	ComboboxInput,
-	ComboboxPositioner,
-	ComboboxPopup,
+	ComboboxInputGroup,
+	ComboboxContent,
 	ComboboxList,
 	ComboboxItem,
-	ComboboxPortal,
 	ComboboxEmpty,
 } from "@craftdotui/baseui/components/combobox";
 
@@ -28,26 +26,22 @@ export default function Particle() {
 	return (
 		<div className="max-w-64">
 			<ComboboxRoot autoHighlight items={items}>
-				<ComboboxInput
-					placeholder="Auto highlight enabled..."
-					showTrigger
+				<ComboboxInputGroup
+					inputProps={{ placeholder: "Auto highlight enabled..." }}
+					triggerProps={{}}
 				/>
 
-				<ComboboxPortal>
-					<ComboboxPositioner>
-						<ComboboxPopup>
-							<ComboboxEmpty>No results found.</ComboboxEmpty>
+				<ComboboxContent>
+					<ComboboxEmpty>No results found.</ComboboxEmpty>
 
-							<ComboboxList>
-								{(item) => (
-									<ComboboxItem key={item.value} value={item}>
-										{item.label}
-									</ComboboxItem>
-								)}
-							</ComboboxList>
-						</ComboboxPopup>
-					</ComboboxPositioner>
-				</ComboboxPortal>
+					<ComboboxList>
+						{(item) => (
+							<ComboboxItem key={item.value} value={item}>
+								{item.label}
+							</ComboboxItem>
+						)}
+					</ComboboxList>
+				</ComboboxContent>
 			</ComboboxRoot>
 		</div>
 	);

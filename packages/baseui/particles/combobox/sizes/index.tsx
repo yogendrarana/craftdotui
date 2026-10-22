@@ -2,12 +2,10 @@
 
 import {
 	ComboboxRoot,
-	ComboboxInput,
-	ComboboxPositioner,
-	ComboboxPopup,
+	ComboboxInputGroup,
+	ComboboxContent,
 	ComboboxList,
 	ComboboxItem,
-	ComboboxPortal,
 	ComboboxEmpty,
 } from "@craftdotui/baseui/components/combobox";
 
@@ -46,29 +44,24 @@ export default function Particle() {
 				</span>
 				<ComboboxRoot items={statuses} id="small">
 					<div className="w-64">
-						<ComboboxInput
-							size="sm"
-							placeholder="Select status..."
-							showTrigger
+						<ComboboxInputGroup
+							inputProps={{
+								size: "sm",
+								placeholder: "Select status...",
+							}}
+							triggerProps={{}}
 						/>
 					</div>
-					<ComboboxPortal>
-						<ComboboxPositioner>
-							<ComboboxPopup>
-								<ComboboxEmpty>No results found</ComboboxEmpty>
-								<ComboboxList>
-									{(item: Option) => (
-										<ComboboxItem
-											value={item}
-											key={item.value}
-										>
-											{item.label}
-										</ComboboxItem>
-									)}
-								</ComboboxList>
-							</ComboboxPopup>
-						</ComboboxPositioner>
-					</ComboboxPortal>
+					<ComboboxContent>
+						<ComboboxEmpty>No results found</ComboboxEmpty>
+						<ComboboxList>
+							{(item: Option) => (
+								<ComboboxItem value={item} key={item.value}>
+									{item.label}
+								</ComboboxItem>
+							)}
+						</ComboboxList>
+					</ComboboxContent>
 				</ComboboxRoot>
 			</div>
 
@@ -78,29 +71,24 @@ export default function Particle() {
 				</span>
 				<ComboboxRoot items={fruits} id="medium">
 					<div className="w-64">
-						<ComboboxInput
-							size="md"
-							placeholder="Select fruit..."
-							showTrigger
+						<ComboboxInputGroup
+							inputProps={{
+								size: "md",
+								placeholder: "Select fruit...",
+							}}
+							triggerProps={{}}
 						/>
 					</div>
-					<ComboboxPortal>
-						<ComboboxPositioner>
-							<ComboboxPopup>
-								<ComboboxEmpty>No results found</ComboboxEmpty>
-								<ComboboxList>
-									{(item: Option) => (
-										<ComboboxItem
-											value={item}
-											key={item.value}
-										>
-											{item.label}
-										</ComboboxItem>
-									)}
-								</ComboboxList>
-							</ComboboxPopup>
-						</ComboboxPositioner>
-					</ComboboxPortal>
+					<ComboboxContent>
+						<ComboboxEmpty>No results found</ComboboxEmpty>
+						<ComboboxList>
+							{(item: Option) => (
+								<ComboboxItem value={item} key={item.value}>
+									{item.label}
+								</ComboboxItem>
+							)}
+						</ComboboxList>
+					</ComboboxContent>
 				</ComboboxRoot>
 			</div>
 
@@ -110,29 +98,24 @@ export default function Particle() {
 				</span>
 				<ComboboxRoot items={languages} id="large">
 					<div className="w-64">
-						<ComboboxInput
-							size="lg"
-							placeholder="Select language..."
-							showTrigger
+						<ComboboxInputGroup
+							inputProps={{
+								size: "lg",
+								placeholder: "Select language...",
+							}}
+							triggerProps={{}}
 						/>
 					</div>
-					<ComboboxPortal>
-						<ComboboxPositioner>
-							<ComboboxPopup>
-								<ComboboxEmpty>No results found</ComboboxEmpty>
-								<ComboboxList>
-									{(item: Option) => (
-										<ComboboxItem
-											value={item}
-											key={item.value}
-										>
-											{item.label}
-										</ComboboxItem>
-									)}
-								</ComboboxList>
-							</ComboboxPopup>
-						</ComboboxPositioner>
-					</ComboboxPortal>
+					<ComboboxContent>
+						<ComboboxEmpty>No results found</ComboboxEmpty>
+						<ComboboxList>
+							{(item: Option) => (
+								<ComboboxItem value={item} key={item.value}>
+									{item.label}
+								</ComboboxItem>
+							)}
+						</ComboboxList>
+					</ComboboxContent>
 				</ComboboxRoot>
 			</div>
 		</div>

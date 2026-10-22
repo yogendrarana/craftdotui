@@ -29,7 +29,7 @@ export default function Particle() {
 			<AutocompleteRoot items={fruits}>
 				<AutocompleteInputGroup
 					inputProps={{ placeholder: "Search fruits..." }}
-					iconProps={{ children: <Search className="size-4" /> }}
+					startAddon={<Search className="size-4" />}
 				/>
 				<AutocompleteContent>
 					<AutocompleteEmpty>No fruits found.</AutocompleteEmpty>

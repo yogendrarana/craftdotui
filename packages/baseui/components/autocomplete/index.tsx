@@ -24,9 +24,9 @@ type AutocompleteInputInterface = Omit<
 > & {
 	size?: VariantProps<typeof inputVariants>["size"];
 	variant?: VariantProps<typeof inputVariants>["variant"];
-	startAddon?: boolean;
-	showClear?: boolean;
-	showTrigger?: boolean;
+	hasStartAddon?: boolean;
+	hasClear?: boolean;
+	hasTrigger?: boolean;
 };
 
 type AutocompleteInputProps = AutocompleteInputInterface;
@@ -35,19 +35,19 @@ function AutocompleteInput({
 	className,
 	size = "md",
 	variant,
-	startAddon = false,
-	showClear = false,
-	showTrigger = false,
+	hasStartAddon = false,
+	hasClear = false,
+	hasTrigger = false,
 	...props
 }: AutocompleteInputProps) {
 	return (
 		<AutocompletePrimitive.Input
 			data-slot="autocomplete-input"
 			className={cn(
-				startAddon && "pl-10",
-				showClear && showTrigger
+				hasStartAddon && "pl-10",
+				hasClear && hasTrigger
 					? "pr-16"
-					: showClear || showTrigger
+					: hasClear || hasTrigger
 						? "pr-10"
 						: "",
 				className,
@@ -63,24 +63,31 @@ function AutocompleteInput({
 /* -------------------------------------------------------------------------- */
 
 interface AutocompleteInputGroupProps
-	extends AutocompletePrimitive.InputGroup.Props {
+	extends Omit<AutocompletePrimitive.InputGroup.Props, "children"> {
 	inputProps?: AutocompleteInputProps;
-	iconProps?: AutocompletePrimitive.Icon.Props;
-	clearProps?: AutocompletePrimitive.Clear.Props;
+	startAddon?: React.ReactNode;
 	triggerProps?: AutocompletePrimitive.Trigger.Props;
+	showTrigger?: boolean;
+	clearProps?: AutocompletePrimitive.Clear.Props;
+	showClear?: boolean;
 }
 
 type AutocompleteInputGroupInterface = AutocompleteInputGroupProps;
 
 function AutocompleteInputGroup({
-	className,
-	children,
 	inputProps,
-	iconProps,
-	clearProps,
+	className,
+	startAddon,
 	triggerProps,
+	showTrigger = false,
+	clearProps,
+	showClear = false,
 	...props
 }: AutocompleteInputGroupProps): React.ReactElement {
+	const hasClear = Boolean(clearProps) || showClear;
+	const hasTrigger = Boolean(triggerProps) || showTrigger;
+	const hasStartAddon = Boolean(startAddon);
+
 	return (
 		<AutocompletePrimitive.InputGroup
 			data-slot="autocomplete-input-group"
@@ -90,32 +97,30 @@ function AutocompleteInputGroup({
 			)}
 			{...props}
 		>
-			{iconProps && (
-				<AutocompleteIcon {...iconProps}>
-					{iconProps.children ?? <Search className="size-4" />}
-				</AutocompleteIcon>
+			{startAddon && (
+				<div className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none z-10">
+					{startAddon}
+				</div>
 			)}
 
-			{children ?? (
-				<AutocompleteInput
-					startAddon={Boolean(iconProps)}
-					showClear={Boolean(clearProps)}
-					showTrigger={Boolean(triggerProps)}
-					{...inputProps}
-				/>
-			)}
+			<AutocompleteInput
+				hasStartAddon={hasStartAddon}
+				hasClear={hasClear}
+				hasTrigger={hasTrigger}
+				{...inputProps}
+			/>
 
-			{(clearProps || triggerProps) && (
+			{(hasClear || hasTrigger) && (
 				<div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-0.5">
-					{clearProps && (
+					{hasClear && (
 						<AutocompleteClear {...clearProps}>
-							{clearProps.children ?? <X className="size-4" />}
+							{clearProps?.children ?? <X className="size-4" />}
 						</AutocompleteClear>
 					)}
 
-					{triggerProps && (
+					{hasTrigger && (
 						<AutocompleteTrigger {...triggerProps}>
-							{triggerProps.children ?? (
+							{triggerProps?.children ?? (
 								<ChevronsUpDown className="size-4" />
 							)}
 						</AutocompleteTrigger>
@@ -314,40 +319,6 @@ function AutocompleteArrow({
 }
 
 /* -------------------------------------------------------------------------- */
-/* Autocomplete Content (Composite Component)                                 */
-/* -------------------------------------------------------------------------- */
-
-interface AutocompleteContentProps extends AutocompletePrimitive.Popup.Props {
-	hasBackdrop?: boolean;
-	className?: string;
-	children?: React.ReactNode;
-	portalProps?: AutocompletePrimitive.Portal.Props;
-	backdropProps?: AutocompletePrimitive.Backdrop.Props;
-	positionerProps?: AutocompletePrimitive.Positioner.Props;
-}
-
-function AutocompleteContent({
-	className,
-	children,
-	hasBackdrop = false,
-	portalProps,
-	backdropProps,
-	positionerProps = { sideOffset: 4 },
-	...props
-}: AutocompleteContentProps) {
-	return (
-		<AutocompletePortal {...portalProps}>
-			{hasBackdrop && <AutocompleteBackdrop {...backdropProps} />}
-			<AutocompletePositioner sideOffset={4} {...positionerProps}>
-				<AutocompletePopup className={className} {...props}>
-					{children}
-				</AutocompletePopup>
-			</AutocompletePositioner>
-		</AutocompletePortal>
-	);
-}
-
-/* -------------------------------------------------------------------------- */
 /* AutocompleteList                                                           */
 /* -------------------------------------------------------------------------- */
 
@@ -526,6 +497,40 @@ function AutocompleteStatus({
 		>
 			{children}
 		</AutocompletePrimitive.Status>
+	);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Autocomplete Content (Composite Component)                                 */
+/* -------------------------------------------------------------------------- */
+
+interface AutocompleteContentProps extends AutocompletePrimitive.Popup.Props {
+	hasBackdrop?: boolean;
+	className?: string;
+	children?: React.ReactNode;
+	portalProps?: AutocompletePrimitive.Portal.Props;
+	backdropProps?: AutocompletePrimitive.Backdrop.Props;
+	positionerProps?: AutocompletePrimitive.Positioner.Props;
+}
+
+function AutocompleteContent({
+	className,
+	children,
+	hasBackdrop = false,
+	portalProps,
+	backdropProps,
+	positionerProps = { sideOffset: 4 },
+	...props
+}: AutocompleteContentProps) {
+	return (
+		<AutocompletePortal {...portalProps}>
+			{hasBackdrop && <AutocompleteBackdrop {...backdropProps} />}
+			<AutocompletePositioner sideOffset={4} {...positionerProps}>
+				<AutocompletePopup className={className} {...props}>
+					{children}
+				</AutocompletePopup>
+			</AutocompletePositioner>
+		</AutocompletePortal>
 	);
 }
 
