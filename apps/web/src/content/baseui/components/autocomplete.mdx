@@ -20,44 +20,60 @@ author:
 #### Composite
 
 ```tsx
-<AutocompleteRoot items={items}>
-  <AutocompleteInput placeholder="Search..." />
+<Autocomplete.Root items={items}>
+  <Autocomplete.InputGroup inputProps={{ placeholder: "Search..." }} />
 
-  <AutocompleteContent>
-    <AutocompleteEmpty>No results found.</AutocompleteEmpty>
-    <AutocompleteList>
+  <Autocomplete.Content>
+    <Autocomplete.Empty>No results found.</Autocomplete.Empty>
+    <Autocomplete.List>
       {(item) => (
-        <AutocompleteItem key={item.id} value={item}>
+        <Autocomplete.Item key={item.id} value={item}>
           {item.label}
-        </AutocompleteItem>
+        </Autocomplete.Item>
       )}
-    </AutocompleteList>
-  </AutocompleteContent>
-</AutocompleteRoot>
+    </Autocomplete.List>
+  </Autocomplete.Content>
+</Autocomplete.Root>
 ```
 
-#### Primitives
+#### Primitives (Base UI)
 
 ```tsx
-<AutocompleteRoot items={items}>
-  <AutocompleteInput placeholder="Search..." />
+<Autocomplete.Root>
+  <Autocomplete.InputGroup>
+    <Autocomplete.Input />
+    <Autocomplete.Trigger />
+    <Autocomplete.Icon />
+    <Autocomplete.Clear />
+    <Autocomplete.Value />
+  </Autocomplete.InputGroup>
 
-  <AutocompletePortal>
-    <AutocompleteBackdrop />
-    <AutocompletePositioner sideOffset={4}>
-      <AutocompletePopup>
-        <AutocompleteEmpty>No results found.</AutocompleteEmpty>
-        <AutocompleteList>
-          {(item) => (
-            <AutocompleteItem key={item.id} value={item}>
-              {item.label}
-            </AutocompleteItem>
-          )}
-        </AutocompleteList>
-      </AutocompletePopup>
-    </AutocompletePositioner>
-  </AutocompletePortal>
-</AutocompleteRoot>
+  <Autocomplete.Portal>
+    <Autocomplete.Backdrop />
+    <Autocomplete.Positioner>
+      <Autocomplete.Popup>
+        <Autocomplete.Arrow />
+
+        <Autocomplete.Status />
+        <Autocomplete.Empty />
+
+        <Autocomplete.List>
+          <Autocomplete.Row>
+            <Autocomplete.Item />
+          </Autocomplete.Row>
+
+          <Autocomplete.Separator />
+
+          <Autocomplete.Group>
+            <Autocomplete.GroupLabel />
+          </Autocomplete.Group>
+
+          <Autocomplete.Collection />
+        </Autocomplete.List>
+      </Autocomplete.Popup>
+    </Autocomplete.Positioner>
+  </Autocomplete.Portal>
+</Autocomplete.Root>
 ```
 
 ## Demo
@@ -90,33 +106,33 @@ author:
 
 ## Props
 
-#### AutocompleteInput
+#### AutocompleteInputGroup
 
 <PropsTable
   data={[
     {
-      prop: "size",
-      type: '"sm" | "md" | "lg"',
-      default: '"md"',
-      description: "The size of the input",
+      prop: "inputProps",
+      type: "AutocompleteInputProps",
+      default: "undefined",
+      description: "Props forwarded to the AutocompleteInput component",
     },
     {
-      prop: "showClear",
-      type: "boolean",
-      default: "false",
-      description: "If true, shows a clear button to reset the input",
+      prop: "iconProps",
+      type: "AutocompletePrimitive.Icon.Props",
+      default: "undefined",
+      description: "Props forwarded to the AutocompleteIcon component",
     },
     {
-      prop: "showTrigger",
-      type: "boolean",
-      default: "false",
-      description: "If true, shows a trigger button to open the dropdown",
+      prop: "clearProps",
+      type: "AutocompletePrimitive.Clear.Props",
+      default: "undefined",
+      description: "Props forwarded to the AutocompleteClear component",
     },
     {
-      prop: "startAddon",
-      type: "ReactNode",
-      default: "null",
-      description: "Provide startAddon like search icon to show on the front",
+      prop: "triggerProps",
+      type: "AutocompletePrimitive.Trigger.Props",
+      default: "undefined",
+      description: "Props forwarded to the AutocompleteTrigger component",
     },
   ]}
 />
@@ -125,12 +141,6 @@ author:
 
 <PropsTable
   data={[
-    {
-      prop: "sideOffset",
-      type: "number",
-      default: "4",
-      description: "The distance in pixels from the anchor element",
-    },
     {
       prop: "hasBackdrop",
       type: "boolean",

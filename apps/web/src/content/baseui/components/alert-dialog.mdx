@@ -20,46 +20,40 @@ author:
 #### Composite
 
 ```tsx
-<AlertDialogRoot>
-    <AlertDialogTrigger>Open Alert Dialog</AlertDialogTrigger>
+<AlertDialog.Root>
+    <AlertDialog.Trigger>Open Alert Dialog</AlertDialog.Trigger>
 
-    <AlertDialogContent>
-        <AlertDialogHeader>
-            <AlertDialogTitle>Alert Title</AlertDialogTitle>
-            <AlertDialogDescription>Alert Description</AlertDialogDescription>
-        </AlertDialogHeader>
+    <AlertDialog.Content>
+        <AlertDialog.Header>
+            <AlertDialog.Title>Alert Title</AlertDialog.Title>
+            <AlertDialog.Description>Alert Description</AlertDialog.Description>
+        </AlertDialog.Header>
 
-        <AlertDialogFooter>
-            <AlertDialogClose>Cancel</AlertDialogClose>
-            <AlertDialogClose>Confirm</AlertDialogClose>
-        </AlertDialogFooter>
-    </AlertDialogContent>
-</AlertDialogRoot>
+        <AlertDialog.Footer>
+            <AlertDialog.Close>Cancel</AlertDialog.Close>
+            <AlertDialog.Close>Confirm</AlertDialog.Close>
+        </AlertDialog.Footer>
+    </AlertDialog.Content>
+</AlertDialog.Root>
 ```
 
-#### Primitives
+#### Primitives (Base UI)
 
 ```tsx
-<AlertDialogRoot>
-    <AlertDialogTrigger>Open Alert Dialog</AlertDialogTrigger>
+<AlertDialog.Root>
+    <AlertDialog.Trigger>Open Alert Dialog</AlertDialog.Trigger>
 
-    <AlertDialogPortal>
-        <AlertDialogBackdrop />
-        <AlertDialogViewport>
-            <AlertDialogPopup>
-                <AlertDialogHeader>
-                    <AlertDialogTitle>Alert Title</AlertDialogTitle>
-                    <AlertDialogDescription>Alert Description</AlertDialogDescription>
-                </AlertDialogHeader>
-
-                <AlertDialogFooter>
-                    <AlertDialogClose>Cancel</AlertDialogClose>
-                    <AlertDialogClose>Confirm</AlertDialogClose>
-                </AlertDialogFooter>
-            </AlertDialogPopup>
-        </AlertDialogViewport>
-    </AlertDialogPortal>
-</AlertDialogRoot>
+    <AlertDialog.Portal>
+        <AlertDialog.Backdrop />
+        <AlertDialog.Viewport>
+            <AlertDialog.Popup>
+                <AlertDialog.Title>Alert Title</AlertDialog.Title>
+                <AlertDialog.Description>Alert Description</AlertDialog.Description>
+                <AlertDialog.Close>Close</AlertDialog.Close>
+            </AlertDialog.Popup>
+        </AlertDialog.Viewport>
+    </AlertDialog.Portal>
+</AlertDialog.Root>
 ```
 
 ## Demo

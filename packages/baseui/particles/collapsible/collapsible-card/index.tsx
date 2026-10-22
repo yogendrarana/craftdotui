@@ -32,7 +32,7 @@ export default function Particle() {
 					</div>
 				</div>
 
-				<div className="px-4 py-1 flex items-center justify-between border-t border-border/50">
+				<div className="px-4 py-2 flex items-center justify-between border-t border-border/50">
 					<div className="flex items-center gap-3 text-xs text-muted-foreground">
 						<span className="flex items-center gap-1">
 							<GitBranch className="size-3" /> main
@@ -42,12 +42,7 @@ export default function Particle() {
 						</span>
 					</div>
 
-					<CollapsibleTrigger
-						showCollapsibleIcon={false}
-						variant="ghost"
-						size="sm"
-						className="w-auto p-0 text-xs font-normal text-muted-foreground hover:bg-mutec-foreground hover:text-foreground"
-					>
+					<CollapsibleTrigger className="w-auto p-0 text-xs font-normal text-muted-foreground hover:bg-transparent hover:text-foreground">
 						<span>Recent commits</span>
 						<CollapsibleIcon className="size-3.5" />
 					</CollapsibleTrigger>

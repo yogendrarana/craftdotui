@@ -1,6 +1,6 @@
 import {
 	AutocompleteRoot,
-	AutocompleteInput,
+	AutocompleteInputGroup,
 	AutocompleteContent,
 	AutocompleteList,
 	AutocompleteItem,
@@ -26,7 +26,11 @@ export default function Particle() {
 	return (
 		<div className="w-64">
 			<AutocompleteRoot items={fruits} autoHighlight>
-				<AutocompleteInput placeholder="Search fruits (e.g. Apple)..." />
+				<AutocompleteInputGroup
+					inputProps={{
+						placeholder: "Search fruits (e.g. Apple)...",
+					}}
+				/>
 				<AutocompleteContent>
 					<AutocompleteEmpty>No fruits found.</AutocompleteEmpty>
 					<AutocompleteList>

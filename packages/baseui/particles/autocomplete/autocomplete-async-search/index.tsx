@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import {
 	AutocompleteRoot,
-	AutocompleteInput,
+	AutocompleteInputGroup,
 	AutocompleteContent,
 	AutocompleteList,
 	AutocompleteItem,
@@ -73,9 +73,11 @@ export default function Particle() {
 				itemToStringValue={(item) => item.name}
 				filter={null}
 			>
-				<AutocompleteInput
-					placeholder="Search users (e.g. John)..."
-					onChange={(e) => setQuery(e.target.value)}
+				<AutocompleteInputGroup
+					inputProps={{
+						placeholder: "Search users (e.g. John)...",
+						onChange: (e) => setQuery(e.target.value),
+					}}
 				/>
 
 				{shouldRenderPopup && (

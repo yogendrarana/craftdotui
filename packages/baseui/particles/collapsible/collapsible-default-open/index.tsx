@@ -1,19 +1,19 @@
-import { SlidersHorizontal } from "lucide-react";
 import {
 	CollapsibleRoot,
 	CollapsiblePanel,
 	CollapsibleTrigger,
+	CollapsibleIcon,
 } from "@craftdotui/baseui/components/collapsible";
 
 export default function Particle() {
 	return (
 		<div className="flex w-full justify-center p-4">
 			<CollapsibleRoot defaultOpen className="w-full max-w-sm">
-				<CollapsibleTrigger>
+				<CollapsibleTrigger className="border rounded-md px-2 py-1">
 					<span className="flex items-center gap-2">
-						<SlidersHorizontal className="size-4 text-muted-foreground" />
 						<span>API Configuration</span>
 					</span>
+					<CollapsibleIcon />
 				</CollapsibleTrigger>
 				<CollapsiblePanel>
 					<div className="pt-2">

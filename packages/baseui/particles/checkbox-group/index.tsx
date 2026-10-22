@@ -1,16 +1,17 @@
 "use client";
+
 import * as React from "react";
 import {
 	CheckboxRoot,
 	CheckboxIndicator,
 } from "@craftdotui/baseui/components/checkbox";
-import { CheckboxGroupRoot } from "@craftdotui/baseui/components/checkbox-group";
+import { CheckboxGroup } from "@craftdotui/baseui/components/checkbox-group";
 
 export default function Particle() {
 	const id = React.useId();
 
 	return (
-		<CheckboxGroupRoot
+		<CheckboxGroup
 			aria-labelledby={id}
 			defaultValue={["react"]}
 			className="flex flex-col items-start gap-1"
@@ -35,6 +36,6 @@ export default function Particle() {
 				</CheckboxRoot>
 				<span>Svelte</span>
 			</div>
-		</CheckboxGroupRoot>
+		</CheckboxGroup>
 	);
 }

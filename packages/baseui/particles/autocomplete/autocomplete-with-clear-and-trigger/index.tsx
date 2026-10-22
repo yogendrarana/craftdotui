@@ -1,40 +1,41 @@
 import {
 	AutocompleteRoot,
-	AutocompleteInput,
+	AutocompleteInputGroup,
 	AutocompleteContent,
 	AutocompleteList,
 	AutocompleteItem,
 	AutocompleteEmpty,
 } from "@craftdotui/baseui/components/autocomplete";
 
-interface Tag {
+interface Book {
 	id: string;
 	value: string;
 }
 
-const tags: Tag[] = [
-	{ id: "bug", value: "Bug" },
-	{ id: "documentation", value: "Documentation" },
-	{ id: "enhancement", value: "Enhancement" },
-	{ id: "feature", value: "Feature" },
-	{ id: "refactor", value: "Refactor" },
+const books: Book[] = [
+	{ id: "1984", value: "1984" },
+	{ id: "brave-new-world", value: "Brave New World" },
+	{ id: "dune", value: "Dune" },
+	{ id: "great-gatsby", value: "The Great Gatsby" },
+	{ id: "hobbit", value: "The Hobbit" },
+	{ id: "to-kill-a-mockingbird", value: "To Kill a Mockingbird" },
 ];
 
 export default function Particle() {
 	return (
 		<div className="w-64">
-			<AutocompleteRoot items={tags}>
-				<AutocompleteInput
-					placeholder="Select or search tags..."
-					showClear
-					showTrigger
+			<AutocompleteRoot items={books}>
+				<AutocompleteInputGroup
+					inputProps={{ placeholder: "Select or search books..." }}
+					clearProps={{}}
+					triggerProps={{}}
 				/>
 				<AutocompleteContent>
-					<AutocompleteEmpty>No tags found.</AutocompleteEmpty>
+					<AutocompleteEmpty>No books found.</AutocompleteEmpty>
 					<AutocompleteList>
-						{(tag: Tag) => (
-							<AutocompleteItem key={tag.id} value={tag}>
-								{tag.value}
+						{(book: Book) => (
+							<AutocompleteItem key={book.id} value={book}>
+								{book.value}
 							</AutocompleteItem>
 						)}
 					</AutocompleteList>

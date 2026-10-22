@@ -63,9 +63,7 @@ export function ComponentCodePreview({
 			</div>
 
 			{/* Bottom action bar */}
-			<div className="px-3 py-2.5 flex items-center justify-end gap-2 border-t border-border bg-muted/10">
-				<InstallCommandDropdown pkg={registryItem?.command} />
-
+			<div className="px-3 py-2.5 flex items-center justify-between gap-2 border-t border-border bg-muted/10">
 				<DrawerRoot position="right" variant="inset">
 					<DrawerTrigger
 						className={cn(
@@ -114,6 +112,8 @@ export function ComponentCodePreview({
 						</DrawerViewport>
 					</DrawerPortal>
 				</DrawerRoot>
+
+				<InstallCommandDropdown pkg={registryItem?.command} />
 			</div>
 		</div>
 	);

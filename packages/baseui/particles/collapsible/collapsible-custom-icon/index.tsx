@@ -11,7 +11,7 @@ export default function Particle() {
 		<div className="flex w-full flex-col items-center gap-4 p-4">
 			{/* Custom Icon wrapped in CollapsibleIcon */}
 			<CollapsibleRoot className="w-full max-w-sm">
-				<CollapsibleTrigger>
+				<CollapsibleTrigger className="border rounded-md px-2 py-1">
 					<span className="flex items-center gap-2">
 						<Sparkles className="size-4 text-primary" />
 						<span>Wrapped Custom Icon</span>
@@ -35,7 +35,7 @@ export default function Particle() {
 
 			{/* Direct CollapsibleIcon with custom arrow */}
 			<CollapsibleRoot className="w-full max-w-sm">
-				<CollapsibleTrigger variant="outline">
+				<CollapsibleTrigger className="border rounded-md px-2 py-1">
 					<span className="flex items-center gap-2">
 						<span>Direct Arrow Indicator</span>
 					</span>

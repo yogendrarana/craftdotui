@@ -1,6 +1,6 @@
 import {
 	AutocompleteRoot,
-	AutocompleteInput,
+	AutocompleteInputGroup,
 	AutocompleteContent,
 	AutocompleteList,
 	AutocompleteItem,
@@ -27,9 +27,9 @@ export default function Particle() {
 	return (
 		<div className="w-64">
 			<AutocompleteRoot items={fruits}>
-				<AutocompleteInput
-					placeholder="Search fruits..."
-					startAddon={<Search className="size-4" />}
+				<AutocompleteInputGroup
+					inputProps={{ placeholder: "Search fruits..." }}
+					iconProps={{ children: <Search className="size-4" /> }}
 				/>
 				<AutocompleteContent>
 					<AutocompleteEmpty>No fruits found.</AutocompleteEmpty>

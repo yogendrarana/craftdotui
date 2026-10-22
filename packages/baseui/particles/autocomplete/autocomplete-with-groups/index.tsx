@@ -9,7 +9,7 @@ import {
 	AutocompleteEmpty,
 	AutocompleteGroup,
 	AutocompleteGroupLabel,
-	AutocompleteInput,
+	AutocompleteInputGroup,
 	AutocompleteItem,
 	AutocompleteList,
 	AutocompleteSeparator,
@@ -69,9 +69,11 @@ export default function Particle() {
 	return (
 		<div className="w-64">
 			<AutocompleteRoot items={groupedFrameworks}>
-				<AutocompleteInput
-					aria-label="Search frameworks"
-					placeholder="Search frameworks (e.g. React)..."
+				<AutocompleteInputGroup
+					inputProps={{
+						"aria-label": "Search frameworks",
+						placeholder: "Search frameworks (e.g. React)...",
+					}}
 				/>
 				<AutocompleteContent>
 					<AutocompleteEmpty>No frameworks found.</AutocompleteEmpty>

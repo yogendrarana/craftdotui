@@ -1,39 +1,41 @@
 import {
 	AutocompleteRoot,
-	AutocompleteInput,
+	AutocompleteInputGroup,
 	AutocompleteContent,
 	AutocompleteList,
 	AutocompleteItem,
 	AutocompleteEmpty,
 } from "@craftdotui/baseui/components/autocomplete";
 
-interface Tag {
+interface Fruit {
 	id: string;
 	value: string;
 }
 
-const tags: Tag[] = [
-	{ id: "feature", value: "Feature" },
-	{ id: "bug", value: "Bug" },
-	{ id: "enhancement", value: "Enhancement" },
-	{ id: "documentation", value: "Documentation" },
-	{ id: "design", value: "Design" },
+const fruits: Fruit[] = [
+	{ id: "apple", value: "Apple" },
+	{ id: "banana", value: "Banana" },
+	{ id: "blueberry", value: "Blueberry" },
+	{ id: "cherry", value: "Cherry" },
+	{ id: "mango", value: "Mango" },
 ];
 
 export default function Particle() {
 	return (
 		<div className="w-64">
-			<AutocompleteRoot items={tags}>
-				<AutocompleteInput
-					placeholder="Disabled autocomplete"
-					disabled
+			<AutocompleteRoot items={fruits}>
+				<AutocompleteInputGroup
+					inputProps={{
+						placeholder: "Disabled autocomplete",
+						disabled: true,
+					}}
 				/>
 				<AutocompleteContent>
-					<AutocompleteEmpty>No tags found.</AutocompleteEmpty>
+					<AutocompleteEmpty>No fruits found.</AutocompleteEmpty>
 					<AutocompleteList>
-						{(tag: Tag) => (
-							<AutocompleteItem key={tag.id} value={tag}>
-								{tag.value}
+						{(fruit: Fruit) => (
+							<AutocompleteItem key={fruit.id} value={fruit}>
+								{fruit.value}
 							</AutocompleteItem>
 						)}
 					</AutocompleteList>

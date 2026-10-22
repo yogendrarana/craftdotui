@@ -7,10 +7,9 @@ import { cn } from "cn";
 /* Checkbox Group                                                             */
 /* -------------------------------------------------------------------------- */
 
-function CheckboxGroupRoot({
-	className,
-	...props
-}: CheckboxGroupPrimitive.Props) {
+interface CheckboxGroupProps extends CheckboxGroupPrimitive.Props {}
+
+function CheckboxGroup({ className, ...props }: CheckboxGroupProps) {
 	return (
 		<CheckboxGroupPrimitive
 			className={cn("flex flex-col items-start gap-3", className)}
@@ -23,8 +22,5 @@ function CheckboxGroupRoot({
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
-export const CheckboxGroup = {
-	Root: CheckboxGroupRoot,
-};
-
-export { CheckboxGroupRoot };
+export { CheckboxGroup };
+export type { CheckboxGroupProps };

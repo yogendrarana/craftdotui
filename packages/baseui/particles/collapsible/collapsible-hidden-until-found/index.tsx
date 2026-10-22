@@ -3,6 +3,7 @@ import {
 	CollapsiblePanel,
 	CollapsibleRoot,
 	CollapsibleTrigger,
+	CollapsibleIcon,
 } from "@craftdotui/baseui/components/collapsible";
 
 export default function Particle() {
@@ -25,11 +26,12 @@ export default function Particle() {
 			</p>
 
 			<CollapsibleRoot className="w-full max-w-sm">
-				<CollapsibleTrigger variant="outline">
+				<CollapsibleTrigger className="border rounded-md px-2 py-1">
 					<span className="flex items-center gap-2">
 						<Search className="size-4 text-muted-foreground" />
 						<span>Searchable Security Policies</span>
 					</span>
+					<CollapsibleIcon />
 				</CollapsibleTrigger>
 				<CollapsiblePanel hiddenUntilFound>
 					<div className="pt-2">

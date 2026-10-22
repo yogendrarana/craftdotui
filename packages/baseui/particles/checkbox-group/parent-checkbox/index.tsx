@@ -4,7 +4,7 @@ import {
 	CheckboxRoot,
 	CheckboxIndicator,
 } from "@craftdotui/baseui/components/checkbox";
-import { CheckboxGroupRoot } from "@craftdotui/baseui/components/checkbox-group";
+import { CheckboxGroup } from "@craftdotui/baseui/components/checkbox-group";
 
 const frameworks = [
 	{ id: "react", label: "React" },
@@ -17,7 +17,7 @@ export default function Particle() {
 	const [value, setValue] = React.useState<string[]>([]);
 
 	return (
-		<CheckboxGroupRoot
+		<CheckboxGroup
 			aria-labelledby={id}
 			defaultValue={["react"]}
 			value={value}
@@ -46,6 +46,6 @@ export default function Particle() {
 					<span>{framework.label}</span>
 				</div>
 			))}
-		</CheckboxGroupRoot>
+		</CheckboxGroup>
 	);
 }

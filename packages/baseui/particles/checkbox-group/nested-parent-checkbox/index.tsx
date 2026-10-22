@@ -5,7 +5,7 @@ import {
 	CheckboxRoot,
 	CheckboxIndicator,
 } from "@craftdotui/baseui/components/checkbox";
-import { CheckboxGroupRoot } from "@craftdotui/baseui/components/checkbox-group";
+import { CheckboxGroup } from "@craftdotui/baseui/components/checkbox-group";
 
 const frontendFrameworks = ["react", "vue", "svelte"];
 const reactFrameworks = ["next", "remix"];
@@ -15,7 +15,7 @@ export default function LanguageFrameworkTree() {
 	const [reactValues, setReactValues] = React.useState<string[]>([]);
 
 	return (
-		<CheckboxGroupRoot
+		<CheckboxGroup
 			value={frontendValues}
 			allValues={frontendFrameworks}
 			onValueChange={(value) => {
@@ -61,7 +61,7 @@ export default function LanguageFrameworkTree() {
 				<span>Svelte</span>
 			</div>
 
-			<CheckboxGroupRoot
+			<CheckboxGroup
 				value={reactValues}
 				allValues={reactFrameworks}
 				onValueChange={(value) => {
@@ -102,7 +102,7 @@ export default function LanguageFrameworkTree() {
 						<span className="capitalize">{framework}</span>
 					</div>
 				))}
-			</CheckboxGroupRoot>
-		</CheckboxGroupRoot>
+			</CheckboxGroup>
+		</CheckboxGroup>
 	);
 }

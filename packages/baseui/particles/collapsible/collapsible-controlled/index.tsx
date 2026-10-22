@@ -6,6 +6,7 @@ import {
 	CollapsibleRoot,
 	CollapsiblePanel,
 	CollapsibleTrigger,
+	CollapsibleIcon,
 } from "@craftdotui/baseui/components/collapsible";
 import { Button } from "@craftdotui/baseui/components/button";
 
@@ -19,11 +20,12 @@ export default function Particle() {
 				onOpenChange={setIsOpen}
 				className="w-full max-w-sm"
 			>
-				<CollapsibleTrigger variant="outline">
+				<CollapsibleTrigger className="border rounded-md px-2 py-0.5">
 					<span className="flex items-center gap-2">
 						<FolderGit2 className="size-4 text-muted-foreground" />
 						<span>Repository Branches</span>
 					</span>
+					<CollapsibleIcon />
 				</CollapsibleTrigger>
 				<CollapsiblePanel>
 					<div className="pt-2">
