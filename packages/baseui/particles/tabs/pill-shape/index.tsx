@@ -22,3 +22,5 @@ export function Particle() {
 		</TabsRoot>
 	);
 }
+
+export default Particle;

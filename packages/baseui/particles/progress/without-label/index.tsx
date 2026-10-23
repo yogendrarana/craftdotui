@@ -27,3 +27,5 @@ export function Particle() {
 		</ProgressRoot>
 	);
 }
+
+export default Particle;

@@ -1,14 +1,11 @@
 "use client";
 
 import {
+	SelectContent,
+	SelectItem,
 	SelectRoot,
 	SelectTrigger,
 	SelectValue,
-	SelectPortal,
-	SelectPositioner,
-	SelectPopup,
-	SelectItem,
-	SelectItemList,
 } from "@craftdotui/baseui/components/select";
 
 const items = [
@@ -17,7 +14,7 @@ const items = [
 	{ command: "pnpm create node-blueprint", label: "PNPM", value: "pnpm" },
 ];
 
-export default function Particle() {
+export function Particle() {
 	return (
 		<div className="w-full max-w-80">
 			<SelectRoot
@@ -36,27 +33,21 @@ export default function Particle() {
 						)}
 					</SelectValue>
 				</SelectTrigger>
-				<SelectPortal>
-					<SelectPositioner>
-						<SelectPopup>
-							<SelectItemList>
-								{items.map((item) => (
-									<SelectItem key={item.value} value={item}>
-										<span className="flex flex-col">
-											<span className="truncate">
-												{item.label}
-											</span>
-											<span className="truncate text-muted-foreground text-xs">
-												{item.command}
-											</span>
-										</span>
-									</SelectItem>
-								))}
-							</SelectItemList>
-						</SelectPopup>
-					</SelectPositioner>
-				</SelectPortal>
+				<SelectContent>
+					{items.map((item) => (
+						<SelectItem key={item.value} value={item}>
+							<span className="flex flex-col">
+								<span className="truncate">{item.label}</span>
+								<span className="truncate text-muted-foreground text-xs">
+									{item.command}
+								</span>
+							</span>
+						</SelectItem>
+					))}
+				</SelectContent>
 			</SelectRoot>
 		</div>
 	);
 }
+
+export default Particle;

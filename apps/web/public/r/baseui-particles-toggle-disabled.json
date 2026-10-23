@@ -6,7 +6,7 @@
 	"files": [
 		{
 			"path": "packages/baseui/particles/toggle/disabled/index.tsx",
-			"content": "import { ToggleRoot } from \"@/components/baseui/components/toggle\";\nimport { Underline } from \"lucide-react\";\n\nexport function Particle() {\n\treturn (\n\t\t<ToggleRoot disabled variant=\"outline\" size=\"icon\">\n\t\t\t<Underline className=\"h-4 w-4\" />\n\t\t</ToggleRoot>\n\t);\n}\n",
+			"content": "import { ToggleRoot } from \"@/components/baseui/components/toggle\";\nimport { Underline } from \"lucide-react\";\n\nexport function Particle() {\n\treturn (\n\t\t<ToggleRoot disabled variant=\"outline\" size=\"icon\">\n\t\t\t<Underline className=\"h-4 w-4\" />\n\t\t</ToggleRoot>\n\t);\n}\n\nexport default Particle;\n",
 			"type": "registry:component",
 			"target": "components/baseui/particles/toggle-disabled.tsx"
 		}

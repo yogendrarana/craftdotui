@@ -1,16 +1,31 @@
 "use client";
 
-import { Check, ChevronsUpDown } from "lucide-react";
+import { Check, ChevronDown, ChevronsUpDown, ChevronUp } from "lucide-react";
 import { Select as SelectPrimitive } from "@base-ui/react/select";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "cn";
+import { ARROW_STYLES, BaseArrow } from "@craftdotui/baseui/components/arrow";
 
 /* -------------------------------------------------------------------------- */
 /* Root                                                                       */
 /* -------------------------------------------------------------------------- */
 
 const SelectRoot = SelectPrimitive.Root;
+
+/* -------------------------------------------------------------------------- */
+/* Label                                                                      */
+/* -------------------------------------------------------------------------- */
+
+function SelectLabel({ className, ...props }: SelectPrimitive.Label.Props) {
+	return (
+		<SelectPrimitive.Label
+			className={cn("text-sm font-medium text-foreground", className)}
+			data-slot="select-label"
+			{...props}
+		/>
+	);
+}
 
 /* -------------------------------------------------------------------------- */
 /* SelectValue                                                                */
@@ -106,41 +121,7 @@ function SelectTrigger({
 }
 
 /* -------------------------------------------------------------------------- */
-/* SelectScrollUpArrow                                                            */
-/* -------------------------------------------------------------------------- */
-
-function SelectScrollUpArrow({
-	className,
-	...props
-}: SelectPrimitive.ScrollUpArrow.Props) {
-	return (
-		<SelectPrimitive.ScrollUpArrow
-			className={cn(className)}
-			data-slot="select-scroll-up-arrow"
-			{...props}
-		/>
-	);
-}
-
-/* -------------------------------------------------------------------------- */
-/* SelectScrollDownArrow                                                          */
-/* -------------------------------------------------------------------------- */
-
-function SelectScrollDownArrow({
-	className,
-	...props
-}: SelectPrimitive.ScrollDownArrow.Props) {
-	return (
-		<SelectPrimitive.ScrollDownArrow
-			className={cn(className)}
-			data-slot="select-scroll-down-arrow"
-			{...props}
-		/>
-	);
-}
-
-/* -------------------------------------------------------------------------- */
-/* SelectPortal                                                              */
+/* SelectPortal                                                               */
 /* -------------------------------------------------------------------------- */
 
 function SelectPortal({
@@ -160,7 +141,29 @@ function SelectPortal({
 }
 
 /* -------------------------------------------------------------------------- */
-/* SelectPositioner                                                          */
+/* SelectBackdrop                                                             */
+/* -------------------------------------------------------------------------- */
+
+function SelectBackdrop({
+	className,
+	...props
+}: SelectPrimitive.Backdrop.Props) {
+	return (
+		<SelectPrimitive.Backdrop
+			className={cn(
+				"fixed inset-0 z-50 bg-black/20",
+				"transition-opacity duration-200 ease-out",
+				"data-starting-style:opacity-0 data-ending-style:opacity-0",
+				className,
+			)}
+			data-slot="select-backdrop"
+			{...props}
+		/>
+	);
+}
+
+/* -------------------------------------------------------------------------- */
+/* SelectPositioner                                                           */
 /* -------------------------------------------------------------------------- */
 
 function SelectPositioner({
@@ -171,7 +174,7 @@ function SelectPositioner({
 }: SelectPrimitive.Positioner.Props) {
 	return (
 		<SelectPrimitive.Positioner
-			className={cn(className)}
+			className={cn("z-50", className)}
 			sideOffset={sideOffset}
 			data-slot="select-positioner"
 			{...props}
@@ -182,7 +185,7 @@ function SelectPositioner({
 }
 
 /* -------------------------------------------------------------------------- */
-/* SelectPopup                                                              */
+/* SelectPopup                                                                */
 /* -------------------------------------------------------------------------- */
 
 function SelectPopup({
@@ -192,17 +195,124 @@ function SelectPopup({
 }: SelectPrimitive.Popup.Props) {
 	return (
 		<SelectPrimitive.Popup
-			data-slot="select-content"
+			data-slot="select-popup"
 			className={cn(
 				"z-50 min-w-[var(--anchor-width)]",
 				"origin-[var(--transform-origin)]",
-				"rounded-md border border-border bg-popover text-sm shadow",
+				"rounded-md border border-border bg-popover text-popover-foreground text-sm shadow-md",
+				"transition-[opacity,transform] duration-150 ease-out",
+				"data-starting-style:opacity-0 data-starting-style:scale-95",
+				"data-ending-style:opacity-0 data-ending-style:scale-95",
 				className,
 			)}
 			{...props}
 		>
 			{children}
 		</SelectPrimitive.Popup>
+	);
+}
+
+/* -------------------------------------------------------------------------- */
+/* SelectArrow                                                                */
+/* -------------------------------------------------------------------------- */
+
+function SelectArrow({ className, ...props }: SelectPrimitive.Arrow.Props) {
+	return (
+		<SelectPrimitive.Arrow
+			className={cn(ARROW_STYLES, className)}
+			data-slot="select-arrow"
+			{...props}
+		>
+			<BaseArrow title="Select Arrow" className="fill-popover" />
+		</SelectPrimitive.Arrow>
+	);
+}
+
+/* -------------------------------------------------------------------------- */
+/* SelectScrollUpArrow                                                        */
+/* -------------------------------------------------------------------------- */
+
+function SelectScrollUpArrow({
+	className,
+	children,
+	...props
+}: SelectPrimitive.ScrollUpArrow.Props) {
+	return (
+		<SelectPrimitive.ScrollUpArrow
+			className={cn(
+				"flex cursor-default items-center justify-center py-1 text-muted-foreground",
+				className,
+			)}
+			data-slot="select-scroll-up-arrow"
+			{...props}
+		>
+			{children || <ChevronUp className="size-4" />}
+		</SelectPrimitive.ScrollUpArrow>
+	);
+}
+
+/* -------------------------------------------------------------------------- */
+/* SelectScrollDownArrow                                                      */
+/* -------------------------------------------------------------------------- */
+
+function SelectScrollDownArrow({
+	className,
+	children,
+	...props
+}: SelectPrimitive.ScrollDownArrow.Props) {
+	return (
+		<SelectPrimitive.ScrollDownArrow
+			className={cn(
+				"flex cursor-default items-center justify-center py-1 text-muted-foreground",
+				className,
+			)}
+			data-slot="select-scroll-down-arrow"
+			{...props}
+		>
+			{children || <ChevronDown className="size-4" />}
+		</SelectPrimitive.ScrollDownArrow>
+	);
+}
+
+/* -------------------------------------------------------------------------- */
+/* SelectItemList (SelectList)                                                */
+/* -------------------------------------------------------------------------- */
+
+function SelectItemList({
+	className,
+	children,
+	...props
+}: SelectPrimitive.List.Props) {
+	return (
+		<SelectPrimitive.List
+			data-slot="select-list"
+			className={cn(
+				"max-h-[var(--available-height)] min-w-[var(--anchor-width)] p-1 overflow-y-auto",
+				className,
+			)}
+			{...props}
+		>
+			{children}
+		</SelectPrimitive.List>
+	);
+}
+
+const SelectList = SelectItemList;
+
+/* -------------------------------------------------------------------------- */
+/* SelectItemText                                                             */
+/* -------------------------------------------------------------------------- */
+
+function SelectItemText({
+	className,
+	...props
+}: SelectPrimitive.ItemText.Props) {
+	return (
+		<SelectPrimitive.ItemText
+			className={cn("mr-auto", className)}
+			data-slot="select-item-text"
+			{...props}
+		/>
 	);
 }
 
@@ -222,29 +332,6 @@ function SelectItemIndicator({
 		>
 			<Check className="size-4" />
 		</SelectPrimitive.ItemIndicator>
-	);
-}
-
-/* -------------------------------------------------------------------------- */
-/* SelectItemList                                                             */
-/* -------------------------------------------------------------------------- */
-
-function SelectItemList({
-	className,
-	children,
-	...props
-}: SelectPrimitive.List.Props) {
-	return (
-		<SelectPrimitive.List
-			data-slot="select-item-list"
-			className={cn(
-				"max-h-(--available-height) min-w-(--anchor-width) p-1 overflow-y-auto",
-				className,
-			)}
-			{...props}
-		>
-			{children}
-		</SelectPrimitive.List>
 	);
 }
 
@@ -322,10 +409,75 @@ function SelectSeparator({
 }: SelectPrimitive.Separator.Props) {
 	return (
 		<SelectPrimitive.Separator
-			className={cn("h-px bg-border", className)}
+			className={cn("-mx-1 my-1 h-px bg-border", className)}
 			data-slot="select-separator"
 			{...props}
 		/>
+	);
+}
+
+/* -------------------------------------------------------------------------- */
+/* SelectContent (Composite Component)                                        */
+/* -------------------------------------------------------------------------- */
+
+type SelectPositionerProps = SelectPrimitive.Positioner.Props;
+
+interface SelectContentProps extends SelectPrimitive.Popup.Props {
+	hasBackdrop?: boolean;
+	hasArrow?: boolean;
+	hasScrollArrows?: boolean;
+	alignItemWithTrigger?: boolean;
+	sideOffset?: number;
+	className?: string;
+	children?: React.ReactNode;
+	portalProps?: SelectPrimitive.Portal.Props;
+	backdropProps?: SelectPrimitive.Backdrop.Props;
+	positionerProps?: SelectPositionerProps;
+	arrowProps?: SelectPrimitive.Arrow.Props;
+	scrollUpArrowProps?: SelectPrimitive.ScrollUpArrow.Props;
+	scrollDownArrowProps?: SelectPrimitive.ScrollDownArrow.Props;
+	listProps?: SelectPrimitive.List.Props;
+}
+
+function SelectContent({
+	className,
+	children,
+	hasBackdrop = false,
+	hasArrow = false,
+	hasScrollArrows = true,
+	alignItemWithTrigger,
+	sideOffset = 4,
+	portalProps,
+	backdropProps,
+	positionerProps,
+	arrowProps,
+	scrollUpArrowProps,
+	scrollDownArrowProps,
+	listProps,
+	...props
+}: SelectContentProps) {
+	const resolvedPositionerProps: SelectPositionerProps = {
+		sideOffset,
+		...(alignItemWithTrigger !== undefined && { alignItemWithTrigger }),
+		...positionerProps,
+	};
+
+	return (
+		<SelectPortal {...portalProps}>
+			{hasBackdrop && <SelectBackdrop {...backdropProps} />}
+			<SelectPositioner {...resolvedPositionerProps}>
+				<SelectPopup className={className} {...props}>
+					{hasScrollArrows && (
+						<SelectScrollUpArrow {...scrollUpArrowProps} />
+					)}
+					{hasArrow && <SelectArrow {...arrowProps} />}
+					<SelectItemList {...listProps}>{children}</SelectItemList>
+					{hasScrollArrows && (
+						<SelectScrollDownArrow {...scrollDownArrowProps} />
+					)}
+				</SelectPopup>
+			</SelectPositioner>
+		</SelectPortal>
 	);
 }
 
@@ -335,13 +487,20 @@ function SelectSeparator({
 
 export const Select = {
 	Root: SelectRoot,
+	Label: SelectLabel,
 	Trigger: SelectTrigger,
 	Value: SelectValue,
 	Icon: SelectIcon,
 	Portal: SelectPortal,
+	Backdrop: SelectBackdrop,
 	Positioner: SelectPositioner,
 	Popup: SelectPopup,
+	Content: SelectContent,
+	Arrow: SelectArrow,
 	Item: SelectItem,
+	ItemText: SelectItemText,
+	ItemIndicator: SelectItemIndicator,
+	List: SelectItemList,
 	ItemList: SelectItemList,
 	Group: SelectGroup,
 	GroupLabel: SelectGroupLabel,
@@ -352,18 +511,28 @@ export const Select = {
 
 export {
 	SelectRoot,
+	SelectLabel,
 	SelectTrigger,
 	SelectValue,
 	SelectIcon,
 	SelectPortal,
+	SelectBackdrop,
 	SelectPositioner,
 	SelectPopup,
+	SelectContent,
+	SelectArrow,
 	SelectItem,
+	SelectItemText,
+	SelectItemIndicator,
 	SelectItemList,
+	SelectList,
 	SelectGroup,
 	SelectGroupLabel,
 	SelectSeparator,
-	selectTriggerVariants,
 	SelectScrollUpArrow,
 	SelectScrollDownArrow,
+	selectTriggerVariants,
+	type SelectContentProps,
+	type SelectPositionerProps,
+	type SelectTriggerVariants,
 };

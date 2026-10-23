@@ -3,8 +3,13 @@
 	"name": "baseui-select",
 	"type": "registry:component",
 	"description": "A Base UI select component",
-	"dependencies": ["@base-ui/react", "cn"],
-	"registryDependencies": [],
+	"dependencies": [
+		"@base-ui/react",
+		"cn",
+		"lucide-react",
+		"class-variance-authority"
+	],
+	"registryDependencies": ["@craftdotui/baseui-arrow"],
 	"files": [
 		{
 			"path": "packages/baseui/components/select/index.tsx",

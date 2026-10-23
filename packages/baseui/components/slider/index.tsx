@@ -24,6 +24,20 @@ function SliderRoot({ className, ...props }: SliderPrimitive.Root.Props) {
 }
 
 /* -------------------------------------------------------------------------- */
+/* Slider Label                                                               */
+/* -------------------------------------------------------------------------- */
+
+function SliderLabel({ className, ...props }: SliderPrimitive.Label.Props) {
+	return (
+		<SliderPrimitive.Label
+			className={cn("text-sm font-medium text-foreground", className)}
+			data-slot="slider-label"
+			{...props}
+		/>
+	);
+}
+
+/* -------------------------------------------------------------------------- */
 /* Slider Value                                                               */
 /* -------------------------------------------------------------------------- */
 
@@ -127,6 +141,7 @@ function SliderThumb({ className, ...props }: SliderPrimitive.Thumb.Props) {
 
 export const Slider = {
 	Root: SliderRoot,
+	Label: SliderLabel,
 	Value: SliderValue,
 	Control: SliderControl,
 	Track: SliderTrack,
@@ -136,6 +151,7 @@ export const Slider = {
 
 export {
 	SliderRoot,
+	SliderLabel,
 	SliderValue,
 	SliderControl,
 	SliderTrack,

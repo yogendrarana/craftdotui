@@ -1,15 +1,12 @@
 import {
+	SelectContent,
+	SelectItem,
 	SelectRoot,
 	SelectTrigger,
 	SelectValue,
-	SelectPortal,
-	SelectPositioner,
-	SelectPopup,
-	SelectItem,
-	SelectItemList,
 } from "@craftdotui/baseui/components/select";
 
-export default function Particle() {
+export function Particle() {
 	return (
 		<div className="flex flex-col gap-4 w-full max-w-50">
 			<div className="flex flex-col gap-2">
@@ -21,18 +18,10 @@ export default function Particle() {
 						<SelectValue />
 					</SelectTrigger>
 
-					<SelectPortal>
-						<SelectPositioner>
-							<SelectPopup>
-								<SelectItemList>
-									<SelectItem value="apple">Apple</SelectItem>
-									<SelectItem value="banana">
-										Banana
-									</SelectItem>
-								</SelectItemList>
-							</SelectPopup>
-						</SelectPositioner>
-					</SelectPortal>
+					<SelectContent>
+						<SelectItem value="apple">Apple</SelectItem>
+						<SelectItem value="banana">Banana</SelectItem>
+					</SelectContent>
 				</SelectRoot>
 			</div>
 
@@ -45,18 +34,10 @@ export default function Particle() {
 						<SelectValue />
 					</SelectTrigger>
 
-					<SelectPortal>
-						<SelectPositioner>
-							<SelectPopup>
-								<SelectItemList>
-									<SelectItem value="apple">Apple</SelectItem>
-									<SelectItem value="banana">
-										Banana
-									</SelectItem>
-								</SelectItemList>
-							</SelectPopup>
-						</SelectPositioner>
-					</SelectPortal>
+					<SelectContent>
+						<SelectItem value="apple">Apple</SelectItem>
+						<SelectItem value="banana">Banana</SelectItem>
+					</SelectContent>
 				</SelectRoot>
 			</div>
 
@@ -69,20 +50,14 @@ export default function Particle() {
 						<SelectValue />
 					</SelectTrigger>
 
-					<SelectPortal>
-						<SelectPositioner>
-							<SelectPopup>
-								<SelectItemList>
-									<SelectItem value="apple">Apple</SelectItem>
-									<SelectItem value="banana">
-										Banana
-									</SelectItem>
-								</SelectItemList>
-							</SelectPopup>
-						</SelectPositioner>
-					</SelectPortal>
+					<SelectContent>
+						<SelectItem value="apple">Apple</SelectItem>
+						<SelectItem value="banana">Banana</SelectItem>
+					</SelectContent>
 				</SelectRoot>
 			</div>
 		</div>
 	);
 }
+
+export default Particle;

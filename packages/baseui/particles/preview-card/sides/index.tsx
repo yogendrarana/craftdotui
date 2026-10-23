@@ -3,9 +3,7 @@
 import {
 	PreviewCardRoot,
 	PreviewCardTrigger,
-	PreviewCardPortal,
-	PreviewCardPositioner,
-	PreviewCardPopup,
+	PreviewCardContent,
 } from "@craftdotui/baseui/components/preview-card";
 
 export default function Particle() {
@@ -17,52 +15,48 @@ export default function Particle() {
 				<PreviewCardTrigger className="font-medium">
 					top
 				</PreviewCardTrigger>
-				<PreviewCardPortal>
-					<PreviewCardPositioner side="top" sideOffset={10}>
-						<PreviewCardPopup showPreviewCardArrow={false}>
-							<p className="text-sm">Positioned to the top.</p>
-						</PreviewCardPopup>
-					</PreviewCardPositioner>
-				</PreviewCardPortal>
+				<PreviewCardContent
+					hasArrow={false}
+					positionerProps={{ side: "top", sideOffset: 10 }}
+				>
+					<p className="text-sm">Positioned to the top.</p>
+				</PreviewCardContent>
 			</PreviewCardRoot>
 			, at the{" "}
 			<PreviewCardRoot>
 				<PreviewCardTrigger className="font-medium">
 					bottom
 				</PreviewCardTrigger>
-				<PreviewCardPortal>
-					<PreviewCardPositioner side="bottom" sideOffset={10}>
-						<PreviewCardPopup showPreviewCardArrow={false}>
-							<p className="text-sm">Positioned to the bottom.</p>
-						</PreviewCardPopup>
-					</PreviewCardPositioner>
-				</PreviewCardPortal>
+				<PreviewCardContent
+					hasArrow={false}
+					positionerProps={{ side: "bottom", sideOffset: 10 }}
+				>
+					<p className="text-sm">Positioned to the bottom.</p>
+				</PreviewCardContent>
 			</PreviewCardRoot>
 			, to the{" "}
 			<PreviewCardRoot>
 				<PreviewCardTrigger className="font-medium">
 					left
 				</PreviewCardTrigger>
-				<PreviewCardPortal>
-					<PreviewCardPositioner side="left" sideOffset={10}>
-						<PreviewCardPopup showPreviewCardArrow={false}>
-							<p className="text-sm">Positioned to the left.</p>
-						</PreviewCardPopup>
-					</PreviewCardPositioner>
-				</PreviewCardPortal>
+				<PreviewCardContent
+					hasArrow={false}
+					positionerProps={{ side: "left", sideOffset: 10 }}
+				>
+					<p className="text-sm">Positioned to the left.</p>
+				</PreviewCardContent>
 			</PreviewCardRoot>
 			, or on the{" "}
 			<PreviewCardRoot>
 				<PreviewCardTrigger className="font-medium">
 					right
 				</PreviewCardTrigger>
-				<PreviewCardPortal>
-					<PreviewCardPositioner side="right" sideOffset={10}>
-						<PreviewCardPopup showPreviewCardArrow={false}>
-							<p className="text-sm">Positioned to the right.</p>
-						</PreviewCardPopup>
-					</PreviewCardPositioner>
-				</PreviewCardPortal>
+				<PreviewCardContent
+					hasArrow={false}
+					positionerProps={{ side: "right", sideOffset: 10 }}
+				>
+					<p className="text-sm">Positioned to the right.</p>
+				</PreviewCardContent>
 			</PreviewCardRoot>
 			.
 		</p>

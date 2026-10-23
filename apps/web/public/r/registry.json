@@ -819,16 +819,16 @@
 			]
 		},
 		{
-			"name": "baseui-radio",
+			"name": "baseui-radio-group",
 			"type": "registry:component",
-			"description": "A Base UI radio component",
+			"description": "A Base UI radio group component",
 			"dependencies": ["@base-ui/react", "cn"],
 			"registryDependencies": [],
 			"files": [
 				{
-					"path": "packages/baseui/components/radio/index.tsx",
+					"path": "packages/baseui/components/radio-group/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/radio.tsx"
+					"target": "components/baseui/components/radio-group.tsx"
 				}
 			]
 		},
@@ -850,8 +850,13 @@
 			"name": "baseui-select",
 			"type": "registry:component",
 			"description": "A Base UI select component",
-			"dependencies": ["@base-ui/react", "cn"],
-			"registryDependencies": [],
+			"dependencies": [
+				"@base-ui/react",
+				"cn",
+				"lucide-react",
+				"class-variance-authority"
+			],
+			"registryDependencies": ["@craftdotui/baseui-arrow"],
 			"files": [
 				{
 					"path": "packages/baseui/components/select/index.tsx",
@@ -2956,58 +2961,58 @@
 			]
 		},
 		{
-			"name": "baseui-particles-radio-card",
+			"name": "baseui-particles-radio-group-card",
 			"type": "registry:component",
 			"description": "",
 			"dependencies": [],
-			"registryDependencies": ["@craftdotui/baseui-radio"],
+			"registryDependencies": ["@craftdotui/baseui-radio-group"],
 			"files": [
 				{
-					"path": "packages/baseui/particles/radio/card/index.tsx",
+					"path": "packages/baseui/particles/radio-group/card/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/radio-card.tsx"
+					"target": "components/baseui/particles/radio-group-card.tsx"
 				}
 			]
 		},
 		{
-			"name": "baseui-particles-radio-disabled",
+			"name": "baseui-particles-radio-group-disabled",
 			"type": "registry:component",
 			"description": "",
 			"dependencies": [],
-			"registryDependencies": ["@craftdotui/baseui-radio"],
+			"registryDependencies": ["@craftdotui/baseui-radio-group"],
 			"files": [
 				{
-					"path": "packages/baseui/particles/radio/disabled/index.tsx",
+					"path": "packages/baseui/particles/radio-group/disabled/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/radio-disabled.tsx"
+					"target": "components/baseui/particles/radio-group-disabled.tsx"
 				}
 			]
 		},
 		{
-			"name": "baseui-particles-radio",
+			"name": "baseui-particles-radio-group",
 			"type": "registry:component",
 			"description": "",
 			"dependencies": [],
-			"registryDependencies": ["@craftdotui/baseui-radio"],
+			"registryDependencies": ["@craftdotui/baseui-radio-group"],
 			"files": [
 				{
-					"path": "packages/baseui/particles/radio/index.tsx",
+					"path": "packages/baseui/particles/radio-group/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/radio.tsx"
+					"target": "components/baseui/particles/radio-group.tsx"
 				}
 			]
 		},
 		{
-			"name": "baseui-particles-radio-with-description",
+			"name": "baseui-particles-radio-group-with-description",
 			"type": "registry:component",
 			"description": "",
 			"dependencies": [],
-			"registryDependencies": ["@craftdotui/baseui-radio"],
+			"registryDependencies": ["@craftdotui/baseui-radio-group"],
 			"files": [
 				{
-					"path": "packages/baseui/particles/radio/with-description/index.tsx",
+					"path": "packages/baseui/particles/radio-group/with-description/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/radio-with-description.tsx"
+					"target": "components/baseui/particles/radio-group-with-description.tsx"
 				}
 			]
 		},

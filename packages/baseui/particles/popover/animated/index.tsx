@@ -5,13 +5,9 @@ import { Bell, List, User } from "lucide-react";
 import {
 	PopoverRoot,
 	PopoverTrigger,
-	PopoverPortal,
-	PopoverPositioner,
-	PopoverPopup,
-	PopoverViewport,
+	PopoverContent,
 	PopoverTitle,
 	PopoverDescription,
-	PopoverArrow,
 	createHandle,
 } from "@craftdotui/baseui/components/popover";
 import { Button } from "@craftdotui/baseui/components/button";
@@ -53,16 +49,9 @@ export default function PopoverAnimatedDemo() {
 
 			<PopoverRoot handle={animatedPopover}>
 				{({ payload: Payload }) => (
-					<PopoverPortal>
-						<PopoverPositioner>
-							<PopoverPopup>
-								<PopoverArrow />
-								<PopoverViewport>
-									{Payload !== undefined && <Payload />}
-								</PopoverViewport>
-							</PopoverPopup>
-						</PopoverPositioner>
-					</PopoverPortal>
+					<PopoverContent>
+						{Payload !== undefined && <Payload />}
+					</PopoverContent>
 				)}
 			</PopoverRoot>
 		</div>

@@ -69,9 +69,9 @@ function ToggleRoot({ className, size, variant, ...props }: ToggleProps) {
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
-export const Toggle = {
+const Toggle = Object.assign(ToggleRoot, {
 	Root: ToggleRoot,
-};
+});
 
-export { ToggleRoot, toggleVariants };
+export { Toggle, ToggleRoot, toggleVariants };
 export type { ToggleProps };

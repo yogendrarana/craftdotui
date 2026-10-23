@@ -1,15 +1,12 @@
 import {
+	SelectContent,
+	SelectItem,
 	SelectRoot,
 	SelectTrigger,
 	SelectValue,
-	SelectPortal,
-	SelectPositioner,
-	SelectPopup,
-	SelectItem,
-	SelectItemList,
 } from "@craftdotui/baseui/components/select";
 
-export default function Particle() {
+export function Particle() {
 	return (
 		<div className="w-full max-w-50">
 			<SelectRoot defaultValue="apple" disabled>
@@ -17,18 +14,14 @@ export default function Particle() {
 					<SelectValue />
 				</SelectTrigger>
 
-				<SelectPortal>
-					<SelectPositioner>
-						<SelectPopup>
-							<SelectItemList>
-								<SelectItem value="apple">Apple</SelectItem>
-								<SelectItem value="banana">Banana</SelectItem>
-								<SelectItem value="orange">Orange</SelectItem>
-							</SelectItemList>
-						</SelectPopup>
-					</SelectPositioner>
-				</SelectPortal>
+				<SelectContent>
+					<SelectItem value="apple">Apple</SelectItem>
+					<SelectItem value="banana">Banana</SelectItem>
+					<SelectItem value="orange">Orange</SelectItem>
+				</SelectContent>
 			</SelectRoot>
 		</div>
 	);
 }
+
+export default Particle;

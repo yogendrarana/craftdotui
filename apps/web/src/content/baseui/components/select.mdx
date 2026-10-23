@@ -15,6 +15,63 @@ author:
 
 <Installation name="baseui-select" />
 
+## Anatomy
+
+#### Components
+
+```tsx
+<SelectRoot>
+  <SelectLabel />
+  <SelectTrigger>
+    <SelectValue />
+    <SelectIcon />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem>
+      <SelectItemText />
+      <SelectItemIndicator />
+    </SelectItem>
+    <SelectSeparator />
+    <SelectGroup>
+      <SelectGroupLabel />
+    </SelectGroup>
+  </SelectContent>
+</SelectRoot>
+```
+
+#### Primitives (Base UI)
+
+```tsx
+<Select.Root>
+  <Select.Label />
+  <Select.Trigger>
+    <Select.Value />
+    <Select.Icon />
+  </Select.Trigger>
+
+  <Select.Portal>
+    <Select.Backdrop />
+    <Select.Positioner>
+      <Select.Popup>
+        <Select.ScrollUpArrow />
+        <Select.Arrow />
+        <Select.List>
+          <Select.Item>
+            <Select.ItemText />
+            <Select.ItemIndicator />
+          </Select.Item>
+          <Select.Separator />
+          <Select.Group>
+            <Select.GroupLabel />
+          </Select.Group>
+        </Select.List>
+        <Select.ScrollDownArrow />
+      </Select.Popup>
+    </Select.Positioner>
+  </Select.Portal>
+</Select.Root>
+```
+
 ## Demo
 
 #### Disabled

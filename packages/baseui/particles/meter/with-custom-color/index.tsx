@@ -6,7 +6,7 @@ import {
 	MeterValue,
 } from "@craftdotui/baseui/components/meter";
 
-export function MeterExampleCustom() {
+export function Particle() {
 	return (
 		<MeterRoot value={85} max={100} className="max-w-100">
 			<div className="flex items-center justify-between gap-2">
@@ -19,3 +19,5 @@ export function MeterExampleCustom() {
 		</MeterRoot>
 	);
 }
+
+export default Particle;

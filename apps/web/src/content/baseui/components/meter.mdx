@@ -1,6 +1,6 @@
 ---
 title: Meter
-description: A Base UI meter component
+description: A Base UI meter component that displays a scalar measurement within a known range
 slug: /baseui/components/meter
 published: true
 date: 2025-12-29T00:00:00.000Z
@@ -11,10 +11,35 @@ author:
 
 <ComponentCodePreview name="baseui-particles-meter" />
 
-
 ## Installation
 
 <Installation name="baseui-meter" />
+
+## Anatomy
+
+#### Components
+
+```tsx
+<MeterRoot>
+  <MeterLabel />
+  <MeterTrack>
+    <MeterIndicator />
+  </MeterTrack>
+  <MeterValue />
+</MeterRoot>
+```
+
+#### Primitives (Base UI)
+
+```tsx
+<Meter.Root>
+  <Meter.Label />
+  <Meter.Track>
+    <Meter.Indicator />
+  </Meter.Track>
+  <Meter.Value />
+</Meter.Root>
+```
 
 ## Demo
 

@@ -8,3 +8,5 @@ export function Particle() {
 		</ToggleRoot>
 	);
 }
+
+export default Particle;

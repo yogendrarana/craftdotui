@@ -4,12 +4,9 @@ import * as React from "react";
 import {
 	PopoverRoot,
 	PopoverTrigger,
-	PopoverPortal,
-	PopoverPositioner,
-	PopoverPopup,
+	PopoverContent,
 	PopoverTitle,
 	PopoverDescription,
-	PopoverArrow,
 	createHandle,
 	type PopoverChangeEventDetails,
 } from "@craftdotui/baseui/components/popover";
@@ -60,18 +57,12 @@ export default function Particle() {
 				onOpenChange={handleOpenChange}
 				triggerId={triggerId}
 			>
-				<PopoverPortal>
-					<PopoverPositioner>
-						<PopoverPopup>
-							<PopoverArrow />
-							<PopoverTitle>Controlled Popover</PopoverTitle>
-							<PopoverDescription>
-								The active trigger is{" "}
-								<strong>{triggerId}</strong>.
-							</PopoverDescription>
-						</PopoverPopup>
-					</PopoverPositioner>
-				</PopoverPortal>
+				<PopoverContent>
+					<PopoverTitle>Controlled Popover</PopoverTitle>
+					<PopoverDescription>
+						The active trigger is <strong>{triggerId}</strong>.
+					</PopoverDescription>
+				</PopoverContent>
 			</PopoverRoot>
 		</div>
 	);

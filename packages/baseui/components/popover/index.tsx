@@ -40,7 +40,10 @@ function PopoverBackdrop({
 			className={cn(
 				"fixed inset-0 z-50",
 				"bg-backdrop backdrop-blur-xs",
-				"data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0",
+				"transition-opacity duration-200 ease-out",
+				"data-starting-style:opacity-0",
+				"data-ending-style:opacity-0",
+				"supports-[-webkit-touch-callout:none]:absolute",
 				className,
 			)}
 			data-slot="popover-backdrop"
@@ -218,6 +221,53 @@ function PopoverViewport({
 }
 
 /* -------------------------------------------------------------------------- */
+/* Content (Composite Component)                                              */
+/* -------------------------------------------------------------------------- */
+
+type PopoverPositionerProps = PopoverPrimitive.Positioner.Props;
+
+interface PopoverContentProps extends PopoverPrimitive.Popup.Props {
+	hasBackdrop?: boolean;
+	hasArrow?: boolean;
+	className?: string;
+	children?: React.ReactNode;
+	portalProps?: PopoverPrimitive.Portal.Props;
+	backdropProps?: PopoverPrimitive.Backdrop.Props;
+	positionerProps?: PopoverPositionerProps;
+	arrowProps?: PopoverPrimitive.Arrow.Props;
+	viewportProps?: PopoverPrimitive.Viewport.Props;
+}
+
+type PopoverContentInterface = PopoverContentProps;
+
+function PopoverContent({
+	className,
+	children,
+	hasBackdrop = false,
+	hasArrow = true,
+	portalProps,
+	backdropProps,
+	positionerProps = { sideOffset: 8 },
+	arrowProps,
+	viewportProps,
+	...props
+}: PopoverContentProps) {
+	return (
+		<PopoverPortal {...portalProps}>
+			{hasBackdrop && <PopoverBackdrop {...backdropProps} />}
+			<PopoverPositioner sideOffset={8} {...positionerProps}>
+				<PopoverPopup className={className} {...props}>
+					{hasArrow && <PopoverArrow {...arrowProps} />}
+					<PopoverViewport {...viewportProps}>
+						{children}
+					</PopoverViewport>
+				</PopoverPopup>
+			</PopoverPositioner>
+		</PopoverPortal>
+	);
+}
+
+/* -------------------------------------------------------------------------- */
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
@@ -233,6 +283,7 @@ export const Popover = {
 	Description: PopoverDescription,
 	Close: PopoverClose,
 	Viewport: PopoverViewport,
+	Content: PopoverContent,
 };
 
 const createHandle = PopoverPrimitive.createHandle;
@@ -250,6 +301,10 @@ export {
 	PopoverDescription,
 	PopoverClose,
 	PopoverViewport,
+	PopoverContent,
 	createHandle,
 	type PopoverChangeEventDetails,
+	type PopoverContentProps,
+	type PopoverContentInterface,
+	type PopoverPositionerProps,
 };

@@ -54,6 +54,31 @@ function PreviewCardPortal(props: PreviewCardPrimitive.Portal.Props) {
 }
 
 /* -------------------------------------------------------------------------- */
+/* Backdrop                                                                    */
+/* -------------------------------------------------------------------------- */
+
+function PreviewCardBackdrop({
+	className,
+	...props
+}: PreviewCardPrimitive.Backdrop.Props) {
+	return (
+		<PreviewCardPrimitive.Backdrop
+			data-slot="preview-card-backdrop"
+			className={cn(
+				"fixed inset-0 z-50",
+				"bg-backdrop backdrop-blur-xs",
+				"transition-opacity duration-200 ease-out",
+				"data-starting-style:opacity-0",
+				"data-ending-style:opacity-0",
+				"supports-[-webkit-touch-callout:none]:absolute",
+				className,
+			)}
+			{...props}
+		/>
+	);
+}
+
+/* -------------------------------------------------------------------------- */
 /* Positioner                                                                 */
 /* -------------------------------------------------------------------------- */
 
@@ -121,6 +146,74 @@ function PreviewCardArrow({
 }
 
 /* -------------------------------------------------------------------------- */
+/* Viewport                                                                   */
+/* -------------------------------------------------------------------------- */
+
+function PreviewCardViewport({
+	className,
+	...props
+}: PreviewCardPrimitive.Viewport.Props) {
+	return (
+		<PreviewCardPrimitive.Viewport
+			data-slot="preview-card-viewport"
+			className={cn("relative h-full w-full overflow-clip", className)}
+			{...props}
+		/>
+	);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Content (Composite Component)                                              */
+/* -------------------------------------------------------------------------- */
+
+type PreviewCardPositionerProps = PreviewCardPrimitive.Positioner.Props;
+
+interface PreviewCardContentProps extends PreviewCardPrimitive.Popup.Props {
+	hasBackdrop?: boolean;
+	hasArrow?: boolean;
+	className?: string;
+	children?: React.ReactNode;
+	portalProps?: PreviewCardPrimitive.Portal.Props;
+	backdropProps?: PreviewCardPrimitive.Backdrop.Props;
+	positionerProps?: PreviewCardPositionerProps;
+	arrowProps?: PreviewCardPrimitive.Arrow.Props;
+	viewportProps?: PreviewCardPrimitive.Viewport.Props;
+}
+
+type PreviewCardContentInterface = PreviewCardContentProps;
+
+function PreviewCardContent({
+	className,
+	children,
+	hasBackdrop = false,
+	hasArrow = true,
+	portalProps,
+	backdropProps,
+	positionerProps = { sideOffset: 8 },
+	arrowProps,
+	viewportProps,
+	...props
+}: PreviewCardContentProps) {
+	return (
+		<PreviewCardPortal {...portalProps}>
+			{hasBackdrop && <PreviewCardBackdrop {...backdropProps} />}
+			<PreviewCardPositioner sideOffset={8} {...positionerProps}>
+				<PreviewCardPopup
+					showPreviewCardArrow={false}
+					className={className}
+					{...props}
+				>
+					{hasArrow && <PreviewCardArrow {...arrowProps} />}
+					<PreviewCardViewport {...viewportProps}>
+						{children}
+					</PreviewCardViewport>
+				</PreviewCardPopup>
+			</PreviewCardPositioner>
+		</PreviewCardPortal>
+	);
+}
+
+/* -------------------------------------------------------------------------- */
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
@@ -128,16 +221,28 @@ export const PreviewCard = {
 	Root: PreviewCardRoot,
 	Trigger: PreviewCardTrigger,
 	Portal: PreviewCardPortal,
+	Backdrop: PreviewCardBackdrop,
 	Positioner: PreviewCardPositioner,
 	Popup: PreviewCardPopup,
 	Arrow: PreviewCardArrow,
+	Viewport: PreviewCardViewport,
+	Content: PreviewCardContent,
 };
+
+const createHandle = PreviewCardPrimitive.createHandle;
 
 export {
 	PreviewCardRoot,
 	PreviewCardTrigger,
 	PreviewCardPortal,
+	PreviewCardBackdrop,
 	PreviewCardPositioner,
 	PreviewCardPopup,
 	PreviewCardArrow,
+	PreviewCardViewport,
+	PreviewCardContent,
+	createHandle,
+	type PreviewCardContentProps,
+	type PreviewCardContentInterface,
+	type PreviewCardPositionerProps,
 };

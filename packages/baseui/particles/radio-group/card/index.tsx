@@ -1,4 +1,7 @@
-import { RadioGroupRoot, RadioRoot } from "@craftdotui/baseui/components/radio";
+import {
+	RadioGroupRoot,
+	RadioRoot,
+} from "@craftdotui/baseui/components/radio-group";
 
 const plans = [
 	{
@@ -51,3 +54,5 @@ export function Particle() {
 		</RadioGroupRoot>
 	);
 }
+
+export default Particle;

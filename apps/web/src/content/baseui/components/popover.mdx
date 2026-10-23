@@ -1,6 +1,6 @@
 ---
 title: Popover
-description: A Base UI popover component
+description: A Base UI popover component that displays floating content in relation to a trigger element.
 slug: /baseui/components/popover
 published: true
 date: 2026-01-08T00:00:00.000Z
@@ -14,6 +14,42 @@ author:
 ## Installation
 
 <Installation name="baseui-popover" />
+
+## Anatomy
+
+#### Components
+
+```tsx
+<PopoverRoot>
+  <PopoverTrigger />
+  <PopoverContent>
+    <PopoverTitle />
+    <PopoverDescription />
+    <PopoverClose />
+  </PopoverContent>
+</PopoverRoot>
+```
+
+#### Primitives (Base UI)
+
+```tsx
+<Popover.Root>
+  <Popover.Trigger />
+  <Popover.Portal>
+    <Popover.Backdrop />
+    <Popover.Positioner>
+      <Popover.Popup>
+        <Popover.Arrow />
+        <Popover.Viewport>
+          <Popover.Title />
+          <Popover.Description />
+          <Popover.Close />
+        </Popover.Viewport>
+      </Popover.Popup>
+    </Popover.Positioner>
+  </Popover.Portal>
+</Popover.Root>
+```
 
 ## Demo
 

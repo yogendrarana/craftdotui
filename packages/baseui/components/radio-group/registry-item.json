@@ -1,15 +1,15 @@
 {
 	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
-	"name": "baseui-radio",
+	"name": "baseui-radio-group",
 	"type": "registry:component",
-	"description": "A Base UI radio component",
+	"description": "A Base UI radio group component",
 	"dependencies": ["@base-ui/react", "cn"],
 	"registryDependencies": [],
 	"files": [
 		{
-			"path": "packages/baseui/components/radio/index.tsx",
+			"path": "packages/baseui/components/radio-group/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/components/radio.tsx"
+			"target": "components/baseui/components/radio-group.tsx"
 		}
 	]
 }

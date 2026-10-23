@@ -24,3 +24,5 @@ export function Particle() {
 		</div>
 	);
 }
+
+export default Particle;

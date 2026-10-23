@@ -20,3 +20,5 @@ export function Particle() {
 		</SliderRoot>
 	);
 }
+
+export default Particle;

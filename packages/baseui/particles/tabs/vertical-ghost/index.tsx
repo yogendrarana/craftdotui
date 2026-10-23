@@ -5,7 +5,7 @@ import {
 	Tab,
 } from "@craftdotui/baseui/components/tabs";
 
-export default function Particle() {
+export function Particle() {
 	return (
 		<TabsRoot
 			className="w-[400px] flex-row"
@@ -37,3 +37,5 @@ export default function Particle() {
 		</TabsRoot>
 	);
 }
+
+export default Particle;

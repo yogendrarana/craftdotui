@@ -88,9 +88,9 @@ function ToggleGroupItem({
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
-export const ToggleGroup = {
+const ToggleGroup = Object.assign(ToggleGroupRoot, {
 	Root: ToggleGroupRoot,
 	Item: ToggleGroupItem,
-};
+});
 
-export { ToggleGroupRoot, ToggleGroupItem };
+export { ToggleGroup, ToggleGroupRoot, ToggleGroupItem };

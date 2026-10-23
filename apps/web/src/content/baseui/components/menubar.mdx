@@ -1,6 +1,6 @@
 ---
 title: Menubar
-description: A Base UI menubar component
+description: A Base UI menubar component that manages a set of menus for top-level application navigation
 slug: /baseui/components/menubar
 published: true
 date: 2026-01-15T00:00:00.000Z
@@ -11,7 +11,83 @@ author:
 
 <ComponentCodePreview name="baseui-particles-menubar" />
 
-
 ## Installation
 
 <Installation name="baseui-menubar" />
+
+## Anatomy
+
+#### Components
+
+```tsx
+<MenubarRoot>
+  <MenuRoot>
+    <MenuTrigger />
+
+    <MenuContent>
+      <MenuArrow />
+      <MenuItem />
+      <MenuShortcut />
+      <MenuSeparator />
+
+      <MenuSubmenu>
+        <MenuSubmenuTrigger />
+        <MenuContent>
+          <MenuItem />
+        </MenuContent>
+      </MenuSubmenu>
+
+      <MenuGroup>
+        <MenuGroupLabel />
+      </MenuGroup>
+
+      <MenuRadioGroup>
+        <MenuRadioItem />
+      </MenuRadioGroup>
+
+      <MenuCheckboxItem />
+    </MenuContent>
+  </MenuRoot>
+</MenubarRoot>
+```
+
+#### Primitives (Base UI)
+
+```tsx
+<Menubar>
+  <Menu.Root>
+    <Menu.Trigger />
+    <Menu.Portal>
+      <Menu.Backdrop />
+      <Menu.Positioner>
+        <Menu.Popup>
+          <Menu.Arrow />
+          <Menu.Item />
+          <Menu.LinkItem />
+          <Menu.Separator />
+
+          <Menu.SubmenuRoot>
+            <Menu.SubmenuTrigger />
+          </Menu.SubmenuRoot>
+
+          <Menu.Group>
+            <Menu.GroupLabel />
+          </Menu.Group>
+
+          <Menu.RadioGroup>
+            <Menu.RadioItem>
+              <Menu.RadioItemIndicator />
+            </Menu.RadioItem>
+          </Menu.RadioGroup>
+
+          <Menu.CheckboxItem>
+            <Menu.CheckboxItemIndicator />
+          </Menu.CheckboxItem>
+
+          <Menu.Viewport />
+        </Menu.Popup>
+      </Menu.Positioner>
+    </Menu.Portal>
+  </Menu.Root>
+</Menubar>
+```

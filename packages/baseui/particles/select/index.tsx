@@ -1,12 +1,9 @@
 import {
+	SelectContent,
+	SelectItem,
 	SelectRoot,
 	SelectTrigger,
 	SelectValue,
-	SelectPortal,
-	SelectPositioner,
-	SelectPopup,
-	SelectItem,
-	SelectItemList,
 } from "@craftdotui/baseui/components/select";
 
 const fonts = [
@@ -17,7 +14,7 @@ const fonts = [
 	{ label: "Cursive", value: "cursive" },
 ];
 
-export default function Particle() {
+export function Particle() {
 	return (
 		<div className="w-full max-w-50">
 			<SelectRoot items={fonts}>
@@ -25,23 +22,16 @@ export default function Particle() {
 					<SelectValue />
 				</SelectTrigger>
 
-				<SelectPortal>
-					<SelectPositioner>
-						<SelectPopup>
-							<SelectItemList>
-								{fonts.map((font) => (
-									<SelectItem
-										key={font.value}
-										value={font.value}
-									>
-										{font.label}
-									</SelectItem>
-								))}
-							</SelectItemList>
-						</SelectPopup>
-					</SelectPositioner>
-				</SelectPortal>
+				<SelectContent>
+					{fonts.map((font) => (
+						<SelectItem key={font.value} value={font.value}>
+							{font.label}
+						</SelectItem>
+					))}
+				</SelectContent>
 			</SelectRoot>
 		</div>
 	);
 }
+
+export default Particle;

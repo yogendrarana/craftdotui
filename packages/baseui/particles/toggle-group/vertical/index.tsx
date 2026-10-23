@@ -31,3 +31,5 @@ export function Particle() {
 		</ToggleGroupRoot>
 	);
 }
+
+export default Particle;

@@ -4,10 +4,7 @@ import { Button } from "@craftdotui/baseui/components/button";
 import {
 	PopoverRoot,
 	PopoverTrigger,
-	PopoverPortal,
-	PopoverPositioner,
-	PopoverPopup,
-	PopoverArrow,
+	PopoverContent,
 	PopoverTitle,
 	PopoverDescription,
 	createHandle,
@@ -24,18 +21,13 @@ export default function Particle() {
 			/>
 
 			<PopoverRoot handle={demoPopover}>
-				<PopoverPortal>
-					<PopoverPositioner>
-						<PopoverPopup>
-							<PopoverArrow />
-							<PopoverTitle>Detached Popover</PopoverTitle>
-							<PopoverDescription>
-								This popover is controlled by a trigger outside
-								of its Root.
-							</PopoverDescription>
-						</PopoverPopup>
-					</PopoverPositioner>
-				</PopoverPortal>
+				<PopoverContent>
+					<PopoverTitle>Detached Popover</PopoverTitle>
+					<PopoverDescription>
+						This popover is controlled by a trigger outside of its
+						Root.
+					</PopoverDescription>
+				</PopoverContent>
 			</PopoverRoot>
 		</div>
 	);

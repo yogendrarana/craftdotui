@@ -3,9 +3,7 @@
 import {
 	PreviewCardRoot,
 	PreviewCardTrigger,
-	PreviewCardPortal,
-	PreviewCardPositioner,
-	PreviewCardPopup,
+	PreviewCardContent,
 } from "@craftdotui/baseui/components/preview-card";
 import { ForkKnife, Star } from "lucide-react";
 
@@ -50,36 +48,32 @@ export default function Particle() {
 						{project.name}
 					</PreviewCardTrigger>
 					{i < projects.length - 1 && ", "}
-					<PreviewCardPortal>
-						<PreviewCardPositioner sideOffset={10}>
-							<PreviewCardPopup>
-								<div className=" flex flex-col gap-3">
-									<div>
-										<p className="text-sm font-semibold text-primary">
-											{project.repo}
-										</p>
-										<p className="text-xs text-muted-foreground">
-											{project.description}
-										</p>
-									</div>
+					<PreviewCardContent positionerProps={{ sideOffset: 10 }}>
+						<div className="flex flex-col gap-3">
+							<div>
+								<p className="text-sm font-semibold text-primary">
+									{project.repo}
+								</p>
+								<p className="text-xs text-muted-foreground">
+									{project.description}
+								</p>
+							</div>
 
-									<div className="flex items-center gap-4 text-xs text-muted-foreground">
-										<span className="flex items-center gap-1">
-											<Star className="w-3.5 h-3.5" />{" "}
-											{project.stars}
-										</span>
-										<span className="flex items-center gap-1">
-											<ForkKnife className="w-3.5 h-3.5" />{" "}
-											{project.forks}
-										</span>
-										<span className="rounded bg-secondary text-secondary-foreground px-1.5 py-0.5">
-											{project.language}
-										</span>
-									</div>
-								</div>
-							</PreviewCardPopup>
-						</PreviewCardPositioner>
-					</PreviewCardPortal>
+							<div className="flex items-center gap-4 text-xs text-muted-foreground">
+								<span className="flex items-center gap-1">
+									<Star className="w-3.5 h-3.5" />{" "}
+									{project.stars}
+								</span>
+								<span className="flex items-center gap-1">
+									<ForkKnife className="w-3.5 h-3.5" />{" "}
+									{project.forks}
+								</span>
+								<span className="rounded bg-secondary text-secondary-foreground px-1.5 py-0.5">
+									{project.language}
+								</span>
+							</div>
+						</div>
+					</PreviewCardContent>
 				</PreviewCardRoot>
 			))}{" "}
 			power modern interfaces.

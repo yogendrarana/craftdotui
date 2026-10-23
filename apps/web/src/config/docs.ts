@@ -128,8 +128,8 @@ export const docsNavItems: Array<DocsNavItem> = [
 				href: "/docs/baseui/components/progress",
 			},
 			{
-				title: "Radio",
-				href: "/docs/baseui/components/radio",
+				title: "Radio Group",
+				href: "/docs/baseui/components/radio-group",
 			},
 			{
 				title: "Scroll Area",

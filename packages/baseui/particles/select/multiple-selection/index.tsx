@@ -1,12 +1,9 @@
 import {
+	SelectContent,
+	SelectItem,
 	SelectRoot,
 	SelectTrigger,
 	SelectValue,
-	SelectPortal,
-	SelectPositioner,
-	SelectPopup,
-	SelectItem,
-	SelectItemList,
 } from "@craftdotui/baseui/components/select";
 
 const languages = {
@@ -37,7 +34,7 @@ function renderValue(value: Language[]) {
 	return firstLanguage + additionalLanguages;
 }
 
-export default function Particle() {
+export function Particle() {
 	return (
 		<div className="w-full max-w-50">
 			<SelectRoot defaultValue={["javascript", "typescript"]} multiple>
@@ -45,20 +42,16 @@ export default function Particle() {
 					<SelectValue>{renderValue}</SelectValue>
 				</SelectTrigger>
 
-				<SelectPortal>
-					<SelectPositioner alignItemWithTrigger={false}>
-						<SelectPopup>
-							<SelectItemList>
-								{values.map((value) => (
-									<SelectItem key={value} value={value}>
-										{languages[value]}
-									</SelectItem>
-								))}
-							</SelectItemList>
-						</SelectPopup>
-					</SelectPositioner>
-				</SelectPortal>
+				<SelectContent alignItemWithTrigger={false}>
+					{values.map((value) => (
+						<SelectItem key={value} value={value}>
+							{languages[value]}
+						</SelectItem>
+					))}
+				</SelectContent>
 			</SelectRoot>
 		</div>
 	);
 }
+
+export default Particle;

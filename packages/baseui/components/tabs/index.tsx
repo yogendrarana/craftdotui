@@ -115,7 +115,7 @@ function TabsList({
 /* Tabs Indicator                                                             */
 /* -------------------------------------------------------------------------- */
 
-function TabsIndicator() {
+function TabsIndicator({ className, ...props }: TabsPrimitive.Indicator.Props) {
 	const { variant, tabShape } = useContext(TabsListContext);
 	// data-active:bg-background data-active:border-border data-active:shadow-sm data-active:text-foreground
 	return (
@@ -132,7 +132,9 @@ function TabsIndicator() {
 				variant !== "ghost" &&
 					"-z-1 rounded-md bg-background shadow-sm text-foreground border border-border",
 				tabShape === "pill" && "rounded-full",
+				className,
 			)}
+			{...props}
 		/>
 	);
 }
@@ -216,12 +218,24 @@ function TabsPanel({ className, ...props }: TabsPrimitive.Panel.Props) {
 }
 
 /* -------------------------------------------------------------------------- */
+const TabsTab = Tab;
+
 export const Tabs = {
 	Root: TabsRoot,
 	List: TabsList,
 	Tab,
+	Indicator: TabsIndicator,
 	Panel: TabsPanel,
 };
 
-export { TabsRoot, TabsList, Tab, TabsPanel, tabsListVariants, tabVariants };
+export {
+	TabsRoot,
+	TabsList,
+	Tab,
+	TabsTab,
+	TabsIndicator,
+	TabsPanel,
+	tabsListVariants,
+	tabVariants,
+};
 export type { TabsListProps };

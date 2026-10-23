@@ -26,8 +26,8 @@ function SeparatorRoot({ className, ...props }: SeparatorPrimitive.Props) {
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
-export const Separator = {
+const Separator = Object.assign(SeparatorRoot, {
 	Root: SeparatorRoot,
-};
+});
 
-export { SeparatorRoot };
+export { Separator, SeparatorRoot };

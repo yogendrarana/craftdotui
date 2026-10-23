@@ -4,12 +4,9 @@ import { Button } from "@craftdotui/baseui/components/button";
 import {
 	PopoverRoot,
 	PopoverTrigger,
-	PopoverPortal,
-	PopoverPositioner,
-	PopoverPopup,
+	PopoverContent,
 	PopoverTitle,
 	PopoverDescription,
-	PopoverArrow,
 	createHandle,
 } from "@craftdotui/baseui/components/popover";
 
@@ -33,20 +30,15 @@ export default function Particle() {
 
 			<PopoverRoot handle={demoPopover}>
 				{({ payload }) => (
-					<PopoverPortal>
-						<PopoverPositioner>
-							<PopoverPopup>
-								<PopoverArrow />
-								<PopoverTitle>Multiple Triggers</PopoverTitle>
-								{payload && (
-									<PopoverDescription>
-										This popover was opened by{" "}
-										<strong>{payload?.text}</strong>.
-									</PopoverDescription>
-								)}
-							</PopoverPopup>
-						</PopoverPositioner>
-					</PopoverPortal>
+					<PopoverContent>
+						<PopoverTitle>Multiple Triggers</PopoverTitle>
+						{payload && (
+							<PopoverDescription>
+								This popover was opened by{" "}
+								<strong>{payload?.text}</strong>.
+							</PopoverDescription>
+						)}
+					</PopoverContent>
 				)}
 			</PopoverRoot>
 		</div>

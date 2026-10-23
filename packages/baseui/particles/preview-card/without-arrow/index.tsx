@@ -3,9 +3,7 @@
 import {
 	PreviewCardRoot,
 	PreviewCardTrigger,
-	PreviewCardPortal,
-	PreviewCardPositioner,
-	PreviewCardPopup,
+	PreviewCardContent,
 } from "@craftdotui/baseui/components/preview-card";
 
 export default function Particle() {
@@ -16,16 +14,15 @@ export default function Particle() {
 				<PreviewCardTrigger className="font-medium">
 					cleaner look
 				</PreviewCardTrigger>
-				<PreviewCardPortal>
-					<PreviewCardPositioner sideOffset={10}>
-						<PreviewCardPopup showPreviewCardArrow={false}>
-							<p className="text-sm">
-								This preview card has no arrow, providing a
-								cleaner and more minimalist appearance.
-							</p>
-						</PreviewCardPopup>
-					</PreviewCardPositioner>
-				</PreviewCardPortal>
+				<PreviewCardContent
+					hasArrow={false}
+					positionerProps={{ sideOffset: 10 }}
+				>
+					<p className="text-sm">
+						This preview card has no arrow, providing a cleaner and
+						more minimalist appearance.
+					</p>
+				</PreviewCardContent>
 			</PreviewCardRoot>{" "}
 			without any pointing indicators.
 		</p>

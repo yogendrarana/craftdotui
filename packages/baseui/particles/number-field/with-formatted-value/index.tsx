@@ -20,3 +20,5 @@ export function Particle() {
 		</NumberFieldRoot>
 	);
 }
+
+export default Particle;

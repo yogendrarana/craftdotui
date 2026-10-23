@@ -1,6 +1,6 @@
 ---
 title: Number Field
-description: A Base UI numberfield component
+description: A Base UI number field component with scrub area, increment/decrement controls, and numeric validation
 slug: /baseui/components/number-field
 published: true
 date: 2026-01-11T00:00:00.000Z
@@ -14,6 +14,38 @@ author:
 ## Installation
 
 <Installation name="baseui-number-field" />
+
+## Anatomy
+
+#### Components
+
+```tsx
+<NumberFieldRoot>
+  <NumberFieldScrubArea>
+    <NumberFieldScrubAreaCursor />
+  </NumberFieldScrubArea>
+  <NumberFieldGroup>
+    <NumberFieldDecrement />
+    <NumberFieldInput />
+    <NumberFieldIncrement />
+  </NumberFieldGroup>
+</NumberFieldRoot>
+```
+
+#### Primitives (Base UI)
+
+```tsx
+<NumberField.Root>
+  <NumberField.ScrubArea>
+    <NumberField.ScrubAreaCursor />
+  </NumberField.ScrubArea>
+  <NumberField.Group>
+    <NumberField.Decrement />
+    <NumberField.Input />
+    <NumberField.Increment />
+  </NumberField.Group>
+</NumberField.Root>
+```
 
 ## Demo
 

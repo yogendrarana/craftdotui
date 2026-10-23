@@ -103,24 +103,34 @@ function ToolbarGroup({ className, ...props }: ToolbarPrimitive.Group.Props) {
 /* Toolbar Input                                                              */
 /* -------------------------------------------------------------------------- */
 
-function ToolbarInput(props: ToolbarPrimitive.Input.Props) {
-	return <ToolbarPrimitive.Input data-slot="toolbar-input" {...props} />;
+function ToolbarInput({ className, ...props }: ToolbarPrimitive.Input.Props) {
+	return (
+		<ToolbarPrimitive.Input
+			data-slot="toolbar-input"
+			className={cn(
+				"h-8 rounded-md border border-input bg-background px-2.5 py-1 text-sm shadow-xs outline-none placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-ring/20 disabled:cursor-not-allowed disabled:opacity-50",
+				className,
+			)}
+			{...props}
+		/>
+	);
 }
 
 /* -------------------------------------------------------------------------- */
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
-export const Toolbar = {
+const Toolbar = Object.assign(ToolbarRoot, {
 	Root: ToolbarRoot,
 	Button: ToolbarButton,
 	Link: ToolbarLink,
 	Separator: ToolbarSeparator,
 	Group: ToolbarGroup,
 	Input: ToolbarInput,
-};
+});
 
 export {
+	Toolbar,
 	ToolbarRoot,
 	ToolbarButton,
 	ToolbarLink,
