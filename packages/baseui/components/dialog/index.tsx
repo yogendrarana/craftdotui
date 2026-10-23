@@ -223,11 +223,14 @@ function DialogHeader({
 /* -------------------------------------------------------------------------- */
 
 interface DialogContentProps extends DialogPrimitive.Popup.Props {
+	hasBackdrop?: boolean;
 	portalProps?: DialogPrimitive.Portal.Props;
 	backdropProps?: DialogPrimitive.Backdrop.Props;
 	viewportProps?: DialogPrimitive.Viewport.Props;
 	showCloseButton?: boolean;
 }
+
+type DialogContentInterface = DialogContentProps;
 
 function DialogContent({
 	className,
@@ -235,6 +238,7 @@ function DialogContent({
 	portalProps,
 	backdropProps,
 	viewportProps,
+	hasBackdrop = true,
 	showCloseButton = false,
 	...props
 }: DialogContentProps): React.ReactElement {
@@ -243,7 +247,7 @@ function DialogContent({
 	if (scroll === "outside") {
 		return (
 			<DialogPortal {...portalProps}>
-				<DialogBackdrop {...backdropProps} />
+				{hasBackdrop && <DialogBackdrop {...backdropProps} />}
 				<DialogViewport
 					{...viewportProps}
 					className={cn(
@@ -285,7 +289,7 @@ function DialogContent({
 
 	return (
 		<DialogPortal {...portalProps}>
-			<DialogBackdrop {...backdropProps} />
+			{hasBackdrop && <DialogBackdrop {...backdropProps} />}
 			<DialogViewport {...viewportProps}>
 				<DialogPopup className={cn("max-h-full", className)} {...props}>
 					{showCloseButton && (
@@ -361,7 +365,7 @@ const dialogFooterVariants = cva(
 	{
 		variants: {
 			variant: {
-				default: "border-t border-border bg-muted/50 py-4",
+				default: "border-t border-border bg-muted/50 py-3",
 				bare: "in-[[data-slot=dialog-popup]:has([data-slot=dialog-panel])]:pt-3 in-[[data-slot=alert-dialog-popup]:has([data-slot=alert-dialog-panel])]:pt-3 pt-4 pb-6",
 			},
 		},
@@ -433,6 +437,7 @@ export {
 	dialogFooterVariants,
 	type DialogFooterVariants,
 	type DialogContentProps,
+	type DialogContentInterface,
 	type DialogHeaderProps,
 	type DialogPanelProps,
 	type DialogFooterProps,

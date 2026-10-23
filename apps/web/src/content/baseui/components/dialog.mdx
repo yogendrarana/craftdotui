@@ -20,50 +20,40 @@ author:
 #### Composite
 
 ```tsx
-<DialogRoot>
-    <DialogTrigger>Open Dialog</DialogTrigger>
+<Dialog.Root>
+  <Dialog.Trigger>Open Dialog</Dialog.Trigger>
 
-    <DialogContent showCloseButton>
-        <DialogHeader>
-            <DialogTitle>Dialog Title</DialogTitle>
-            <DialogDescription>Dialog Description</DialogDescription>
-        </DialogHeader>
+  <Dialog.Content showCloseButton>
+    <Dialog.Header>
+      <Dialog.Title>Dialog Title</Dialog.Title>
+      <Dialog.Description>Dialog Description</Dialog.Description>
+    </Dialog.Header>
 
-        <DialogPanel>Content</DialogPanel>
+    <Dialog.Panel>Content</Dialog.Panel>
 
-        <DialogFooter>
-            <DialogClose>Close</DialogClose>
-        </DialogFooter>
-    </DialogContent>
-</DialogRoot>
+    <Dialog.Footer>
+      <Dialog.Close>Close</Dialog.Close>
+    </Dialog.Footer>
+  </Dialog.Content>
+</Dialog.Root>
 ```
 
-#### Primitives
+#### Primitives (Base UI)
 
 ```tsx
-<DialogRoot>
-    <DialogTrigger>Open Dialog</DialogTrigger>
-
-    <DialogPortal>
-        <DialogBackdrop />
-        <DialogViewport>
-            <DialogPopup>
-                <DialogClose />
-
-                <DialogHeader>
-                    <DialogTitle>Dialog Title</DialogTitle>
-                    <DialogDescription>Dialog Description</DialogDescription>
-                </DialogHeader>
-
-                <DialogPanel>Content</DialogPanel>
-
-                <DialogFooter>
-                    <DialogClose>Close</DialogClose>
-                </DialogFooter>
-            </DialogPopup>
-        </DialogViewport>
-    </DialogPortal>
-</DialogRoot>
+<Dialog.Root>
+  <Dialog.Trigger />
+  <Dialog.Portal>
+    <Dialog.Backdrop />
+    <Dialog.Viewport>
+      <Dialog.Popup>
+        <Dialog.Title />
+        <Dialog.Description />
+        <Dialog.Close />
+      </Dialog.Popup>
+    </Dialog.Viewport>
+  </Dialog.Portal>
+</Dialog.Root>
 ```
 
 ## Demo
@@ -99,3 +89,42 @@ author:
 #### Open from Menu
 
 <ComponentCodePreview name="baseui-particles-dialog-from-menu" />
+
+## Props
+
+#### DialogContent
+
+<PropsTable
+  data={[
+    {
+      prop: "hasBackdrop",
+      type: "boolean",
+      default: "true",
+      description: "If true, shows a backdrop behind the dialog",
+    },
+    {
+      prop: "showCloseButton",
+      type: "boolean",
+      default: "false",
+      description: "If true, shows a close button in the top-right corner",
+    },
+    {
+      prop: "portalProps",
+      type: "DialogPrimitive.Portal.Props",
+      default: "undefined",
+      description: "Props forwarded to the Portal primitive",
+    },
+    {
+      prop: "backdropProps",
+      type: "DialogPrimitive.Backdrop.Props",
+      default: "undefined",
+      description: "Props forwarded to the Backdrop primitive",
+    },
+    {
+      prop: "viewportProps",
+      type: "DialogPrimitive.Viewport.Props",
+      default: "undefined",
+      description: "Props forwarded to the Viewport primitive",
+    },
+  ]}
+/>
