@@ -1,11 +1,9 @@
 import { Button } from "@craftdotui/baseui/components/button";
 import {
+	MenuContent,
+	MenuItem,
 	MenuRoot,
 	MenuTrigger,
-	MenuPortal,
-	MenuPositioner,
-	MenuPopup,
-	MenuItem,
 } from "@craftdotui/baseui/components/menu";
 
 export function Particle() {
@@ -15,16 +13,13 @@ export function Particle() {
 				openOnHover
 				render={<Button variant="outline">Open Menu</Button>}
 			/>
-
-			<MenuPortal>
-				<MenuPositioner>
-					<MenuPopup>
-						<MenuItem>Profile</MenuItem>
-						<MenuItem>Settings</MenuItem>
-						<MenuItem>Logout</MenuItem>
-					</MenuPopup>
-				</MenuPositioner>
-			</MenuPortal>
+			<MenuContent>
+				<MenuItem>Profile</MenuItem>
+				<MenuItem>Settings</MenuItem>
+				<MenuItem>Logout</MenuItem>
+			</MenuContent>
 		</MenuRoot>
 	);
 }
+
+export default Particle;

@@ -291,7 +291,7 @@ function ContextMenuRadioGroup(props: ContextMenuPrimitive.RadioGroup.Props) {
 
 function ContextMenuRadioItem({
 	className,
-	inset,
+	inset = true,
 	children,
 	...props
 }: ContextMenuPrimitive.RadioItem.Props & { inset?: boolean }) {
@@ -336,7 +336,7 @@ function ContextMenuRadioItemIndicator(
 
 function ContextMenuCheckboxItem({
 	className,
-	inset,
+	inset = true,
 	children,
 	...props
 }: ContextMenuPrimitive.CheckboxItem.Props & { inset?: boolean }) {

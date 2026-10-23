@@ -13,10 +13,8 @@ import {
 	AlertDialogTitle,
 } from "@craftdotui/baseui/components/alert-dialog";
 import {
+	MenuContent,
 	MenuItem,
-	MenuPopup,
-	MenuPortal,
-	MenuPositioner,
 	MenuRoot,
 	MenuTrigger,
 } from "@craftdotui/baseui/components/menu";
@@ -30,21 +28,17 @@ export function Particle() {
 				<MenuTrigger
 					render={<Button variant="outline">Open Menu</Button>}
 				/>
-				<MenuPortal>
-					<MenuPositioner>
-						<MenuPopup>
-							<MenuItem>Profile</MenuItem>
-							<MenuItem>Billing</MenuItem>
-							<MenuItem
-								className="text-destructive focus:text-destructive"
-								onClick={() => setOpenDialog(true)}
-							>
-								<Trash2 className="size-4" />
-								Delete account
-							</MenuItem>
-						</MenuPopup>
-					</MenuPositioner>
-				</MenuPortal>
+				<MenuContent>
+					<MenuItem>Profile</MenuItem>
+					<MenuItem>Billing</MenuItem>
+					<MenuItem
+						className="text-destructive focus:text-destructive"
+						onClick={() => setOpenDialog(true)}
+					>
+						<Trash2 className="size-4" />
+						Delete account
+					</MenuItem>
+				</MenuContent>
 			</MenuRoot>
 
 			<AlertDialogRoot open={openDialog} onOpenChange={setOpenDialog}>

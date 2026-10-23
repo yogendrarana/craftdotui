@@ -1,11 +1,9 @@
 import { Button } from "@craftdotui/baseui/components/button";
 import {
+	MenuCheckboxItem,
+	MenuContent,
 	MenuRoot,
 	MenuTrigger,
-	MenuPortal,
-	MenuPositioner,
-	MenuPopup,
-	MenuCheckboxItem,
 } from "@craftdotui/baseui/components/menu";
 
 export function Particle() {
@@ -14,16 +12,14 @@ export function Particle() {
 			<MenuTrigger
 				render={<Button variant="outline">Open Menu</Button>}
 			/>
-			<MenuPortal>
-				<MenuPositioner>
-					<MenuPopup>
-						<MenuCheckboxItem defaultChecked>
-							Show line numbers
-						</MenuCheckboxItem>
-						<MenuCheckboxItem>Enable autosave</MenuCheckboxItem>
-					</MenuPopup>
-				</MenuPositioner>
-			</MenuPortal>
+			<MenuContent>
+				<MenuCheckboxItem defaultChecked>
+					Show line numbers
+				</MenuCheckboxItem>
+				<MenuCheckboxItem>Enable autosave</MenuCheckboxItem>
+			</MenuContent>
 		</MenuRoot>
 	);
 }
+
+export default Particle;

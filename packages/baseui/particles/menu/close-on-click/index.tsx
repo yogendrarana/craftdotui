@@ -1,11 +1,9 @@
 import { Button } from "@craftdotui/baseui/components/button";
 import {
+	MenuContent,
+	MenuItem,
 	MenuRoot,
 	MenuTrigger,
-	MenuPortal,
-	MenuPositioner,
-	MenuPopup,
-	MenuItem,
 } from "@craftdotui/baseui/components/menu";
 
 export function Particle() {
@@ -14,14 +12,12 @@ export function Particle() {
 			<MenuTrigger
 				render={<Button variant="outline">Open Menu</Button>}
 			/>
-			<MenuPortal>
-				<MenuPositioner>
-					<MenuPopup>
-						<MenuItem closeOnClick>Profile</MenuItem>
-						<MenuItem closeOnClick>Logout</MenuItem>
-					</MenuPopup>
-				</MenuPositioner>
-			</MenuPortal>
+			<MenuContent>
+				<MenuItem closeOnClick>Profile</MenuItem>
+				<MenuItem closeOnClick>Logout</MenuItem>
+			</MenuContent>
 		</MenuRoot>
 	);
 }
+
+export default Particle;

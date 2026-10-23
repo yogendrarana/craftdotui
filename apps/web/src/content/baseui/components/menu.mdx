@@ -1,6 +1,6 @@
 ---
 title: Menu
-description: A Base UI menu component
+description: A Base UI menu component that displays a dropdown menu with actions, groups, submenus, and selections
 slug: /baseui/components/menu
 published: true
 date: 2026-01-14T00:00:00.000Z
@@ -11,11 +11,91 @@ author:
 
 <ComponentCodePreview name="baseui-particles-menu" />
 
-
 ## Installation
 
 <Installation name="baseui-menu" />
 
+## Anatomy
+
+#### Components
+
+```tsx
+<MenuRoot>
+  <MenuTrigger />
+
+  <MenuContent>
+    <MenuArrow />
+    <MenuItem />
+    <MenuShortcut />
+    <MenuSeparator />
+
+    <MenuSubmenu>
+      <MenuSubmenuTrigger />
+      <MenuContent>
+        <MenuItem />
+      </MenuContent>
+    </MenuSubmenu>
+
+    <MenuGroup>
+      <MenuGroupLabel />
+    </MenuGroup>
+
+    <MenuRadioGroup>
+      <MenuRadioItem />
+    </MenuRadioGroup>
+
+    <MenuCheckboxItem />
+  </MenuContent>
+</MenuRoot>
+```
+
+#### Primitives (Base UI)
+
+```tsx
+<Menu.FilterProvider>
+  <Menu.Root>
+    <Menu.Trigger />
+    <Menu.Portal>
+      <Menu.Backdrop />
+      <Menu.Positioner>
+        <Menu.Popup>
+          <Menu.Arrow />
+          <Menu.Input />
+          <Menu.Clear />
+          <Menu.Empty />
+
+          <Menu.List>
+            <Menu.Item />
+            <Menu.LinkItem />
+            <Menu.Separator />
+
+            <Menu.SubmenuRoot>
+              <Menu.SubmenuTrigger />
+            </Menu.SubmenuRoot>
+
+            <Menu.Group>
+              <Menu.GroupLabel />
+            </Menu.Group>
+
+            <Menu.RadioGroup>
+              <Menu.GroupLabel />
+              <Menu.RadioItem>
+                <Menu.RadioItemIndicator />
+              </Menu.RadioItem>
+            </Menu.RadioGroup>
+
+            <Menu.CheckboxItem>
+              <Menu.CheckboxItemIndicator />
+            </Menu.CheckboxItem>
+          </Menu.List>
+
+          <Menu.Viewport />
+        </Menu.Popup>
+      </Menu.Positioner>
+    </Menu.Portal>
+  </Menu.Root>
+</Menu.FilterProvider>
+```
 
 ## Demo
 
@@ -63,3 +143,36 @@ author:
 #### Close on Click
 
 <ComponentCodePreview name="baseui-particles-menu-close-on-click" />
+
+## Props
+
+#### MenuContent
+
+<PropsTable
+  data={[
+    {
+      prop: "hasBackdrop",
+      type: "boolean",
+      default: "false",
+      description: "If true, shows a backdrop behind the popup",
+    },
+    {
+      prop: "portalProps",
+      type: "MenuPrimitive.Portal.Props",
+      default: "undefined",
+      description: "Props forwarded to the Portal primitive",
+    },
+    {
+      prop: "backdropProps",
+      type: "MenuPrimitive.Backdrop.Props",
+      default: "undefined",
+      description: "Props forwarded to the Backdrop primitive",
+    },
+    {
+      prop: "positionerProps",
+      type: "MenuPrimitive.Positioner.Props",
+      default: "undefined",
+      description: "Props forwarded to the Positioner primitive",
+    },
+  ]}
+/>

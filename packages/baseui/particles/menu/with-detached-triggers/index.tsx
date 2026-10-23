@@ -1,11 +1,9 @@
 import { Button } from "@craftdotui/baseui/components/button";
 import {
+	MenuContent,
+	MenuItem,
 	MenuRoot,
 	MenuTrigger,
-	MenuPortal,
-	MenuPositioner,
-	MenuPopup,
-	MenuItem,
 	createHandle,
 } from "@craftdotui/baseui/components/menu";
 
@@ -20,16 +18,14 @@ export function Particle() {
 			/>
 
 			<MenuRoot handle={demoMenu}>
-				<MenuPortal>
-					<MenuPositioner>
-						<MenuPopup>
-							<MenuItem>Edit</MenuItem>
-							<MenuItem>Share</MenuItem>
-							<MenuItem>Delete</MenuItem>
-						</MenuPopup>
-					</MenuPositioner>
-				</MenuPortal>
+				<MenuContent>
+					<MenuItem>Edit</MenuItem>
+					<MenuItem>Share</MenuItem>
+					<MenuItem>Delete</MenuItem>
+				</MenuContent>
 			</MenuRoot>
 		</div>
 	);
 }
+
+export default Particle;

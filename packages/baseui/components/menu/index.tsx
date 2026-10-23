@@ -55,11 +55,15 @@ function MenuBackdrop({ className, ...props }: MenuPrimitive.Backdrop.Props) {
 /* Menu Positioner                                                            */
 /* -------------------------------------------------------------------------- */
 
+interface MenuPositionerProps extends MenuPrimitive.Positioner.Props {
+	sideOffset?: number;
+}
+
 function MenuPositioner({
 	className,
-	sideOffset = 10,
+	sideOffset = 4,
 	...props
-}: MenuPrimitive.Positioner.Props) {
+}: MenuPositionerProps) {
 	return (
 		<MenuPrimitive.Positioner
 			data-slot="menu-positioner"
@@ -91,6 +95,42 @@ function MenuPopup({ className, ...props }: MenuPrimitive.Popup.Props) {
 			)}
 			{...props}
 		/>
+	);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Menu Content (Composite Component)                                         */
+/* -------------------------------------------------------------------------- */
+
+interface MenuContentProps extends MenuPrimitive.Popup.Props {
+	hasBackdrop?: boolean;
+	className?: string;
+	children?: React.ReactNode;
+	portalProps?: MenuPrimitive.Portal.Props;
+	backdropProps?: MenuPrimitive.Backdrop.Props;
+	positionerProps?: MenuPositionerProps;
+}
+
+type MenuContentInterface = MenuContentProps;
+
+function MenuContent({
+	className,
+	children,
+	hasBackdrop = false,
+	portalProps,
+	backdropProps,
+	positionerProps = { sideOffset: 4 },
+	...props
+}: MenuContentProps) {
+	return (
+		<MenuPortal {...portalProps}>
+			{hasBackdrop && <MenuBackdrop {...backdropProps} />}
+			<MenuPositioner sideOffset={4} {...positionerProps}>
+				<MenuPopup className={className} {...props}>
+					{children}
+				</MenuPopup>
+			</MenuPositioner>
+		</MenuPortal>
 	);
 }
 
@@ -144,7 +184,7 @@ function MenuItem({
 function MenuCheckboxItem({
 	className,
 	children,
-	inset,
+	inset = true,
 	...props
 }: MenuPrimitive.CheckboxItem.Props & { inset?: boolean }) {
 	return (
@@ -153,10 +193,11 @@ function MenuCheckboxItem({
 			data-inset={inset}
 			className={cn(
 				"relative",
-				"py-1.5 pl-8 pr-2 flex cursor-pointer select-none items-center gap-2",
+				"px-2 py-1.5 flex cursor-pointer select-none items-center gap-2",
 				"rounded-sm text-sm outline-none transition-colors",
 				"data-highlighted:bg-accent data-highlighted:text-accent-foreground",
 				"data-disabled:pointer-events-none data-disabled:opacity-50",
+				"data-inset:pl-8",
 				className,
 			)}
 			{...props}
@@ -189,7 +230,7 @@ function MenuCheckboxItemIndicator(
 function MenuRadioItem({
 	className,
 	children,
-	inset,
+	inset = true,
 	...props
 }: MenuPrimitive.RadioItem.Props & { inset?: boolean }) {
 	return (
@@ -198,10 +239,11 @@ function MenuRadioItem({
 			data-inset={inset}
 			className={cn(
 				"relative",
-				"py-1.5 pl-8 pr-2 flex cursor-pointer select-none items-center gap-2",
+				"px-2 py-1.5 flex cursor-pointer select-none items-center gap-2",
 				"rounded-sm text-sm outline-none transition-colors",
 				"data-highlighted:bg-accent data-highlighted:text-accent-foreground",
 				"data-disabled:pointer-events-none data-disabled:opacity-50",
+				"data-inset:pl-8",
 				className,
 			)}
 			{...props}
@@ -339,6 +381,8 @@ function MenuShortcut({
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
 
+const MenuSubmenu = MenuSubmenuRoot;
+
 export const Menu = {
 	Root: MenuRoot,
 	Trigger: MenuTrigger,
@@ -346,6 +390,7 @@ export const Menu = {
 	Backdrop: MenuBackdrop,
 	Positioner: MenuPositioner,
 	Popup: MenuPopup,
+	Content: MenuContent,
 	Arrow: MenuArrow,
 	Item: MenuItem,
 	Separator: MenuSeparator,
@@ -356,6 +401,7 @@ export const Menu = {
 	RadioItemIndicator: MenuRadioItemIndicator,
 	CheckboxItem: MenuCheckboxItem,
 	CheckboxItemIndicator: MenuCheckboxItemIndicator,
+	Submenu: MenuSubmenu,
 	SubmenuRoot: MenuSubmenuRoot,
 	SubmenuTrigger: MenuSubmenuTrigger,
 	Shortcut: MenuShortcut,
@@ -370,6 +416,7 @@ export {
 	MenuBackdrop,
 	MenuPositioner,
 	MenuPopup,
+	MenuContent,
 	MenuArrow,
 	MenuItem,
 	MenuSeparator,
@@ -380,8 +427,12 @@ export {
 	MenuRadioItemIndicator,
 	MenuCheckboxItem,
 	MenuCheckboxItemIndicator,
+	MenuSubmenu,
 	MenuSubmenuRoot,
 	MenuSubmenuTrigger,
 	MenuShortcut,
 	createHandle,
+	type MenuContentProps,
+	type MenuContentInterface,
+	type MenuPositionerProps,
 };
