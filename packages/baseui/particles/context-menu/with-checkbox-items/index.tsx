@@ -1,9 +1,7 @@
 import {
 	ContextMenuRoot,
 	ContextMenuTrigger,
-	ContextMenuPortal,
-	ContextMenuPositioner,
-	ContextMenuPopup,
+	ContextMenuContent,
 	ContextMenuCheckboxItem,
 } from "@craftdotui/baseui/components/context-menu";
 
@@ -14,35 +12,31 @@ export function Particle() {
 				Preferences
 			</ContextMenuTrigger>
 
-			<ContextMenuPortal>
-				<ContextMenuPositioner>
-					<ContextMenuPopup className="min-w-48 p-1">
-						<ContextMenuCheckboxItem inset>
-							Enable autosave
-						</ContextMenuCheckboxItem>
+			<ContextMenuContent className="min-w-48 p-1">
+				<ContextMenuCheckboxItem inset>
+					Enable autosave
+				</ContextMenuCheckboxItem>
 
-						<ContextMenuCheckboxItem inset>
-							Sync files across devices
-						</ContextMenuCheckboxItem>
+				<ContextMenuCheckboxItem inset>
+					Sync files across devices
+				</ContextMenuCheckboxItem>
 
-						<ContextMenuCheckboxItem inset>
-							Show file previews
-						</ContextMenuCheckboxItem>
+				<ContextMenuCheckboxItem inset>
+					Show file previews
+				</ContextMenuCheckboxItem>
 
-						<ContextMenuCheckboxItem inset>
-							Live collaboration
-						</ContextMenuCheckboxItem>
+				<ContextMenuCheckboxItem inset>
+					Live collaboration
+				</ContextMenuCheckboxItem>
 
-						<ContextMenuCheckboxItem inset>
-							Auto backup to cloud
-						</ContextMenuCheckboxItem>
+				<ContextMenuCheckboxItem inset>
+					Auto backup to cloud
+				</ContextMenuCheckboxItem>
 
-						<ContextMenuCheckboxItem inset>
-							Spell check
-						</ContextMenuCheckboxItem>
-					</ContextMenuPopup>
-				</ContextMenuPositioner>
-			</ContextMenuPortal>
+				<ContextMenuCheckboxItem inset>
+					Spell check
+				</ContextMenuCheckboxItem>
+			</ContextMenuContent>
 		</ContextMenuRoot>
 	);
 }

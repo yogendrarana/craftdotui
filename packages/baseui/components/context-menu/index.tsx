@@ -46,6 +46,26 @@ function ContextMenuPortal(props: ContextMenuPrimitive.Portal.Props) {
 }
 
 /* -------------------------------------------------------------------------- */
+/* Backdrop                                                                   */
+/* -------------------------------------------------------------------------- */
+
+function ContextMenuBackdrop({
+	className,
+	...props
+}: ContextMenuPrimitive.Backdrop.Props) {
+	return (
+		<ContextMenuPrimitive.Backdrop
+			data-slot="context-menu-backdrop"
+			className={cn(
+				"fixed inset-0 z-50 bg-backdrop backdrop-blur-xs",
+				className,
+			)}
+			{...props}
+		/>
+	);
+}
+
+/* -------------------------------------------------------------------------- */
 /* Positioner                                                                 */
 /* -------------------------------------------------------------------------- */
 
@@ -90,6 +110,42 @@ function ContextMenuPopup({
 			)}
 			{...props}
 		/>
+	);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Context Menu Content (Composite Component)                                 */
+/* -------------------------------------------------------------------------- */
+
+interface ContextMenuContentProps extends ContextMenuPrimitive.Popup.Props {
+	hasBackdrop?: boolean;
+	className?: string;
+	children?: React.ReactNode;
+	portalProps?: ContextMenuPrimitive.Portal.Props;
+	backdropProps?: ContextMenuPrimitive.Backdrop.Props;
+	positionerProps?: ContextMenuPositionerProps;
+}
+
+type ContextMenuContentInterface = ContextMenuContentProps;
+
+function ContextMenuContent({
+	className,
+	children,
+	hasBackdrop = false,
+	portalProps,
+	backdropProps,
+	positionerProps = { sideOffset: 4 },
+	...props
+}: ContextMenuContentProps) {
+	return (
+		<ContextMenuPortal {...portalProps}>
+			{hasBackdrop && <ContextMenuBackdrop {...backdropProps} />}
+			<ContextMenuPositioner sideOffset={4} {...positionerProps}>
+				<ContextMenuPopup className={className} {...props}>
+					{children}
+				</ContextMenuPopup>
+			</ContextMenuPositioner>
+		</ContextMenuPortal>
 	);
 }
 
@@ -365,8 +421,10 @@ export const ContextMenu = {
 	Root: ContextMenuRoot,
 	Trigger: ContextMenuTrigger,
 	Portal: ContextMenuPortal,
+	Backdrop: ContextMenuBackdrop,
 	Positioner: ContextMenuPositioner,
 	Popup: ContextMenuPopup,
+	Content: ContextMenuContent,
 	Item: ContextMenuItem,
 	Shortcut: ContextMenuShortcut,
 	Arrow: ContextMenuArrow,
@@ -386,8 +444,10 @@ export {
 	ContextMenuRoot,
 	ContextMenuTrigger,
 	ContextMenuPortal,
+	ContextMenuBackdrop,
 	ContextMenuPositioner,
 	ContextMenuPopup,
+	ContextMenuContent,
 	ContextMenuItem,
 	ContextMenuShortcut,
 	ContextMenuArrow,
@@ -405,4 +465,8 @@ export {
 	// checkbox
 	ContextMenuCheckboxItem,
 	ContextMenuCheckboxItemIndicator,
+	// types
+	type ContextMenuContentProps,
+	type ContextMenuContentInterface,
+	type ContextMenuPositionerProps,
 };

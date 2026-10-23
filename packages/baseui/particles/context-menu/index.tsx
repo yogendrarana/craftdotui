@@ -1,9 +1,7 @@
 import {
 	ContextMenuRoot,
 	ContextMenuTrigger,
-	ContextMenuPortal,
-	ContextMenuPositioner,
-	ContextMenuPopup,
+	ContextMenuContent,
 	ContextMenuItem,
 	ContextMenuSeparator,
 	ContextMenuShortcut,
@@ -23,70 +21,58 @@ export default function Particle() {
 				Right click here
 			</ContextMenuTrigger>
 
-			<ContextMenuPortal>
-				<ContextMenuPositioner>
-					<ContextMenuPopup>
-						<ContextMenuItem inset>
-							New File
-							<ContextMenuShortcut>⌘N</ContextMenuShortcut>
-						</ContextMenuItem>
-						<ContextMenuItem inset>
-							Open File
-							<ContextMenuShortcut>⌘O</ContextMenuShortcut>
-						</ContextMenuItem>
-						<ContextMenuItem inset disabled>
-							Save
-							<ContextMenuShortcut>⌘S</ContextMenuShortcut>
-						</ContextMenuItem>
-						<ContextMenuSubmenu>
-							<ContextMenuSubmenuTrigger inset>
-								Edit
-							</ContextMenuSubmenuTrigger>
-							<ContextMenuPortal>
-								<ContextMenuPositioner>
-									<ContextMenuPopup className="w-48">
-										<ContextMenuItem>Cut</ContextMenuItem>
-										<ContextMenuItem>Copy</ContextMenuItem>
-										<ContextMenuItem>Paste</ContextMenuItem>
-										<ContextMenuSeparator />
-										<ContextMenuItem>
-											Find & Replace
-										</ContextMenuItem>
-										<ContextMenuSeparator />
-										<ContextMenuItem>
-											Clear All
-										</ContextMenuItem>
-									</ContextMenuPopup>
-								</ContextMenuPositioner>
-							</ContextMenuPortal>
-						</ContextMenuSubmenu>
+			<ContextMenuContent>
+				<ContextMenuItem inset>
+					New File
+					<ContextMenuShortcut>⌘N</ContextMenuShortcut>
+				</ContextMenuItem>
+				<ContextMenuItem inset>
+					Open File
+					<ContextMenuShortcut>⌘O</ContextMenuShortcut>
+				</ContextMenuItem>
+				<ContextMenuItem inset disabled>
+					Save
+					<ContextMenuShortcut>⌘S</ContextMenuShortcut>
+				</ContextMenuItem>
+				<ContextMenuSubmenu>
+					<ContextMenuSubmenuTrigger inset>
+						Edit
+					</ContextMenuSubmenuTrigger>
+					<ContextMenuContent className="w-48">
+						<ContextMenuItem>Cut</ContextMenuItem>
+						<ContextMenuItem>Copy</ContextMenuItem>
+						<ContextMenuItem>Paste</ContextMenuItem>
 						<ContextMenuSeparator />
-						<ContextMenuCheckboxItem inset defaultChecked>
-							Show Line Numbers
-						</ContextMenuCheckboxItem>
-						<ContextMenuCheckboxItem inset>
-							Word Wrap
-						</ContextMenuCheckboxItem>
+						<ContextMenuItem>Find & Replace</ContextMenuItem>
 						<ContextMenuSeparator />
-						<ContextMenuGroup>
-							<ContextMenuRadioGroup defaultValue="dark">
-								<ContextMenuGroupLabel inset>
-									Themes
-								</ContextMenuGroupLabel>
-								<ContextMenuRadioItem inset value="light">
-									Light Theme
-								</ContextMenuRadioItem>
-								<ContextMenuRadioItem inset value="dark">
-									Dark Theme
-								</ContextMenuRadioItem>
-								<ContextMenuRadioItem inset value="auto">
-									Auto Theme
-								</ContextMenuRadioItem>
-							</ContextMenuRadioGroup>
-						</ContextMenuGroup>
-					</ContextMenuPopup>
-				</ContextMenuPositioner>
-			</ContextMenuPortal>
+						<ContextMenuItem>Clear All</ContextMenuItem>
+					</ContextMenuContent>
+				</ContextMenuSubmenu>
+				<ContextMenuSeparator />
+				<ContextMenuCheckboxItem inset defaultChecked>
+					Show Line Numbers
+				</ContextMenuCheckboxItem>
+				<ContextMenuCheckboxItem inset>
+					Word Wrap
+				</ContextMenuCheckboxItem>
+				<ContextMenuSeparator />
+				<ContextMenuGroup>
+					<ContextMenuRadioGroup defaultValue="dark">
+						<ContextMenuGroupLabel inset>
+							Themes
+						</ContextMenuGroupLabel>
+						<ContextMenuRadioItem inset value="light">
+							Light Theme
+						</ContextMenuRadioItem>
+						<ContextMenuRadioItem inset value="dark">
+							Dark Theme
+						</ContextMenuRadioItem>
+						<ContextMenuRadioItem inset value="auto">
+							Auto Theme
+						</ContextMenuRadioItem>
+					</ContextMenuRadioGroup>
+				</ContextMenuGroup>
+			</ContextMenuContent>
 		</ContextMenuRoot>
 	);
 }

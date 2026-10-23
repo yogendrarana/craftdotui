@@ -9,7 +9,6 @@ import { GithubStars } from "@/components/github-stars";
 import DocsMobileSidebar from "@/components/docs-mobile-sidebar";
 import { docsNavItems } from "@/config/docs";
 import { Container } from "@/components/container";
-import { Button } from "@craftdotui/baseui/components/button";
 
 export function Header() {
 	const pathname = usePathname();
@@ -59,7 +58,6 @@ export function Header() {
 					<div className="hidden md:flex items-center gap-2">
 						<GithubStars className="rounded-md" />
 						<ToggleMode />
-						<Button variant={"outline"}>Login</Button>
 					</div>
 
 					<div className="md:hidden ml-auto">

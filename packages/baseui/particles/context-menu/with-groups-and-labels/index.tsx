@@ -1,9 +1,7 @@
 import {
 	ContextMenuRoot,
 	ContextMenuTrigger,
-	ContextMenuPortal,
-	ContextMenuPositioner,
-	ContextMenuPopup,
+	ContextMenuContent,
 	ContextMenuGroup,
 	ContextMenuGroupLabel,
 	ContextMenuItem,
@@ -17,27 +15,23 @@ export function Particle() {
 				Right click for actions
 			</ContextMenuTrigger>
 
-			<ContextMenuPortal>
-				<ContextMenuPositioner>
-					<ContextMenuPopup>
-						<ContextMenuGroup>
-							<ContextMenuGroupLabel>File</ContextMenuGroupLabel>
-							<ContextMenuItem>New File</ContextMenuItem>
-							<ContextMenuItem>Open</ContextMenuItem>
-							<ContextMenuItem>Save</ContextMenuItem>
-						</ContextMenuGroup>
+			<ContextMenuContent>
+				<ContextMenuGroup>
+					<ContextMenuGroupLabel>File</ContextMenuGroupLabel>
+					<ContextMenuItem>New File</ContextMenuItem>
+					<ContextMenuItem>Open</ContextMenuItem>
+					<ContextMenuItem>Save</ContextMenuItem>
+				</ContextMenuGroup>
 
-						<ContextMenuSeparator />
+				<ContextMenuSeparator />
 
-						<ContextMenuGroup>
-							<ContextMenuGroupLabel>Edit</ContextMenuGroupLabel>
-							<ContextMenuItem>Undo</ContextMenuItem>
-							<ContextMenuItem>Redo</ContextMenuItem>
-							<ContextMenuItem>Rename</ContextMenuItem>
-						</ContextMenuGroup>
-					</ContextMenuPopup>
-				</ContextMenuPositioner>
-			</ContextMenuPortal>
+				<ContextMenuGroup>
+					<ContextMenuGroupLabel>Edit</ContextMenuGroupLabel>
+					<ContextMenuItem>Undo</ContextMenuItem>
+					<ContextMenuItem>Redo</ContextMenuItem>
+					<ContextMenuItem>Rename</ContextMenuItem>
+				</ContextMenuGroup>
+			</ContextMenuContent>
 		</ContextMenuRoot>
 	);
 }
