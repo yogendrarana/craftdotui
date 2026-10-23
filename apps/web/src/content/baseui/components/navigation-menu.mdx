@@ -15,3 +15,59 @@ author:
 ## Installation
 
 <Installation name="baseui-navigation-menu" />
+
+## Anatomy
+
+#### Components
+
+```tsx
+<NavigationMenuRoot>
+  <NavigationMenuList>
+    <NavigationMenuItem>
+      <NavigationMenuTrigger>
+        <NavigationMenuIcon />
+      </NavigationMenuTrigger>
+      <NavigationMenuContent>
+        <NavigationMenuLink />
+      </NavigationMenuContent>
+    </NavigationMenuItem>
+  </NavigationMenuList>
+
+  <NavigationMenuPortal>
+    <NavigationMenuBackdrop />
+    <NavigationMenuPositioner>
+      <NavigationMenuPopup>
+        <NavigationMenuArrow />
+        <NavigationMenuViewport />
+      </NavigationMenuPopup>
+    </NavigationMenuPositioner>
+  </NavigationMenuPortal>
+</NavigationMenuRoot>
+```
+
+#### Primitives (Base UI)
+
+```tsx
+<NavigationMenu.Root>
+  <NavigationMenu.List>
+    <NavigationMenu.Item>
+      <NavigationMenu.Trigger>
+        <NavigationMenu.Icon />
+      </NavigationMenu.Trigger>
+      <NavigationMenu.Content>
+        <NavigationMenu.Link />
+      </NavigationMenu.Content>
+    </NavigationMenu.Item>
+  </NavigationMenu.List>
+
+  <NavigationMenu.Portal>
+    <NavigationMenu.Backdrop />
+    <NavigationMenu.Positioner>
+      <NavigationMenu.Popup>
+        <NavigationMenu.Arrow />
+        <NavigationMenu.Viewport />
+      </NavigationMenu.Popup>
+    </NavigationMenu.Positioner>
+  </NavigationMenu.Portal>
+</NavigationMenu.Root>
+```
