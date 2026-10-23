@@ -22,29 +22,34 @@ export default function Particle() {
 				<div className="flex h-full items-center justify-center text-sm text-muted-foreground">
 					Swipe from the right edge to open the drawer.
 				</div>
-				<Drawer.Portal container={portalContainer}>
-					<Drawer.Backdrop className="absolute" />
-					<Drawer.Viewport className="absolute inset-0 flex items-stretch justify-end">
-						<Drawer.Popup>
-							<Drawer.Content>
-								<Drawer.Title>Library</Drawer.Title>
-								<Drawer.Description className="mt-1.5">
-									Swipe from the edge whenever you want to
-									jump back into your playlists.
-								</Drawer.Description>
-								<div className="mt-6 flex justify-end">
-									<Drawer.Close
-										render={
-											<Button variant="outline">
-												Close
-											</Button>
-										}
-									/>
-								</div>
-							</Drawer.Content>
-						</Drawer.Popup>
-					</Drawer.Viewport>
-				</Drawer.Portal>
+				<Drawer.Content
+					hasBackdrop
+					portalProps={{ container: portalContainer }}
+					backdropProps={{ className: "absolute" }}
+					viewportProps={{
+						className:
+							"absolute inset-0 flex items-stretch justify-end",
+					}}
+				>
+					<Drawer.Header>
+						<Drawer.Title>Library</Drawer.Title>
+						<Drawer.Description>
+							Swipe from the edge whenever you want to jump back
+							into your playlists.
+						</Drawer.Description>
+					</Drawer.Header>
+					<Drawer.Panel>
+						<p className="text-sm text-muted-foreground">
+							Quickly access your recently played tracks, saved
+							albums, and playlists.
+						</p>
+					</Drawer.Panel>
+					<Drawer.Footer>
+						<Drawer.Close
+							render={<Button variant="outline">Close</Button>}
+						/>
+					</Drawer.Footer>
+				</Drawer.Content>
 			</Drawer.Root>
 		</div>
 	);

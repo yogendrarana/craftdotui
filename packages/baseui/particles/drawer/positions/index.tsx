@@ -21,31 +21,30 @@ export default function Particle() {
 						}
 					/>
 
-					<Drawer.Portal>
-						<Drawer.Backdrop />
-						<Drawer.Viewport position={p as DrawerPosition}>
-							<Drawer.Popup position={p as DrawerPosition}>
-								<Drawer.Content>
-									<Drawer.Title className="capitalize">
-										{p} Drawer
-									</Drawer.Title>
-									<Drawer.Description className="mt-1.5">
-										This drawer slides in from the {p} edge
-										of the screen.
-									</Drawer.Description>
-									<div className="mt-6 flex justify-end">
-										<Drawer.Close
-											render={
-												<Button variant="outline">
-													Close
-												</Button>
-											}
-										/>
-									</div>
-								</Drawer.Content>
-							</Drawer.Popup>
-						</Drawer.Viewport>
-					</Drawer.Portal>
+					<Drawer.Content>
+						<Drawer.Header>
+							<Drawer.Title className="capitalize">
+								{p} Drawer
+							</Drawer.Title>
+							<Drawer.Description>
+								This drawer slides in from the {p} edge of the
+								screen.
+							</Drawer.Description>
+						</Drawer.Header>
+						<Drawer.Panel>
+							<p className="text-sm text-muted-foreground">
+								Configure settings and preferences for this
+								panel.
+							</p>
+						</Drawer.Panel>
+						<Drawer.Footer>
+							<Drawer.Close
+								render={
+									<Button variant="outline">Close</Button>
+								}
+							/>
+						</Drawer.Footer>
+					</Drawer.Content>
 				</Drawer.Root>
 			))}
 		</div>

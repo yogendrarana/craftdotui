@@ -24,31 +24,30 @@ export default function Particle() {
 							</Button>
 						}
 					/>
-					<Drawer.Portal>
-						<Drawer.Backdrop />
-						<Drawer.Viewport position={position as DrawerPosition}>
-							<Drawer.Popup position={position as DrawerPosition}>
-								<Drawer.Content>
-									<Drawer.Title className="capitalize">
-										{position} — Straight
-									</Drawer.Title>
-									<Drawer.Description className="mt-1.5">
-										This drawer uses straight (square) edges
-										instead of rounded corners.
-									</Drawer.Description>
-									<div className="mt-6 flex justify-end">
-										<Drawer.Close
-											render={
-												<Button variant="outline">
-													Close
-												</Button>
-											}
-										/>
-									</div>
-								</Drawer.Content>
-							</Drawer.Popup>
-						</Drawer.Viewport>
-					</Drawer.Portal>
+					<Drawer.Content>
+						<Drawer.Header>
+							<Drawer.Title className="capitalize">
+								{position} — Straight
+							</Drawer.Title>
+							<Drawer.Description>
+								This drawer uses straight (square) edges instead
+								of rounded corners.
+							</Drawer.Description>
+						</Drawer.Header>
+						<Drawer.Panel>
+							<p className="text-sm text-muted-foreground">
+								Straight radius gives the drawer crisp right
+								angles, ideal for full-bleed and flush layouts.
+							</p>
+						</Drawer.Panel>
+						<Drawer.Footer>
+							<Drawer.Close
+								render={
+									<Button variant="outline">Close</Button>
+								}
+							/>
+						</Drawer.Footer>
+					</Drawer.Content>
 				</Drawer.Root>
 			))}
 		</div>

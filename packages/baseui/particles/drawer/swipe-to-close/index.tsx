@@ -30,31 +30,29 @@ export default function Particle() {
 							</Button>
 						}
 					/>
-					<Drawer.Portal>
-						<Drawer.Backdrop />
-						<Drawer.Viewport>
-							<Drawer.Popup>
-								<Drawer.Content>
-									<Drawer.Title className="capitalize">
-										Swipe {p.swipeDirection}
-									</Drawer.Title>
-									<Drawer.Description className="mt-1.5">
-										Swipe {p.swipeDirection} to dismiss this
-										drawer from the {p.position} position.
-									</Drawer.Description>
-									<div className="mt-6 flex justify-end">
-										<Drawer.Close
-											render={
-												<Button variant="outline">
-													Close
-												</Button>
-											}
-										/>
-									</div>
-								</Drawer.Content>
-							</Drawer.Popup>
-						</Drawer.Viewport>
-					</Drawer.Portal>
+					<Drawer.Content>
+						<Drawer.Header>
+							<Drawer.Title className="capitalize">
+								Swipe {p.swipeDirection}
+							</Drawer.Title>
+							<Drawer.Description>
+								Swipe {p.swipeDirection} to dismiss this drawer
+								from the {p.position} position.
+							</Drawer.Description>
+						</Drawer.Header>
+						<Drawer.Panel>
+							<p className="text-sm text-muted-foreground">
+								Drag towards the edge or click below to dismiss.
+							</p>
+						</Drawer.Panel>
+						<Drawer.Footer>
+							<Drawer.Close
+								render={
+									<Button variant="outline">Close</Button>
+								}
+							/>
+						</Drawer.Footer>
+					</Drawer.Content>
 				</Drawer.Root>
 			))}
 		</div>

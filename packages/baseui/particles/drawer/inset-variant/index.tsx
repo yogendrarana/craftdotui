@@ -24,32 +24,32 @@ export default function Particle() {
 							</Button>
 						}
 					/>
-					<Drawer.Portal>
-						<Drawer.Backdrop />
-						<Drawer.Viewport>
-							<Drawer.Popup>
-								<Drawer.Content>
-									<Drawer.Title className="capitalize">
-										{position} — Inset
-									</Drawer.Title>
-									<Drawer.Description className="mt-1.5">
-										This drawer floats with padding from the{" "}
-										{position} edge, creating a card-like
-										appearance.
-									</Drawer.Description>
-									<div className="mt-6 flex justify-end">
-										<Drawer.Close
-											render={
-												<Button variant="outline">
-													Close
-												</Button>
-											}
-										/>
-									</div>
-								</Drawer.Content>
-							</Drawer.Popup>
-						</Drawer.Viewport>
-					</Drawer.Portal>
+					<Drawer.Content>
+						<Drawer.Header>
+							<Drawer.Title className="capitalize">
+								{position} — Inset
+							</Drawer.Title>
+							<Drawer.Description>
+								This drawer floats with padding from the{" "}
+								{position} edge, creating a card-like
+								appearance.
+							</Drawer.Description>
+						</Drawer.Header>
+						<Drawer.Panel>
+							<p className="text-sm text-muted-foreground">
+								The inset variant creates a floating sheet
+								detached from the screen edges for a lightweight
+								modern look.
+							</p>
+						</Drawer.Panel>
+						<Drawer.Footer>
+							<Drawer.Close
+								render={
+									<Button variant="outline">Close</Button>
+								}
+							/>
+						</Drawer.Footer>
+					</Drawer.Content>
 				</Drawer.Root>
 			))}
 		</div>

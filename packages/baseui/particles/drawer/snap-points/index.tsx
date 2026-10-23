@@ -19,52 +19,48 @@ export default function Particle() {
 			<Drawer.Trigger
 				render={<Button variant="outline">Open Snap Drawer</Button>}
 			/>
-			<Drawer.Portal>
-				<Drawer.Backdrop />
-				<Drawer.Viewport className="touch-none">
-					<Drawer.Popup
-						className="touch-none [transform:translateY(calc(var(--drawer-snap-point-offset,0px)+var(--drawer-swipe-movement-y,0px)))] [padding-bottom:max(0px,calc(var(--drawer-snap-point-offset,0px)+var(--drawer-swipe-movement-y,0px)))]"
-						style={
-							{
-								"--top-margin": `${TOP_MARGIN_REM}rem`,
-							} as React.CSSProperties
-						}
-					>
-						<div className="shrink-0 border-b border-border px-6 pt-3.5 pb-4 touch-none select-none">
-							<div className="mx-auto mb-2.5 h-1 w-12 shrink-0 rounded-full bg-input" />
-							<Drawer.Title className="cursor-default text-center text-base font-bold">
-								Snap Points
-							</Drawer.Title>
-						</div>
-						<Drawer.Content className="overflow-y-auto overscroll-contain touch-auto">
-							<div className="mx-auto w-full max-w-[350px]">
-								<Drawer.Description className="mb-4 text-center">
-									Drag the sheet to snap between a compact
-									peek and a full-height view.
-								</Drawer.Description>
+			<Drawer.Content
+				viewportProps={{ className: "touch-none" }}
+				popupProps={{
+					className:
+						"touch-none [transform:translateY(calc(var(--drawer-snap-point-offset,0px)+var(--drawer-swipe-movement-y,0px)))] [padding-bottom:max(0px,calc(var(--drawer-snap-point-offset,0px)+var(--drawer-swipe-movement-y,0px)))]",
+					style: {
+						"--top-margin": `${TOP_MARGIN_REM}rem`,
+					} as React.CSSProperties,
+				}}
+				contentProps={{
+					className: "overflow-y-auto overscroll-contain touch-auto",
+				}}
+			>
+				<div className="mx-auto w-full max-w-[350px]">
+					<Drawer.Header className="text-center px-0">
+						<Drawer.Title className="cursor-default text-base font-bold">
+							Snap Points
+						</Drawer.Title>
+						<Drawer.Description>
+							Drag the sheet to snap between a compact peek and a
+							full-height view.
+						</Drawer.Description>
+					</Drawer.Header>
 
-								<div className="grid gap-3 mb-6" aria-hidden>
-									{Array.from({ length: 20 }, (_, index) => (
-										<div
-											key={index}
-											className="h-12 rounded-lg border border-border bg-muted/50"
-										/>
-									))}
-								</div>
-								<div className="flex items-center justify-end gap-3">
-									<Drawer.Close
-										render={
-											<Button variant="outline">
-												Close
-											</Button>
-										}
-									/>
-								</div>
-							</div>
-						</Drawer.Content>
-					</Drawer.Popup>
-				</Drawer.Viewport>
-			</Drawer.Portal>
+					<Drawer.Panel className="px-0 py-4">
+						<div className="grid gap-3" aria-hidden>
+							{Array.from({ length: 20 }, (_, index) => (
+								<div
+									key={index}
+									className="h-12 rounded-lg border border-border bg-muted/50"
+								/>
+							))}
+						</div>
+					</Drawer.Panel>
+
+					<Drawer.Footer className="px-0">
+						<Drawer.Close
+							render={<Button variant="outline">Close</Button>}
+						/>
+					</Drawer.Footer>
+				</div>
+			</Drawer.Content>
 		</Drawer.Root>
 	);
 }

@@ -25,33 +25,30 @@ export default function Particle() {
 					const realPayload = payload as { title: string };
 
 					return (
-						<Drawer.Portal>
-							<Drawer.Backdrop />
-							<Drawer.Viewport position="right">
-								<Drawer.Popup position="right">
-									<Drawer.Content>
-										<Drawer.Title>
-											{realPayload?.title}
-										</Drawer.Title>
-										<Drawer.Description className="mt-1.5">
-											Configure your{" "}
-											{realPayload?.title?.toLowerCase()}{" "}
-											here. These triggers live outside
-											the drawer root.
-										</Drawer.Description>
-										<div className="mt-6 flex justify-end">
-											<Drawer.Close
-												render={
-													<Button variant="outline">
-														Close
-													</Button>
-												}
-											/>
-										</div>
-									</Drawer.Content>
-								</Drawer.Popup>
-							</Drawer.Viewport>
-						</Drawer.Portal>
+						<Drawer.Content>
+							<Drawer.Header>
+								<Drawer.Title>
+									{realPayload?.title}
+								</Drawer.Title>
+								<Drawer.Description>
+									Configure your{" "}
+									{realPayload?.title?.toLowerCase()} here.
+								</Drawer.Description>
+							</Drawer.Header>
+							<Drawer.Panel>
+								<p className="text-sm text-muted-foreground">
+									These triggers live outside the drawer root
+									using the handle API.
+								</p>
+							</Drawer.Panel>
+							<Drawer.Footer>
+								<Drawer.Close
+									render={
+										<Button variant="outline">Close</Button>
+									}
+								/>
+							</Drawer.Footer>
+						</Drawer.Content>
 					);
 				}}
 			</Drawer.Root>

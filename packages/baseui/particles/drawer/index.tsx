@@ -9,33 +9,27 @@ export default function Particle() {
 			<Drawer.Trigger
 				render={<Button variant="outline">Open Drawer</Button>}
 			/>
-			<Drawer.Portal>
-				<Drawer.Backdrop />
-				<Drawer.Viewport>
-					<Drawer.Popup>
-						<Drawer.Handle />
-						<Drawer.Content>
-							<Drawer.Title>Bottom Drawer</Drawer.Title>
-							<Drawer.Description className="mt-1.5">
-								A panel that slides up from the bottom of the
-								screen. Swipe down or click outside to dismiss.
-							</Drawer.Description>
-							<div className="mt-6 flex justify-end gap-2">
-								<Drawer.Close
-									render={
-										<Button variant="outline">
-											Cancel
-										</Button>
-									}
-								/>
-								<Drawer.Close>
-									<Button>Confirm</Button>
-								</Drawer.Close>
-							</div>
-						</Drawer.Content>
-					</Drawer.Popup>
-				</Drawer.Viewport>
-			</Drawer.Portal>
+			<Drawer.Content>
+				<Drawer.Header>
+					<Drawer.Title>Bottom Drawer</Drawer.Title>
+					<Drawer.Description>
+						A panel that slides up from the bottom of the screen.
+						Swipe down or click outside to dismiss.
+					</Drawer.Description>
+				</Drawer.Header>
+				<Drawer.Panel>
+					<p className="text-sm text-muted-foreground">
+						Drawers are perfect for mobile-friendly sheets, bottom
+						action menus, and contextual secondary content.
+					</p>
+				</Drawer.Panel>
+				<Drawer.Footer>
+					<Drawer.Close
+						render={<Button variant="outline">Cancel</Button>}
+					/>
+					<Drawer.Close render={<Button>Confirm</Button>} />
+				</Drawer.Footer>
+			</Drawer.Content>
 		</Drawer.Root>
 	);
 }

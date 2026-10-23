@@ -405,58 +405,22 @@ function DrawerSwipeArea({
 }
 
 // ==================================================
-// Drawer Content
+// Drawer Panel
 // ==================================================
 
-interface DrawerContentProps extends DrawerPrimitive.Content.Props {
-	allowSelection?: boolean;
-}
+interface DrawerPanelProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-function DrawerContent({
-	className,
-	allowSelection = false,
-	render,
-	...props
-}: DrawerContentProps) {
-	const contentClassName = cn(
-		"p-6 flex-1",
-		"transition-opacity duration-200 ease-[cubic-bezier(0.32,0.72,0,1)]",
-		// Hide content when nested drawer is open
-		"group-data-[nested-drawer-open]/drawer-popup:opacity-0",
-		// Show content when swiping nested drawer
-		"group-data-[nested-drawer-swiping]/drawer-popup:opacity-100",
-		className,
-	);
-
-	if (allowSelection) {
-		return (
-			<DrawerPrimitive.Content
-				data-slot="drawer-content"
-				className={contentClassName}
-				render={render}
-				{...props}
-			/>
-		);
-	}
-
-	if (
-		render &&
-		React.isValidElement<
-			React.HTMLAttributes<HTMLElement> & { "data-slot"?: string }
-		>(render)
-	) {
-		return React.cloneElement(render as React.ReactElement<any>, {
-			"data-slot": "drawer-content",
-			className: cn(contentClassName, render.props.className),
-			...props,
-		});
-	}
-
+function DrawerPanel({ className, ...props }: DrawerPanelProps) {
 	return (
 		<div
-			data-slot="drawer-content"
-			className={contentClassName}
-			{...(props as React.HTMLAttributes<HTMLDivElement>)}
+			data-slot="drawer-panel"
+			className={cn(
+				"p-6 flex-1 min-h-0 overscroll-contain overflow-y-auto",
+				"in-[[data-slot=drawer-content]:has([data-slot=drawer-header])]:pt-4",
+				"in-[[data-slot=drawer-content]:has([data-slot=drawer-footer])]:pb-4",
+				className,
+			)}
+			{...props}
 		/>
 	);
 }
@@ -538,8 +502,115 @@ function DrawerHandle({
 }
 
 // ==================================================
+// Drawer Header (Custom Component)
+// ==================================================
+
+interface DrawerHeaderProps extends React.HTMLAttributes<HTMLDivElement> {}
+
+function DrawerHeader({ className, ...props }: DrawerHeaderProps) {
+	return (
+		<div
+			data-slot="drawer-header"
+			className={cn("flex flex-col gap-1.5 p-6 pb-2 shrink-0", className)}
+			{...props}
+		/>
+	);
+}
+
+// ==================================================
+// Drawer Footer (Custom Component)
+// ==================================================
+
+interface DrawerFooterProps extends React.HTMLAttributes<HTMLDivElement> {}
+
+function DrawerFooter({ className, ...props }: DrawerFooterProps) {
+	return (
+		<div
+			data-slot="drawer-footer"
+			className={cn(
+				"flex flex-col-reverse gap-2 p-6 pt-2 shrink-0 sm:flex-row sm:justify-end",
+				className,
+			)}
+			{...props}
+		/>
+	);
+}
+
+// ==================================================
+// Drawer Content (Composite Component)
+// ==================================================
+
+interface DrawerContentProps {
+	children?: React.ReactNode;
+	hasBackdrop?: boolean;
+	showHandle?: boolean;
+	portalProps?: DrawerPrimitive.Portal.Props;
+	backdropProps?: DrawerPrimitive.Backdrop.Props;
+	viewportProps?: DrawerViewportProps;
+	popupProps?: DrawerPopupProps;
+	contentProps?: DrawerPrimitive.Content.Props;
+	handleProps?: React.HTMLAttributes<HTMLDivElement> & {
+		position?: DrawerPosition;
+	};
+}
+
+type DrawerContentInterface = DrawerContentProps;
+
+function DrawerContent({
+	children,
+	hasBackdrop,
+	showHandle = true,
+	portalProps,
+	backdropProps,
+	viewportProps,
+	popupProps,
+	contentProps,
+	handleProps,
+}: DrawerContentProps): React.ReactElement {
+	const context = React.useContext(DrawerContext);
+
+	const position = popupProps?.position ?? context.position;
+	const isModal = context.modal !== false;
+	const shouldShowBackdrop = hasBackdrop ?? isModal;
+
+	const { className: contentClassName, ...restContentProps } =
+		contentProps ?? {};
+
+	return (
+		<DrawerPortal {...portalProps}>
+			{shouldShowBackdrop && <DrawerBackdrop {...backdropProps} />}
+			<DrawerViewport position={position} {...viewportProps}>
+				<DrawerPopup {...popupProps}>
+					{showHandle && (
+						<DrawerHandle position={position} {...handleProps} />
+					)}
+					<DrawerPrimitive.Content
+						data-slot="drawer-content"
+						className={cn(
+							"flex flex-col flex-1 min-h-0",
+							"p-6 has-[[data-slot=drawer-header]]:p-0 has-[[data-slot=drawer-panel]]:p-0 has-[[data-slot=drawer-footer]]:p-0",
+							"transition-opacity duration-200 ease-[cubic-bezier(0.32,0.72,0,1)]",
+							// Hide content when nested drawer is open
+							"group-data-[nested-drawer-open]/drawer-popup:opacity-0",
+							// Show content when swiping nested drawer
+							"group-data-[nested-drawer-swiping]/drawer-popup:opacity-100",
+							contentClassName,
+						)}
+						{...restContentProps}
+					>
+						{children}
+					</DrawerPrimitive.Content>
+				</DrawerPopup>
+			</DrawerViewport>
+		</DrawerPortal>
+	);
+}
+
+// ==================================================
 // Exports
 // ==================================================
+
+const createHandle = DrawerPrimitive.createHandle;
 
 export const Drawer = {
 	Provider: DrawerProvider,
@@ -553,13 +624,15 @@ export const Drawer = {
 	Viewport: DrawerViewport,
 	Popup: DrawerPopup,
 	Content: DrawerContent,
+	Header: DrawerHeader,
+	Panel: DrawerPanel,
+	Footer: DrawerFooter,
 	Title: DrawerTitle,
 	Description: DrawerDescription,
 	Close: DrawerClose,
 	Handle: DrawerHandle,
+	createHandle,
 };
-
-const createHandle = DrawerPrimitive.createHandle;
 
 export {
 	DrawerProvider,
@@ -573,6 +646,9 @@ export {
 	DrawerViewport,
 	DrawerPopup,
 	DrawerContent,
+	DrawerHeader,
+	DrawerPanel,
+	DrawerFooter,
 	DrawerTitle,
 	DrawerDescription,
 	DrawerClose,
@@ -583,4 +659,10 @@ export {
 	type DrawerRadius,
 	type DrawerVariant,
 	type DrawerContentProps,
+	type DrawerContentInterface,
+	type DrawerHeaderProps,
+	type DrawerPanelProps,
+	type DrawerFooterProps,
+	type DrawerViewportProps,
+	type DrawerPopupProps,
 };

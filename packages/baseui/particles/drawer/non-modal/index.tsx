@@ -10,27 +10,25 @@ export default function Particle() {
 				render={<Button variant="outline">Non-Modal Drawer</Button>}
 			/>
 
-			<Drawer.Portal>
-				<Drawer.Viewport>
-					<Drawer.Popup>
-						<Drawer.Content>
-							<Drawer.Title>Non-Modal Drawer</Drawer.Title>
-							<Drawer.Description className="mt-1.5">
-								This drawer does not trap focus or block
-								interaction with the rest of the page. You can
-								still click on elements behind it.
-							</Drawer.Description>
-							<div className="mt-6 flex justify-end">
-								<Drawer.Close
-									render={
-										<Button variant="outline">Close</Button>
-									}
-								/>
-							</div>
-						</Drawer.Content>
-					</Drawer.Popup>
-				</Drawer.Viewport>
-			</Drawer.Portal>
+			<Drawer.Content>
+				<Drawer.Header>
+					<Drawer.Title>Non-Modal Drawer</Drawer.Title>
+					<Drawer.Description>
+						This drawer does not trap focus or block interaction.
+					</Drawer.Description>
+				</Drawer.Header>
+				<Drawer.Panel>
+					<p className="text-sm text-muted-foreground">
+						You can continue interacting with elements on the page
+						while this drawer remains open in the background.
+					</p>
+				</Drawer.Panel>
+				<Drawer.Footer>
+					<Drawer.Close
+						render={<Button variant="outline">Close</Button>}
+					/>
+				</Drawer.Footer>
+			</Drawer.Content>
 		</Drawer.Root>
 	);
 }

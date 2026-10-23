@@ -11,10 +11,59 @@ author:
 
 <ComponentCodePreview name="baseui-particles-drawer" />
 
-
 ## Installation
 
 <Installation name="baseui-drawer" />
+
+## Anatomy
+
+#### Composite
+
+```tsx
+<Drawer.Root>
+  <Drawer.Trigger>Open Drawer</Drawer.Trigger>
+
+  <Drawer.Content>
+    <Drawer.Header>
+      <Drawer.Title>Drawer Title</Drawer.Title>
+      <Drawer.Description>Drawer Description</Drawer.Description>
+    </Drawer.Header>
+
+    <Drawer.Panel>Content</Drawer.Panel>
+
+    <Drawer.Footer>
+      <Drawer.Close>Close</Drawer.Close>
+    </Drawer.Footer>
+  </Drawer.Content>
+</Drawer.Root>
+```
+
+#### Primitives (Base UI)
+
+```tsx
+<Drawer.Provider>
+  <Drawer.IndentBackground />
+  <Drawer.Indent>
+    <Drawer.Root>
+      <Drawer.Trigger />
+      <Drawer.SwipeArea />
+      <Drawer.Portal>
+        <Drawer.Backdrop />
+        <Drawer.Viewport>
+          <Drawer.Popup>
+            <Drawer.Handle />
+            <Drawer.Content>
+              <Drawer.Title />
+              <Drawer.Description />
+              <Drawer.Close />
+            </Drawer.Content>
+          </Drawer.Popup>
+        </Drawer.Viewport>
+      </Drawer.Portal>
+    </Drawer.Root>
+  </Drawer.Indent>
+</Drawer.Provider>
+```
 
 ## Demo
 
@@ -62,3 +111,60 @@ author:
 #### Non-modal Drawer
 
 <ComponentCodePreview name="baseui-particles-drawer-non-modal" />
+
+## Props
+
+#### DrawerContent
+
+<PropsTable
+  data={[
+    {
+      prop: "hasBackdrop",
+      type: "boolean",
+      default: "modal !== false",
+      description: "If true, shows a backdrop behind the drawer",
+    },
+    {
+      prop: "showHandle",
+      type: "boolean",
+      default: "true",
+      description: "If true, shows a drag handle for swiping gestures",
+    },
+    {
+      prop: "portalProps",
+      type: "DrawerPrimitive.Portal.Props",
+      default: "undefined",
+      description: "Props forwarded to the Portal primitive",
+    },
+    {
+      prop: "backdropProps",
+      type: "DrawerPrimitive.Backdrop.Props",
+      default: "undefined",
+      description: "Props forwarded to the Backdrop primitive",
+    },
+    {
+      prop: "viewportProps",
+      type: "DrawerViewportProps",
+      default: "undefined",
+      description: "Props forwarded to the Viewport primitive",
+    },
+    {
+      prop: "popupProps",
+      type: "DrawerPopupProps",
+      default: "undefined",
+      description: "Props forwarded to the DrawerPopup element",
+    },
+    {
+      prop: "contentProps",
+      type: "DrawerPrimitive.Content.Props",
+      default: "undefined",
+      description: "Props forwarded to the inner Drawer Content primitive",
+    },
+    {
+      prop: "handleProps",
+      type: "React.HTMLAttributes<HTMLDivElement>",
+      default: "undefined",
+      description: "Props forwarded to the Handle element",
+    },
+  ]}
+/>

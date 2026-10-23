@@ -21,36 +21,35 @@ export default function Particle() {
 			</Button>
 
 			<Drawer.Root open={open} onOpenChange={setOpen}>
-				<Drawer.Portal>
-					<Drawer.Backdrop />
-					<Drawer.Viewport>
-						<Drawer.Popup>
-							<Drawer.Handle />
-							<Drawer.Content>
-								<Drawer.Title>Controlled Drawer</Drawer.Title>
-								<Drawer.Description className="mt-1.5">
-									This drawer is controlled externally via
-									<code className="rounded bg-muted px-1 py-0.5 text-xs font-mono">
-										open
-									</code>
-									and
-									<code className="rounded bg-muted px-1 py-0.5 text-xs font-mono">
-										onOpenChange
-									</code>
-									props.
-								</Drawer.Description>
-								<div className="mt-6 flex justify-end">
-									<Button
-										variant="outline"
-										onClick={() => setOpen(false)}
-									>
-										Close
-									</Button>
-								</div>
-							</Drawer.Content>
-						</Drawer.Popup>
-					</Drawer.Viewport>
-				</Drawer.Portal>
+				<Drawer.Content>
+					<Drawer.Header>
+						<Drawer.Title>Controlled Drawer</Drawer.Title>
+						<Drawer.Description>
+							This drawer is controlled externally via state.
+						</Drawer.Description>
+					</Drawer.Header>
+					<Drawer.Panel>
+						<p className="text-sm text-muted-foreground">
+							The drawer open state is managed using{" "}
+							<code className="rounded bg-muted px-1 py-0.5 text-xs font-mono">
+								open
+							</code>{" "}
+							and{" "}
+							<code className="rounded bg-muted px-1 py-0.5 text-xs font-mono">
+								onOpenChange
+							</code>{" "}
+							props.
+						</p>
+					</Drawer.Panel>
+					<Drawer.Footer>
+						<Button
+							variant="outline"
+							onClick={() => setOpen(false)}
+						>
+							Close
+						</Button>
+					</Drawer.Footer>
+				</Drawer.Content>
 			</Drawer.Root>
 		</div>
 	);

@@ -61,7 +61,7 @@ export default function DocsMobileSidebar({ items }: DocsMobileSidebarProps) {
 							/>
 						</div>
 
-						<Drawer.Content className="flex-1 overflow-y-auto p-4 space-y-4">
+						<Drawer.Panel className="flex-1 overflow-y-auto p-4 space-y-4">
 							{sidebarNav.map((item, index) => (
 								<div key={index} className="pb-3 last:pb-0">
 									<h4 className="mb-2 px-1 font-mono text-2xs uppercase tracking-wide text-muted-foreground">
@@ -75,7 +75,7 @@ export default function DocsMobileSidebar({ items }: DocsMobileSidebarProps) {
 									)}
 								</div>
 							))}
-						</Drawer.Content>
+						</Drawer.Panel>
 					</Drawer.Popup>
 				</Drawer.Viewport>
 			</Drawer.Portal>
