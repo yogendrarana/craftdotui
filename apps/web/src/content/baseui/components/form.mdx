@@ -1,6 +1,6 @@
 ---
 title: Form
-description: A Base UI form component
+description: A Base UI form component that manages form submission and validation
 slug: /baseui/components/form
 published: true
 date: 2026-02-14T00:00:00.000Z
@@ -11,7 +11,32 @@ author:
 
 <ComponentCodePreview name="baseui-particles-form" />
 
-
 ## Installation
 
 <Installation name="baseui-form" />
+
+## Anatomy
+
+#### Components
+
+```tsx
+<FormRoot>
+  <FieldRoot>
+    <FieldLabel />
+    <FieldControl />
+    <FieldError />
+  </FieldRoot>
+</FormRoot>
+```
+
+#### Primitives (Base UI)
+
+```tsx
+<Form>
+  <Field.Root>
+    <Field.Label />
+    <Field.Control />
+    <Field.Error />
+  </Field.Root>
+</Form>
+```

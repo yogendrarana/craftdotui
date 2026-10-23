@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { FormEvent } from "react";
+import type { SubmitEvent } from "react";
 
 import {
 	FieldRoot,
@@ -15,7 +15,7 @@ import { Button } from "@craftdotui/baseui/components/button";
 export default function Particle() {
 	const [loading, setLoading] = useState(false);
 
-	const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+	const onSubmit = async (e: SubmitEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		const formData = new FormData(e.currentTarget);
 		setLoading(true);
