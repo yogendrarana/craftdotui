@@ -30,7 +30,7 @@ const inputVariants = cva(
 				lg: "h-9 text-sm",
 				xl: "h-9.5 text-base",
 				"icon-xs": "size-7 p-0 text-xs justify-center text-center",
-				"icon-x": "size-7 p-0 text-xs justify-center text-center",
+				"icon-x": "size-7.5 p-0 text-xs justify-center text-center",
 				"icon-sm": "size-8 p-0 text-xs justify-center text-center",
 				icon: "size-8.5 p-0 text-sm justify-center text-center",
 				"icon-md": "size-8.5 p-0 text-sm justify-center text-center",
@@ -44,10 +44,6 @@ const inputVariants = cva(
 		},
 	},
 );
-
-/* -------------------------------------------------------------------------- */
-/* Types                                                                      */
-/* -------------------------------------------------------------------------- */
 
 type InputVariants = VariantProps<typeof inputVariants>;
 

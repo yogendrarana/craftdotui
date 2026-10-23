@@ -7,7 +7,7 @@
 	"files": [
 		{
 			"path": "packages/baseui/particles/input/index.tsx",
-			"content": "import { Input } from \"@/components/baseui/components/input\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"max-w-64\">\n\t\t\t<Input placeholder=\"Email address\" />\n\t\t</div>\n\t);\n}\n",
+			"content": "import { Input } from \"@/components/baseui/components/input\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"max-w-64\">\n\t\t\t<Input placeholder=\"Email address\" />\n\t\t</div>\n\t);\n}\n\nexport default Particle;\n",
 			"type": "registry:component",
 			"target": "components/baseui/particles/input.tsx"
 		}

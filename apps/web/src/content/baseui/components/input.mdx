@@ -1,7 +1,7 @@
 ---
 title: Input
-description: A Base UI input component
-slug: /baseui/components/collapsible
+description: A Base UI input component that allows users to enter and edit text
+slug: /baseui/components/input
 published: true
 date: 2025-12-27T00:00:00.000Z
 author:
@@ -11,10 +11,23 @@ author:
 
 <ComponentCodePreview name="baseui-particles-input" />
 
-
 ## Installation
 
 <Installation name="baseui-input" />
+
+## Anatomy
+
+#### Components
+
+```tsx
+<Input />
+```
+
+#### Primitives (Base UI)
+
+```tsx
+<Input />
+```
 
 ## Demo
 
@@ -33,3 +46,24 @@ author:
 #### With Field
 
 <ComponentCodePreview name="baseui-particles-input-with-field" />
+
+## Props
+
+#### Input
+
+<PropsTable
+  data={[
+    {
+      prop: "variant",
+      type: '"default" | "ghost"',
+      default: '"default"',
+      description: "Visual style variant of the input",
+    },
+    {
+      prop: "size",
+      type: '"xs" | "sm" | "md" | "lg" | "xl" | "icon" | "icon-xs" | "icon-sm" | "icon-md" | "icon-lg" | "icon-xl"',
+      default: '"md"',
+      description: "Size of the input element",
+    },
+  ]}
+/>
