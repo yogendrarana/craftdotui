@@ -15,6 +15,30 @@ author:
 
 <Installation name="baseui-scroll-area" />
 
+## Anatomy
+
+#### Components
+
+```tsx
+<ScrollAreaRoot>
+  <ScrollAreaPanel />
+</ScrollAreaRoot>
+```
+
+#### Primitives (Base UI)
+
+```tsx
+<ScrollArea.Root>
+  <ScrollArea.Viewport>
+    <ScrollArea.Content />
+  </ScrollArea.Viewport>
+  <ScrollArea.Scrollbar>
+    <ScrollArea.Thumb />
+  </ScrollArea.Scrollbar>
+  <ScrollArea.Corner />
+</ScrollArea.Root>
+```
+
 ## Demo
 
 #### Horizontal Scrollbar
@@ -24,3 +48,49 @@ author:
 #### Both Scrollbar
 
 <ComponentCodePreview name="baseui-particles-scroll-area-both-scrollbars" />
+
+## Props
+
+#### ScrollAreaPanel
+
+<PropsTable
+  data={[
+    {
+      prop: "orientation",
+      type: '"vertical" | "horizontal" | "both"',
+      default: '"vertical"',
+      description: "Controls which scrollbars are rendered",
+    },
+    {
+      prop: "viewportProps",
+      type: "ScrollAreaPrimitive.Viewport.Props",
+      default: "undefined",
+      description: "Props forwarded to the Viewport primitive",
+    },
+    {
+      prop: "contentProps",
+      type: "ScrollAreaPrimitive.Content.Props",
+      default: "undefined",
+      description: "Props forwarded to the Content primitive",
+    },
+    {
+      prop: "scrollbarProps",
+      type: "ScrollAreaPrimitive.Scrollbar.Props",
+      default: "undefined",
+      description: "Props forwarded to the Scrollbar primitive(s)",
+    },
+    {
+      prop: "thumbProps",
+      type: "ScrollAreaPrimitive.Thumb.Props",
+      default: "undefined",
+      description: "Props forwarded to the Thumb primitive(s)",
+    },
+    {
+      prop: "cornerProps",
+      type: "ScrollAreaPrimitive.Corner.Props",
+      default: "undefined",
+      description: "Props forwarded to the Corner primitive",
+    },
+  ]}
+/>
+

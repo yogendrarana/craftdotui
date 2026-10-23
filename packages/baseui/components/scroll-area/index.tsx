@@ -127,36 +127,71 @@ function ScrollAreaCorner({
 }
 
 /* -------------------------------------------------------------------------- */
-/* Composed ScrollArea                                                        */
+/* Panel (Composite)                                                          */
 /* -------------------------------------------------------------------------- */
 
-function ScrollArea({
-	className,
+type ScrollAreaOrientation = "vertical" | "horizontal" | "both";
+
+interface ScrollAreaPanelProps {
+	children?: React.ReactNode;
+	viewportProps?: ScrollAreaPrimitive.Viewport.Props;
+	contentProps?: ScrollAreaPrimitive.Content.Props;
+	scrollbarProps?: ScrollAreaPrimitive.Scrollbar.Props;
+	thumbProps?: ScrollAreaPrimitive.Thumb.Props;
+	cornerProps?: ScrollAreaPrimitive.Corner.Props;
+	orientation?: ScrollAreaOrientation;
+}
+
+function ScrollAreaPanel({
 	children,
-	...props
-}: ScrollAreaPrimitive.Root.Props) {
+	viewportProps,
+	contentProps,
+	scrollbarProps,
+	thumbProps,
+	cornerProps,
+	orientation = "vertical",
+}: ScrollAreaPanelProps) {
 	return (
-		<ScrollAreaRoot className={className} {...props}>
-			<ScrollAreaViewport>
-				<ScrollAreaContent>{children}</ScrollAreaContent>
+		<>
+			<ScrollAreaViewport {...viewportProps}>
+				<ScrollAreaContent {...contentProps}>
+					{children}
+				</ScrollAreaContent>
 			</ScrollAreaViewport>
 
-			<ScrollAreaScrollbar>
-				<ScrollAreaThumb />
-			</ScrollAreaScrollbar>
+			{(orientation === "vertical" || orientation === "both") && (
+				<ScrollAreaScrollbar orientation="vertical" {...scrollbarProps}>
+					<ScrollAreaThumb {...thumbProps} />
+				</ScrollAreaScrollbar>
+			)}
 
-			<ScrollAreaScrollbar orientation="horizontal">
-				<ScrollAreaThumb />
-			</ScrollAreaScrollbar>
+			{(orientation === "horizontal" || orientation === "both") && (
+				<ScrollAreaScrollbar
+					orientation="horizontal"
+					{...scrollbarProps}
+				>
+					<ScrollAreaThumb {...thumbProps} />
+				</ScrollAreaScrollbar>
+			)}
 
-			<ScrollAreaCorner />
-		</ScrollAreaRoot>
+			<ScrollAreaCorner {...cornerProps} />
+		</>
 	);
 }
 
 /* -------------------------------------------------------------------------- */
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
+
+export const ScrollArea = {
+	Root: ScrollAreaRoot,
+	Viewport: ScrollAreaViewport,
+	Content: ScrollAreaContent,
+	Scrollbar: ScrollAreaScrollbar,
+	Thumb: ScrollAreaThumb,
+	Corner: ScrollAreaCorner,
+	Panel: ScrollAreaPanel,
+};
 
 export {
 	ScrollAreaRoot,
@@ -165,6 +200,7 @@ export {
 	ScrollAreaScrollbar,
 	ScrollAreaThumb,
 	ScrollAreaCorner,
+	ScrollAreaPanel,
 };
 
-export { ScrollArea };
+export type { ScrollAreaPanelProps, ScrollAreaOrientation };
