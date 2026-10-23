@@ -17,14 +17,29 @@ author:
 
 ## Anatomy
 
+#### Components
+
+```tsx
+<AccordionRoot>
+  <AccordionItem>
+    <AccordionTrigger>
+      Trigger
+      <AccordionIcon />
+    </AccordionTrigger>
+    <AccordionPanel>Panel</AccordionPanel>
+  </AccordionItem>
+</AccordionRoot>
+```
+
+#### Primitives (Base UI)
+
 ```tsx
 <Accordion.Root>
   <Accordion.Item>
-    <Accordion.Trigger>
-      Trigger
-      <Accordion.Icon />
-    </AccordionTrigger>
-    <Accordion.Panel>Panel</AccordionPanel>
+    <Accordion.Header>
+      <Accordion.Trigger>Trigger</Accordion.Trigger>
+    </Accordion.Header>
+    <Accordion.Panel>Panel</Accordion.Panel>
   </Accordion.Item>
 </Accordion.Root>
 ```

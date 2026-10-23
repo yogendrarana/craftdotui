@@ -17,36 +17,36 @@ author:
 
 ## Anatomy
 
-#### Composite
+#### Components
 
 ```tsx
-<ContextMenu.Root>
-  <ContextMenu.Trigger />
+<ContextMenuRoot>
+  <ContextMenuTrigger />
 
-  <ContextMenu.Content>
-    <ContextMenu.Arrow />
-    <ContextMenu.Item />
-    <ContextMenu.Shortcut />
-    <ContextMenu.Separator />
+  <ContextMenuContent>
+    <ContextMenuArrow />
+    <ContextMenuItem />
+    <ContextMenuShortcut />
+    <ContextMenuSeparator />
 
-    <ContextMenu.Submenu>
-      <ContextMenu.SubmenuTrigger />
-      <ContextMenu.Content>
-        <ContextMenu.Item />
-      </ContextMenu.Content>
-    </ContextMenu.Submenu>
+    <ContextMenuSubmenu>
+      <ContextMenuSubmenuTrigger />
+      <ContextMenuContent>
+        <ContextMenuItem />
+      </ContextMenuContent>
+    </ContextMenuSubmenu>
 
-    <ContextMenu.Group>
-      <ContextMenu.GroupLabel />
-    </ContextMenu.Group>
+    <ContextMenuGroup>
+      <ContextMenuGroupLabel />
+    </ContextMenuGroup>
 
-    <ContextMenu.RadioGroup>
-      <ContextMenu.RadioItem />
-    </ContextMenu.RadioGroup>
+    <ContextMenuRadioGroup>
+      <ContextMenuRadioItem />
+    </ContextMenuRadioGroup>
 
-    <ContextMenu.CheckboxItem />
-  </ContextMenu.Content>
-</ContextMenu.Root>
+    <ContextMenuCheckboxItem />
+  </ContextMenuContent>
+</ContextMenuRoot>
 ```
 
 #### Primitives (Base UI)

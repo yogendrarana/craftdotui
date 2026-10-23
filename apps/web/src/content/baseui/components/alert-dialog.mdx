@@ -17,24 +17,24 @@ author:
 
 ## Anatomy
 
-#### Composite
+#### Components
 
 ```tsx
-<AlertDialog.Root>
-    <AlertDialog.Trigger>Open Alert Dialog</AlertDialog.Trigger>
+<AlertDialogRoot>
+    <AlertDialogTrigger>Open Alert Dialog</AlertDialogTrigger>
 
-    <AlertDialog.Content>
-        <AlertDialog.Header>
-            <AlertDialog.Title>Alert Title</AlertDialog.Title>
-            <AlertDialog.Description>Alert Description</AlertDialog.Description>
-        </AlertDialog.Header>
+    <AlertDialogContent>
+        <AlertDialogHeader>
+            <AlertDialogTitle>Alert Title</AlertDialogTitle>
+            <AlertDialogDescription>Alert Description</AlertDialogDescription>
+        </AlertDialogHeader>
 
-        <AlertDialog.Footer>
-            <AlertDialog.Close>Cancel</AlertDialog.Close>
-            <AlertDialog.Close>Confirm</AlertDialog.Close>
-        </AlertDialog.Footer>
-    </AlertDialog.Content>
-</AlertDialog.Root>
+        <AlertDialogFooter>
+            <AlertDialogClose>Cancel</AlertDialogClose>
+            <AlertDialogClose>Confirm</AlertDialogClose>
+        </AlertDialogFooter>
+    </AlertDialogContent>
+</AlertDialogRoot>
 ```
 
 #### Primitives (Base UI)

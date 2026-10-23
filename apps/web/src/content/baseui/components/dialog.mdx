@@ -17,25 +17,25 @@ author:
 
 ## Anatomy
 
-#### Composite
+#### Components
 
 ```tsx
-<Dialog.Root>
-  <Dialog.Trigger>Open Dialog</Dialog.Trigger>
+<DialogRoot>
+  <DialogTrigger>Open Dialog</DialogTrigger>
 
-  <Dialog.Content showCloseButton>
-    <Dialog.Header>
-      <Dialog.Title>Dialog Title</Dialog.Title>
-      <Dialog.Description>Dialog Description</Dialog.Description>
-    </Dialog.Header>
+  <DialogContent showCloseButton>
+    <DialogHeader>
+      <DialogTitle>Dialog Title</DialogTitle>
+      <DialogDescription>Dialog Description</DialogDescription>
+    </DialogHeader>
 
-    <Dialog.Panel>Content</Dialog.Panel>
+    <DialogPanel>Content</DialogPanel>
 
-    <Dialog.Footer>
-      <Dialog.Close>Close</Dialog.Close>
-    </Dialog.Footer>
-  </Dialog.Content>
-</Dialog.Root>
+    <DialogFooter>
+      <DialogClose>Close</DialogClose>
+    </DialogFooter>
+  </DialogContent>
+</DialogRoot>
 ```
 
 #### Primitives (Base UI)

@@ -17,23 +17,23 @@ author:
 
 ## Anatomy
 
-#### Composite
+#### Components
 
 ```tsx
-<Autocomplete.Root items={items}>
-  <Autocomplete.InputGroup inputProps={{ placeholder: "Search..." }} />
+<AutocompleteRoot items={items}>
+  <AutocompleteInputGroup inputProps={{ placeholder: "Search..." }} />
 
-  <Autocomplete.Content>
-    <Autocomplete.Empty>No results found.</Autocomplete.Empty>
-    <Autocomplete.List>
+  <AutocompleteContent>
+    <AutocompleteEmpty>No results found.</AutocompleteEmpty>
+    <AutocompleteList>
       {(item) => (
-        <Autocomplete.Item key={item.id} value={item}>
+        <AutocompleteItem key={item.id} value={item}>
           {item.label}
-        </Autocomplete.Item>
+        </AutocompleteItem>
       )}
-    </Autocomplete.List>
-  </Autocomplete.Content>
-</Autocomplete.Root>
+    </AutocompleteList>
+  </AutocompleteContent>
+</AutocompleteRoot>
 ```
 
 #### Primitives (Base UI)

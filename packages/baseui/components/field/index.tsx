@@ -135,4 +135,5 @@ export {
 	FieldItem,
 	FieldError,
 	FieldValidity,
+	type FieldControlProps,
 };

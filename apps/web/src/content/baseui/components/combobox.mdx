@@ -17,23 +17,23 @@ author:
 
 ## Anatomy
 
-#### Composite
+#### Components
 
 ```tsx
-<Combobox.Root items={items}>
-  <Combobox.InputGroup inputProps={{ placeholder: "Select framework..." }} />
+<ComboboxRoot items={items}>
+  <ComboboxInputGroup inputProps={{ placeholder: "Select framework..." }} />
 
-  <Combobox.Content>
-    <Combobox.Empty>No results found.</Combobox.Empty>
-    <Combobox.List>
+  <ComboboxContent>
+    <ComboboxEmpty>No results found.</ComboboxEmpty>
+    <ComboboxList>
       {(item) => (
-        <Combobox.Item key={item.value} value={item}>
+        <ComboboxItem key={item.value} value={item}>
           {item.label}
-        </Combobox.Item>
+        </ComboboxItem>
       )}
-    </Combobox.List>
-  </Combobox.Content>
-</Combobox.Root>
+    </ComboboxList>
+  </ComboboxContent>
+</ComboboxRoot>
 ```
 
 #### Primitives (Base UI)

@@ -1,7 +1,7 @@
 ---
 title: Field
-description: A Base UI field component
-slug: /baseui/components/collapsible
+description: A Base UI field component that provides labeling and validation for form controls
+slug: /baseui/components/field
 published: true
 date: 2025-12-27T00:00:00.000Z
 author:
@@ -11,7 +11,61 @@ author:
 
 <ComponentCodePreview name="baseui-particles-field" />
 
-
 ## Installation
 
 <Installation name="baseui-field" />
+
+## Anatomy
+
+#### Components
+
+```tsx
+<FieldRoot>
+  <FieldLabel />
+  <FieldControl />
+  <FieldDescription />
+  <FieldItem />
+  <FieldError />
+  <FieldValidity />
+</FieldRoot>
+```
+
+#### Primitives (Base UI)
+
+```tsx
+<Field.Root>
+  <Field.Label />
+  <Field.Control />
+  <Field.Description />
+  <Field.Item />
+  <Field.Error />
+  <Field.Validity />
+</Field.Root>
+```
+
+## Demo
+
+#### With Input
+
+<ComponentCodePreview name="baseui-particles-input-with-field" />
+
+## Props
+
+#### FieldControl
+
+<PropsTable
+  data={[
+    {
+      prop: "variant",
+      type: '"default" | "ghost"',
+      default: '"default"',
+      description: "Visual style variant of the control",
+    },
+    {
+      prop: "size",
+      type: '"xs" | "sm" | "md" | "lg" | "xl"',
+      default: '"md"',
+      description: "Size of the control element",
+    },
+  ]}
+/>

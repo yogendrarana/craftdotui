@@ -1,16 +1,11 @@
-import {
-	FieldRoot,
-	FieldLabel,
-	FieldControl,
-	FieldDescription,
-} from "@craftdotui/baseui/components/field";
+import { Field } from "@craftdotui/baseui/components/field";
 
-export function Particle() {
+export default function Particle() {
 	return (
-		<FieldRoot>
-			<FieldLabel>Email</FieldLabel>
-			<FieldControl placeholder="you@example.com" />
-			<FieldDescription>We’ll never share your email.</FieldDescription>
-		</FieldRoot>
+		<Field.Root>
+			<Field.Label>Email</Field.Label>
+			<Field.Control placeholder="you@example.com" />
+			<Field.Description>We’ll never share your email.</Field.Description>
+		</Field.Root>
 	);
 }

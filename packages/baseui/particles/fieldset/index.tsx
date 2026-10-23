@@ -11,7 +11,7 @@ import {
 
 export function FieldsetExampleWithFields() {
 	return (
-		<FieldsetRoot>
+		<FieldsetRoot className="w-full max-w-xs">
 			<FieldsetLegend>Account details</FieldsetLegend>
 
 			<FieldRoot>
@@ -26,3 +26,5 @@ export function FieldsetExampleWithFields() {
 		</FieldsetRoot>
 	);
 }
+
+export default FieldsetExampleWithFields;
