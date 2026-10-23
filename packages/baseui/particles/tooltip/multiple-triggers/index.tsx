@@ -2,9 +2,7 @@
 
 import {
 	TooltipRoot,
-	TooltipPopup,
-	TooltipPositioner,
-	TooltipPortal,
+	TooltipContent,
 	TooltipProvider,
 	TooltipTrigger,
 	createHandle,
@@ -36,13 +34,9 @@ export function Particle() {
 				/>
 
 				<TooltipRoot handle={sharedTooltip}>
-					<TooltipPortal>
-						<TooltipPositioner sideOffset={8}>
-							<TooltipPopup>
-								Tooltip triggered by multiple elements
-							</TooltipPopup>
-						</TooltipPositioner>
-					</TooltipPortal>
+					<TooltipContent positionerProps={{ sideOffset: 8 }}>
+						Tooltip triggered by multiple elements
+					</TooltipContent>
 				</TooltipRoot>
 			</div>
 		</TooltipProvider>

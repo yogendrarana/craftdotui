@@ -1,8 +1,6 @@
 import {
 	TooltipRoot,
-	TooltipPopup,
-	TooltipPositioner,
-	TooltipPortal,
+	TooltipContent,
 	TooltipProvider,
 	TooltipTrigger,
 } from "@craftdotui/baseui/components/tooltip";
@@ -20,11 +18,9 @@ export function Particle() {
 							</Button>
 						}
 					/>
-					<TooltipPortal>
-						<TooltipPositioner side="top" sideOffset={10}>
-							<TooltipPopup>Tooltip on top</TooltipPopup>
-						</TooltipPositioner>
-					</TooltipPortal>
+					<TooltipContent positionerProps={{ side: "top" }}>
+						Tooltip on top
+					</TooltipContent>
 				</TooltipRoot>
 
 				<TooltipRoot>
@@ -35,11 +31,9 @@ export function Particle() {
 							</Button>
 						}
 					/>
-					<TooltipPortal>
-						<TooltipPositioner side="right" sideOffset={10}>
-							<TooltipPopup>Tooltip on right</TooltipPopup>
-						</TooltipPositioner>
-					</TooltipPortal>
+					<TooltipContent positionerProps={{ side: "right" }}>
+						Tooltip on right
+					</TooltipContent>
 				</TooltipRoot>
 
 				<TooltipRoot>
@@ -50,11 +44,9 @@ export function Particle() {
 							</Button>
 						}
 					/>
-					<TooltipPortal>
-						<TooltipPositioner side="left" sideOffset={10}>
-							<TooltipPopup>Tooltip on left</TooltipPopup>
-						</TooltipPositioner>
-					</TooltipPortal>
+					<TooltipContent positionerProps={{ side: "left" }}>
+						Tooltip on left
+					</TooltipContent>
 				</TooltipRoot>
 
 				<TooltipRoot>
@@ -65,13 +57,13 @@ export function Particle() {
 							</Button>
 						}
 					/>
-					<TooltipPortal>
-						<TooltipPositioner side="bottom" sideOffset={10}>
-							<TooltipPopup>Tooltip on bottom</TooltipPopup>
-						</TooltipPositioner>
-					</TooltipPortal>
+					<TooltipContent positionerProps={{ side: "bottom" }}>
+						Tooltip on bottom
+					</TooltipContent>
 				</TooltipRoot>
 			</div>
 		</TooltipProvider>
 	);
 }
+
+export default Particle;

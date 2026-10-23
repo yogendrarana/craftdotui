@@ -1,8 +1,6 @@
 import {
 	TooltipRoot,
-	TooltipPopup,
-	TooltipPositioner,
-	TooltipPortal,
+	TooltipContent,
 	TooltipProvider,
 	TooltipTrigger,
 } from "@craftdotui/baseui/components/tooltip";
@@ -17,12 +15,10 @@ export function Particle() {
 						<Button variant="outline">Instant Animation</Button>
 					}
 				/>
-				<TooltipPortal>
-					<TooltipPositioner sideOffset={10}>
-						<TooltipPopup>Custom Styled & Animated</TooltipPopup>
-					</TooltipPositioner>
-				</TooltipPortal>
+				<TooltipContent>Custom Styled & Animated</TooltipContent>
 			</TooltipRoot>
 		</TooltipProvider>
 	);
 }
+
+export default Particle;

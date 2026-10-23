@@ -2,11 +2,9 @@ import { BoldIcon, ItalicIcon, UnderlineIcon } from "lucide-react";
 
 import {
 	TooltipRoot,
-	TooltipPopup,
+	TooltipContent,
 	TooltipProvider,
 	TooltipTrigger,
-	TooltipPortal,
-	TooltipPositioner,
 	createHandle,
 } from "@craftdotui/baseui/components/tooltip";
 
@@ -75,13 +73,9 @@ export default function Particle() {
 					const Payload = payload as React.ComponentType | undefined;
 
 					return (
-						<TooltipPortal>
-							<TooltipPositioner sideOffset={10}>
-								<TooltipPopup>
-									{Payload && <Payload />}
-								</TooltipPopup>
-							</TooltipPositioner>
-						</TooltipPortal>
+						<TooltipContent>
+							{Payload && <Payload />}
+						</TooltipContent>
 					);
 				}}
 			</TooltipRoot>

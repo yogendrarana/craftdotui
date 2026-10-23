@@ -1,9 +1,7 @@
 import { useState } from "react";
 import {
 	TooltipRoot,
-	TooltipPopup,
-	TooltipPositioner,
-	TooltipPortal,
+	TooltipContent,
 	TooltipProvider,
 	TooltipTrigger,
 } from "@craftdotui/baseui/components/tooltip";
@@ -23,11 +21,7 @@ export function Particle() {
 							</Button>
 						}
 					/>
-					<TooltipPortal>
-						<TooltipPositioner sideOffset={10}>
-							<TooltipPopup>Controlled Tooltip</TooltipPopup>
-						</TooltipPositioner>
-					</TooltipPortal>
+					<TooltipContent>Controlled Tooltip</TooltipContent>
 				</TooltipRoot>
 
 				<Button
@@ -40,3 +34,5 @@ export function Particle() {
 		</TooltipProvider>
 	);
 }
+
+export default Particle;

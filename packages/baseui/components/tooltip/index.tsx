@@ -59,9 +59,7 @@ function TooltipPositioner(props: TooltipPrimitive.Positioner.Props) {
 /* Tooltip Viewport                                                           */
 /* -------------------------------------------------------------------------- */
 
-interface TooltipViewportProps extends TooltipPrimitive.Viewport.Props {
-	className?: string;
-}
+type TooltipViewportProps = TooltipPrimitive.Viewport.Props;
 
 function TooltipViewport({
 	className,
@@ -120,17 +118,7 @@ function TooltipViewport({
 /* Tooltip Popup                                                              */
 /* -------------------------------------------------------------------------- */
 
-interface TooltipPopupProps extends TooltipPrimitive.Popup.Props {
-	className?: string;
-	hideTooltipArrow?: boolean;
-}
-
-function TooltipPopup({
-	className,
-	children,
-	hideTooltipArrow = false,
-	...props
-}: TooltipPopupProps) {
+function TooltipPopup({ className, ...props }: TooltipPrimitive.Popup.Props) {
 	return (
 		<TooltipPrimitive.Popup
 			data-slot="tooltip-popup"
@@ -149,10 +137,7 @@ function TooltipPopup({
 				className,
 			)}
 			{...props}
-		>
-			{!hideTooltipArrow && <TooltipArrow />}
-			<TooltipViewport>{children}</TooltipViewport>
-		</TooltipPrimitive.Popup>
+		/>
 	);
 }
 
@@ -160,13 +145,12 @@ function TooltipPopup({
 /* Tooltip Arrow                                                              */
 /* -------------------------------------------------------------------------- */
 
-interface TooltipArrowProps extends TooltipPrimitive.Arrow.Props {
-	className?: string;
-}
+type TooltipArrowProps = TooltipPrimitive.Arrow.Props;
 
 function TooltipArrow({ className, ...props }: TooltipArrowProps) {
 	return (
 		<TooltipPrimitive.Arrow
+			data-slot="tooltip-arrow"
 			className={cn(ARROW_STYLES, className)}
 			{...props}
 		>
@@ -176,25 +160,68 @@ function TooltipArrow({ className, ...props }: TooltipArrowProps) {
 }
 
 /* -------------------------------------------------------------------------- */
+/* Tooltip Content (Composite Component)                                      */
+/* -------------------------------------------------------------------------- */
+
+type TooltipPositionerProps = TooltipPrimitive.Positioner.Props;
+
+interface TooltipContentProps extends TooltipPrimitive.Popup.Props {
+	hasArrow?: boolean;
+	portalProps?: TooltipPrimitive.Portal.Props;
+	positionerProps?: TooltipPositionerProps;
+	popupProps?: TooltipPrimitive.Popup.Props;
+	arrowProps?: TooltipPrimitive.Arrow.Props;
+	viewportProps?: TooltipPrimitive.Viewport.Props;
+}
+
+function TooltipContent({
+	className,
+	children,
+	hasArrow = true,
+	portalProps,
+	positionerProps = { sideOffset: 10 },
+	popupProps,
+	arrowProps,
+	viewportProps,
+	...props
+}: TooltipContentProps) {
+	return (
+		<TooltipPortal {...portalProps}>
+			<TooltipPositioner {...positionerProps}>
+				<TooltipPopup className={className} {...props} {...popupProps}>
+					{hasArrow && <TooltipArrow {...arrowProps} />}
+					<TooltipViewport {...viewportProps}>
+						{children}
+					</TooltipViewport>
+				</TooltipPopup>
+			</TooltipPositioner>
+		</TooltipPortal>
+	);
+}
+
+/* -------------------------------------------------------------------------- */
 /* Exports                                                                    */
 /* -------------------------------------------------------------------------- */
+
+const createHandle = TooltipPrimitive.createHandle;
 
 export const Tooltip = {
 	Root: TooltipRoot,
 	Trigger: TooltipTrigger,
+	Content: TooltipContent,
 	Popup: TooltipPopup,
 	Provider: TooltipProvider,
 	Portal: TooltipPortal,
 	Positioner: TooltipPositioner,
 	Viewport: TooltipViewport,
 	Arrow: TooltipArrow,
+	createHandle,
 };
-
-const createHandle = TooltipPrimitive.createHandle;
 
 export {
 	TooltipRoot,
 	TooltipTrigger,
+	TooltipContent,
 	TooltipPopup,
 	TooltipProvider,
 	TooltipPortal,
@@ -202,4 +229,11 @@ export {
 	TooltipViewport,
 	TooltipArrow,
 	createHandle,
+};
+
+export type {
+	TooltipContentProps,
+	TooltipPositionerProps,
+	TooltipArrowProps,
+	TooltipViewportProps,
 };

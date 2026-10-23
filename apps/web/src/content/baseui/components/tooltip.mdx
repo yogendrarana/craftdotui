@@ -15,7 +15,38 @@ author:
 
 <Installation name="baseui-tooltip" />
 
-## Examples
+## Anatomy
+
+#### Components
+
+```tsx
+<TooltipProvider>
+  <TooltipRoot>
+    <TooltipTrigger />
+    <TooltipContent />
+  </TooltipRoot>
+</TooltipProvider>
+```
+
+#### Primitives (Base UI)
+
+```tsx
+<Tooltip.Provider>
+  <Tooltip.Root>
+    <Tooltip.Trigger />
+    <Tooltip.Portal>
+      <Tooltip.Positioner>
+        <Tooltip.Popup>
+          <Tooltip.Arrow />
+          <Tooltip.Viewport />
+        </Tooltip.Popup>
+      </Tooltip.Positioner>
+    </Tooltip.Portal>
+  </Tooltip.Root>
+</Tooltip.Provider>
+```
+
+## Demo
 
 #### Sides
 
@@ -40,3 +71,49 @@ author:
 #### Controlled Mode
 
 <ComponentCodePreview name="baseui-particles-tooltip-controlled" />
+
+## Props
+
+#### TooltipContent
+
+<PropsTable
+  data={[
+    {
+      prop: "hasArrow",
+      type: "boolean",
+      default: "true",
+      description: "If true, renders an arrow on the tooltip",
+    },
+    {
+      prop: "portalProps",
+      type: "TooltipPrimitive.Portal.Props",
+      default: "undefined",
+      description: "Props forwarded to the Portal primitive",
+    },
+    {
+      prop: "positionerProps",
+      type: "TooltipPrimitive.Positioner.Props",
+      default: "{ sideOffset: 10 }",
+      description: "Props forwarded to the Positioner primitive",
+    },
+    {
+      prop: "popupProps",
+      type: "TooltipPrimitive.Popup.Props",
+      default: "undefined",
+      description: "Props forwarded to the Popup primitive",
+    },
+    {
+      prop: "arrowProps",
+      type: "TooltipPrimitive.Arrow.Props",
+      default: "undefined",
+      description: "Props forwarded to the Arrow primitive",
+    },
+    {
+      prop: "viewportProps",
+      type: "TooltipPrimitive.Viewport.Props",
+      default: "undefined",
+      description: "Props forwarded to the Viewport primitive",
+    },
+  ]}
+/>
+

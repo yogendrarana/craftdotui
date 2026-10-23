@@ -1,8 +1,6 @@
 import {
 	TooltipRoot,
-	TooltipPopup,
-	TooltipPositioner,
-	TooltipPortal,
+	TooltipContent,
 	TooltipProvider,
 	TooltipTrigger,
 	createHandle,
@@ -26,15 +24,11 @@ export function Particle() {
 				/>
 
 				<TooltipRoot handle={demoTooltip}>
-					<TooltipPortal>
-						<TooltipPositioner sideOffset={10}>
-							<TooltipPopup>
-								This is a detached tooltip
-							</TooltipPopup>
-						</TooltipPositioner>
-					</TooltipPortal>
+					<TooltipContent>This is a detached tooltip</TooltipContent>
 				</TooltipRoot>
 			</div>
 		</TooltipProvider>
 	);
 }
+
+export default Particle;

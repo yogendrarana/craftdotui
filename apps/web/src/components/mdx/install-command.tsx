@@ -4,9 +4,7 @@ import React from "react";
 import { Check, Copy } from "lucide-react";
 import {
 	TooltipRoot,
-	TooltipPortal,
-	TooltipPositioner,
-	TooltipPopup,
+	TooltipContent,
 	TooltipTrigger,
 } from "@craftdotui/baseui/components/tooltip";
 
@@ -167,13 +165,12 @@ export function InstallCommandDropdown({
 					}
 				/>
 
-				<TooltipPortal>
-					<TooltipPositioner sideOffset={5}>
-						<TooltipPopup className="bg-popover text-foreground">
-							{hasCopied ? "Copied!" : "Click to copy"}
-						</TooltipPopup>
-					</TooltipPositioner>
-				</TooltipPortal>
+				<TooltipContent
+					positionerProps={{ sideOffset: 5 }}
+					className="bg-popover text-foreground"
+				>
+					{hasCopied ? "Copied!" : "Click to copy"}
+				</TooltipContent>
 			</TooltipRoot>
 		</div>
 	);

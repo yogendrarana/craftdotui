@@ -15,6 +15,74 @@ author:
 
 <Installation name="baseui-toast" />
 
+## Anatomy
+
+#### Components
+
+```tsx
+<ToastProvider>
+  <ToastPortal>
+    <ToastViewport>
+      {/* Stacked toasts */}
+      <ToastRoot>
+        <ToastContent>
+          <ToastTitle />
+          <ToastDescription />
+          <ToastAction />
+          <ToastClose />
+        </ToastContent>
+      </ToastRoot>
+
+      {/* Anchored toasts */}
+      <ToastPositioner>
+        <ToastRoot>
+          <ToastArrow />
+          <ToastContent>
+            <ToastTitle />
+            <ToastDescription />
+            <ToastAction />
+            <ToastClose />
+          </ToastContent>
+        </ToastRoot>
+      </ToastPositioner>
+    </ToastViewport>
+  </ToastPortal>
+</ToastProvider>
+```
+
+#### Primitives (Base UI)
+
+```tsx
+<Toast.Provider>
+  <Toast.Portal>
+    <Toast.Viewport>
+      {/* Stacked toasts */}
+      <Toast.Root>
+        <Toast.Content>
+          <Toast.Title />
+          <Toast.Description />
+          <Toast.Action />
+          <Toast.Close />
+        </Toast.Content>
+      </Toast.Root>
+
+      {/* Anchored toasts */}
+      <Toast.Positioner>
+        <Toast.Root>
+          <Toast.Arrow />
+          <Toast.Content>
+            <Toast.Title />
+            <Toast.Description />
+            <Toast.Action />
+            <Toast.Close />
+          </Toast.Content>
+        </Toast.Root>
+      </Toast.Positioner>
+    </Toast.Viewport>
+  </Toast.Portal>
+</Toast.Provider>
+```
+
 ## Demo
 
 #### With status
