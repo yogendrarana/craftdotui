@@ -1,4 +1,5 @@
 @import "@craftdotui/styles/globals.css";
+@source "../";
 @source "../../../packages/baseui";
 @source "../../../packages/craftui";
 

@@ -146,3 +146,41 @@ export function RailSection({
 	);
 }
 
+export function SectionHeader({
+	title,
+	badge,
+	description,
+	className,
+}: {
+	title: string;
+	badge?: string;
+	description?: string;
+	className?: string;
+}) {
+	return (
+		<div
+			className={cn(
+				"relative border-b border-border bg-muted/40 px-6 sm:px-8 py-4 flex items-center justify-between gap-4",
+				className,
+			)}
+		>
+			<CornerCrosshairs top={false} bottom />
+			<div className="flex items-center gap-3">
+				<h2 className="text-base font-semibold tracking-tight text-foreground">
+					{title}
+				</h2>
+				{description && (
+					<span className="hidden sm:inline-block text-xs text-muted-foreground">
+						{description}
+					</span>
+				)}
+			</div>
+			{badge && (
+				<span className="rounded-sm border border-border bg-background px-2 py-0.5 text-[11px] font-mono uppercase tracking-wider text-muted-foreground">
+					{badge}
+				</span>
+			)}
+		</div>
+	);
+}
+
