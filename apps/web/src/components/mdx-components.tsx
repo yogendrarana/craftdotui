@@ -41,7 +41,7 @@ const components = {
 	h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
 		<h1
 			className={cn(
-				"font-heading mt-2 mb-4 scroll-m-20 text-4xl font-bold",
+				"mt-2 mb-4 scroll-m-20 text-3xl sm:text-4xl font-semibold tracking-tight text-foreground",
 				className,
 			)}
 			{...props}
@@ -50,7 +50,7 @@ const components = {
 	h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
 		<h2
 			className={cn(
-				"font-heading mt-8 mb-4 scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight",
+				"mt-10 mb-4 scroll-m-20 border-b border-border pb-2.5 text-xl sm:text-2xl font-semibold tracking-tight text-foreground",
 				className,
 			)}
 			{...props}
@@ -59,7 +59,7 @@ const components = {
 	h3: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
 		<h3
 			className={cn(
-				"font-heading mt-8 mb-4 scroll-m-20 text-xl font-semibold tracking-tight",
+				"mt-8 mb-3 scroll-m-20 text-lg font-semibold tracking-tight text-foreground",
 				className,
 			)}
 			{...props}
@@ -68,7 +68,7 @@ const components = {
 	h4: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
 		<h4
 			className={cn(
-				"font-heading mt-8 mb-4 scroll-m-20 text-lg font-semibold tracking-tight",
+				"mt-6 mb-2 scroll-m-20 text-base font-semibold tracking-tight text-foreground",
 				className,
 			)}
 			{...props}
@@ -77,7 +77,7 @@ const components = {
 	h5: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
 		<h5
 			className={cn(
-				"font-heading mt-8 mb-4 scroll-m-20 text-lg font-semibold tracking-tight",
+				"mt-6 mb-2 scroll-m-20 text-sm font-semibold tracking-tight text-foreground",
 				className,
 			)}
 			{...props}
@@ -86,7 +86,7 @@ const components = {
 	h6: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
 		<h6
 			className={cn(
-				"font-heading mt-8 mb-2 scroll-m-20 text-base font-semibold tracking-tight",
+				"mt-6 mb-2 scroll-m-20 text-xs font-mono uppercase tracking-wider text-muted-foreground",
 				className,
 			)}
 			{...props}
@@ -96,7 +96,7 @@ const components = {
 	a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
 		<CustomLink
 			className={cn(
-				"font-medium underline underline-offset-4",
+				"font-medium text-foreground underline underline-offset-4 hover:text-muted-foreground transition-colors",
 				className,
 			)}
 			{...props}
@@ -107,25 +107,37 @@ const components = {
 		...props
 	}: React.HTMLAttributes<HTMLParagraphElement>) => (
 		<p
-			className={cn("mb-1 leading-8 not-first:mt-5", className)}
+			className={cn(
+				"mb-1 leading-7 text-foreground/90 not-first:mt-4",
+				className,
+			)}
 			{...props}
 		/>
 	),
 	ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
-		<ul className={cn("ml-6 list-disc", className)} {...props} />
+		<ul
+			className={cn("ml-6 list-disc space-y-1.5 my-4", className)}
+			{...props}
+		/>
 	),
 	ol: ({ className, ...props }: React.HTMLAttributes<HTMLOListElement>) => (
-		<ol className={cn("ml-6 list-decimal", className)} {...props} />
+		<ol
+			className={cn("ml-6 list-decimal space-y-1.5 my-4", className)}
+			{...props}
+		/>
 	),
 	li: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
-		<li className={cn("mt-2", className)} {...props} />
+		<li className={cn("leading-7", className)} {...props} />
 	),
 	blockquote: ({
 		className,
 		...props
 	}: React.HTMLAttributes<HTMLElement>) => (
 		<blockquote
-			className={cn("mt-6 border-l-2 pl-6 italic", className)}
+			className={cn(
+				"mt-6 border-l-2 border-foreground bg-muted/40 px-4 py-3 text-sm text-muted-foreground",
+				className,
+			)}
 			{...props}
 		/>
 	),
@@ -133,15 +145,24 @@ const components = {
 		className,
 		...props
 	}: React.HTMLAttributes<HTMLTableElement>) => (
-		<div className="my-6 w-full overflow-y-auto">
-			<table className={cn("w-full", className)} {...props} />
+		<div className="my-6 w-full overflow-x-auto border border-border rounded-md">
+			<table
+				className={cn("w-full border-collapse", className)}
+				{...props}
+			/>
 		</div>
 	),
 	tr: ({
 		className,
 		...props
 	}: React.HTMLAttributes<HTMLTableRowElement>) => (
-		<tr className={cn("m-0 border-t p-0", className)} {...props} />
+		<tr
+			className={cn(
+				"m-0 border-b border-border last:border-b-0 p-0",
+				className,
+			)}
+			{...props}
+		/>
 	),
 	th: ({
 		className,
@@ -149,7 +170,7 @@ const components = {
 	}: React.HTMLAttributes<HTMLTableCellElement>) => (
 		<th
 			className={cn(
-				"border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right",
+				"border-r border-border last:border-r-0 bg-muted/40 px-4 py-2.5 text-left text-[11px] font-mono uppercase tracking-wider text-muted-foreground [&[align=center]]:text-center [&[align=right]]:text-right",
 				className,
 			)}
 			{...props}
@@ -161,7 +182,7 @@ const components = {
 	}: React.HTMLAttributes<HTMLTableCellElement>) => (
 		<td
 			className={cn(
-				"border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right",
+				"border-r border-border last:border-r-0 px-4 py-2.5 text-left text-sm [&[align=center]]:text-center [&[align=right]]:text-right",
 				className,
 			)}
 			{...props}
@@ -180,10 +201,10 @@ const components = {
 		).trim();
 
 		return (
-			<div className="relative mx-auto ">
+			<div className="relative mx-auto my-4 border border-border rounded-md overflow-hidden bg-muted/40">
 				<pre
 					className={cn(
-						"px-4 py-3 bg-muted border border-border rounded text-sm overflow-x-auto",
+						"px-4 py-3 font-mono text-xs sm:text-sm overflow-x-auto rounded-md",
 						className,
 					)}
 					{...props}
@@ -208,7 +229,7 @@ const components = {
 
 		if (!isInline) {
 			return (
-				<code className={className} {...props}>
+				<code className={cn("font-mono", className)} {...props}>
 					{children}
 				</code>
 			);
@@ -217,7 +238,7 @@ const components = {
 		return (
 			<code
 				className={cn(
-					"px-1.5 py-1 rounded font-mono text-sm bg-muted",
+					"px-1.5 py-0.5 rounded-sm border border-border font-mono text-xs bg-muted/40 text-foreground",
 					className,
 				)}
 				{...props}
@@ -228,7 +249,10 @@ const components = {
 	},
 
 	strong: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
-		<strong className={cn("font-semibold", className)} {...props} />
+		<strong
+			className={cn("font-semibold text-foreground", className)}
+			{...props}
+		/>
 	),
 	em: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
 		<em className={cn("italic", className)} {...props} />
@@ -239,7 +263,7 @@ const components = {
 	}: React.ComponentProps<typeof Link>) => (
 		<Link
 			className={cn(
-				"flex w-full flex-col items-center rounded-xl border bg-card p-6 text-card-foreground shadow transition-colors hover:bg-muted/50 sm:p-10",
+				"flex w-full flex-col items-center rounded-md border border-border bg-background p-6 text-foreground transition-colors hover:bg-muted/40 sm:p-10",
 				className,
 			)}
 			{...props}

@@ -21,7 +21,7 @@ export function Installation({ name, className }: PropType) {
 
 	if (!registryItem) {
 		return (
-			<div className="py-10 text-center text-sm text-muted-foreground border border-border border-dashed rounded-md">
+			<div className="py-10 text-center text-sm text-muted-foreground border border-border rounded-md">
 				Component <code className="mx-1 font-mono text-xs">{name}</code>{" "}
 				not found (404 NOT FOUND)
 			</div>
@@ -33,7 +33,7 @@ export function Installation({ name, className }: PropType) {
 			defaultValue="cli"
 			className={cn("w-full flex flex-col gap-4", className)}
 		>
-			<TabsList>
+			<TabsList variant={"outlined"}>
 				<Tab value="cli">CLI</Tab>
 				<Tab value="manual">Manual</Tab>
 			</TabsList>

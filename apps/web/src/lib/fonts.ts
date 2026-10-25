@@ -1,13 +1,5 @@
-import { Figtree, Geist_Mono as FontMono } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 
-export const fontSans = Figtree({
-	subsets: ["latin"],
-	variable: "--font-sans",
-	display: "swap",
-});
-
-export const fontMono = FontMono({
-	subsets: ["latin"],
-	variable: "--font-mono",
-	display: "swap",
-});
+export const fontSans = GeistSans;
+export const fontMono = GeistMono;

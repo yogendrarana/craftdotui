@@ -33,7 +33,9 @@ export function CodeRenderer({
 		>
 			<ScrollAreaViewport>
 				<ScrollAreaContent>
-					<pre className="p-4 text-xs">{code}</pre>
+					<pre className="p-4 font-mono text-xs leading-relaxed text-foreground">
+						{code}
+					</pre>
 				</ScrollAreaContent>
 			</ScrollAreaViewport>
 
@@ -53,6 +55,7 @@ export function CodeRenderer({
 						type="button"
 						variant={"outline"}
 						size={"xs"}
+						className="rounded-md"
 						onClick={() => onClick?.()}
 					>
 						{isExpanded ? "Collapse" : "Expand"}

@@ -4,6 +4,7 @@ import { allDocs } from "content-collections";
 import { cn } from "@/lib/utils";
 import { Mdx } from "@/components/mdx-components";
 import { TableOfContent } from "@/components/toc";
+import { Crosshair, InlineHatchBar } from "@/components/grid-system";
 import {
 	ScrollAreaContent,
 	ScrollAreaRoot,
@@ -32,27 +33,42 @@ export default async function DocsPage({ params }: PageProps) {
 
 	return (
 		<>
-			{/* main content */}
-			<div className="px-4 py-2 h-full border-x border-dashed">
-				<div></div>
-				<div className="mb-6">
-					<h1 className={cn("mb-1 text-4xl font-bold")}>
-						{doc.title}
-					</h1>
+			{/* Main Document Surface */}
+			<div className="min-w-0 flex flex-col bg-background">
+				{/* Document Header */}
+				<div className="relative border-b border-border bg-dot-matrix px-6 py-8 sm:px-8">
+					<Crosshair position="bottom-left" />
+					<Crosshair position="bottom-right" />
 
-					{doc?.description && (
-						<p className="text-balance text-lg text-muted-foreground">
-							{doc.description}
-						</p>
-					)}
+					<div className="max-w-3xl space-y-2">
+						<h1
+							className={cn(
+								"text-3xl sm:text-4xl font-semibold tracking-tight text-foreground",
+							)}
+						>
+							{doc.title}
+						</h1>
+
+						{doc?.description && (
+							<p className="text-balance text-base leading-relaxed text-muted-foreground">
+								{doc.description}
+							</p>
+						)}
+					</div>
 				</div>
 
-				<Mdx code={doc.body.code} />
+				{/* Narrow Diagonal Hatch Separator Bar */}
+				<InlineHatchBar height="sm" />
+
+				{/* Primary Clean Content Surface */}
+				<div className="px-6 py-8 sm:px-8 bg-background flex-1">
+					<Mdx code={doc.body.code} />
+				</div>
 			</div>
 
-			{/* table of contents */}
-			<div className="h-[calc(100vh-4rem)] p-2 hidden md:block md:sticky md:top-16">
-				<ScrollAreaRoot className="h-full border border-dashed rounded-md p-0">
+			{/* Right Exposed Hairline Table of Contents */}
+			<aside className="h-[calc(100vh-3.5rem)] hidden xl:block xl:sticky xl:top-14 bg-background">
+				<ScrollAreaRoot className="h-full rounded-none border-0 p-0">
 					<ScrollAreaViewport>
 						<ScrollAreaContent>
 							<TableOfContent toc={doc.toc} />
@@ -63,7 +79,7 @@ export default async function DocsPage({ params }: PageProps) {
 						<ScrollAreaThumb />
 					</ScrollAreaScrollbar>
 				</ScrollAreaRoot>
-			</div>
+			</aside>
 		</>
 	);
 }

@@ -24,9 +24,7 @@ export function ComponentPreview({
 	};
 
 	const renderComponent = () => {
-		// If name and category are provided, try to get component from registry or previews
 		if (name) {
-			// Try Registry first
 			const registryItem = Registry[name];
 
 			if (registryItem?.component) {
@@ -49,11 +47,10 @@ export function ComponentPreview({
 			}
 		}
 
-		// Fallback for when component is not found
 		return (
 			<p className="text-sm text-muted-foreground">
 				Component{" "}
-				<code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
+				<code className="relative rounded-sm bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
 					{name}
 				</code>{" "}
 				not found in registry.
@@ -64,15 +61,16 @@ export function ComponentPreview({
 	return (
 		<div
 			className={cn(
-				"relative w-full flex items-center justify-center rounded-sm h-full",
+				"relative w-full flex items-center justify-center rounded-md h-full",
 				className,
 			)}
 		>
 			{hasReTrigger && (
 				<button
 					type="button"
-					className="absolute right-4 top-3 cursor-pointer"
+					className="absolute right-4 top-3 cursor-pointer rounded-md p-1 hover:bg-muted/40 transition-colors"
 					onClick={reTrigger}
+					aria-label="Reload preview"
 				>
 					<RotateCw className="h-4 w-4 text-muted-foreground hover:text-foreground transition-colors" />
 				</button>

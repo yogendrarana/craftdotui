@@ -32,7 +32,7 @@ export function CopyButton({
 		<Button
 			variant="outline"
 			size="icon-xs"
-			className={cn("cursor-pointer", className)}
+			className={cn("cursor-pointer rounded-md", className)}
 			onClick={() => {
 				navigator.clipboard.writeText(value);
 				setHasCopied(true);

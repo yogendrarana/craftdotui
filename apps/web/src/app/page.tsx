@@ -4,10 +4,10 @@ import { Header } from "@/components/layout/header";
 
 export default function HomePage() {
 	return (
-		<section className="min-h-screen h-screen flex flex-col">
+		<div className="min-h-screen flex flex-col bg-background text-foreground">
 			<Header />
 			<Hero />
 			<Footer />
-		</section>
+		</div>
 	);
 }

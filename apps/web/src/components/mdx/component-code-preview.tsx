@@ -18,8 +18,7 @@ import {
 	DrawerTitle,
 	DrawerTrigger,
 } from "@craftdotui/baseui/components/drawer";
-
-import { buttonVariants } from "@craftdotui/baseui/components/button";
+import { Button, buttonVariants } from "@craftdotui/baseui/components/button";
 
 interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
 	name: string;
@@ -46,13 +45,13 @@ export function ComponentCodePreview({
 	return (
 		<div
 			className={cn(
-				"relative w-full border border-border rounded-xl overflow-hidden bg-background",
+				"relative my-4 w-full border border-border rounded-md overflow-hidden bg-background",
 				className,
 			)}
 			{...props}
 		>
-			{/* Component preview */}
-			<div className="relative h-100 w-full p-2 flex items-center justify-center">
+			{/* Component preview surface */}
+			<div className="relative min-h-88 w-full p-6 flex items-center justify-center bg-background">
 				<ComponentPreview
 					name={name}
 					key={key}
@@ -61,13 +60,16 @@ export function ComponentCodePreview({
 			</div>
 
 			{/* Bottom action bar */}
-			<div className="px-3 py-2.5 flex items-center justify-between gap-2 border-t border-border bg-muted/10">
+			<div className="px-3.5 py-2.5 flex flex-wrap items-center justify-between gap-2 border-t border-border bg-muted/40">
 				<DrawerRoot position="right" variant="inset">
 					<DrawerTrigger
-						className={cn(
-							buttonVariants({ variant: "outline", size: "sm" }),
-							"gap-1.5 h-8 text-xs font-medium cursor-pointer rounded-md",
-						)}
+						render={
+							<Button
+								variant="outline"
+								size="sm"
+								className="h-8 text-xs rounded-md cursor-pointer"
+							/>
+						}
 					>
 						View code
 					</DrawerTrigger>
@@ -86,7 +88,7 @@ export function ComponentCodePreview({
 							<DrawerClose
 								className={cn(
 									buttonVariants({
-										variant: "ghost",
+										variant: "outline",
 										size: "icon-sm",
 									}),
 									"rounded-md cursor-pointer",
@@ -97,10 +99,10 @@ export function ComponentCodePreview({
 							</DrawerClose>
 						</DrawerHeader>
 
-						<DrawerPanel className="p-4 sm:p-6 overflow-hidden flex flex-col">
+						<DrawerPanel className="overflow-hidden flex flex-col">
 							<CodeRenderer
 								code={code}
-								className="h-full w-full border rounded-lg"
+								className="h-full w-full border rounded-md"
 							/>
 						</DrawerPanel>
 					</DrawerContent>

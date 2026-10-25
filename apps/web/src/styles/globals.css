@@ -1,3 +1,27 @@
 @import "@craftdotui/styles/globals.css";
 @source "../../../packages/baseui";
 @source "../../../packages/craftui";
+
+@layer utilities {
+	.bg-hatch {
+		background-image: repeating-linear-gradient(
+			-45deg,
+			var(--border),
+			var(--border) 1px,
+			transparent 1px,
+			transparent 6px
+		);
+	}
+
+	.bg-dot-matrix {
+		background-image: radial-gradient(var(--border) 1px, transparent 1px);
+		background-size: 16px 16px;
+	}
+
+	.bg-blueprint-grid {
+		background-image:
+			linear-gradient(to right, var(--border) 1px, transparent 1px),
+			linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+		background-size: 24px 24px;
+	}
+}

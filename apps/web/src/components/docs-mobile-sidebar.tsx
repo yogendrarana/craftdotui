@@ -26,14 +26,13 @@ export default function DocsMobileSidebar({ items }: DocsMobileSidebarProps) {
 		>
 			<Drawer.Trigger
 				render={
-					<Button
-						variant="ghost"
-						size="icon"
+					<button
+						type="button"
 						aria-label="Open navigation menu"
-						className="size-9 rounded-md text-foreground hover:bg-accent"
+						className="inline-flex h-full w-12 items-center justify-center bg-background text-foreground hover:bg-muted/40 transition-colors cursor-pointer"
 					>
-						<Menu className="size-5" />
-					</Button>
+						<Menu className="size-4" />
+					</button>
 				}
 			/>
 			<Drawer.Portal>
@@ -52,7 +51,7 @@ export default function DocsMobileSidebar({ items }: DocsMobileSidebarProps) {
 									<Button
 										size="icon"
 										variant="ghost"
-										className="size-8 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent"
+										className="size-8 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/40"
 										aria-label="Close menu"
 									>
 										<X className="size-4" />
@@ -64,7 +63,7 @@ export default function DocsMobileSidebar({ items }: DocsMobileSidebarProps) {
 						<Drawer.Panel className="flex-1 overflow-y-auto p-4 space-y-4">
 							{sidebarNav.map((item, index) => (
 								<div key={index} className="pb-3 last:pb-0">
-									<h4 className="mb-2 px-1 font-mono text-2xs uppercase tracking-wide text-muted-foreground">
+									<h4 className="mb-2 px-1 font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
 										{item.title}
 									</h4>
 									{item.items && (
@@ -109,7 +108,7 @@ function MobileNavItems({
 							<Link
 								href={item.href}
 								onClick={() => setOpen(false)}
-								className="px-2 py-1.5 rounded-md text-sm text-muted-foreground hover:text-foreground hover:bg-accent transition-colors block font-medium"
+								className="px-2 py-1.5 rounded-md text-sm text-muted-foreground hover:text-foreground hover:bg-muted/40 transition-colors block font-medium"
 							>
 								{item.title}
 							</Link>

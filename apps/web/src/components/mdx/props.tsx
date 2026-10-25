@@ -31,13 +31,13 @@ export function PropsTable({
 	return (
 		<div
 			className={cn(
-				"w-full rounded-md border overflow-hidden",
+				"my-4 w-full rounded-md border border-border overflow-hidden bg-background",
 				className,
 			)}
 			{...props}
 		>
 			<div className="flex flex-col">
-				<div className="flex items-center px-5 py-3 bg-muted/50 text-xs font-bold uppercase text-muted-foreground border-b border-dashed">
+				<div className="flex items-center px-5 py-3 bg-muted/40 text-[11px] font-mono uppercase tracking-wider text-muted-foreground border-b border-border">
 					<div className="flex-1 flex items-center">
 						<div className="flex-1 min-w-[140px]">Prop</div>
 						<div className="flex-1 min-w-[140px]">Type</div>
@@ -48,14 +48,14 @@ export function PropsTable({
 					<div className="size-4 shrink-0" />
 				</div>
 
-				<AccordionRoot multiple className="w-full">
+				<AccordionRoot multiple className="w-full divide-y divide-border">
 					{data.map((item) => (
 						<AccordionItem
 							key={item.prop}
 							value={item.prop}
-							className="group overflow-hidden"
+							className="group overflow-hidden border-0"
 						>
-							<AccordionTrigger className="px-5 hover:no-underline">
+							<AccordionTrigger className="px-5 hover:bg-muted/40 hover:no-underline">
 								<div className="flex-1 flex items-center text-left">
 									<div className="flex-1 min-w-[140px] font-semibold text-primary text-sm">
 										{item.prop}
@@ -65,15 +65,15 @@ export function PropsTable({
 											</span>
 										)}
 									</div>
-									<div className="flex-1 min-w-[140px] text-[13px] text-muted-foreground/80">
+									<div className="flex-1 min-w-[140px] text-[13px] font-mono text-muted-foreground">
 										{item.type}
 									</div>
-									<div className="flex-1 min-w-[140px] text-left text-[13px] text-muted-foreground/70 italic">
+									<div className="flex-1 min-w-[140px] text-left text-[13px] font-mono text-muted-foreground italic">
 										{item.default || "-"}
 									</div>
 								</div>
 							</AccordionTrigger>
-							<AccordionPanel className="bg-muted px-5 border-t">
+							<AccordionPanel className="bg-muted/40 px-5 border-t border-border">
 								<div className="pt-3">{item.description}</div>
 							</AccordionPanel>
 						</AccordionItem>

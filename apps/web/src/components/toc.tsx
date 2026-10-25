@@ -84,7 +84,7 @@ export function TableOfContent({ toc }: TableOfContentsProps) {
 
 	return (
 		<div className="h-full">
-			<div className="border-b border-dashed border-border px-4 py-3 text-sm text-muted-foreground">
+			<div className="border-b border-border px-4 py-3 text-xs font-mono uppercase tracking-wider text-muted-foreground">
 				On this page
 			</div>
 			<div className="px-4 py-3">

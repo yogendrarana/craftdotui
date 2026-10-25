@@ -27,17 +27,14 @@ export function ComponentSource({
 	const [isExpanded, setExpand] = React.useState(defaultExpanded);
 
 	const codeToRender = React.useMemo(() => {
-		// If direct code is provided, use it
 		if (directCode) {
 			return directCode;
 		}
 
-		// If name is provided, get the code from registry
 		if (name && Registry[name]) {
 			return Registry[name].files[0].content;
 		}
 
-		// Return error message if no code is found
 		console.error(
 			directCode
 				? "No code provided."
@@ -52,7 +49,7 @@ export function ComponentSource({
 			return (
 				<p className="py-10 text-sm text-muted-foreground">
 					Code for component{" "}
-					<code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
+					<code className="relative rounded-sm bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
 						{name || "unknown"}
 					</code>{" "}
 					not found.
@@ -73,7 +70,10 @@ export function ComponentSource({
 	if (!useCollapsible) {
 		return (
 			<div
-				className={cn("relative overflow-hidden rounded-sm", className)}
+				className={cn(
+					"relative overflow-hidden rounded-md border border-border bg-muted/20",
+					className,
+				)}
 			>
 				{renderContent()}
 			</div>
@@ -83,14 +83,14 @@ export function ComponentSource({
 	return (
 		<div
 			className={cn(
-				"h-full w-full relative overflow-hidden rounded-md border bg-[#fafafa] dark:bg-black",
+				"h-full w-full relative overflow-hidden rounded-md border border-border bg-muted/20",
 				className,
 			)}
 		>
 			<div
 				className={cn(
 					"overflow-hidden transition-[max-height] duration-200 ease-in-out",
-					!isExpanded && "max-h-100",
+					!isExpanded && "max-h-96",
 				)}
 			>
 				{renderContent()}
@@ -98,14 +98,13 @@ export function ComponentSource({
 
 			<div
 				className={cn(
-					"absolute inset-x-0 bottom-0",
-					"bg-accent/60 border-t flex items-center justify-center backdrop-blur-xs",
+					" border-t border-border bg-muted/40 flex items-center justify-center backdrop-blur-xs",
 				)}
 			>
 				<Button
 					variant="ghost"
 					onClick={() => setExpand(!isExpanded)}
-					className="w-full py-3 h-auto cursor-pointer rounded-none text-xs font-medium hover:bg-transparent"
+					className="w-full py-2.5 h-auto cursor-pointer rounded-none text-xs font-medium hover:bg-muted"
 				>
 					{isExpanded ? "Collapse" : expandButtonTitle}
 				</Button>

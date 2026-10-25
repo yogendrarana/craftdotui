@@ -17,10 +17,10 @@ export function DocsSidebar({ className }: DocsSidebarNavProps) {
 	const pathname = usePathname();
 
 	return (
-		<nav className={cn("space-y-4", className)}>
+		<nav className={cn("space-y-4 p-3", className)}>
 			{docsNavItems.map((item, index) => (
 				<div key={index} className="space-y-1.5">
-					<h4 className="px-2 text-sm font-bold tracking-tight text-foreground">
+					<h4 className="px-2 text-sm font-semibold tracking-tight text-foreground">
 						{item.title}
 					</h4>
 					{item?.items && (
@@ -57,10 +57,10 @@ function DocsSidebarNavItems({
 						scroll={false}
 						className={cn(
 							"py-1.5 px-2 group relative flex w-full items-center rounded-md transition-colors",
-							"hover:bg-accent hover:text-accent-foreground",
+							"hover:bg-muted/40 hover:text-foreground",
 							item.disabled && "cursor-not-allowed opacity-60",
 							pathname === item.href
-								? "text-foreground font-medium"
+								? "text-foreground font-medium bg-muted/40"
 								: "text-muted-foreground",
 						)}
 						target={item.external ? "_blank" : ""}

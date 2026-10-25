@@ -4,6 +4,8 @@ import { Analytics } from "@vercel/analytics/react";
 import "@/styles/globals.css";
 import { siteConfig } from "@/config/site";
 import { Provider } from "@/components/provider";
+import { fontMono, fontSans } from "@/lib/fonts";
+import { cn } from "@/lib/utils";
 
 // metadata
 export const metadata: Metadata = {
@@ -43,10 +45,17 @@ export default function RootLayout({
 	children,
 }: Readonly<{ children: React.ReactNode }>) {
 	return (
-		<html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
-			<body>
+		<html
+			lang="en"
+			data-scroll-behavior="smooth"
+			suppressHydrationWarning
+			className={cn(fontSans.variable, fontMono.variable)}
+		>
+			<body className="min-h-screen bg-background font-sans text-foreground antialiased selection:bg-primary selection:text-primary-foreground">
 				<Provider>
-					<main className="root">{children}</main>
+					<main className="root flex min-h-screen flex-col bg-background text-foreground">
+						{children}
+					</main>
 				</Provider>
 			</body>
 
