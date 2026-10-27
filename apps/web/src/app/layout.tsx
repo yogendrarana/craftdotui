@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 		siteName: "Craft UI",
 		images: [
 			{
-				url: `${siteConfig.url}/og-image.png`,
+				url: `${siteConfig.url}/opengraph-image.png`,
 				width: 1200,
 				height: 630,
 				alt: "Craft UI Open Graph Image",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 		card: "summary_large_image",
 		title: siteConfig.title,
 		description: siteConfig.description,
-		images: [`${siteConfig.url}/og-image.png?v=2`],
+		images: [`${siteConfig.url}/opengraph-image.png`],
 		creator: "@yooogendra_rana",
 	},
 };
