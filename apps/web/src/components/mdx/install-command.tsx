@@ -196,7 +196,7 @@ export function InstallCommandTabs({
 			)}
 		>
 			{/* Header */}
-			<div className="flex items-center justify-between border-b border-border bg-muted/40 pr-2">
+			<div className="flex items-center justify-between border-b border-border bg-muted/40">
 				<div className="flex items-stretch divide-x divide-border">
 					<div className="inline-flex items-center px-3 py-2 text-muted-foreground">
 						<Terminal className="size-3.5" />
@@ -230,7 +230,7 @@ export function InstallCommandTabs({
 					})}
 				</div>
 
-				<CopyButton value={installCommand} />
+				<CopyButton className="mr-1 size-6" value={installCommand} />
 			</div>
 
 			{/* Command Row */}

@@ -41,9 +41,9 @@ export function CopyButton({
 		>
 			<span className="sr-only">Copy</span>
 			{hasCopied ? (
-				<CheckIcon className="h-3 w-3" />
+				<CheckIcon className="size-3.25 text-muted-foreground shrink-0" />
 			) : (
-				<Copy className="h-3 w-3" />
+				<Copy className="size-3.25 text-muted-foreground shrink-0" />
 			)}
 		</Button>
 	);

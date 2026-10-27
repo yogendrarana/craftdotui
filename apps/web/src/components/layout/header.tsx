@@ -47,7 +47,7 @@ export function Header() {
 						href="/"
 						className="inline-flex items-center gap-2.5 px-4 sm:px-6 text-sm font-semibold tracking-tight text-foreground"
 					>
-						<span>Craft Dot UI</span>
+						<span>Craft UI</span>
 					</Link>
 
 					{/* Right Navigation & Actions */}
