@@ -1,8 +1,8 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-	name: "Craft Dot UI",
-	title: "Craft Dot UI - Beautiful React Components",
+	name: "Craft UI",
+	title: "Craft UI - Beautiful React Components",
 	description:
 		"A collection of beautiful, interactive UI components built with Base UI and Tailwind CSS",
 	url: "https://craftdotui.vercel.app",
