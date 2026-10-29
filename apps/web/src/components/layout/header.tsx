@@ -31,6 +31,11 @@ const navLinks = [
 		matchPrefix: "/docs/hooks",
 		label: "Hooks",
 	},
+	{
+		href: "/theming",
+		matchPrefix: "/theming",
+		label: "Theming",
+	},
 ];
 
 export function Header() {
