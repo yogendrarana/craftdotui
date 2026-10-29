@@ -21,6 +21,10 @@ export const docsNavItems: Array<DocsNavItem> = [
 				title: "Styling",
 				href: "/docs/getting-started/styling",
 			},
+			{
+				title: "Theming Studio",
+				href: "/theming",
+			},
 		],
 	},
 
