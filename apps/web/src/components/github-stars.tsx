@@ -58,7 +58,7 @@ export const GithubStars = ({ className }: PropTypes) => {
 		>
 			<Star className="size-3.5 fill-current text-foreground" />
 			<span className="font-medium">GitHub</span>
-			<span className="rounded-sm bg-muted px-1.5 py-0.5 text-[11px] font-mono leading-none text-muted-foreground">
+			<span className="rounded-sm border border bg-muted px-1.5 py-0.5 text-[11px] font-mono leading-none text-muted-foreground">
 				{stars}
 			</span>
 		</Link>

@@ -218,8 +218,6 @@ function TabsPanel({ className, ...props }: TabsPrimitive.Panel.Props) {
 }
 
 /* -------------------------------------------------------------------------- */
-const TabsTab = Tab;
-
 export const Tabs = {
 	Root: TabsRoot,
 	List: TabsList,
@@ -232,7 +230,6 @@ export {
 	TabsRoot,
 	TabsList,
 	Tab,
-	TabsTab,
 	TabsIndicator,
 	TabsPanel,
 	tabsListVariants,

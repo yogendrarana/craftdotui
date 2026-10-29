@@ -22,16 +22,6 @@ const navLinks = [
 		label: "Components",
 	},
 	{
-		href: "/docs/loaders/classic",
-		matchPrefix: "/docs/loaders",
-		label: "Loaders",
-	},
-	{
-		href: "/docs/hooks/use-callback",
-		matchPrefix: "/docs/hooks",
-		label: "Hooks",
-	},
-	{
 		href: "/theming",
 		matchPrefix: "/theming",
 		label: "Theming",
@@ -78,8 +68,8 @@ export function Header() {
 							})}
 						</div>
 
-						<ToggleMode />
 						<GithubStars />
+						<ToggleMode />
 						<div className="md:hidden flex items-stretch">
 							<DocsMobileSidebar items={docsNavItems} />
 						</div>

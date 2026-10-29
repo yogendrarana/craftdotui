@@ -77,7 +77,10 @@ export function HatchSeparator({
 	return (
 		<div
 			aria-hidden="true"
-			className={cn("w-full border-b border-border bg-background", className)}
+			className={cn(
+				"w-full border-b border-border bg-background",
+				className,
+			)}
 		>
 			<div
 				className={cn(
@@ -131,7 +134,10 @@ export function RailSection({
 }) {
 	return (
 		<Component
-			className={cn("w-full border-b border-border bg-background", className)}
+			className={cn(
+				"w-full border-b border-border bg-background",
+				className,
+			)}
 		>
 			<div
 				className={cn(
@@ -139,7 +145,10 @@ export function RailSection({
 					railClassName,
 				)}
 			>
-				<CornerCrosshairs top={topCrosshairs} bottom={bottomCrosshairs} />
+				<CornerCrosshairs
+					top={topCrosshairs}
+					bottom={bottomCrosshairs}
+				/>
 				{children}
 			</div>
 		</Component>
@@ -183,4 +192,3 @@ export function SectionHeader({
 		</div>
 	);
 }
-
