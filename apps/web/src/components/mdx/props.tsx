@@ -37,18 +37,19 @@ export function PropsTable({
 			{...props}
 		>
 			<div className="flex flex-col">
-				<div className="flex items-center px-5 py-3 bg-muted/40 text-[11px] font-mono uppercase tracking-wider text-muted-foreground border-b border-border">
-					<div className="flex-1 flex items-center">
-						<div className="flex-1 min-w-[140px]">Prop</div>
-						<div className="flex-1 min-w-[140px]">Type</div>
-						<div className="flex-1 min-w-[140px] text-left">
-							Default
-						</div>
+				<div className="flex items-center gap-2 px-5 py-3 bg-muted/40 text-[11px] font-mono uppercase tracking-wider text-muted-foreground border-b border-border">
+					<div className="flex-1 grid grid-cols-[1.2fr_2fr_1fr] items-center gap-4 min-w-0">
+						<div className="min-w-0">Prop</div>
+						<div className="min-w-0">Type</div>
+						<div className="min-w-0 text-left">Default</div>
 					</div>
 					<div className="size-4 shrink-0" />
 				</div>
 
-				<AccordionRoot multiple className="w-full divide-y divide-border">
+				<AccordionRoot
+					multiple
+					className="w-full divide-y divide-border"
+				>
 					{data.map((item) => (
 						<AccordionItem
 							key={item.prop}
@@ -56,8 +57,8 @@ export function PropsTable({
 							className="group overflow-hidden border-0"
 						>
 							<AccordionTrigger className="px-5 hover:bg-muted/40 hover:no-underline">
-								<div className="flex-1 flex items-center text-left">
-									<div className="flex-1 min-w-[140px] font-semibold text-primary text-sm">
+								<div className="flex-1 grid grid-cols-[1.2fr_2fr_1fr] items-center gap-4 text-left min-w-0">
+									<div className="min-w-0 break-words font-semibold text-primary text-sm">
 										{item.prop}
 										{item.required && (
 											<span className="ml-1 text-destructive font-sans">
@@ -65,10 +66,10 @@ export function PropsTable({
 											</span>
 										)}
 									</div>
-									<div className="flex-1 min-w-[140px] text-[13px] font-mono text-muted-foreground">
+									<div className="min-w-0 break-words text-[13px] font-mono text-muted-foreground">
 										{item.type}
 									</div>
-									<div className="flex-1 min-w-[140px] text-left text-[13px] font-mono text-muted-foreground italic">
+									<div className="min-w-0 break-words text-left text-[13px] font-mono text-muted-foreground italic">
 										{item.default || "-"}
 									</div>
 								</div>
