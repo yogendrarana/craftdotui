@@ -90,6 +90,20 @@ function AccordionIcon({ className, children, ...props }: AccordionIconProps) {
 }
 
 /* -------------------------------------------------------------------------- */
+/* Accordion Header                                                          */
+/* -------------------------------------------------------------------------- */
+function AccordionHeader(props: AccordionPrimitive.Header.Props) {
+	const { className, ...rest } = props;
+
+	return (
+		<AccordionPrimitive.Header
+			className={cn("w-full", className)}
+			data-slot="accordion-header"
+			{...rest}
+		/>
+	);
+}
+/* -------------------------------------------------------------------------- */
 /* Accordion Trigger                                                          */
 /* -------------------------------------------------------------------------- */
 
@@ -117,22 +131,20 @@ function AccordionTrigger({
 	);
 
 	return (
-		<AccordionPrimitive.Header className="flex">
-			<AccordionPrimitive.Trigger
-				data-slot="accordion-trigger"
-				className={cn(
-					"group relative flex flex-1 items-center justify-between gap-2 py-3 rounded-md border border-transparent text-left text-sm font-medium transition-all outline-none select-none cursor-pointer",
-					"hover:underline hover:cursor-pointer disabled:pointer-events-none disabled:opacity-50 data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
-					"focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:border-ring focus-visible:after:border-ring",
-					"[&[data-panel-open]_[data-slot=accordion-trigger-icon]]:rotate-180",
-					className,
-				)}
-				{...props}
-			>
-				{children}
-				{showAccordionIcon && !hasCustomIcon && <AccordionIcon />}
-			</AccordionPrimitive.Trigger>
-		</AccordionPrimitive.Header>
+		<AccordionPrimitive.Trigger
+			data-slot="accordion-trigger"
+			className={cn(
+				"group relative w-full flex flex-1 items-center justify-between gap-2 py-3 rounded-md border border-transparent text-left text-sm font-medium transition-all outline-none select-none cursor-pointer",
+				"hover:underline hover:cursor-pointer disabled:pointer-events-none disabled:opacity-50 data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+				"focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:border-ring focus-visible:after:border-ring",
+				"[&[data-panel-open]_[data-slot=accordion-trigger-icon]]:rotate-180",
+				className,
+			)}
+			{...props}
+		>
+			{children}
+			{showAccordionIcon && !hasCustomIcon && <AccordionIcon />}
+		</AccordionPrimitive.Trigger>
 	);
 }
 
@@ -176,6 +188,7 @@ function AccordionPanel({
 export const Accordion = {
 	Root: AccordionRoot,
 	Item: AccordionItem,
+	Header: AccordionHeader,
 	Trigger: AccordionTrigger,
 	Panel: AccordionPanel,
 	Icon: AccordionIcon,
@@ -184,6 +197,7 @@ export const Accordion = {
 export {
 	AccordionRoot,
 	AccordionItem,
+	AccordionHeader,
 	AccordionTrigger,
 	AccordionPanel,
 	AccordionIcon,

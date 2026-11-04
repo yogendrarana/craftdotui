@@ -55,19 +55,45 @@ export function NonColorTokenInput({
 
 	return (
 		<div className="rounded-lg border border-border/80 bg-background p-2.5 transition-colors hover:border-border space-y-2">
-			{/* Top Row: Title (--variable) on Left, Select (for fonts) + Reset on Right */}
+			{/* Top Row: Title on Left, Token and Reset Button on Right (justify-between) */}
 			<div className="flex items-center justify-between gap-2">
-				<div className="flex items-center gap-1.5 min-w-0">
-					<span className="text-xs font-medium text-foreground truncate">
-						{token.label}
-					</span>
-					<code className="rounded-xs border border-border bg-muted/40 px-1.5 py-0.2 font-mono text-[10px] text-muted-foreground shrink-0">
-						{token.key}
-					</code>
-				</div>
+				<span className="text-xs font-medium text-foreground truncate">
+					{token.label}
+				</span>
 
 				<div className="flex items-center gap-1.5 shrink-0">
-					{fontPresets && (
+					<code className="rounded-xs border border-border bg-muted/40 px-1.5 py-0.2 font-mono text-[10px] text-muted-foreground">
+						{token.key}
+					</code>
+
+					{isModified && (
+						<Button
+							variant="ghost"
+							size="icon-xs"
+							onClick={onReset}
+							title={`Reset ${token.key} to default (${defaultValue})`}
+							className="size-5 rounded-xs text-muted-foreground hover:text-foreground shrink-0"
+						>
+							<RotateCcw className="size-3" />
+						</Button>
+					)}
+				</div>
+			</div>
+
+			{/* Bottom Row: Input on the left, Select (if font presets available) on the right */}
+			{fontPresets ? (
+				<div className="flex items-center gap-2">
+					<div className="flex-1 min-w-0">
+						<Input
+							size="sm"
+							value={value}
+							onChange={(e) => onChange(e.target.value)}
+							placeholder={defaultValue}
+							className="font-mono text-xs h-8 px-2.5 bg-muted/25 focus:bg-background"
+						/>
+					</div>
+
+					<div className="w-36 shrink-0">
 						<Select.Root
 							items={fontSelectItems}
 							value={selectedFontPreset}
@@ -79,7 +105,7 @@ export function NonColorTokenInput({
 						>
 							<Select.Trigger
 								size="sm"
-								className="w-36 h-7 text-xs px-2"
+								className="w-full h-8 text-xs px-2.5 bg-muted/25 focus:bg-background"
 							>
 								<Select.Value />
 							</Select.Trigger>
@@ -95,30 +121,17 @@ export function NonColorTokenInput({
 								))}
 							</Select.Content>
 						</Select.Root>
-					)}
-
-					{isModified && (
-						<Button
-							variant="ghost"
-							size="icon-xs"
-							onClick={onReset}
-							title={`Reset ${token.key} to default (${defaultValue})`}
-							className="size-5 rounded-xs text-muted-foreground hover:text-foreground"
-						>
-							<RotateCcw className="size-3" />
-						</Button>
-					)}
+					</div>
 				</div>
-			</div>
-
-			{/* Bottom Row: Input Field for Direct Typability */}
-			<Input
-				size="sm"
-				value={value}
-				onChange={(e) => onChange(e.target.value)}
-				placeholder={defaultValue}
-				className="font-mono text-xs h-8 px-2.5 bg-muted/25 focus:bg-background"
-			/>
+			) : (
+				<Input
+					size="sm"
+					value={value}
+					onChange={(e) => onChange(e.target.value)}
+					placeholder={defaultValue}
+					className="font-mono text-xs h-8 px-2.5 bg-muted/25 focus:bg-background"
+				/>
+			)}
 		</div>
 	);
 }

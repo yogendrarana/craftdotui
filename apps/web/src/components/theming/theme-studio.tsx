@@ -15,6 +15,7 @@ import { CornerCrosshairs } from "@/components/grid-system";
 import { ThemeHeaderToolbar } from "@/components/theming/theme-header-toolbar";
 import {
 	COLOR_SECTION_GROUPS,
+	SEMANTIC_EXTENSION_GROUPS,
 	type StudioTab,
 	ThemeTokenSidebar,
 } from "@/components/theming/theme-token-sidebar";
@@ -31,9 +32,7 @@ export function ThemeStudio() {
 	const [colorFormat, setColorFormat] = React.useState<ColorFormat>("oklch");
 	const [activeTab, setActiveTab] = React.useState<StudioTab>("colors");
 	const [searchQuery, setSearchQuery] = React.useState("");
-	const [openSections, setOpenSections] = React.useState<string[]>([
-		"primary",
-	]);
+	const [openSections, setOpenSections] = React.useState<string[]>(["base"]);
 
 	const [lightTokens, setLightTokens] = React.useState<ThemeTokens>(() => ({
 		...DEFAULT_LIGHT_TOKENS,
@@ -211,9 +210,11 @@ export function ThemeStudio() {
 			setActiveTab("shadows");
 		} else {
 			setActiveTab("colors");
-			const group = COLOR_SECTION_GROUPS.find((g) =>
-				g.keys.includes(tokenKey),
-			);
+			const group =
+				COLOR_SECTION_GROUPS.find((g) => g.keys.includes(tokenKey)) ??
+				SEMANTIC_EXTENSION_GROUPS.find((g) =>
+					g.keys.includes(tokenKey),
+				);
 			if (group && !openSections.includes(group.id)) {
 				setOpenSections((prev) => [...prev, group.id]);
 			}
