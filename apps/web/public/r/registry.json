@@ -22,6 +22,24 @@
 			]
 		},
 		{
+			"name": "craftui-alert",
+			"type": "registry:component",
+			"description": "Displays a callout for user attention.",
+			"dependencies": [
+				"@base-ui/react",
+				"class-variance-authority",
+				"cn"
+			],
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "packages/craftui/components/alert/index.tsx",
+					"type": "registry:component",
+					"target": "components/craftui/components/alert.tsx"
+				}
+			]
+		},
+		{
 			"name": "craftui-badge",
 			"type": "registry:component",
 			"description": "Displays a badge or a component that looks like a badge.",
@@ -78,6 +96,107 @@
 					"path": "packages/craftui/components/timeline/index.tsx",
 					"type": "registry:component",
 					"target": "components/craftui/components/timeline.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-alert-destructive",
+			"type": "registry:component",
+			"description": "Destructive alert variant.",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/craftui-alert"],
+			"files": [
+				{
+					"path": "packages/craftui/particles/alert/destructive/index.tsx",
+					"type": "registry:component",
+					"target": "components/craftui/particles/alert-destructive.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-alert-info",
+			"type": "registry:component",
+			"description": "Info alert variant.",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/craftui-alert"],
+			"files": [
+				{
+					"path": "packages/craftui/particles/alert/info/index.tsx",
+					"type": "registry:component",
+					"target": "components/craftui/particles/alert-info.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-alert",
+			"type": "registry:component",
+			"description": "Default alert with icon, title, and description.",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/craftui-alert"],
+			"files": [
+				{
+					"path": "packages/craftui/particles/alert/index.tsx",
+					"type": "registry:component",
+					"target": "components/craftui/particles/alert.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-alert-success",
+			"type": "registry:component",
+			"description": "Success alert variant.",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/craftui-alert"],
+			"files": [
+				{
+					"path": "packages/craftui/particles/alert/success/index.tsx",
+					"type": "registry:component",
+					"target": "components/craftui/particles/alert-success.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-alert-warning",
+			"type": "registry:component",
+			"description": "Warning alert variant.",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/craftui-alert"],
+			"files": [
+				{
+					"path": "packages/craftui/particles/alert/warning/index.tsx",
+					"type": "registry:component",
+					"target": "components/craftui/particles/alert-warning.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-alert-with-action",
+			"type": "registry:component",
+			"description": "Alert with inline action buttons.",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": [
+				"@craftdotui/craftui-alert",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/particles/alert/with-action/index.tsx",
+					"type": "registry:component",
+					"target": "components/craftui/particles/alert-with-action.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-alert-without-icon",
+			"type": "registry:component",
+			"description": "Alert without an icon.",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/craftui-alert"],
+			"files": [
+				{
+					"path": "packages/craftui/particles/alert/without-icon/index.tsx",
+					"type": "registry:component",
+					"target": "components/craftui/particles/alert-without-icon.tsx"
 				}
 			]
 		},

@@ -27,6 +27,49 @@ export const Registry: Record<string, any> = {
             command: '@craftdotui/index',
             component: null,
           },
+          "craftui-alert": {
+            name: "craftui-alert",
+            description: "Displays a callout for user attention.",
+            type: "registry:component",
+            dependencies: ["@base-ui/react","class-variance-authority","cn"],
+            devDependencies: undefined,
+            registryDependencies: [],
+            files: [
+  {
+    "path": "packages/craftui/components/alert/index.tsx",
+    "type": "registry:component",
+    "target": "components/craftui/components/alert.tsx",
+    "content": "\"use client\";\n\nimport { cn } from \"cn\";\nimport { useRender } from \"@base-ui/react/use-render\";\nimport { mergeProps } from \"@base-ui/react/merge-props\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\n\n/* -------------------------------------------------------------------------- */\n/* Variants                                                                   */\n/* -------------------------------------------------------------------------- */\n\nconst alertVariants = cva(\n\tcn(\n\t\t\"relative w-full rounded-lg border p-3 text-sm\",\n\t\t\"grid grid-cols-[0_1fr] has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] has-[>svg]:gap-x-3 gap-y-0.5 items-start\",\n\t\t\"[&>svg]:size-4 [&>svg]:translate-y-0.5 [&>svg]:text-current\",\n\t),\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault: \"bg-card text-card-foreground border-border\",\n\t\t\t\tdestructive:\n\t\t\t\t\t\"bg-destructive/10 border-destructive/30 text-destructive [&>svg]:text-destructive *:data-[slot=alert-description]:text-destructive/90 dark:bg-destructive/10\",\n\t\t\t\tsuccess:\n\t\t\t\t\t\"bg-success/10 border-success/30 text-success [&>svg]:text-success *:data-[slot=alert-description]:text-success/90 dark:bg-success/10\",\n\t\t\t\twarning:\n\t\t\t\t\t\"bg-warning/10 border-warning/30 text-warning [&>svg]:text-warning *:data-[slot=alert-description]:text-warning/90 dark:bg-warning/10\",\n\t\t\t\tinfo: \"bg-info/10 border-info/30 text-info [&>svg]:text-info *:data-[slot=alert-description]:text-info/90 dark:bg-info/10\",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: \"default\",\n\t\t},\n\t},\n);\n\n/* -------------------------------------------------------------------------- */\n/* Alert Root                                                                 */\n/* -------------------------------------------------------------------------- */\n\nexport interface AlertRootProps\n\textends useRender.ComponentProps<\"div\">,\n\t\tVariantProps<typeof alertVariants> {}\n\nfunction AlertRoot({ className, variant, render, ...props }: AlertRootProps) {\n\tconst defaultProps = {\n\t\trole: \"alert\",\n\t\t\"data-slot\": \"alert\",\n\t\tclassName: cn(alertVariants({ variant }), className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Alert Title                                                                */\n/* -------------------------------------------------------------------------- */\n\nexport interface AlertTitleProps extends useRender.ComponentProps<\"div\"> {}\n\nfunction AlertTitle({ className, render, ...props }: AlertTitleProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"alert-title\",\n\t\tclassName: cn(\n\t\t\t\"col-start-2 line-clamp-1 min-h-4 font-medium tracking-tight\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Alert Description                                                          */\n/* -------------------------------------------------------------------------- */\n\nexport interface AlertDescriptionProps\n\textends useRender.ComponentProps<\"div\"> {}\n\nfunction AlertDescription({\n\tclassName,\n\trender,\n\t...props\n}: AlertDescriptionProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"alert-description\",\n\t\tclassName: cn(\n\t\t\t\"col-start-2 grid justify-items-start gap-1 text-sm text-muted-foreground [&_p]:leading-relaxed\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const Alert = Object.assign(AlertRoot, {\n\tRoot: AlertRoot,\n\tTitle: AlertTitle,\n\tDescription: AlertDescription,\n});\n\nexport { AlertRoot, AlertTitle, AlertDescription, alertVariants };"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-alert',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/alert/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
           "craftui-badge": {
             name: "craftui-badge",
             description: "Displays a badge or a component that looks like a badge.",
@@ -176,6 +219,307 @@ export const Registry: Record<string, any> = {
             component: (() => {
 							const LazyComp = React.lazy(async () => {
 								const mod = await import("@craftdotui/craftui/components/timeline/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-alert-destructive": {
+            name: "craftui-particles-alert-destructive",
+            description: "Destructive alert variant.",
+            type: "registry:component",
+            dependencies: ["lucide-react"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-alert"],
+            files: [
+  {
+    "path": "packages/craftui/particles/alert/destructive/index.tsx",
+    "type": "registry:component",
+    "target": "components/craftui/particles/alert-destructive.tsx",
+    "content": "import { CircleAlert } from \"lucide-react\";\nimport {\n\tAlertDescription,\n\tAlertRoot,\n\tAlertTitle,\n} from \"@/components/craftui/components/alert\";\n\nexport function Particle() {\n\treturn (\n\t\t<AlertRoot variant=\"destructive\" className=\"max-w-lg\">\n\t\t\t<CircleAlert />\n\t\t\t<AlertTitle>Unable to process your payment.</AlertTitle>\n\t\t\t<AlertDescription>\n\t\t\t\t<p>Please verify your billing information and try again:</p>\n\t\t\t\t<ul className=\"list-inside list-disc text-xs\">\n\t\t\t\t\t<li>Check your card details</li>\n\t\t\t\t\t<li>Ensure sufficient funds</li>\n\t\t\t\t\t<li>Verify billing address</li>\n\t\t\t\t</ul>\n\t\t\t</AlertDescription>\n\t\t</AlertRoot>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-alert-destructive',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/particles/alert/destructive/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-alert-info": {
+            name: "craftui-particles-alert-info",
+            description: "Info alert variant.",
+            type: "registry:component",
+            dependencies: ["lucide-react"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-alert"],
+            files: [
+  {
+    "path": "packages/craftui/particles/alert/info/index.tsx",
+    "type": "registry:component",
+    "target": "components/craftui/particles/alert-info.tsx",
+    "content": "import { Info } from \"lucide-react\";\nimport {\n\tAlertDescription,\n\tAlertRoot,\n\tAlertTitle,\n} from \"@/components/craftui/components/alert\";\n\nexport function Particle() {\n\treturn (\n\t\t<AlertRoot variant=\"info\" className=\"max-w-lg\">\n\t\t\t<Info />\n\t\t\t<AlertTitle>New version available</AlertTitle>\n\t\t\t<AlertDescription>\n\t\t\t\tCraft UI v2.0 is now available with support for Tailwind CSS v4\n\t\t\t\tdesign tokens.\n\t\t\t</AlertDescription>\n\t\t</AlertRoot>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-alert-info',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/particles/alert/info/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-alert": {
+            name: "craftui-particles-alert",
+            description: "Default alert with icon, title, and description.",
+            type: "registry:component",
+            dependencies: ["lucide-react"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-alert"],
+            files: [
+  {
+    "path": "packages/craftui/particles/alert/index.tsx",
+    "type": "registry:component",
+    "target": "components/craftui/particles/alert.tsx",
+    "content": "import { Terminal } from \"lucide-react\";\nimport {\n\tAlertDescription,\n\tAlertRoot,\n\tAlertTitle,\n} from \"@/components/craftui/components/alert\";\n\nexport function Particle() {\n\treturn (\n\t\t<AlertRoot className=\"max-w-lg\">\n\t\t\t<Terminal />\n\t\t\t<AlertTitle>Heads up!</AlertTitle>\n\t\t\t<AlertDescription>\n\t\t\t\tYou can add components and dependencies to your app using the\n\t\t\t\tcli.\n\t\t\t</AlertDescription>\n\t\t</AlertRoot>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-alert',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/particles/alert/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-alert-success": {
+            name: "craftui-particles-alert-success",
+            description: "Success alert variant.",
+            type: "registry:component",
+            dependencies: ["lucide-react"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-alert"],
+            files: [
+  {
+    "path": "packages/craftui/particles/alert/success/index.tsx",
+    "type": "registry:component",
+    "target": "components/craftui/particles/alert-success.tsx",
+    "content": "import { CircleCheck } from \"lucide-react\";\nimport {\n\tAlertDescription,\n\tAlertRoot,\n\tAlertTitle,\n} from \"@/components/craftui/components/alert\";\n\nexport function Particle() {\n\treturn (\n\t\t<AlertRoot variant=\"success\" className=\"max-w-lg\">\n\t\t\t<CircleCheck />\n\t\t\t<AlertTitle>Deployment successful!</AlertTitle>\n\t\t\t<AlertDescription>\n\t\t\t\tYour changes have been deployed to production and are now live.\n\t\t\t</AlertDescription>\n\t\t</AlertRoot>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-alert-success',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/particles/alert/success/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-alert-warning": {
+            name: "craftui-particles-alert-warning",
+            description: "Warning alert variant.",
+            type: "registry:component",
+            dependencies: ["lucide-react"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-alert"],
+            files: [
+  {
+    "path": "packages/craftui/particles/alert/warning/index.tsx",
+    "type": "registry:component",
+    "target": "components/craftui/particles/alert-warning.tsx",
+    "content": "import { TriangleAlert } from \"lucide-react\";\nimport {\n\tAlertDescription,\n\tAlertRoot,\n\tAlertTitle,\n} from \"@/components/craftui/components/alert\";\n\nexport function Particle() {\n\treturn (\n\t\t<AlertRoot variant=\"warning\" className=\"max-w-lg\">\n\t\t\t<TriangleAlert />\n\t\t\t<AlertTitle>API rate limit approaching</AlertTitle>\n\t\t\t<AlertDescription>\n\t\t\t\tYou have used 90% of your monthly request quota. Consider\n\t\t\t\tupgrading your plan to avoid interruptions.\n\t\t\t</AlertDescription>\n\t\t</AlertRoot>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-alert-warning',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/particles/alert/warning/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-alert-with-action": {
+            name: "craftui-particles-alert-with-action",
+            description: "Alert with inline action buttons.",
+            type: "registry:component",
+            dependencies: ["lucide-react"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-alert","@craftdotui/baseui-button"],
+            files: [
+  {
+    "path": "packages/craftui/particles/alert/with-action/index.tsx",
+    "type": "registry:component",
+    "target": "components/craftui/particles/alert-with-action.tsx",
+    "content": "import { ShieldAlert } from \"lucide-react\";\nimport {\n\tAlertDescription,\n\tAlertRoot,\n\tAlertTitle,\n} from \"@/components/craftui/components/alert\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport function Particle() {\n\treturn (\n\t\t<AlertRoot className=\"max-w-lg\">\n\t\t\t<ShieldAlert />\n\t\t\t<AlertTitle>Two-factor authentication is not enabled</AlertTitle>\n\t\t\t<AlertDescription>\n\t\t\t\t<p>\n\t\t\t\t\tAdd an extra layer of security to your account by enabling\n\t\t\t\t\ttwo-factor authentication.\n\t\t\t\t</p>\n\t\t\t\t<div className=\"mt-2 flex items-center gap-2\">\n\t\t\t\t\t<Button size=\"xs\">Enable 2FA</Button>\n\t\t\t\t\t<Button size=\"xs\" variant=\"ghost\">\n\t\t\t\t\t\tLearn more\n\t\t\t\t\t</Button>\n\t\t\t\t</div>\n\t\t\t</AlertDescription>\n\t\t</AlertRoot>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-alert-with-action',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/particles/alert/with-action/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-alert-without-icon": {
+            name: "craftui-particles-alert-without-icon",
+            description: "Alert without an icon.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-alert"],
+            files: [
+  {
+    "path": "packages/craftui/particles/alert/without-icon/index.tsx",
+    "type": "registry:component",
+    "target": "components/craftui/particles/alert-without-icon.tsx",
+    "content": "import {\n\tAlertDescription,\n\tAlertRoot,\n\tAlertTitle,\n} from \"@/components/craftui/components/alert\";\n\nexport function Particle() {\n\treturn (\n\t\t<AlertRoot className=\"max-w-lg\">\n\t\t\t<AlertTitle>Scheduled maintenance</AlertTitle>\n\t\t\t<AlertDescription>\n\t\t\t\tOur database cluster will undergo scheduled maintenance on\n\t\t\t\tSunday at 02:00 UTC.\n\t\t\t</AlertDescription>\n\t\t</AlertRoot>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-alert-without-icon',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/particles/alert/without-icon/index.tsx");
 								let Comp = mod.default;
 
 								if (!Comp) {

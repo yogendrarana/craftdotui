@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-alert-without-icon",
+	"description": "Alert without an icon.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-alert"],
+	"files": [
+		{
+			"path": "packages/craftui/particles/alert/without-icon/index.tsx",
+			"content": "import {\n\tAlertDescription,\n\tAlertRoot,\n\tAlertTitle,\n} from \"@/components/craftui/components/alert\";\n\nexport function Particle() {\n\treturn (\n\t\t<AlertRoot className=\"max-w-lg\">\n\t\t\t<AlertTitle>Scheduled maintenance</AlertTitle>\n\t\t\t<AlertDescription>\n\t\t\t\tOur database cluster will undergo scheduled maintenance on\n\t\t\t\tSunday at 02:00 UTC.\n\t\t\t</AlertDescription>\n\t\t</AlertRoot>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/craftui/particles/alert-without-icon.tsx"
+		}
+	],
+	"type": "registry:component"
+}

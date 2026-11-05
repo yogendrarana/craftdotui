@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-alert-without-icon",
+	"type": "registry:component",
+	"description": "Alert without an icon.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-alert"],
+	"files": [
+		{
+			"path": "packages/craftui/particles/alert/without-icon/index.tsx",
+			"type": "registry:component",
+			"target": "components/craftui/particles/alert-without-icon.tsx"
+		}
+	]
+}
