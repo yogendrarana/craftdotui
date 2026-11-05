@@ -1,0 +1,187 @@
+---
+title: Empty
+description: Use the Empty component to display an empty state.
+slug: /craftui/components/empty
+published: true
+date: 2026-11-05T00:00:00.000Z
+author:
+  name: Yogendra Rana
+  twitter: "https://twitter.com/yooogendra_rana"
+---
+
+<ComponentCodePreview name="craftui-particles-empty" />
+
+## Installation
+
+<Installation name="craftui-empty" />
+
+## Anatomy
+
+#### Usage
+
+```tsx
+<EmptyRoot>
+  <EmptyHeader>
+    <EmptyMedia variant="icon" />
+    <EmptyTitle />
+    <EmptyDescription />
+  </EmptyHeader>
+  <EmptyContent />
+</EmptyRoot>
+```
+
+```tsx
+<Empty.Root>
+  <Empty.Header>
+    <Empty.Media variant="icon" />
+    <Empty.Title />
+    <Empty.Description />
+  </Empty.Header>
+  <Empty.Content />
+</Empty.Root>
+```
+
+## Demo
+
+#### Outline
+
+<ComponentCodePreview name="craftui-particles-empty-outline" />
+
+#### Background
+
+<ComponentCodePreview name="craftui-particles-empty-background" />
+
+#### Avatar
+
+<ComponentCodePreview name="craftui-particles-empty-avatar" />
+
+#### Avatar Group
+
+<ComponentCodePreview name="craftui-particles-empty-avatar-group" />
+
+#### Input
+
+<ComponentCodePreview name="craftui-particles-empty-input" />
+
+## Props
+
+#### EmptyRoot
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default div element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the empty state container.",
+    },
+  ]}
+/>
+
+#### EmptyHeader
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default div element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the header container.",
+    },
+  ]}
+/>
+
+#### EmptyMedia
+
+<PropsTable
+  data={[
+    {
+      prop: "variant",
+      type: '"default" | "icon"',
+      default: '"default"',
+      description: "Controls whether the media container is unstyled ('default') or styled as an icon badge ('icon').",
+    },
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default div element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the media container.",
+    },
+  ]}
+/>
+
+#### EmptyTitle
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default div element (e.g. render={<h3 />}).",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the title.",
+    },
+  ]}
+/>
+
+#### EmptyDescription
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default div element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the description.",
+    },
+  ]}
+/>
+
+#### EmptyContent
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default div element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the content container.",
+    },
+  ]}
+/>
+

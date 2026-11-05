@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-empty-input",
+	"description": "Empty state with a search input field.",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/craftui-empty",
+		"@craftdotui/baseui-input"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/particles/empty/input/index.tsx",
+			"content": "import { Search } from \"lucide-react\";\nimport {\n\tEmptyContent,\n\tEmptyDescription,\n\tEmptyHeader,\n\tEmptyRoot,\n\tEmptyTitle,\n} from \"@/components/craftui/components/empty\";\nimport { Input } from \"@/components/baseui/components/input\";\n\nexport function Particle() {\n\treturn (\n\t\t<EmptyRoot>\n\t\t\t<EmptyHeader>\n\t\t\t\t<EmptyTitle>404 - Not Found</EmptyTitle>\n\t\t\t\t<EmptyDescription>\n\t\t\t\t\tThe page you&apos;re looking for doesn&apos;t exist. Try\n\t\t\t\t\tsearching for what you need below.\n\t\t\t\t</EmptyDescription>\n\t\t\t</EmptyHeader>\n\t\t\t<EmptyContent>\n\t\t\t\t<div className=\"relative w-full max-w-xs\">\n\t\t\t\t\t<Search className=\"pointer-events-none absolute top-1/2 left-2.5 size-4 -translate-y-1/2 text-muted-foreground\" />\n\t\t\t\t\t<Input\n\t\t\t\t\t\tplaceholder=\"Try searching for pages...\"\n\t\t\t\t\t\tclassName=\"pl-8\"\n\t\t\t\t\t/>\n\t\t\t\t</div>\n\t\t\t\t<EmptyDescription className=\"text-xs\">\n\t\t\t\t\tNeed help? <a href=\"#support\">Contact support</a>\n\t\t\t\t</EmptyDescription>\n\t\t\t</EmptyContent>\n\t\t</EmptyRoot>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/particles/empty-input.tsx"
+		}
+	],
+	"type": "registry:component"
+}

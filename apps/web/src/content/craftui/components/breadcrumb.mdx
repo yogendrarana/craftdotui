@@ -101,6 +101,44 @@ Use the `render` prop on `BreadcrumbLink` to compose with custom link elements.
   ]}
 />
 
+#### BreadcrumbList
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Allows replacing the default ol element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the ordered list.",
+    },
+  ]}
+/>
+
+#### BreadcrumbItem
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Allows replacing the default li element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the list item.",
+    },
+  ]}
+/>
+
 #### BreadcrumbLink
 
 <PropsTable
@@ -126,6 +164,25 @@ Use the `render` prop on `BreadcrumbLink` to compose with custom link elements.
   ]}
 />
 
+#### BreadcrumbPage
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Allows replacing the default span element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the current page indicator.",
+    },
+  ]}
+/>
+
 #### BreadcrumbSeparator
 
 <PropsTable
@@ -141,6 +198,25 @@ Use the `render` prop on `BreadcrumbLink` to compose with custom link elements.
       type: "string",
       default: "undefined",
       description: "Additional CSS classes to style the separator.",
+    },
+  ]}
+/>
+
+#### BreadcrumbEllipsis
+
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      default: "<MoreHorizontal />",
+      description: "Custom ellipsis icon or content for collapsed items.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the ellipsis indicator.",
     },
   ]}
 />

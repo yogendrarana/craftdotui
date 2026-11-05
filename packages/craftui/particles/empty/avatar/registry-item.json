@@ -1,0 +1,20 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-empty-avatar",
+	"type": "registry:component",
+	"description": "Empty state featuring a user avatar.",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/craftui-empty",
+		"@craftdotui/baseui-avatar",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/particles/empty/avatar/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/empty-avatar.tsx"
+		}
+	]
+}
+

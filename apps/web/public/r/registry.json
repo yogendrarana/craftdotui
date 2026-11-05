@@ -35,7 +35,7 @@
 				{
 					"path": "packages/craftui/components/alert/index.tsx",
 					"type": "registry:component",
-					"target": "components/uialert.tsx"
+					"target": "components/ui/alert.tsx"
 				}
 			]
 		},
@@ -53,7 +53,7 @@
 				{
 					"path": "packages/craftui/components/badge/index.tsx",
 					"type": "registry:component",
-					"target": "components/uibadge.tsx"
+					"target": "components/ui/badge.tsx"
 				}
 			]
 		},
@@ -67,7 +67,25 @@
 				{
 					"path": "packages/craftui/components/breadcrumb/index.tsx",
 					"type": "registry:component",
-					"target": "components/uibreadcrumb.tsx"
+					"target": "components/ui/breadcrumb.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-empty",
+			"type": "registry:component",
+			"description": "Use the Empty component to display an empty state.",
+			"dependencies": [
+				"@base-ui/react",
+				"class-variance-authority",
+				"cn"
+			],
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "packages/craftui/components/empty/index.tsx",
+					"type": "registry:component",
+					"target": "components/ui/empty.tsx"
 				}
 			]
 		},
@@ -81,7 +99,7 @@
 				{
 					"path": "packages/craftui/components/skeleton/index.tsx",
 					"type": "registry:component",
-					"target": "components/uiskeleton.tsx"
+					"target": "components/ui/skeleton.tsx"
 				}
 			]
 		},
@@ -95,7 +113,7 @@
 				{
 					"path": "packages/craftui/components/stepper/index.tsx",
 					"type": "registry:component",
-					"target": "components/uistepper.tsx"
+					"target": "components/ui/stepper.tsx"
 				}
 			]
 		},
@@ -109,7 +127,7 @@
 				{
 					"path": "packages/craftui/components/timeline/index.tsx",
 					"type": "registry:component",
-					"target": "components/uitimeline.tsx"
+					"target": "components/ui/timeline.tsx"
 				}
 			]
 		},
@@ -455,6 +473,110 @@
 					"path": "packages/craftui/particles/breadcrumb/with-menu/index.tsx",
 					"type": "registry:component",
 					"target": "components/particles/breadcrumb-with-menu.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-empty-avatar",
+			"type": "registry:component",
+			"description": "Empty state featuring a user avatar.",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/craftui-empty",
+				"@craftdotui/baseui-avatar",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/particles/empty/avatar/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/empty-avatar.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-empty-avatar-group",
+			"type": "registry:component",
+			"description": "Empty state featuring an overlapping avatar group.",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": [
+				"@craftdotui/craftui-empty",
+				"@craftdotui/baseui-avatar",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/particles/empty/avatar-group/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/empty-avatar-group.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-empty-background",
+			"type": "registry:component",
+			"description": "Empty state with a subtle muted background.",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": [
+				"@craftdotui/craftui-empty",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/particles/empty/background/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/empty-background.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-empty-input",
+			"type": "registry:component",
+			"description": "Empty state with a search input field.",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": [
+				"@craftdotui/craftui-empty",
+				"@craftdotui/baseui-input"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/particles/empty/input/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/empty-input.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-empty-outline",
+			"type": "registry:component",
+			"description": "Empty state with dashed border outline.",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": [
+				"@craftdotui/craftui-empty",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/particles/empty/outline/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/empty-outline.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-empty",
+			"type": "registry:component",
+			"description": "Default empty state with icon, actions, and link.",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": [
+				"@craftdotui/craftui-empty",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/particles/empty/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/empty.tsx"
 				}
 			]
 		},

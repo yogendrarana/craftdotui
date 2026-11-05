@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-empty",
+	"description": "Default empty state with icon, actions, and link.",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/craftui-empty",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/particles/empty/index.tsx",
+			"content": "import { ArrowUpRight, FolderCode } from \"lucide-react\";\nimport {\n\tEmptyContent,\n\tEmptyDescription,\n\tEmptyHeader,\n\tEmptyMedia,\n\tEmptyRoot,\n\tEmptyTitle,\n} from \"@/components/craftui/components/empty\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport function Particle() {\n\treturn (\n\t\t<EmptyRoot>\n\t\t\t<EmptyHeader>\n\t\t\t\t<EmptyMedia variant=\"icon\">\n\t\t\t\t\t<FolderCode />\n\t\t\t\t</EmptyMedia>\n\t\t\t\t<EmptyTitle>No projects yet</EmptyTitle>\n\t\t\t\t<EmptyDescription>\n\t\t\t\t\tYou haven&apos;t created any projects yet. Get started by\n\t\t\t\t\tcreating your first project.\n\t\t\t\t</EmptyDescription>\n\t\t\t</EmptyHeader>\n\t\t\t<EmptyContent>\n\t\t\t\t<div className=\"flex gap-2\">\n\t\t\t\t\t<Button>Create Project</Button>\n\t\t\t\t\t<Button variant=\"outline\">Import Project</Button>\n\t\t\t\t</div>\n\t\t\t\t<Button\n\t\t\t\t\tvariant=\"link\"\n\t\t\t\t\tsize=\"sm\"\n\t\t\t\t\tclassName=\"text-muted-foreground\"\n\t\t\t\t\trender={<a href=\"#learn-more\" />}\n\t\t\t\t>\n\t\t\t\t\tLearn More <ArrowUpRight />\n\t\t\t\t</Button>\n\t\t\t</EmptyContent>\n\t\t</EmptyRoot>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/particles/empty.tsx"
+		}
+	],
+	"type": "registry:component"
+}

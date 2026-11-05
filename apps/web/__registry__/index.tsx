@@ -38,7 +38,7 @@ export const Registry: Record<string, any> = {
   {
     "path": "packages/craftui/components/alert/index.tsx",
     "type": "registry:component",
-    "target": "components/uialert.tsx",
+    "target": "components/ui/alert.tsx",
     "content": "\"use client\";\n\nimport { cn } from \"cn\";\nimport { useRender } from \"@base-ui/react/use-render\";\nimport { mergeProps } from \"@base-ui/react/merge-props\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\n\n/* -------------------------------------------------------------------------- */\n/* Variants                                                                   */\n/* -------------------------------------------------------------------------- */\n\nconst alertVariants = cva(\n\tcn(\n\t\t\"relative w-full rounded border p-3 text-sm\",\n\t\t\"grid grid-cols-[0_1fr] has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] has-[>svg]:gap-x-3 gap-y-0.5 items-start\",\n\t\t\"[&>svg]:size-4 [&>svg]:translate-y-0.5 [&>svg]:text-current\",\n\t),\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault: \"bg-card text-card-foreground border-border\",\n\t\t\t\tdestructive:\n\t\t\t\t\t\"bg-destructive/4 border-destructive/30 text-destructive [&>svg]:text-destructive *:data-[slot=alert-description]:text-destructive/90 dark:bg-destructive/10\",\n\t\t\t\tsuccess:\n\t\t\t\t\t\"bg-success/4 border-success/30 text-success [&>svg]:text-success *:data-[slot=alert-description]:text-success/90 dark:bg-success/10\",\n\t\t\t\twarning:\n\t\t\t\t\t\"bg-warning/4 border-warning/30 text-warning [&>svg]:text-warning *:data-[slot=alert-description]:text-warning/90 dark:bg-warning/10\",\n\t\t\t\tinfo: \"bg-info/4 border-info/30 text-info [&>svg]:text-info *:data-[slot=alert-description]:text-info/90 dark:bg-info/10\",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: \"default\",\n\t\t},\n\t},\n);\n\n/* -------------------------------------------------------------------------- */\n/* Alert Root                                                                 */\n/* -------------------------------------------------------------------------- */\n\nexport interface AlertRootProps\n\textends useRender.ComponentProps<\"div\">,\n\t\tVariantProps<typeof alertVariants> {}\n\nfunction AlertRoot({ className, variant, render, ...props }: AlertRootProps) {\n\tconst defaultProps = {\n\t\trole: \"alert\",\n\t\t\"data-slot\": \"alert\",\n\t\tclassName: cn(alertVariants({ variant }), className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Alert Title                                                                */\n/* -------------------------------------------------------------------------- */\n\nexport interface AlertTitleProps extends useRender.ComponentProps<\"div\"> {}\n\nfunction AlertTitle({ className, render, ...props }: AlertTitleProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"alert-title\",\n\t\tclassName: cn(\n\t\t\t\"col-start-2 line-clamp-1 min-h-4 font-medium\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Alert Description                                                          */\n/* -------------------------------------------------------------------------- */\n\nexport interface AlertDescriptionProps\n\textends useRender.ComponentProps<\"div\"> {}\n\nfunction AlertDescription({\n\tclassName,\n\trender,\n\t...props\n}: AlertDescriptionProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"alert-description\",\n\t\tclassName: cn(\n\t\t\t\"col-start-2 grid justify-items-start gap-1 text-sm text-muted-foreground [&_p]:leading-relaxed\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const Alert = Object.assign(AlertRoot, {\n\tRoot: AlertRoot,\n\tTitle: AlertTitle,\n\tDescription: AlertDescription,\n});\n\nexport { AlertRoot, AlertTitle, AlertDescription, alertVariants };"
   }
 ],
@@ -81,7 +81,7 @@ export const Registry: Record<string, any> = {
   {
     "path": "packages/craftui/components/badge/index.tsx",
     "type": "registry:component",
-    "target": "components/uibadge.tsx",
+    "target": "components/ui/badge.tsx",
     "content": "\"use client\";\n\nimport { cn } from \"cn\";\nimport { useRender } from \"@base-ui/react/use-render\";\nimport { mergeProps } from \"@base-ui/react/merge-props\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\n\n/* -------------------------------------------------------------------------- */\n/* Variants                                                                   */\n/* -------------------------------------------------------------------------- */\n\nconst badgeVariants = cva(\n\tcn(\n\t\t\"inline-flex items-center justify-center shrink-0 w-fit\",\n\t\t\"rounded-md border font-medium whitespace-nowrap transition-colors select-none\",\n\t\t\"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background\",\n\t\t\"[&_svg]:pointer-events-none [&_svg]:shrink-0\",\n\t),\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault:\n\t\t\t\t\t\"bg-primary text-primary-foreground border-primary [a&]:hover:bg-primary/90\",\n\t\t\t\tsecondary:\n\t\t\t\t\t\"bg-secondary text-secondary-foreground border-transparent [a&]:hover:bg-secondary/80\",\n\t\t\t\toutline:\n\t\t\t\t\t\"bg-transparent text-foreground border-border [a&]:hover:bg-accent [a&]:hover:text-accent-foreground\",\n\t\t\t\tghost: \"bg-transparent text-muted-foreground border-transparent [a&]:hover:bg-muted [a&]:hover:text-foreground\",\n\t\t\t\tdestructive:\n\t\t\t\t\t\"bg-destructive/10 text-destructive border-destructive/25 dark:bg-destructive/15 [a&]:hover:bg-destructive/20\",\n\t\t\t\tsuccess:\n\t\t\t\t\t\"bg-success/10 text-success border-success/25 dark:bg-success/15 [a&]:hover:bg-success/20\",\n\t\t\t\twarning:\n\t\t\t\t\t\"bg-warning/10 text-warning border-warning/25 dark:bg-warning/15 [a&]:hover:bg-warning/20\",\n\t\t\t\tinfo: \"bg-info/10 text-info border-info/25 dark:bg-info/15 [a&]:hover:bg-info/20\",\n\t\t\t},\n\t\t\tsize: {\n\t\t\t\tsm: \"h-5 px-1.5 text-[11px] gap-1 [&_svg:not([class*='size-'])]:size-3\",\n\t\t\t\tmd: \"h-5.5 px-2 text-xs gap-1 [&_svg:not([class*='size-'])]:size-3\",\n\t\t\t\tlg: \"h-6 px-2.5 text-xs gap-1.5 [&_svg:not([class*='size-'])]:size-3.5\",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: \"default\",\n\t\t\tsize: \"md\",\n\t\t},\n\t},\n);\n\n/* -------------------------------------------------------------------------- */\n/* Badge Root                                                                 */\n/* -------------------------------------------------------------------------- */\nexport interface BadgeProps\n\textends useRender.ComponentProps<\"span\">,\n\t\tVariantProps<typeof badgeVariants> {}\n\nfunction BadgeRoot({ className, variant, size, render, ...props }: BadgeProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"badge\",\n\t\tclassName: cn(badgeVariants({ variant, size }), className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"span\",\n\t\tprops: mergeProps<\"span\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const Badge = Object.assign(BadgeRoot, {\n\tRoot: BadgeRoot,\n});\n\nexport { BadgeRoot, badgeVariants };"
   }
 ],
@@ -124,7 +124,7 @@ export const Registry: Record<string, any> = {
   {
     "path": "packages/craftui/components/breadcrumb/index.tsx",
     "type": "registry:component",
-    "target": "components/uibreadcrumb.tsx",
+    "target": "components/ui/breadcrumb.tsx",
     "content": "\"use client\";\n\nimport type * as React from \"react\";\nimport { ChevronRight, MoreHorizontal } from \"lucide-react\";\nimport { useRender } from \"@base-ui/react/use-render\";\nimport { mergeProps } from \"@base-ui/react/merge-props\";\nimport { cn } from \"cn\";\n\n/* -------------------------------------------------------------------------- */\n/* Breadcrumb Root                                                            */\n/* -------------------------------------------------------------------------- */\n\nexport interface BreadcrumbRootProps extends useRender.ComponentProps<\"nav\"> {}\n\nfunction BreadcrumbRoot({ className, render, ...props }: BreadcrumbRootProps) {\n\tconst defaultProps = {\n\t\t\"aria-label\": \"breadcrumb\",\n\t\t\"data-slot\": \"breadcrumb\",\n\t\tclassName: cn(className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"nav\",\n\t\tprops: mergeProps<\"nav\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Breadcrumb List                                                            */\n/* -------------------------------------------------------------------------- */\n\nexport interface BreadcrumbListProps extends useRender.ComponentProps<\"ol\"> {}\n\nfunction BreadcrumbList({ className, render, ...props }: BreadcrumbListProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"breadcrumb-list\",\n\t\tclassName: cn(\n\t\t\t\"flex flex-wrap items-center gap-1.5 text-sm wrap-break-word text-muted-foreground sm:gap-2\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"ol\",\n\t\tprops: mergeProps<\"ol\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Breadcrumb Item                                                            */\n/* -------------------------------------------------------------------------- */\n\nexport interface BreadcrumbItemProps extends useRender.ComponentProps<\"li\"> {}\n\nfunction BreadcrumbItem({ className, render, ...props }: BreadcrumbItemProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"breadcrumb-item\",\n\t\tclassName: cn(\"inline-flex items-center gap-1.5\", className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"li\",\n\t\tprops: mergeProps<\"li\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Breadcrumb Link                                                            */\n/* -------------------------------------------------------------------------- */\n\nexport interface BreadcrumbLinkProps extends useRender.ComponentProps<\"a\"> {}\n\nfunction BreadcrumbLink({ className, render, ...props }: BreadcrumbLinkProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"breadcrumb-link\",\n\t\tclassName: cn(\n\t\t\t\"inline-flex items-center gap-1.5 transition-colors hover:text-foreground\",\n\t\t\t\"focus-visible:rounded-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"a\",\n\t\tprops: mergeProps<\"a\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Breadcrumb Page                                                            */\n/* -------------------------------------------------------------------------- */\n\nexport interface BreadcrumbPageProps extends useRender.ComponentProps<\"span\"> {}\n\nfunction BreadcrumbPage({ className, render, ...props }: BreadcrumbPageProps) {\n\tconst defaultProps = {\n\t\trole: \"link\",\n\t\t\"aria-disabled\": true,\n\t\t\"aria-current\": \"page\" as const,\n\t\t\"data-slot\": \"breadcrumb-page\",\n\t\tclassName: cn(\n\t\t\t\"inline-flex items-center gap-1.5 font-medium text-foreground\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"span\",\n\t\tprops: mergeProps<\"span\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Breadcrumb Separator                                                       */\n/* -------------------------------------------------------------------------- */\n\nexport interface BreadcrumbSeparatorProps\n\textends React.ComponentPropsWithoutRef<\"li\"> {}\n\nfunction BreadcrumbSeparator({\n\tchildren,\n\tclassName,\n\t...props\n}: BreadcrumbSeparatorProps) {\n\treturn (\n\t\t<li\n\t\t\trole=\"presentation\"\n\t\t\taria-hidden=\"true\"\n\t\t\tdata-slot=\"breadcrumb-separator\"\n\t\t\tclassName={cn(\n\t\t\t\t\"inline-flex items-center text-muted-foreground/70 [&>svg]:size-3.5\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t{children ?? <ChevronRight />}\n\t\t</li>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Breadcrumb Ellipsis                                                        */\n/* -------------------------------------------------------------------------- */\n\nexport interface BreadcrumbEllipsisProps\n\textends React.ComponentPropsWithoutRef<\"span\"> {}\n\nfunction BreadcrumbEllipsis({\n\tclassName,\n\tchildren,\n\t...props\n}: BreadcrumbEllipsisProps) {\n\treturn (\n\t\t<span\n\t\t\trole=\"presentation\"\n\t\t\taria-hidden=\"true\"\n\t\t\tdata-slot=\"breadcrumb-ellipsis\"\n\t\t\tclassName={cn(\n\t\t\t\t\"flex size-7 items-center justify-center rounded-md text-muted-foreground transition-colors hover:text-foreground [&>svg]:size-4\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t{children ?? <MoreHorizontal />}\n\t\t\t<span className=\"sr-only\">More</span>\n\t\t</span>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nconst Breadcrumb = Object.assign(BreadcrumbRoot, {\n\tRoot: BreadcrumbRoot,\n\tList: BreadcrumbList,\n\tItem: BreadcrumbItem,\n\tLink: BreadcrumbLink,\n\tPage: BreadcrumbPage,\n\tSeparator: BreadcrumbSeparator,\n\tEllipsis: BreadcrumbEllipsis,\n});\n\nexport {\n\tBreadcrumb,\n\tBreadcrumbRoot,\n\tBreadcrumbList,\n\tBreadcrumbItem,\n\tBreadcrumbLink,\n\tBreadcrumbPage,\n\tBreadcrumbSeparator,\n\tBreadcrumbEllipsis,\n};"
   }
 ],
@@ -133,6 +133,49 @@ export const Registry: Record<string, any> = {
             component: (() => {
 							const LazyComp = React.lazy(async () => {
 								const mod = await import("@craftdotui/craftui/components/breadcrumb/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-empty": {
+            name: "craftui-empty",
+            description: "Use the Empty component to display an empty state.",
+            type: "registry:component",
+            dependencies: ["@base-ui/react","class-variance-authority","cn"],
+            devDependencies: undefined,
+            registryDependencies: [],
+            files: [
+  {
+    "path": "packages/craftui/components/empty/index.tsx",
+    "type": "registry:component",
+    "target": "components/ui/empty.tsx",
+    "content": "\"use client\";\n\nimport { cn } from \"cn\";\nimport { useRender } from \"@base-ui/react/use-render\";\nimport { mergeProps } from \"@base-ui/react/merge-props\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\n\n/* -------------------------------------------------------------------------- */\n/* Variants                                                                   */\n/* -------------------------------------------------------------------------- */\n\nconst emptyMediaVariants = cva(\n\t\"mb-2 flex shrink-0 items-center justify-center [&_svg]:pointer-events-none [&_svg]:shrink-0\",\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault: \"bg-transparent\",\n\t\t\t\ticon: \"flex size-10 shrink-0 items-center justify-center rounded-lg border border-border/60 bg-muted text-foreground [&_svg:not([class*='size-'])]:size-5\",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: \"default\",\n\t\t},\n\t},\n);\n\n/* -------------------------------------------------------------------------- */\n/* Empty Root                                                                 */\n/* -------------------------------------------------------------------------- */\n\nexport interface EmptyRootProps extends useRender.ComponentProps<\"div\"> {}\n\nfunction EmptyRoot({ className, render, ...props }: EmptyRootProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"empty\",\n\t\tclassName: cn(\n\t\t\t\"flex min-w-0 flex-1 flex-col items-center justify-center gap-6 rounded-lg border-dashed p-6 text-center text-balance md:p-12\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Empty Header                                                               */\n/* -------------------------------------------------------------------------- */\n\nexport interface EmptyHeaderProps extends useRender.ComponentProps<\"div\"> {}\n\nfunction EmptyHeader({ className, render, ...props }: EmptyHeaderProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"empty-header\",\n\t\tclassName: cn(\n\t\t\t\"flex max-w-sm flex-col items-center gap-2 text-center\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Empty Media                                                                */\n/* -------------------------------------------------------------------------- */\n\nexport interface EmptyMediaProps\n\textends useRender.ComponentProps<\"div\">,\n\t\tVariantProps<typeof emptyMediaVariants> {}\n\nfunction EmptyMedia({\n\tclassName,\n\tvariant = \"default\",\n\trender,\n\t...props\n}: EmptyMediaProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"empty-media\",\n\t\t\"data-variant\": variant,\n\t\tclassName: cn(emptyMediaVariants({ variant }), className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Empty Title                                                                */\n/* -------------------------------------------------------------------------- */\n\nexport interface EmptyTitleProps extends useRender.ComponentProps<\"div\"> {}\n\nfunction EmptyTitle({ className, render, ...props }: EmptyTitleProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"empty-title\",\n\t\tclassName: cn(\n\t\t\t\"text-base font-medium tracking-tight text-foreground\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Empty Description                                                          */\n/* -------------------------------------------------------------------------- */\n\nexport interface EmptyDescriptionProps\n\textends useRender.ComponentProps<\"div\"> {}\n\nfunction EmptyDescription({\n\tclassName,\n\trender,\n\t...props\n}: EmptyDescriptionProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"empty-description\",\n\t\tclassName: cn(\n\t\t\t\"text-sm/relaxed text-muted-foreground [&>a]:underline [&>a]:underline-offset-4 [&>a:hover]:text-primary\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Empty Content                                                              */\n/* -------------------------------------------------------------------------- */\n\nexport interface EmptyContentProps extends useRender.ComponentProps<\"div\"> {}\n\nfunction EmptyContent({ className, render, ...props }: EmptyContentProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"empty-content\",\n\t\tclassName: cn(\n\t\t\t\"flex w-full max-w-sm min-w-0 flex-col items-center gap-4 text-sm text-balance\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const Empty = Object.assign(EmptyRoot, {\n\tRoot: EmptyRoot,\n\tHeader: EmptyHeader,\n\tMedia: EmptyMedia,\n\tTitle: EmptyTitle,\n\tDescription: EmptyDescription,\n\tContent: EmptyContent,\n});\n\nexport {\n\tEmptyRoot,\n\tEmptyHeader,\n\tEmptyMedia,\n\tEmptyTitle,\n\tEmptyDescription,\n\tEmptyContent,\n\temptyMediaVariants,\n};"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-empty',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/empty/index.tsx");
 								let Comp = mod.default;
 
 								if (!Comp) {
@@ -167,7 +210,7 @@ export const Registry: Record<string, any> = {
   {
     "path": "packages/craftui/components/skeleton/index.tsx",
     "type": "registry:component",
-    "target": "components/uiskeleton.tsx",
+    "target": "components/ui/skeleton.tsx",
     "content": "\"use client\";\n\nimport { cn } from \"cn\";\nimport { useRender } from \"@base-ui/react/use-render\";\nimport { mergeProps } from \"@base-ui/react/merge-props\";\n\n/* -------------------------------------------------------------------------- */\n/* Skeleton Root                                                              */\n/* -------------------------------------------------------------------------- */\nexport interface SkeletonProps extends useRender.ComponentProps<\"div\"> {}\n\nfunction SkeletonRoot({ className, render, ...props }: SkeletonProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"skeleton\",\n\t\tclassName: cn(\"animate-pulse rounded-md bg-muted\", className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const Skeleton = Object.assign(SkeletonRoot, {\n\tRoot: SkeletonRoot,\n});\n\nexport { SkeletonRoot };"
   }
 ],
@@ -210,7 +253,7 @@ export const Registry: Record<string, any> = {
   {
     "path": "packages/craftui/components/stepper/index.tsx",
     "type": "registry:component",
-    "target": "components/uistepper.tsx",
+    "target": "components/ui/stepper.tsx",
     "content": "/**\n * @todo Add support vertical stepper\n * @todo Add support linear and non-linear stepper\n */\n\n\"use client\";\n\nimport React from \"react\";\nimport { motion, AnimatePresence } from \"motion/react\";\nimport { ChevronLeft, ChevronRight } from \"lucide-react\";\n\nimport { cn } from \"cn\";\n\ninterface StepperContextType {\n\tcurrentStep: number;\n\ttotalSteps: number;\n\tisLastStep: boolean;\n\tgoToNextStep: () => void;\n\tgoToPreviousStep: () => void;\n\tgoToStep: (step: number) => void;\n}\n\nconst StepperContext = React.createContext<StepperContextType>({\n\tcurrentStep: 0,\n\ttotalSteps: 0,\n\tisLastStep: false,\n\tgoToNextStep: () => {},\n\tgoToPreviousStep: () => {},\n\tgoToStep: () => {},\n});\n\n/* -------------------------------------------------------------------------------------------------\n * Stepper (Root component)\n * -------------------------------------------------------------------------------------------------\n */\n\ninterface StepperProps {\n\tchildren: React.ReactNode;\n\tactiveStep?: number;\n\ttotalSteps: number;\n\tclassName?: string;\n\tonStepChange?: (step: number) => void;\n}\n\nconst Stepper = ({\n\tchildren,\n\tonStepChange,\n\tclassName = \"\",\n\ttotalSteps,\n\tactiveStep = 0,\n}: StepperProps) => {\n\tconst id = React.useId();\n\tconst [currentStep, setCurrentStep] = React.useState(activeStep);\n\tconst isLastStep = currentStep === totalSteps - 1;\n\n\tconst contextValue = React.useMemo(\n\t\t() => ({\n\t\t\tcurrentStep,\n\t\t\ttotalSteps,\n\t\t\tisLastStep,\n\t\t\tgoToNextStep: () =>\n\t\t\t\tonStepChange?.(Math.min(currentStep + 1, totalSteps - 1)) ||\n\t\t\t\tsetCurrentStep?.(Math.min(currentStep + 1, totalSteps - 1)),\n\t\t\tgoToPreviousStep: () =>\n\t\t\t\tonStepChange?.(Math.max(currentStep - 1, 0)) ||\n\t\t\t\tsetCurrentStep?.(Math.max(currentStep - 1, 0)),\n\t\t\tgoToStep: (step: number) =>\n\t\t\t\tonStepChange?.(Math.min(Math.max(step, 0), totalSteps - 1)) ||\n\t\t\t\tsetCurrentStep?.(Math.min(Math.max(step, 0), totalSteps - 1)),\n\t\t}),\n\t\t[currentStep, totalSteps, isLastStep, onStepChange],\n\t);\n\n\treturn (\n\t\t<StepperContext.Provider value={contextValue}>\n\t\t\t<fieldset\n\t\t\t\tid={id}\n\t\t\t\tclassName={cn(\n\t\t\t\t\t\"w-full mx-auto p-4\",\n\t\t\t\t\t\"sm:w-full md:w-[24rem] lg:w-120 xl:w-xl\",\n\t\t\t\t\tclassName,\n\t\t\t\t)}\n\t\t\t>\n\t\t\t\t<legend className=\"sr-only\">Stepper</legend>\n\t\t\t\t{children}\n\t\t\t</fieldset>\n\t\t</StepperContext.Provider>\n\t);\n};\n\nconst useStepper = () => {\n\tconst context = React.useContext(StepperContext);\n\tif (!context) {\n\t\tthrow new Error(\"useStepper must be used within a StepperProvider\");\n\t}\n\treturn context;\n};\n\n/* -------------------------------------------------------------------------------------------------\n * StepperContent\n * -------------------------------------------------------------------------------------------------\n */\n\ninterface StepperContentProps {\n\tchildren: React.ReactNode;\n\tclassName?: string;\n}\n\nconst StepperContent = ({ children, className }: StepperContentProps) => {\n\treturn <div className={cn(\"my-6\", className)}>{children}</div>;\n};\n\n/* -------------------------------------------------------------------------------------------------\n * Step Component\n * -------------------------------------------------------------------------------------------------\n */\n\ninterface StepProps {\n\tchildren: React.ReactNode;\n\tclassName?: string;\n\tstep: number;\n}\n\nconst Step = ({ children, step, className = \"\" }: StepProps) => {\n\tconst { currentStep } = useStepper();\n\tconst isActive = currentStep === step - 1;\n\n\tif (!isActive) return null;\n\n\treturn (\n\t\t<div className={cn(\"space-y-4\", className)}>\n\t\t\t<AnimatePresence mode=\"wait\">\n\t\t\t\t<motion.div\n\t\t\t\t\tkey={step}\n\t\t\t\t\tinitial={{ opacity: 0, y: 10 }}\n\t\t\t\t\tanimate={{ opacity: 1, y: 0 }}\n\t\t\t\t\texit={{ opacity: 0, y: -10 }}\n\t\t\t\t>\n\t\t\t\t\t{children}\n\t\t\t\t</motion.div>\n\t\t\t</AnimatePresence>\n\t\t</div>\n\t);\n};\n\n/* -------------------------------------------------------------------------------------------------\n * Step Title\n * -------------------------------------------------------------------------------------------------\n */\n\ninterface StepTitleProps {\n\tchildren: React.ReactNode;\n\tclassName?: string;\n}\n\nconst StepTitle = ({ children, className = \"\" }: StepTitleProps) => {\n\treturn (\n\t\t<h3\n\t\t\tclassName={cn(\n\t\t\t\t\"text-lg font-semibold leading-none tracking-tight\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t>\n\t\t\t{children}\n\t\t</h3>\n\t);\n};\n\n/* -------------------------------------------------------------------------------------------------\n * Step Description\n * -------------------------------------------------------------------------------------------------\n */\n\ninterface StepDescriptionProps {\n\tchildren: React.ReactNode;\n\tclassName?: string;\n}\n\nconst StepDescription = ({\n\tchildren,\n\tclassName = \"\",\n}: StepDescriptionProps) => {\n\treturn (\n\t\t<p\n\t\t\tclassName={cn(\n\t\t\t\t\"text-sm text-gray-500 dark:text-gray-400\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t>\n\t\t\t{children}\n\t\t</p>\n\t);\n};\n\n/* -------------------------------------------------------------------------------------------------\n * PrevStep\n * -------------------------------------------------------------------------------------------------\n */\n\ninterface PrevStepProps {\n\tclassName?: string;\n}\n\nconst PrevStep = ({ className = \"\" }: PrevStepProps) => {\n\tconst { currentStep, goToPreviousStep } = useStepper();\n\n\treturn (\n\t\t<button\n\t\t\ttype=\"button\"\n\t\t\tonClick={goToPreviousStep}\n\t\t\tdisabled={currentStep === 0}\n\t\t\tclassName={cn(\n\t\t\t\t\"inline-flex items-center gap-2 rounded-md border px-4 py-2 text-sm transition-colors\",\n\t\t\t\t\"border-gray-300 text-gray-700 hover:bg-gray-100\",\n\t\t\t\t{\n\t\t\t\t\t\"text-gray-400 cursor-not-allowed opacity-70 hover:bg-transparent\":\n\t\t\t\t\t\tcurrentStep === 0,\n\t\t\t\t},\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t>\n\t\t\t<ChevronLeft className=\"w-4 h-4\" />\n\t\t\tPrev\n\t\t</button>\n\t);\n};\n\n/* -------------------------------------------------------------------------------------------------\n * NextStep\n * -------------------------------------------------------------------------------------------------\n */\n\ninterface NextStepProps {\n\tonFinish: () => void;\n\tclassName?: string;\n}\n\nconst NextStep = ({ onFinish, className = \"\" }: NextStepProps) => {\n\tconst { goToNextStep, isLastStep } = useStepper();\n\n\tconst handleClick = () => {\n\t\tif (isLastStep && onFinish) {\n\t\t\tonFinish();\n\t\t} else {\n\t\t\tgoToNextStep();\n\t\t}\n\t};\n\n\treturn (\n\t\t<button\n\t\t\ttype=\"button\"\n\t\t\tonClick={handleClick}\n\t\t\tclassName={cn(\n\t\t\t\t\"inline-flex items-center gap-2 rounded-md border px-4 py-2 text-sm transition-colors\",\n\t\t\t\t\"border-gray-300 text-gray-700 hover:bg-gray-100\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t>\n\t\t\t{isLastStep ? \"Finish\" : \"Next\"}\n\t\t\t<ChevronRight className=\"w-4 h-4\" />\n\t\t</button>\n\t);\n};\n\n/* -------------------------------------------------------------------------------------------------\n * StepIndicator\n * -------------------------------------------------------------------------------------------------\n */\n\ninterface StepIndicatorProps {\n\tvariant?: \"dots\" | \"fraction\" | \"progress\" | \"numbers\" | \"text\";\n\tclassName?: string;\n}\n\nconst StepIndicator = ({\n\tvariant = \"dots\",\n\tclassName = \"\",\n}: StepIndicatorProps) => {\n\tconst { currentStep, totalSteps, goToStep } = useStepper();\n\n\tswitch (variant) {\n\t\tcase \"fraction\":\n\t\t\treturn (\n\t\t\t\t<div className={cn(\"text-sm font-medium\", className)}>\n\t\t\t\t\tStep {currentStep + 1} of {totalSteps}\n\t\t\t\t</div>\n\t\t\t);\n\n\t\tcase \"progress\": {\n\t\t\tconst progress = ((currentStep + 1) / totalSteps) * 100;\n\t\t\treturn (\n\t\t\t\t<div\n\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t\"w-full bg-gray-200 rounded-full h-2\",\n\t\t\t\t\t\tclassName,\n\t\t\t\t\t)}\n\t\t\t\t>\n\t\t\t\t\t<motion.div\n\t\t\t\t\t\tclassName=\"bg-black dark:bg-zinc-700 h-2 rounded-full\"\n\t\t\t\t\t\tinitial={{ width: 0 }}\n\t\t\t\t\t\tanimate={{ width: `${progress}%` }}\n\t\t\t\t\t/>\n\t\t\t\t</div>\n\t\t\t);\n\t\t}\n\n\t\tcase \"numbers\":\n\t\t\treturn (\n\t\t\t\t<div className={cn(\"flex space-x-2\", className)}>\n\t\t\t\t\t{[...Array(totalSteps)].map((_, index) => (\n\t\t\t\t\t\t<button\n\t\t\t\t\t\t\ttype=\"button\"\n\t\t\t\t\t\t\tkey={index}\n\t\t\t\t\t\t\tonClick={() => goToStep(index)}\n\t\t\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t\t\t\"w-6 h-6 rounded flex items-center justify-center text-xs transition-all duration-200\",\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"bg-black dark:bg-zinc-700 text-white\":\n\t\t\t\t\t\t\t\t\t\tindex === currentStep,\n\t\t\t\t\t\t\t\t\t\"bg-gray-200 dark:bg-gray-300 text-black\":\n\t\t\t\t\t\t\t\t\t\tindex !== currentStep,\n\t\t\t\t\t\t\t\t\t\"hover:bg-gray-300\": index !== currentStep,\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t{index + 1}\n\t\t\t\t\t\t</button>\n\t\t\t\t\t))}\n\t\t\t\t</div>\n\t\t\t);\n\n\t\tcase \"text\":\n\t\t\treturn (\n\t\t\t\t<div className={cn(\"flex items-center space-x-4\", className)}>\n\t\t\t\t\t{[...Array(totalSteps)].map((_, index) => (\n\t\t\t\t\t\t<button\n\t\t\t\t\t\t\ttype=\"button\"\n\t\t\t\t\t\t\tkey={index}\n\t\t\t\t\t\t\tonClick={() => goToStep(index)}\n\t\t\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t\t\t\"text-sm font-medium transition-all duration-200\",\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"text-black dark:text-gray-200\":\n\t\t\t\t\t\t\t\t\t\tindex === currentStep,\n\t\t\t\t\t\t\t\t\t\"text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-gray-400\":\n\t\t\t\t\t\t\t\t\t\tindex !== currentStep,\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\tStep {index + 1}\n\t\t\t\t\t\t</button>\n\t\t\t\t\t))}\n\t\t\t\t</div>\n\t\t\t);\n\n\t\t// default dots\n\t\tdefault:\n\t\t\treturn (\n\t\t\t\t<div className={cn(\"flex space-x-2\", className)}>\n\t\t\t\t\t{[...Array(totalSteps)].map((_, index) => (\n\t\t\t\t\t\t<motion.div\n\t\t\t\t\t\t\tkey={index}\n\t\t\t\t\t\t\tclassName={cn(\"w-2 h-2 rounded-full\", {\n\t\t\t\t\t\t\t\t\"bg-black dark:bg-zinc-700\":\n\t\t\t\t\t\t\t\t\tindex === currentStep,\n\t\t\t\t\t\t\t\t\"bg-gray-300\": index !== currentStep,\n\t\t\t\t\t\t\t})}\n\t\t\t\t\t\t\tinitial={{ scale: 1 }}\n\t\t\t\t\t\t\tanimate={{ scale: index === currentStep ? 1.5 : 1 }}\n\t\t\t\t\t\t/>\n\t\t\t\t\t))}\n\t\t\t\t</div>\n\t\t\t);\n\t}\n};\n\n/* -------------------------------------------------------------------------------------------------\n * StepNavigation\n * -------------------------------------------------------------------------------------------------\n */\n\ninterface StepperNavigationProps {\n\tonFinish: () => void;\n\tclassName?: string;\n}\n\nconst StepperNavigation = ({\n\tonFinish,\n\tclassName = \"\",\n}: StepperNavigationProps) => {\n\treturn (\n\t\t<div\n\t\t\tclassName={cn(\"flex justify-between items-center gap-2\", className)}\n\t\t>\n\t\t\t<PrevStep />\n\t\t\t<NextStep onFinish={onFinish} />\n\t\t</div>\n\t);\n};\n\nexport {\n\tStepper,\n\tStepperContent,\n\tStep,\n\tStepTitle,\n\tStepDescription,\n\tPrevStep,\n\tNextStep,\n\tStepIndicator,\n\tStepperNavigation,\n};"
   }
 ],
@@ -253,7 +296,7 @@ export const Registry: Record<string, any> = {
   {
     "path": "packages/craftui/components/timeline/index.tsx",
     "type": "registry:component",
-    "target": "components/uitimeline.tsx",
+    "target": "components/ui/timeline.tsx",
     "content": "\"use client\";\n\nimport React, { useId } from \"react\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\n\nimport { cn } from \"cn\";\n\n// Define variants\nconst timelineVariants = cva(\"relative\", {\n\tvariants: {\n\t\tvariant: {\n\t\t\tvertical: \"flex flex-col gap-6\",\n\t\t\thorizontal: \"flex flex-row items-center gap-12\",\n\t\t},\n\t},\n\tdefaultVariants: {\n\t\tvariant: \"vertical\",\n\t},\n});\n\nconst markerVariants = cva(\n\t\"w-3 h-3 rounded-full border flex items-center justify-center shrink-0 relative z-10 transition-colors duration-200\",\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tempty: \"bg-white dark:bg-neutral-900\",\n\t\t\t\tfill: \"bg-neutral-300 dark:bg-neutral-600\",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: \"empty\",\n\t\t},\n\t},\n);\n\n// Context\ntype TimelineContextValue = {\n\tvariant: \"vertical\" | \"horizontal\";\n};\n\nconst TimelineContext = React.createContext<TimelineContextValue | undefined>(\n\tundefined,\n);\n\nconst useTimeline = () => {\n\tconst context = React.useContext(TimelineContext);\n\tif (!context) {\n\t\tthrow new Error(\"useTimeline must be used within a Timeline component\");\n\t}\n\treturn context;\n};\n\n/* -------------------------------------------------------------------------------------------------\n * Timeline\n * Main container component that provides context and layout for timeline items\n * -------------------------------------------------------------------------------------------------\n */\ninterface TimelineProps extends VariantProps<typeof timelineVariants> {\n\tchildren: React.ReactNode;\n\tclassName?: string;\n\tvariant?: \"vertical\" | \"horizontal\";\n\t\"aria-label\"?: string;\n}\n\nconst Timeline = React.forwardRef<HTMLUListElement, TimelineProps>(\n\t(\n\t\t{ children, variant = \"vertical\", className, \"aria-label\": ariaLabel },\n\t\tref,\n\t) => {\n\t\tconst id = useId();\n\n\t\treturn (\n\t\t\t<TimelineContext.Provider value={{ variant }}>\n\t\t\t\t<ul\n\t\t\t\t\tref={ref}\n\t\t\t\t\tid={id}\n\t\t\t\t\taria-label={ariaLabel || \"Timeline\"}\n\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\ttimelineVariants({ variant }),\n\t\t\t\t\t\t\"dark:text-neutral-200\",\n\t\t\t\t\t\tclassName,\n\t\t\t\t\t)}\n\t\t\t\t>\n\t\t\t\t\t<div\n\t\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t\t\"absolute\",\n\t\t\t\t\t\t\tvariant === \"vertical\"\n\t\t\t\t\t\t\t\t? \"left-1.5 top-0 w-px h-full\"\n\t\t\t\t\t\t\t\t: \"top-1.5 left-0 h-px w-full\",\n\t\t\t\t\t\t\t\"bg-neutral-200 dark:bg-neutral-700\",\n\t\t\t\t\t\t)}\n\t\t\t\t\t\taria-hidden=\"true\"\n\t\t\t\t\t/>\n\t\t\t\t\t{children}\n\t\t\t\t</ul>\n\t\t\t</TimelineContext.Provider>\n\t\t);\n\t},\n);\n\nTimeline.displayName = \"Timeline\";\n\n/* -------------------------------------------------------------------------------------------------\n * TimelineItem\n * Container for individual timeline entries\n * -------------------------------------------------------------------------------------------------\n */\ninterface TimelineItemProps {\n\tchildren: React.ReactNode;\n\tclassName?: string;\n}\n\nconst TimelineItem = ({ children, className }: TimelineItemProps) => {\n\tconst { variant } = useTimeline();\n\n\treturn (\n\t\t<li\n\t\t\tclassName={cn(\n\t\t\t\t\"relative flex items-start group\",\n\t\t\t\tvariant === \"horizontal\" && \"flex-col items-center\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t>\n\t\t\t{children}\n\t\t</li>\n\t);\n};\nTimelineItem.displayName = \"TimelineItem\";\n\n/* -------------------------------------------------------------------------------------------------\n * TimelineMarker\n * Visual indicator for timeline items\n * -------------------------------------------------------------------------------------------------\n */\ninterface TimelineMarkerProps extends VariantProps<typeof markerVariants> {\n\tclassName?: string;\n}\n\nconst TimelineMarker = ({\n\tvariant = \"empty\",\n\tclassName,\n}: TimelineMarkerProps) => {\n\treturn (\n\t\t<div\n\t\t\tclassName={cn(\n\t\t\t\tmarkerVariants({ variant }),\n\t\t\t\t\"border-neutral-300 dark:border-neutral-600\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\taria-hidden=\"true\"\n\t\t/>\n\t);\n};\n\n/* -------------------------------------------------------------------------------------------------\n * TimelineContent\n * Container for timeline item content\n * -------------------------------------------------------------------------------------------------\n */\ninterface TimelineContentProps {\n\tchildren: React.ReactNode;\n\tclassName?: string;\n}\n\nconst TimelineContent = ({ children, className }: TimelineContentProps) => {\n\tconst { variant } = useTimeline();\n\n\treturn (\n\t\t<div\n\t\t\tclassName={cn(\n\t\t\t\tvariant === \"vertical\" ? \"ml-4\" : \"mt-4 text-center\",\n\t\t\t\t\"relative z-10\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t>\n\t\t\t{children}\n\t\t</div>\n\t);\n};\n\nTimelineContent.displayName = \"TimelineContent\";\n\n/* -------------------------------------------------------------------------------------------------\n * TimelineTitle\n * Title component for timeline items\n * -------------------------------------------------------------------------------------------------\n */\ninterface TimelineTitleProps {\n\tchildren: React.ReactNode;\n\tclassName?: string;\n}\n\nconst TimelineTitle = ({ children, className }: TimelineTitleProps) => {\n\treturn (\n\t\t<h3\n\t\t\tclassName={cn(\n\t\t\t\t\"text-base font-medium text-neutral-900 dark:text-neutral-100 mb-1\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t>\n\t\t\t{children}\n\t\t</h3>\n\t);\n};\n\n/* -------------------------------------------------------------------------------------------------\n * TimelineDescription\n * Description component for timeline items\n * -------------------------------------------------------------------------------------------------\n */\ninterface TimelineDescriptionProps {\n\tchildren: React.ReactNode;\n\tclassName?: string;\n}\n\nconst TimelineDescription = ({\n\tchildren,\n\tclassName,\n}: TimelineDescriptionProps) => {\n\treturn (\n\t\t<p\n\t\t\tclassName={cn(\n\t\t\t\t\"text-sm text-neutral-600 dark:text-neutral-400\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t>\n\t\t\t{children}\n\t\t</p>\n\t);\n};\n\nexport {\n\tTimeline,\n\tTimelineItem,\n\tTimelineMarker,\n\tTimelineContent,\n\tTimelineTitle,\n\tTimelineDescription,\n\ttype TimelineProps,\n\ttype TimelineItemProps,\n\ttype TimelineMarkerProps,\n\ttype TimelineContentProps,\n\ttype TimelineTitleProps,\n\ttype TimelineDescriptionProps,\n};"
   }
 ],
@@ -1294,6 +1337,264 @@ export const Registry: Record<string, any> = {
             component: (() => {
 							const LazyComp = React.lazy(async () => {
 								const mod = await import("@craftdotui/craftui/particles/breadcrumb/with-menu/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-empty-avatar": {
+            name: "craftui-particles-empty-avatar",
+            description: "Empty state featuring a user avatar.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-empty","@craftdotui/baseui-avatar","@craftdotui/baseui-button"],
+            files: [
+  {
+    "path": "packages/craftui/particles/empty/avatar/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/empty-avatar.tsx",
+    "content": "import {\n\tEmptyContent,\n\tEmptyDescription,\n\tEmptyHeader,\n\tEmptyMedia,\n\tEmptyRoot,\n\tEmptyTitle,\n} from \"@/components/craftui/components/empty\";\nimport {\n\tAvatarFallback,\n\tAvatarImage,\n\tAvatarRoot,\n} from \"@/components/baseui/components/avatar\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport function Particle() {\n\treturn (\n\t\t<EmptyRoot>\n\t\t\t<EmptyHeader>\n\t\t\t\t<EmptyMedia variant=\"default\">\n\t\t\t\t\t<AvatarRoot className=\"size-12 grayscale\">\n\t\t\t\t\t\t<AvatarImage\n\t\t\t\t\t\t\tsrc=\"https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=120&auto=format&fit=crop&q=80\"\n\t\t\t\t\t\t\talt=\"User avatar\"\n\t\t\t\t\t\t/>\n\t\t\t\t\t\t<AvatarFallback>YR</AvatarFallback>\n\t\t\t\t\t</AvatarRoot>\n\t\t\t\t</EmptyMedia>\n\t\t\t\t<EmptyTitle>User Offline</EmptyTitle>\n\t\t\t\t<EmptyDescription>\n\t\t\t\t\tThis user is currently offline. You can leave a message to\n\t\t\t\t\tnotify them or try again later.\n\t\t\t\t</EmptyDescription>\n\t\t\t</EmptyHeader>\n\t\t\t<EmptyContent>\n\t\t\t\t<Button size=\"sm\">Leave Message</Button>\n\t\t\t</EmptyContent>\n\t\t</EmptyRoot>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-empty-avatar',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/particles/empty/avatar/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-empty-avatar-group": {
+            name: "craftui-particles-empty-avatar-group",
+            description: "Empty state featuring an overlapping avatar group.",
+            type: "registry:component",
+            dependencies: ["lucide-react"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-empty","@craftdotui/baseui-avatar","@craftdotui/baseui-button"],
+            files: [
+  {
+    "path": "packages/craftui/particles/empty/avatar-group/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/empty-avatar-group.tsx",
+    "content": "import { Plus } from \"lucide-react\";\nimport {\n\tEmptyContent,\n\tEmptyDescription,\n\tEmptyHeader,\n\tEmptyMedia,\n\tEmptyRoot,\n\tEmptyTitle,\n} from \"@/components/craftui/components/empty\";\nimport {\n\tAvatarFallback,\n\tAvatarImage,\n\tAvatarRoot,\n} from \"@/components/baseui/components/avatar\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport function Particle() {\n\treturn (\n\t\t<EmptyRoot>\n\t\t\t<EmptyHeader>\n\t\t\t\t<EmptyMedia>\n\t\t\t\t\t<div className=\"flex -space-x-2 *:ring-2 *:ring-background\">\n\t\t\t\t\t\t<AvatarRoot className=\"size-10 grayscale\">\n\t\t\t\t\t\t\t<AvatarImage\n\t\t\t\t\t\t\t\tsrc=\"https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=120&auto=format&fit=crop&q=80\"\n\t\t\t\t\t\t\t\talt=\"Member 1\"\n\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t<AvatarFallback>JD</AvatarFallback>\n\t\t\t\t\t\t</AvatarRoot>\n\t\t\t\t\t\t<AvatarRoot className=\"size-10 grayscale\">\n\t\t\t\t\t\t\t<AvatarImage\n\t\t\t\t\t\t\t\tsrc=\"https://images.unsplash.com/photo-1580489944761-15a19d654956?w=120&auto=format&fit=crop&q=80\"\n\t\t\t\t\t\t\t\talt=\"Member 2\"\n\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t<AvatarFallback>AS</AvatarFallback>\n\t\t\t\t\t\t</AvatarRoot>\n\t\t\t\t\t\t<AvatarRoot className=\"size-10 grayscale\">\n\t\t\t\t\t\t\t<AvatarImage\n\t\t\t\t\t\t\t\tsrc=\"https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&auto=format&fit=crop&q=80\"\n\t\t\t\t\t\t\t\talt=\"Member 3\"\n\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t<AvatarFallback>MK</AvatarFallback>\n\t\t\t\t\t\t</AvatarRoot>\n\t\t\t\t\t</div>\n\t\t\t\t</EmptyMedia>\n\t\t\t\t<EmptyTitle>No Team Members</EmptyTitle>\n\t\t\t\t<EmptyDescription>\n\t\t\t\t\tInvite your team to collaborate on this project.\n\t\t\t\t</EmptyDescription>\n\t\t\t</EmptyHeader>\n\t\t\t<EmptyContent>\n\t\t\t\t<Button size=\"sm\">\n\t\t\t\t\t<Plus />\n\t\t\t\t\tInvite Members\n\t\t\t\t</Button>\n\t\t\t</EmptyContent>\n\t\t</EmptyRoot>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-empty-avatar-group',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/particles/empty/avatar-group/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-empty-background": {
+            name: "craftui-particles-empty-background",
+            description: "Empty state with a subtle muted background.",
+            type: "registry:component",
+            dependencies: ["lucide-react"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-empty","@craftdotui/baseui-button"],
+            files: [
+  {
+    "path": "packages/craftui/particles/empty/background/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/empty-background.tsx",
+    "content": "import { Bell, RefreshCcw } from \"lucide-react\";\nimport {\n\tEmptyContent,\n\tEmptyDescription,\n\tEmptyHeader,\n\tEmptyMedia,\n\tEmptyRoot,\n\tEmptyTitle,\n} from \"@/components/craftui/components/empty\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport function Particle() {\n\treturn (\n\t\t<EmptyRoot className=\"border border-border bg-muted/30\">\n\t\t\t<EmptyHeader>\n\t\t\t\t<EmptyMedia variant=\"icon\">\n\t\t\t\t\t<Bell />\n\t\t\t\t</EmptyMedia>\n\t\t\t\t<EmptyTitle>No notifications</EmptyTitle>\n\t\t\t\t<EmptyDescription>\n\t\t\t\t\tYou&apos;re all caught up. New notifications will appear\n\t\t\t\t\there.\n\t\t\t\t</EmptyDescription>\n\t\t\t</EmptyHeader>\n\t\t\t<EmptyContent>\n\t\t\t\t<Button variant=\"outline\" size=\"sm\">\n\t\t\t\t\t<RefreshCcw />\n\t\t\t\t\tRefresh\n\t\t\t\t</Button>\n\t\t\t</EmptyContent>\n\t\t</EmptyRoot>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-empty-background',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/particles/empty/background/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-empty-input": {
+            name: "craftui-particles-empty-input",
+            description: "Empty state with a search input field.",
+            type: "registry:component",
+            dependencies: ["lucide-react"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-empty","@craftdotui/baseui-input"],
+            files: [
+  {
+    "path": "packages/craftui/particles/empty/input/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/empty-input.tsx",
+    "content": "import { Search } from \"lucide-react\";\nimport {\n\tEmptyContent,\n\tEmptyDescription,\n\tEmptyHeader,\n\tEmptyRoot,\n\tEmptyTitle,\n} from \"@/components/craftui/components/empty\";\nimport { Input } from \"@/components/baseui/components/input\";\n\nexport function Particle() {\n\treturn (\n\t\t<EmptyRoot>\n\t\t\t<EmptyHeader>\n\t\t\t\t<EmptyTitle>404 - Not Found</EmptyTitle>\n\t\t\t\t<EmptyDescription>\n\t\t\t\t\tThe page you&apos;re looking for doesn&apos;t exist. Try\n\t\t\t\t\tsearching for what you need below.\n\t\t\t\t</EmptyDescription>\n\t\t\t</EmptyHeader>\n\t\t\t<EmptyContent>\n\t\t\t\t<div className=\"relative w-full max-w-xs\">\n\t\t\t\t\t<Search className=\"pointer-events-none absolute top-1/2 left-2.5 size-4 -translate-y-1/2 text-muted-foreground\" />\n\t\t\t\t\t<Input\n\t\t\t\t\t\tplaceholder=\"Try searching for pages...\"\n\t\t\t\t\t\tclassName=\"pl-8\"\n\t\t\t\t\t/>\n\t\t\t\t</div>\n\t\t\t\t<EmptyDescription className=\"text-xs\">\n\t\t\t\t\tNeed help? <a href=\"#support\">Contact support</a>\n\t\t\t\t</EmptyDescription>\n\t\t\t</EmptyContent>\n\t\t</EmptyRoot>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-empty-input',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/particles/empty/input/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-empty-outline": {
+            name: "craftui-particles-empty-outline",
+            description: "Empty state with dashed border outline.",
+            type: "registry:component",
+            dependencies: ["lucide-react"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-empty","@craftdotui/baseui-button"],
+            files: [
+  {
+    "path": "packages/craftui/particles/empty/outline/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/empty-outline.tsx",
+    "content": "import { Cloud } from \"lucide-react\";\nimport {\n\tEmptyContent,\n\tEmptyDescription,\n\tEmptyHeader,\n\tEmptyMedia,\n\tEmptyRoot,\n\tEmptyTitle,\n} from \"@/components/craftui/components/empty\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport function Particle() {\n\treturn (\n\t\t<EmptyRoot className=\"border border-border\">\n\t\t\t<EmptyHeader>\n\t\t\t\t<EmptyMedia variant=\"icon\">\n\t\t\t\t\t<Cloud />\n\t\t\t\t</EmptyMedia>\n\t\t\t\t<EmptyTitle>Cloud Storage Empty</EmptyTitle>\n\t\t\t\t<EmptyDescription>\n\t\t\t\t\tUpload files to your cloud storage to access them anywhere.\n\t\t\t\t</EmptyDescription>\n\t\t\t</EmptyHeader>\n\t\t\t<EmptyContent>\n\t\t\t\t<Button variant=\"outline\" size=\"sm\">\n\t\t\t\t\tUpload Files\n\t\t\t\t</Button>\n\t\t\t</EmptyContent>\n\t\t</EmptyRoot>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-empty-outline',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/particles/empty/outline/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-empty": {
+            name: "craftui-particles-empty",
+            description: "Default empty state with icon, actions, and link.",
+            type: "registry:component",
+            dependencies: ["lucide-react"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-empty","@craftdotui/baseui-button"],
+            files: [
+  {
+    "path": "packages/craftui/particles/empty/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/empty.tsx",
+    "content": "import { ArrowUpRight, FolderCode } from \"lucide-react\";\nimport {\n\tEmptyContent,\n\tEmptyDescription,\n\tEmptyHeader,\n\tEmptyMedia,\n\tEmptyRoot,\n\tEmptyTitle,\n} from \"@/components/craftui/components/empty\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport function Particle() {\n\treturn (\n\t\t<EmptyRoot>\n\t\t\t<EmptyHeader>\n\t\t\t\t<EmptyMedia variant=\"icon\">\n\t\t\t\t\t<FolderCode />\n\t\t\t\t</EmptyMedia>\n\t\t\t\t<EmptyTitle>No projects yet</EmptyTitle>\n\t\t\t\t<EmptyDescription>\n\t\t\t\t\tYou haven&apos;t created any projects yet. Get started by\n\t\t\t\t\tcreating your first project.\n\t\t\t\t</EmptyDescription>\n\t\t\t</EmptyHeader>\n\t\t\t<EmptyContent>\n\t\t\t\t<div className=\"flex gap-2\">\n\t\t\t\t\t<Button>Create Project</Button>\n\t\t\t\t\t<Button variant=\"outline\">Import Project</Button>\n\t\t\t\t</div>\n\t\t\t\t<Button\n\t\t\t\t\tvariant=\"link\"\n\t\t\t\t\tsize=\"sm\"\n\t\t\t\t\tclassName=\"text-muted-foreground\"\n\t\t\t\t\trender={<a href=\"#learn-more\" />}\n\t\t\t\t>\n\t\t\t\t\tLearn More <ArrowUpRight />\n\t\t\t\t</Button>\n\t\t\t</EmptyContent>\n\t\t</EmptyRoot>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-empty',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/particles/empty/index.tsx");
 								let Comp = mod.default;
 
 								if (!Comp) {
