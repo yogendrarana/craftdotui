@@ -11,7 +11,7 @@
 		{
 			"path": "packages/baseui/particles/tooltip/detached-triggers/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/tooltip-detached-triggers.tsx"
+			"target": "components/particles/tooltip-detached-triggers.tsx"
 		}
 	]
 }

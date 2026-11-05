@@ -9,7 +9,7 @@
 		{
 			"path": "packages/craftui/components/breadcrumb/index.tsx",
 			"type": "registry:component",
-			"target": "components/craftui/components/breadcrumb.tsx"
+			"target": "components/ui/breadcrumb.tsx"
 		}
 	]
 }

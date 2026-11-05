@@ -9,7 +9,7 @@
 		{
 			"path": "packages/craftui/particles/badge/status/index.tsx",
 			"type": "registry:component",
-			"target": "components/craftui/particles/badge-status.tsx"
+			"target": "components/particles/badge-status.tsx"
 		}
 	]
 }

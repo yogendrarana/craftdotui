@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/context-menu/with-groups-and-labels/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/context-menu-with-groups-and-labels.tsx"
+			"target": "components/particles/context-menu-with-groups-and-labels.tsx"
 		}
 	]
 }

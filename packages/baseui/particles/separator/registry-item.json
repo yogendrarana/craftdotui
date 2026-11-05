@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/separator/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/separator.tsx"
+			"target": "components/particles/separator.tsx"
 		}
 	]
 }

@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/context-menu/with-checkbox-items/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/context-menu-with-checkbox-items.tsx"
+			"target": "components/particles/context-menu-with-checkbox-items.tsx"
 		}
 	]
 }

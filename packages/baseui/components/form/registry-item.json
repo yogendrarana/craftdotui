@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/components/form/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/components/form.tsx"
+			"target": "components/ui/form.tsx"
 		}
 	]
 }

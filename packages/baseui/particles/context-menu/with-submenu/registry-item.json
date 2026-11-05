@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/context-menu/with-submenu/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/context-menu-with-submenu.tsx"
+			"target": "components/particles/context-menu-with-submenu.tsx"
 		}
 	]
 }

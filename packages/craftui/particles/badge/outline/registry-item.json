@@ -9,7 +9,7 @@
 		{
 			"path": "packages/craftui/particles/badge/outline/index.tsx",
 			"type": "registry:component",
-			"target": "components/craftui/particles/badge-outline.tsx"
+			"target": "components/particles/badge-outline.tsx"
 		}
 	]
 }

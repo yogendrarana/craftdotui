@@ -9,7 +9,7 @@
 			"path": "packages/baseui/particles/menu/hover/index.tsx",
 			"content": "import { Button } from \"@/components/baseui/components/button\";\nimport {\n\tMenuContent,\n\tMenuItem,\n\tMenuRoot,\n\tMenuTrigger,\n} from \"@/components/baseui/components/menu\";\n\nexport function Particle() {\n\treturn (\n\t\t<MenuRoot>\n\t\t\t<MenuTrigger\n\t\t\t\topenOnHover\n\t\t\t\trender={<Button variant=\"outline\">Open Menu</Button>}\n\t\t\t/>\n\t\t\t<MenuContent>\n\t\t\t\t<MenuItem>Profile</MenuItem>\n\t\t\t\t<MenuItem>Settings</MenuItem>\n\t\t\t\t<MenuItem>Logout</MenuItem>\n\t\t\t</MenuContent>\n\t\t</MenuRoot>\n\t);\n}\n\nexport default Particle;\n",
 			"type": "registry:component",
-			"target": "components/baseui/particles/menu-hover.tsx"
+			"target": "components/particles/menu-hover.tsx"
 		}
 	],
 	"type": "registry:component"

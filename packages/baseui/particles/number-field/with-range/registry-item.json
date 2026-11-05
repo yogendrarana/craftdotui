@@ -8,7 +8,7 @@
 		{
 			"path": "packages/baseui/particles/number-field/with-range/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/number-field-with-range.tsx"
+			"target": "components/particles/number-field-with-range.tsx"
 		}
 	]
 }

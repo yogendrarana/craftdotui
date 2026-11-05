@@ -9,7 +9,7 @@
 		{
 			"path": "packages/craftui/particles/skeleton/form/index.tsx",
 			"type": "registry:component",
-			"target": "components/craftui/particles/skeleton-form.tsx"
+			"target": "components/particles/skeleton-form.tsx"
 		}
 	]
 }

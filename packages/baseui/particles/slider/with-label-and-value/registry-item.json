@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/slider/with-label-and-value/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/slider-with-label-and-value.tsx"
+			"target": "components/particles/slider-with-label-and-value.tsx"
 		}
 	]
 }

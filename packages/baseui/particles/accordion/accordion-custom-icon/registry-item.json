@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/accordion/accordion-custom-icon/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/accordion-custom-icon.tsx"
+			"target": "components/particles/accordion-custom-icon.tsx"
 		}
 	]
 }

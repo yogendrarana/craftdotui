@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/components/toolbar/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/components/toolbar.tsx"
+			"target": "components/ui/toolbar.tsx"
 		}
 	]
 }

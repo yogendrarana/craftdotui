@@ -9,7 +9,7 @@
 			"path": "packages/baseui/particles/input/file/index.tsx",
 			"content": "import { Input } from \"@/components/baseui/components/input\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"max-w-64\">\n\t\t\t<Input type=\"file\" />\n\t\t</div>\n\t);\n}\n",
 			"type": "registry:component",
-			"target": "components/baseui/particles/input-file.tsx"
+			"target": "components/particles/input-file.tsx"
 		}
 	],
 	"type": "registry:component"

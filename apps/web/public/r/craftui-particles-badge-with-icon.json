@@ -9,7 +9,7 @@
 			"path": "packages/craftui/particles/badge/with-icon/index.tsx",
 			"content": "import { ArrowRight, BadgeCheck, ShieldAlert } from \"lucide-react\";\nimport { Badge } from \"@/components/craftui/components/badge\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"flex flex-wrap items-center gap-2\">\n\t\t\t<Badge variant=\"info\">\n\t\t\t\t<BadgeCheck />\n\t\t\t\tVerified\n\t\t\t</Badge>\n\t\t\t<Badge variant=\"destructive\">\n\t\t\t\t<ShieldAlert />\n\t\t\t\tAction Required\n\t\t\t</Badge>\n\t\t\t<Badge variant=\"secondary\">\n\t\t\t\tNext Step\n\t\t\t\t<ArrowRight />\n\t\t\t</Badge>\n\t\t</div>\n\t);\n}\n\nexport default Particle;\n",
 			"type": "registry:component",
-			"target": "components/craftui/particles/badge-with-icon.tsx"
+			"target": "components/particles/badge-with-icon.tsx"
 		}
 	],
 	"type": "registry:component"

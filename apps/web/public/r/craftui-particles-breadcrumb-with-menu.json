@@ -12,7 +12,7 @@
 			"path": "packages/craftui/particles/breadcrumb/with-menu/index.tsx",
 			"content": "import { ChevronDown } from \"lucide-react\";\nimport {\n\tBreadcrumbItem,\n\tBreadcrumbLink,\n\tBreadcrumbList,\n\tBreadcrumbPage,\n\tBreadcrumbRoot,\n\tBreadcrumbSeparator,\n} from \"@/components/craftui/components/breadcrumb\";\nimport {\n\tMenuContent,\n\tMenuItem,\n\tMenuRoot,\n\tMenuTrigger,\n} from \"@/components/baseui/components/menu\";\n\nexport function Particle() {\n\treturn (\n\t\t<BreadcrumbRoot>\n\t\t\t<BreadcrumbList>\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<BreadcrumbLink href=\"#home\">Home</BreadcrumbLink>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t\t<BreadcrumbSeparator />\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<MenuRoot>\n\t\t\t\t\t\t<MenuTrigger className=\"inline-flex items-center gap-1 rounded-xs text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring cursor-pointer\">\n\t\t\t\t\t\t\tComponents\n\t\t\t\t\t\t\t<ChevronDown className=\"size-3.5\" />\n\t\t\t\t\t\t</MenuTrigger>\n\t\t\t\t\t\t<MenuContent positionerProps={{ align: \"start\" }}>\n\t\t\t\t\t\t\t<MenuItem>Base UI</MenuItem>\n\t\t\t\t\t\t\t<MenuItem>Craft UI</MenuItem>\n\t\t\t\t\t\t\t<MenuItem>Motion</MenuItem>\n\t\t\t\t\t\t</MenuContent>\n\t\t\t\t\t</MenuRoot>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t\t<BreadcrumbSeparator />\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<BreadcrumbPage>Breadcrumb</BreadcrumbPage>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t</BreadcrumbList>\n\t\t</BreadcrumbRoot>\n\t);\n}\n\nexport default Particle;\n",
 			"type": "registry:component",
-			"target": "components/craftui/particles/breadcrumb-with-menu.tsx"
+			"target": "components/particles/breadcrumb-with-menu.tsx"
 		}
 	],
 	"type": "registry:component"

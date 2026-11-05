@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/preview-card/without-arrow/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/preview-card-without-arrow.tsx"
+			"target": "components/particles/preview-card-without-arrow.tsx"
 		}
 	]
 }

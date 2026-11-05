@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/menubar/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/menubar.tsx"
+			"target": "components/particles/menubar.tsx"
 		}
 	]
 }

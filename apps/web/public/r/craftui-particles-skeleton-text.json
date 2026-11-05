@@ -7,9 +7,9 @@
 	"files": [
 		{
 			"path": "packages/craftui/particles/skeleton/text/index.tsx",
-			"content": "import { Skeleton } from \"@/components/craftui/components/skeleton\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"w-full max-w-md space-y-2.5\">\n\t\t\t<Skeleton className=\"h-5 w-2/5\" />\n\t\t\t<Skeleton className=\"h-3.5 w-full\" />\n\t\t\t<Skeleton className=\"h-3.5 w-11/12\" />\n\t\t\t<Skeleton className=\"h-3.5 w-4/5\" />\n\t\t</div>\n\t);\n}\n\nexport default Particle;\n\n",
+			"content": "import { Skeleton } from \"@/components/craftui/components/skeleton\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"w-full max-w-md space-y-2.5\">\n\t\t\t<Skeleton className=\"h-5 w-2/5\" />\n\t\t\t<Skeleton className=\"h-3.5 w-full\" />\n\t\t\t<Skeleton className=\"h-3.5 w-11/12\" />\n\t\t\t<Skeleton className=\"h-3.5 w-4/5\" />\n\t\t</div>\n\t);\n}\n\nexport default Particle;\n",
 			"type": "registry:component",
-			"target": "components/craftui/particles/skeleton-text.tsx"
+			"target": "components/particles/skeleton-text.tsx"
 		}
 	],
 	"type": "registry:component"

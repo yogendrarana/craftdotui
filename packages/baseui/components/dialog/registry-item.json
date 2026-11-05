@@ -14,7 +14,7 @@
 		{
 			"path": "packages/baseui/components/dialog/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/components/dialog.tsx"
+			"target": "components/ui/dialog.tsx"
 		}
 	]
 }

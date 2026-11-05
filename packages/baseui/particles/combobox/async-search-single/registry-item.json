@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/combobox/async-search-single/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/combobox-async-search-single.tsx"
+			"target": "components/particles/combobox-async-search-single.tsx"
 		}
 	]
 }

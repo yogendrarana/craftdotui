@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/components/field/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/components/field.tsx"
+			"target": "components/ui/field.tsx"
 		}
 	]
 }

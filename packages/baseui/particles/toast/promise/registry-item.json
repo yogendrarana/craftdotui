@@ -12,7 +12,7 @@
 		{
 			"path": "packages/baseui/particles/toast/promise/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/toast-promise.tsx"
+			"target": "components/particles/toast-promise.tsx"
 		}
 	]
 }

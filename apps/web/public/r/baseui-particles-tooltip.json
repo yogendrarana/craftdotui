@@ -11,7 +11,7 @@
 			"path": "packages/baseui/particles/tooltip/index.tsx",
 			"content": "import {\n\tTooltipRoot,\n\tTooltipContent,\n\tTooltipProvider,\n\tTooltipTrigger,\n} from \"@/components/baseui/components/tooltip\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport function Particle() {\n\treturn (\n\t\t<TooltipProvider>\n\t\t\t<TooltipRoot>\n\t\t\t\t<TooltipTrigger\n\t\t\t\t\trender={<Button variant=\"outline\">Hover me</Button>}\n\t\t\t\t/>\n\t\t\t\t<TooltipContent>Add to library</TooltipContent>\n\t\t\t</TooltipRoot>\n\t\t</TooltipProvider>\n\t);\n}\n\nexport default Particle;\n",
 			"type": "registry:component",
-			"target": "components/baseui/particles/tooltip.tsx"
+			"target": "components/particles/tooltip.tsx"
 		}
 	],
 	"type": "registry:component"

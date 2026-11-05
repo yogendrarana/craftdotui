@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/components/meter/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/components/meter.tsx"
+			"target": "components/ui/meter.tsx"
 		}
 	]
 }

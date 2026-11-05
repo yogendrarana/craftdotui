@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/components/checkbox-group/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/components/checkbox-group.tsx"
+			"target": "components/ui/checkbox-group.tsx"
 		}
 	]
 }

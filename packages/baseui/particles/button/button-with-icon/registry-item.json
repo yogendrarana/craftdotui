@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/button/button-with-icon/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/button-with-icon.tsx"
+			"target": "components/particles/button-with-icon.tsx"
 		}
 	]
 }

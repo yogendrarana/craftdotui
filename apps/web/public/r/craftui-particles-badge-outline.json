@@ -9,7 +9,7 @@
 			"path": "packages/craftui/particles/badge/outline/index.tsx",
 			"content": "import { Badge } from \"@/components/craftui/components/badge\";\n\nexport function Particle() {\n\treturn <Badge variant=\"outline\">Outline</Badge>;\n}\n\nexport default Particle;\n",
 			"type": "registry:component",
-			"target": "components/craftui/particles/badge-outline.tsx"
+			"target": "components/particles/badge-outline.tsx"
 		}
 	],
 	"type": "registry:component"

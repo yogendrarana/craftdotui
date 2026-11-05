@@ -9,7 +9,7 @@
 			"path": "packages/baseui/particles/field/index.tsx",
 			"content": "import { Field } from \"@/components/baseui/components/field\";\n\nexport default function Particle() {\n\treturn (\n\t\t<Field.Root>\n\t\t\t<Field.Label>Email</Field.Label>\n\t\t\t<Field.Control placeholder=\"you@example.com\" />\n\t\t\t<Field.Description>We’ll never share your email.</Field.Description>\n\t\t</Field.Root>\n\t);\n}\n",
 			"type": "registry:component",
-			"target": "components/baseui/particles/field.tsx"
+			"target": "components/particles/field.tsx"
 		}
 	],
 	"type": "registry:component"

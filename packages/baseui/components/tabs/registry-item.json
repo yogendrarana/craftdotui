@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/components/tabs/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/components/tabs.tsx"
+			"target": "components/ui/tabs.tsx"
 		}
 	]
 }

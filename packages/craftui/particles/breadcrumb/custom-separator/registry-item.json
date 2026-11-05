@@ -9,7 +9,7 @@
 		{
 			"path": "packages/craftui/particles/breadcrumb/custom-separator/index.tsx",
 			"type": "registry:component",
-			"target": "components/craftui/particles/breadcrumb-custom-separator.tsx"
+			"target": "components/particles/breadcrumb-custom-separator.tsx"
 		}
 	]
 }

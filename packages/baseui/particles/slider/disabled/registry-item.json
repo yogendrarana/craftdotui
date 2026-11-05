@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/slider/disabled/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/slider-disabled.tsx"
+			"target": "components/particles/slider-disabled.tsx"
 		}
 	]
 }

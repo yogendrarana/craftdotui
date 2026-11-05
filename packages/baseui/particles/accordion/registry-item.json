@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/accordion/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/accordion.tsx"
+			"target": "components/particles/accordion.tsx"
 		}
 	]
 }

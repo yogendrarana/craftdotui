@@ -8,7 +8,7 @@
 		{
 			"path": "packages/baseui/particles/number-field/with-formatted-value/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/number-field-with-formatted-value.tsx"
+			"target": "components/particles/number-field-with-formatted-value.tsx"
 		}
 	]
 }

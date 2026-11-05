@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/tabs/full-width/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/tabs-full-width.tsx"
+			"target": "components/particles/tabs-full-width.tsx"
 		}
 	]
 }

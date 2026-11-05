@@ -12,7 +12,7 @@
 		{
 			"path": "packages/baseui/particles/dialog/inside-scroll/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/dialog-inside-scroll.tsx"
+			"target": "components/particles/dialog-inside-scroll.tsx"
 		}
 	]
 }

@@ -13,7 +13,7 @@
 		{
 			"path": "packages/baseui/particles/menu/with-alert-dialog/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/menu-with-alert-dialog.tsx"
+			"target": "components/particles/menu-with-alert-dialog.tsx"
 		}
 	]
 }

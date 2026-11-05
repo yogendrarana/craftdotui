@@ -7,9 +7,9 @@
 	"files": [
 		{
 			"path": "packages/craftui/particles/skeleton/card/index.tsx",
-			"content": "import { Skeleton } from \"@/components/craftui/components/skeleton\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"flex w-full max-w-xs flex-col space-y-3 rounded-lg border border-border p-4\">\n\t\t\t<Skeleton className=\"h-32 w-full rounded-md\" />\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<Skeleton className=\"h-4 w-3/4\" />\n\t\t\t\t<Skeleton className=\"h-3.5 w-full\" />\n\t\t\t\t<Skeleton className=\"h-3.5 w-5/6\" />\n\t\t\t</div>\n\t\t\t<div className=\"flex items-center justify-between pt-2\">\n\t\t\t\t<Skeleton className=\"h-4 w-16\" />\n\t\t\t\t<Skeleton className=\"h-7 w-20 rounded-md\" />\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n\nexport default Particle;\n\n",
+			"content": "import { Skeleton } from \"@/components/craftui/components/skeleton\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"flex w-full max-w-xs flex-col space-y-3 rounded-lg border border-border p-4\">\n\t\t\t<Skeleton className=\"h-32 w-full rounded-md\" />\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<Skeleton className=\"h-4 w-3/4\" />\n\t\t\t\t<Skeleton className=\"h-3.5 w-full\" />\n\t\t\t\t<Skeleton className=\"h-3.5 w-5/6\" />\n\t\t\t</div>\n\t\t\t<div className=\"flex items-center justify-between pt-2\">\n\t\t\t\t<Skeleton className=\"h-4 w-16\" />\n\t\t\t\t<Skeleton className=\"h-7 w-20 rounded-md\" />\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n\nexport default Particle;\n",
 			"type": "registry:component",
-			"target": "components/craftui/particles/skeleton-card.tsx"
+			"target": "components/particles/skeleton-card.tsx"
 		}
 	],
 	"type": "registry:component"

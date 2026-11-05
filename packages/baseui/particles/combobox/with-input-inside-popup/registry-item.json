@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/combobox/with-input-inside-popup/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/combobox-with-input-inside-popup.tsx"
+			"target": "components/particles/combobox-with-input-inside-popup.tsx"
 		}
 	]
 }

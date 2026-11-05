@@ -8,7 +8,7 @@
 		{
 			"path": "packages/baseui/particles/popover/with-backdrop/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/popover-with-backdrop.tsx"
+			"target": "components/particles/popover-with-backdrop.tsx"
 		}
 	]
 }

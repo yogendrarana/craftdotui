@@ -9,7 +9,7 @@
 		{
 			"path": "packages/craftui/components/alert/index.tsx",
 			"type": "registry:component",
-			"target": "components/craftui/components/alert.tsx"
+			"target": "components/ui/alert.tsx"
 		}
 	]
 }

@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/combobox/with-multiple-selection/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/combobox-with-multiple-selection.tsx"
+			"target": "components/particles/combobox-with-multiple-selection.tsx"
 		}
 	]
 }

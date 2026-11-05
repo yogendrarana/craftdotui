@@ -9,7 +9,7 @@
 		{
 			"path": "packages/craftui/components/timeline/index.tsx",
 			"type": "registry:component",
-			"target": "components/craftui/components/timeline.tsx"
+			"target": "components/ui/timeline.tsx"
 		}
 	]
 }

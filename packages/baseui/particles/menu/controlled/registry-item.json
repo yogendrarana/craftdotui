@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/menu/controlled/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/menu-controlled.tsx"
+			"target": "components/particles/menu-controlled.tsx"
 		}
 	]
 }

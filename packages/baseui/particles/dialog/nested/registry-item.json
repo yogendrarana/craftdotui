@@ -12,7 +12,7 @@
 		{
 			"path": "packages/baseui/particles/dialog/nested/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/dialog-nested.tsx"
+			"target": "components/particles/dialog-nested.tsx"
 		}
 	]
 }

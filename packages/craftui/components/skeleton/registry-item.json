@@ -9,7 +9,7 @@
 		{
 			"path": "packages/craftui/components/skeleton/index.tsx",
 			"type": "registry:component",
-			"target": "components/craftui/components/skeleton.tsx"
+			"target": "components/ui/skeleton.tsx"
 		}
 	]
 }

@@ -12,7 +12,7 @@
 		{
 			"path": "packages/baseui/particles/toast/varying-heights/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/toast-varying-heights.tsx"
+			"target": "components/particles/toast-varying-heights.tsx"
 		}
 	]
 }

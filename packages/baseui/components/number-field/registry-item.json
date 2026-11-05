@@ -12,7 +12,7 @@
 		{
 			"path": "packages/baseui/components/number-field/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/components/number-field.tsx"
+			"target": "components/ui/number-field.tsx"
 		}
 	]
 }

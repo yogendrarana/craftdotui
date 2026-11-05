@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/components/popover/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/components/popover.tsx"
+			"target": "components/ui/popover.tsx"
 		}
 	]
 }

@@ -8,7 +8,7 @@
 		{
 			"path": "packages/baseui/particles/select/multiple-selection/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/select-multiple-selection.tsx"
+			"target": "components/particles/select-multiple-selection.tsx"
 		}
 	]
 }

@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/drawer/detatched-triggers/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/drawer-detatched-triggers.tsx"
+			"target": "components/particles/drawer-detatched-triggers.tsx"
 		}
 	]
 }

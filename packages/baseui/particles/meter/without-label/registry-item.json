@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/meter/without-label/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/meter-without-label.tsx"
+			"target": "components/particles/meter-without-label.tsx"
 		}
 	]
 }

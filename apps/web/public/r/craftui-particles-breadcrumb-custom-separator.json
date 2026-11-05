@@ -9,7 +9,7 @@
 			"path": "packages/craftui/particles/breadcrumb/custom-separator/index.tsx",
 			"content": "import { Slash } from \"lucide-react\";\nimport {\n\tBreadcrumbItem,\n\tBreadcrumbLink,\n\tBreadcrumbList,\n\tBreadcrumbPage,\n\tBreadcrumbRoot,\n\tBreadcrumbSeparator,\n} from \"@/components/craftui/components/breadcrumb\";\n\nexport function Particle() {\n\treturn (\n\t\t<BreadcrumbRoot>\n\t\t\t<BreadcrumbList>\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<BreadcrumbLink href=\"#home\">Home</BreadcrumbLink>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t\t<BreadcrumbSeparator>\n\t\t\t\t\t<Slash className=\"-rotate-12\" />\n\t\t\t\t</BreadcrumbSeparator>\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<BreadcrumbLink href=\"#components\">\n\t\t\t\t\t\tComponents\n\t\t\t\t\t</BreadcrumbLink>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t\t<BreadcrumbSeparator>\n\t\t\t\t\t<Slash className=\"-rotate-12\" />\n\t\t\t\t</BreadcrumbSeparator>\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<BreadcrumbPage>Breadcrumb</BreadcrumbPage>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t</BreadcrumbList>\n\t\t</BreadcrumbRoot>\n\t);\n}\n\nexport default Particle;\n",
 			"type": "registry:component",
-			"target": "components/craftui/particles/breadcrumb-custom-separator.tsx"
+			"target": "components/particles/breadcrumb-custom-separator.tsx"
 		}
 	],
 	"type": "registry:component"

@@ -9,7 +9,7 @@
 		{
 			"path": "packages/craftui/particles/alert/warning/index.tsx",
 			"type": "registry:component",
-			"target": "components/craftui/particles/alert-warning.tsx"
+			"target": "components/particles/alert-warning.tsx"
 		}
 	]
 }

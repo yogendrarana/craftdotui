@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/components/radio-group/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/components/radio-group.tsx"
+			"target": "components/ui/radio-group.tsx"
 		}
 	]
 }

@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/menu/close-on-click/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/menu-close-on-click.tsx"
+			"target": "components/particles/menu-close-on-click.tsx"
 		}
 	]
 }

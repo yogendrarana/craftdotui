@@ -12,7 +12,7 @@
 		{
 			"path": "packages/baseui/particles/checkbox-group/nested-parent-checkbox/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/checkbox-group-nested-parent-checkbox.tsx"
+			"target": "components/particles/checkbox-group-nested-parent-checkbox.tsx"
 		}
 	]
 }

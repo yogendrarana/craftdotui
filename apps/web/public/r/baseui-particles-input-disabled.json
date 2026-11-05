@@ -9,7 +9,7 @@
 			"path": "packages/baseui/particles/input/disabled/index.tsx",
 			"content": "import { Input } from \"@/components/baseui/components/input\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"max-w-64\">\n\t\t\t<Input disabled placeholder=\"Email address\" />\n\t\t</div>\n\t);\n}\n",
 			"type": "registry:component",
-			"target": "components/baseui/particles/input-disabled.tsx"
+			"target": "components/particles/input-disabled.tsx"
 		}
 	],
 	"type": "registry:component"

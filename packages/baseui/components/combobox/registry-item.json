@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/components/combobox/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/components/combobox.tsx"
+			"target": "components/ui/combobox.tsx"
 		}
 	]
 }

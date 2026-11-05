@@ -8,7 +8,7 @@
 		{
 			"path": "packages/baseui/particles/select/disabled/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/select-disabled.tsx"
+			"target": "components/particles/select-disabled.tsx"
 		}
 	]
 }

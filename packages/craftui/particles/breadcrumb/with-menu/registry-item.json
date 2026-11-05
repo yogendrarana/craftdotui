@@ -12,7 +12,7 @@
 		{
 			"path": "packages/craftui/particles/breadcrumb/with-menu/index.tsx",
 			"type": "registry:component",
-			"target": "components/craftui/particles/breadcrumb-with-menu.tsx"
+			"target": "components/particles/breadcrumb-with-menu.tsx"
 		}
 	]
 }

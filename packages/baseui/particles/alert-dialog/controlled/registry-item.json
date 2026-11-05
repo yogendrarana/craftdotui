@@ -12,7 +12,7 @@
 		{
 			"path": "packages/baseui/particles/alert-dialog/controlled/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/alert-dialog-controlled.tsx"
+			"target": "components/particles/alert-dialog-controlled.tsx"
 		}
 	]
 }

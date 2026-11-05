@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/menu/radio-items/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/menu-radio-items.tsx"
+			"target": "components/particles/menu-radio-items.tsx"
 		}
 	]
 }

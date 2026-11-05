@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/collapsible/collapsible-custom-icon/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/collapsible-custom-icon.tsx"
+			"target": "components/particles/collapsible-custom-icon.tsx"
 		}
 	]
 }

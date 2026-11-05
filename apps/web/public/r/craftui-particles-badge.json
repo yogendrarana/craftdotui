@@ -9,7 +9,7 @@
 			"path": "packages/craftui/particles/badge/index.tsx",
 			"content": "import { Badge } from \"@/components/craftui/components/badge\";\n\nexport function Particle() {\n\treturn <Badge>Badge</Badge>;\n}\n\nexport default Particle;\n",
 			"type": "registry:component",
-			"target": "components/craftui/particles/badge.tsx"
+			"target": "components/particles/badge.tsx"
 		}
 	],
 	"type": "registry:component"

@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/fieldset/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/fieldset.tsx"
+			"target": "components/particles/fieldset.tsx"
 		}
 	]
 }

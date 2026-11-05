@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/navigation-menu/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/navigation-menu.tsx"
+			"target": "components/particles/navigation-menu.tsx"
 		}
 	]
 }

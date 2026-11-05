@@ -9,7 +9,7 @@
 		{
 			"path": "packages/craftui/particles/breadcrumb/collapsed/index.tsx",
 			"type": "registry:component",
-			"target": "components/craftui/particles/breadcrumb-collapsed.tsx"
+			"target": "components/particles/breadcrumb-collapsed.tsx"
 		}
 	]
 }

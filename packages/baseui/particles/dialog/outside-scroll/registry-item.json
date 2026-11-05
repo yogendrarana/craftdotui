@@ -12,7 +12,7 @@
 		{
 			"path": "packages/baseui/particles/dialog/outside-scroll/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/dialog-outside-scroll.tsx"
+			"target": "components/particles/dialog-outside-scroll.tsx"
 		}
 	]
 }

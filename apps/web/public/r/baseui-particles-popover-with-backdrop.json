@@ -8,7 +8,7 @@
 			"path": "packages/baseui/particles/popover/with-backdrop/index.tsx",
 			"content": "\"use client\";\n\nimport {\n\tPopoverRoot,\n\tPopoverTrigger,\n\tPopoverContent,\n\tPopoverTitle,\n\tPopoverDescription,\n} from \"@/components/baseui/components/popover\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport default function Particle() {\n\treturn (\n\t\t<PopoverRoot>\n\t\t\t<PopoverTrigger render={<Button variant=\"outline\">Click</Button>} />\n\t\t\t<PopoverContent hasBackdrop>\n\t\t\t\t<PopoverTitle>Backdrop Popover</PopoverTitle>\n\t\t\t\t<PopoverDescription>\n\t\t\t\t\tThis popover has a backdrop that dims the background.\n\t\t\t\t</PopoverDescription>\n\t\t\t</PopoverContent>\n\t\t</PopoverRoot>\n\t);\n}\n",
 			"type": "registry:component",
-			"target": "components/baseui/particles/popover-with-backdrop.tsx"
+			"target": "components/particles/popover-with-backdrop.tsx"
 		}
 	],
 	"type": "registry:component"

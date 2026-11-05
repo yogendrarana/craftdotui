@@ -12,7 +12,7 @@
 		{
 			"path": "packages/baseui/particles/toast/anchored/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/toast-anchored.tsx"
+			"target": "components/particles/toast-anchored.tsx"
 		}
 	]
 }

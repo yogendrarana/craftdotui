@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/components/avatar/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/components/avatar.tsx"
+			"target": "components/ui/avatar.tsx"
 		}
 	]
 }

@@ -9,7 +9,7 @@
 			"path": "packages/baseui/particles/menu/with-submenu/index.tsx",
 			"content": "import { Button } from \"@/components/baseui/components/button\";\nimport {\n\tMenuContent,\n\tMenuItem,\n\tMenuRoot,\n\tMenuSubmenuRoot,\n\tMenuSubmenuTrigger,\n\tMenuTrigger,\n} from \"@/components/baseui/components/menu\";\n\nexport function Particle() {\n\treturn (\n\t\t<MenuRoot>\n\t\t\t<MenuTrigger\n\t\t\t\trender={<Button variant=\"outline\">Open Menu</Button>}\n\t\t\t/>\n\t\t\t<MenuContent>\n\t\t\t\t<MenuItem>Edit</MenuItem>\n\n\t\t\t\t<MenuSubmenuRoot>\n\t\t\t\t\t<MenuSubmenuTrigger>More</MenuSubmenuTrigger>\n\t\t\t\t\t<MenuContent>\n\t\t\t\t\t\t<MenuItem>Duplicate</MenuItem>\n\t\t\t\t\t\t<MenuItem>Archive</MenuItem>\n\t\t\t\t\t</MenuContent>\n\t\t\t\t</MenuSubmenuRoot>\n\t\t\t</MenuContent>\n\t\t</MenuRoot>\n\t);\n}\n\nexport default Particle;\n",
 			"type": "registry:component",
-			"target": "components/baseui/particles/menu-with-submenu.tsx"
+			"target": "components/particles/menu-with-submenu.tsx"
 		}
 	],
 	"type": "registry:component"

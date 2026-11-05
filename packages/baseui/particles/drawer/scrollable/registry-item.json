@@ -12,7 +12,7 @@
 		{
 			"path": "packages/baseui/particles/drawer/scrollable/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/drawer-scrollable.tsx"
+			"target": "components/particles/drawer-scrollable.tsx"
 		}
 	]
 }

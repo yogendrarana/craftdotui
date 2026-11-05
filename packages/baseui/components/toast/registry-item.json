@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/components/toast/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/components/toast.tsx"
+			"target": "components/ui/toast.tsx"
 		}
 	]
 }

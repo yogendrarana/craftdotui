@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/components/switch/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/components/switch.tsx"
+			"target": "components/ui/switch.tsx"
 		}
 	]
 }

@@ -9,7 +9,7 @@
 		{
 			"path": "packages/craftui/particles/badge/with-dot/index.tsx",
 			"type": "registry:component",
-			"target": "components/craftui/particles/badge-with-dot.tsx"
+			"target": "components/particles/badge-with-dot.tsx"
 		}
 	]
 }

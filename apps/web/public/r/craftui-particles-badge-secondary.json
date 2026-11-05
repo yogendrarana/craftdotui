@@ -9,7 +9,7 @@
 			"path": "packages/craftui/particles/badge/secondary/index.tsx",
 			"content": "import { Badge } from \"@/components/craftui/components/badge\";\n\nexport function Particle() {\n\treturn <Badge variant=\"secondary\">Secondary</Badge>;\n}\n\nexport default Particle;\n",
 			"type": "registry:component",
-			"target": "components/craftui/particles/badge-secondary.tsx"
+			"target": "components/particles/badge-secondary.tsx"
 		}
 	],
 	"type": "registry:component"

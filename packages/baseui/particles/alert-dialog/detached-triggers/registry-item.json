@@ -12,7 +12,7 @@
 		{
 			"path": "packages/baseui/particles/alert-dialog/detached-triggers/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/alert-dialog-detached-triggers.tsx"
+			"target": "components/particles/alert-dialog-detached-triggers.tsx"
 		}
 	]
 }

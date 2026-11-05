@@ -12,7 +12,7 @@
 		{
 			"path": "packages/baseui/particles/toast/undo-action/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/toast-undo-action.tsx"
+			"target": "components/particles/toast-undo-action.tsx"
 		}
 	]
 }

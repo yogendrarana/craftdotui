@@ -12,7 +12,7 @@
 		{
 			"path": "packages/baseui/particles/collapsible/collapsible-controlled/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/collapsible-controlled.tsx"
+			"target": "components/particles/collapsible-controlled.tsx"
 		}
 	]
 }

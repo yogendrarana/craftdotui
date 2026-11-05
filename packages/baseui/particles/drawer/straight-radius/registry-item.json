@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/drawer/straight-radius/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/drawer-straight-radius.tsx"
+			"target": "components/particles/drawer-straight-radius.tsx"
 		}
 	]
 }

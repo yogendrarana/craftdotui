@@ -9,7 +9,7 @@
 		{
 			"path": "packages/craftui/particles/badge/rounded/index.tsx",
 			"type": "registry:component",
-			"target": "components/craftui/particles/badge-rounded.tsx"
+			"target": "components/particles/badge-rounded.tsx"
 		}
 	]
 }

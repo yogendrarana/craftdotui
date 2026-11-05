@@ -12,7 +12,7 @@
 		{
 			"path": "packages/craftui/particles/alert/with-action/index.tsx",
 			"type": "registry:component",
-			"target": "components/craftui/particles/alert-with-action.tsx"
+			"target": "components/particles/alert-with-action.tsx"
 		}
 	]
 }

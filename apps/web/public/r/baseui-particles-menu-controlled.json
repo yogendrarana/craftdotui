@@ -9,7 +9,7 @@
 			"path": "packages/baseui/particles/menu/controlled/index.tsx",
 			"content": "import { useState } from \"react\";\nimport { Button } from \"@/components/baseui/components/button\";\nimport {\n\tMenuContent,\n\tMenuItem,\n\tMenuRoot,\n\tMenuTrigger,\n} from \"@/components/baseui/components/menu\";\n\nexport function Particle() {\n\tconst [open, setOpen] = useState(false);\n\n\treturn (\n\t\t<MenuRoot open={open} onOpenChange={setOpen}>\n\t\t\t<MenuTrigger\n\t\t\t\trender={<Button variant=\"outline\">Open Menu</Button>}\n\t\t\t/>\n\t\t\t<MenuContent>\n\t\t\t\t<MenuItem onSelect={() => setOpen(false)}>Menu Item 1</MenuItem>\n\t\t\t\t<MenuItem onSelect={() => setOpen(false)}>Menu Item 2</MenuItem>\n\t\t\t\t<MenuItem onSelect={() => setOpen(false)}>Menu Item 3</MenuItem>\n\t\t\t</MenuContent>\n\t\t</MenuRoot>\n\t);\n}\n\nexport default Particle;\n",
 			"type": "registry:component",
-			"target": "components/baseui/particles/menu-controlled.tsx"
+			"target": "components/particles/menu-controlled.tsx"
 		}
 	],
 	"type": "registry:component"

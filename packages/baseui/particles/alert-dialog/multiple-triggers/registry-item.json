@@ -12,7 +12,7 @@
 		{
 			"path": "packages/baseui/particles/alert-dialog/multiple-triggers/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/alert-dialog-multiple-triggers.tsx"
+			"target": "components/particles/alert-dialog-multiple-triggers.tsx"
 		}
 	]
 }

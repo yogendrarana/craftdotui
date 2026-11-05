@@ -9,7 +9,7 @@
 		{
 			"path": "packages/craftui/components/stepper/index.tsx",
 			"type": "registry:component",
-			"target": "components/craftui/components/stepper.tsx"
+			"target": "components/ui/stepper.tsx"
 		}
 	]
 }

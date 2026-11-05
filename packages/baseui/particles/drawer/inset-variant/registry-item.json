@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/drawer/inset-variant/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/drawer-inset-variant.tsx"
+			"target": "components/particles/drawer-inset-variant.tsx"
 		}
 	]
 }

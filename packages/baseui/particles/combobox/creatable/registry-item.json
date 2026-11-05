@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/combobox/creatable/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/combobox/creatable.tsx"
+			"target": "components/particles/combobox/creatable.tsx"
 		}
 	]
 }

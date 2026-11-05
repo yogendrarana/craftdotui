@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/accordion/accordion-hidden-until-found/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/accordion-hidden-until-found.tsx"
+			"target": "components/particles/accordion-hidden-until-found.tsx"
 		}
 	]
 }

@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/components/input/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/components/input.tsx"
+			"target": "components/ui/input.tsx"
 		}
 	]
 }

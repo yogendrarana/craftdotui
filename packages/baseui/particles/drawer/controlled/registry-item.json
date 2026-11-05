@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/drawer/controlled/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/drawer-controlled.tsx"
+			"target": "components/particles/drawer-controlled.tsx"
 		}
 	]
 }

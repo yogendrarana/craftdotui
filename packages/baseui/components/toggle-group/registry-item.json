@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/components/toggle-group/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/components/toggle-group.tsx"
+			"target": "components/ui/toggle-group.tsx"
 		}
 	]
 }

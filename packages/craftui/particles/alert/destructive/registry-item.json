@@ -9,7 +9,7 @@
 		{
 			"path": "packages/craftui/particles/alert/destructive/index.tsx",
 			"type": "registry:component",
-			"target": "components/craftui/particles/alert-destructive.tsx"
+			"target": "components/particles/alert-destructive.tsx"
 		}
 	]
 }

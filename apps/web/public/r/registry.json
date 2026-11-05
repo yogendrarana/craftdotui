@@ -35,7 +35,7 @@
 				{
 					"path": "packages/craftui/components/alert/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/components/alert.tsx"
+					"target": "components/uialert.tsx"
 				}
 			]
 		},
@@ -53,7 +53,7 @@
 				{
 					"path": "packages/craftui/components/badge/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/components/badge.tsx"
+					"target": "components/uibadge.tsx"
 				}
 			]
 		},
@@ -67,7 +67,7 @@
 				{
 					"path": "packages/craftui/components/breadcrumb/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/components/breadcrumb.tsx"
+					"target": "components/uibreadcrumb.tsx"
 				}
 			]
 		},
@@ -81,7 +81,7 @@
 				{
 					"path": "packages/craftui/components/skeleton/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/components/skeleton.tsx"
+					"target": "components/uiskeleton.tsx"
 				}
 			]
 		},
@@ -95,7 +95,7 @@
 				{
 					"path": "packages/craftui/components/stepper/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/components/stepper.tsx"
+					"target": "components/uistepper.tsx"
 				}
 			]
 		},
@@ -109,7 +109,7 @@
 				{
 					"path": "packages/craftui/components/timeline/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/components/timeline.tsx"
+					"target": "components/uitimeline.tsx"
 				}
 			]
 		},
@@ -123,7 +123,7 @@
 				{
 					"path": "packages/craftui/particles/alert/destructive/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/alert-destructive.tsx"
+					"target": "components/particles/alert-destructive.tsx"
 				}
 			]
 		},
@@ -137,7 +137,7 @@
 				{
 					"path": "packages/craftui/particles/alert/info/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/alert-info.tsx"
+					"target": "components/particles/alert-info.tsx"
 				}
 			]
 		},
@@ -151,7 +151,7 @@
 				{
 					"path": "packages/craftui/particles/alert/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/alert.tsx"
+					"target": "components/particles/alert.tsx"
 				}
 			]
 		},
@@ -165,7 +165,7 @@
 				{
 					"path": "packages/craftui/particles/alert/success/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/alert-success.tsx"
+					"target": "components/particles/alert-success.tsx"
 				}
 			]
 		},
@@ -179,7 +179,7 @@
 				{
 					"path": "packages/craftui/particles/alert/warning/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/alert-warning.tsx"
+					"target": "components/particles/alert-warning.tsx"
 				}
 			]
 		},
@@ -196,7 +196,7 @@
 				{
 					"path": "packages/craftui/particles/alert/with-action/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/alert-with-action.tsx"
+					"target": "components/particles/alert-with-action.tsx"
 				}
 			]
 		},
@@ -210,7 +210,7 @@
 				{
 					"path": "packages/craftui/particles/alert/without-icon/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/alert-without-icon.tsx"
+					"target": "components/particles/alert-without-icon.tsx"
 				}
 			]
 		},
@@ -224,7 +224,7 @@
 				{
 					"path": "packages/craftui/particles/badge/destructive/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/badge-destructive.tsx"
+					"target": "components/particles/badge-destructive.tsx"
 				}
 			]
 		},
@@ -238,7 +238,7 @@
 				{
 					"path": "packages/craftui/particles/badge/ghost/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/badge-ghost.tsx"
+					"target": "components/particles/badge-ghost.tsx"
 				}
 			]
 		},
@@ -252,7 +252,7 @@
 				{
 					"path": "packages/craftui/particles/badge/outline/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/badge-outline.tsx"
+					"target": "components/particles/badge-outline.tsx"
 				}
 			]
 		},
@@ -266,7 +266,7 @@
 				{
 					"path": "packages/craftui/particles/badge/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/badge.tsx"
+					"target": "components/particles/badge.tsx"
 				}
 			]
 		},
@@ -280,7 +280,7 @@
 				{
 					"path": "packages/craftui/particles/badge/rounded/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/badge-rounded.tsx"
+					"target": "components/particles/badge-rounded.tsx"
 				}
 			]
 		},
@@ -294,7 +294,7 @@
 				{
 					"path": "packages/craftui/particles/badge/secondary/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/badge-secondary.tsx"
+					"target": "components/particles/badge-secondary.tsx"
 				}
 			]
 		},
@@ -308,7 +308,7 @@
 				{
 					"path": "packages/craftui/particles/badge/sizes/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/badge-sizes.tsx"
+					"target": "components/particles/badge-sizes.tsx"
 				}
 			]
 		},
@@ -322,7 +322,7 @@
 				{
 					"path": "packages/craftui/particles/badge/status/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/badge-status.tsx"
+					"target": "components/particles/badge-status.tsx"
 				}
 			]
 		},
@@ -336,7 +336,7 @@
 				{
 					"path": "packages/craftui/particles/badge/with-dot/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/badge-with-dot.tsx"
+					"target": "components/particles/badge-with-dot.tsx"
 				}
 			]
 		},
@@ -350,7 +350,7 @@
 				{
 					"path": "packages/craftui/particles/badge/with-icon/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/badge-with-icon.tsx"
+					"target": "components/particles/badge-with-icon.tsx"
 				}
 			]
 		},
@@ -364,7 +364,7 @@
 				{
 					"path": "packages/craftui/particles/badge/with-link/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/badge-with-link.tsx"
+					"target": "components/particles/badge-with-link.tsx"
 				}
 			]
 		},
@@ -378,7 +378,7 @@
 				{
 					"path": "packages/craftui/particles/breadcrumb/collapsed/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/breadcrumb-collapsed.tsx"
+					"target": "components/particles/breadcrumb-collapsed.tsx"
 				}
 			]
 		},
@@ -392,7 +392,7 @@
 				{
 					"path": "packages/craftui/particles/breadcrumb/custom-link/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/breadcrumb-custom-link.tsx"
+					"target": "components/particles/breadcrumb-custom-link.tsx"
 				}
 			]
 		},
@@ -406,7 +406,7 @@
 				{
 					"path": "packages/craftui/particles/breadcrumb/custom-separator/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/breadcrumb-custom-separator.tsx"
+					"target": "components/particles/breadcrumb-custom-separator.tsx"
 				}
 			]
 		},
@@ -423,7 +423,7 @@
 				{
 					"path": "packages/craftui/particles/breadcrumb/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/breadcrumb.tsx"
+					"target": "components/particles/breadcrumb.tsx"
 				}
 			]
 		},
@@ -437,7 +437,7 @@
 				{
 					"path": "packages/craftui/particles/breadcrumb/with-icons/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/breadcrumb-with-icons.tsx"
+					"target": "components/particles/breadcrumb-with-icons.tsx"
 				}
 			]
 		},
@@ -454,7 +454,7 @@
 				{
 					"path": "packages/craftui/particles/breadcrumb/with-menu/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/breadcrumb-with-menu.tsx"
+					"target": "components/particles/breadcrumb-with-menu.tsx"
 				}
 			]
 		},
@@ -468,7 +468,7 @@
 				{
 					"path": "packages/craftui/particles/skeleton/card/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/skeleton-card.tsx"
+					"target": "components/particles/skeleton-card.tsx"
 				}
 			]
 		},
@@ -482,7 +482,7 @@
 				{
 					"path": "packages/craftui/particles/skeleton/form/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/skeleton-form.tsx"
+					"target": "components/particles/skeleton-form.tsx"
 				}
 			]
 		},
@@ -496,7 +496,7 @@
 				{
 					"path": "packages/craftui/particles/skeleton/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/skeleton.tsx"
+					"target": "components/particles/skeleton.tsx"
 				}
 			]
 		},
@@ -510,7 +510,7 @@
 				{
 					"path": "packages/craftui/particles/skeleton/table/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/skeleton-table.tsx"
+					"target": "components/particles/skeleton-table.tsx"
 				}
 			]
 		},
@@ -524,7 +524,7 @@
 				{
 					"path": "packages/craftui/particles/skeleton/text/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/skeleton-text.tsx"
+					"target": "components/particles/skeleton-text.tsx"
 				}
 			]
 		},
@@ -538,7 +538,7 @@
 				{
 					"path": "packages/craftui/particles/stepper/index.tsx",
 					"type": "registry:block",
-					"target": "components/craftui/particles/stepper.tsx"
+					"target": "components/particles/stepper.tsx"
 				}
 			]
 		},
@@ -552,7 +552,7 @@
 				{
 					"path": "packages/craftui/particles/stepper/stepper-with-fraction-indicator/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/stepper-with-fraction-indicator.tsx"
+					"target": "components/particles/stepper-with-fraction-indicator.tsx"
 				}
 			]
 		},
@@ -566,7 +566,7 @@
 				{
 					"path": "packages/craftui/particles/stepper/stepper-with-number-indicators/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/stepper-with-number-indicators.tsx"
+					"target": "components/particles/stepper-with-number-indicators.tsx"
 				}
 			]
 		},
@@ -580,7 +580,7 @@
 				{
 					"path": "packages/craftui/particles/stepper/stepper-with-progress-indicator/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/stepper-with-progress-indicator.tsx"
+					"target": "components/particles/stepper-with-progress-indicator.tsx"
 				}
 			]
 		},
@@ -594,7 +594,7 @@
 				{
 					"path": "packages/craftui/particles/stepper/stepper-with-text-indicator/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/stepper-with-text-indicator.tsx"
+					"target": "components/particles/stepper-with-text-indicator.tsx"
 				}
 			]
 		},
@@ -608,7 +608,7 @@
 				{
 					"path": "packages/craftui/particles/timeline/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/timeline.tsx"
+					"target": "components/particles/timeline.tsx"
 				}
 			]
 		},
@@ -622,7 +622,7 @@
 				{
 					"path": "packages/craftui/particles/timeline/timeline-with-filled-markers/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/timeline-with-filled-markers.tsx"
+					"target": "components/particles/timeline-with-filled-markers.tsx"
 				}
 			]
 		},
@@ -636,7 +636,7 @@
 				{
 					"path": "packages/craftui/particles/timeline/timeline-with-horizontal-layout/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/timeline-with-horizontal-layout.tsx"
+					"target": "components/particles/timeline-with-horizontal-layout.tsx"
 				}
 			]
 		},
@@ -650,7 +650,7 @@
 				{
 					"path": "packages/baseui/components/accordion/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/accordion.tsx"
+					"target": "components/ui/accordion.tsx"
 				}
 			]
 		},
@@ -668,7 +668,7 @@
 				{
 					"path": "packages/baseui/components/alert-dialog/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/alert-dialog.tsx"
+					"target": "components/ui/alert-dialog.tsx"
 				}
 			]
 		},
@@ -682,7 +682,7 @@
 				{
 					"path": "packages/baseui/components/arrow/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/arrow/index.tsx"
+					"target": "components/ui/arrow/index.tsx"
 				}
 			]
 		},
@@ -696,7 +696,7 @@
 				{
 					"path": "packages/baseui/components/autocomplete/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/autocomplete.tsx"
+					"target": "components/ui/autocomplete.tsx"
 				}
 			]
 		},
@@ -710,7 +710,7 @@
 				{
 					"path": "packages/baseui/components/avatar/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/avatar.tsx"
+					"target": "components/ui/avatar.tsx"
 				}
 			]
 		},
@@ -724,7 +724,7 @@
 				{
 					"path": "packages/baseui/components/button/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/button.tsx"
+					"target": "components/ui/button.tsx"
 				}
 			]
 		},
@@ -738,7 +738,7 @@
 				{
 					"path": "packages/baseui/components/checkbox/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/checkbox.tsx"
+					"target": "components/ui/checkbox.tsx"
 				}
 			]
 		},
@@ -752,7 +752,7 @@
 				{
 					"path": "packages/baseui/components/checkbox-group/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/checkbox-group.tsx"
+					"target": "components/ui/checkbox-group.tsx"
 				}
 			]
 		},
@@ -766,7 +766,7 @@
 				{
 					"path": "packages/baseui/components/collapsible/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/collapsible.tsx"
+					"target": "components/ui/collapsible.tsx"
 				}
 			]
 		},
@@ -780,7 +780,7 @@
 				{
 					"path": "packages/baseui/components/combobox/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/combobox.tsx"
+					"target": "components/ui/combobox.tsx"
 				}
 			]
 		},
@@ -794,7 +794,7 @@
 				{
 					"path": "packages/baseui/components/context-menu/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/context-menu.tsx"
+					"target": "components/ui/context-menu.tsx"
 				}
 			]
 		},
@@ -813,7 +813,7 @@
 				{
 					"path": "packages/baseui/components/dialog/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/dialog.tsx"
+					"target": "components/ui/dialog.tsx"
 				}
 			]
 		},
@@ -827,7 +827,7 @@
 				{
 					"path": "packages/baseui/components/drawer/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/drawer.tsx"
+					"target": "components/ui/drawer.tsx"
 				}
 			]
 		},
@@ -841,7 +841,7 @@
 				{
 					"path": "packages/baseui/components/field/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/field.tsx"
+					"target": "components/ui/field.tsx"
 				}
 			]
 		},
@@ -855,7 +855,7 @@
 				{
 					"path": "packages/baseui/components/fieldset/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/fieldset.tsx"
+					"target": "components/ui/fieldset.tsx"
 				}
 			]
 		},
@@ -869,7 +869,7 @@
 				{
 					"path": "packages/baseui/components/form/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/form.tsx"
+					"target": "components/ui/form.tsx"
 				}
 			]
 		},
@@ -883,7 +883,7 @@
 				{
 					"path": "packages/baseui/components/input/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/input.tsx"
+					"target": "components/ui/input.tsx"
 				}
 			]
 		},
@@ -897,7 +897,7 @@
 				{
 					"path": "packages/baseui/components/menu/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/menu.tsx"
+					"target": "components/ui/menu.tsx"
 				}
 			]
 		},
@@ -911,7 +911,7 @@
 				{
 					"path": "packages/baseui/components/menubar/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/menubar.tsx"
+					"target": "components/ui/menubar.tsx"
 				}
 			]
 		},
@@ -925,7 +925,7 @@
 				{
 					"path": "packages/baseui/components/meter/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/meter.tsx"
+					"target": "components/ui/meter.tsx"
 				}
 			]
 		},
@@ -939,7 +939,7 @@
 				{
 					"path": "packages/baseui/components/navigation-menu/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/navigation-menu.tsx"
+					"target": "components/ui/navigation-menu.tsx"
 				}
 			]
 		},
@@ -956,7 +956,7 @@
 				{
 					"path": "packages/baseui/components/number-field/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/number-field.tsx"
+					"target": "components/ui/number-field.tsx"
 				}
 			]
 		},
@@ -973,7 +973,7 @@
 				{
 					"path": "packages/baseui/components/otp-field/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/otp-field.tsx"
+					"target": "components/ui/otp-field.tsx"
 				}
 			]
 		},
@@ -987,7 +987,7 @@
 				{
 					"path": "packages/baseui/components/popover/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/popover.tsx"
+					"target": "components/ui/popover.tsx"
 				}
 			]
 		},
@@ -1001,7 +1001,7 @@
 				{
 					"path": "packages/baseui/components/preview-card/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/preview-card.tsx"
+					"target": "components/ui/preview-card.tsx"
 				}
 			]
 		},
@@ -1015,7 +1015,7 @@
 				{
 					"path": "packages/baseui/components/progress/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/progress.tsx"
+					"target": "components/ui/progress.tsx"
 				}
 			]
 		},
@@ -1029,7 +1029,7 @@
 				{
 					"path": "packages/baseui/components/radio-group/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/radio-group.tsx"
+					"target": "components/ui/radio-group.tsx"
 				}
 			]
 		},
@@ -1043,7 +1043,7 @@
 				{
 					"path": "packages/baseui/components/scroll-area/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/scroll-area.tsx"
+					"target": "components/ui/scroll-area.tsx"
 				}
 			]
 		},
@@ -1062,7 +1062,7 @@
 				{
 					"path": "packages/baseui/components/select/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/select.tsx"
+					"target": "components/ui/select.tsx"
 				}
 			]
 		},
@@ -1076,7 +1076,7 @@
 				{
 					"path": "packages/baseui/components/separator/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/separator.tsx"
+					"target": "components/ui/separator.tsx"
 				}
 			]
 		},
@@ -1090,7 +1090,7 @@
 				{
 					"path": "packages/baseui/components/slider/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/slider.tsx"
+					"target": "components/ui/slider.tsx"
 				}
 			]
 		},
@@ -1104,7 +1104,7 @@
 				{
 					"path": "packages/baseui/components/switch/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/switch.tsx"
+					"target": "components/ui/switch.tsx"
 				}
 			]
 		},
@@ -1118,7 +1118,7 @@
 				{
 					"path": "packages/baseui/components/tabs/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/tabs.tsx"
+					"target": "components/ui/tabs.tsx"
 				}
 			]
 		},
@@ -1132,7 +1132,7 @@
 				{
 					"path": "packages/baseui/components/toast/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/toast.tsx"
+					"target": "components/ui/toast.tsx"
 				}
 			]
 		},
@@ -1146,7 +1146,7 @@
 				{
 					"path": "packages/baseui/components/toggle/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/toggle.tsx"
+					"target": "components/ui/toggle.tsx"
 				}
 			]
 		},
@@ -1160,7 +1160,7 @@
 				{
 					"path": "packages/baseui/components/toggle-group/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/toggle-group.tsx"
+					"target": "components/ui/toggle-group.tsx"
 				}
 			]
 		},
@@ -1174,7 +1174,7 @@
 				{
 					"path": "packages/baseui/components/toolbar/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/toolbar.tsx"
+					"target": "components/ui/toolbar.tsx"
 				}
 			]
 		},
@@ -1188,7 +1188,7 @@
 				{
 					"path": "packages/baseui/components/tooltip/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/components/tooltip.tsx"
+					"target": "components/ui/tooltip.tsx"
 				}
 			]
 		},
@@ -1205,7 +1205,7 @@
 				{
 					"path": "packages/baseui/particles/accordion/accordion-controlled/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/accordion-controlled.tsx"
+					"target": "components/particles/accordion-controlled.tsx"
 				}
 			]
 		},
@@ -1219,7 +1219,7 @@
 				{
 					"path": "packages/baseui/particles/accordion/accordion-custom-icon/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/accordion-custom-icon.tsx"
+					"target": "components/particles/accordion-custom-icon.tsx"
 				}
 			]
 		},
@@ -1233,7 +1233,7 @@
 				{
 					"path": "packages/baseui/particles/accordion/accordion-default-open/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/accordion-default-open.tsx"
+					"target": "components/particles/accordion-default-open.tsx"
 				}
 			]
 		},
@@ -1247,7 +1247,7 @@
 				{
 					"path": "packages/baseui/particles/accordion/accordion-hidden-until-found/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/accordion-hidden-until-found.tsx"
+					"target": "components/particles/accordion-hidden-until-found.tsx"
 				}
 			]
 		},
@@ -1261,7 +1261,7 @@
 				{
 					"path": "packages/baseui/particles/accordion/accordion-multiple/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/accordion-multiple.tsx"
+					"target": "components/particles/accordion-multiple.tsx"
 				}
 			]
 		},
@@ -1275,7 +1275,7 @@
 				{
 					"path": "packages/baseui/particles/accordion/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/accordion.tsx"
+					"target": "components/particles/accordion.tsx"
 				}
 			]
 		},
@@ -1293,7 +1293,7 @@
 				{
 					"path": "packages/baseui/particles/alert-dialog/close-confirmation/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/alert-dialog-close-confirmation.tsx"
+					"target": "components/particles/alert-dialog-close-confirmation.tsx"
 				}
 			]
 		},
@@ -1310,7 +1310,7 @@
 				{
 					"path": "packages/baseui/particles/alert-dialog/controlled/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/alert-dialog-controlled.tsx"
+					"target": "components/particles/alert-dialog-controlled.tsx"
 				}
 			]
 		},
@@ -1327,7 +1327,7 @@
 				{
 					"path": "packages/baseui/particles/alert-dialog/detached-triggers/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/alert-dialog-detached-triggers.tsx"
+					"target": "components/particles/alert-dialog-detached-triggers.tsx"
 				}
 			]
 		},
@@ -1345,7 +1345,7 @@
 				{
 					"path": "packages/baseui/particles/alert-dialog/from-menu/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/alert-dialog-from-menu.tsx"
+					"target": "components/particles/alert-dialog-from-menu.tsx"
 				}
 			]
 		},
@@ -1362,7 +1362,7 @@
 				{
 					"path": "packages/baseui/particles/alert-dialog/multiple-triggers/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/alert-dialog-multiple-triggers.tsx"
+					"target": "components/particles/alert-dialog-multiple-triggers.tsx"
 				}
 			]
 		},
@@ -1379,7 +1379,7 @@
 				{
 					"path": "packages/baseui/particles/alert-dialog/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/alert-dialog.tsx"
+					"target": "components/particles/alert-dialog.tsx"
 				}
 			]
 		},
@@ -1393,7 +1393,7 @@
 				{
 					"path": "packages/baseui/particles/autocomplete/autocomplete-async-search/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/autocomplete-async-search.tsx"
+					"target": "components/particles/autocomplete-async-search.tsx"
 				}
 			]
 		},
@@ -1407,7 +1407,7 @@
 				{
 					"path": "packages/baseui/particles/autocomplete/autocomplete-auto-highlight/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/autocomplete-auto-highlight.tsx"
+					"target": "components/particles/autocomplete-auto-highlight.tsx"
 				}
 			]
 		},
@@ -1421,7 +1421,7 @@
 				{
 					"path": "packages/baseui/particles/autocomplete/autocomplete-disabled/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/autocomplete-disabled.tsx"
+					"target": "components/particles/autocomplete-disabled.tsx"
 				}
 			]
 		},
@@ -1435,7 +1435,7 @@
 				{
 					"path": "packages/baseui/particles/autocomplete/autocomplete-with-clear-and-trigger/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/autocomplete-with-clear-and-trigger.tsx"
+					"target": "components/particles/autocomplete-with-clear-and-trigger.tsx"
 				}
 			]
 		},
@@ -1449,7 +1449,7 @@
 				{
 					"path": "packages/baseui/particles/autocomplete/autocomplete-with-groups/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/autocomplete-with-groups.tsx"
+					"target": "components/particles/autocomplete-with-groups.tsx"
 				}
 			]
 		},
@@ -1463,7 +1463,7 @@
 				{
 					"path": "packages/baseui/particles/autocomplete/autocomplete-with-start-addon/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/autocomplete-with-start-addon.tsx"
+					"target": "components/particles/autocomplete-with-start-addon.tsx"
 				}
 			]
 		},
@@ -1477,7 +1477,7 @@
 				{
 					"path": "packages/baseui/particles/autocomplete/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/autocomplete.tsx"
+					"target": "components/particles/autocomplete.tsx"
 				}
 			]
 		},
@@ -1491,7 +1491,7 @@
 				{
 					"path": "packages/baseui/particles/avatar/avatar-fallback/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/avatar-fallback.tsx"
+					"target": "components/particles/avatar-fallback.tsx"
 				}
 			]
 		},
@@ -1505,7 +1505,7 @@
 				{
 					"path": "packages/baseui/particles/avatar/avatar-group/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/avatar-group.tsx"
+					"target": "components/particles/avatar-group.tsx"
 				}
 			]
 		},
@@ -1519,7 +1519,7 @@
 				{
 					"path": "packages/baseui/particles/avatar/avatar-radius/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/avatar-radius.tsx"
+					"target": "components/particles/avatar-radius.tsx"
 				}
 			]
 		},
@@ -1533,7 +1533,7 @@
 				{
 					"path": "packages/baseui/particles/avatar/avatar-sizes/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/avatar-sizes.tsx"
+					"target": "components/particles/avatar-sizes.tsx"
 				}
 			]
 		},
@@ -1547,7 +1547,7 @@
 				{
 					"path": "packages/baseui/particles/avatar/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/avatar.tsx"
+					"target": "components/particles/avatar.tsx"
 				}
 			]
 		},
@@ -1561,7 +1561,7 @@
 				{
 					"path": "packages/baseui/particles/button/button-destructive/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/button-destructive.tsx"
+					"target": "components/particles/button-destructive.tsx"
 				}
 			]
 		},
@@ -1575,7 +1575,7 @@
 				{
 					"path": "packages/baseui/particles/button/button-disabled/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/button-disabled.tsx"
+					"target": "components/particles/button-disabled.tsx"
 				}
 			]
 		},
@@ -1589,7 +1589,7 @@
 				{
 					"path": "packages/baseui/particles/button/button-ghost/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/button-ghost.tsx"
+					"target": "components/particles/button-ghost.tsx"
 				}
 			]
 		},
@@ -1603,7 +1603,7 @@
 				{
 					"path": "packages/baseui/particles/button/button-icon/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/button-icon.tsx"
+					"target": "components/particles/button-icon.tsx"
 				}
 			]
 		},
@@ -1617,7 +1617,7 @@
 				{
 					"path": "packages/baseui/particles/button/button-loading/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/button-loading.tsx"
+					"target": "components/particles/button-loading.tsx"
 				}
 			]
 		},
@@ -1631,7 +1631,7 @@
 				{
 					"path": "packages/baseui/particles/button/button-outline/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/button-outline.tsx"
+					"target": "components/particles/button-outline.tsx"
 				}
 			]
 		},
@@ -1645,7 +1645,7 @@
 				{
 					"path": "packages/baseui/particles/button/button-rounded/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/button-rounded.tsx"
+					"target": "components/particles/button-rounded.tsx"
 				}
 			]
 		},
@@ -1659,7 +1659,7 @@
 				{
 					"path": "packages/baseui/particles/button/button-secondary/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/button-secondary.tsx"
+					"target": "components/particles/button-secondary.tsx"
 				}
 			]
 		},
@@ -1673,7 +1673,7 @@
 				{
 					"path": "packages/baseui/particles/button/button-sizes/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/button-sizes.tsx"
+					"target": "components/particles/button-sizes.tsx"
 				}
 			]
 		},
@@ -1687,7 +1687,7 @@
 				{
 					"path": "packages/baseui/particles/button/button-with-icon/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/button-with-icon.tsx"
+					"target": "components/particles/button-with-icon.tsx"
 				}
 			]
 		},
@@ -1701,7 +1701,7 @@
 				{
 					"path": "packages/baseui/particles/button/button-with-link/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/button-with-link.tsx"
+					"target": "components/particles/button-with-link.tsx"
 				}
 			]
 		},
@@ -1715,7 +1715,7 @@
 				{
 					"path": "packages/baseui/particles/button/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/button.tsx"
+					"target": "components/particles/button.tsx"
 				}
 			]
 		},
@@ -1729,7 +1729,7 @@
 				{
 					"path": "packages/baseui/particles/checkbox/checkbox-card/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/checkbox-card.tsx"
+					"target": "components/particles/checkbox-card.tsx"
 				}
 			]
 		},
@@ -1743,7 +1743,7 @@
 				{
 					"path": "packages/baseui/particles/checkbox/checkbox-disabled/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/checkbox-disabled.tsx"
+					"target": "components/particles/checkbox-disabled.tsx"
 				}
 			]
 		},
@@ -1757,7 +1757,7 @@
 				{
 					"path": "packages/baseui/particles/checkbox/checkbox-with-description/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/checkbox-with-description.tsx"
+					"target": "components/particles/checkbox-with-description.tsx"
 				}
 			]
 		},
@@ -1771,7 +1771,7 @@
 				{
 					"path": "packages/baseui/particles/checkbox/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/checkbox.tsx"
+					"target": "components/particles/checkbox.tsx"
 				}
 			]
 		},
@@ -1788,7 +1788,7 @@
 				{
 					"path": "packages/baseui/particles/checkbox-group/nested-parent-checkbox/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/checkbox-group-nested-parent-checkbox.tsx"
+					"target": "components/particles/checkbox-group-nested-parent-checkbox.tsx"
 				}
 			]
 		},
@@ -1805,7 +1805,7 @@
 				{
 					"path": "packages/baseui/particles/checkbox-group/parent-checkbox/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/checkbox-group-parent-checkbox.tsx"
+					"target": "components/particles/checkbox-group-parent-checkbox.tsx"
 				}
 			]
 		},
@@ -1822,7 +1822,7 @@
 				{
 					"path": "packages/baseui/particles/checkbox-group/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/checkbox-group.tsx"
+					"target": "components/particles/checkbox-group.tsx"
 				}
 			]
 		},
@@ -1836,7 +1836,7 @@
 				{
 					"path": "packages/baseui/particles/collapsible/collapsible-card/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/collapsible-card.tsx"
+					"target": "components/particles/collapsible-card.tsx"
 				}
 			]
 		},
@@ -1853,7 +1853,7 @@
 				{
 					"path": "packages/baseui/particles/collapsible/collapsible-controlled/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/collapsible-controlled.tsx"
+					"target": "components/particles/collapsible-controlled.tsx"
 				}
 			]
 		},
@@ -1867,7 +1867,7 @@
 				{
 					"path": "packages/baseui/particles/collapsible/collapsible-custom-icon/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/collapsible-custom-icon.tsx"
+					"target": "components/particles/collapsible-custom-icon.tsx"
 				}
 			]
 		},
@@ -1881,7 +1881,7 @@
 				{
 					"path": "packages/baseui/particles/collapsible/collapsible-default-open/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/collapsible-default-open.tsx"
+					"target": "components/particles/collapsible-default-open.tsx"
 				}
 			]
 		},
@@ -1895,7 +1895,7 @@
 				{
 					"path": "packages/baseui/particles/collapsible/collapsible-hidden-until-found/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/collapsible-hidden-until-found.tsx"
+					"target": "components/particles/collapsible-hidden-until-found.tsx"
 				}
 			]
 		},
@@ -1909,7 +1909,7 @@
 				{
 					"path": "packages/baseui/particles/collapsible/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/collapsible.tsx"
+					"target": "components/particles/collapsible.tsx"
 				}
 			]
 		},
@@ -1923,7 +1923,7 @@
 				{
 					"path": "packages/baseui/particles/combobox/async-search-multiple/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/combobox-async-search-multiple.tsx"
+					"target": "components/particles/combobox-async-search-multiple.tsx"
 				}
 			]
 		},
@@ -1937,7 +1937,7 @@
 				{
 					"path": "packages/baseui/particles/combobox/async-search-single/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/combobox-async-search-single.tsx"
+					"target": "components/particles/combobox-async-search-single.tsx"
 				}
 			]
 		},
@@ -1951,7 +1951,7 @@
 				{
 					"path": "packages/baseui/particles/combobox/creatable/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/combobox/creatable.tsx"
+					"target": "components/particles/combobox/creatable.tsx"
 				}
 			]
 		},
@@ -1965,7 +1965,7 @@
 				{
 					"path": "packages/baseui/particles/combobox/disabled/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/combobox-disabled.tsx"
+					"target": "components/particles/combobox-disabled.tsx"
 				}
 			]
 		},
@@ -1979,7 +1979,7 @@
 				{
 					"path": "packages/baseui/particles/combobox/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/combobox.tsx"
+					"target": "components/particles/combobox.tsx"
 				}
 			]
 		},
@@ -1993,7 +1993,7 @@
 				{
 					"path": "packages/baseui/particles/combobox/sizes/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/combobox-sizes.tsx"
+					"target": "components/particles/combobox-sizes.tsx"
 				}
 			]
 		},
@@ -2007,7 +2007,7 @@
 				{
 					"path": "packages/baseui/particles/combobox/with-auto-highlight/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/combobox-with-auto-highlight.tsx"
+					"target": "components/particles/combobox-with-auto-highlight.tsx"
 				}
 			]
 		},
@@ -2021,7 +2021,7 @@
 				{
 					"path": "packages/baseui/particles/combobox/with-groups/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/combobox-with-groups.tsx"
+					"target": "components/particles/combobox-with-groups.tsx"
 				}
 			]
 		},
@@ -2035,7 +2035,7 @@
 				{
 					"path": "packages/baseui/particles/combobox/with-input-inside-popup/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/combobox-with-input-inside-popup.tsx"
+					"target": "components/particles/combobox-with-input-inside-popup.tsx"
 				}
 			]
 		},
@@ -2049,7 +2049,7 @@
 				{
 					"path": "packages/baseui/particles/combobox/with-multiple-selection/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/combobox-with-multiple-selection.tsx"
+					"target": "components/particles/combobox-with-multiple-selection.tsx"
 				}
 			]
 		},
@@ -2063,7 +2063,7 @@
 				{
 					"path": "packages/baseui/particles/combobox/with-start-addon/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/combobox-with-start-addon.tsx"
+					"target": "components/particles/combobox-with-start-addon.tsx"
 				}
 			]
 		},
@@ -2077,7 +2077,7 @@
 				{
 					"path": "packages/baseui/particles/context-menu/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/context-menu.tsx"
+					"target": "components/particles/context-menu.tsx"
 				}
 			]
 		},
@@ -2091,7 +2091,7 @@
 				{
 					"path": "packages/baseui/particles/context-menu/with-checkbox-items/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/context-menu-with-checkbox-items.tsx"
+					"target": "components/particles/context-menu-with-checkbox-items.tsx"
 				}
 			]
 		},
@@ -2105,7 +2105,7 @@
 				{
 					"path": "packages/baseui/particles/context-menu/with-groups-and-labels/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/context-menu-with-groups-and-labels.tsx"
+					"target": "components/particles/context-menu-with-groups-and-labels.tsx"
 				}
 			]
 		},
@@ -2119,7 +2119,7 @@
 				{
 					"path": "packages/baseui/particles/context-menu/with-radio-group/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/context-menu-with-radio-group.tsx"
+					"target": "components/particles/context-menu-with-radio-group.tsx"
 				}
 			]
 		},
@@ -2133,7 +2133,7 @@
 				{
 					"path": "packages/baseui/particles/context-menu/with-submenu/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/context-menu-with-submenu.tsx"
+					"target": "components/particles/context-menu-with-submenu.tsx"
 				}
 			]
 		},
@@ -2151,7 +2151,7 @@
 				{
 					"path": "packages/baseui/particles/dialog/close-confirmation/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/dialog-close-confirmation.tsx"
+					"target": "components/particles/dialog-close-confirmation.tsx"
 				}
 			]
 		},
@@ -2169,7 +2169,7 @@
 				{
 					"path": "packages/baseui/particles/dialog/controlled/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/dialog-controlled.tsx"
+					"target": "components/particles/dialog-controlled.tsx"
 				}
 			]
 		},
@@ -2187,7 +2187,7 @@
 				{
 					"path": "packages/baseui/particles/dialog/custom-focus/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/dialog-custom-focus.tsx"
+					"target": "components/particles/dialog-custom-focus.tsx"
 				}
 			]
 		},
@@ -2204,7 +2204,7 @@
 				{
 					"path": "packages/baseui/particles/dialog/detached-triggers/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/dialog-detached-triggers.tsx"
+					"target": "components/particles/dialog-detached-triggers.tsx"
 				}
 			]
 		},
@@ -2222,7 +2222,7 @@
 				{
 					"path": "packages/baseui/particles/dialog/from-menu/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/dialog-from-menu.tsx"
+					"target": "components/particles/dialog-from-menu.tsx"
 				}
 			]
 		},
@@ -2239,7 +2239,7 @@
 				{
 					"path": "packages/baseui/particles/dialog/inside-scroll/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/dialog-inside-scroll.tsx"
+					"target": "components/particles/dialog-inside-scroll.tsx"
 				}
 			]
 		},
@@ -2256,7 +2256,7 @@
 				{
 					"path": "packages/baseui/particles/dialog/nested/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/dialog-nested.tsx"
+					"target": "components/particles/dialog-nested.tsx"
 				}
 			]
 		},
@@ -2273,7 +2273,7 @@
 				{
 					"path": "packages/baseui/particles/dialog/outside-scroll/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/dialog-outside-scroll.tsx"
+					"target": "components/particles/dialog-outside-scroll.tsx"
 				}
 			]
 		},
@@ -2291,7 +2291,7 @@
 				{
 					"path": "packages/baseui/particles/dialog/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/dialog.tsx"
+					"target": "components/particles/dialog.tsx"
 				}
 			]
 		},
@@ -2305,7 +2305,7 @@
 				{
 					"path": "packages/baseui/particles/drawer/controlled/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/drawer-controlled.tsx"
+					"target": "components/particles/drawer-controlled.tsx"
 				}
 			]
 		},
@@ -2319,7 +2319,7 @@
 				{
 					"path": "packages/baseui/particles/drawer/detatched-triggers/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/drawer-detatched-triggers.tsx"
+					"target": "components/particles/drawer-detatched-triggers.tsx"
 				}
 			]
 		},
@@ -2333,7 +2333,7 @@
 				{
 					"path": "packages/baseui/particles/drawer/inset-variant/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/drawer-inset-variant.tsx"
+					"target": "components/particles/drawer-inset-variant.tsx"
 				}
 			]
 		},
@@ -2347,7 +2347,7 @@
 				{
 					"path": "packages/baseui/particles/drawer/nested-with-stacking/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/drawer-nested-with-stacking.tsx"
+					"target": "components/particles/drawer-nested-with-stacking.tsx"
 				}
 			]
 		},
@@ -2361,7 +2361,7 @@
 				{
 					"path": "packages/baseui/particles/drawer/non-modal/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/drawer-non-modal.tsx"
+					"target": "components/particles/drawer-non-modal.tsx"
 				}
 			]
 		},
@@ -2375,7 +2375,7 @@
 				{
 					"path": "packages/baseui/particles/drawer/positions/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/drawer-positions.tsx"
+					"target": "components/particles/drawer-positions.tsx"
 				}
 			]
 		},
@@ -2389,7 +2389,7 @@
 				{
 					"path": "packages/baseui/particles/drawer/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/drawer.tsx"
+					"target": "components/particles/drawer.tsx"
 				}
 			]
 		},
@@ -2406,7 +2406,7 @@
 				{
 					"path": "packages/baseui/particles/drawer/scrollable/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/drawer-scrollable.tsx"
+					"target": "components/particles/drawer-scrollable.tsx"
 				}
 			]
 		},
@@ -2420,7 +2420,7 @@
 				{
 					"path": "packages/baseui/particles/drawer/snap-points/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/drawer-snap-points.tsx"
+					"target": "components/particles/drawer-snap-points.tsx"
 				}
 			]
 		},
@@ -2434,7 +2434,7 @@
 				{
 					"path": "packages/baseui/particles/drawer/straight-radius/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/drawer-straight-radius.tsx"
+					"target": "components/particles/drawer-straight-radius.tsx"
 				}
 			]
 		},
@@ -2448,7 +2448,7 @@
 				{
 					"path": "packages/baseui/particles/drawer/swipe-to-close/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/drawer-swipe-to-close.tsx"
+					"target": "components/particles/drawer-swipe-to-close.tsx"
 				}
 			]
 		},
@@ -2462,7 +2462,7 @@
 				{
 					"path": "packages/baseui/particles/drawer/swipe-to-open/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/drawer-swipe-to-open.tsx"
+					"target": "components/particles/drawer-swipe-to-open.tsx"
 				}
 			]
 		},
@@ -2476,7 +2476,7 @@
 				{
 					"path": "packages/baseui/particles/field/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/field.tsx"
+					"target": "components/particles/field.tsx"
 				}
 			]
 		},
@@ -2490,7 +2490,7 @@
 				{
 					"path": "packages/baseui/particles/fieldset/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/fieldset.tsx"
+					"target": "components/particles/fieldset.tsx"
 				}
 			]
 		},
@@ -2509,7 +2509,7 @@
 				{
 					"path": "packages/baseui/particles/form/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/form.tsx"
+					"target": "components/particles/form.tsx"
 				}
 			]
 		},
@@ -2523,7 +2523,7 @@
 				{
 					"path": "packages/baseui/particles/input/disabled/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/input-disabled.tsx"
+					"target": "components/particles/input-disabled.tsx"
 				}
 			]
 		},
@@ -2537,7 +2537,7 @@
 				{
 					"path": "packages/baseui/particles/input/file/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/input-file.tsx"
+					"target": "components/particles/input-file.tsx"
 				}
 			]
 		},
@@ -2551,7 +2551,7 @@
 				{
 					"path": "packages/baseui/particles/input/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/input.tsx"
+					"target": "components/particles/input.tsx"
 				}
 			]
 		},
@@ -2565,7 +2565,7 @@
 				{
 					"path": "packages/baseui/particles/input/sizes/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/input-sizes.tsx"
+					"target": "components/particles/input-sizes.tsx"
 				}
 			]
 		},
@@ -2579,7 +2579,7 @@
 				{
 					"path": "packages/baseui/particles/input/with-field/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/inputp-with-field.tsx"
+					"target": "components/particles/inputp-with-field.tsx"
 				}
 			]
 		},
@@ -2593,7 +2593,7 @@
 				{
 					"path": "packages/baseui/particles/menu/checkbox-items/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/menu-checkbox-items.tsx"
+					"target": "components/particles/menu-checkbox-items.tsx"
 				}
 			]
 		},
@@ -2607,7 +2607,7 @@
 				{
 					"path": "packages/baseui/particles/menu/close-on-click/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/menu-close-on-click.tsx"
+					"target": "components/particles/menu-close-on-click.tsx"
 				}
 			]
 		},
@@ -2621,7 +2621,7 @@
 				{
 					"path": "packages/baseui/particles/menu/controlled/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/menu-controlled.tsx"
+					"target": "components/particles/menu-controlled.tsx"
 				}
 			]
 		},
@@ -2635,7 +2635,7 @@
 				{
 					"path": "packages/baseui/particles/menu/hover/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/menu-hover.tsx"
+					"target": "components/particles/menu-hover.tsx"
 				}
 			]
 		},
@@ -2649,7 +2649,7 @@
 				{
 					"path": "packages/baseui/particles/menu/radio-items/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/menu-radio-items.tsx"
+					"target": "components/particles/menu-radio-items.tsx"
 				}
 			]
 		},
@@ -2663,7 +2663,7 @@
 				{
 					"path": "packages/baseui/particles/menu/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/menu.tsx"
+					"target": "components/particles/menu.tsx"
 				}
 			]
 		},
@@ -2681,7 +2681,7 @@
 				{
 					"path": "packages/baseui/particles/menu/with-alert-dialog/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/menu-with-alert-dialog.tsx"
+					"target": "components/particles/menu-with-alert-dialog.tsx"
 				}
 			]
 		},
@@ -2695,7 +2695,7 @@
 				{
 					"path": "packages/baseui/particles/menu/with-detached-triggers/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/menu-with-detached-triggers.tsx"
+					"target": "components/particles/menu-with-detached-triggers.tsx"
 				}
 			]
 		},
@@ -2709,7 +2709,7 @@
 				{
 					"path": "packages/baseui/particles/menu/with-group/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/menu-with-group.tsx"
+					"target": "components/particles/menu-with-group.tsx"
 				}
 			]
 		},
@@ -2723,7 +2723,7 @@
 				{
 					"path": "packages/baseui/particles/menu/with-links/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/menu-with-links.tsx"
+					"target": "components/particles/menu-with-links.tsx"
 				}
 			]
 		},
@@ -2737,7 +2737,7 @@
 				{
 					"path": "packages/baseui/particles/menu/with-multiple-triggers/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/menu-with-multiple-triggers.tsx"
+					"target": "components/particles/menu-with-multiple-triggers.tsx"
 				}
 			]
 		},
@@ -2751,7 +2751,7 @@
 				{
 					"path": "packages/baseui/particles/menu/with-submenu/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/menu-with-submenu.tsx"
+					"target": "components/particles/menu-with-submenu.tsx"
 				}
 			]
 		},
@@ -2765,7 +2765,7 @@
 				{
 					"path": "packages/baseui/particles/menubar/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/menubar.tsx"
+					"target": "components/particles/menubar.tsx"
 				}
 			]
 		},
@@ -2779,7 +2779,7 @@
 				{
 					"path": "packages/baseui/particles/meter/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/meter.tsx"
+					"target": "components/particles/meter.tsx"
 				}
 			]
 		},
@@ -2793,7 +2793,7 @@
 				{
 					"path": "packages/baseui/particles/meter/with-custom-color/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/meter-with-custom-color.tsx"
+					"target": "components/particles/meter-with-custom-color.tsx"
 				}
 			]
 		},
@@ -2807,7 +2807,7 @@
 				{
 					"path": "packages/baseui/particles/meter/without-label/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/meter-without-label.tsx"
+					"target": "components/particles/meter-without-label.tsx"
 				}
 			]
 		},
@@ -2821,7 +2821,7 @@
 				{
 					"path": "packages/baseui/particles/navigation-menu/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/navigation-menu.tsx"
+					"target": "components/particles/navigation-menu.tsx"
 				}
 			]
 		},
@@ -2834,7 +2834,7 @@
 				{
 					"path": "packages/baseui/particles/number-field/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/number-field.tsx"
+					"target": "components/particles/number-field.tsx"
 				}
 			]
 		},
@@ -2847,7 +2847,7 @@
 				{
 					"path": "packages/baseui/particles/number-field/with-formatted-value/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/number-field-with-formatted-value.tsx"
+					"target": "components/particles/number-field-with-formatted-value.tsx"
 				}
 			]
 		},
@@ -2860,7 +2860,7 @@
 				{
 					"path": "packages/baseui/particles/number-field/with-range/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/number-field-with-range.tsx"
+					"target": "components/particles/number-field-with-range.tsx"
 				}
 			]
 		},
@@ -2873,7 +2873,7 @@
 				{
 					"path": "packages/baseui/particles/number-field/with-scrub-area/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/number-field-with-scrub-area.tsx"
+					"target": "components/particles/number-field-with-scrub-area.tsx"
 				}
 			]
 		},
@@ -2886,7 +2886,7 @@
 				{
 					"path": "packages/baseui/particles/number-field/with-step/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/number-field-with-step.tsx"
+					"target": "components/particles/number-field-with-step.tsx"
 				}
 			]
 		},
@@ -2900,7 +2900,7 @@
 				{
 					"path": "packages/baseui/particles/otp-field/otp-field-alphanumeric/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/otp-field-alphanumeric.tsx"
+					"target": "components/particles/otp-field-alphanumeric.tsx"
 				}
 			]
 		},
@@ -2914,7 +2914,7 @@
 				{
 					"path": "packages/baseui/particles/otp-field/otp-field-grouped/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/otp-field-grouped.tsx"
+					"target": "components/particles/otp-field-grouped.tsx"
 				}
 			]
 		},
@@ -2928,7 +2928,7 @@
 				{
 					"path": "packages/baseui/particles/otp-field/otp-field-masked/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/otp-field-masked.tsx"
+					"target": "components/particles/otp-field-masked.tsx"
 				}
 			]
 		},
@@ -2942,7 +2942,7 @@
 				{
 					"path": "packages/baseui/particles/otp-field/otp-field-with-placeholder/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/otp-field-with-placeholder.tsx"
+					"target": "components/particles/otp-field-with-placeholder.tsx"
 				}
 			]
 		},
@@ -2955,7 +2955,7 @@
 				{
 					"path": "packages/baseui/particles/otp-field/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/otp-field.tsx"
+					"target": "components/particles/otp-field.tsx"
 				}
 			]
 		},
@@ -2968,7 +2968,7 @@
 				{
 					"path": "packages/baseui/particles/popover/animated/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/popover-animated.tsx"
+					"target": "components/particles/popover-animated.tsx"
 				}
 			]
 		},
@@ -2981,7 +2981,7 @@
 				{
 					"path": "packages/baseui/particles/popover/controlled/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/popover-controlled.tsx"
+					"target": "components/particles/popover-controlled.tsx"
 				}
 			]
 		},
@@ -2994,7 +2994,7 @@
 				{
 					"path": "packages/baseui/particles/popover/detached-trigger/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/popover-detached-trigger.tsx"
+					"target": "components/particles/popover-detached-trigger.tsx"
 				}
 			]
 		},
@@ -3007,7 +3007,7 @@
 				{
 					"path": "packages/baseui/particles/popover/hover/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/popover-hover.tsx"
+					"target": "components/particles/popover-hover.tsx"
 				}
 			]
 		},
@@ -3020,7 +3020,7 @@
 				{
 					"path": "packages/baseui/particles/popover/multiple-triggers/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/popover-multiple-triggers.tsx"
+					"target": "components/particles/popover-multiple-triggers.tsx"
 				}
 			]
 		},
@@ -3033,7 +3033,7 @@
 				{
 					"path": "packages/baseui/particles/popover/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/popover.tsx"
+					"target": "components/particles/popover.tsx"
 				}
 			]
 		},
@@ -3046,7 +3046,7 @@
 				{
 					"path": "packages/baseui/particles/popover/with-backdrop/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/popover-with-backdrop.tsx"
+					"target": "components/particles/popover-with-backdrop.tsx"
 				}
 			]
 		},
@@ -3059,7 +3059,7 @@
 				{
 					"path": "packages/baseui/particles/popover/with-close/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/popover-with-close.tsx"
+					"target": "components/particles/popover-with-close.tsx"
 				}
 			]
 		},
@@ -3073,7 +3073,7 @@
 				{
 					"path": "packages/baseui/particles/preview-card/instant/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/preview-card-instant.tsx"
+					"target": "components/particles/preview-card-instant.tsx"
 				}
 			]
 		},
@@ -3087,7 +3087,7 @@
 				{
 					"path": "packages/baseui/particles/preview-card/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/preview-card.tsx"
+					"target": "components/particles/preview-card.tsx"
 				}
 			]
 		},
@@ -3101,7 +3101,7 @@
 				{
 					"path": "packages/baseui/particles/preview-card/sides/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/preview-card-sides.tsx"
+					"target": "components/particles/preview-card-sides.tsx"
 				}
 			]
 		},
@@ -3115,7 +3115,7 @@
 				{
 					"path": "packages/baseui/particles/preview-card/without-arrow/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/preview-card-without-arrow.tsx"
+					"target": "components/particles/preview-card-without-arrow.tsx"
 				}
 			]
 		},
@@ -3129,7 +3129,7 @@
 				{
 					"path": "packages/baseui/particles/progress/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/progress-without-label.tsx"
+					"target": "components/particles/progress-without-label.tsx"
 				}
 			]
 		},
@@ -3143,7 +3143,7 @@
 				{
 					"path": "packages/baseui/particles/progress/with-custom-color/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/progress-with-custom-color.tsx"
+					"target": "components/particles/progress-with-custom-color.tsx"
 				}
 			]
 		},
@@ -3157,7 +3157,7 @@
 				{
 					"path": "packages/baseui/particles/progress/without-label/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/progress-without-label.tsx"
+					"target": "components/particles/progress-without-label.tsx"
 				}
 			]
 		},
@@ -3171,7 +3171,7 @@
 				{
 					"path": "packages/baseui/particles/radio-group/card/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/radio-group-card.tsx"
+					"target": "components/particles/radio-group-card.tsx"
 				}
 			]
 		},
@@ -3185,7 +3185,7 @@
 				{
 					"path": "packages/baseui/particles/radio-group/disabled/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/radio-group-disabled.tsx"
+					"target": "components/particles/radio-group-disabled.tsx"
 				}
 			]
 		},
@@ -3199,7 +3199,7 @@
 				{
 					"path": "packages/baseui/particles/radio-group/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/radio-group.tsx"
+					"target": "components/particles/radio-group.tsx"
 				}
 			]
 		},
@@ -3213,7 +3213,7 @@
 				{
 					"path": "packages/baseui/particles/radio-group/with-description/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/radio-group-with-description.tsx"
+					"target": "components/particles/radio-group-with-description.tsx"
 				}
 			]
 		},
@@ -3226,7 +3226,7 @@
 				{
 					"path": "packages/baseui/particles/scroll-area/both-scrollbars/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/scroll-area/both-scrollbars.tsx"
+					"target": "components/particles/scroll-area/both-scrollbars.tsx"
 				}
 			]
 		},
@@ -3239,7 +3239,7 @@
 				{
 					"path": "packages/baseui/particles/scroll-area/horizontal-scrollbar/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/scroll-area/horizontal-scrollbar.tsx"
+					"target": "components/particles/scroll-area/horizontal-scrollbar.tsx"
 				}
 			]
 		},
@@ -3252,7 +3252,7 @@
 				{
 					"path": "packages/baseui/particles/scroll-area/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/scroll-area.tsx"
+					"target": "components/particles/scroll-area.tsx"
 				}
 			]
 		},
@@ -3265,7 +3265,7 @@
 				{
 					"path": "packages/baseui/particles/select/disabled/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/select-disabled.tsx"
+					"target": "components/particles/select-disabled.tsx"
 				}
 			]
 		},
@@ -3278,7 +3278,7 @@
 				{
 					"path": "packages/baseui/particles/select/disabled-item/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/select-disabled-item.tsx"
+					"target": "components/particles/select-disabled-item.tsx"
 				}
 			]
 		},
@@ -3291,7 +3291,7 @@
 				{
 					"path": "packages/baseui/particles/select/multiple-selection/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/select-multiple-selection.tsx"
+					"target": "components/particles/select-multiple-selection.tsx"
 				}
 			]
 		},
@@ -3304,7 +3304,7 @@
 				{
 					"path": "packages/baseui/particles/select/object-values/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/select-object-values.tsx"
+					"target": "components/particles/select-object-values.tsx"
 				}
 			]
 		},
@@ -3317,7 +3317,7 @@
 				{
 					"path": "packages/baseui/particles/select/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/select.tsx"
+					"target": "components/particles/select.tsx"
 				}
 			]
 		},
@@ -3330,7 +3330,7 @@
 				{
 					"path": "packages/baseui/particles/select/sizes/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/select-sizes.tsx"
+					"target": "components/particles/select-sizes.tsx"
 				}
 			]
 		},
@@ -3343,7 +3343,7 @@
 				{
 					"path": "packages/baseui/particles/select/with-groups/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/select-with-groups.tsx"
+					"target": "components/particles/select-with-groups.tsx"
 				}
 			]
 		},
@@ -3356,7 +3356,7 @@
 				{
 					"path": "packages/baseui/particles/select/with-icon/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/select-with-icon.tsx"
+					"target": "components/particles/select-with-icon.tsx"
 				}
 			]
 		},
@@ -3369,7 +3369,7 @@
 				{
 					"path": "packages/baseui/particles/select/with-separator/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/select-with-separator.tsx"
+					"target": "components/particles/select-with-separator.tsx"
 				}
 			]
 		},
@@ -3382,7 +3382,7 @@
 				{
 					"path": "packages/baseui/particles/select/without-item-alignment/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/select-without-item-alignment.tsx"
+					"target": "components/particles/select-without-item-alignment.tsx"
 				}
 			]
 		},
@@ -3396,7 +3396,7 @@
 				{
 					"path": "packages/baseui/particles/separator/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/separator.tsx"
+					"target": "components/particles/separator.tsx"
 				}
 			]
 		},
@@ -3410,7 +3410,7 @@
 				{
 					"path": "packages/baseui/particles/slider/disabled/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/slider-disabled.tsx"
+					"target": "components/particles/slider-disabled.tsx"
 				}
 			]
 		},
@@ -3424,7 +3424,7 @@
 				{
 					"path": "packages/baseui/particles/slider/range/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/slider-range.tsx"
+					"target": "components/particles/slider-range.tsx"
 				}
 			]
 		},
@@ -3438,7 +3438,7 @@
 				{
 					"path": "packages/baseui/particles/slider/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/slider.tsx"
+					"target": "components/particles/slider.tsx"
 				}
 			]
 		},
@@ -3452,7 +3452,7 @@
 				{
 					"path": "packages/baseui/particles/slider/vertical/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/slider-vertical.tsx"
+					"target": "components/particles/slider-vertical.tsx"
 				}
 			]
 		},
@@ -3466,7 +3466,7 @@
 				{
 					"path": "packages/baseui/particles/slider/with-label-and-value/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/slider-with-label-and-value.tsx"
+					"target": "components/particles/slider-with-label-and-value.tsx"
 				}
 			]
 		},
@@ -3480,7 +3480,7 @@
 				{
 					"path": "packages/baseui/particles/switch/card/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/switch-card.tsx"
+					"target": "components/particles/switch-card.tsx"
 				}
 			]
 		},
@@ -3494,7 +3494,7 @@
 				{
 					"path": "packages/baseui/particles/switch/disabled/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/switch-disabled.tsx"
+					"target": "components/particles/switch-disabled.tsx"
 				}
 			]
 		},
@@ -3508,7 +3508,7 @@
 				{
 					"path": "packages/baseui/particles/switch/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/switch.tsx"
+					"target": "components/particles/switch.tsx"
 				}
 			]
 		},
@@ -3522,7 +3522,7 @@
 				{
 					"path": "packages/baseui/particles/switch/with-label/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/switch-with-label.tsx"
+					"target": "components/particles/switch-with-label.tsx"
 				}
 			]
 		},
@@ -3536,7 +3536,7 @@
 				{
 					"path": "packages/baseui/particles/tabs/full-width/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/tabs-full-width.tsx"
+					"target": "components/particles/tabs-full-width.tsx"
 				}
 			]
 		},
@@ -3549,7 +3549,7 @@
 				{
 					"path": "packages/baseui/particles/tabs/ghost/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/tabs-ghost.tsx"
+					"target": "components/particles/tabs-ghost.tsx"
 				}
 			]
 		},
@@ -3562,7 +3562,7 @@
 				{
 					"path": "packages/baseui/particles/tabs/outlined/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/tabs-outlined.tsx"
+					"target": "components/particles/tabs-outlined.tsx"
 				}
 			]
 		},
@@ -3575,7 +3575,7 @@
 				{
 					"path": "packages/baseui/particles/tabs/pill-shape/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/tabs-pill-shape.tsx"
+					"target": "components/particles/tabs-pill-shape.tsx"
 				}
 			]
 		},
@@ -3589,7 +3589,7 @@
 				{
 					"path": "packages/baseui/particles/tabs/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/tabs.tsx"
+					"target": "components/particles/tabs.tsx"
 				}
 			]
 		},
@@ -3603,7 +3603,7 @@
 				{
 					"path": "packages/baseui/particles/tabs/vertical/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/tabs-vertical.tsx"
+					"target": "components/particles/tabs-vertical.tsx"
 				}
 			]
 		},
@@ -3616,7 +3616,7 @@
 				{
 					"path": "packages/baseui/particles/tabs/vertical-ghost/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/tabs-vertical-ghost.tsx"
+					"target": "components/particles/tabs-vertical-ghost.tsx"
 				}
 			]
 		},
@@ -3630,7 +3630,7 @@
 				{
 					"path": "packages/baseui/particles/tabs/with-icon/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/tabs-with-icon.tsx"
+					"target": "components/particles/tabs-with-icon.tsx"
 				}
 			]
 		},
@@ -3647,7 +3647,7 @@
 				{
 					"path": "packages/baseui/particles/toast/anchored/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/toast-anchored.tsx"
+					"target": "components/particles/toast-anchored.tsx"
 				}
 			]
 		},
@@ -3664,7 +3664,7 @@
 				{
 					"path": "packages/baseui/particles/toast/promise/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/toast-promise.tsx"
+					"target": "components/particles/toast-promise.tsx"
 				}
 			]
 		},
@@ -3681,7 +3681,7 @@
 				{
 					"path": "packages/baseui/particles/toast/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/toast.tsx"
+					"target": "components/particles/toast.tsx"
 				}
 			]
 		},
@@ -3698,7 +3698,7 @@
 				{
 					"path": "packages/baseui/particles/toast/undo-action/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/toast-undo-action.tsx"
+					"target": "components/particles/toast-undo-action.tsx"
 				}
 			]
 		},
@@ -3715,7 +3715,7 @@
 				{
 					"path": "packages/baseui/particles/toast/varying-heights/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/toast-varying-heights.tsx"
+					"target": "components/particles/toast-varying-heights.tsx"
 				}
 			]
 		},
@@ -3732,7 +3732,7 @@
 				{
 					"path": "packages/baseui/particles/toast/with-status/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/toast-with-status.tsx"
+					"target": "components/particles/toast-with-status.tsx"
 				}
 			]
 		},
@@ -3745,7 +3745,7 @@
 				{
 					"path": "packages/baseui/particles/toggle/disabled/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/toggle-disabled.tsx"
+					"target": "components/particles/toggle-disabled.tsx"
 				}
 			]
 		},
@@ -3758,7 +3758,7 @@
 				{
 					"path": "packages/baseui/particles/toggle/outline/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/toggle-outline.tsx"
+					"target": "components/particles/toggle-outline.tsx"
 				}
 			]
 		},
@@ -3771,7 +3771,7 @@
 				{
 					"path": "packages/baseui/particles/toggle/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/toggle.tsx"
+					"target": "components/particles/toggle.tsx"
 				}
 			]
 		},
@@ -3784,7 +3784,7 @@
 				{
 					"path": "packages/baseui/particles/toggle/with-icon/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/toggle-with-icon.tsx"
+					"target": "components/particles/toggle-with-icon.tsx"
 				}
 			]
 		},
@@ -3797,7 +3797,7 @@
 				{
 					"path": "packages/baseui/particles/toggle-group/disabled/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/toggle-group-disabled.tsx"
+					"target": "components/particles/toggle-group-disabled.tsx"
 				}
 			]
 		},
@@ -3810,7 +3810,7 @@
 				{
 					"path": "packages/baseui/particles/toggle-group/multiple/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/toggle-group-multiple.tsx"
+					"target": "components/particles/toggle-group-multiple.tsx"
 				}
 			]
 		},
@@ -3823,7 +3823,7 @@
 				{
 					"path": "packages/baseui/particles/toggle-group/outline/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/toggle-group-outline.tsx"
+					"target": "components/particles/toggle-group-outline.tsx"
 				}
 			]
 		},
@@ -3836,7 +3836,7 @@
 				{
 					"path": "packages/baseui/particles/toggle-group/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/toggle-group.tsx"
+					"target": "components/particles/toggle-group.tsx"
 				}
 			]
 		},
@@ -3849,7 +3849,7 @@
 				{
 					"path": "packages/baseui/particles/toggle-group/vertical/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/toggle-group-vertical.tsx"
+					"target": "components/particles/toggle-group-vertical.tsx"
 				}
 			]
 		},
@@ -3863,7 +3863,7 @@
 				{
 					"path": "packages/baseui/particles/toolbar/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/toolbar.tsx"
+					"target": "components/particles/toolbar.tsx"
 				}
 			]
 		},
@@ -3879,7 +3879,7 @@
 				{
 					"path": "packages/baseui/particles/tooltip/animated/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/tooltip-animated.tsx"
+					"target": "components/particles/tooltip-animated.tsx"
 				}
 			]
 		},
@@ -3895,7 +3895,7 @@
 				{
 					"path": "packages/baseui/particles/tooltip/controlled/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/tooltip-controlled.tsx"
+					"target": "components/particles/tooltip-controlled.tsx"
 				}
 			]
 		},
@@ -3911,7 +3911,7 @@
 				{
 					"path": "packages/baseui/particles/tooltip/detached-triggers/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/tooltip-detached-triggers.tsx"
+					"target": "components/particles/tooltip-detached-triggers.tsx"
 				}
 			]
 		},
@@ -3927,7 +3927,7 @@
 				{
 					"path": "packages/baseui/particles/tooltip/grouped/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/tooltip-grouped.tsx"
+					"target": "components/particles/tooltip-grouped.tsx"
 				}
 			]
 		},
@@ -3943,7 +3943,7 @@
 				{
 					"path": "packages/baseui/particles/tooltip/instant/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/tooltip-instant.tsx"
+					"target": "components/particles/tooltip-instant.tsx"
 				}
 			]
 		},
@@ -3959,7 +3959,7 @@
 				{
 					"path": "packages/baseui/particles/tooltip/multiple-triggers/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/tooltip-multiple-triggers.tsx"
+					"target": "components/particles/tooltip-multiple-triggers.tsx"
 				}
 			]
 		},
@@ -3975,7 +3975,7 @@
 				{
 					"path": "packages/baseui/particles/tooltip/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/tooltip.tsx"
+					"target": "components/particles/tooltip.tsx"
 				}
 			]
 		},
@@ -3991,7 +3991,7 @@
 				{
 					"path": "packages/baseui/particles/tooltip/sides/index.tsx",
 					"type": "registry:component",
-					"target": "components/baseui/particles/tooltip-sides.tsx"
+					"target": "components/particles/tooltip-sides.tsx"
 				}
 			]
 		},

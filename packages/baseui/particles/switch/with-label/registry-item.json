@@ -9,7 +9,7 @@
 		{
 			"path": "packages/baseui/particles/switch/with-label/index.tsx",
 			"type": "registry:component",
-			"target": "components/baseui/particles/switch-with-label.tsx"
+			"target": "components/particles/switch-with-label.tsx"
 		}
 	]
 }
