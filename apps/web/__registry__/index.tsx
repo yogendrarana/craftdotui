@@ -39,7 +39,7 @@ export const Registry: Record<string, any> = {
     "path": "packages/craftui/components/alert/index.tsx",
     "type": "registry:component",
     "target": "components/craftui/components/alert.tsx",
-    "content": "\"use client\";\n\nimport { cn } from \"cn\";\nimport { useRender } from \"@base-ui/react/use-render\";\nimport { mergeProps } from \"@base-ui/react/merge-props\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\n\n/* -------------------------------------------------------------------------- */\n/* Variants                                                                   */\n/* -------------------------------------------------------------------------- */\n\nconst alertVariants = cva(\n\tcn(\n\t\t\"relative w-full rounded-lg border p-3 text-sm\",\n\t\t\"grid grid-cols-[0_1fr] has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] has-[>svg]:gap-x-3 gap-y-0.5 items-start\",\n\t\t\"[&>svg]:size-4 [&>svg]:translate-y-0.5 [&>svg]:text-current\",\n\t),\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault: \"bg-card text-card-foreground border-border\",\n\t\t\t\tdestructive:\n\t\t\t\t\t\"bg-destructive/10 border-destructive/30 text-destructive [&>svg]:text-destructive *:data-[slot=alert-description]:text-destructive/90 dark:bg-destructive/10\",\n\t\t\t\tsuccess:\n\t\t\t\t\t\"bg-success/10 border-success/30 text-success [&>svg]:text-success *:data-[slot=alert-description]:text-success/90 dark:bg-success/10\",\n\t\t\t\twarning:\n\t\t\t\t\t\"bg-warning/10 border-warning/30 text-warning [&>svg]:text-warning *:data-[slot=alert-description]:text-warning/90 dark:bg-warning/10\",\n\t\t\t\tinfo: \"bg-info/10 border-info/30 text-info [&>svg]:text-info *:data-[slot=alert-description]:text-info/90 dark:bg-info/10\",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: \"default\",\n\t\t},\n\t},\n);\n\n/* -------------------------------------------------------------------------- */\n/* Alert Root                                                                 */\n/* -------------------------------------------------------------------------- */\n\nexport interface AlertRootProps\n\textends useRender.ComponentProps<\"div\">,\n\t\tVariantProps<typeof alertVariants> {}\n\nfunction AlertRoot({ className, variant, render, ...props }: AlertRootProps) {\n\tconst defaultProps = {\n\t\trole: \"alert\",\n\t\t\"data-slot\": \"alert\",\n\t\tclassName: cn(alertVariants({ variant }), className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Alert Title                                                                */\n/* -------------------------------------------------------------------------- */\n\nexport interface AlertTitleProps extends useRender.ComponentProps<\"div\"> {}\n\nfunction AlertTitle({ className, render, ...props }: AlertTitleProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"alert-title\",\n\t\tclassName: cn(\n\t\t\t\"col-start-2 line-clamp-1 min-h-4 font-medium tracking-tight\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Alert Description                                                          */\n/* -------------------------------------------------------------------------- */\n\nexport interface AlertDescriptionProps\n\textends useRender.ComponentProps<\"div\"> {}\n\nfunction AlertDescription({\n\tclassName,\n\trender,\n\t...props\n}: AlertDescriptionProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"alert-description\",\n\t\tclassName: cn(\n\t\t\t\"col-start-2 grid justify-items-start gap-1 text-sm text-muted-foreground [&_p]:leading-relaxed\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const Alert = Object.assign(AlertRoot, {\n\tRoot: AlertRoot,\n\tTitle: AlertTitle,\n\tDescription: AlertDescription,\n});\n\nexport { AlertRoot, AlertTitle, AlertDescription, alertVariants };"
+    "content": "\"use client\";\n\nimport { cn } from \"cn\";\nimport { useRender } from \"@base-ui/react/use-render\";\nimport { mergeProps } from \"@base-ui/react/merge-props\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\n\n/* -------------------------------------------------------------------------- */\n/* Variants                                                                   */\n/* -------------------------------------------------------------------------- */\n\nconst alertVariants = cva(\n\tcn(\n\t\t\"relative w-full rounded border p-3 text-sm\",\n\t\t\"grid grid-cols-[0_1fr] has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] has-[>svg]:gap-x-3 gap-y-0.5 items-start\",\n\t\t\"[&>svg]:size-4 [&>svg]:translate-y-0.5 [&>svg]:text-current\",\n\t),\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault: \"bg-card text-card-foreground border-border\",\n\t\t\t\tdestructive:\n\t\t\t\t\t\"bg-destructive/4 border-destructive/30 text-destructive [&>svg]:text-destructive *:data-[slot=alert-description]:text-destructive/90 dark:bg-destructive/10\",\n\t\t\t\tsuccess:\n\t\t\t\t\t\"bg-success/4 border-success/30 text-success [&>svg]:text-success *:data-[slot=alert-description]:text-success/90 dark:bg-success/10\",\n\t\t\t\twarning:\n\t\t\t\t\t\"bg-warning/4 border-warning/30 text-warning [&>svg]:text-warning *:data-[slot=alert-description]:text-warning/90 dark:bg-warning/10\",\n\t\t\t\tinfo: \"bg-info/4 border-info/30 text-info [&>svg]:text-info *:data-[slot=alert-description]:text-info/90 dark:bg-info/10\",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: \"default\",\n\t\t},\n\t},\n);\n\n/* -------------------------------------------------------------------------- */\n/* Alert Root                                                                 */\n/* -------------------------------------------------------------------------- */\n\nexport interface AlertRootProps\n\textends useRender.ComponentProps<\"div\">,\n\t\tVariantProps<typeof alertVariants> {}\n\nfunction AlertRoot({ className, variant, render, ...props }: AlertRootProps) {\n\tconst defaultProps = {\n\t\trole: \"alert\",\n\t\t\"data-slot\": \"alert\",\n\t\tclassName: cn(alertVariants({ variant }), className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Alert Title                                                                */\n/* -------------------------------------------------------------------------- */\n\nexport interface AlertTitleProps extends useRender.ComponentProps<\"div\"> {}\n\nfunction AlertTitle({ className, render, ...props }: AlertTitleProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"alert-title\",\n\t\tclassName: cn(\n\t\t\t\"col-start-2 line-clamp-1 min-h-4 font-medium\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Alert Description                                                          */\n/* -------------------------------------------------------------------------- */\n\nexport interface AlertDescriptionProps\n\textends useRender.ComponentProps<\"div\"> {}\n\nfunction AlertDescription({\n\tclassName,\n\trender,\n\t...props\n}: AlertDescriptionProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"alert-description\",\n\t\tclassName: cn(\n\t\t\t\"col-start-2 grid justify-items-start gap-1 text-sm text-muted-foreground [&_p]:leading-relaxed\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const Alert = Object.assign(AlertRoot, {\n\tRoot: AlertRoot,\n\tTitle: AlertTitle,\n\tDescription: AlertDescription,\n});\n\nexport { AlertRoot, AlertTitle, AlertDescription, alertVariants };"
   }
 ],
             keywords: [],
@@ -82,7 +82,7 @@ export const Registry: Record<string, any> = {
     "path": "packages/craftui/components/badge/index.tsx",
     "type": "registry:component",
     "target": "components/craftui/components/badge.tsx",
-    "content": "\"use client\";\n\nimport { cn } from \"cn\";\nimport { useRender } from \"@base-ui/react/use-render\";\nimport { mergeProps } from \"@base-ui/react/merge-props\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\n\n/* -------------------------------------------------------------------------- */\n/* Variants                                                                   */\n/* -------------------------------------------------------------------------- */\n\nconst badgeVariants = cva(\n\tcn(\n\t\t\"inline-flex items-center justify-center shrink-0 w-fit\",\n\t\t\"rounded-md border font-medium whitespace-nowrap transition-colors select-none\",\n\t\t\"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background\",\n\t\t\"[&_svg]:pointer-events-none [&_svg]:shrink-0\",\n\t),\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault:\n\t\t\t\t\t\"bg-primary text-primary-foreground border-primary [a&]:hover:bg-primary/90\",\n\t\t\t\tsecondary:\n\t\t\t\t\t\"bg-secondary text-secondary-foreground border-transparent [a&]:hover:bg-secondary/80\",\n\t\t\t\toutline:\n\t\t\t\t\t\"bg-transparent text-foreground border-border [a&]:hover:bg-accent [a&]:hover:text-accent-foreground\",\n\t\t\t\tghost: \"bg-transparent text-muted-foreground border-transparent [a&]:hover:bg-muted [a&]:hover:text-foreground\",\n\t\t\t\tdestructive:\n\t\t\t\t\t\"bg-destructive/10 text-destructive border-destructive/25 dark:bg-destructive/15 [a&]:hover:bg-destructive/20\",\n\t\t\t\tsuccess:\n\t\t\t\t\t\"bg-success/10 text-success border-success/25 dark:bg-success/15 [a&]:hover:bg-success/20\",\n\t\t\t\twarning:\n\t\t\t\t\t\"bg-warning/10 text-warning border-warning/25 dark:bg-warning/15 [a&]:hover:bg-warning/20\",\n\t\t\t\tinfo: \"bg-info/10 text-info border-info/25 dark:bg-info/15 [a&]:hover:bg-info/20\",\n\t\t\t},\n\t\t\tsize: {\n\t\t\t\tsm: \"h-5 px-1.5 text-[11px] gap-1 [&_svg:not([class*='size-'])]:size-3\",\n\t\t\t\tmd: \"h-5.5 px-2 text-xs gap-1 [&_svg:not([class*='size-'])]:size-3\",\n\t\t\t\tlg: \"h-6 px-2.5 text-xs gap-1.5 [&_svg:not([class*='size-'])]:size-3.5\",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: \"default\",\n\t\t\tsize: \"md\",\n\t\t},\n\t},\n);\n\n/* -------------------------------------------------------------------------- */\n/* Component                                                                  */\n/* -------------------------------------------------------------------------- */\nexport interface BadgeProps\n\textends useRender.ComponentProps<\"span\">,\n\t\tVariantProps<typeof badgeVariants> {}\n\nfunction BadgeRoot({ className, variant, size, render, ...props }: BadgeProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"badge\",\n\t\tclassName: cn(badgeVariants({ variant, size }), className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"span\",\n\t\tprops: mergeProps<\"span\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const Badge = Object.assign(BadgeRoot, {\n\tRoot: BadgeRoot,\n});\n\nexport { BadgeRoot, badgeVariants };"
+    "content": "\"use client\";\n\nimport { cn } from \"cn\";\nimport { useRender } from \"@base-ui/react/use-render\";\nimport { mergeProps } from \"@base-ui/react/merge-props\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\n\n/* -------------------------------------------------------------------------- */\n/* Variants                                                                   */\n/* -------------------------------------------------------------------------- */\n\nconst badgeVariants = cva(\n\tcn(\n\t\t\"inline-flex items-center justify-center shrink-0 w-fit\",\n\t\t\"rounded-md border font-medium whitespace-nowrap transition-colors select-none\",\n\t\t\"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background\",\n\t\t\"[&_svg]:pointer-events-none [&_svg]:shrink-0\",\n\t),\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault:\n\t\t\t\t\t\"bg-primary text-primary-foreground border-primary [a&]:hover:bg-primary/90\",\n\t\t\t\tsecondary:\n\t\t\t\t\t\"bg-secondary text-secondary-foreground border-transparent [a&]:hover:bg-secondary/80\",\n\t\t\t\toutline:\n\t\t\t\t\t\"bg-transparent text-foreground border-border [a&]:hover:bg-accent [a&]:hover:text-accent-foreground\",\n\t\t\t\tghost: \"bg-transparent text-muted-foreground border-transparent [a&]:hover:bg-muted [a&]:hover:text-foreground\",\n\t\t\t\tdestructive:\n\t\t\t\t\t\"bg-destructive/10 text-destructive border-destructive/25 dark:bg-destructive/15 [a&]:hover:bg-destructive/20\",\n\t\t\t\tsuccess:\n\t\t\t\t\t\"bg-success/10 text-success border-success/25 dark:bg-success/15 [a&]:hover:bg-success/20\",\n\t\t\t\twarning:\n\t\t\t\t\t\"bg-warning/10 text-warning border-warning/25 dark:bg-warning/15 [a&]:hover:bg-warning/20\",\n\t\t\t\tinfo: \"bg-info/10 text-info border-info/25 dark:bg-info/15 [a&]:hover:bg-info/20\",\n\t\t\t},\n\t\t\tsize: {\n\t\t\t\tsm: \"h-5 px-1.5 text-[11px] gap-1 [&_svg:not([class*='size-'])]:size-3\",\n\t\t\t\tmd: \"h-5.5 px-2 text-xs gap-1 [&_svg:not([class*='size-'])]:size-3\",\n\t\t\t\tlg: \"h-6 px-2.5 text-xs gap-1.5 [&_svg:not([class*='size-'])]:size-3.5\",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: \"default\",\n\t\t\tsize: \"md\",\n\t\t},\n\t},\n);\n\n/* -------------------------------------------------------------------------- */\n/* Badge Root                                                                 */\n/* -------------------------------------------------------------------------- */\nexport interface BadgeProps\n\textends useRender.ComponentProps<\"span\">,\n\t\tVariantProps<typeof badgeVariants> {}\n\nfunction BadgeRoot({ className, variant, size, render, ...props }: BadgeProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"badge\",\n\t\tclassName: cn(badgeVariants({ variant, size }), className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"span\",\n\t\tprops: mergeProps<\"span\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const Badge = Object.assign(BadgeRoot, {\n\tRoot: BadgeRoot,\n});\n\nexport { BadgeRoot, badgeVariants };"
   }
 ],
             keywords: [],
@@ -133,6 +133,49 @@ export const Registry: Record<string, any> = {
             component: (() => {
 							const LazyComp = React.lazy(async () => {
 								const mod = await import("@craftdotui/craftui/components/breadcrumb/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-skeleton": {
+            name: "craftui-skeleton",
+            description: "Use to show a placeholder while content is loading.",
+            type: "registry:component",
+            dependencies: ["@base-ui/react","cn"],
+            devDependencies: undefined,
+            registryDependencies: [],
+            files: [
+  {
+    "path": "packages/craftui/components/skeleton/index.tsx",
+    "type": "registry:component",
+    "target": "components/craftui/components/skeleton.tsx",
+    "content": "\"use client\";\n\nimport { cn } from \"cn\";\nimport { useRender } from \"@base-ui/react/use-render\";\nimport { mergeProps } from \"@base-ui/react/merge-props\";\n\n/* -------------------------------------------------------------------------- */\n/* Skeleton Root                                                              */\n/* -------------------------------------------------------------------------- */\nexport interface SkeletonProps extends useRender.ComponentProps<\"div\"> {}\n\nfunction SkeletonRoot({ className, render, ...props }: SkeletonProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"skeleton\",\n\t\tclassName: cn(\"animate-pulse rounded-md bg-muted\", className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const Skeleton = Object.assign(SkeletonRoot, {\n\tRoot: SkeletonRoot,\n});\n\nexport { SkeletonRoot };"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-skeleton',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/skeleton/index.tsx");
 								let Comp = mod.default;
 
 								if (!Comp) {
@@ -254,7 +297,7 @@ export const Registry: Record<string, any> = {
     "path": "packages/craftui/particles/alert/destructive/index.tsx",
     "type": "registry:component",
     "target": "components/craftui/particles/alert-destructive.tsx",
-    "content": "import { CircleAlert } from \"lucide-react\";\nimport {\n\tAlertDescription,\n\tAlertRoot,\n\tAlertTitle,\n} from \"@/components/craftui/components/alert\";\n\nexport function Particle() {\n\treturn (\n\t\t<AlertRoot variant=\"destructive\" className=\"max-w-lg\">\n\t\t\t<CircleAlert />\n\t\t\t<AlertTitle>Unable to process your payment.</AlertTitle>\n\t\t\t<AlertDescription>\n\t\t\t\t<p>Please verify your billing information and try again:</p>\n\t\t\t\t<ul className=\"list-inside list-disc text-xs\">\n\t\t\t\t\t<li>Check your card details</li>\n\t\t\t\t\t<li>Ensure sufficient funds</li>\n\t\t\t\t\t<li>Verify billing address</li>\n\t\t\t\t</ul>\n\t\t\t</AlertDescription>\n\t\t</AlertRoot>\n\t);\n}\n\nexport default Particle;"
+    "content": "import { CircleAlert } from \"lucide-react\";\nimport {\n\tAlertDescription,\n\tAlertRoot,\n\tAlertTitle,\n} from \"@/components/craftui/components/alert\";\n\nexport function Particle() {\n\treturn (\n\t\t<AlertRoot variant=\"destructive\" className=\"max-w-lg\">\n\t\t\t<CircleAlert />\n\t\t\t<AlertTitle>Unable to process your payment.</AlertTitle>\n\t\t\t<AlertDescription>\n\t\t\t\t<p>Please verify your billing information and try again.</p>\n\t\t\t</AlertDescription>\n\t\t</AlertRoot>\n\t);\n}\n\nexport default Particle;"
   }
 ],
             keywords: [],
@@ -469,7 +512,7 @@ export const Registry: Record<string, any> = {
     "path": "packages/craftui/particles/alert/with-action/index.tsx",
     "type": "registry:component",
     "target": "components/craftui/particles/alert-with-action.tsx",
-    "content": "import { ShieldAlert } from \"lucide-react\";\nimport {\n\tAlertDescription,\n\tAlertRoot,\n\tAlertTitle,\n} from \"@/components/craftui/components/alert\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport function Particle() {\n\treturn (\n\t\t<AlertRoot className=\"max-w-lg\">\n\t\t\t<ShieldAlert />\n\t\t\t<AlertTitle>Two-factor authentication is not enabled</AlertTitle>\n\t\t\t<AlertDescription>\n\t\t\t\t<p>\n\t\t\t\t\tAdd an extra layer of security to your account by enabling\n\t\t\t\t\ttwo-factor authentication.\n\t\t\t\t</p>\n\t\t\t\t<div className=\"mt-2 flex items-center gap-2\">\n\t\t\t\t\t<Button size=\"xs\">Enable 2FA</Button>\n\t\t\t\t\t<Button size=\"xs\" variant=\"ghost\">\n\t\t\t\t\t\tLearn more\n\t\t\t\t\t</Button>\n\t\t\t\t</div>\n\t\t\t</AlertDescription>\n\t\t</AlertRoot>\n\t);\n}\n\nexport default Particle;"
+    "content": "import { ShieldAlert } from \"lucide-react\";\nimport {\n\tAlertDescription,\n\tAlertRoot,\n\tAlertTitle,\n} from \"@/components/craftui/components/alert\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport function Particle() {\n\treturn (\n\t\t<AlertRoot className=\"max-w-lg py-5\">\n\t\t\t<ShieldAlert />\n\t\t\t<AlertTitle>Two-factor authentication is not enabled</AlertTitle>\n\t\t\t<AlertDescription>\n\t\t\t\t<p>\n\t\t\t\t\tAdd an extra layer of security to your account by enabling\n\t\t\t\t\ttwo-factor authentication.\n\t\t\t\t</p>\n\t\t\t\t<div className=\"mt-2 flex items-center gap-2\">\n\t\t\t\t\t<Button size=\"xs\">Enable 2FA</Button>\n\t\t\t\t\t<Button size=\"xs\" variant=\"ghost\">\n\t\t\t\t\t\tLearn more\n\t\t\t\t\t</Button>\n\t\t\t\t</div>\n\t\t\t</AlertDescription>\n\t\t</AlertRoot>\n\t);\n}\n\nexport default Particle;"
   }
 ],
             keywords: [],
@@ -1251,6 +1294,221 @@ export const Registry: Record<string, any> = {
             component: (() => {
 							const LazyComp = React.lazy(async () => {
 								const mod = await import("@craftdotui/craftui/particles/breadcrumb/with-menu/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-skeleton-card": {
+            name: "craftui-particles-skeleton-card",
+            description: "Card layout skeleton placeholder.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-skeleton"],
+            files: [
+  {
+    "path": "packages/craftui/particles/skeleton/card/index.tsx",
+    "type": "registry:component",
+    "target": "components/craftui/particles/skeleton-card.tsx",
+    "content": "import { Skeleton } from \"@/components/craftui/components/skeleton\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"flex w-full max-w-xs flex-col space-y-3 rounded-lg border border-border p-4\">\n\t\t\t<Skeleton className=\"h-32 w-full rounded-md\" />\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<Skeleton className=\"h-4 w-3/4\" />\n\t\t\t\t<Skeleton className=\"h-3.5 w-full\" />\n\t\t\t\t<Skeleton className=\"h-3.5 w-5/6\" />\n\t\t\t</div>\n\t\t\t<div className=\"flex items-center justify-between pt-2\">\n\t\t\t\t<Skeleton className=\"h-4 w-16\" />\n\t\t\t\t<Skeleton className=\"h-7 w-20 rounded-md\" />\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-skeleton-card',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/particles/skeleton/card/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-skeleton-form": {
+            name: "craftui-particles-skeleton-form",
+            description: "Form fields skeleton placeholder.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-skeleton"],
+            files: [
+  {
+    "path": "packages/craftui/particles/skeleton/form/index.tsx",
+    "type": "registry:component",
+    "target": "components/craftui/particles/skeleton-form.tsx",
+    "content": "import { Skeleton } from \"@/components/craftui/components/skeleton\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"w-full max-w-xs space-y-4\">\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<Skeleton className=\"h-3.5 w-20\" />\n\t\t\t\t<Skeleton className=\"h-8 w-full rounded-md\" />\n\t\t\t</div>\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<Skeleton className=\"h-3.5 w-28\" />\n\t\t\t\t<Skeleton className=\"h-8 w-full rounded-md\" />\n\t\t\t</div>\n\t\t\t<Skeleton className=\"h-8 w-24 rounded-md\" />\n\t\t</div>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-skeleton-form',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/particles/skeleton/form/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-skeleton": {
+            name: "craftui-particles-skeleton",
+            description: "Default skeleton profile placeholder.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-skeleton"],
+            files: [
+  {
+    "path": "packages/craftui/particles/skeleton/index.tsx",
+    "type": "registry:component",
+    "target": "components/craftui/particles/skeleton.tsx",
+    "content": "import { Skeleton } from \"@/components/craftui/components/skeleton\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"flex items-center space-x-4\">\n\t\t\t<Skeleton className=\"size-11 rounded-full\" />\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<Skeleton className=\"h-4 w-50\" />\n\t\t\t\t<Skeleton className=\"h-4 w-36\" />\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-skeleton',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/particles/skeleton/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-skeleton-table": {
+            name: "craftui-particles-skeleton-table",
+            description: "Table rows skeleton placeholder.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-skeleton"],
+            files: [
+  {
+    "path": "packages/craftui/particles/skeleton/table/index.tsx",
+    "type": "registry:component",
+    "target": "components/craftui/particles/skeleton-table.tsx",
+    "content": "import { Skeleton } from \"@/components/craftui/components/skeleton\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"w-full max-w-md rounded-lg border border-border\">\n\t\t\t<div className=\"grid grid-cols-4 gap-4 border-b border-border bg-muted/30 px-4 py-2.5\">\n\t\t\t\t<Skeleton className=\"h-3.5 w-16\" />\n\t\t\t\t<Skeleton className=\"h-3.5 w-20\" />\n\t\t\t\t<Skeleton className=\"h-3.5 w-14\" />\n\t\t\t\t<Skeleton className=\"ml-auto h-3.5 w-12\" />\n\t\t\t</div>\n\t\t\t<div className=\"divide-y divide-border\">\n\t\t\t\t{Array.from({ length: 4 }).map((_, i) => (\n\t\t\t\t\t<div\n\t\t\t\t\t\tkey={i}\n\t\t\t\t\t\tclassName=\"grid grid-cols-4 items-center gap-4 px-4 py-3\"\n\t\t\t\t\t>\n\t\t\t\t\t\t<Skeleton className=\"h-3.5 w-20\" />\n\t\t\t\t\t\t<Skeleton className=\"h-3.5 w-24\" />\n\t\t\t\t\t\t<Skeleton className=\"h-5 w-14 rounded-full\" />\n\t\t\t\t\t\t<Skeleton className=\"ml-auto h-3.5 w-10\" />\n\t\t\t\t\t</div>\n\t\t\t\t))}\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-skeleton-table',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/particles/skeleton/table/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-skeleton-text": {
+            name: "craftui-particles-skeleton-text",
+            description: "Paragraph text skeleton placeholder.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-skeleton"],
+            files: [
+  {
+    "path": "packages/craftui/particles/skeleton/text/index.tsx",
+    "type": "registry:component",
+    "target": "components/craftui/particles/skeleton-text.tsx",
+    "content": "import { Skeleton } from \"@/components/craftui/components/skeleton\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"w-full max-w-md space-y-2.5\">\n\t\t\t<Skeleton className=\"h-5 w-2/5\" />\n\t\t\t<Skeleton className=\"h-3.5 w-full\" />\n\t\t\t<Skeleton className=\"h-3.5 w-11/12\" />\n\t\t\t<Skeleton className=\"h-3.5 w-4/5\" />\n\t\t</div>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-skeleton-text',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/particles/skeleton/text/index.tsx");
 								let Comp = mod.default;
 
 								if (!Comp) {

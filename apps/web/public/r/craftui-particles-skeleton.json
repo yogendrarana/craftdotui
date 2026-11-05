@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-skeleton",
+	"description": "Default skeleton profile placeholder.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-skeleton"],
+	"files": [
+		{
+			"path": "packages/craftui/particles/skeleton/index.tsx",
+			"content": "import { Skeleton } from \"@/components/craftui/components/skeleton\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"flex items-center space-x-4\">\n\t\t\t<Skeleton className=\"size-11 rounded-full\" />\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<Skeleton className=\"h-4 w-50\" />\n\t\t\t\t<Skeleton className=\"h-4 w-36\" />\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n\nexport default Particle;\n\n",
+			"type": "registry:component",
+			"target": "components/craftui/particles/skeleton.tsx"
+		}
+	],
+	"type": "registry:component"
+}
