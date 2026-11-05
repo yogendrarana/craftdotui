@@ -27,26 +27,26 @@ export const Registry: Record<string, any> = {
             command: '@craftdotui/index',
             component: null,
           },
-          "craftui-animated-tooltip": {
-            name: "craftui-animated-tooltip",
-            description: "An animated tooltip component",
+          "craftui-breadcrumb": {
+            name: "craftui-breadcrumb",
+            description: "Displays the path to the current resource using a hierarchy of links.",
             type: "registry:component",
-            dependencies: ["motion","cn"],
+            dependencies: ["@base-ui/react","lucide-react","cn"],
             devDependencies: undefined,
             registryDependencies: [],
             files: [
   {
-    "path": "packages/craftui/components/animated-tooltip/index.tsx",
+    "path": "packages/craftui/components/breadcrumb/index.tsx",
     "type": "registry:component",
-    "target": "components/craftui/components/animated-tooltip.tsx",
-    "content": "\"use client\";\n\nimport React, { useState } from \"react\";\nimport { motion, useMotionValue, useSpring, useTransform } from \"motion/react\";\n\nimport { cn } from \"cn\";\n\nexport interface AnimatedTooltipProps {\n\tchildren: React.ReactNode;\n\tlabel: string;\n\tonClick?: () => void;\n\tclassName?: string;\n\tdelay?: number;\n}\n\nexport function AnimatedTooltip({\n\tchildren,\n\tlabel,\n\tonClick,\n\tclassName,\n\tdelay = 100,\n\t...props\n}: AnimatedTooltipProps) {\n\tconst [isHovered, setIsHovered] = useState(false);\n\n\tconst x = useMotionValue(0);\n\tconst springConfig = { stiffness: 200, damping: 10 };\n\tconst rotate = useSpring(\n\t\tuseTransform(x, [-50, 50], [-25, 25]),\n\t\tspringConfig,\n\t);\n\tconst translateX = useSpring(\n\t\tuseTransform(x, [-50, 50], [-10, 10]),\n\t\tspringConfig,\n\t);\n\n\tlet showTimeout: ReturnType<typeof setTimeout> | undefined;\n\n\tconst handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {\n\t\tconst rect = event.currentTarget.getBoundingClientRect();\n\t\tconst centerX = rect.left + rect.width / 2;\n\t\tx.set(event.clientX - centerX);\n\t};\n\n\tconst handleMouseEnter = () => {\n\t\tshowTimeout = setTimeout(() => setIsHovered(true), delay);\n\t};\n\n\tconst handleMouseLeave = () => {\n\t\tsetIsHovered(false);\n\t\tx.set(0);\n\t\tif (showTimeout) {\n\t\t\tclearTimeout(showTimeout);\n\t\t}\n\t};\n\n\tReact.useEffect(() => {\n\t\treturn () => {\n\t\t\tif (showTimeout) {\n\t\t\t\tclearTimeout(showTimeout);\n\t\t\t}\n\t\t};\n\t}, [showTimeout]);\n\n\treturn (\n\t\t<motion.div\n\t\t\tonMouseEnter={handleMouseEnter}\n\t\t\tonMouseLeave={handleMouseLeave}\n\t\t\tonMouseMove={handleMouseMove}\n\t\t\twhileHover={{\n\t\t\t\ttransition: { type: \"spring\", stiffness: 300, damping: 20 },\n\t\t\t}}\n\t\t\twhileTap={{ scale: 0.9 }}\n\t\t\tclassName={cn(\n\t\t\t\t\"w-12 h-12 relative flex items-center justify-center rounded-full shadow-md cursor-pointer border bg-neutral-100 dark:bg-neutral-900 hover:shadow-lg\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tonClick={onClick}\n\t\t\t{...props}\n\t\t>\n\t\t\t{children}\n\t\t\t{isHovered && (\n\t\t\t\t<motion.div\n\t\t\t\t\tinitial={{ opacity: 0, y: 10, scale: 0.75 }}\n\t\t\t\t\tanimate={{ opacity: 1, y: 0, scale: 1.2 }}\n\t\t\t\t\texit={{ opacity: 0, y: 10, scale: 0.75 }}\n\t\t\t\t\tstyle={{\n\t\t\t\t\t\trotate,\n\t\t\t\t\t\ttranslateX,\n\t\t\t\t\t\ttransformOrigin: \"center center\",\n\t\t\t\t\t}}\n\t\t\t\t\tclassName=\"absolute bottom-full mb-2 px-2 py-1 bg-black/75 text-white dark:bg-white dark:text-black text-xs rounded shadow-lg\"\n\t\t\t\t>\n\t\t\t\t\t{label}\n\t\t\t\t</motion.div>\n\t\t\t)}\n\t\t</motion.div>\n\t);\n}"
+    "target": "components/craftui/components/breadcrumb.tsx",
+    "content": "\"use client\";\n\nimport type * as React from \"react\";\nimport { ChevronRight, MoreHorizontal } from \"lucide-react\";\nimport { useRender } from \"@base-ui/react/use-render\";\nimport { mergeProps } from \"@base-ui/react/merge-props\";\nimport { cn } from \"cn\";\n\n/* -------------------------------------------------------------------------- */\n/* Breadcrumb Root                                                            */\n/* -------------------------------------------------------------------------- */\n\nexport interface BreadcrumbRootProps extends useRender.ComponentProps<\"nav\"> {}\n\nfunction BreadcrumbRoot({ className, render, ...props }: BreadcrumbRootProps) {\n\tconst defaultProps = {\n\t\t\"aria-label\": \"breadcrumb\",\n\t\t\"data-slot\": \"breadcrumb\",\n\t\tclassName: cn(className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"nav\",\n\t\tprops: mergeProps<\"nav\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Breadcrumb List                                                            */\n/* -------------------------------------------------------------------------- */\n\nexport interface BreadcrumbListProps extends useRender.ComponentProps<\"ol\"> {}\n\nfunction BreadcrumbList({ className, render, ...props }: BreadcrumbListProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"breadcrumb-list\",\n\t\tclassName: cn(\n\t\t\t\"flex flex-wrap items-center gap-1.5 text-sm wrap-break-word text-muted-foreground sm:gap-2\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"ol\",\n\t\tprops: mergeProps<\"ol\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Breadcrumb Item                                                            */\n/* -------------------------------------------------------------------------- */\n\nexport interface BreadcrumbItemProps extends useRender.ComponentProps<\"li\"> {}\n\nfunction BreadcrumbItem({ className, render, ...props }: BreadcrumbItemProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"breadcrumb-item\",\n\t\tclassName: cn(\"inline-flex items-center gap-1.5\", className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"li\",\n\t\tprops: mergeProps<\"li\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Breadcrumb Link                                                            */\n/* -------------------------------------------------------------------------- */\n\nexport interface BreadcrumbLinkProps extends useRender.ComponentProps<\"a\"> {}\n\nfunction BreadcrumbLink({ className, render, ...props }: BreadcrumbLinkProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"breadcrumb-link\",\n\t\tclassName: cn(\n\t\t\t\"inline-flex items-center gap-1.5 transition-colors hover:text-foreground\",\n\t\t\t\"focus-visible:rounded-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"a\",\n\t\tprops: mergeProps<\"a\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Breadcrumb Page                                                            */\n/* -------------------------------------------------------------------------- */\n\nexport interface BreadcrumbPageProps extends useRender.ComponentProps<\"span\"> {}\n\nfunction BreadcrumbPage({ className, render, ...props }: BreadcrumbPageProps) {\n\tconst defaultProps = {\n\t\trole: \"link\",\n\t\t\"aria-disabled\": true,\n\t\t\"aria-current\": \"page\" as const,\n\t\t\"data-slot\": \"breadcrumb-page\",\n\t\tclassName: cn(\n\t\t\t\"inline-flex items-center gap-1.5 font-medium text-foreground\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"span\",\n\t\tprops: mergeProps<\"span\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Breadcrumb Separator                                                       */\n/* -------------------------------------------------------------------------- */\n\nexport interface BreadcrumbSeparatorProps\n\textends React.ComponentPropsWithoutRef<\"li\"> {}\n\nfunction BreadcrumbSeparator({\n\tchildren,\n\tclassName,\n\t...props\n}: BreadcrumbSeparatorProps) {\n\treturn (\n\t\t<li\n\t\t\trole=\"presentation\"\n\t\t\taria-hidden=\"true\"\n\t\t\tdata-slot=\"breadcrumb-separator\"\n\t\t\tclassName={cn(\n\t\t\t\t\"inline-flex items-center text-muted-foreground/70 [&>svg]:size-3.5\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t{children ?? <ChevronRight />}\n\t\t</li>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Breadcrumb Ellipsis                                                        */\n/* -------------------------------------------------------------------------- */\n\nexport interface BreadcrumbEllipsisProps\n\textends React.ComponentPropsWithoutRef<\"span\"> {}\n\nfunction BreadcrumbEllipsis({\n\tclassName,\n\tchildren,\n\t...props\n}: BreadcrumbEllipsisProps) {\n\treturn (\n\t\t<span\n\t\t\trole=\"presentation\"\n\t\t\taria-hidden=\"true\"\n\t\t\tdata-slot=\"breadcrumb-ellipsis\"\n\t\t\tclassName={cn(\n\t\t\t\t\"flex size-7 items-center justify-center rounded-md text-muted-foreground transition-colors hover:text-foreground [&>svg]:size-4\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t{children ?? <MoreHorizontal />}\n\t\t\t<span className=\"sr-only\">More</span>\n\t\t</span>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nconst Breadcrumb = Object.assign(BreadcrumbRoot, {\n\tRoot: BreadcrumbRoot,\n\tList: BreadcrumbList,\n\tItem: BreadcrumbItem,\n\tLink: BreadcrumbLink,\n\tPage: BreadcrumbPage,\n\tSeparator: BreadcrumbSeparator,\n\tEllipsis: BreadcrumbEllipsis,\n});\n\nexport {\n\tBreadcrumb,\n\tBreadcrumbRoot,\n\tBreadcrumbList,\n\tBreadcrumbItem,\n\tBreadcrumbLink,\n\tBreadcrumbPage,\n\tBreadcrumbSeparator,\n\tBreadcrumbEllipsis,\n};"
   }
 ],
             keywords: [],
-            command: '@craftdotui/craftui-animated-tooltip',
+            command: '@craftdotui/craftui-breadcrumb',
             component: (() => {
 							const LazyComp = React.lazy(async () => {
-								const mod = await import("@craftdotui/craftui/components/animated-tooltip/index.tsx");
+								const mod = await import("@craftdotui/craftui/components/breadcrumb/index.tsx");
 								let Comp = mod.default;
 
 								if (!Comp) {
@@ -70,180 +70,8 @@ export const Registry: Record<string, any> = {
 							return LazyComp;
 						})(),
           },
-          "craftui-cursor": {
-            name: "craftui-cursor",
-            description: "A custom cursor component",
-            type: "registry:component",
-            dependencies: ["cn"],
-            devDependencies: undefined,
-            registryDependencies: [],
-            files: [
-  {
-    "path": "packages/craftui/components/cursor/index.tsx",
-    "type": "registry:component",
-    "target": "components/craftui/components/cursor.tsx",
-    "content": "\"use client\";\n\nimport type React from \"react\";\nimport { useState, useEffect, useRef } from \"react\";\n\nimport { cn } from \"cn\";\n\ninterface CursorProps {\n\tchildren: React.ReactNode;\n\tcursor: string | React.ReactNode;\n\tclassName?: string;\n}\n\nexport default function Cursor({ children, cursor, className }: CursorProps) {\n\tconst containerRef = useRef<HTMLDivElement>(null);\n\tconst [isHovering, setIsHovering] = useState(false);\n\tconst [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });\n\n\tuseEffect(() => {\n\t\tconst updateCursorPosition = (e: MouseEvent) => {\n\t\t\tif (isHovering) {\n\t\t\t\tconst rect = containerRef.current?.getBoundingClientRect();\n\t\t\t\tif (rect) {\n\t\t\t\t\tsetCursorPosition({\n\t\t\t\t\t\tx: e.clientX - rect.left,\n\t\t\t\t\t\ty: e.clientY - rect.top,\n\t\t\t\t\t});\n\t\t\t\t}\n\t\t\t}\n\t\t};\n\n\t\tdocument.addEventListener(\"mousemove\", updateCursorPosition);\n\n\t\treturn () => {\n\t\t\tdocument.removeEventListener(\"mousemove\", updateCursorPosition);\n\t\t};\n\t}, [isHovering]);\n\n\tconst handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {\n\t\tconst rect = containerRef.current?.getBoundingClientRect();\n\t\tif (rect) {\n\t\t\tconst entryX = e.clientX - rect.left;\n\t\t\tconst entryY = e.clientY - rect.top;\n\t\t\tsetCursorPosition({ x: entryX, y: entryY });\n\t\t}\n\t\tsetIsHovering(true);\n\t};\n\n\tconst handleMouseLeave = () => setIsHovering(false);\n\n\treturn (\n\t\t<div\n\t\t\tref={containerRef}\n\t\t\tonMouseEnter={handleMouseEnter}\n\t\t\tonMouseLeave={handleMouseLeave}\n\t\t\tclassName={cn(\"relative\", className)}\n\t\t\tstyle={{ cursor: isHovering ? \"none\" : \"default\" }}\n\t\t>\n\t\t\t{children}\n\t\t\t{isHovering && (\n\t\t\t\t<div\n\t\t\t\t\tclassName=\"absolute pointer-events-none z-50, whitespace-nowrap\"\n\t\t\t\t\tstyle={{\n\t\t\t\t\t\tleft: cursorPosition.x,\n\t\t\t\t\t\ttop: cursorPosition.y,\n\t\t\t\t\t\ttransform: \"translate(-50%, -50%)\",\n\t\t\t\t\t\ttransformOrigin: \"left center\",\n\t\t\t\t\t}}\n\t\t\t\t>\n\t\t\t\t\t{cursor}\n\t\t\t\t</div>\n\t\t\t)}\n\t\t</div>\n\t);\n}"
-  }
-],
-            keywords: [],
-            command: '@craftdotui/craftui-cursor',
-            component: (() => {
-							const LazyComp = React.lazy(async () => {
-								const mod = await import("@craftdotui/craftui/components/cursor/index.tsx");
-								let Comp = mod.default;
-
-								if (!Comp) {
-									const exportName =
-									Object.keys(mod).find((key) => {
-										const value = mod[key];
-										return typeof value === "function" || typeof value === "object";
-									}) || "default";
-
-									Comp = mod[exportName];
-								}
-
-								if (mod.animations) {
-									(LazyComp as any).animations = mod.animations;
-								}
-
-								return { default: Comp };
-							});
-
-						    LazyComp.demoProps = {};
-							return LazyComp;
-						})(),
-          },
-          "craftui-dock": {
-            name: "craftui-dock",
-            description: "A dock component",
-            type: "registry:component",
-            dependencies: ["motion","cn"],
-            devDependencies: undefined,
-            registryDependencies: [],
-            files: [
-  {
-    "path": "packages/craftui/components/dock/index.tsx",
-    "type": "registry:component",
-    "target": "components/craftui/components/dock.tsx",
-    "content": "\"use client\";\n\nimport type React from \"react\";\nimport { useState } from \"react\";\nimport { motion, useMotionValue, useSpring, useTransform } from \"motion/react\";\n\nimport { cn } from \"cn\";\n\nexport interface DockItemProps {\n\ticon: React.ReactNode;\n\tlabel: string;\n\tonClick?: () => void;\n\tclassName?: string;\n}\n\ninterface DockProps {\n\tchildren: React.ReactNode;\n\tclassName?: string;\n}\n\n// Dock Component\nexport function Dock({ children, className }: DockProps) {\n\treturn (\n\t\t<motion.div\n\t\t\tinitial={{ opacity: 0 }}\n\t\t\tanimate={{ opacity: 1 }}\n\t\t\ttransition={{ type: \"spring\", stiffness: 260, damping: 20 }}\n\t\t\tclassName={cn(\n\t\t\t\t\"flex px-4 py-2 gap-4 border rounded-2xl shadow-md bg-neutral-100 dark:bg-neutral-800\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t>\n\t\t\t{children}\n\t\t</motion.div>\n\t);\n}\n\n// DockItem Component\nexport function DockItem({\n\ticon,\n\tlabel,\n\tonClick,\n\tclassName,\n\t...props\n}: DockItemProps) {\n\tconst [isHovered, setIsHovered] = useState(false);\n\n\tconst x = useMotionValue(0);\n\tconst springConfig = { stiffness: 200, damping: 10 };\n\tconst rotate = useSpring(\n\t\tuseTransform(x, [-50, 50], [-25, 25]),\n\t\tspringConfig,\n\t);\n\tconst translateX = useSpring(\n\t\tuseTransform(x, [-50, 50], [-10, 10]),\n\t\tspringConfig,\n\t);\n\n\tconst handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {\n\t\tconst rect = event.currentTarget.getBoundingClientRect();\n\t\tconst centerX = rect.left + rect.width / 2;\n\t\tx.set(event.clientX - centerX);\n\t};\n\n\tconst handleMouseLeave = () => {\n\t\tx.set(0);\n\t\tsetIsHovered(false);\n\t};\n\n\treturn (\n\t\t<motion.div\n\t\t\tonMouseEnter={() => setIsHovered(true)}\n\t\t\tonMouseLeave={handleMouseLeave}\n\t\t\tonMouseMove={handleMouseMove}\n\t\t\twhileHover={{\n\t\t\t\tscale: 1.2,\n\t\t\t\ttransition: { type: \"spring\", stiffness: 300, damping: 20 },\n\t\t\t}}\n\t\t\twhileTap={{ scale: 0.9 }}\n\t\t\tclassName={cn(\n\t\t\t\t\"relative flex items-center justify-center w-12 h-12 rounded-full shadow-md cursor-pointer border bg-neutral-100 dark:bg-neutral-900 hover:shadow-lg\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tonClick={onClick}\n\t\t\t{...props}\n\t\t>\n\t\t\t{icon}\n\t\t\t{isHovered && (\n\t\t\t\t<motion.div\n\t\t\t\t\tinitial={{ opacity: 0, y: 10, scale: 0.8 }}\n\t\t\t\t\tanimate={{ opacity: 1, y: 0, scale: 1 }}\n\t\t\t\t\texit={{ opacity: 0, y: 10, scale: 0.8 }}\n\t\t\t\t\tstyle={{\n\t\t\t\t\t\trotate, // Dynamic tilt\n\t\t\t\t\t\ttranslateX, // Subtle side-to-side movement\n\t\t\t\t\t\ttransformOrigin: \"center center\",\n\t\t\t\t\t}}\n\t\t\t\t\tclassName=\"absolute bottom-full mb-2 px-2 py-1 bg-black/75 text-white dark:bg-white dark:text-black text-xs rounded shadow-lg\"\n\t\t\t\t>\n\t\t\t\t\t{label}\n\t\t\t\t</motion.div>\n\t\t\t)}\n\t\t</motion.div>\n\t);\n}"
-  }
-],
-            keywords: [],
-            command: '@craftdotui/craftui-dock',
-            component: (() => {
-							const LazyComp = React.lazy(async () => {
-								const mod = await import("@craftdotui/craftui/components/dock/index.tsx");
-								let Comp = mod.default;
-
-								if (!Comp) {
-									const exportName =
-									Object.keys(mod).find((key) => {
-										const value = mod[key];
-										return typeof value === "function" || typeof value === "object";
-									}) || "default";
-
-									Comp = mod[exportName];
-								}
-
-								if (mod.animations) {
-									(LazyComp as any).animations = mod.animations;
-								}
-
-								return { default: Comp };
-							});
-
-						    LazyComp.demoProps = {};
-							return LazyComp;
-						})(),
-          },
-          "craftui-magnetic": {
-            name: "craftui-magnetic",
-            description: "A magnetic hover effect component",
-            type: "registry:component",
-            dependencies: ["gsap","cn"],
-            devDependencies: undefined,
-            registryDependencies: [],
-            files: [
-  {
-    "path": "packages/craftui/components/magnetic/index.tsx",
-    "type": "registry:component",
-    "target": "components/craftui/components/magnetic.tsx",
-    "content": "\"use client\";\n\nimport gsap from \"gsap\";\nimport { useEffect, useRef } from \"react\";\n\ntype PropType = {\n\tchildren: React.ReactNode;\n};\n\nexport default function Magnetic({ children }: PropType) {\n\tconst ref = useRef<HTMLDivElement>(null);\n\n\tuseEffect(() => {\n\t\tconst xTo = gsap.quickTo(ref.current, \"x\", {\n\t\t\tduration: 1,\n\t\t\tease: \"elastic.out(1, 0.3)\",\n\t\t});\n\t\tconst yTo = gsap.quickTo(ref.current, \"y\", {\n\t\t\tduration: 1,\n\t\t\tease: \"elastic.out(1, 0.3)\",\n\t\t});\n\n\t\t// mouse move event\n\t\tconst handleMouseMove = (e: MouseEvent) => {\n\t\t\tconst { clientX, clientY } = e;\n\t\t\tconst rect = ref.current?.getBoundingClientRect();\n\n\t\t\tif (rect) {\n\t\t\t\tconst x = clientX - (rect.left + rect.width / 2);\n\t\t\t\tconst y = clientY - (rect.top + rect.height / 2);\n\n\t\t\t\txTo(x);\n\t\t\t\tyTo(y);\n\t\t\t}\n\t\t};\n\n\t\tconst handleMouseLeave = () => {\n\t\t\txTo(0);\n\t\t\tyTo(0);\n\t\t};\n\n\t\tref.current?.addEventListener(\"mousemove\", handleMouseMove);\n\t\tref.current?.addEventListener(\"mouseleave\", handleMouseLeave);\n\n\t\treturn () => {\n\t\t\tref.current?.removeEventListener(\"mousemove\", handleMouseMove);\n\t\t\tref.current?.removeEventListener(\"mouseleave\", handleMouseLeave);\n\t\t};\n\t}, []);\n\n\treturn (\n\t\t<div ref={ref} style={{ display: \"inline-block\" }}>\n\t\t\t{children}\n\t\t</div>\n\t);\n}"
-  }
-],
-            keywords: [],
-            command: '@craftdotui/craftui-magnetic',
-            component: (() => {
-							const LazyComp = React.lazy(async () => {
-								const mod = await import("@craftdotui/craftui/components/magnetic/index.tsx");
-								let Comp = mod.default;
-
-								if (!Comp) {
-									const exportName =
-									Object.keys(mod).find((key) => {
-										const value = mod[key];
-										return typeof value === "function" || typeof value === "object";
-									}) || "default";
-
-									Comp = mod[exportName];
-								}
-
-								if (mod.animations) {
-									(LazyComp as any).animations = mod.animations;
-								}
-
-								return { default: Comp };
-							});
-
-						    LazyComp.demoProps = {};
-							return LazyComp;
-						})(),
-          },
-          "craftui-marquee": {
-            name: "craftui-marquee",
-            description: "A marquee component for scrolling content horizontally",
-            type: "registry:component",
-            dependencies: ["cn"],
-            devDependencies: undefined,
-            registryDependencies: [],
-            files: [
-  {
-    "path": "packages/craftui/components/marquee/index.tsx",
-    "type": "registry:component",
-    "target": "components/craftui/components/marquee.tsx",
-    "content": "\"use client\";\n\nimport type React from \"react\";\nimport { cn } from \"cn\";\n\ninterface MarqueeProps {\n\tduration?: number;\n\trepeat?: number;\n\tclassName?: string;\n\tpauseOnHover?: boolean;\n\tchildren: React.ReactNode;\n\tdirection?: \"left\" | \"right\";\n\tgap?: number;\n}\n\nexport default function Marquee({\n\tchildren,\n\tclassName,\n\tduration = 20,\n\trepeat = 2,\n\tdirection = \"left\",\n\tpauseOnHover = true,\n\tgap = 0,\n}: MarqueeProps) {\n\treturn (\n\t\t<div\n\t\t\tclassName={cn(\n\t\t\t\t\"group relative flex overflow-hidden\",\n\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t>\n\t\t\t{Array(repeat)\n\t\t\t\t.fill(0)\n\t\t\t\t.map((_, index) => (\n\t\t\t\t\t<div\n\t\t\t\t\t\tkey={index}\n\t\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t\t\"w-max md:w-full flex shrink-0 items-center justify-around text-foreground dark:text-foreground\",\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\"group-hover:paused\": pauseOnHover,\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t)}\n\t\t\t\t\t\tstyle={{\n\t\t\t\t\t\t\tgap: `${gap}px`,\n\t\t\t\t\t\t\tanimation: `marquee-${direction} ${duration}s linear infinite`,\n\t\t\t\t\t\t\t...(index === 1 && direction === \"left\"\n\t\t\t\t\t\t\t\t? { marginLeft: `${gap}px` }\n\t\t\t\t\t\t\t\t: { marginRight: `${gap}px` }),\n\t\t\t\t\t\t}}\n\t\t\t\t\t>\n\t\t\t\t\t\t{children}\n\t\t\t\t\t</div>\n\t\t\t\t))}\n\n\t\t\t<style>\n\t\t\t\t{`\n\t\t\t\t\t@keyframes marquee-left {\n\t\t\t\t\t\t0% { transform: translateX(0); }\n\t\t\t\t\t\t100% { transform: translateX(-100%); }\n\t\t\t\t\t}\n\n\t\t\t\t\t@keyframes marquee-right {\n\t\t\t\t\t\t0% { transform: translateX(-100%); }\n\t\t\t\t\t\t100% { transform: translateX(0); }\n\t\t\t\t\t}\n\n\t\t\t\t\t.paused {\n\t\t\t\t\t\tanimation-play-state: paused !important;\n\t\t\t\t\t}\n\n\t\t\t\t\t.group:hover .group-hover\\\\\\\\:paused {\n\t\t\t\t\t\tanimation-play-state: paused !important;\n\t\t\t\t\t}\n\t\t\t\t`}\n\t\t\t</style>\n\t\t</div>\n\t);\n}"
-  }
-],
-            keywords: [],
-            command: '@craftdotui/craftui-marquee',
-            component: (() => {
-							const LazyComp = React.lazy(async () => {
-								const mod = await import("@craftdotui/craftui/components/marquee/index.tsx");
-								let Comp = mod.default;
-
-								if (!Comp) {
-									const exportName =
-									Object.keys(mod).find((key) => {
-										const value = mod[key];
-										return typeof value === "function" || typeof value === "object";
-									}) || "default";
-
-									Comp = mod[exportName];
-								}
-
-								if (mod.animations) {
-									(LazyComp as any).animations = mod.animations;
-								}
-
-								return { default: Comp };
-							});
-
-						    LazyComp.demoProps = {};
-							return LazyComp;
-						})(),
-          },
-          "craftui-ui-stepper": {
-            name: "craftui-ui-stepper",
+          "craftui-stepper": {
+            name: "craftui-stepper",
             description: "A stepper/wizard component",
             type: "registry:component",
             dependencies: ["motion","lucide-react","cn"],
@@ -258,96 +86,10 @@ export const Registry: Record<string, any> = {
   }
 ],
             keywords: [],
-            command: '@craftdotui/craftui-ui-stepper',
+            command: '@craftdotui/craftui-stepper',
             component: (() => {
 							const LazyComp = React.lazy(async () => {
 								const mod = await import("@craftdotui/craftui/components/stepper/index.tsx");
-								let Comp = mod.default;
-
-								if (!Comp) {
-									const exportName =
-									Object.keys(mod).find((key) => {
-										const value = mod[key];
-										return typeof value === "function" || typeof value === "object";
-									}) || "default";
-
-									Comp = mod[exportName];
-								}
-
-								if (mod.animations) {
-									(LazyComp as any).animations = mod.animations;
-								}
-
-								return { default: Comp };
-							});
-
-						    LazyComp.demoProps = {};
-							return LazyComp;
-						})(),
-          },
-          "craftui-text-scramble": {
-            name: "craftui-text-scramble",
-            description: "A text scrambling animation effect component",
-            type: "registry:component",
-            dependencies: ["cn"],
-            devDependencies: undefined,
-            registryDependencies: [],
-            files: [
-  {
-    "path": "packages/craftui/components/text-scramble/index.tsx",
-    "type": "registry:component",
-    "target": "components/craftui/components/text-scramble.tsx",
-    "content": "\"use client\";\n\nimport type React from \"react\";\nimport { useState, useEffect, useCallback } from \"react\";\n\nimport { cn } from \"cn\";\n\ninterface PropType {\n\tchildren: string;\n\tspeed?: number;\n\tduration?: number;\n\ttrigger?: boolean;\n\tclassName?: string;\n\tcharacterSet?: string;\n\tas?: React.ElementType;\n\tonScrambleEnd?: () => void;\n}\n\nconst defaultCharacterSet =\n\t\"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789\";\n\nexport default function TextScramble({\n\tchildren = \"Hello, World!\",\n\tspeed = 50,\n\tduration = 3,\n\ttrigger = true,\n\tclassName = \"\",\n\tcharacterSet = defaultCharacterSet,\n\tas: Component = \"span\",\n\tonScrambleEnd,\n}: PropType) {\n\tconst [scrambledText, setScrambledText] = useState(children);\n\n\tconst scrambleText = useCallback(() => {\n\t\tlet currentIndex = 0;\n\t\tconst endTime = Date.now() + duration * 1000;\n\n\t\tconst scrambleInterval = setInterval(() => {\n\t\t\tif (Date.now() > endTime) {\n\t\t\t\tclearInterval(scrambleInterval);\n\t\t\t\tsetScrambledText(children);\n\t\t\t\tonScrambleEnd?.();\n\t\t\t\treturn;\n\t\t\t}\n\n\t\t\tconst scrambled = children\n\t\t\t\t.split(\"\")\n\t\t\t\t.map((char, index) => {\n\t\t\t\t\tif (char === \" \") {\n\t\t\t\t\t\treturn \" \";\n\t\t\t\t\t}\n\t\t\t\t\treturn index < currentIndex\n\t\t\t\t\t\t? char\n\t\t\t\t\t\t: characterSet[\n\t\t\t\t\t\t\t\tMath.floor(Math.random() * characterSet.length)\n\t\t\t\t\t\t\t];\n\t\t\t\t})\n\t\t\t\t.join(\"\");\n\n\t\t\tsetScrambledText(scrambled);\n\t\t\tcurrentIndex = Math.min(currentIndex + 1, children.length);\n\t\t}, speed);\n\n\t\treturn () => clearInterval(scrambleInterval);\n\t}, [children, duration, speed, characterSet, onScrambleEnd]);\n\n\tuseEffect(() => {\n\t\tif (trigger) {\n\t\t\tconst cleanup = scrambleText();\n\t\t\treturn cleanup;\n\t\t} else {\n\t\t\tsetScrambledText(children);\n\t\t}\n\t}, [trigger, scrambleText, children]);\n\n\treturn (\n\t\t<Component className={cn(\"font-mono\", className)}>\n\t\t\t{scrambledText}\n\t\t</Component>\n\t);\n}"
-  }
-],
-            keywords: [],
-            command: '@craftdotui/craftui-text-scramble',
-            component: (() => {
-							const LazyComp = React.lazy(async () => {
-								const mod = await import("@craftdotui/craftui/components/text-scramble/index.tsx");
-								let Comp = mod.default;
-
-								if (!Comp) {
-									const exportName =
-									Object.keys(mod).find((key) => {
-										const value = mod[key];
-										return typeof value === "function" || typeof value === "object";
-									}) || "default";
-
-									Comp = mod[exportName];
-								}
-
-								if (mod.animations) {
-									(LazyComp as any).animations = mod.animations;
-								}
-
-								return { default: Comp };
-							});
-
-						    LazyComp.demoProps = {};
-							return LazyComp;
-						})(),
-          },
-          "craftui-text-typing": {
-            name: "craftui-text-typing",
-            description: "A typing animation effect component",
-            type: "registry:component",
-            dependencies: ["motion","cn"],
-            devDependencies: undefined,
-            registryDependencies: [],
-            files: [
-  {
-    "path": "packages/craftui/components/text-typing/index.tsx",
-    "type": "registry:component",
-    "target": "components/craftui/components/text-typing.tsx",
-    "content": "\"use client\";\n\nimport { motion } from \"motion/react\";\nimport { useState, useEffect } from \"react\";\n\ninterface TextTypingProps {\n\tchildren: string;\n\ttypingSpeed?: number;\n\tclassName?: string;\n}\n\nexport default function TextTyping({\n\tchildren,\n\ttypingSpeed = 100,\n\tclassName = \"\",\n}: TextTypingProps) {\n\tconst [displayedText, setDisplayedText] = useState(\"\");\n\n\tconst text = children;\n\n\tuseEffect(() => {\n\t\tlet currentIndex = 0;\n\t\tconst intervalId = setInterval(() => {\n\t\t\tif (currentIndex <= text.length) {\n\t\t\t\tsetDisplayedText(text.slice(0, currentIndex));\n\t\t\t\tcurrentIndex++;\n\t\t\t} else {\n\t\t\t\tclearInterval(intervalId);\n\t\t\t}\n\t\t}, typingSpeed);\n\n\t\treturn () => clearInterval(intervalId);\n\t}, [text, typingSpeed]);\n\n\treturn (\n\t\t<div className={`font-mono ${className}`}>\n\t\t\t{displayedText}\n\t\t\t<motion.span\n\t\t\t\tanimate={{ opacity: [0, 1] }}\n\t\t\t\ttransition={{\n\t\t\t\t\tduration: 0.5,\n\t\t\t\t\trepeat: Infinity,\n\t\t\t\t\trepeatType: \"reverse\",\n\t\t\t\t}}\n\t\t\t>\n\t\t\t\t|\n\t\t\t</motion.span>\n\t\t</div>\n\t);\n}"
-  }
-],
-            keywords: [],
-            command: '@craftdotui/craftui-text-typing',
-            component: (() => {
-							const LazyComp = React.lazy(async () => {
-								const mod = await import("@craftdotui/craftui/components/text-typing/index.tsx");
 								let Comp = mod.default;
 
 								if (!Comp) {
@@ -414,26 +156,26 @@ export const Registry: Record<string, any> = {
 							return LazyComp;
 						})(),
           },
-          "craftui-particles-animated-tooltip": {
-            name: "craftui-particles-animated-tooltip",
-            description: "Basic animated tooltip demo",
+          "craftui-particles-breadcrumb-collapsed": {
+            name: "craftui-particles-breadcrumb-collapsed",
+            description: "Collapsed breadcrumb with an ellipsis indicator.",
             type: "registry:component",
             dependencies: [],
             devDependencies: undefined,
-            registryDependencies: ["@craftdotui/craftui-animated-tooltip"],
+            registryDependencies: ["@craftdotui/craftui-breadcrumb"],
             files: [
   {
-    "path": "packages/craftui/particles/animated-tooltip/index.tsx",
+    "path": "packages/craftui/particles/breadcrumb/collapsed/index.tsx",
     "type": "registry:component",
-    "target": "components/craftui/particles/animated-tooltip.tsx",
-    "content": "\"use client\";\n\nimport { AnimatedTooltip } from \"@/components/craftui/components/animated-tooltip\";\nimport { Home, Settings, Mail, Calendar, Music, ImageIcon } from \"lucide-react\";\n\nexport default function AnimatedTooltipDemo() {\n\tconst tooltips = [\n\t\t{\n\t\t\tid: \"1\",\n\t\t\ticon: <Home className=\"w-4 h-4 text-gray-500\" />,\n\t\t\tlabel: \"Home\",\n\t\t},\n\t\t{\n\t\t\tid: \"2\",\n\t\t\ticon: <Settings className=\"w-4 h-4 text-gray-500\" />,\n\t\t\tlabel: \"Settings\",\n\t\t},\n\t\t{\n\t\t\tid: \"3\",\n\t\t\ticon: <Mail className=\"w-4 h-4 text-gray-500\" />,\n\t\t\tlabel: \"Mail\",\n\t\t},\n\t\t{\n\t\t\tid: \"4\",\n\t\t\ticon: <Calendar className=\"w-4 h-4 text-gray-500\" />,\n\t\t\tlabel: \"Calendar\",\n\t\t},\n\t\t{\n\t\t\tid: \"5\",\n\t\t\ticon: <ImageIcon className=\"w-4 h-4 text-gray-500\" />,\n\t\t\tlabel: \"Photos\",\n\t\t},\n\t\t{\n\t\t\tid: \"6\",\n\t\t\ticon: <Music className=\"w-4 h-4 text-gray-500\" />,\n\t\t\tlabel: \"Music\",\n\t\t},\n\t];\n\n\treturn (\n\t\t<div className=\"flex gap-2\">\n\t\t\t{tooltips.map(({ id, icon, label }) => (\n\t\t\t\t<AnimatedTooltip key={id} label={label}>\n\t\t\t\t\t{icon}\n\t\t\t\t</AnimatedTooltip>\n\t\t\t))}\n\t\t</div>\n\t);\n}"
+    "target": "components/craftui/particles/breadcrumb-collapsed.tsx",
+    "content": "import {\n\tBreadcrumbEllipsis,\n\tBreadcrumbItem,\n\tBreadcrumbLink,\n\tBreadcrumbList,\n\tBreadcrumbPage,\n\tBreadcrumbRoot,\n\tBreadcrumbSeparator,\n} from \"@/components/craftui/components/breadcrumb\";\n\nexport function Particle() {\n\treturn (\n\t\t<BreadcrumbRoot>\n\t\t\t<BreadcrumbList>\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<BreadcrumbLink href=\"#home\">Home</BreadcrumbLink>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t\t<BreadcrumbSeparator />\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<BreadcrumbEllipsis />\n\t\t\t\t</BreadcrumbItem>\n\t\t\t\t<BreadcrumbSeparator />\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<BreadcrumbLink href=\"#components\">\n\t\t\t\t\t\tComponents\n\t\t\t\t\t</BreadcrumbLink>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t\t<BreadcrumbSeparator />\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<BreadcrumbPage>Breadcrumb</BreadcrumbPage>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t</BreadcrumbList>\n\t\t</BreadcrumbRoot>\n\t);\n}\n\nexport default Particle;"
   }
 ],
             keywords: [],
-            command: '@craftdotui/craftui-particles-animated-tooltip',
+            command: '@craftdotui/craftui-particles-breadcrumb-collapsed',
             component: (() => {
 							const LazyComp = React.lazy(async () => {
-								const mod = await import("@craftdotui/craftui/particles/animated-tooltip/index.tsx");
+								const mod = await import("@craftdotui/craftui/particles/breadcrumb/collapsed/index.tsx");
 								let Comp = mod.default;
 
 								if (!Comp) {
@@ -457,69 +199,26 @@ export const Registry: Record<string, any> = {
 							return LazyComp;
 						})(),
           },
-          "craftui-particles-confetti": {
-            name: "craftui-particles-confetti",
-            description: "",
-            type: "registry:component",
-            dependencies: undefined,
-            devDependencies: undefined,
-            registryDependencies: ["@craftdotui/use-confetti"],
-            files: [
-  {
-    "path": "packages/craftui/particles/confetti/index.tsx",
-    "type": "registry:component",
-    "target": "components/craftui/particles/confetti.tsx",
-    "content": "\"use client\";\n\nimport { useConfetti } from \"@/hooks/use-confetti\";\n\nexport default function ConfettiDemo() {\n\tconst triggerConfetti = useConfetti();\n\n\tconst origins = [\"top\", \"bottom\", \"center\", \"left\", \"right\"] as const;\n\n\treturn (\n\t\t<div className=\"flex justify-center flex-wrap gap-4 dark:text-white\">\n\t\t\t{origins.map((origin) => (\n\t\t\t\t<button\n\t\t\t\t\tkey={origin}\n\t\t\t\t\ttype=\"button\"\n\t\t\t\t\tonClick={() => {\n\t\t\t\t\t\ttriggerConfetti({\n\t\t\t\t\t\t\tparticleCount: 50,\n\t\t\t\t\t\t\torigin,\n\t\t\t\t\t\t\tduration: 5000,\n\t\t\t\t\t\t});\n\t\t\t\t\t}}\n\t\t\t\t\tclassName=\"px-4 py-2 rounded bg-gray-200 dark:bg-zinc-800 hover:bg-gray-300 dark:hover:bg-zinc-600 transition\"\n\t\t\t\t>\n\t\t\t\t\t{origin.charAt(0).toUpperCase() +\n\t\t\t\t\t\torigin.slice(1).replace(\"-\", \" \")}\n\t\t\t\t</button>\n\t\t\t))}\n\t\t</div>\n\t);\n}"
-  }
-],
-            keywords: [],
-            command: '@craftdotui/craftui-particles-confetti',
-            component: (() => {
-							const LazyComp = React.lazy(async () => {
-								const mod = await import("@craftdotui/craftui/particles/confetti/index.tsx");
-								let Comp = mod.default;
-
-								if (!Comp) {
-									const exportName =
-									Object.keys(mod).find((key) => {
-										const value = mod[key];
-										return typeof value === "function" || typeof value === "object";
-									}) || "default";
-
-									Comp = mod[exportName];
-								}
-
-								if (mod.animations) {
-									(LazyComp as any).animations = mod.animations;
-								}
-
-								return { default: Comp };
-							});
-
-						    LazyComp.demoProps = {};
-							return LazyComp;
-						})(),
-          },
-          "craftui-particles-cursor-with-text-trail": {
-            name: "craftui-particles-cursor-with-text-trail",
-            description: "Text cursor demo",
+          "craftui-particles-breadcrumb-custom-link": {
+            name: "craftui-particles-breadcrumb-custom-link",
+            description: "Breadcrumb using the render prop with Next.js Link.",
             type: "registry:component",
             dependencies: [],
             devDependencies: undefined,
-            registryDependencies: ["@craftdotui/craftui-cursor"],
+            registryDependencies: ["@craftdotui/craftui-breadcrumb"],
             files: [
   {
-    "path": "packages/craftui/particles/cursor/cursor-with-text-trail/index.tsx",
+    "path": "packages/craftui/particles/breadcrumb/custom-link/index.tsx",
     "type": "registry:component",
-    "target": "components/craftui/particles/cursor-with-text-trail.tsx",
-    "content": "\"use client\";\n\nimport Cursor from \"@/components/craftui/components/cursor\";\n\nexport default function Particle() {\n\treturn (\n\t\t<Cursor\n\t\t\tcursor={\n\t\t\t\t<span className=\"text-sm border px-2 py-1 rounded shadow\">\n\t\t\t\t\tHello, World!\n\t\t\t\t</span>\n\t\t\t}\n\t\t\tclassName=\"h-full w-full flex items-center justify-center\"\n\t\t>\n\t\t\t<div className=\"text-center\">\n\t\t\t\t<p>Hover over this area to see a text cursor</p>\n\t\t\t</div>\n\t\t</Cursor>\n\t);\n}"
+    "target": "components/craftui/particles/breadcrumb-custom-link.tsx",
+    "content": "import Link from \"next/link\";\nimport {\n\tBreadcrumbItem,\n\tBreadcrumbLink,\n\tBreadcrumbList,\n\tBreadcrumbPage,\n\tBreadcrumbRoot,\n\tBreadcrumbSeparator,\n} from \"@/components/craftui/components/breadcrumb\";\n\nexport function Particle() {\n\treturn (\n\t\t<BreadcrumbRoot>\n\t\t\t<BreadcrumbList>\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<BreadcrumbLink render={<Link href=\"/\" />}>\n\t\t\t\t\t\tHome\n\t\t\t\t\t</BreadcrumbLink>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t\t<BreadcrumbSeparator />\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<BreadcrumbLink\n\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t<Link href=\"/docs/getting-started/introduction\" />\n\t\t\t\t\t\t}\n\t\t\t\t\t>\n\t\t\t\t\t\tDocs\n\t\t\t\t\t</BreadcrumbLink>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t\t<BreadcrumbSeparator />\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<BreadcrumbPage>Breadcrumb</BreadcrumbPage>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t</BreadcrumbList>\n\t\t</BreadcrumbRoot>\n\t);\n}\n\nexport default Particle;"
   }
 ],
             keywords: [],
-            command: '@craftdotui/craftui-particles-cursor-with-text-trail',
+            command: '@craftdotui/craftui-particles-breadcrumb-custom-link',
             component: (() => {
 							const LazyComp = React.lazy(async () => {
-								const mod = await import("@craftdotui/craftui/particles/cursor/cursor-with-text-trail/index.tsx");
+								const mod = await import("@craftdotui/craftui/particles/breadcrumb/custom-link/index.tsx");
 								let Comp = mod.default;
 
 								if (!Comp) {
@@ -543,26 +242,26 @@ export const Registry: Record<string, any> = {
 							return LazyComp;
 						})(),
           },
-          "craftui-particles-cursor": {
-            name: "craftui-particles-cursor",
-            description: "Basic cursor demo",
+          "craftui-particles-breadcrumb-custom-separator": {
+            name: "craftui-particles-breadcrumb-custom-separator",
+            description: "Breadcrumb with a custom slash separator.",
             type: "registry:component",
             dependencies: ["lucide-react"],
             devDependencies: undefined,
-            registryDependencies: ["@craftdotui/craftui-cursor"],
+            registryDependencies: ["@craftdotui/craftui-breadcrumb"],
             files: [
   {
-    "path": "packages/craftui/particles/cursor/index.tsx",
+    "path": "packages/craftui/particles/breadcrumb/custom-separator/index.tsx",
     "type": "registry:component",
-    "target": "components/craftui/particles/cursor.tsx",
-    "content": "\"use client\";\n\nimport { ArrowRight, Sparkles } from \"lucide-react\";\nimport Cursor from \"@/components/craftui/components/cursor\";\n\nexport default function CursorPreview() {\n\treturn (\n\t\t<Cursor\n\t\t\tcursor={\n\t\t\t\t<div className=\"flex items-center space-x-2 bg-yellow-300 px-3 py-1 rounded-full shadow-lg\">\n\t\t\t\t\t<Sparkles className=\"w-4 h-4 text-yellow-600\" />\n\t\t\t\t\t<span className=\"text-sm font-semibold text-yellow-800\">\n\t\t\t\t\t\tClick Here!\n\t\t\t\t\t</span>\n\t\t\t\t\t<ArrowRight className=\"w-4 h-4 text-yellow-600\" />\n\t\t\t\t</div>\n\t\t\t}\n\t\t\tclassName=\"h-full w-full flex items-center justify-center\"\n\t\t>\n\t\t\t<div className=\"text-center\">\n\t\t\t\t<p>Hover over this area to see a custom cursor</p>\n\t\t\t</div>\n\t\t</Cursor>\n\t);\n}"
+    "target": "components/craftui/particles/breadcrumb-custom-separator.tsx",
+    "content": "import { Slash } from \"lucide-react\";\nimport {\n\tBreadcrumbItem,\n\tBreadcrumbLink,\n\tBreadcrumbList,\n\tBreadcrumbPage,\n\tBreadcrumbRoot,\n\tBreadcrumbSeparator,\n} from \"@/components/craftui/components/breadcrumb\";\n\nexport function Particle() {\n\treturn (\n\t\t<BreadcrumbRoot>\n\t\t\t<BreadcrumbList>\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<BreadcrumbLink href=\"#home\">Home</BreadcrumbLink>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t\t<BreadcrumbSeparator>\n\t\t\t\t\t<Slash className=\"-rotate-12\" />\n\t\t\t\t</BreadcrumbSeparator>\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<BreadcrumbLink href=\"#components\">\n\t\t\t\t\t\tComponents\n\t\t\t\t\t</BreadcrumbLink>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t\t<BreadcrumbSeparator>\n\t\t\t\t\t<Slash className=\"-rotate-12\" />\n\t\t\t\t</BreadcrumbSeparator>\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<BreadcrumbPage>Breadcrumb</BreadcrumbPage>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t</BreadcrumbList>\n\t\t</BreadcrumbRoot>\n\t);\n}\n\nexport default Particle;"
   }
 ],
             keywords: [],
-            command: '@craftdotui/craftui-particles-cursor',
+            command: '@craftdotui/craftui-particles-breadcrumb-custom-separator',
             component: (() => {
 							const LazyComp = React.lazy(async () => {
-								const mod = await import("@craftdotui/craftui/particles/cursor/index.tsx");
+								const mod = await import("@craftdotui/craftui/particles/breadcrumb/custom-separator/index.tsx");
 								let Comp = mod.default;
 
 								if (!Comp) {
@@ -586,26 +285,26 @@ export const Registry: Record<string, any> = {
 							return LazyComp;
 						})(),
           },
-          "craftui-particles-dock": {
-            name: "craftui-particles-dock",
-            description: "Basic dock demo",
+          "craftui-particles-breadcrumb": {
+            name: "craftui-particles-breadcrumb",
+            description: "Default breadcrumb with dropdown menu and current page.",
             type: "registry:component",
             dependencies: [],
             devDependencies: undefined,
-            registryDependencies: ["@craftdotui/craftui-dock"],
+            registryDependencies: ["@craftdotui/craftui-breadcrumb","@craftdotui/baseui-menu"],
             files: [
   {
-    "path": "packages/craftui/particles/dock/index.tsx",
+    "path": "packages/craftui/particles/breadcrumb/index.tsx",
     "type": "registry:component",
-    "target": "components/craftui/particles/dock.tsx",
-    "content": "\"use client\";\n\nimport { Dock, DockItem } from \"@/components/craftui/components/dock\";\nimport { Home, Settings, Mail, Calendar, Music, ImageIcon } from \"lucide-react\";\n\nexport default function DockBasic() {\n\tconst dockItems = [\n\t\t{\n\t\t\tid: \"1\",\n\t\t\ticon: <Home className=\"w-4 h-4 text-gray-500\" />,\n\t\t\tlabel: \"Home\",\n\t\t},\n\t\t{\n\t\t\tid: \"2\",\n\t\t\ticon: <Settings className=\"w-4 h-4 text-gray-500\" />,\n\t\t\tlabel: \"Settings\",\n\t\t},\n\t\t{\n\t\t\tid: \"3\",\n\t\t\ticon: <Mail className=\"w-4 h-4 text-gray-500\" />,\n\t\t\tlabel: \"Mail\",\n\t\t},\n\t\t{\n\t\t\tid: \"4\",\n\t\t\ticon: <Calendar className=\"w-4 h-4 text-gray-500\" />,\n\t\t\tlabel: \"Calendar\",\n\t\t},\n\t\t{\n\t\t\tid: \"5\",\n\t\t\ticon: <ImageIcon className=\"w-4 h-4 text-gray-500\" />,\n\t\t\tlabel: \"Photos\",\n\t\t},\n\t\t{\n\t\t\tid: \"6\",\n\t\t\ticon: <Music className=\"w-4 h-4 text-gray-500\" />,\n\t\t\tlabel: \"Music\",\n\t\t},\n\t];\n\n\treturn (\n\t\t<Dock>\n\t\t\t{dockItems.map(({ id, icon, label }) => (\n\t\t\t\t<DockItem key={id} icon={icon} label={label} />\n\t\t\t))}\n\t\t</Dock>\n\t);\n}"
+    "target": "components/craftui/particles/breadcrumb.tsx",
+    "content": "import {\n\tBreadcrumbEllipsis,\n\tBreadcrumbItem,\n\tBreadcrumbLink,\n\tBreadcrumbList,\n\tBreadcrumbPage,\n\tBreadcrumbRoot,\n\tBreadcrumbSeparator,\n} from \"@/components/craftui/components/breadcrumb\";\nimport {\n\tMenuContent,\n\tMenuItem,\n\tMenuRoot,\n\tMenuTrigger,\n} from \"@/components/baseui/components/menu\";\n\nexport function Particle() {\n\treturn (\n\t\t<BreadcrumbRoot>\n\t\t\t<BreadcrumbList>\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<BreadcrumbLink href=\"#home\">Home</BreadcrumbLink>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t\t<BreadcrumbSeparator />\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<MenuRoot>\n\t\t\t\t\t\t<MenuTrigger className=\"flex items-center gap-1 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring cursor-pointer\">\n\t\t\t\t\t\t\t<BreadcrumbEllipsis />\n\t\t\t\t\t\t</MenuTrigger>\n\t\t\t\t\t\t<MenuContent positionerProps={{ align: \"start\" }}>\n\t\t\t\t\t\t\t<MenuItem>Documentation</MenuItem>\n\t\t\t\t\t\t\t<MenuItem>Themes</MenuItem>\n\t\t\t\t\t\t\t<MenuItem>GitHub</MenuItem>\n\t\t\t\t\t\t</MenuContent>\n\t\t\t\t\t</MenuRoot>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t\t<BreadcrumbSeparator />\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<BreadcrumbLink href=\"#components\">\n\t\t\t\t\t\tComponents\n\t\t\t\t\t</BreadcrumbLink>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t\t<BreadcrumbSeparator />\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<BreadcrumbPage>Breadcrumb</BreadcrumbPage>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t</BreadcrumbList>\n\t\t</BreadcrumbRoot>\n\t);\n}\n\nexport default Particle;"
   }
 ],
             keywords: [],
-            command: '@craftdotui/craftui-particles-dock',
+            command: '@craftdotui/craftui-particles-breadcrumb',
             component: (() => {
 							const LazyComp = React.lazy(async () => {
-								const mod = await import("@craftdotui/craftui/particles/dock/index.tsx");
+								const mod = await import("@craftdotui/craftui/particles/breadcrumb/index.tsx");
 								let Comp = mod.default;
 
 								if (!Comp) {
@@ -629,26 +328,26 @@ export const Registry: Record<string, any> = {
 							return LazyComp;
 						})(),
           },
-          "craftui-particles-magnetic-with-navbar-items": {
-            name: "craftui-particles-magnetic-with-navbar-items",
-            description: "Magnetic navbar items demo",
+          "craftui-particles-breadcrumb-with-icons": {
+            name: "craftui-particles-breadcrumb-with-icons",
+            description: "Breadcrumb items with leading icons.",
             type: "registry:component",
-            dependencies: [],
+            dependencies: ["lucide-react"],
             devDependencies: undefined,
-            registryDependencies: ["@craftdotui/craftui-magnetic"],
+            registryDependencies: ["@craftdotui/craftui-breadcrumb"],
             files: [
   {
-    "path": "packages/craftui/particles/magnetic/magnetic-with-navbar-items/index.tsx",
+    "path": "packages/craftui/particles/breadcrumb/with-icons/index.tsx",
     "type": "registry:component",
-    "target": "components/craftui/particles/magnetic-with-navbar-items.tsx",
-    "content": "\"use client\";\n\nimport type React from \"react\";\nimport Magnetic from \"@/components/craftui/components/magnetic\";\n\n// nav items\nconst navMenu = [\n\t{\n\t\tname: \"Home\",\n\t\tlink: \"#\",\n\t},\n\t{\n\t\tname: \"About\",\n\t\tlink: \"#\",\n\t},\n\t{\n\t\tname: \"Services\",\n\t\tlink: \"#\",\n\t},\n\t{\n\t\tname: \"Contact\",\n\t\tlink: \"#\",\n\t},\n];\n\n// Icons\ntype IconProps = React.HTMLAttributes<SVGElement>;\nconst Icons = {\n\tGitHub: (props: IconProps) => (\n\t\t<svg\n\t\t\tviewBox=\"0 0 256 250\"\n\t\t\twidth=\"256\"\n\t\t\theight=\"250\"\n\t\t\tfill=\"#24292f\"\n\t\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t\t\tpreserveAspectRatio=\"xMidYMid\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<title>GitHub</title>\n\t\t\t<path d=\"M128.001 0C57.317 0 0 57.307 0 128.001c0 56.554 36.676 104.535 87.535 121.46 6.397 1.185 8.746-2.777 8.746-6.158 0-3.052-.12-13.135-.174-23.83-35.61 7.742-43.124-15.103-43.124-15.103-5.823-14.795-14.213-18.73-14.213-18.73-11.613-7.944.876-7.78.876-7.78 12.853.902 19.621 13.19 19.621 13.19 11.417 19.568 29.945 13.911 37.249 10.64 1.149-8.272 4.466-13.92 8.127-17.116-28.431-3.236-58.318-14.212-58.318-63.258 0-13.975 5-25.394 13.188-34.358-1.329-3.224-5.71-16.242 1.24-33.874 0 0 10.749-3.44 35.21 13.121 10.21-2.836 21.16-4.258 32.038-4.307 10.878.049 21.837 1.47 32.066 4.307 24.431-16.56 35.165-13.12 35.165-13.12 6.967 17.63 2.584 30.65 1.255 33.873 8.207 8.964 13.173 20.383 13.173 34.358 0 49.163-29.944 59.988-58.447 63.157 4.591 3.972 8.682 11.762 8.682 23.704 0 17.126-.148 30.91-.148 35.126 0 3.407 2.304 7.398 8.792 6.14C219.37 232.5 256 184.537 256 128.002 256 57.307 198.691 0 128.001 0Zm-80.06 182.34c-.282.636-1.283.827-2.194.39-.929-.417-1.45-1.284-1.15-1.922.276-.655 1.279-.838 2.205-.399.93.418 1.46 1.293 1.139 1.931Zm6.296 5.618c-.61.566-1.804.303-2.614-.591-.837-.892-.994-2.086-.375-2.66.63-.566 1.787-.301 2.626.591.838.903 1 2.088.363 2.66Zm4.32 7.188c-.785.545-2.067.034-2.86-1.104-.784-1.138-.784-2.503.017-3.05.795-.547 2.058-.055 2.861 1.075.782 1.157.782 2.522-.019 3.08Zm7.304 8.325c-.701.774-2.196.566-3.29-.49-1.119-1.032-1.43-2.496-.726-3.27.71-.776 2.213-.558 3.315.49 1.11 1.03 1.45 2.505.701 3.27Zm9.442 2.81c-.31 1.003-1.75 1.459-3.199 1.033-1.448-.439-2.395-1.613-2.103-2.626.301-1.01 1.747-1.484 3.207-1.028 1.446.436 2.396 1.602 2.095 2.622Zm10.744 1.193c.036 1.055-1.193 1.93-2.715 1.95-1.53.034-2.769-.82-2.786-1.86 0-1.065 1.202-1.932 2.733-1.958 1.522-.03 2.768.818 2.768 1.868Zm10.555-.405c.182 1.03-.875 2.088-2.387 2.37-1.485.271-2.861-.365-3.05-1.386-.184-1.056.893-2.114 2.376-2.387 1.514-.263 2.868.356 3.061 1.403Z\" />\n\t\t</svg>\n\t),\n\tLinkedIn: (props: IconProps) => (\n\t\t<svg\n\t\t\twidth=\"256\"\n\t\t\theight=\"256\"\n\t\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t\t\tpreserveAspectRatio=\"xMidYMid\"\n\t\t\tviewBox=\"0 0 256 256\"\n\t\t\tfill=\"#0077b5\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<title>LinkedIn</title>\n\t\t\t<path\n\t\t\t\td=\"M218.123 218.127h-37.931v-59.403c0-14.165-.253-32.4-19.728-32.4-19.756 0-22.779 15.434-22.779 31.369v60.43h-37.93V95.967h36.413v16.694h.51a39.907 39.907 0 0 1 35.928-19.733c38.445 0 45.533 25.288 45.533 58.186l-.016 67.013ZM56.955 79.27c-12.157.002-22.014-9.852-22.016-22.009-.002-12.157 9.851-22.014 22.008-22.016 12.157-.003 22.014 9.851 22.016 22.008A22.013 22.013 0 0 1 56.955 79.27m18.966 138.858H37.95V95.967h37.97v122.16ZM237.033.018H18.89C8.58-.098.125 8.161-.001 18.471v219.053c.122 10.315 8.576 18.582 18.89 18.474h218.144c10.336.128 18.823-8.139 18.966-18.474V18.454c-.147-10.33-8.635-18.588-18.966-18.453\"\n\t\t\t\tfill=\"#0A66C2\"\n\t\t\t/>\n\t\t</svg>\n\t),\n\tX: (props: IconProps) => (\n\t\t<svg\n\t\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t\t\twidth=\"1200\"\n\t\t\theight=\"1227\"\n\t\t\tfill=\"none\"\n\t\t\tviewBox=\"0 0 1200 1227\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<title>X</title>\n\t\t\t<path\n\t\t\t\tfill=\"#000\"\n\t\t\t\td=\"M714.163 519.284 1160.89 0h-105.86L667.137 450.887 357.328 0H0l468.492 681.821L0 1226.37h105.866l409.625-476.152 327.181 476.152H1200L714.137 519.284h.026ZM569.165 687.828l-47.468-67.894-377.686-540.24h162.604l304.797 435.991 47.468 67.894 396.2 566.721H892.476L569.165 687.854v-.026Z\"\n\t\t\t/>\n\t\t</svg>\n\t),\n};\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"w-full flex items-center justify-between\">\n\t\t\t<div className=\"flex items-center\">\n\t\t\t\t<div className=\"flex gap-8 items-center\">\n\t\t\t\t\t{navMenu.map((nav, index) => (\n\t\t\t\t\t\t<Magnetic key={index}>\n\t\t\t\t\t\t\t<div className=\"group relative\">\n\t\t\t\t\t\t\t\t<div className=\"cursor-pointer\">{nav.name}</div>\n\t\t\t\t\t\t\t\t<div className=\"h-2 w-2 bg-black dark:bg-white rounded-full absolute -bottom-4 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-all ease duration-200\"></div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</Magnetic>\n\t\t\t\t\t))}\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div className=\"mr-8 flex gap-6\">\n\t\t\t\t<Magnetic>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<Icons.GitHub className=\"h-4 w-4 cursor-pointer\" />\n\t\t\t\t\t</div>\n\t\t\t\t</Magnetic>\n\t\t\t\t<Magnetic>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<Icons.LinkedIn className=\"h-4 w-4 cursor-pointer\" />\n\t\t\t\t\t</div>\n\t\t\t\t</Magnetic>\n\t\t\t\t<Magnetic>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<Icons.X className=\"h-4 w-4 cursor-pointer\" />\n\t\t\t\t\t</div>\n\t\t\t\t</Magnetic>\n\t\t\t</div>\n\t\t</div>\n\t);\n}"
+    "target": "components/craftui/particles/breadcrumb-with-icons.tsx",
+    "content": "import { FileCode, Folder, Home } from \"lucide-react\";\nimport {\n\tBreadcrumbItem,\n\tBreadcrumbLink,\n\tBreadcrumbList,\n\tBreadcrumbPage,\n\tBreadcrumbRoot,\n\tBreadcrumbSeparator,\n} from \"@/components/craftui/components/breadcrumb\";\n\nexport function Particle() {\n\treturn (\n\t\t<BreadcrumbRoot>\n\t\t\t<BreadcrumbList>\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<BreadcrumbLink href=\"#home\">\n\t\t\t\t\t\t<Home className=\"size-3.5\" />\n\t\t\t\t\t\t<span>Workspace</span>\n\t\t\t\t\t</BreadcrumbLink>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t\t<BreadcrumbSeparator />\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<BreadcrumbLink href=\"#packages\">\n\t\t\t\t\t\t<Folder className=\"size-3.5\" />\n\t\t\t\t\t\t<span>packages</span>\n\t\t\t\t\t</BreadcrumbLink>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t\t<BreadcrumbSeparator />\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<BreadcrumbPage>\n\t\t\t\t\t\t<FileCode className=\"size-3.5 text-muted-foreground\" />\n\t\t\t\t\t\t<span>breadcrumb.tsx</span>\n\t\t\t\t\t</BreadcrumbPage>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t</BreadcrumbList>\n\t\t</BreadcrumbRoot>\n\t);\n}\n\nexport default Particle;"
   }
 ],
             keywords: [],
-            command: '@craftdotui/craftui-particles-magnetic-with-navbar-items',
+            command: '@craftdotui/craftui-particles-breadcrumb-with-icons',
             component: (() => {
 							const LazyComp = React.lazy(async () => {
-								const mod = await import("@craftdotui/craftui/particles/magnetic/magnetic-with-navbar-items/index.tsx");
+								const mod = await import("@craftdotui/craftui/particles/breadcrumb/with-icons/index.tsx");
 								let Comp = mod.default;
 
 								if (!Comp) {
@@ -672,112 +371,26 @@ export const Registry: Record<string, any> = {
 							return LazyComp;
 						})(),
           },
-          "craftui-particles-magnetic": {
-            name: "craftui-particles-magnetic",
-            description: "Basic magnetic demo",
+          "craftui-particles-breadcrumb-with-menu": {
+            name: "craftui-particles-breadcrumb-with-menu",
+            description: "Breadcrumb with a dropdown menu trigger item.",
             type: "registry:component",
-            dependencies: [],
+            dependencies: ["lucide-react"],
             devDependencies: undefined,
-            registryDependencies: ["@craftdotui/craftui-magnetic"],
+            registryDependencies: ["@craftdotui/craftui-breadcrumb","@craftdotui/baseui-menu"],
             files: [
   {
-    "path": "packages/craftui/particles/magnetic/index.tsx",
+    "path": "packages/craftui/particles/breadcrumb/with-menu/index.tsx",
     "type": "registry:component",
-    "target": "components/craftui/particles/magnetic.tsx",
-    "content": "\"use client\";\n\nimport Magnetic from \"@/components/craftui/components/magnetic\";\n\nexport default function MagneticBasic() {\n\treturn (\n\t\t<Magnetic>\n\t\t\t<button\n\t\t\t\ttype=\"button\"\n\t\t\t\tclassName=\"px-4 py-2 cursor-pointer border rounded shadow\"\n\t\t\t>\n\t\t\t\tHover Me\n\t\t\t</button>\n\t\t</Magnetic>\n\t);\n}"
+    "target": "components/craftui/particles/breadcrumb-with-menu.tsx",
+    "content": "import { ChevronDown } from \"lucide-react\";\nimport {\n\tBreadcrumbItem,\n\tBreadcrumbLink,\n\tBreadcrumbList,\n\tBreadcrumbPage,\n\tBreadcrumbRoot,\n\tBreadcrumbSeparator,\n} from \"@/components/craftui/components/breadcrumb\";\nimport {\n\tMenuContent,\n\tMenuItem,\n\tMenuRoot,\n\tMenuTrigger,\n} from \"@/components/baseui/components/menu\";\n\nexport function Particle() {\n\treturn (\n\t\t<BreadcrumbRoot>\n\t\t\t<BreadcrumbList>\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<BreadcrumbLink href=\"#home\">Home</BreadcrumbLink>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t\t<BreadcrumbSeparator />\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<MenuRoot>\n\t\t\t\t\t\t<MenuTrigger className=\"inline-flex items-center gap-1 rounded-xs text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring cursor-pointer\">\n\t\t\t\t\t\t\tComponents\n\t\t\t\t\t\t\t<ChevronDown className=\"size-3.5\" />\n\t\t\t\t\t\t</MenuTrigger>\n\t\t\t\t\t\t<MenuContent positionerProps={{ align: \"start\" }}>\n\t\t\t\t\t\t\t<MenuItem>Base UI</MenuItem>\n\t\t\t\t\t\t\t<MenuItem>Craft UI</MenuItem>\n\t\t\t\t\t\t\t<MenuItem>Motion</MenuItem>\n\t\t\t\t\t\t</MenuContent>\n\t\t\t\t\t</MenuRoot>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t\t<BreadcrumbSeparator />\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<BreadcrumbPage>Breadcrumb</BreadcrumbPage>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t</BreadcrumbList>\n\t\t</BreadcrumbRoot>\n\t);\n}\n\nexport default Particle;"
   }
 ],
             keywords: [],
-            command: '@craftdotui/craftui-particles-magnetic',
+            command: '@craftdotui/craftui-particles-breadcrumb-with-menu',
             component: (() => {
 							const LazyComp = React.lazy(async () => {
-								const mod = await import("@craftdotui/craftui/particles/magnetic/index.tsx");
-								let Comp = mod.default;
-
-								if (!Comp) {
-									const exportName =
-									Object.keys(mod).find((key) => {
-										const value = mod[key];
-										return typeof value === "function" || typeof value === "object";
-									}) || "default";
-
-									Comp = mod[exportName];
-								}
-
-								if (mod.animations) {
-									(LazyComp as any).animations = mod.animations;
-								}
-
-								return { default: Comp };
-							});
-
-						    LazyComp.demoProps = {};
-							return LazyComp;
-						})(),
-          },
-          "craftui-particles-marquee-with-reverse-direction": {
-            name: "craftui-particles-marquee-with-reverse-direction",
-            description: "Reverse marquee demo",
-            type: "registry:component",
-            dependencies: [],
-            devDependencies: undefined,
-            registryDependencies: ["@craftdotui/craftui-marquee"],
-            files: [
-  {
-    "path": "packages/craftui/particles/marquee/marquee-with-reverse-direction/index.tsx",
-    "type": "registry:component",
-    "target": "components/craftui/particles/marquee-with-reverse-direction.tsx",
-    "content": "\"use client\";\n\nimport Marquee from \"@/components/craftui/components/marquee\";\n\nconst team = [\n\t{\n\t\tname: \"Jack Thompson\",\n\t\trole: \"Product Designer\",\n\t\tid: 1,\n\t},\n\t{\n\t\tname: \"Maria Rodriguez\",\n\t\trole: \"Marketing Director\",\n\t\tid: 2,\n\t},\n\t{\n\t\tname: \"Alex Chen\",\n\t\trole: \"Tech Lead\",\n\t\tid: 3,\n\t},\n\t{\n\t\tname: \"Sarah Wilson\",\n\t\trole: \"Startup Founder\",\n\t\tid: 4,\n\t},\n\t{\n\t\tname: \"David Lee\",\n\t\trole: \"Creative Director\",\n\t\tid: 5,\n\t},\n\t{\n\t\tname: \"Nina Patel\",\n\t\trole: \"UX Researcher\",\n\t\tid: 6,\n\t},\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<Marquee\n\t\t\tduration={35}\n\t\t\trepeat={2}\n\t\t\tdirection=\"right\"\n\t\t\tgap={12}\n\t\t\tclassName=\"w-[1000px] py-8\"\n\t\t\tpauseOnHover\n\t\t>\n\t\t\t{team.map((item) => (\n\t\t\t\t<div\n\t\t\t\t\tkey={item.id}\n\t\t\t\t\tclassName=\"h-40 w-40 border rounded-md p-2 flex flex-col items-center justify-center\"\n\t\t\t\t>\n\t\t\t\t\t<span className=\"text-gray-500 text-sm text-center\">\n\t\t\t\t\t\t{item.name}\n\t\t\t\t\t</span>\n\t\t\t\t\t<span className=\"mt-1 text-sm text-center\">\n\t\t\t\t\t\t{item.role}\n\t\t\t\t\t</span>\n\t\t\t\t</div>\n\t\t\t))}\n\t\t</Marquee>\n\t);\n}"
-  }
-],
-            keywords: [],
-            command: '@craftdotui/craftui-particles-marquee-with-reverse-direction',
-            component: (() => {
-							const LazyComp = React.lazy(async () => {
-								const mod = await import("@craftdotui/craftui/particles/marquee/marquee-with-reverse-direction/index.tsx");
-								let Comp = mod.default;
-
-								if (!Comp) {
-									const exportName =
-									Object.keys(mod).find((key) => {
-										const value = mod[key];
-										return typeof value === "function" || typeof value === "object";
-									}) || "default";
-
-									Comp = mod[exportName];
-								}
-
-								if (mod.animations) {
-									(LazyComp as any).animations = mod.animations;
-								}
-
-								return { default: Comp };
-							});
-
-						    LazyComp.demoProps = {};
-							return LazyComp;
-						})(),
-          },
-          "craftui-particles-marquee": {
-            name: "craftui-particles-marquee",
-            description: "Basic marquee demo",
-            type: "registry:component",
-            dependencies: [],
-            devDependencies: undefined,
-            registryDependencies: ["@craftdotui/craftui-marquee"],
-            files: [
-  {
-    "path": "packages/craftui/particles/marquee/index.tsx",
-    "type": "registry:component",
-    "target": "components/craftui/particles/marquee.tsx",
-    "content": "\"use client\";\n\nimport Marquee from \"@/components/craftui/components/marquee\";\n\ntype IconProps = React.HTMLAttributes<SVGElement>;\nexport const Icons = {\n\tReact: (props: IconProps) => (\n\t\t<svg\n\t\t\tviewBox=\"0 0 256 228\"\n\t\t\twidth=\"256\"\n\t\t\theight=\"228\"\n\t\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t\t\tpreserveAspectRatio=\"xMidYMid\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<title>React</title>\n\t\t\t<path\n\t\t\t\td=\"M210.483 73.824a171.49 171.49 0 0 0-8.24-2.597c.465-1.9.893-3.777 1.273-5.621 6.238-30.281 2.16-54.676-11.769-62.708-13.355-7.7-35.196.329-57.254 19.526a171.23 171.23 0 0 0-6.375 5.848 155.866 155.866 0 0 0-4.241-3.917C100.759 3.829 77.587-4.822 63.673 3.233 50.33 10.957 46.379 33.89 51.995 62.588a170.974 170.974 0 0 0 1.892 8.48c-3.28.932-6.445 1.924-9.474 2.98C17.309 83.498 0 98.307 0 113.668c0 15.865 18.582 31.778 46.812 41.427a145.52 145.52 0 0 0 6.921 2.165 167.467 167.467 0 0 0-2.01 9.138c-5.354 28.2-1.173 50.591 12.134 58.266 13.744 7.926 36.812-.22 59.273-19.855a145.567 145.567 0 0 0 5.342-4.923 168.064 168.064 0 0 0 6.92 6.314c21.758 18.722 43.246 26.282 56.54 18.586 13.731-7.949 18.194-32.003 12.4-61.268a145.016 145.016 0 0 0-1.535-6.842c1.62-.48 3.21-.974 4.76-1.488 29.348-9.723 48.443-25.443 48.443-41.52 0-15.417-17.868-30.326-45.517-39.844Zm-6.365 70.984c-1.4.463-2.836.91-4.3 1.345-3.24-10.257-7.612-21.163-12.963-32.432 5.106-11 9.31-21.767 12.459-31.957 2.619.758 5.16 1.557 7.61 2.4 23.69 8.156 38.14 20.213 38.14 29.504 0 9.896-15.606 22.743-40.946 31.14Zm-10.514 20.834c2.562 12.94 2.927 24.64 1.23 33.787-1.524 8.219-4.59 13.698-8.382 15.893-8.067 4.67-25.32-1.4-43.927-17.412a156.726 156.726 0 0 1-6.437-5.87c7.214-7.889 14.423-17.06 21.459-27.246 12.376-1.098 24.068-2.894 34.671-5.345.522 2.107.986 4.173 1.386 6.193ZM87.276 214.515c-7.882 2.783-14.16 2.863-17.955.675-8.075-4.657-11.432-22.636-6.853-46.752a156.923 156.923 0 0 1 1.869-8.499c10.486 2.32 22.093 3.988 34.498 4.994 7.084 9.967 14.501 19.128 21.976 27.15a134.668 134.668 0 0 1-4.877 4.492c-9.933 8.682-19.886 14.842-28.658 17.94ZM50.35 144.747c-12.483-4.267-22.792-9.812-29.858-15.863-6.35-5.437-9.555-10.836-9.555-15.216 0-9.322 13.897-21.212 37.076-29.293 2.813-.98 5.757-1.905 8.812-2.773 3.204 10.42 7.406 21.315 12.477 32.332-5.137 11.18-9.399 22.249-12.634 32.792a134.718 134.718 0 0 1-6.318-1.979Zm12.378-84.26c-4.811-24.587-1.616-43.134 6.425-47.789 8.564-4.958 27.502 2.111 47.463 19.835a144.318 144.318 0 0 1 3.841 3.545c-7.438 7.987-14.787 17.08-21.808 26.988-12.04 1.116-23.565 2.908-34.161 5.309a160.342 160.342 0 0 1-1.76-7.887Zm110.427 27.268a347.8 347.8 0 0 0-7.785-12.803c8.168 1.033 15.994 2.404 23.343 4.08-2.206 7.072-4.956 14.465-8.193 22.045a381.151 381.151 0 0 0-7.365-13.322Zm-45.032-43.861c5.044 5.465 10.096 11.566 15.065 18.186a322.04 322.04 0 0 0-30.257-.006c4.974-6.559 10.069-12.652 15.192-18.18ZM82.802 87.83a323.167 323.167 0 0 0-7.227 13.238c-3.184-7.553-5.909-14.98-8.134-22.152 7.304-1.634 15.093-2.97 23.209-3.984a321.524 321.524 0 0 0-7.848 12.897Zm8.081 65.352c-8.385-.936-16.291-2.203-23.593-3.793 2.26-7.3 5.045-14.885 8.298-22.6a321.187 321.187 0 0 0 7.257 13.246c2.594 4.48 5.28 8.868 8.038 13.147Zm37.542 31.03c-5.184-5.592-10.354-11.779-15.403-18.433 4.902.192 9.899.29 14.978.29 5.218 0 10.376-.117 15.453-.343-4.985 6.774-10.018 12.97-15.028 18.486Zm52.198-57.817c3.422 7.8 6.306 15.345 8.596 22.52-7.422 1.694-15.436 3.058-23.88 4.071a382.417 382.417 0 0 0 7.859-13.026 347.403 347.403 0 0 0 7.425-13.565Zm-16.898 8.101a358.557 358.557 0 0 1-12.281 19.815 329.4 329.4 0 0 1-23.444.823c-7.967 0-15.716-.248-23.178-.732a310.202 310.202 0 0 1-12.513-19.846h.001a307.41 307.41 0 0 1-10.923-20.627 310.278 310.278 0 0 1 10.89-20.637l-.001.001a307.318 307.318 0 0 1 12.413-19.761c7.613-.576 15.42-.876 23.31-.876H128c7.926 0 15.743.303 23.354.883a329.357 329.357 0 0 1 12.335 19.695 358.489 358.489 0 0 1 11.036 20.54 329.472 329.472 0 0 1-11 20.722Zm22.56-122.124c8.572 4.944 11.906 24.881 6.52 51.026-.344 1.668-.73 3.367-1.15 5.09-10.622-2.452-22.155-4.275-34.23-5.408-7.034-10.017-14.323-19.124-21.64-27.008a160.789 160.789 0 0 1 5.888-5.4c18.9-16.447 36.564-22.941 44.612-18.3ZM128 90.808c12.625 0 22.86 10.235 22.86 22.86s-10.235 22.86-22.86 22.86-22.86-10.235-22.86-22.86 10.235-22.86 22.86-22.86Z\"\n\t\t\t\tfill=\"#00D8FF\"\n\t\t\t/>\n\t\t</svg>\n\t),\n\tNext: (props: IconProps) => (\n\t\t<svg\n\t\t\twidth=\"180\"\n\t\t\theight=\"180\"\n\t\t\tviewBox=\"0 0 180 180\"\n\t\t\tfill=\"none\"\n\t\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<title>Next</title>\n\t\t\t<mask\n\t\t\t\tid=\"mask0_408_139\"\n\t\t\t\tstyle={{ maskType: \"alpha\" }}\n\t\t\t\tmaskUnits=\"userSpaceOnUse\"\n\t\t\t\tx=\"0\"\n\t\t\t\ty=\"0\"\n\t\t\t\twidth=\"180\"\n\t\t\t\theight=\"180\"\n\t\t\t>\n\t\t\t\t<circle cx=\"90\" cy=\"90\" r=\"90\" fill=\"black\" />\n\t\t\t</mask>\n\t\t\t<g mask=\"url(#mask0_408_139)\">\n\t\t\t\t<circle\n\t\t\t\t\tcx=\"90\"\n\t\t\t\t\tcy=\"90\"\n\t\t\t\t\tr=\"87\"\n\t\t\t\t\tfill=\"black\"\n\t\t\t\t\tstroke=\"white\"\n\t\t\t\t\tstrokeWidth=\"6\"\n\t\t\t\t/>\n\t\t\t\t<path\n\t\t\t\t\td=\"M149.508 157.52L69.142 54H54V125.97H66.1136V69.3836L139.999 164.845C143.333 162.614 146.509 160.165 149.508 157.52Z\"\n\t\t\t\t\tfill=\"url(#paint0_linear_408_139)\"\n\t\t\t\t/>\n\t\t\t\t<rect\n\t\t\t\t\tx=\"115\"\n\t\t\t\t\ty=\"54\"\n\t\t\t\t\twidth=\"12\"\n\t\t\t\t\theight=\"72\"\n\t\t\t\t\tfill=\"url(#paint1_linear_408_139)\"\n\t\t\t\t/>\n\t\t\t</g>\n\t\t\t<defs>\n\t\t\t\t<linearGradient\n\t\t\t\t\tid=\"paint0_linear_408_139\"\n\t\t\t\t\tx1=\"109\"\n\t\t\t\t\ty1=\"116.5\"\n\t\t\t\t\tx2=\"144.5\"\n\t\t\t\t\ty2=\"160.5\"\n\t\t\t\t\tgradientUnits=\"userSpaceOnUse\"\n\t\t\t\t>\n\t\t\t\t\t<stop stopColor=\"white\" />\n\t\t\t\t\t<stop offset=\"1\" stopColor=\"white\" stopOpacity=\"0\" />\n\t\t\t\t</linearGradient>\n\t\t\t\t<linearGradient\n\t\t\t\t\tid=\"paint1_linear_408_139\"\n\t\t\t\t\tx1=\"121\"\n\t\t\t\t\ty1=\"54\"\n\t\t\t\t\tx2=\"120.799\"\n\t\t\t\t\ty2=\"106.875\"\n\t\t\t\t\tgradientUnits=\"userSpaceOnUse\"\n\t\t\t\t>\n\t\t\t\t\t<stop stopColor=\"white\" />\n\t\t\t\t\t<stop offset=\"1\" stopColor=\"white\" stopOpacity=\"0\" />\n\t\t\t\t</linearGradient>\n\t\t\t</defs>\n\t\t</svg>\n\t),\n\tRemix: (props: IconProps) => (\n\t\t<svg\n\t\t\tviewBox=\"0 0 256 297\"\n\t\t\twidth=\"256\"\n\t\t\theight=\"297\"\n\t\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<title>Remix</title>\n\t\t\t<path\n\t\t\t\td=\"M141.675 0C218.047 0 256 36.35 256 94.414c0 43.43-26.707 71.753-62.785 76.474 30.455 6.137 48.259 23.604 51.54 58.065l.474 6.337.415 5.924.358 5.542.249 4.179.267 4.93.138 2.814.198 4.47.159 4.222.079 2.427.107 3.888.092 4.446.033 2.148.06 6.226.02 6.496v3.885h-78.758l.004-1.62.028-3.147.047-3.065.136-7.424.035-2.489.027-3.902-.004-2.496-.023-2.617-.032-2.054-.064-2.876-.094-3.05-.125-3.242-.16-3.455-.096-1.813-.16-2.833-.186-2.976-.287-4.204-.247-3.342a116.56 116.56 0 0 0-.247-3.02l-.202-1.934c-2.6-22.827-11.655-32.157-27.163-35.269l-1.307-.245a60.184 60.184 0 0 0-2.704-.408l-1.397-.164c-.236-.025-.472-.05-.71-.073l-1.442-.127-1.471-.103-1.502-.081-1.514-.058-1.544-.039-1.574-.018L0 198.74V136.9h127.62c2.086 0 4.108-.04 6.066-.12l1.936-.095 1.893-.122 1.85-.15c.305-.028.608-.056.909-.086l1.785-.193a86.3 86.3 0 0 0 3.442-.475l1.657-.28c20.709-3.755 31.063-14.749 31.063-36.2 0-24.075-16.867-38.666-50.602-38.666H0V0h141.675ZM83.276 250.785c10.333 0 14.657 5.738 16.197 11.23l.203.79.167.782.109.617.046.306.078.603.058.59.023.29.031.569.01.278.008.54v29.507H0v-46.102h83.276Z\"\n\t\t\t\tfill=\"#121212\"\n\t\t\t\tfillRule=\"nonzero\"\n\t\t\t/>\n\t\t</svg>\n\t),\n\tSvelte: (props: IconProps) => (\n\t\t<svg\n\t\t\tviewBox=\"0 0 256 308\"\n\t\t\twidth=\"256\"\n\t\t\theight=\"308\"\n\t\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t\t\tpreserveAspectRatio=\"xMidYMid\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<title>Svelte</title>\n\t\t\t<path\n\t\t\t\td=\"M239.682 40.707C211.113-.182 154.69-12.301 113.895 13.69L42.247 59.356a82.198 82.198 0 0 0-37.135 55.056 86.566 86.566 0 0 0 8.536 55.576 82.425 82.425 0 0 0-12.296 30.719 87.596 87.596 0 0 0 14.964 66.244c28.574 40.893 84.997 53.007 125.787 27.016l71.648-45.664a82.182 82.182 0 0 0 37.135-55.057 86.601 86.601 0 0 0-8.53-55.577 82.409 82.409 0 0 0 12.29-30.718 87.573 87.573 0 0 0-14.963-66.244\"\n\t\t\t\tfill=\"#FF3E00\"\n\t\t\t/>\n\t\t\t<path\n\t\t\t\td=\"M106.889 270.841c-23.102 6.007-47.497-3.036-61.103-22.648a52.685 52.685 0 0 1-9.003-39.85 49.978 49.978 0 0 1 1.713-6.693l1.35-4.115 3.671 2.697a92.447 92.447 0 0 0 28.036 14.007l2.663.808-.245 2.659a16.067 16.067 0 0 0 2.89 10.656 17.143 17.143 0 0 0 18.397 6.828 15.786 15.786 0 0 0 4.403-1.935l71.67-45.672a14.922 14.922 0 0 0 6.734-9.977 15.923 15.923 0 0 0-2.713-12.011 17.156 17.156 0 0 0-18.404-6.832 15.78 15.78 0 0 0-4.396 1.933l-27.35 17.434a52.298 52.298 0 0 1-14.553 6.391c-23.101 6.007-47.497-3.036-61.101-22.649a52.681 52.681 0 0 1-9.004-39.849 49.428 49.428 0 0 1 22.34-33.114l71.664-45.677a52.218 52.218 0 0 1 14.563-6.398c23.101-6.007 47.497 3.036 61.101 22.648a52.685 52.685 0 0 1 9.004 39.85 50.559 50.559 0 0 1-1.713 6.692l-1.35 4.116-3.67-2.693a92.373 92.373 0 0 0-28.037-14.013l-2.664-.809.246-2.658a16.099 16.099 0 0 0-2.89-10.656 17.143 17.143 0 0 0-18.398-6.828 15.786 15.786 0 0 0-4.402 1.935l-71.67 45.674a14.898 14.898 0 0 0-6.73 9.975 15.9 15.9 0 0 0 2.709 12.012 17.156 17.156 0 0 0 18.404 6.832 15.841 15.841 0 0 0 4.402-1.935l27.345-17.427a52.147 52.147 0 0 1 14.552-6.397c23.101-6.006 47.497 3.037 61.102 22.65a52.681 52.681 0 0 1 9.003 39.848 49.453 49.453 0 0 1-22.34 33.12l-71.664 45.673a52.218 52.218 0 0 1-14.563 6.398\"\n\t\t\t\tfill=\"#FFF\"\n\t\t\t/>\n\t\t</svg>\n\t),\n\tVue: (props: IconProps) => (\n\t\t<svg\n\t\t\tviewBox=\"0 0 256 221\"\n\t\t\twidth=\"256\"\n\t\t\theight=\"221\"\n\t\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t\t\tpreserveAspectRatio=\"xMidYMid\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<title>Vue</title>\n\t\t\t<path\n\t\t\t\td=\"M204.8 0H256L128 220.8 0 0h97.92L128 51.2 157.44 0h47.36Z\"\n\t\t\t\tfill=\"#41B883\"\n\t\t\t/>\n\t\t\t<path\n\t\t\t\td=\"m0 0 128 220.8L256 0h-51.2L128 132.48 50.56 0H0Z\"\n\t\t\t\tfill=\"#41B883\"\n\t\t\t/>\n\t\t\t<path\n\t\t\t\td=\"M50.56 0 128 133.12 204.8 0h-47.36L128 51.2 97.92 0H50.56Z\"\n\t\t\t\tfill=\"#35495E\"\n\t\t\t/>\n\t\t</svg>\n\t),\n\tNuxt: (props: IconProps) => (\n\t\t<svg\n\t\t\tviewBox=\"0 0 256 168\"\n\t\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t\t\twidth=\"256\"\n\t\t\theight=\"168\"\n\t\t\tpreserveAspectRatio=\"xMidYMid\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<title>Nuxt</title>\n\t\t\t<path\n\t\t\t\tfill=\"#00DC82\"\n\t\t\t\td=\"M143.618 167.029h95.166c3.023 0 5.992-.771 8.61-2.237a16.963 16.963 0 0 0 6.302-6.115 16.324 16.324 0 0 0 2.304-8.352c0-2.932-.799-5.811-2.312-8.35L189.778 34.6a16.966 16.966 0 0 0-6.301-6.113 17.626 17.626 0 0 0-8.608-2.238c-3.023 0-5.991.772-8.609 2.238a16.964 16.964 0 0 0-6.3 6.113l-16.342 27.473-31.95-53.724a16.973 16.973 0 0 0-6.304-6.112A17.638 17.638 0 0 0 96.754 0c-3.022 0-5.992.772-8.61 2.237a16.973 16.973 0 0 0-6.303 6.112L2.31 141.975A16.302 16.302 0 0 0 0 150.325c0 2.932.793 5.813 2.304 8.352a16.964 16.964 0 0 0 6.302 6.115 17.628 17.628 0 0 0 8.61 2.237h59.737c23.669 0 41.123-10.084 53.134-29.758l29.159-48.983 15.618-26.215 46.874 78.742h-62.492l-15.628 26.214Zm-67.64-26.24-41.688-.01L96.782 35.796l31.181 52.492-20.877 35.084c-7.976 12.765-17.037 17.416-31.107 17.416Z\"\n\t\t\t/>\n\t\t</svg>\n\t),\n\tAstro: (props: IconProps) => (\n\t\t<svg\n\t\t\tviewBox=\"0 0 256 366\"\n\t\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t\t\twidth=\"256\"\n\t\t\theight=\"366\"\n\t\t\tpreserveAspectRatio=\"xMidYMid\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<title>Astro</title>\n\t\t\t<path d=\"M182.022 9.147c2.982 3.702 4.502 8.697 7.543 18.687L256 246.074a276.467 276.467 0 0 0-79.426-26.891L133.318 73.008a5.63 5.63 0 0 0-10.802.017L79.784 219.11A276.453 276.453 0 0 0 0 246.04L66.76 27.783c3.051-9.972 4.577-14.959 7.559-18.654a24.541 24.541 0 0 1 9.946-7.358C88.67 0 93.885 0 104.314 0h47.683c10.443 0 15.664 0 20.074 1.774a24.545 24.545 0 0 1 9.95 7.373Z\" />\n\t\t\t<path\n\t\t\t\tfill=\"#FF5D01\"\n\t\t\t\td=\"M189.972 256.46c-10.952 9.364-32.812 15.751-57.992 15.751-30.904 0-56.807-9.621-63.68-22.56-2.458 7.415-3.009 15.903-3.009 21.324 0 0-1.619 26.623 16.898 45.14 0-9.615 7.795-17.41 17.41-17.41 16.48 0 16.46 14.378 16.446 26.043l-.001 1.041c0 17.705 10.82 32.883 26.21 39.28a35.685 35.685 0 0 1-3.588-15.647c0-16.886 9.913-23.173 21.435-30.48 9.167-5.814 19.353-12.274 26.372-25.232a47.588 47.588 0 0 0 5.742-22.735c0-5.06-.786-9.938-2.243-14.516Z\"\n\t\t\t/>\n\t\t</svg>\n\t),\n\tAngular: (props: IconProps) => (\n\t\t<svg\n\t\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t\t\tfill=\"none\"\n\t\t\tviewBox=\"0 0 242 256\"\n\t\t>\n\t\t\t<title>Angular</title>\n\t\t\t<g clipPath=\"url(#a)\">\n\t\t\t\t<mask\n\t\t\t\t\tid=\"b\"\n\t\t\t\t\twidth=\"242\"\n\t\t\t\t\theight=\"256\"\n\t\t\t\t\tx=\"0\"\n\t\t\t\t\ty=\"0\"\n\t\t\t\t\tmaskUnits=\"userSpaceOnUse\"\n\t\t\t\t\tstyle={{ maskType: \"luminance\" }}\n\t\t\t\t\t{...props}\n\t\t\t\t>\n\t\t\t\t\t<path fill=\"#fff\" d=\"M0 0h242v256H0V0Z\" />\n\t\t\t\t</mask>\n\t\t\t\t<g mask=\"url(#b)\">\n\t\t\t\t\t<path\n\t\t\t\t\t\tfill=\"url(#c)\"\n\t\t\t\t\t\td=\"m241 43-9 136L149 0l92 43Zm-58 176-62 36-63-36 12-31h101l12 31ZM121 68l32 80H88l33-80ZM9 179 0 43 92 0 9 179Z\"\n\t\t\t\t\t/>\n\t\t\t\t\t<path\n\t\t\t\t\t\tfill=\"url(#d)\"\n\t\t\t\t\t\td=\"m241 43-9 136L149 0l92 43Zm-58 176-62 36-63-36 12-31h101l12 31ZM121 68l32 80H88l33-80ZM9 179 0 43 92 0 9 179Z\"\n\t\t\t\t\t/>\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t\t<defs>\n\t\t\t\t<linearGradient\n\t\t\t\t\tid=\"c\"\n\t\t\t\t\tx1=\"53.2\"\n\t\t\t\t\tx2=\"245\"\n\t\t\t\t\ty1=\"231.9\"\n\t\t\t\t\ty2=\"140.7\"\n\t\t\t\t\tgradientUnits=\"userSpaceOnUse\"\n\t\t\t\t>\n\t\t\t\t\t<stop stopColor=\"#E40035\" />\n\t\t\t\t\t<stop offset=\".2\" stopColor=\"#F60A48\" />\n\t\t\t\t\t<stop offset=\".4\" stopColor=\"#F20755\" />\n\t\t\t\t\t<stop offset=\".5\" stopColor=\"#DC087D\" />\n\t\t\t\t\t<stop offset=\".7\" stopColor=\"#9717E7\" />\n\t\t\t\t\t<stop offset=\"1\" stopColor=\"#6C00F5\" />\n\t\t\t\t</linearGradient>{\" \"}\n\t\t\t\t<linearGradient\n\t\t\t\t\tid=\"d\"\n\t\t\t\t\tx1=\"44.5\"\n\t\t\t\t\tx2=\"170\"\n\t\t\t\t\ty1=\"30.7\"\n\t\t\t\t\ty2=\"174\"\n\t\t\t\t\tgradientUnits=\"userSpaceOnUse\"\n\t\t\t\t>\n\t\t\t\t\t{\" \"}\n\t\t\t\t\t<stop stopColor=\"#FF31D9\" />\n\t\t\t\t\t<stop offset=\"1\" stopColor=\"#FF5BE1\" stopOpacity=\"0\" />\n\t\t\t\t</linearGradient>\n\t\t\t\t<clipPath id=\"a\">\n\t\t\t\t\t<path fill=\"#fff\" d=\"M0 0h242v256H0z\" />\n\t\t\t\t</clipPath>\n\t\t\t</defs>\n\t\t</svg>\n\t),\n};\n\nconst data = [\n\t{\n\t\tname: \"React\",\n\t\ticon: Icons.React,\n\t},\n\t{\n\t\tname: \"Next\",\n\t\ticon: Icons.Next,\n\t},\n\t{\n\t\tname: \"Remix\",\n\t\ticon: Icons.Remix,\n\t},\n\t{\n\t\tname: \"Svelte\",\n\t\ticon: Icons.Svelte,\n\t},\n\t{\n\t\tname: \"Vue\",\n\t\ticon: Icons.Vue,\n\t},\n\t{\n\t\tname: \"Nuxt\",\n\t\ticon: Icons.Nuxt,\n\t},\n\t{\n\t\tname: \"Astro\",\n\t\ticon: Icons.Astro,\n\t},\n];\n\nexport default function MarqueeBasic() {\n\treturn (\n\t\t<Marquee\n\t\t\tduration={20}\n\t\t\trepeat={2}\n\t\t\tdirection=\"left\"\n\t\t\tpauseOnHover\n\t\t\tclassName=\"w-[500px]\"\n\t\t>\n\t\t\t{data.map((item, index) => (\n\t\t\t\t<div\n\t\t\t\t\tkey={`${item.name}-${index}`}\n\t\t\t\t\tclassName=\"flex flex-col items-center\"\n\t\t\t\t>\n\t\t\t\t\t<item.icon className=\"h-14 w-14 px-4 dark:invert\" />\n\t\t\t\t</div>\n\t\t\t))}\n\t\t</Marquee>\n\t);\n}"
-  }
-],
-            keywords: [],
-            command: '@craftdotui/craftui-particles-marquee',
-            component: (() => {
-							const LazyComp = React.lazy(async () => {
-								const mod = await import("@craftdotui/craftui/particles/marquee/index.tsx");
+								const mod = await import("@craftdotui/craftui/particles/breadcrumb/with-menu/index.tsx");
 								let Comp = mod.default;
 
 								if (!Comp) {
@@ -993,178 +606,6 @@ export const Registry: Record<string, any> = {
             component: (() => {
 							const LazyComp = React.lazy(async () => {
 								const mod = await import("@craftdotui/craftui/particles/stepper/stepper-with-text-indicator/index.tsx");
-								let Comp = mod.default;
-
-								if (!Comp) {
-									const exportName =
-									Object.keys(mod).find((key) => {
-										const value = mod[key];
-										return typeof value === "function" || typeof value === "object";
-									}) || "default";
-
-									Comp = mod[exportName];
-								}
-
-								if (mod.animations) {
-									(LazyComp as any).animations = mod.animations;
-								}
-
-								return { default: Comp };
-							});
-
-						    LazyComp.demoProps = {};
-							return LazyComp;
-						})(),
-          },
-          "craftui-particles-text-scramble": {
-            name: "craftui-particles-text-scramble",
-            description: "Basic text scramble demo",
-            type: "registry:component",
-            dependencies: [],
-            devDependencies: undefined,
-            registryDependencies: ["@craftdotui/craftui-text-scramble"],
-            files: [
-  {
-    "path": "packages/craftui/particles/text-scramble/index.tsx",
-    "type": "registry:component",
-    "target": "components/craftui/particles/text-scramble.tsx",
-    "content": "\"use client\";\n\nimport TextScramble from \"@/components/craftui/components/text-scramble\";\n\nexport default function TextScrambleBasic() {\n\treturn <TextScramble speed={50}>Welcome to Text Scramble!</TextScramble>;\n}"
-  }
-],
-            keywords: [],
-            command: '@craftdotui/craftui-particles-text-scramble',
-            component: (() => {
-							const LazyComp = React.lazy(async () => {
-								const mod = await import("@craftdotui/craftui/particles/text-scramble/index.tsx");
-								let Comp = mod.default;
-
-								if (!Comp) {
-									const exportName =
-									Object.keys(mod).find((key) => {
-										const value = mod[key];
-										return typeof value === "function" || typeof value === "object";
-									}) || "default";
-
-									Comp = mod[exportName];
-								}
-
-								if (mod.animations) {
-									(LazyComp as any).animations = mod.animations;
-								}
-
-								return { default: Comp };
-							});
-
-						    LazyComp.demoProps = {};
-							return LazyComp;
-						})(),
-          },
-          "craftui-particles-text-scramble-with-custom-characters": {
-            name: "craftui-particles-text-scramble-with-custom-characters",
-            description: "Text scramble with custom characters demo",
-            type: "registry:component",
-            dependencies: [],
-            devDependencies: undefined,
-            registryDependencies: ["@craftdotui/craftui-text-scramble"],
-            files: [
-  {
-    "path": "packages/craftui/particles/text-scramble/text-scramble-with-custom-characters/index.tsx",
-    "type": "registry:component",
-    "target": "components/craftui/particles/text-scramble-with-custom-characters.tsx",
-    "content": "\"use client\";\n\nimport TextScramble from \"@/components/craftui/components/text-scramble\";\n\nexport default function Particle() {\n\treturn (\n\t\t<TextScramble speed={50} characterSet=\"*\">\n\t\t\tCustom Scramble\n\t\t</TextScramble>\n\t);\n}"
-  }
-],
-            keywords: [],
-            command: '@craftdotui/craftui-particles-text-scramble-with-custom-characters',
-            component: (() => {
-							const LazyComp = React.lazy(async () => {
-								const mod = await import("@craftdotui/craftui/particles/text-scramble/text-scramble-with-custom-characters/index.tsx");
-								let Comp = mod.default;
-
-								if (!Comp) {
-									const exportName =
-									Object.keys(mod).find((key) => {
-										const value = mod[key];
-										return typeof value === "function" || typeof value === "object";
-									}) || "default";
-
-									Comp = mod[exportName];
-								}
-
-								if (mod.animations) {
-									(LazyComp as any).animations = mod.animations;
-								}
-
-								return { default: Comp };
-							});
-
-						    LazyComp.demoProps = {};
-							return LazyComp;
-						})(),
-          },
-          "craftui-particles-text-scramble-with-custom-trigger": {
-            name: "craftui-particles-text-scramble-with-custom-trigger",
-            description: "Text scramble with custom trigger demo",
-            type: "registry:component",
-            dependencies: [],
-            devDependencies: undefined,
-            registryDependencies: ["@craftdotui/craftui-text-scramble"],
-            files: [
-  {
-    "path": "packages/craftui/particles/text-scramble/text-scramble-with-custom-trigger/index.tsx",
-    "type": "registry:component",
-    "target": "components/craftui/particles/text-scramble-with-custom-trigger.tsx",
-    "content": "\"use client\";\n\nimport React from \"react\";\nimport TextScramble from \"@/components/craftui/components/text-scramble\";\n\nexport default function Particle() {\n\tconst [triggerScramble, setTriggerScramble] = React.useState(false);\n\treturn (\n\t\t<div\n\t\t\tonMouseEnter={() => setTriggerScramble(true)}\n\t\t\tonMouseLeave={() => setTriggerScramble(false)}\n\t\t>\n\t\t\t<TextScramble\n\t\t\t\tspeed={50}\n\t\t\t\tclassName=\"cursor-pointer uppercase\"\n\t\t\t\ttrigger={triggerScramble}\n\t\t\t>\n\t\t\t\tHover to scramble this text!\n\t\t\t</TextScramble>\n\t\t</div>\n\t);\n}"
-  }
-],
-            keywords: [],
-            command: '@craftdotui/craftui-particles-text-scramble-with-custom-trigger',
-            component: (() => {
-							const LazyComp = React.lazy(async () => {
-								const mod = await import("@craftdotui/craftui/particles/text-scramble/text-scramble-with-custom-trigger/index.tsx");
-								let Comp = mod.default;
-
-								if (!Comp) {
-									const exportName =
-									Object.keys(mod).find((key) => {
-										const value = mod[key];
-										return typeof value === "function" || typeof value === "object";
-									}) || "default";
-
-									Comp = mod[exportName];
-								}
-
-								if (mod.animations) {
-									(LazyComp as any).animations = mod.animations;
-								}
-
-								return { default: Comp };
-							});
-
-						    LazyComp.demoProps = {};
-							return LazyComp;
-						})(),
-          },
-          "craftui-particles-text-typing": {
-            name: "craftui-particles-text-typing",
-            description: "Basic typing effect demo",
-            type: "registry:component",
-            dependencies: [],
-            devDependencies: undefined,
-            registryDependencies: ["@craftdotui/craftui-text-typing"],
-            files: [
-  {
-    "path": "packages/craftui/particles/text-typing/index.tsx",
-    "type": "registry:component",
-    "target": "components/craftui/particles/text-typing.tsx",
-    "content": "\"use client\";\n\nimport TextTyping from \"@/components/craftui/components/text-typing\";\n\nexport default function Home() {\n\treturn (\n\t\t<TextTyping typingSpeed={100}>This is typing effect demo!</TextTyping>\n\t);\n}"
-  }
-],
-            keywords: [],
-            command: '@craftdotui/craftui-particles-text-typing',
-            component: (() => {
-							const LazyComp = React.lazy(async () => {
-								const mod = await import("@craftdotui/craftui/particles/text-typing/index.tsx");
 								let Comp = mod.default;
 
 								if (!Comp) {
@@ -11313,6 +10754,866 @@ export const Registry: Record<string, any> = {
             component: (() => {
 							const LazyComp = React.lazy(async () => {
 								const mod = await import("@craftdotui/baseui/particles/tooltip/sides/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "motion-animated-tooltip": {
+            name: "motion-animated-tooltip",
+            description: "An animated tooltip component",
+            type: "registry:component",
+            dependencies: ["motion","cn"],
+            devDependencies: undefined,
+            registryDependencies: [],
+            files: [
+  {
+    "path": "packages/motion/components/animated-tooltip/index.tsx",
+    "type": "registry:component",
+    "target": "components/motion/components/animated-tooltip.tsx",
+    "content": "\"use client\";\n\nimport React, { useState } from \"react\";\nimport { motion, useMotionValue, useSpring, useTransform } from \"motion/react\";\n\nimport { cn } from \"cn\";\n\nexport interface AnimatedTooltipProps {\n\tchildren: React.ReactNode;\n\tlabel: string;\n\tonClick?: () => void;\n\tclassName?: string;\n\tdelay?: number;\n}\n\nexport function AnimatedTooltip({\n\tchildren,\n\tlabel,\n\tonClick,\n\tclassName,\n\tdelay = 100,\n\t...props\n}: AnimatedTooltipProps) {\n\tconst [isHovered, setIsHovered] = useState(false);\n\n\tconst x = useMotionValue(0);\n\tconst springConfig = { stiffness: 200, damping: 10 };\n\tconst rotate = useSpring(\n\t\tuseTransform(x, [-50, 50], [-25, 25]),\n\t\tspringConfig,\n\t);\n\tconst translateX = useSpring(\n\t\tuseTransform(x, [-50, 50], [-10, 10]),\n\t\tspringConfig,\n\t);\n\n\tlet showTimeout: ReturnType<typeof setTimeout> | undefined;\n\n\tconst handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {\n\t\tconst rect = event.currentTarget.getBoundingClientRect();\n\t\tconst centerX = rect.left + rect.width / 2;\n\t\tx.set(event.clientX - centerX);\n\t};\n\n\tconst handleMouseEnter = () => {\n\t\tshowTimeout = setTimeout(() => setIsHovered(true), delay);\n\t};\n\n\tconst handleMouseLeave = () => {\n\t\tsetIsHovered(false);\n\t\tx.set(0);\n\t\tif (showTimeout) {\n\t\t\tclearTimeout(showTimeout);\n\t\t}\n\t};\n\n\tReact.useEffect(() => {\n\t\treturn () => {\n\t\t\tif (showTimeout) {\n\t\t\t\tclearTimeout(showTimeout);\n\t\t\t}\n\t\t};\n\t}, [showTimeout]);\n\n\treturn (\n\t\t<motion.div\n\t\t\tonMouseEnter={handleMouseEnter}\n\t\t\tonMouseLeave={handleMouseLeave}\n\t\t\tonMouseMove={handleMouseMove}\n\t\t\twhileHover={{\n\t\t\t\ttransition: { type: \"spring\", stiffness: 300, damping: 20 },\n\t\t\t}}\n\t\t\twhileTap={{ scale: 0.9 }}\n\t\t\tclassName={cn(\n\t\t\t\t\"w-12 h-12 relative flex items-center justify-center rounded-full shadow-md cursor-pointer border bg-neutral-100 dark:bg-neutral-900 hover:shadow-lg\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tonClick={onClick}\n\t\t\t{...props}\n\t\t>\n\t\t\t{children}\n\t\t\t{isHovered && (\n\t\t\t\t<motion.div\n\t\t\t\t\tinitial={{ opacity: 0, y: 10, scale: 0.75 }}\n\t\t\t\t\tanimate={{ opacity: 1, y: 0, scale: 1.2 }}\n\t\t\t\t\texit={{ opacity: 0, y: 10, scale: 0.75 }}\n\t\t\t\t\tstyle={{\n\t\t\t\t\t\trotate,\n\t\t\t\t\t\ttranslateX,\n\t\t\t\t\t\ttransformOrigin: \"center center\",\n\t\t\t\t\t}}\n\t\t\t\t\tclassName=\"absolute bottom-full mb-2 px-2 py-1 bg-black/75 text-white dark:bg-white dark:text-black text-xs rounded shadow-lg\"\n\t\t\t\t>\n\t\t\t\t\t{label}\n\t\t\t\t</motion.div>\n\t\t\t)}\n\t\t</motion.div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/motion-animated-tooltip',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/motion/components/animated-tooltip/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "motion-cursor": {
+            name: "motion-cursor",
+            description: "A custom cursor component",
+            type: "registry:component",
+            dependencies: ["cn"],
+            devDependencies: undefined,
+            registryDependencies: [],
+            files: [
+  {
+    "path": "packages/motion/components/cursor/index.tsx",
+    "type": "registry:component",
+    "target": "components/motion/components/cursor.tsx",
+    "content": "\"use client\";\n\nimport type React from \"react\";\nimport { useState, useEffect, useRef } from \"react\";\n\nimport { cn } from \"cn\";\n\ninterface CursorProps {\n\tchildren: React.ReactNode;\n\tcursor: string | React.ReactNode;\n\tclassName?: string;\n}\n\nexport default function Cursor({ children, cursor, className }: CursorProps) {\n\tconst containerRef = useRef<HTMLDivElement>(null);\n\tconst [isHovering, setIsHovering] = useState(false);\n\tconst [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });\n\n\tuseEffect(() => {\n\t\tconst updateCursorPosition = (e: MouseEvent) => {\n\t\t\tif (isHovering) {\n\t\t\t\tconst rect = containerRef.current?.getBoundingClientRect();\n\t\t\t\tif (rect) {\n\t\t\t\t\tsetCursorPosition({\n\t\t\t\t\t\tx: e.clientX - rect.left,\n\t\t\t\t\t\ty: e.clientY - rect.top,\n\t\t\t\t\t});\n\t\t\t\t}\n\t\t\t}\n\t\t};\n\n\t\tdocument.addEventListener(\"mousemove\", updateCursorPosition);\n\n\t\treturn () => {\n\t\t\tdocument.removeEventListener(\"mousemove\", updateCursorPosition);\n\t\t};\n\t}, [isHovering]);\n\n\tconst handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {\n\t\tconst rect = containerRef.current?.getBoundingClientRect();\n\t\tif (rect) {\n\t\t\tconst entryX = e.clientX - rect.left;\n\t\t\tconst entryY = e.clientY - rect.top;\n\t\t\tsetCursorPosition({ x: entryX, y: entryY });\n\t\t}\n\t\tsetIsHovering(true);\n\t};\n\n\tconst handleMouseLeave = () => setIsHovering(false);\n\n\treturn (\n\t\t<div\n\t\t\tref={containerRef}\n\t\t\tonMouseEnter={handleMouseEnter}\n\t\t\tonMouseLeave={handleMouseLeave}\n\t\t\tclassName={cn(\"relative\", className)}\n\t\t\tstyle={{ cursor: isHovering ? \"none\" : \"default\" }}\n\t\t>\n\t\t\t{children}\n\t\t\t{isHovering && (\n\t\t\t\t<div\n\t\t\t\t\tclassName=\"absolute pointer-events-none z-50, whitespace-nowrap\"\n\t\t\t\t\tstyle={{\n\t\t\t\t\t\tleft: cursorPosition.x,\n\t\t\t\t\t\ttop: cursorPosition.y,\n\t\t\t\t\t\ttransform: \"translate(-50%, -50%)\",\n\t\t\t\t\t\ttransformOrigin: \"left center\",\n\t\t\t\t\t}}\n\t\t\t\t>\n\t\t\t\t\t{cursor}\n\t\t\t\t</div>\n\t\t\t)}\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/motion-cursor',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/motion/components/cursor/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "motion-dock": {
+            name: "motion-dock",
+            description: "A dock component",
+            type: "registry:component",
+            dependencies: ["motion","cn"],
+            devDependencies: undefined,
+            registryDependencies: [],
+            files: [
+  {
+    "path": "packages/motion/components/dock/index.tsx",
+    "type": "registry:component",
+    "target": "components/motion/components/dock.tsx",
+    "content": "\"use client\";\n\nimport type React from \"react\";\nimport { useState } from \"react\";\nimport { motion, useMotionValue, useSpring, useTransform } from \"motion/react\";\n\nimport { cn } from \"cn\";\n\nexport interface DockItemProps {\n\ticon: React.ReactNode;\n\tlabel: string;\n\tonClick?: () => void;\n\tclassName?: string;\n}\n\ninterface DockProps {\n\tchildren: React.ReactNode;\n\tclassName?: string;\n}\n\n// Dock Component\nexport function Dock({ children, className }: DockProps) {\n\treturn (\n\t\t<motion.div\n\t\t\tinitial={{ opacity: 0 }}\n\t\t\tanimate={{ opacity: 1 }}\n\t\t\ttransition={{ type: \"spring\", stiffness: 260, damping: 20 }}\n\t\t\tclassName={cn(\n\t\t\t\t\"flex px-4 py-2 gap-4 border rounded-2xl shadow-md bg-neutral-100 dark:bg-neutral-800\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t>\n\t\t\t{children}\n\t\t</motion.div>\n\t);\n}\n\n// DockItem Component\nexport function DockItem({\n\ticon,\n\tlabel,\n\tonClick,\n\tclassName,\n\t...props\n}: DockItemProps) {\n\tconst [isHovered, setIsHovered] = useState(false);\n\n\tconst x = useMotionValue(0);\n\tconst springConfig = { stiffness: 200, damping: 10 };\n\tconst rotate = useSpring(\n\t\tuseTransform(x, [-50, 50], [-25, 25]),\n\t\tspringConfig,\n\t);\n\tconst translateX = useSpring(\n\t\tuseTransform(x, [-50, 50], [-10, 10]),\n\t\tspringConfig,\n\t);\n\n\tconst handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {\n\t\tconst rect = event.currentTarget.getBoundingClientRect();\n\t\tconst centerX = rect.left + rect.width / 2;\n\t\tx.set(event.clientX - centerX);\n\t};\n\n\tconst handleMouseLeave = () => {\n\t\tx.set(0);\n\t\tsetIsHovered(false);\n\t};\n\n\treturn (\n\t\t<motion.div\n\t\t\tonMouseEnter={() => setIsHovered(true)}\n\t\t\tonMouseLeave={handleMouseLeave}\n\t\t\tonMouseMove={handleMouseMove}\n\t\t\twhileHover={{\n\t\t\t\tscale: 1.2,\n\t\t\t\ttransition: { type: \"spring\", stiffness: 300, damping: 20 },\n\t\t\t}}\n\t\t\twhileTap={{ scale: 0.9 }}\n\t\t\tclassName={cn(\n\t\t\t\t\"relative flex items-center justify-center w-12 h-12 rounded-full shadow-md cursor-pointer border bg-neutral-100 dark:bg-neutral-900 hover:shadow-lg\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tonClick={onClick}\n\t\t\t{...props}\n\t\t>\n\t\t\t{icon}\n\t\t\t{isHovered && (\n\t\t\t\t<motion.div\n\t\t\t\t\tinitial={{ opacity: 0, y: 10, scale: 0.8 }}\n\t\t\t\t\tanimate={{ opacity: 1, y: 0, scale: 1 }}\n\t\t\t\t\texit={{ opacity: 0, y: 10, scale: 0.8 }}\n\t\t\t\t\tstyle={{\n\t\t\t\t\t\trotate, // Dynamic tilt\n\t\t\t\t\t\ttranslateX, // Subtle side-to-side movement\n\t\t\t\t\t\ttransformOrigin: \"center center\",\n\t\t\t\t\t}}\n\t\t\t\t\tclassName=\"absolute bottom-full mb-2 px-2 py-1 bg-black/75 text-white dark:bg-white dark:text-black text-xs rounded shadow-lg\"\n\t\t\t\t>\n\t\t\t\t\t{label}\n\t\t\t\t</motion.div>\n\t\t\t)}\n\t\t</motion.div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/motion-dock',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/motion/components/dock/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "motion-magnetic": {
+            name: "motion-magnetic",
+            description: "A magnetic hover effect component",
+            type: "registry:component",
+            dependencies: ["gsap","cn"],
+            devDependencies: undefined,
+            registryDependencies: [],
+            files: [
+  {
+    "path": "packages/motion/components/magnetic/index.tsx",
+    "type": "registry:component",
+    "target": "components/motion/components/magnetic.tsx",
+    "content": "\"use client\";\n\nimport gsap from \"gsap\";\nimport { useEffect, useRef } from \"react\";\n\ntype PropType = {\n\tchildren: React.ReactNode;\n};\n\nexport default function Magnetic({ children }: PropType) {\n\tconst ref = useRef<HTMLDivElement>(null);\n\n\tuseEffect(() => {\n\t\tconst xTo = gsap.quickTo(ref.current, \"x\", {\n\t\t\tduration: 1,\n\t\t\tease: \"elastic.out(1, 0.3)\",\n\t\t});\n\t\tconst yTo = gsap.quickTo(ref.current, \"y\", {\n\t\t\tduration: 1,\n\t\t\tease: \"elastic.out(1, 0.3)\",\n\t\t});\n\n\t\t// mouse move event\n\t\tconst handleMouseMove = (e: MouseEvent) => {\n\t\t\tconst { clientX, clientY } = e;\n\t\t\tconst rect = ref.current?.getBoundingClientRect();\n\n\t\t\tif (rect) {\n\t\t\t\tconst x = clientX - (rect.left + rect.width / 2);\n\t\t\t\tconst y = clientY - (rect.top + rect.height / 2);\n\n\t\t\t\txTo(x);\n\t\t\t\tyTo(y);\n\t\t\t}\n\t\t};\n\n\t\tconst handleMouseLeave = () => {\n\t\t\txTo(0);\n\t\t\tyTo(0);\n\t\t};\n\n\t\tref.current?.addEventListener(\"mousemove\", handleMouseMove);\n\t\tref.current?.addEventListener(\"mouseleave\", handleMouseLeave);\n\n\t\treturn () => {\n\t\t\tref.current?.removeEventListener(\"mousemove\", handleMouseMove);\n\t\t\tref.current?.removeEventListener(\"mouseleave\", handleMouseLeave);\n\t\t};\n\t}, []);\n\n\treturn (\n\t\t<div ref={ref} style={{ display: \"inline-block\" }}>\n\t\t\t{children}\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/motion-magnetic',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/motion/components/magnetic/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "motion-marquee": {
+            name: "motion-marquee",
+            description: "A marquee component for scrolling content horizontally",
+            type: "registry:component",
+            dependencies: ["cn"],
+            devDependencies: undefined,
+            registryDependencies: [],
+            files: [
+  {
+    "path": "packages/motion/components/marquee/index.tsx",
+    "type": "registry:component",
+    "target": "components/motion/components/marquee.tsx",
+    "content": "\"use client\";\n\nimport type React from \"react\";\nimport { cn } from \"cn\";\n\ninterface MarqueeProps {\n\tduration?: number;\n\trepeat?: number;\n\tclassName?: string;\n\tpauseOnHover?: boolean;\n\tchildren: React.ReactNode;\n\tdirection?: \"left\" | \"right\";\n\tgap?: number;\n}\n\nexport default function Marquee({\n\tchildren,\n\tclassName,\n\tduration = 20,\n\trepeat = 2,\n\tdirection = \"left\",\n\tpauseOnHover = true,\n\tgap = 0,\n}: MarqueeProps) {\n\treturn (\n\t\t<div\n\t\t\tclassName={cn(\n\t\t\t\t\"group relative flex overflow-hidden\",\n\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t>\n\t\t\t{Array(repeat)\n\t\t\t\t.fill(0)\n\t\t\t\t.map((_, index) => (\n\t\t\t\t\t<div\n\t\t\t\t\t\tkey={index}\n\t\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t\t\"w-max md:w-full flex shrink-0 items-center justify-around text-foreground dark:text-foreground\",\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\"group-hover:paused\": pauseOnHover,\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t)}\n\t\t\t\t\t\tstyle={{\n\t\t\t\t\t\t\tgap: `${gap}px`,\n\t\t\t\t\t\t\tanimation: `marquee-${direction} ${duration}s linear infinite`,\n\t\t\t\t\t\t\t...(index === 1 && direction === \"left\"\n\t\t\t\t\t\t\t\t? { marginLeft: `${gap}px` }\n\t\t\t\t\t\t\t\t: { marginRight: `${gap}px` }),\n\t\t\t\t\t\t}}\n\t\t\t\t\t>\n\t\t\t\t\t\t{children}\n\t\t\t\t\t</div>\n\t\t\t\t))}\n\n\t\t\t<style>\n\t\t\t\t{`\n\t\t\t\t\t@keyframes marquee-left {\n\t\t\t\t\t\t0% { transform: translateX(0); }\n\t\t\t\t\t\t100% { transform: translateX(-100%); }\n\t\t\t\t\t}\n\n\t\t\t\t\t@keyframes marquee-right {\n\t\t\t\t\t\t0% { transform: translateX(-100%); }\n\t\t\t\t\t\t100% { transform: translateX(0); }\n\t\t\t\t\t}\n\n\t\t\t\t\t.paused {\n\t\t\t\t\t\tanimation-play-state: paused !important;\n\t\t\t\t\t}\n\n\t\t\t\t\t.group:hover .group-hover\\\\\\\\:paused {\n\t\t\t\t\t\tanimation-play-state: paused !important;\n\t\t\t\t\t}\n\t\t\t\t`}\n\t\t\t</style>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/motion-marquee',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/motion/components/marquee/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "motion-text-scramble": {
+            name: "motion-text-scramble",
+            description: "A text scrambling animation effect component",
+            type: "registry:component",
+            dependencies: ["cn"],
+            devDependencies: undefined,
+            registryDependencies: [],
+            files: [
+  {
+    "path": "packages/motion/components/text-scramble/index.tsx",
+    "type": "registry:component",
+    "target": "components/motion/components/text-scramble.tsx",
+    "content": "\"use client\";\n\nimport type React from \"react\";\nimport { useState, useEffect, useCallback } from \"react\";\n\nimport { cn } from \"cn\";\n\ninterface PropType {\n\tchildren: string;\n\tspeed?: number;\n\tduration?: number;\n\ttrigger?: boolean;\n\tclassName?: string;\n\tcharacterSet?: string;\n\tas?: React.ElementType;\n\tonScrambleEnd?: () => void;\n}\n\nconst defaultCharacterSet =\n\t\"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789\";\n\nexport default function TextScramble({\n\tchildren = \"Hello, World!\",\n\tspeed = 50,\n\tduration = 3,\n\ttrigger = true,\n\tclassName = \"\",\n\tcharacterSet = defaultCharacterSet,\n\tas: Component = \"span\",\n\tonScrambleEnd,\n}: PropType) {\n\tconst [scrambledText, setScrambledText] = useState(children);\n\n\tconst scrambleText = useCallback(() => {\n\t\tlet currentIndex = 0;\n\t\tconst endTime = Date.now() + duration * 1000;\n\n\t\tconst scrambleInterval = setInterval(() => {\n\t\t\tif (Date.now() > endTime) {\n\t\t\t\tclearInterval(scrambleInterval);\n\t\t\t\tsetScrambledText(children);\n\t\t\t\tonScrambleEnd?.();\n\t\t\t\treturn;\n\t\t\t}\n\n\t\t\tconst scrambled = children\n\t\t\t\t.split(\"\")\n\t\t\t\t.map((char, index) => {\n\t\t\t\t\tif (char === \" \") {\n\t\t\t\t\t\treturn \" \";\n\t\t\t\t\t}\n\t\t\t\t\treturn index < currentIndex\n\t\t\t\t\t\t? char\n\t\t\t\t\t\t: characterSet[\n\t\t\t\t\t\t\t\tMath.floor(Math.random() * characterSet.length)\n\t\t\t\t\t\t\t];\n\t\t\t\t})\n\t\t\t\t.join(\"\");\n\n\t\t\tsetScrambledText(scrambled);\n\t\t\tcurrentIndex = Math.min(currentIndex + 1, children.length);\n\t\t}, speed);\n\n\t\treturn () => clearInterval(scrambleInterval);\n\t}, [children, duration, speed, characterSet, onScrambleEnd]);\n\n\tuseEffect(() => {\n\t\tif (trigger) {\n\t\t\tconst cleanup = scrambleText();\n\t\t\treturn cleanup;\n\t\t} else {\n\t\t\tsetScrambledText(children);\n\t\t}\n\t}, [trigger, scrambleText, children]);\n\n\treturn (\n\t\t<Component className={cn(\"font-mono\", className)}>\n\t\t\t{scrambledText}\n\t\t</Component>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/motion-text-scramble',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/motion/components/text-scramble/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "motion-text-typing": {
+            name: "motion-text-typing",
+            description: "A typing animation effect component",
+            type: "registry:component",
+            dependencies: ["motion","cn"],
+            devDependencies: undefined,
+            registryDependencies: [],
+            files: [
+  {
+    "path": "packages/motion/components/text-typing/index.tsx",
+    "type": "registry:component",
+    "target": "components/motion/components/text-typing.tsx",
+    "content": "\"use client\";\n\nimport { motion } from \"motion/react\";\nimport { useState, useEffect } from \"react\";\n\ninterface TextTypingProps {\n\tchildren: string;\n\ttypingSpeed?: number;\n\tclassName?: string;\n}\n\nexport default function TextTyping({\n\tchildren,\n\ttypingSpeed = 100,\n\tclassName = \"\",\n}: TextTypingProps) {\n\tconst [displayedText, setDisplayedText] = useState(\"\");\n\n\tconst text = children;\n\n\tuseEffect(() => {\n\t\tlet currentIndex = 0;\n\t\tconst intervalId = setInterval(() => {\n\t\t\tif (currentIndex <= text.length) {\n\t\t\t\tsetDisplayedText(text.slice(0, currentIndex));\n\t\t\t\tcurrentIndex++;\n\t\t\t} else {\n\t\t\t\tclearInterval(intervalId);\n\t\t\t}\n\t\t}, typingSpeed);\n\n\t\treturn () => clearInterval(intervalId);\n\t}, [text, typingSpeed]);\n\n\treturn (\n\t\t<div className={`font-mono ${className}`}>\n\t\t\t{displayedText}\n\t\t\t<motion.span\n\t\t\t\tanimate={{ opacity: [0, 1] }}\n\t\t\t\ttransition={{\n\t\t\t\t\tduration: 0.5,\n\t\t\t\t\trepeat: Infinity,\n\t\t\t\t\trepeatType: \"reverse\",\n\t\t\t\t}}\n\t\t\t>\n\t\t\t\t|\n\t\t\t</motion.span>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/motion-text-typing',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/motion/components/text-typing/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "motion-particles-animated-tooltip": {
+            name: "motion-particles-animated-tooltip",
+            description: "Basic animated tooltip demo",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/motion-animated-tooltip"],
+            files: [
+  {
+    "path": "packages/motion/particles/animated-tooltip/index.tsx",
+    "type": "registry:component",
+    "target": "components/motion/particles/animated-tooltip.tsx",
+    "content": "\"use client\";\n\nimport { AnimatedTooltip } from \"@/components/motion/components/animated-tooltip\";\nimport { Home, Settings, Mail, Calendar, Music, ImageIcon } from \"lucide-react\";\n\nexport default function AnimatedTooltipDemo() {\n\tconst tooltips = [\n\t\t{\n\t\t\tid: \"1\",\n\t\t\ticon: <Home className=\"w-4 h-4 text-gray-500\" />,\n\t\t\tlabel: \"Home\",\n\t\t},\n\t\t{\n\t\t\tid: \"2\",\n\t\t\ticon: <Settings className=\"w-4 h-4 text-gray-500\" />,\n\t\t\tlabel: \"Settings\",\n\t\t},\n\t\t{\n\t\t\tid: \"3\",\n\t\t\ticon: <Mail className=\"w-4 h-4 text-gray-500\" />,\n\t\t\tlabel: \"Mail\",\n\t\t},\n\t\t{\n\t\t\tid: \"4\",\n\t\t\ticon: <Calendar className=\"w-4 h-4 text-gray-500\" />,\n\t\t\tlabel: \"Calendar\",\n\t\t},\n\t\t{\n\t\t\tid: \"5\",\n\t\t\ticon: <ImageIcon className=\"w-4 h-4 text-gray-500\" />,\n\t\t\tlabel: \"Photos\",\n\t\t},\n\t\t{\n\t\t\tid: \"6\",\n\t\t\ticon: <Music className=\"w-4 h-4 text-gray-500\" />,\n\t\t\tlabel: \"Music\",\n\t\t},\n\t];\n\n\treturn (\n\t\t<div className=\"flex gap-2\">\n\t\t\t{tooltips.map(({ id, icon, label }) => (\n\t\t\t\t<AnimatedTooltip key={id} label={label}>\n\t\t\t\t\t{icon}\n\t\t\t\t</AnimatedTooltip>\n\t\t\t))}\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/motion-particles-animated-tooltip',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/motion/particles/animated-tooltip/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "motion-particles-confetti": {
+            name: "motion-particles-confetti",
+            description: "",
+            type: "registry:component",
+            dependencies: undefined,
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/use-confetti"],
+            files: [
+  {
+    "path": "packages/motion/particles/confetti/index.tsx",
+    "type": "registry:component",
+    "target": "components/motion/particles/confetti.tsx",
+    "content": "\"use client\";\n\nimport { useConfetti } from \"@/hooks/use-confetti\";\n\nexport default function ConfettiDemo() {\n\tconst triggerConfetti = useConfetti();\n\n\tconst origins = [\"top\", \"bottom\", \"center\", \"left\", \"right\"] as const;\n\n\treturn (\n\t\t<div className=\"flex justify-center flex-wrap gap-4 dark:text-white\">\n\t\t\t{origins.map((origin) => (\n\t\t\t\t<button\n\t\t\t\t\tkey={origin}\n\t\t\t\t\ttype=\"button\"\n\t\t\t\t\tonClick={() => {\n\t\t\t\t\t\ttriggerConfetti({\n\t\t\t\t\t\t\tparticleCount: 50,\n\t\t\t\t\t\t\torigin,\n\t\t\t\t\t\t\tduration: 5000,\n\t\t\t\t\t\t});\n\t\t\t\t\t}}\n\t\t\t\t\tclassName=\"px-4 py-2 rounded bg-gray-200 dark:bg-zinc-800 hover:bg-gray-300 dark:hover:bg-zinc-600 transition\"\n\t\t\t\t>\n\t\t\t\t\t{origin.charAt(0).toUpperCase() +\n\t\t\t\t\t\torigin.slice(1).replace(\"-\", \" \")}\n\t\t\t\t</button>\n\t\t\t))}\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/motion-particles-confetti',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/motion/particles/confetti/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "motion-particles-cursor-with-text-trail": {
+            name: "motion-particles-cursor-with-text-trail",
+            description: "Text cursor demo",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/motion-cursor"],
+            files: [
+  {
+    "path": "packages/motion/particles/cursor/cursor-with-text-trail/index.tsx",
+    "type": "registry:component",
+    "target": "components/motion/particles/cursor-with-text-trail.tsx",
+    "content": "\"use client\";\n\nimport Cursor from \"@/components/motion/components/cursor\";\n\nexport default function Particle() {\n\treturn (\n\t\t<Cursor\n\t\t\tcursor={\n\t\t\t\t<span className=\"text-sm border px-2 py-1 rounded shadow\">\n\t\t\t\t\tHello, World!\n\t\t\t\t</span>\n\t\t\t}\n\t\t\tclassName=\"h-full w-full flex items-center justify-center\"\n\t\t>\n\t\t\t<div className=\"text-center\">\n\t\t\t\t<p>Hover over this area to see a text cursor</p>\n\t\t\t</div>\n\t\t</Cursor>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/motion-particles-cursor-with-text-trail',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/motion/particles/cursor/cursor-with-text-trail/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "motion-particles-cursor": {
+            name: "motion-particles-cursor",
+            description: "Basic cursor demo",
+            type: "registry:component",
+            dependencies: ["lucide-react"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/motion-cursor"],
+            files: [
+  {
+    "path": "packages/motion/particles/cursor/index.tsx",
+    "type": "registry:component",
+    "target": "components/motion/particles/cursor.tsx",
+    "content": "\"use client\";\n\nimport { ArrowRight, Sparkles } from \"lucide-react\";\nimport Cursor from \"@/components/motion/components/cursor\";\n\nexport default function CursorPreview() {\n\treturn (\n\t\t<Cursor\n\t\t\tcursor={\n\t\t\t\t<div className=\"flex items-center space-x-2 bg-yellow-300 px-3 py-1 rounded-full shadow-lg\">\n\t\t\t\t\t<Sparkles className=\"w-4 h-4 text-yellow-600\" />\n\t\t\t\t\t<span className=\"text-sm font-semibold text-yellow-800\">\n\t\t\t\t\t\tClick Here!\n\t\t\t\t\t</span>\n\t\t\t\t\t<ArrowRight className=\"w-4 h-4 text-yellow-600\" />\n\t\t\t\t</div>\n\t\t\t}\n\t\t\tclassName=\"h-full w-full flex items-center justify-center\"\n\t\t>\n\t\t\t<div className=\"text-center\">\n\t\t\t\t<p>Hover over this area to see a custom cursor</p>\n\t\t\t</div>\n\t\t</Cursor>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/motion-particles-cursor',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/motion/particles/cursor/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "motion-particles-dock": {
+            name: "motion-particles-dock",
+            description: "Basic dock demo",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/motion-dock"],
+            files: [
+  {
+    "path": "packages/motion/particles/dock/index.tsx",
+    "type": "registry:component",
+    "target": "components/motion/particles/dock.tsx",
+    "content": "\"use client\";\n\nimport { Dock, DockItem } from \"@/components/motion/components/dock\";\nimport { Home, Settings, Mail, Calendar, Music, ImageIcon } from \"lucide-react\";\n\nexport default function DockBasic() {\n\tconst dockItems = [\n\t\t{\n\t\t\tid: \"1\",\n\t\t\ticon: <Home className=\"w-4 h-4 text-gray-500\" />,\n\t\t\tlabel: \"Home\",\n\t\t},\n\t\t{\n\t\t\tid: \"2\",\n\t\t\ticon: <Settings className=\"w-4 h-4 text-gray-500\" />,\n\t\t\tlabel: \"Settings\",\n\t\t},\n\t\t{\n\t\t\tid: \"3\",\n\t\t\ticon: <Mail className=\"w-4 h-4 text-gray-500\" />,\n\t\t\tlabel: \"Mail\",\n\t\t},\n\t\t{\n\t\t\tid: \"4\",\n\t\t\ticon: <Calendar className=\"w-4 h-4 text-gray-500\" />,\n\t\t\tlabel: \"Calendar\",\n\t\t},\n\t\t{\n\t\t\tid: \"5\",\n\t\t\ticon: <ImageIcon className=\"w-4 h-4 text-gray-500\" />,\n\t\t\tlabel: \"Photos\",\n\t\t},\n\t\t{\n\t\t\tid: \"6\",\n\t\t\ticon: <Music className=\"w-4 h-4 text-gray-500\" />,\n\t\t\tlabel: \"Music\",\n\t\t},\n\t];\n\n\treturn (\n\t\t<Dock>\n\t\t\t{dockItems.map(({ id, icon, label }) => (\n\t\t\t\t<DockItem key={id} icon={icon} label={label} />\n\t\t\t))}\n\t\t</Dock>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/motion-particles-dock',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/motion/particles/dock/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "motion-particles-magnetic-with-navbar-items": {
+            name: "motion-particles-magnetic-with-navbar-items",
+            description: "Magnetic navbar items demo",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/motion-magnetic"],
+            files: [
+  {
+    "path": "packages/motion/particles/magnetic/magnetic-with-navbar-items/index.tsx",
+    "type": "registry:component",
+    "target": "components/motion/particles/magnetic-with-navbar-items.tsx",
+    "content": "\"use client\";\n\nimport type React from \"react\";\nimport Magnetic from \"@/components/motion/components/magnetic\";\n\n// nav items\nconst navMenu = [\n\t{\n\t\tname: \"Home\",\n\t\tlink: \"#\",\n\t},\n\t{\n\t\tname: \"About\",\n\t\tlink: \"#\",\n\t},\n\t{\n\t\tname: \"Services\",\n\t\tlink: \"#\",\n\t},\n\t{\n\t\tname: \"Contact\",\n\t\tlink: \"#\",\n\t},\n];\n\n// Icons\ntype IconProps = React.HTMLAttributes<SVGElement>;\nconst Icons = {\n\tGitHub: (props: IconProps) => (\n\t\t<svg\n\t\t\tviewBox=\"0 0 256 250\"\n\t\t\twidth=\"256\"\n\t\t\theight=\"250\"\n\t\t\tfill=\"#24292f\"\n\t\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t\t\tpreserveAspectRatio=\"xMidYMid\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<title>GitHub</title>\n\t\t\t<path d=\"M128.001 0C57.317 0 0 57.307 0 128.001c0 56.554 36.676 104.535 87.535 121.46 6.397 1.185 8.746-2.777 8.746-6.158 0-3.052-.12-13.135-.174-23.83-35.61 7.742-43.124-15.103-43.124-15.103-5.823-14.795-14.213-18.73-14.213-18.73-11.613-7.944.876-7.78.876-7.78 12.853.902 19.621 13.19 19.621 13.19 11.417 19.568 29.945 13.911 37.249 10.64 1.149-8.272 4.466-13.92 8.127-17.116-28.431-3.236-58.318-14.212-58.318-63.258 0-13.975 5-25.394 13.188-34.358-1.329-3.224-5.71-16.242 1.24-33.874 0 0 10.749-3.44 35.21 13.121 10.21-2.836 21.16-4.258 32.038-4.307 10.878.049 21.837 1.47 32.066 4.307 24.431-16.56 35.165-13.12 35.165-13.12 6.967 17.63 2.584 30.65 1.255 33.873 8.207 8.964 13.173 20.383 13.173 34.358 0 49.163-29.944 59.988-58.447 63.157 4.591 3.972 8.682 11.762 8.682 23.704 0 17.126-.148 30.91-.148 35.126 0 3.407 2.304 7.398 8.792 6.14C219.37 232.5 256 184.537 256 128.002 256 57.307 198.691 0 128.001 0Zm-80.06 182.34c-.282.636-1.283.827-2.194.39-.929-.417-1.45-1.284-1.15-1.922.276-.655 1.279-.838 2.205-.399.93.418 1.46 1.293 1.139 1.931Zm6.296 5.618c-.61.566-1.804.303-2.614-.591-.837-.892-.994-2.086-.375-2.66.63-.566 1.787-.301 2.626.591.838.903 1 2.088.363 2.66Zm4.32 7.188c-.785.545-2.067.034-2.86-1.104-.784-1.138-.784-2.503.017-3.05.795-.547 2.058-.055 2.861 1.075.782 1.157.782 2.522-.019 3.08Zm7.304 8.325c-.701.774-2.196.566-3.29-.49-1.119-1.032-1.43-2.496-.726-3.27.71-.776 2.213-.558 3.315.49 1.11 1.03 1.45 2.505.701 3.27Zm9.442 2.81c-.31 1.003-1.75 1.459-3.199 1.033-1.448-.439-2.395-1.613-2.103-2.626.301-1.01 1.747-1.484 3.207-1.028 1.446.436 2.396 1.602 2.095 2.622Zm10.744 1.193c.036 1.055-1.193 1.93-2.715 1.95-1.53.034-2.769-.82-2.786-1.86 0-1.065 1.202-1.932 2.733-1.958 1.522-.03 2.768.818 2.768 1.868Zm10.555-.405c.182 1.03-.875 2.088-2.387 2.37-1.485.271-2.861-.365-3.05-1.386-.184-1.056.893-2.114 2.376-2.387 1.514-.263 2.868.356 3.061 1.403Z\" />\n\t\t</svg>\n\t),\n\tLinkedIn: (props: IconProps) => (\n\t\t<svg\n\t\t\twidth=\"256\"\n\t\t\theight=\"256\"\n\t\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t\t\tpreserveAspectRatio=\"xMidYMid\"\n\t\t\tviewBox=\"0 0 256 256\"\n\t\t\tfill=\"#0077b5\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<title>LinkedIn</title>\n\t\t\t<path\n\t\t\t\td=\"M218.123 218.127h-37.931v-59.403c0-14.165-.253-32.4-19.728-32.4-19.756 0-22.779 15.434-22.779 31.369v60.43h-37.93V95.967h36.413v16.694h.51a39.907 39.907 0 0 1 35.928-19.733c38.445 0 45.533 25.288 45.533 58.186l-.016 67.013ZM56.955 79.27c-12.157.002-22.014-9.852-22.016-22.009-.002-12.157 9.851-22.014 22.008-22.016 12.157-.003 22.014 9.851 22.016 22.008A22.013 22.013 0 0 1 56.955 79.27m18.966 138.858H37.95V95.967h37.97v122.16ZM237.033.018H18.89C8.58-.098.125 8.161-.001 18.471v219.053c.122 10.315 8.576 18.582 18.89 18.474h218.144c10.336.128 18.823-8.139 18.966-18.474V18.454c-.147-10.33-8.635-18.588-18.966-18.453\"\n\t\t\t\tfill=\"#0A66C2\"\n\t\t\t/>\n\t\t</svg>\n\t),\n\tX: (props: IconProps) => (\n\t\t<svg\n\t\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t\t\twidth=\"1200\"\n\t\t\theight=\"1227\"\n\t\t\tfill=\"none\"\n\t\t\tviewBox=\"0 0 1200 1227\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<title>X</title>\n\t\t\t<path\n\t\t\t\tfill=\"#000\"\n\t\t\t\td=\"M714.163 519.284 1160.89 0h-105.86L667.137 450.887 357.328 0H0l468.492 681.821L0 1226.37h105.866l409.625-476.152 327.181 476.152H1200L714.137 519.284h.026ZM569.165 687.828l-47.468-67.894-377.686-540.24h162.604l304.797 435.991 47.468 67.894 396.2 566.721H892.476L569.165 687.854v-.026Z\"\n\t\t\t/>\n\t\t</svg>\n\t),\n};\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"w-full flex items-center justify-between\">\n\t\t\t<div className=\"flex items-center\">\n\t\t\t\t<div className=\"flex gap-8 items-center\">\n\t\t\t\t\t{navMenu.map((nav, index) => (\n\t\t\t\t\t\t<Magnetic key={index}>\n\t\t\t\t\t\t\t<div className=\"group relative\">\n\t\t\t\t\t\t\t\t<div className=\"cursor-pointer\">{nav.name}</div>\n\t\t\t\t\t\t\t\t<div className=\"h-2 w-2 bg-black dark:bg-white rounded-full absolute -bottom-4 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-all ease duration-200\"></div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</Magnetic>\n\t\t\t\t\t))}\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div className=\"mr-8 flex gap-6\">\n\t\t\t\t<Magnetic>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<Icons.GitHub className=\"h-4 w-4 cursor-pointer\" />\n\t\t\t\t\t</div>\n\t\t\t\t</Magnetic>\n\t\t\t\t<Magnetic>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<Icons.LinkedIn className=\"h-4 w-4 cursor-pointer\" />\n\t\t\t\t\t</div>\n\t\t\t\t</Magnetic>\n\t\t\t\t<Magnetic>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<Icons.X className=\"h-4 w-4 cursor-pointer\" />\n\t\t\t\t\t</div>\n\t\t\t\t</Magnetic>\n\t\t\t</div>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/motion-particles-magnetic-with-navbar-items',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/motion/particles/magnetic/magnetic-with-navbar-items/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "motion-particles-magnetic": {
+            name: "motion-particles-magnetic",
+            description: "Basic magnetic demo",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/motion-magnetic"],
+            files: [
+  {
+    "path": "packages/motion/particles/magnetic/index.tsx",
+    "type": "registry:component",
+    "target": "components/motion/particles/magnetic.tsx",
+    "content": "\"use client\";\n\nimport Magnetic from \"@/components/motion/components/magnetic\";\n\nexport default function MagneticBasic() {\n\treturn (\n\t\t<Magnetic>\n\t\t\t<button\n\t\t\t\ttype=\"button\"\n\t\t\t\tclassName=\"px-4 py-2 cursor-pointer border rounded shadow\"\n\t\t\t>\n\t\t\t\tHover Me\n\t\t\t</button>\n\t\t</Magnetic>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/motion-particles-magnetic',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/motion/particles/magnetic/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "motion-particles-marquee-with-reverse-direction": {
+            name: "motion-particles-marquee-with-reverse-direction",
+            description: "Reverse marquee demo",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/motion-marquee"],
+            files: [
+  {
+    "path": "packages/motion/particles/marquee/marquee-with-reverse-direction/index.tsx",
+    "type": "registry:component",
+    "target": "components/motion/particles/marquee-with-reverse-direction.tsx",
+    "content": "\"use client\";\n\nimport Marquee from \"@/components/motion/components/marquee\";\n\nconst team = [\n\t{\n\t\tname: \"Jack Thompson\",\n\t\trole: \"Product Designer\",\n\t\tid: 1,\n\t},\n\t{\n\t\tname: \"Maria Rodriguez\",\n\t\trole: \"Marketing Director\",\n\t\tid: 2,\n\t},\n\t{\n\t\tname: \"Alex Chen\",\n\t\trole: \"Tech Lead\",\n\t\tid: 3,\n\t},\n\t{\n\t\tname: \"Sarah Wilson\",\n\t\trole: \"Startup Founder\",\n\t\tid: 4,\n\t},\n\t{\n\t\tname: \"David Lee\",\n\t\trole: \"Creative Director\",\n\t\tid: 5,\n\t},\n\t{\n\t\tname: \"Nina Patel\",\n\t\trole: \"UX Researcher\",\n\t\tid: 6,\n\t},\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<Marquee\n\t\t\tduration={35}\n\t\t\trepeat={2}\n\t\t\tdirection=\"right\"\n\t\t\tgap={12}\n\t\t\tclassName=\"w-[1000px] py-8\"\n\t\t\tpauseOnHover\n\t\t>\n\t\t\t{team.map((item) => (\n\t\t\t\t<div\n\t\t\t\t\tkey={item.id}\n\t\t\t\t\tclassName=\"h-40 w-40 border rounded-md p-2 flex flex-col items-center justify-center\"\n\t\t\t\t>\n\t\t\t\t\t<span className=\"text-gray-500 text-sm text-center\">\n\t\t\t\t\t\t{item.name}\n\t\t\t\t\t</span>\n\t\t\t\t\t<span className=\"mt-1 text-sm text-center\">\n\t\t\t\t\t\t{item.role}\n\t\t\t\t\t</span>\n\t\t\t\t</div>\n\t\t\t))}\n\t\t</Marquee>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/motion-particles-marquee-with-reverse-direction',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/motion/particles/marquee/marquee-with-reverse-direction/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "motion-particles-marquee": {
+            name: "motion-particles-marquee",
+            description: "Basic marquee demo",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/motion-marquee"],
+            files: [
+  {
+    "path": "packages/motion/particles/marquee/index.tsx",
+    "type": "registry:component",
+    "target": "components/motion/particles/marquee.tsx",
+    "content": "\"use client\";\n\nimport Marquee from \"@/components/motion/components/marquee\";\n\ntype IconProps = React.HTMLAttributes<SVGElement>;\nexport const Icons = {\n\tReact: (props: IconProps) => (\n\t\t<svg\n\t\t\tviewBox=\"0 0 256 228\"\n\t\t\twidth=\"256\"\n\t\t\theight=\"228\"\n\t\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t\t\tpreserveAspectRatio=\"xMidYMid\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<title>React</title>\n\t\t\t<path\n\t\t\t\td=\"M210.483 73.824a171.49 171.49 0 0 0-8.24-2.597c.465-1.9.893-3.777 1.273-5.621 6.238-30.281 2.16-54.676-11.769-62.708-13.355-7.7-35.196.329-57.254 19.526a171.23 171.23 0 0 0-6.375 5.848 155.866 155.866 0 0 0-4.241-3.917C100.759 3.829 77.587-4.822 63.673 3.233 50.33 10.957 46.379 33.89 51.995 62.588a170.974 170.974 0 0 0 1.892 8.48c-3.28.932-6.445 1.924-9.474 2.98C17.309 83.498 0 98.307 0 113.668c0 15.865 18.582 31.778 46.812 41.427a145.52 145.52 0 0 0 6.921 2.165 167.467 167.467 0 0 0-2.01 9.138c-5.354 28.2-1.173 50.591 12.134 58.266 13.744 7.926 36.812-.22 59.273-19.855a145.567 145.567 0 0 0 5.342-4.923 168.064 168.064 0 0 0 6.92 6.314c21.758 18.722 43.246 26.282 56.54 18.586 13.731-7.949 18.194-32.003 12.4-61.268a145.016 145.016 0 0 0-1.535-6.842c1.62-.48 3.21-.974 4.76-1.488 29.348-9.723 48.443-25.443 48.443-41.52 0-15.417-17.868-30.326-45.517-39.844Zm-6.365 70.984c-1.4.463-2.836.91-4.3 1.345-3.24-10.257-7.612-21.163-12.963-32.432 5.106-11 9.31-21.767 12.459-31.957 2.619.758 5.16 1.557 7.61 2.4 23.69 8.156 38.14 20.213 38.14 29.504 0 9.896-15.606 22.743-40.946 31.14Zm-10.514 20.834c2.562 12.94 2.927 24.64 1.23 33.787-1.524 8.219-4.59 13.698-8.382 15.893-8.067 4.67-25.32-1.4-43.927-17.412a156.726 156.726 0 0 1-6.437-5.87c7.214-7.889 14.423-17.06 21.459-27.246 12.376-1.098 24.068-2.894 34.671-5.345.522 2.107.986 4.173 1.386 6.193ZM87.276 214.515c-7.882 2.783-14.16 2.863-17.955.675-8.075-4.657-11.432-22.636-6.853-46.752a156.923 156.923 0 0 1 1.869-8.499c10.486 2.32 22.093 3.988 34.498 4.994 7.084 9.967 14.501 19.128 21.976 27.15a134.668 134.668 0 0 1-4.877 4.492c-9.933 8.682-19.886 14.842-28.658 17.94ZM50.35 144.747c-12.483-4.267-22.792-9.812-29.858-15.863-6.35-5.437-9.555-10.836-9.555-15.216 0-9.322 13.897-21.212 37.076-29.293 2.813-.98 5.757-1.905 8.812-2.773 3.204 10.42 7.406 21.315 12.477 32.332-5.137 11.18-9.399 22.249-12.634 32.792a134.718 134.718 0 0 1-6.318-1.979Zm12.378-84.26c-4.811-24.587-1.616-43.134 6.425-47.789 8.564-4.958 27.502 2.111 47.463 19.835a144.318 144.318 0 0 1 3.841 3.545c-7.438 7.987-14.787 17.08-21.808 26.988-12.04 1.116-23.565 2.908-34.161 5.309a160.342 160.342 0 0 1-1.76-7.887Zm110.427 27.268a347.8 347.8 0 0 0-7.785-12.803c8.168 1.033 15.994 2.404 23.343 4.08-2.206 7.072-4.956 14.465-8.193 22.045a381.151 381.151 0 0 0-7.365-13.322Zm-45.032-43.861c5.044 5.465 10.096 11.566 15.065 18.186a322.04 322.04 0 0 0-30.257-.006c4.974-6.559 10.069-12.652 15.192-18.18ZM82.802 87.83a323.167 323.167 0 0 0-7.227 13.238c-3.184-7.553-5.909-14.98-8.134-22.152 7.304-1.634 15.093-2.97 23.209-3.984a321.524 321.524 0 0 0-7.848 12.897Zm8.081 65.352c-8.385-.936-16.291-2.203-23.593-3.793 2.26-7.3 5.045-14.885 8.298-22.6a321.187 321.187 0 0 0 7.257 13.246c2.594 4.48 5.28 8.868 8.038 13.147Zm37.542 31.03c-5.184-5.592-10.354-11.779-15.403-18.433 4.902.192 9.899.29 14.978.29 5.218 0 10.376-.117 15.453-.343-4.985 6.774-10.018 12.97-15.028 18.486Zm52.198-57.817c3.422 7.8 6.306 15.345 8.596 22.52-7.422 1.694-15.436 3.058-23.88 4.071a382.417 382.417 0 0 0 7.859-13.026 347.403 347.403 0 0 0 7.425-13.565Zm-16.898 8.101a358.557 358.557 0 0 1-12.281 19.815 329.4 329.4 0 0 1-23.444.823c-7.967 0-15.716-.248-23.178-.732a310.202 310.202 0 0 1-12.513-19.846h.001a307.41 307.41 0 0 1-10.923-20.627 310.278 310.278 0 0 1 10.89-20.637l-.001.001a307.318 307.318 0 0 1 12.413-19.761c7.613-.576 15.42-.876 23.31-.876H128c7.926 0 15.743.303 23.354.883a329.357 329.357 0 0 1 12.335 19.695 358.489 358.489 0 0 1 11.036 20.54 329.472 329.472 0 0 1-11 20.722Zm22.56-122.124c8.572 4.944 11.906 24.881 6.52 51.026-.344 1.668-.73 3.367-1.15 5.09-10.622-2.452-22.155-4.275-34.23-5.408-7.034-10.017-14.323-19.124-21.64-27.008a160.789 160.789 0 0 1 5.888-5.4c18.9-16.447 36.564-22.941 44.612-18.3ZM128 90.808c12.625 0 22.86 10.235 22.86 22.86s-10.235 22.86-22.86 22.86-22.86-10.235-22.86-22.86 10.235-22.86 22.86-22.86Z\"\n\t\t\t\tfill=\"#00D8FF\"\n\t\t\t/>\n\t\t</svg>\n\t),\n\tNext: (props: IconProps) => (\n\t\t<svg\n\t\t\twidth=\"180\"\n\t\t\theight=\"180\"\n\t\t\tviewBox=\"0 0 180 180\"\n\t\t\tfill=\"none\"\n\t\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<title>Next</title>\n\t\t\t<mask\n\t\t\t\tid=\"mask0_408_139\"\n\t\t\t\tstyle={{ maskType: \"alpha\" }}\n\t\t\t\tmaskUnits=\"userSpaceOnUse\"\n\t\t\t\tx=\"0\"\n\t\t\t\ty=\"0\"\n\t\t\t\twidth=\"180\"\n\t\t\t\theight=\"180\"\n\t\t\t>\n\t\t\t\t<circle cx=\"90\" cy=\"90\" r=\"90\" fill=\"black\" />\n\t\t\t</mask>\n\t\t\t<g mask=\"url(#mask0_408_139)\">\n\t\t\t\t<circle\n\t\t\t\t\tcx=\"90\"\n\t\t\t\t\tcy=\"90\"\n\t\t\t\t\tr=\"87\"\n\t\t\t\t\tfill=\"black\"\n\t\t\t\t\tstroke=\"white\"\n\t\t\t\t\tstrokeWidth=\"6\"\n\t\t\t\t/>\n\t\t\t\t<path\n\t\t\t\t\td=\"M149.508 157.52L69.142 54H54V125.97H66.1136V69.3836L139.999 164.845C143.333 162.614 146.509 160.165 149.508 157.52Z\"\n\t\t\t\t\tfill=\"url(#paint0_linear_408_139)\"\n\t\t\t\t/>\n\t\t\t\t<rect\n\t\t\t\t\tx=\"115\"\n\t\t\t\t\ty=\"54\"\n\t\t\t\t\twidth=\"12\"\n\t\t\t\t\theight=\"72\"\n\t\t\t\t\tfill=\"url(#paint1_linear_408_139)\"\n\t\t\t\t/>\n\t\t\t</g>\n\t\t\t<defs>\n\t\t\t\t<linearGradient\n\t\t\t\t\tid=\"paint0_linear_408_139\"\n\t\t\t\t\tx1=\"109\"\n\t\t\t\t\ty1=\"116.5\"\n\t\t\t\t\tx2=\"144.5\"\n\t\t\t\t\ty2=\"160.5\"\n\t\t\t\t\tgradientUnits=\"userSpaceOnUse\"\n\t\t\t\t>\n\t\t\t\t\t<stop stopColor=\"white\" />\n\t\t\t\t\t<stop offset=\"1\" stopColor=\"white\" stopOpacity=\"0\" />\n\t\t\t\t</linearGradient>\n\t\t\t\t<linearGradient\n\t\t\t\t\tid=\"paint1_linear_408_139\"\n\t\t\t\t\tx1=\"121\"\n\t\t\t\t\ty1=\"54\"\n\t\t\t\t\tx2=\"120.799\"\n\t\t\t\t\ty2=\"106.875\"\n\t\t\t\t\tgradientUnits=\"userSpaceOnUse\"\n\t\t\t\t>\n\t\t\t\t\t<stop stopColor=\"white\" />\n\t\t\t\t\t<stop offset=\"1\" stopColor=\"white\" stopOpacity=\"0\" />\n\t\t\t\t</linearGradient>\n\t\t\t</defs>\n\t\t</svg>\n\t),\n\tRemix: (props: IconProps) => (\n\t\t<svg\n\t\t\tviewBox=\"0 0 256 297\"\n\t\t\twidth=\"256\"\n\t\t\theight=\"297\"\n\t\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<title>Remix</title>\n\t\t\t<path\n\t\t\t\td=\"M141.675 0C218.047 0 256 36.35 256 94.414c0 43.43-26.707 71.753-62.785 76.474 30.455 6.137 48.259 23.604 51.54 58.065l.474 6.337.415 5.924.358 5.542.249 4.179.267 4.93.138 2.814.198 4.47.159 4.222.079 2.427.107 3.888.092 4.446.033 2.148.06 6.226.02 6.496v3.885h-78.758l.004-1.62.028-3.147.047-3.065.136-7.424.035-2.489.027-3.902-.004-2.496-.023-2.617-.032-2.054-.064-2.876-.094-3.05-.125-3.242-.16-3.455-.096-1.813-.16-2.833-.186-2.976-.287-4.204-.247-3.342a116.56 116.56 0 0 0-.247-3.02l-.202-1.934c-2.6-22.827-11.655-32.157-27.163-35.269l-1.307-.245a60.184 60.184 0 0 0-2.704-.408l-1.397-.164c-.236-.025-.472-.05-.71-.073l-1.442-.127-1.471-.103-1.502-.081-1.514-.058-1.544-.039-1.574-.018L0 198.74V136.9h127.62c2.086 0 4.108-.04 6.066-.12l1.936-.095 1.893-.122 1.85-.15c.305-.028.608-.056.909-.086l1.785-.193a86.3 86.3 0 0 0 3.442-.475l1.657-.28c20.709-3.755 31.063-14.749 31.063-36.2 0-24.075-16.867-38.666-50.602-38.666H0V0h141.675ZM83.276 250.785c10.333 0 14.657 5.738 16.197 11.23l.203.79.167.782.109.617.046.306.078.603.058.59.023.29.031.569.01.278.008.54v29.507H0v-46.102h83.276Z\"\n\t\t\t\tfill=\"#121212\"\n\t\t\t\tfillRule=\"nonzero\"\n\t\t\t/>\n\t\t</svg>\n\t),\n\tSvelte: (props: IconProps) => (\n\t\t<svg\n\t\t\tviewBox=\"0 0 256 308\"\n\t\t\twidth=\"256\"\n\t\t\theight=\"308\"\n\t\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t\t\tpreserveAspectRatio=\"xMidYMid\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<title>Svelte</title>\n\t\t\t<path\n\t\t\t\td=\"M239.682 40.707C211.113-.182 154.69-12.301 113.895 13.69L42.247 59.356a82.198 82.198 0 0 0-37.135 55.056 86.566 86.566 0 0 0 8.536 55.576 82.425 82.425 0 0 0-12.296 30.719 87.596 87.596 0 0 0 14.964 66.244c28.574 40.893 84.997 53.007 125.787 27.016l71.648-45.664a82.182 82.182 0 0 0 37.135-55.057 86.601 86.601 0 0 0-8.53-55.577 82.409 82.409 0 0 0 12.29-30.718 87.573 87.573 0 0 0-14.963-66.244\"\n\t\t\t\tfill=\"#FF3E00\"\n\t\t\t/>\n\t\t\t<path\n\t\t\t\td=\"M106.889 270.841c-23.102 6.007-47.497-3.036-61.103-22.648a52.685 52.685 0 0 1-9.003-39.85 49.978 49.978 0 0 1 1.713-6.693l1.35-4.115 3.671 2.697a92.447 92.447 0 0 0 28.036 14.007l2.663.808-.245 2.659a16.067 16.067 0 0 0 2.89 10.656 17.143 17.143 0 0 0 18.397 6.828 15.786 15.786 0 0 0 4.403-1.935l71.67-45.672a14.922 14.922 0 0 0 6.734-9.977 15.923 15.923 0 0 0-2.713-12.011 17.156 17.156 0 0 0-18.404-6.832 15.78 15.78 0 0 0-4.396 1.933l-27.35 17.434a52.298 52.298 0 0 1-14.553 6.391c-23.101 6.007-47.497-3.036-61.101-22.649a52.681 52.681 0 0 1-9.004-39.849 49.428 49.428 0 0 1 22.34-33.114l71.664-45.677a52.218 52.218 0 0 1 14.563-6.398c23.101-6.007 47.497 3.036 61.101 22.648a52.685 52.685 0 0 1 9.004 39.85 50.559 50.559 0 0 1-1.713 6.692l-1.35 4.116-3.67-2.693a92.373 92.373 0 0 0-28.037-14.013l-2.664-.809.246-2.658a16.099 16.099 0 0 0-2.89-10.656 17.143 17.143 0 0 0-18.398-6.828 15.786 15.786 0 0 0-4.402 1.935l-71.67 45.674a14.898 14.898 0 0 0-6.73 9.975 15.9 15.9 0 0 0 2.709 12.012 17.156 17.156 0 0 0 18.404 6.832 15.841 15.841 0 0 0 4.402-1.935l27.345-17.427a52.147 52.147 0 0 1 14.552-6.397c23.101-6.006 47.497 3.037 61.102 22.65a52.681 52.681 0 0 1 9.003 39.848 49.453 49.453 0 0 1-22.34 33.12l-71.664 45.673a52.218 52.218 0 0 1-14.563 6.398\"\n\t\t\t\tfill=\"#FFF\"\n\t\t\t/>\n\t\t</svg>\n\t),\n\tVue: (props: IconProps) => (\n\t\t<svg\n\t\t\tviewBox=\"0 0 256 221\"\n\t\t\twidth=\"256\"\n\t\t\theight=\"221\"\n\t\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t\t\tpreserveAspectRatio=\"xMidYMid\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<title>Vue</title>\n\t\t\t<path\n\t\t\t\td=\"M204.8 0H256L128 220.8 0 0h97.92L128 51.2 157.44 0h47.36Z\"\n\t\t\t\tfill=\"#41B883\"\n\t\t\t/>\n\t\t\t<path\n\t\t\t\td=\"m0 0 128 220.8L256 0h-51.2L128 132.48 50.56 0H0Z\"\n\t\t\t\tfill=\"#41B883\"\n\t\t\t/>\n\t\t\t<path\n\t\t\t\td=\"M50.56 0 128 133.12 204.8 0h-47.36L128 51.2 97.92 0H50.56Z\"\n\t\t\t\tfill=\"#35495E\"\n\t\t\t/>\n\t\t</svg>\n\t),\n\tNuxt: (props: IconProps) => (\n\t\t<svg\n\t\t\tviewBox=\"0 0 256 168\"\n\t\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t\t\twidth=\"256\"\n\t\t\theight=\"168\"\n\t\t\tpreserveAspectRatio=\"xMidYMid\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<title>Nuxt</title>\n\t\t\t<path\n\t\t\t\tfill=\"#00DC82\"\n\t\t\t\td=\"M143.618 167.029h95.166c3.023 0 5.992-.771 8.61-2.237a16.963 16.963 0 0 0 6.302-6.115 16.324 16.324 0 0 0 2.304-8.352c0-2.932-.799-5.811-2.312-8.35L189.778 34.6a16.966 16.966 0 0 0-6.301-6.113 17.626 17.626 0 0 0-8.608-2.238c-3.023 0-5.991.772-8.609 2.238a16.964 16.964 0 0 0-6.3 6.113l-16.342 27.473-31.95-53.724a16.973 16.973 0 0 0-6.304-6.112A17.638 17.638 0 0 0 96.754 0c-3.022 0-5.992.772-8.61 2.237a16.973 16.973 0 0 0-6.303 6.112L2.31 141.975A16.302 16.302 0 0 0 0 150.325c0 2.932.793 5.813 2.304 8.352a16.964 16.964 0 0 0 6.302 6.115 17.628 17.628 0 0 0 8.61 2.237h59.737c23.669 0 41.123-10.084 53.134-29.758l29.159-48.983 15.618-26.215 46.874 78.742h-62.492l-15.628 26.214Zm-67.64-26.24-41.688-.01L96.782 35.796l31.181 52.492-20.877 35.084c-7.976 12.765-17.037 17.416-31.107 17.416Z\"\n\t\t\t/>\n\t\t</svg>\n\t),\n\tAstro: (props: IconProps) => (\n\t\t<svg\n\t\t\tviewBox=\"0 0 256 366\"\n\t\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t\t\twidth=\"256\"\n\t\t\theight=\"366\"\n\t\t\tpreserveAspectRatio=\"xMidYMid\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<title>Astro</title>\n\t\t\t<path d=\"M182.022 9.147c2.982 3.702 4.502 8.697 7.543 18.687L256 246.074a276.467 276.467 0 0 0-79.426-26.891L133.318 73.008a5.63 5.63 0 0 0-10.802.017L79.784 219.11A276.453 276.453 0 0 0 0 246.04L66.76 27.783c3.051-9.972 4.577-14.959 7.559-18.654a24.541 24.541 0 0 1 9.946-7.358C88.67 0 93.885 0 104.314 0h47.683c10.443 0 15.664 0 20.074 1.774a24.545 24.545 0 0 1 9.95 7.373Z\" />\n\t\t\t<path\n\t\t\t\tfill=\"#FF5D01\"\n\t\t\t\td=\"M189.972 256.46c-10.952 9.364-32.812 15.751-57.992 15.751-30.904 0-56.807-9.621-63.68-22.56-2.458 7.415-3.009 15.903-3.009 21.324 0 0-1.619 26.623 16.898 45.14 0-9.615 7.795-17.41 17.41-17.41 16.48 0 16.46 14.378 16.446 26.043l-.001 1.041c0 17.705 10.82 32.883 26.21 39.28a35.685 35.685 0 0 1-3.588-15.647c0-16.886 9.913-23.173 21.435-30.48 9.167-5.814 19.353-12.274 26.372-25.232a47.588 47.588 0 0 0 5.742-22.735c0-5.06-.786-9.938-2.243-14.516Z\"\n\t\t\t/>\n\t\t</svg>\n\t),\n\tAngular: (props: IconProps) => (\n\t\t<svg\n\t\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t\t\tfill=\"none\"\n\t\t\tviewBox=\"0 0 242 256\"\n\t\t>\n\t\t\t<title>Angular</title>\n\t\t\t<g clipPath=\"url(#a)\">\n\t\t\t\t<mask\n\t\t\t\t\tid=\"b\"\n\t\t\t\t\twidth=\"242\"\n\t\t\t\t\theight=\"256\"\n\t\t\t\t\tx=\"0\"\n\t\t\t\t\ty=\"0\"\n\t\t\t\t\tmaskUnits=\"userSpaceOnUse\"\n\t\t\t\t\tstyle={{ maskType: \"luminance\" }}\n\t\t\t\t\t{...props}\n\t\t\t\t>\n\t\t\t\t\t<path fill=\"#fff\" d=\"M0 0h242v256H0V0Z\" />\n\t\t\t\t</mask>\n\t\t\t\t<g mask=\"url(#b)\">\n\t\t\t\t\t<path\n\t\t\t\t\t\tfill=\"url(#c)\"\n\t\t\t\t\t\td=\"m241 43-9 136L149 0l92 43Zm-58 176-62 36-63-36 12-31h101l12 31ZM121 68l32 80H88l33-80ZM9 179 0 43 92 0 9 179Z\"\n\t\t\t\t\t/>\n\t\t\t\t\t<path\n\t\t\t\t\t\tfill=\"url(#d)\"\n\t\t\t\t\t\td=\"m241 43-9 136L149 0l92 43Zm-58 176-62 36-63-36 12-31h101l12 31ZM121 68l32 80H88l33-80ZM9 179 0 43 92 0 9 179Z\"\n\t\t\t\t\t/>\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t\t<defs>\n\t\t\t\t<linearGradient\n\t\t\t\t\tid=\"c\"\n\t\t\t\t\tx1=\"53.2\"\n\t\t\t\t\tx2=\"245\"\n\t\t\t\t\ty1=\"231.9\"\n\t\t\t\t\ty2=\"140.7\"\n\t\t\t\t\tgradientUnits=\"userSpaceOnUse\"\n\t\t\t\t>\n\t\t\t\t\t<stop stopColor=\"#E40035\" />\n\t\t\t\t\t<stop offset=\".2\" stopColor=\"#F60A48\" />\n\t\t\t\t\t<stop offset=\".4\" stopColor=\"#F20755\" />\n\t\t\t\t\t<stop offset=\".5\" stopColor=\"#DC087D\" />\n\t\t\t\t\t<stop offset=\".7\" stopColor=\"#9717E7\" />\n\t\t\t\t\t<stop offset=\"1\" stopColor=\"#6C00F5\" />\n\t\t\t\t</linearGradient>{\" \"}\n\t\t\t\t<linearGradient\n\t\t\t\t\tid=\"d\"\n\t\t\t\t\tx1=\"44.5\"\n\t\t\t\t\tx2=\"170\"\n\t\t\t\t\ty1=\"30.7\"\n\t\t\t\t\ty2=\"174\"\n\t\t\t\t\tgradientUnits=\"userSpaceOnUse\"\n\t\t\t\t>\n\t\t\t\t\t{\" \"}\n\t\t\t\t\t<stop stopColor=\"#FF31D9\" />\n\t\t\t\t\t<stop offset=\"1\" stopColor=\"#FF5BE1\" stopOpacity=\"0\" />\n\t\t\t\t</linearGradient>\n\t\t\t\t<clipPath id=\"a\">\n\t\t\t\t\t<path fill=\"#fff\" d=\"M0 0h242v256H0z\" />\n\t\t\t\t</clipPath>\n\t\t\t</defs>\n\t\t</svg>\n\t),\n};\n\nconst data = [\n\t{\n\t\tname: \"React\",\n\t\ticon: Icons.React,\n\t},\n\t{\n\t\tname: \"Next\",\n\t\ticon: Icons.Next,\n\t},\n\t{\n\t\tname: \"Remix\",\n\t\ticon: Icons.Remix,\n\t},\n\t{\n\t\tname: \"Svelte\",\n\t\ticon: Icons.Svelte,\n\t},\n\t{\n\t\tname: \"Vue\",\n\t\ticon: Icons.Vue,\n\t},\n\t{\n\t\tname: \"Nuxt\",\n\t\ticon: Icons.Nuxt,\n\t},\n\t{\n\t\tname: \"Astro\",\n\t\ticon: Icons.Astro,\n\t},\n];\n\nexport default function MarqueeBasic() {\n\treturn (\n\t\t<Marquee\n\t\t\tduration={20}\n\t\t\trepeat={2}\n\t\t\tdirection=\"left\"\n\t\t\tpauseOnHover\n\t\t\tclassName=\"w-[500px]\"\n\t\t>\n\t\t\t{data.map((item, index) => (\n\t\t\t\t<div\n\t\t\t\t\tkey={`${item.name}-${index}`}\n\t\t\t\t\tclassName=\"flex flex-col items-center\"\n\t\t\t\t>\n\t\t\t\t\t<item.icon className=\"h-14 w-14 px-4 dark:invert\" />\n\t\t\t\t</div>\n\t\t\t))}\n\t\t</Marquee>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/motion-particles-marquee',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/motion/particles/marquee/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "motion-particles-text-scramble": {
+            name: "motion-particles-text-scramble",
+            description: "Basic text scramble demo",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/motion-text-scramble"],
+            files: [
+  {
+    "path": "packages/motion/particles/text-scramble/index.tsx",
+    "type": "registry:component",
+    "target": "components/motion/particles/text-scramble.tsx",
+    "content": "\"use client\";\n\nimport TextScramble from \"@/components/motion/components/text-scramble\";\n\nexport default function TextScrambleBasic() {\n\treturn <TextScramble speed={50}>Welcome to Text Scramble!</TextScramble>;\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/motion-particles-text-scramble',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/motion/particles/text-scramble/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "motion-particles-text-scramble-with-custom-characters": {
+            name: "motion-particles-text-scramble-with-custom-characters",
+            description: "Text scramble with custom characters demo",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/motion-text-scramble"],
+            files: [
+  {
+    "path": "packages/motion/particles/text-scramble/text-scramble-with-custom-characters/index.tsx",
+    "type": "registry:component",
+    "target": "components/motion/particles/text-scramble-with-custom-characters.tsx",
+    "content": "\"use client\";\n\nimport TextScramble from \"@/components/motion/components/text-scramble\";\n\nexport default function Particle() {\n\treturn (\n\t\t<TextScramble speed={50} characterSet=\"*\">\n\t\t\tCustom Scramble\n\t\t</TextScramble>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/motion-particles-text-scramble-with-custom-characters',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/motion/particles/text-scramble/text-scramble-with-custom-characters/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "motion-particles-text-scramble-with-custom-trigger": {
+            name: "motion-particles-text-scramble-with-custom-trigger",
+            description: "Text scramble with custom trigger demo",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/motion-text-scramble"],
+            files: [
+  {
+    "path": "packages/motion/particles/text-scramble/text-scramble-with-custom-trigger/index.tsx",
+    "type": "registry:component",
+    "target": "components/motion/particles/text-scramble-with-custom-trigger.tsx",
+    "content": "\"use client\";\n\nimport React from \"react\";\nimport TextScramble from \"@/components/motion/components/text-scramble\";\n\nexport default function Particle() {\n\tconst [triggerScramble, setTriggerScramble] = React.useState(false);\n\treturn (\n\t\t<div\n\t\t\tonMouseEnter={() => setTriggerScramble(true)}\n\t\t\tonMouseLeave={() => setTriggerScramble(false)}\n\t\t>\n\t\t\t<TextScramble\n\t\t\t\tspeed={50}\n\t\t\t\tclassName=\"cursor-pointer uppercase\"\n\t\t\t\ttrigger={triggerScramble}\n\t\t\t>\n\t\t\t\tHover to scramble this text!\n\t\t\t</TextScramble>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/motion-particles-text-scramble-with-custom-trigger',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/motion/particles/text-scramble/text-scramble-with-custom-trigger/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "motion-particles-text-typing": {
+            name: "motion-particles-text-typing",
+            description: "Basic typing effect demo",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/motion-text-typing"],
+            files: [
+  {
+    "path": "packages/motion/particles/text-typing/index.tsx",
+    "type": "registry:component",
+    "target": "components/motion/particles/text-typing.tsx",
+    "content": "\"use client\";\n\nimport TextTyping from \"@/components/motion/components/text-typing\";\n\nexport default function Home() {\n\treturn (\n\t\t<TextTyping typingSpeed={100}>This is typing effect demo!</TextTyping>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/motion-particles-text-typing',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/motion/particles/text-typing/index.tsx");
 								let Comp = mod.default;
 
 								if (!Comp) {

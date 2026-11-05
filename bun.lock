@@ -18,6 +18,7 @@
         "@craftdotui/craftui": "workspace:*",
         "@craftdotui/hooks": "workspace:*",
         "@craftdotui/loaders": "workspace:*",
+        "@craftdotui/motion": "workspace:*",
         "@craftdotui/styles": "workspace:*",
         "@vercel/analytics": "^2.0.1",
         "geist": "^1.7.2",
@@ -72,9 +73,10 @@
       "name": "@craftdotui/craftui",
       "version": "0.1.0",
       "dependencies": {
-        "canvas-confetti": "^1.9.4",
+        "@base-ui/react": "^1.8.0",
+        "class-variance-authority": "^0.7.1",
         "cn": "^0.4.0",
-        "gsap": "^3.14.2",
+        "lucide-react": "^1.52.0",
         "motion": "^12.23.26",
       },
       "peerDependencies": {
@@ -95,6 +97,21 @@
       "peerDependencies": {
         "framer-motion": "^12.0.0",
         "react": "^19.0.0",
+      },
+    },
+    "packages/motion": {
+      "name": "@craftdotui/motion",
+      "version": "0.1.0",
+      "dependencies": {
+        "canvas-confetti": "^1.9.4",
+        "cn": "^0.4.0",
+        "gsap": "^3.14.2",
+        "lucide-react": "^1.52.0",
+        "motion": "^12.23.26",
+      },
+      "peerDependencies": {
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0",
       },
     },
     "packages/styles": {
@@ -148,6 +165,8 @@
     "@craftdotui/hooks": ["@craftdotui/hooks@workspace:packages/hooks"],
 
     "@craftdotui/loaders": ["@craftdotui/loaders@workspace:packages/loaders"],
+
+    "@craftdotui/motion": ["@craftdotui/motion@workspace:packages/motion"],
 
     "@craftdotui/styles": ["@craftdotui/styles@workspace:packages/styles"],
 
@@ -960,6 +979,8 @@
     "@content-collections/mdx/esbuild": ["esbuild@0.25.11", "", { "optionalDependencies": { "@esbuild/aix-ppc64": "0.25.11", "@esbuild/android-arm": "0.25.11", "@esbuild/android-arm64": "0.25.11", "@esbuild/android-x64": "0.25.11", "@esbuild/darwin-arm64": "0.25.11", "@esbuild/darwin-x64": "0.25.11", "@esbuild/freebsd-arm64": "0.25.11", "@esbuild/freebsd-x64": "0.25.11", "@esbuild/linux-arm": "0.25.11", "@esbuild/linux-arm64": "0.25.11", "@esbuild/linux-ia32": "0.25.11", "@esbuild/linux-loong64": "0.25.11", "@esbuild/linux-mips64el": "0.25.11", "@esbuild/linux-ppc64": "0.25.11", "@esbuild/linux-riscv64": "0.25.11", "@esbuild/linux-s390x": "0.25.11", "@esbuild/linux-x64": "0.25.11", "@esbuild/netbsd-arm64": "0.25.11", "@esbuild/netbsd-x64": "0.25.11", "@esbuild/openbsd-arm64": "0.25.11", "@esbuild/openbsd-x64": "0.25.11", "@esbuild/openharmony-arm64": "0.25.11", "@esbuild/sunos-x64": "0.25.11", "@esbuild/win32-arm64": "0.25.11", "@esbuild/win32-ia32": "0.25.11", "@esbuild/win32-x64": "0.25.11" }, "bin": { "esbuild": "bin/esbuild" } }, "sha512-KohQwyzrKTQmhXDW1PjCv3Tyspn9n5GcY2RTDqeORIdIJY8yKIF7sTSopFmn/wpMPW4rdPXI0UE5LJLuq3bx0Q=="],
 
     "@craftdotui/craftui/motion": ["motion@12.38.0", "", { "dependencies": { "framer-motion": "^12.38.0", "tslib": "^2.4.0" }, "peerDependencies": { "@emotion/is-prop-valid": "*", "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0" }, "optionalPeers": ["@emotion/is-prop-valid", "react", "react-dom"] }, "sha512-uYfXzeHlgThchzwz5Te47dlv5JOUC7OB4rjJ/7XTUgtBZD8CchMN8qEJ4ZVsUmTyYA44zjV0fBwsiktRuFnn+w=="],
+
+    "@craftdotui/motion/motion": ["motion@12.38.0", "", { "dependencies": { "framer-motion": "^12.38.0", "tslib": "^2.4.0" }, "peerDependencies": { "@emotion/is-prop-valid": "*", "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0" }, "optionalPeers": ["@emotion/is-prop-valid", "react", "react-dom"] }, "sha512-uYfXzeHlgThchzwz5Te47dlv5JOUC7OB4rjJ/7XTUgtBZD8CchMN8qEJ4ZVsUmTyYA44zjV0fBwsiktRuFnn+w=="],
 
     "@shikijs/core/@types/hast": ["@types/hast@3.0.5", "", { "dependencies": { "@types/unist": "*" } }, "sha512-rp/ezSWaD1m44dPKICGhiskI13nVr7qTloFwDa/IYkhhf5nzwP+zIQcIJh3WIFSBOy/H1PzB40jPjMDksN4F+g=="],
 

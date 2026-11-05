@@ -4,9 +4,10 @@
 	"private": true,
 	"type": "module",
 	"dependencies": {
-		"canvas-confetti": "^1.9.4",
+		"@base-ui/react": "^1.8.0",
+		"class-variance-authority": "^0.7.1",
 		"cn": "^0.4.0",
-		"gsap": "^3.14.2",
+		"lucide-react": "^1.52.0",
 		"motion": "^12.23.26"
 	},
 	"peerDependencies": {

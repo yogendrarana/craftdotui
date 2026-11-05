@@ -1,0 +1,147 @@
+---
+title: Breadcrumb
+description: Displays the path to the current resource using a hierarchy of links.
+slug: /craftui/components/breadcrumb
+published: true
+date: 2026-11-05T00:00:00.000Z
+author:
+  name: Yogendra Rana
+  twitter: "https://twitter.com/yooogendra_rana"
+---
+
+<ComponentCodePreview name="craftui-particles-breadcrumb" />
+
+## Installation
+
+<Installation name="craftui-breadcrumb" />
+
+## Anatomy
+
+#### Usage
+
+```tsx
+<BreadcrumbRoot>
+  <BreadcrumbList>
+    <BreadcrumbItem>
+      <BreadcrumbLink />
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbEllipsis />
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbPage />
+    </BreadcrumbItem>
+  </BreadcrumbList>
+</BreadcrumbRoot>
+```
+
+
+```tsx
+<Breadcrumb.Root>
+  <Breadcrumb.List>
+    <Breadcrumb.Item>
+      <Breadcrumb.Link />
+    </Breadcrumb.Item>
+    <Breadcrumb.Separator />
+    <Breadcrumb.Item>
+      <Breadcrumb.Ellipsis />
+    </Breadcrumb.Item>
+    <Breadcrumb.Separator />
+    <Breadcrumb.Item>
+      <Breadcrumb.Page />
+    </Breadcrumb.Item>
+  </Breadcrumb.List>
+</Breadcrumb.Root>
+```
+
+## Demo
+
+#### Custom Separator
+
+<ComponentCodePreview name="craftui-particles-breadcrumb-custom-separator" />
+
+#### With Dropdown Menu
+
+<ComponentCodePreview name="craftui-particles-breadcrumb-with-menu" />
+
+#### Collapsed
+
+<ComponentCodePreview name="craftui-particles-breadcrumb-collapsed" />
+
+#### With Icons
+
+<ComponentCodePreview name="craftui-particles-breadcrumb-with-icons" />
+
+#### Custom Link Component
+
+Use the `render` prop on `BreadcrumbLink` to compose with routing primitives like Next.js `Link`.
+
+<ComponentCodePreview name="craftui-particles-breadcrumb-custom-link" />
+
+## Props
+
+#### BreadcrumbRoot
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Allows replacing the default nav element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the root navigation container.",
+    },
+  ]}
+/>
+
+#### BreadcrumbLink
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default anchor element (e.g. render={<Link href='/docs' />}).",
+    },
+    {
+      prop: "href",
+      type: "string",
+      default: "undefined",
+      description: "The URL that the breadcrumb link points to.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the link.",
+    },
+  ]}
+/>
+
+#### BreadcrumbSeparator
+
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      default: "<ChevronRight />",
+      description: "Custom separator element or icon between breadcrumb items.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the separator.",
+    },
+  ]}
+/>
+

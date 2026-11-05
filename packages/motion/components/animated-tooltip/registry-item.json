@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "motion-animated-tooltip",
+	"type": "registry:component",
+	"description": "An animated tooltip component",
+	"dependencies": ["motion", "cn"],
+	"registryDependencies": [],
+	"files": [
+		{
+			"path": "packages/motion/components/animated-tooltip/index.tsx",
+			"type": "registry:component",
+			"target": "components/motion/components/animated-tooltip.tsx"
+		}
+	]
+}

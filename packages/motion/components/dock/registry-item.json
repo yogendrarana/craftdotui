@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "motion-dock",
+	"type": "registry:component",
+	"description": "A dock component",
+	"dependencies": ["motion", "cn"],
+	"registryDependencies": [],
+	"files": [
+		{
+			"path": "packages/motion/components/dock/index.tsx",
+			"type": "registry:component",
+			"target": "components/motion/components/dock.tsx"
+		}
+	]
+}
