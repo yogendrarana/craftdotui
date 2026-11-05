@@ -9,7 +9,7 @@
 			"path": "packages/craftui/components/skeleton/index.tsx",
 			"content": "\"use client\";\n\nimport { cn } from \"cn\";\nimport { useRender } from \"@base-ui/react/use-render\";\nimport { mergeProps } from \"@base-ui/react/merge-props\";\n\n/* -------------------------------------------------------------------------- */\n/* Skeleton Root                                                              */\n/* -------------------------------------------------------------------------- */\nexport interface SkeletonProps extends useRender.ComponentProps<\"div\"> {}\n\nfunction SkeletonRoot({ className, render, ...props }: SkeletonProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"skeleton\",\n\t\tclassName: cn(\"animate-pulse rounded-md bg-muted\", className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const Skeleton = Object.assign(SkeletonRoot, {\n\tRoot: SkeletonRoot,\n});\n\nexport { SkeletonRoot };\n",
 			"type": "registry:component",
-			"target": "components/uiskeleton.tsx"
+			"target": "components/ui/skeleton.tsx"
 		}
 	],
 	"type": "registry:component"

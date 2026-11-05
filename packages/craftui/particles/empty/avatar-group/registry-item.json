@@ -1,0 +1,20 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-empty-avatar-group",
+	"type": "registry:component",
+	"description": "Empty state featuring an overlapping avatar group.",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/craftui-empty",
+		"@craftdotui/baseui-avatar",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/particles/empty/avatar-group/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/empty-avatar-group.tsx"
+		}
+	]
+}
+
