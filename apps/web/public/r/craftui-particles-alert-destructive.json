@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-alert-destructive",
+	"description": "Destructive alert variant.",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/craftui-alert"],
+	"files": [
+		{
+			"path": "packages/craftui/particles/alert/destructive/index.tsx",
+			"content": "import { CircleAlert } from \"lucide-react\";\nimport {\n\tAlertDescription,\n\tAlertRoot,\n\tAlertTitle,\n} from \"@/components/craftui/components/alert\";\n\nexport function Particle() {\n\treturn (\n\t\t<AlertRoot variant=\"destructive\" className=\"max-w-lg\">\n\t\t\t<CircleAlert />\n\t\t\t<AlertTitle>Unable to process your payment.</AlertTitle>\n\t\t\t<AlertDescription>\n\t\t\t\t<p>Please verify your billing information and try again:</p>\n\t\t\t\t<ul className=\"list-inside list-disc text-xs\">\n\t\t\t\t\t<li>Check your card details</li>\n\t\t\t\t\t<li>Ensure sufficient funds</li>\n\t\t\t\t\t<li>Verify billing address</li>\n\t\t\t\t</ul>\n\t\t\t</AlertDescription>\n\t\t</AlertRoot>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/craftui/particles/alert-destructive.tsx"
+		}
+	],
+	"type": "registry:component"
+}

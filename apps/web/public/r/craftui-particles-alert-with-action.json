@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-alert-with-action",
+	"description": "Alert with inline action buttons.",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/craftui-alert",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/particles/alert/with-action/index.tsx",
+			"content": "import { ShieldAlert } from \"lucide-react\";\nimport {\n\tAlertDescription,\n\tAlertRoot,\n\tAlertTitle,\n} from \"@/components/craftui/components/alert\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport function Particle() {\n\treturn (\n\t\t<AlertRoot className=\"max-w-lg\">\n\t\t\t<ShieldAlert />\n\t\t\t<AlertTitle>Two-factor authentication is not enabled</AlertTitle>\n\t\t\t<AlertDescription>\n\t\t\t\t<p>\n\t\t\t\t\tAdd an extra layer of security to your account by enabling\n\t\t\t\t\ttwo-factor authentication.\n\t\t\t\t</p>\n\t\t\t\t<div className=\"mt-2 flex items-center gap-2\">\n\t\t\t\t\t<Button size=\"xs\">Enable 2FA</Button>\n\t\t\t\t\t<Button size=\"xs\" variant=\"ghost\">\n\t\t\t\t\t\tLearn more\n\t\t\t\t\t</Button>\n\t\t\t\t</div>\n\t\t\t</AlertDescription>\n\t\t</AlertRoot>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/craftui/particles/alert-with-action.tsx"
+		}
+	],
+	"type": "registry:component"
+}

@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-alert-warning",
+	"description": "Warning alert variant.",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/craftui-alert"],
+	"files": [
+		{
+			"path": "packages/craftui/particles/alert/warning/index.tsx",
+			"content": "import { TriangleAlert } from \"lucide-react\";\nimport {\n\tAlertDescription,\n\tAlertRoot,\n\tAlertTitle,\n} from \"@/components/craftui/components/alert\";\n\nexport function Particle() {\n\treturn (\n\t\t<AlertRoot variant=\"warning\" className=\"max-w-lg\">\n\t\t\t<TriangleAlert />\n\t\t\t<AlertTitle>API rate limit approaching</AlertTitle>\n\t\t\t<AlertDescription>\n\t\t\t\tYou have used 90% of your monthly request quota. Consider\n\t\t\t\tupgrading your plan to avoid interruptions.\n\t\t\t</AlertDescription>\n\t\t</AlertRoot>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/craftui/particles/alert-warning.tsx"
+		}
+	],
+	"type": "registry:component"
+}

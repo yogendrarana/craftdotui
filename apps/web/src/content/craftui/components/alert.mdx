@@ -1,0 +1,126 @@
+---
+title: Alert
+description: Displays a callout for user attention.
+slug: /craftui/components/alert
+published: true
+date: 2026-11-05T00:00:00.000Z
+author:
+  name: Yogendra Rana
+  twitter: "https://twitter.com/yooogendra_rana"
+---
+
+<ComponentCodePreview name="craftui-particles-alert" />
+
+## Installation
+
+<Installation name="craftui-alert" />
+
+## Anatomy
+
+#### Usage
+
+```tsx
+<AlertRoot>
+  <AlertTitle />
+  <AlertDescription />
+</AlertRoot>
+```
+
+```tsx
+<Alert.Root>
+  <Alert.Title />
+  <Alert.Description />
+</Alert.Root>
+```
+
+## Demo
+
+#### Destructive
+
+<ComponentCodePreview name="craftui-particles-alert-destructive" />
+
+#### Success
+
+<ComponentCodePreview name="craftui-particles-alert-success" />
+
+#### Warning
+
+<ComponentCodePreview name="craftui-particles-alert-warning" />
+
+#### Info
+
+<ComponentCodePreview name="craftui-particles-alert-info" />
+
+#### Without Icon
+
+<ComponentCodePreview name="craftui-particles-alert-without-icon" />
+
+#### With Action
+
+<ComponentCodePreview name="craftui-particles-alert-with-action" />
+
+## Props
+
+#### AlertRoot
+
+<PropsTable
+  data={[
+    {
+      prop: "variant",
+      type: '"default" | "destructive" | "success" | "warning" | "info"',
+      default: '"default"',
+      description: "The visual style variant of the alert.",
+    },
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default div element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the alert container.",
+    },
+  ]}
+/>
+
+#### AlertTitle
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default div element (e.g. render={<h5 />}).",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the title.",
+    },
+  ]}
+/>
+
+#### AlertDescription
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default div element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the description.",
+    },
+  ]}
+/>
+

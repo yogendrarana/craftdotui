@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-alert",
+	"type": "registry:component",
+	"description": "Default alert with icon, title, and description.",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/craftui-alert"],
+	"files": [
+		{
+			"path": "packages/craftui/particles/alert/index.tsx",
+			"type": "registry:component",
+			"target": "components/craftui/particles/alert.tsx"
+		}
+	]
+}
