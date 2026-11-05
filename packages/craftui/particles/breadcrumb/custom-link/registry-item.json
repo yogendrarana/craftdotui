@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-breadcrumb-custom-link",
+	"type": "registry:component",
+	"description": "Breadcrumb using the render prop with Next.js Link.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-breadcrumb"],
+	"files": [
+		{
+			"path": "packages/craftui/particles/breadcrumb/custom-link/index.tsx",
+			"type": "registry:component",
+			"target": "components/craftui/particles/breadcrumb-custom-link.tsx"
+		}
+	]
+}

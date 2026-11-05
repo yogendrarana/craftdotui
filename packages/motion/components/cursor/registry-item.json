@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "motion-cursor",
+	"type": "registry:component",
+	"description": "A custom cursor component",
+	"dependencies": ["cn"],
+	"registryDependencies": [],
+	"files": [
+		{
+			"path": "packages/motion/components/cursor/index.tsx",
+			"type": "registry:component",
+			"target": "components/motion/components/cursor.tsx"
+		}
+	]
+}

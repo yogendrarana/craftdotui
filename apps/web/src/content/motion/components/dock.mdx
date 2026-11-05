@@ -1,0 +1,60 @@
+---
+title: Dock
+description: A dock component that displays a list of items.
+slug: /motion/components/dock
+published: true
+date: 2024-11-30T00:00:00.000Z
+author:
+  name: Yogendra Rana
+  twitter: "https://twitter.com/yooogendra_rana"
+---
+
+<ComponentCodePreview name="motion-particles-dock" />
+
+## Installation
+
+<Installation name="motion-dock" />
+
+## Props
+
+#### Dock
+
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      required: true,
+      description: "The content to be rendered inside the component",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Custom class to apply to the component.",
+    },
+  ]}
+/>
+
+#### DockItem
+
+<PropsTable
+  data={[
+    {
+      prop: "icon",
+      type: "ReactNode",
+      required: true,
+      description: "Icon component",
+    },
+    {
+      prop: "label",
+      type: "string",
+      required: true,
+      description: "Text to show on tooltip",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Custom class to apply to the component.",
+    },
+  ]}
+/>

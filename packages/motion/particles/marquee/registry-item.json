@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "motion-particles-marquee",
+	"type": "registry:component",
+	"description": "Basic marquee demo",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/motion-marquee"],
+	"files": [
+		{
+			"path": "packages/motion/particles/marquee/index.tsx",
+			"type": "registry:component",
+			"target": "components/motion/particles/marquee.tsx"
+		}
+	]
+}

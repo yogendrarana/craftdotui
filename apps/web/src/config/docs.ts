@@ -186,44 +186,54 @@ export const docsNavItems: Array<DocsNavItem> = [
 		title: "Craft UI",
 		items: [
 			{
-				title: "Animate Tooltip",
-				href: "/docs/craftui/components/animated-tooltip",
-			},
-			{
-				title: "Confetti",
-				href: "/docs/craftui/components/confetti",
-			},
-			{
-				title: "Cursor",
-				href: "/docs/craftui/components/cursor",
-			},
-			{
-				title: "Dock",
-				href: "/docs/craftui/components/dock",
-			},
-			{
-				title: "Magnetic",
-				href: "/docs/craftui/components/magnetic",
-			},
-			{
-				title: "Marquee",
-				href: "/docs/craftui/components/marquee",
+				title: "Breadcrumb",
+				href: "/docs/craftui/components/breadcrumb",
 			},
 			{
 				title: "Stepper",
 				href: "/docs/craftui/components/stepper",
 			},
 			{
+				title: "Timeline",
+				href: "/docs/craftui/components/timeline",
+			},
+		],
+	},
+
+	{
+		title: "Motion",
+		items: [
+			{
+				title: "Animate Tooltip",
+				href: "/docs/motion/components/animated-tooltip",
+			},
+			{
+				title: "Confetti",
+				href: "/docs/motion/components/confetti",
+			},
+			{
+				title: "Cursor",
+				href: "/docs/motion/components/cursor",
+			},
+			{
+				title: "Dock",
+				href: "/docs/motion/components/dock",
+			},
+			{
+				title: "Magnetic",
+				href: "/docs/motion/components/magnetic",
+			},
+			{
+				title: "Marquee",
+				href: "/docs/motion/components/marquee",
+			},
+			{
 				title: "Text Scramble",
-				href: "/docs/craftui/components/text-scramble",
+				href: "/docs/motion/components/text-scramble",
 			},
 			{
 				title: "Text Typing",
-				href: "/docs/craftui/components/text-typing",
-			},
-			{
-				title: "Timeline",
-				href: "/docs/craftui/components/timeline",
+				href: "/docs/motion/components/text-typing",
 			},
 		],
 	},

@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "motion-text-scramble",
+	"type": "registry:component",
+	"description": "A text scrambling animation effect component",
+	"dependencies": ["cn"],
+	"registryDependencies": [],
+	"files": [
+		{
+			"path": "packages/motion/components/text-scramble/index.tsx",
+			"type": "registry:component",
+			"target": "components/motion/components/text-scramble.tsx"
+		}
+	]
+}

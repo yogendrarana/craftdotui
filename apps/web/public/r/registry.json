@@ -22,77 +22,21 @@
 			]
 		},
 		{
-			"name": "craftui-animated-tooltip",
+			"name": "craftui-breadcrumb",
 			"type": "registry:component",
-			"description": "An animated tooltip component",
-			"dependencies": ["motion", "cn"],
+			"description": "Displays the path to the current resource using a hierarchy of links.",
+			"dependencies": ["@base-ui/react", "lucide-react", "cn"],
 			"registryDependencies": [],
 			"files": [
 				{
-					"path": "packages/craftui/components/animated-tooltip/index.tsx",
+					"path": "packages/craftui/components/breadcrumb/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/components/animated-tooltip.tsx"
+					"target": "components/craftui/components/breadcrumb.tsx"
 				}
 			]
 		},
 		{
-			"name": "craftui-cursor",
-			"type": "registry:component",
-			"description": "A custom cursor component",
-			"dependencies": ["cn"],
-			"registryDependencies": [],
-			"files": [
-				{
-					"path": "packages/craftui/components/cursor/index.tsx",
-					"type": "registry:component",
-					"target": "components/craftui/components/cursor.tsx"
-				}
-			]
-		},
-		{
-			"name": "craftui-dock",
-			"type": "registry:component",
-			"description": "A dock component",
-			"dependencies": ["motion", "cn"],
-			"registryDependencies": [],
-			"files": [
-				{
-					"path": "packages/craftui/components/dock/index.tsx",
-					"type": "registry:component",
-					"target": "components/craftui/components/dock.tsx"
-				}
-			]
-		},
-		{
-			"name": "craftui-magnetic",
-			"type": "registry:component",
-			"description": "A magnetic hover effect component",
-			"dependencies": ["gsap", "cn"],
-			"registryDependencies": [],
-			"files": [
-				{
-					"path": "packages/craftui/components/magnetic/index.tsx",
-					"type": "registry:component",
-					"target": "components/craftui/components/magnetic.tsx"
-				}
-			]
-		},
-		{
-			"name": "craftui-marquee",
-			"type": "registry:component",
-			"description": "A marquee component for scrolling content horizontally",
-			"dependencies": ["cn"],
-			"registryDependencies": [],
-			"files": [
-				{
-					"path": "packages/craftui/components/marquee/index.tsx",
-					"type": "registry:component",
-					"target": "components/craftui/components/marquee.tsx"
-				}
-			]
-		},
-		{
-			"name": "craftui-ui-stepper",
+			"name": "craftui-stepper",
 			"type": "registry:component",
 			"description": "A stepper/wizard component",
 			"dependencies": ["motion", "lucide-react", "cn"],
@@ -102,34 +46,6 @@
 					"path": "packages/craftui/components/stepper/index.tsx",
 					"type": "registry:component",
 					"target": "components/craftui/components/stepper.tsx"
-				}
-			]
-		},
-		{
-			"name": "craftui-text-scramble",
-			"type": "registry:component",
-			"description": "A text scrambling animation effect component",
-			"dependencies": ["cn"],
-			"registryDependencies": [],
-			"files": [
-				{
-					"path": "packages/craftui/components/text-scramble/index.tsx",
-					"type": "registry:component",
-					"target": "components/craftui/components/text-scramble.tsx"
-				}
-			]
-		},
-		{
-			"name": "craftui-text-typing",
-			"type": "registry:component",
-			"description": "A typing animation effect component",
-			"dependencies": ["motion", "cn"],
-			"registryDependencies": [],
-			"files": [
-				{
-					"path": "packages/craftui/components/text-typing/index.tsx",
-					"type": "registry:component",
-					"target": "components/craftui/components/text-typing.tsx"
 				}
 			]
 		},
@@ -148,126 +64,92 @@
 			]
 		},
 		{
-			"name": "craftui-particles-animated-tooltip",
+			"name": "craftui-particles-breadcrumb-collapsed",
 			"type": "registry:component",
-			"description": "Basic animated tooltip demo",
+			"description": "Collapsed breadcrumb with an ellipsis indicator.",
 			"dependencies": [],
-			"registryDependencies": ["@craftdotui/craftui-animated-tooltip"],
+			"registryDependencies": ["@craftdotui/craftui-breadcrumb"],
 			"files": [
 				{
-					"path": "packages/craftui/particles/animated-tooltip/index.tsx",
+					"path": "packages/craftui/particles/breadcrumb/collapsed/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/animated-tooltip.tsx"
+					"target": "components/craftui/particles/breadcrumb-collapsed.tsx"
 				}
 			]
 		},
 		{
-			"name": "craftui-particles-confetti",
+			"name": "craftui-particles-breadcrumb-custom-link",
 			"type": "registry:component",
-			"registryDependencies": ["@craftdotui/use-confetti"],
-			"files": [
-				{
-					"path": "packages/craftui/particles/confetti/index.tsx",
-					"type": "registry:component",
-					"target": "components/craftui/particles/confetti.tsx"
-				}
-			]
-		},
-		{
-			"name": "craftui-particles-cursor-with-text-trail",
-			"type": "registry:component",
-			"description": "Text cursor demo",
+			"description": "Breadcrumb using the render prop with Next.js Link.",
 			"dependencies": [],
-			"registryDependencies": ["@craftdotui/craftui-cursor"],
+			"registryDependencies": ["@craftdotui/craftui-breadcrumb"],
 			"files": [
 				{
-					"path": "packages/craftui/particles/cursor/cursor-with-text-trail/index.tsx",
+					"path": "packages/craftui/particles/breadcrumb/custom-link/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/cursor-with-text-trail.tsx"
+					"target": "components/craftui/particles/breadcrumb-custom-link.tsx"
 				}
 			]
 		},
 		{
-			"name": "craftui-particles-cursor",
+			"name": "craftui-particles-breadcrumb-custom-separator",
 			"type": "registry:component",
-			"description": "Basic cursor demo",
+			"description": "Breadcrumb with a custom slash separator.",
 			"dependencies": ["lucide-react"],
-			"registryDependencies": ["@craftdotui/craftui-cursor"],
+			"registryDependencies": ["@craftdotui/craftui-breadcrumb"],
 			"files": [
 				{
-					"path": "packages/craftui/particles/cursor/index.tsx",
+					"path": "packages/craftui/particles/breadcrumb/custom-separator/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/cursor.tsx"
+					"target": "components/craftui/particles/breadcrumb-custom-separator.tsx"
 				}
 			]
 		},
 		{
-			"name": "craftui-particles-dock",
+			"name": "craftui-particles-breadcrumb",
 			"type": "registry:component",
-			"description": "Basic dock demo",
+			"description": "Default breadcrumb with dropdown menu and current page.",
 			"dependencies": [],
-			"registryDependencies": ["@craftdotui/craftui-dock"],
+			"registryDependencies": [
+				"@craftdotui/craftui-breadcrumb",
+				"@craftdotui/baseui-menu"
+			],
 			"files": [
 				{
-					"path": "packages/craftui/particles/dock/index.tsx",
+					"path": "packages/craftui/particles/breadcrumb/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/dock.tsx"
+					"target": "components/craftui/particles/breadcrumb.tsx"
 				}
 			]
 		},
 		{
-			"name": "craftui-particles-magnetic-with-navbar-items",
+			"name": "craftui-particles-breadcrumb-with-icons",
 			"type": "registry:component",
-			"description": "Magnetic navbar items demo",
-			"dependencies": [],
-			"registryDependencies": ["@craftdotui/craftui-magnetic"],
+			"description": "Breadcrumb items with leading icons.",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/craftui-breadcrumb"],
 			"files": [
 				{
-					"path": "packages/craftui/particles/magnetic/magnetic-with-navbar-items/index.tsx",
+					"path": "packages/craftui/particles/breadcrumb/with-icons/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/magnetic-with-navbar-items.tsx"
+					"target": "components/craftui/particles/breadcrumb-with-icons.tsx"
 				}
 			]
 		},
 		{
-			"name": "craftui-particles-magnetic",
+			"name": "craftui-particles-breadcrumb-with-menu",
 			"type": "registry:component",
-			"description": "Basic magnetic demo",
-			"dependencies": [],
-			"registryDependencies": ["@craftdotui/craftui-magnetic"],
+			"description": "Breadcrumb with a dropdown menu trigger item.",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": [
+				"@craftdotui/craftui-breadcrumb",
+				"@craftdotui/baseui-menu"
+			],
 			"files": [
 				{
-					"path": "packages/craftui/particles/magnetic/index.tsx",
+					"path": "packages/craftui/particles/breadcrumb/with-menu/index.tsx",
 					"type": "registry:component",
-					"target": "components/craftui/particles/magnetic.tsx"
-				}
-			]
-		},
-		{
-			"name": "craftui-particles-marquee-with-reverse-direction",
-			"type": "registry:component",
-			"description": "Reverse marquee demo",
-			"dependencies": [],
-			"registryDependencies": ["@craftdotui/craftui-marquee"],
-			"files": [
-				{
-					"path": "packages/craftui/particles/marquee/marquee-with-reverse-direction/index.tsx",
-					"type": "registry:component",
-					"target": "components/craftui/particles/marquee-with-reverse-direction.tsx"
-				}
-			]
-		},
-		{
-			"name": "craftui-particles-marquee",
-			"type": "registry:component",
-			"description": "Basic marquee demo",
-			"dependencies": [],
-			"registryDependencies": ["@craftdotui/craftui-marquee"],
-			"files": [
-				{
-					"path": "packages/craftui/particles/marquee/index.tsx",
-					"type": "registry:component",
-					"target": "components/craftui/particles/marquee.tsx"
+					"target": "components/craftui/particles/breadcrumb-with-menu.tsx"
 				}
 			]
 		},
@@ -338,62 +220,6 @@
 					"path": "packages/craftui/particles/stepper/stepper-with-text-indicator/index.tsx",
 					"type": "registry:component",
 					"target": "components/craftui/particles/stepper-with-text-indicator.tsx"
-				}
-			]
-		},
-		{
-			"name": "craftui-particles-text-scramble",
-			"type": "registry:component",
-			"description": "Basic text scramble demo",
-			"dependencies": [],
-			"registryDependencies": ["@craftdotui/craftui-text-scramble"],
-			"files": [
-				{
-					"path": "packages/craftui/particles/text-scramble/index.tsx",
-					"type": "registry:component",
-					"target": "components/craftui/particles/text-scramble.tsx"
-				}
-			]
-		},
-		{
-			"name": "craftui-particles-text-scramble-with-custom-characters",
-			"type": "registry:component",
-			"description": "Text scramble with custom characters demo",
-			"dependencies": [],
-			"registryDependencies": ["@craftdotui/craftui-text-scramble"],
-			"files": [
-				{
-					"path": "packages/craftui/particles/text-scramble/text-scramble-with-custom-characters/index.tsx",
-					"type": "registry:component",
-					"target": "components/craftui/particles/text-scramble-with-custom-characters.tsx"
-				}
-			]
-		},
-		{
-			"name": "craftui-particles-text-scramble-with-custom-trigger",
-			"type": "registry:component",
-			"description": "Text scramble with custom trigger demo",
-			"dependencies": [],
-			"registryDependencies": ["@craftdotui/craftui-text-scramble"],
-			"files": [
-				{
-					"path": "packages/craftui/particles/text-scramble/text-scramble-with-custom-trigger/index.tsx",
-					"type": "registry:component",
-					"target": "components/craftui/particles/text-scramble-with-custom-trigger.tsx"
-				}
-			]
-		},
-		{
-			"name": "craftui-particles-text-typing",
-			"type": "registry:component",
-			"description": "Basic typing effect demo",
-			"dependencies": [],
-			"registryDependencies": ["@craftdotui/craftui-text-typing"],
-			"files": [
-				{
-					"path": "packages/craftui/particles/text-typing/index.tsx",
-					"type": "registry:component",
-					"target": "components/craftui/particles/text-typing.tsx"
 				}
 			]
 		},
@@ -3791,6 +3617,284 @@
 					"path": "packages/baseui/particles/tooltip/sides/index.tsx",
 					"type": "registry:component",
 					"target": "components/baseui/particles/tooltip-sides.tsx"
+				}
+			]
+		},
+		{
+			"name": "motion-animated-tooltip",
+			"type": "registry:component",
+			"description": "An animated tooltip component",
+			"dependencies": ["motion", "cn"],
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "packages/motion/components/animated-tooltip/index.tsx",
+					"type": "registry:component",
+					"target": "components/motion/components/animated-tooltip.tsx"
+				}
+			]
+		},
+		{
+			"name": "motion-cursor",
+			"type": "registry:component",
+			"description": "A custom cursor component",
+			"dependencies": ["cn"],
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "packages/motion/components/cursor/index.tsx",
+					"type": "registry:component",
+					"target": "components/motion/components/cursor.tsx"
+				}
+			]
+		},
+		{
+			"name": "motion-dock",
+			"type": "registry:component",
+			"description": "A dock component",
+			"dependencies": ["motion", "cn"],
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "packages/motion/components/dock/index.tsx",
+					"type": "registry:component",
+					"target": "components/motion/components/dock.tsx"
+				}
+			]
+		},
+		{
+			"name": "motion-magnetic",
+			"type": "registry:component",
+			"description": "A magnetic hover effect component",
+			"dependencies": ["gsap", "cn"],
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "packages/motion/components/magnetic/index.tsx",
+					"type": "registry:component",
+					"target": "components/motion/components/magnetic.tsx"
+				}
+			]
+		},
+		{
+			"name": "motion-marquee",
+			"type": "registry:component",
+			"description": "A marquee component for scrolling content horizontally",
+			"dependencies": ["cn"],
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "packages/motion/components/marquee/index.tsx",
+					"type": "registry:component",
+					"target": "components/motion/components/marquee.tsx"
+				}
+			]
+		},
+		{
+			"name": "motion-text-scramble",
+			"type": "registry:component",
+			"description": "A text scrambling animation effect component",
+			"dependencies": ["cn"],
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "packages/motion/components/text-scramble/index.tsx",
+					"type": "registry:component",
+					"target": "components/motion/components/text-scramble.tsx"
+				}
+			]
+		},
+		{
+			"name": "motion-text-typing",
+			"type": "registry:component",
+			"description": "A typing animation effect component",
+			"dependencies": ["motion", "cn"],
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "packages/motion/components/text-typing/index.tsx",
+					"type": "registry:component",
+					"target": "components/motion/components/text-typing.tsx"
+				}
+			]
+		},
+		{
+			"name": "motion-particles-animated-tooltip",
+			"type": "registry:component",
+			"description": "Basic animated tooltip demo",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/motion-animated-tooltip"],
+			"files": [
+				{
+					"path": "packages/motion/particles/animated-tooltip/index.tsx",
+					"type": "registry:component",
+					"target": "components/motion/particles/animated-tooltip.tsx"
+				}
+			]
+		},
+		{
+			"name": "motion-particles-confetti",
+			"type": "registry:component",
+			"registryDependencies": ["@craftdotui/use-confetti"],
+			"files": [
+				{
+					"path": "packages/motion/particles/confetti/index.tsx",
+					"type": "registry:component",
+					"target": "components/motion/particles/confetti.tsx"
+				}
+			]
+		},
+		{
+			"name": "motion-particles-cursor-with-text-trail",
+			"type": "registry:component",
+			"description": "Text cursor demo",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/motion-cursor"],
+			"files": [
+				{
+					"path": "packages/motion/particles/cursor/cursor-with-text-trail/index.tsx",
+					"type": "registry:component",
+					"target": "components/motion/particles/cursor-with-text-trail.tsx"
+				}
+			]
+		},
+		{
+			"name": "motion-particles-cursor",
+			"type": "registry:component",
+			"description": "Basic cursor demo",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/motion-cursor"],
+			"files": [
+				{
+					"path": "packages/motion/particles/cursor/index.tsx",
+					"type": "registry:component",
+					"target": "components/motion/particles/cursor.tsx"
+				}
+			]
+		},
+		{
+			"name": "motion-particles-dock",
+			"type": "registry:component",
+			"description": "Basic dock demo",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/motion-dock"],
+			"files": [
+				{
+					"path": "packages/motion/particles/dock/index.tsx",
+					"type": "registry:component",
+					"target": "components/motion/particles/dock.tsx"
+				}
+			]
+		},
+		{
+			"name": "motion-particles-magnetic-with-navbar-items",
+			"type": "registry:component",
+			"description": "Magnetic navbar items demo",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/motion-magnetic"],
+			"files": [
+				{
+					"path": "packages/motion/particles/magnetic/magnetic-with-navbar-items/index.tsx",
+					"type": "registry:component",
+					"target": "components/motion/particles/magnetic-with-navbar-items.tsx"
+				}
+			]
+		},
+		{
+			"name": "motion-particles-magnetic",
+			"type": "registry:component",
+			"description": "Basic magnetic demo",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/motion-magnetic"],
+			"files": [
+				{
+					"path": "packages/motion/particles/magnetic/index.tsx",
+					"type": "registry:component",
+					"target": "components/motion/particles/magnetic.tsx"
+				}
+			]
+		},
+		{
+			"name": "motion-particles-marquee-with-reverse-direction",
+			"type": "registry:component",
+			"description": "Reverse marquee demo",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/motion-marquee"],
+			"files": [
+				{
+					"path": "packages/motion/particles/marquee/marquee-with-reverse-direction/index.tsx",
+					"type": "registry:component",
+					"target": "components/motion/particles/marquee-with-reverse-direction.tsx"
+				}
+			]
+		},
+		{
+			"name": "motion-particles-marquee",
+			"type": "registry:component",
+			"description": "Basic marquee demo",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/motion-marquee"],
+			"files": [
+				{
+					"path": "packages/motion/particles/marquee/index.tsx",
+					"type": "registry:component",
+					"target": "components/motion/particles/marquee.tsx"
+				}
+			]
+		},
+		{
+			"name": "motion-particles-text-scramble",
+			"type": "registry:component",
+			"description": "Basic text scramble demo",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/motion-text-scramble"],
+			"files": [
+				{
+					"path": "packages/motion/particles/text-scramble/index.tsx",
+					"type": "registry:component",
+					"target": "components/motion/particles/text-scramble.tsx"
+				}
+			]
+		},
+		{
+			"name": "motion-particles-text-scramble-with-custom-characters",
+			"type": "registry:component",
+			"description": "Text scramble with custom characters demo",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/motion-text-scramble"],
+			"files": [
+				{
+					"path": "packages/motion/particles/text-scramble/text-scramble-with-custom-characters/index.tsx",
+					"type": "registry:component",
+					"target": "components/motion/particles/text-scramble-with-custom-characters.tsx"
+				}
+			]
+		},
+		{
+			"name": "motion-particles-text-scramble-with-custom-trigger",
+			"type": "registry:component",
+			"description": "Text scramble with custom trigger demo",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/motion-text-scramble"],
+			"files": [
+				{
+					"path": "packages/motion/particles/text-scramble/text-scramble-with-custom-trigger/index.tsx",
+					"type": "registry:component",
+					"target": "components/motion/particles/text-scramble-with-custom-trigger.tsx"
+				}
+			]
+		},
+		{
+			"name": "motion-particles-text-typing",
+			"type": "registry:component",
+			"description": "Basic typing effect demo",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/motion-text-typing"],
+			"files": [
+				{
+					"path": "packages/motion/particles/text-typing/index.tsx",
+					"type": "registry:component",
+					"target": "components/motion/particles/text-typing.tsx"
 				}
 			]
 		},

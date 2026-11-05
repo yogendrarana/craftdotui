@@ -1,0 +1,51 @@
+---
+title: Confetti
+description: A confetti hook for triggering confetti animations.
+slug: /motion/components/confetti
+published: true
+date: 2024-12-16T00:00:00.000Z
+author:
+  name: Yogendra Rana
+  twitter: "https://twitter.com/yooogendra_rana"
+---
+
+<ComponentCodePreview name="motion-particles-confetti" />
+
+## Installation
+
+<Installation name="use-confetti" />
+
+## API Reference
+
+#### useConfetti
+
+Returns a function to trigger confetti animations.
+
+#### ConfettiOptions
+
+<PropsTable
+  data={[
+    {
+      prop: "particleCount",
+      type: "number",
+      default: "50",
+      description: "The number of confetti and sequin particles",
+    },
+    {
+      prop: "origin",
+      type: "string",
+      default: '"center"',
+      description: "top | bottom | left | right | top-left | top-right | bottom-left | bottom-right",
+    },
+    {
+      prop: "duration",
+      type: "number",
+      default: "3000",
+      description: "Duration in milliseconds before the canvas is removed",
+    },
+  ]}
+/>
+
+## Credits
+
+I took a lot of inspiration from this [codepen](https://codepen.io/coopergoeke/pen/wvaYMbJ) by [Cooper Goeke](https://codepen.io/coopergoeke). Please, give it a visit.

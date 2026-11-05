@@ -1,0 +1,83 @@
+---
+title: Text Scramble
+description: Text Scramble component is used to create a text animation effect.
+slug: /motion/components/text-scramble
+published: true
+date: 2024-11-23T00:00:00.000Z
+author:
+  name: Yogendra Rana
+  twitter: "https://twitter.com/yooogendra_rana"
+---
+
+<ComponentCodePreview name="motion-particles-text-scramble" hasReTrigger />
+
+## Installation
+
+<Installation name="motion-text-scramble" />
+
+## Demo
+
+#### Text Scramble on Hover
+
+<ComponentCodePreview name="motion-particles-text-scramble-with-custom-trigger" />
+
+#### Text Scramble with Custom Chars
+
+<ComponentCodePreview
+  name="motion-particles-text-scramble-with-custom-characters"
+  hasReTrigger
+/>
+
+## Props
+
+#### TextScramble
+
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "string",
+      default: '"Hello, World!"',
+      description: "The text to display",
+    },
+    {
+      prop: "duration",
+      type: "number",
+      default: "3",
+      description: "Duration of the scrambling animation (s).",
+    },
+    {
+      prop: "speed",
+      type: "number",
+      default: "50",
+      description: "The speed at which scrambling happens (ms).",
+    },
+    {
+      prop: "trigger",
+      type: "boolean",
+      default: "true",
+      description: "Trigger the animation.",
+    },
+    {
+      prop: "characterSet",
+      type: "string",
+      default: "[A-Za-z0-9]",
+      description: "Custom characters used for scrambling.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional class names for styling.",
+    },
+    {
+      prop: "as",
+      type: "ElementType",
+      description: "HTML tag name to wrap the text inside",
+    },
+    {
+      prop: "onScrambleEnd",
+      type: "() => void",
+      description: "Function to run after the scrambling ends",
+    },
+  ]}
+/>

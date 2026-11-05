@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "motion-particles-magnetic",
+	"type": "registry:component",
+	"description": "Basic magnetic demo",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/motion-magnetic"],
+	"files": [
+		{
+			"path": "packages/motion/particles/magnetic/index.tsx",
+			"type": "registry:component",
+			"target": "components/motion/particles/magnetic.tsx"
+		}
+	]
+}

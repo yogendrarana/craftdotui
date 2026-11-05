@@ -2,6 +2,7 @@
 @source "../";
 @source "../../../packages/baseui";
 @source "../../../packages/craftui";
+@source "../../../packages/motion";
 
 @layer utilities {
 	.bg-hatch {

@@ -16,6 +16,7 @@
 		"@craftdotui/craftui": "workspace:*",
 		"@craftdotui/hooks": "workspace:*",
 		"@craftdotui/loaders": "workspace:*",
+		"@craftdotui/motion": "workspace:*",
 		"@craftdotui/styles": "workspace:*",
 		"@vercel/analytics": "^2.0.1",
 		"geist": "^1.7.2",

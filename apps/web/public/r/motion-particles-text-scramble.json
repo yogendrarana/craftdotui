@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "motion-particles-text-scramble",
+	"description": "Basic text scramble demo",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/motion-text-scramble"],
+	"files": [
+		{
+			"path": "packages/motion/particles/text-scramble/index.tsx",
+			"content": "\"use client\";\n\nimport TextScramble from \"@/components/motion/components/text-scramble\";\n\nexport default function TextScrambleBasic() {\n\treturn <TextScramble speed={50}>Welcome to Text Scramble!</TextScramble>;\n}\n",
+			"type": "registry:component",
+			"target": "components/motion/particles/text-scramble.tsx"
+		}
+	],
+	"type": "registry:component"
+}

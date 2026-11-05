@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "motion-particles-dock",
+	"type": "registry:component",
+	"description": "Basic dock demo",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/motion-dock"],
+	"files": [
+		{
+			"path": "packages/motion/particles/dock/index.tsx",
+			"type": "registry:component",
+			"target": "components/motion/particles/dock.tsx"
+		}
+	]
+}

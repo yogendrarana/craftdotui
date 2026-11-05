@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "motion-particles-cursor-with-text-trail",
+	"type": "registry:component",
+	"description": "Text cursor demo",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/motion-cursor"],
+	"files": [
+		{
+			"path": "packages/motion/particles/cursor/cursor-with-text-trail/index.tsx",
+			"type": "registry:component",
+			"target": "components/motion/particles/cursor-with-text-trail.tsx"
+		}
+	]
+}

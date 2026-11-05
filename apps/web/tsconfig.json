@@ -5,9 +5,11 @@
 			"@/*": ["./src/*"],
 			"@/__registry__": ["./__registry__"],
 			"content-collections": ["./.content-collections/generated"],
+			"@craftdotui/baseui/*": ["../../packages/baseui/*"],
 			"@craftdotui/craftui/*": ["../../packages/craftui/*"],
 			"@craftdotui/hooks/*": ["../../packages/hooks/*"],
-			"@craftdotui/loaders/*": ["../../packages/loaders/*"]
+			"@craftdotui/loaders/*": ["../../packages/loaders/*"],
+			"@craftdotui/motion/*": ["../../packages/motion/*"]
 		}
 	},
 	"include": [

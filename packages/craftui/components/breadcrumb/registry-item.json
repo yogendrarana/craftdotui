@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-breadcrumb",
+	"type": "registry:component",
+	"description": "Displays the path to the current resource using a hierarchy of links.",
+	"dependencies": ["@base-ui/react", "lucide-react", "cn"],
+	"registryDependencies": [],
+	"files": [
+		{
+			"path": "packages/craftui/components/breadcrumb/index.tsx",
+			"type": "registry:component",
+			"target": "components/craftui/components/breadcrumb.tsx"
+		}
+	]
+}

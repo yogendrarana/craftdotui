@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "motion-magnetic",
+	"type": "registry:component",
+	"description": "A magnetic hover effect component",
+	"dependencies": ["gsap", "cn"],
+	"registryDependencies": [],
+	"files": [
+		{
+			"path": "packages/motion/components/magnetic/index.tsx",
+			"type": "registry:component",
+			"target": "components/motion/components/magnetic.tsx"
+		}
+	]
+}
