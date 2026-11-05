@@ -76,7 +76,7 @@ author:
 
 #### Custom Link Component
 
-Use the `render` prop on `BreadcrumbLink` to compose with routing primitives like Next.js `Link`.
+Use the `render` prop on `BreadcrumbLink` to compose with custom link elements.
 
 <ComponentCodePreview name="craftui-particles-breadcrumb-custom-link" />
 
@@ -109,7 +109,7 @@ Use the `render` prop on `BreadcrumbLink` to compose with routing primitives lik
       prop: "render",
       type: "ReactElement | ((props, state) => ReactElement)",
       default: "undefined",
-      description: "Replaces the default anchor element (e.g. render={<Link href='/docs' />}).",
+      description: "Replaces the default anchor element (e.g. render={<a href='/docs' />}).",
     },
     {
       prop: "href",

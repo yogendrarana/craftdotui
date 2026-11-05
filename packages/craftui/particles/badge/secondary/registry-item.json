@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-badge-secondary",
+	"type": "registry:component",
+	"description": "Secondary badge variant.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-badge"],
+	"files": [
+		{
+			"path": "packages/craftui/particles/badge/secondary/index.tsx",
+			"type": "registry:component",
+			"target": "components/craftui/particles/badge-secondary.tsx"
+		}
+	]
+}

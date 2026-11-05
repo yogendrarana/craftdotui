@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-badge-rounded",
+	"description": "Rounded pill and numeric counter badges.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-badge"],
+	"files": [
+		{
+			"path": "packages/craftui/particles/badge/rounded/index.tsx",
+			"content": "import { Badge } from \"@/components/craftui/components/badge\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"flex flex-wrap items-center gap-2\">\n\t\t\t<Badge className=\"rounded-full\">Pill</Badge>\n\t\t\t<Badge variant=\"outline\" className=\"rounded-full\">\n\t\t\t\tv2.4.0\n\t\t\t</Badge>\n\t\t\t<Badge className=\"min-w-5.5 rounded-full px-1.5 tabular-nums\">\n\t\t\t\t8\n\t\t\t</Badge>\n\t\t\t<Badge\n\t\t\t\tvariant=\"destructive\"\n\t\t\t\tclassName=\"min-w-5.5 rounded-full px-1.5 tabular-nums\"\n\t\t\t>\n\t\t\t\t99+\n\t\t\t</Badge>\n\t\t</div>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/craftui/particles/badge-rounded.tsx"
+		}
+	],
+	"type": "registry:component"
+}

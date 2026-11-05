@@ -1,4 +1,3 @@
-import Link from "next/link";
 import {
 	BreadcrumbItem,
 	BreadcrumbLink,
@@ -13,16 +12,14 @@ export function Particle() {
 		<BreadcrumbRoot>
 			<BreadcrumbList>
 				<BreadcrumbItem>
-					<BreadcrumbLink render={<Link href="/" />}>
+					<BreadcrumbLink render={<a href="/" />}>
 						Home
 					</BreadcrumbLink>
 				</BreadcrumbItem>
 				<BreadcrumbSeparator />
 				<BreadcrumbItem>
 					<BreadcrumbLink
-						render={
-							<Link href="/docs/getting-started/introduction" />
-						}
+						render={<a href="/docs/getting-started/introduction" />}
 					>
 						Docs
 					</BreadcrumbLink>

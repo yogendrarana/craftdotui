@@ -186,6 +186,10 @@ export const docsNavItems: Array<DocsNavItem> = [
 		title: "Craft UI",
 		items: [
 			{
+				title: "Badge",
+				href: "/docs/craftui/components/badge",
+			},
+			{
 				title: "Breadcrumb",
 				href: "/docs/craftui/components/breadcrumb",
 			},

@@ -58,7 +58,7 @@ export function PropsTable({
 						>
 							<AccordionTrigger className="px-5 hover:bg-muted/40 hover:no-underline">
 								<div className="flex-1 grid grid-cols-[1.2fr_2fr_1fr] items-center gap-4 text-left min-w-0">
-									<div className="min-w-0 break-words font-semibold text-primary text-sm">
+									<div className="min-w-0 wrap-break-word font-semibold text-primary text-sm">
 										{item.prop}
 										{item.required && (
 											<span className="ml-1 text-destructive font-sans">
@@ -66,10 +66,10 @@ export function PropsTable({
 											</span>
 										)}
 									</div>
-									<div className="min-w-0 break-words text-[13px] font-mono text-muted-foreground">
+									<div className="min-w-0 wrap-break-word text-[13px] font-mono text-muted-foreground">
 										{item.type}
 									</div>
-									<div className="min-w-0 break-words text-left text-[13px] font-mono text-muted-foreground italic">
+									<div className="min-w-0 wrap-break-word text-left text-[13px] font-mono text-muted-foreground">
 										{item.default || "-"}
 									</div>
 								</div>
