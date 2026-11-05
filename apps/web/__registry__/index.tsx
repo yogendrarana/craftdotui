@@ -27,6 +27,49 @@ export const Registry: Record<string, any> = {
             command: '@craftdotui/index',
             component: null,
           },
+          "craftui-badge": {
+            name: "craftui-badge",
+            description: "Displays a badge or a component that looks like a badge.",
+            type: "registry:component",
+            dependencies: ["@base-ui/react","class-variance-authority","cn"],
+            devDependencies: undefined,
+            registryDependencies: [],
+            files: [
+  {
+    "path": "packages/craftui/components/badge/index.tsx",
+    "type": "registry:component",
+    "target": "components/craftui/components/badge.tsx",
+    "content": "\"use client\";\n\nimport { cn } from \"cn\";\nimport { useRender } from \"@base-ui/react/use-render\";\nimport { mergeProps } from \"@base-ui/react/merge-props\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\n\n/* -------------------------------------------------------------------------- */\n/* Variants                                                                   */\n/* -------------------------------------------------------------------------- */\n\nconst badgeVariants = cva(\n\tcn(\n\t\t\"inline-flex items-center justify-center shrink-0 w-fit\",\n\t\t\"rounded-md border font-medium whitespace-nowrap transition-colors select-none\",\n\t\t\"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background\",\n\t\t\"[&_svg]:pointer-events-none [&_svg]:shrink-0\",\n\t),\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault:\n\t\t\t\t\t\"bg-primary text-primary-foreground border-primary [a&]:hover:bg-primary/90\",\n\t\t\t\tsecondary:\n\t\t\t\t\t\"bg-secondary text-secondary-foreground border-transparent [a&]:hover:bg-secondary/80\",\n\t\t\t\toutline:\n\t\t\t\t\t\"bg-transparent text-foreground border-border [a&]:hover:bg-accent [a&]:hover:text-accent-foreground\",\n\t\t\t\tghost: \"bg-transparent text-muted-foreground border-transparent [a&]:hover:bg-muted [a&]:hover:text-foreground\",\n\t\t\t\tdestructive:\n\t\t\t\t\t\"bg-destructive/10 text-destructive border-destructive/25 dark:bg-destructive/15 [a&]:hover:bg-destructive/20\",\n\t\t\t\tsuccess:\n\t\t\t\t\t\"bg-success/10 text-success border-success/25 dark:bg-success/15 [a&]:hover:bg-success/20\",\n\t\t\t\twarning:\n\t\t\t\t\t\"bg-warning/10 text-warning border-warning/25 dark:bg-warning/15 [a&]:hover:bg-warning/20\",\n\t\t\t\tinfo: \"bg-info/10 text-info border-info/25 dark:bg-info/15 [a&]:hover:bg-info/20\",\n\t\t\t},\n\t\t\tsize: {\n\t\t\t\tsm: \"h-5 px-1.5 text-[11px] gap-1 [&_svg:not([class*='size-'])]:size-3\",\n\t\t\t\tmd: \"h-5.5 px-2 text-xs gap-1 [&_svg:not([class*='size-'])]:size-3\",\n\t\t\t\tlg: \"h-6 px-2.5 text-xs gap-1.5 [&_svg:not([class*='size-'])]:size-3.5\",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: \"default\",\n\t\t\tsize: \"md\",\n\t\t},\n\t},\n);\n\n/* -------------------------------------------------------------------------- */\n/* Component                                                                  */\n/* -------------------------------------------------------------------------- */\nexport interface BadgeProps\n\textends useRender.ComponentProps<\"span\">,\n\t\tVariantProps<typeof badgeVariants> {}\n\nfunction BadgeRoot({ className, variant, size, render, ...props }: BadgeProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"badge\",\n\t\tclassName: cn(badgeVariants({ variant, size }), className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"span\",\n\t\tprops: mergeProps<\"span\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const Badge = Object.assign(BadgeRoot, {\n\tRoot: BadgeRoot,\n});\n\nexport { BadgeRoot, badgeVariants };"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-badge',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/badge/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
           "craftui-breadcrumb": {
             name: "craftui-breadcrumb",
             description: "Displays the path to the current resource using a hierarchy of links.",
@@ -156,6 +199,479 @@ export const Registry: Record<string, any> = {
 							return LazyComp;
 						})(),
           },
+          "craftui-particles-badge-destructive": {
+            name: "craftui-particles-badge-destructive",
+            description: "Destructive badge variant.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-badge"],
+            files: [
+  {
+    "path": "packages/craftui/particles/badge/destructive/index.tsx",
+    "type": "registry:component",
+    "target": "components/craftui/particles/badge-destructive.tsx",
+    "content": "import { Badge } from \"@/components/craftui/components/badge\";\n\nexport function Particle() {\n\treturn <Badge variant=\"destructive\">Destructive</Badge>;\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-badge-destructive',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/particles/badge/destructive/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-badge-ghost": {
+            name: "craftui-particles-badge-ghost",
+            description: "Ghost badge variant.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-badge"],
+            files: [
+  {
+    "path": "packages/craftui/particles/badge/ghost/index.tsx",
+    "type": "registry:component",
+    "target": "components/craftui/particles/badge-ghost.tsx",
+    "content": "import { Badge } from \"@/components/craftui/components/badge\";\n\nexport function Particle() {\n\treturn <Badge variant=\"ghost\">Ghost</Badge>;\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-badge-ghost',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/particles/badge/ghost/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-badge-outline": {
+            name: "craftui-particles-badge-outline",
+            description: "Outline badge variant.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-badge"],
+            files: [
+  {
+    "path": "packages/craftui/particles/badge/outline/index.tsx",
+    "type": "registry:component",
+    "target": "components/craftui/particles/badge-outline.tsx",
+    "content": "import { Badge } from \"@/components/craftui/components/badge\";\n\nexport function Particle() {\n\treturn <Badge variant=\"outline\">Outline</Badge>;\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-badge-outline',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/particles/badge/outline/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-badge": {
+            name: "craftui-particles-badge",
+            description: "Default badge variant.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-badge"],
+            files: [
+  {
+    "path": "packages/craftui/particles/badge/index.tsx",
+    "type": "registry:component",
+    "target": "components/craftui/particles/badge.tsx",
+    "content": "import { Badge } from \"@/components/craftui/components/badge\";\n\nexport function Particle() {\n\treturn <Badge>Badge</Badge>;\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-badge',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/particles/badge/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-badge-rounded": {
+            name: "craftui-particles-badge-rounded",
+            description: "Rounded pill and numeric counter badges.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-badge"],
+            files: [
+  {
+    "path": "packages/craftui/particles/badge/rounded/index.tsx",
+    "type": "registry:component",
+    "target": "components/craftui/particles/badge-rounded.tsx",
+    "content": "import { Badge } from \"@/components/craftui/components/badge\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"flex flex-wrap items-center gap-2\">\n\t\t\t<Badge className=\"rounded-full\">Pill</Badge>\n\t\t\t<Badge variant=\"outline\" className=\"rounded-full\">\n\t\t\t\tv2.4.0\n\t\t\t</Badge>\n\t\t\t<Badge className=\"min-w-5.5 rounded-full px-1.5 tabular-nums\">\n\t\t\t\t8\n\t\t\t</Badge>\n\t\t\t<Badge\n\t\t\t\tvariant=\"destructive\"\n\t\t\t\tclassName=\"min-w-5.5 rounded-full px-1.5 tabular-nums\"\n\t\t\t>\n\t\t\t\t99+\n\t\t\t</Badge>\n\t\t</div>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-badge-rounded',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/particles/badge/rounded/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-badge-secondary": {
+            name: "craftui-particles-badge-secondary",
+            description: "Secondary badge variant.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-badge"],
+            files: [
+  {
+    "path": "packages/craftui/particles/badge/secondary/index.tsx",
+    "type": "registry:component",
+    "target": "components/craftui/particles/badge-secondary.tsx",
+    "content": "import { Badge } from \"@/components/craftui/components/badge\";\n\nexport function Particle() {\n\treturn <Badge variant=\"secondary\">Secondary</Badge>;\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-badge-secondary',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/particles/badge/secondary/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-badge-sizes": {
+            name: "craftui-particles-badge-sizes",
+            description: "Badge size variants.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-badge"],
+            files: [
+  {
+    "path": "packages/craftui/particles/badge/sizes/index.tsx",
+    "type": "registry:component",
+    "target": "components/craftui/particles/badge-sizes.tsx",
+    "content": "import { Badge } from \"@/components/craftui/components/badge\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"flex flex-wrap items-center gap-2\">\n\t\t\t<Badge size=\"sm\">Small</Badge>\n\t\t\t<Badge size=\"md\">Medium</Badge>\n\t\t\t<Badge size=\"lg\">Large</Badge>\n\t\t</div>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-badge-sizes',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/particles/badge/sizes/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-badge-status": {
+            name: "craftui-particles-badge-status",
+            description: "Semantic status badge variants.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-badge"],
+            files: [
+  {
+    "path": "packages/craftui/particles/badge/status/index.tsx",
+    "type": "registry:component",
+    "target": "components/craftui/particles/badge-status.tsx",
+    "content": "import { Badge } from \"@/components/craftui/components/badge\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"flex flex-wrap items-center gap-2\">\n\t\t\t<Badge variant=\"success\">Success</Badge>\n\t\t\t<Badge variant=\"warning\">Warning</Badge>\n\t\t\t<Badge variant=\"info\">Info</Badge>\n\t\t\t<Badge variant=\"destructive\">Destructive</Badge>\n\t\t</div>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-badge-status',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/particles/badge/status/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-badge-with-dot": {
+            name: "craftui-particles-badge-with-dot",
+            description: "Badges with a colored status indicator dot.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-badge"],
+            files: [
+  {
+    "path": "packages/craftui/particles/badge/with-dot/index.tsx",
+    "type": "registry:component",
+    "target": "components/craftui/particles/badge-with-dot.tsx",
+    "content": "import { Badge } from \"@/components/craftui/components/badge\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"flex flex-wrap items-center gap-2\">\n\t\t\t<Badge variant=\"outline\">\n\t\t\t\t<span\n\t\t\t\t\taria-hidden=\"true\"\n\t\t\t\t\tclassName=\"size-1.5 rounded-full bg-success\"\n\t\t\t\t/>\n\t\t\t\tOperational\n\t\t\t</Badge>\n\t\t\t<Badge variant=\"outline\">\n\t\t\t\t<span\n\t\t\t\t\taria-hidden=\"true\"\n\t\t\t\t\tclassName=\"size-1.5 rounded-full bg-warning\"\n\t\t\t\t/>\n\t\t\t\tDegraded\n\t\t\t</Badge>\n\t\t\t<Badge variant=\"outline\">\n\t\t\t\t<span\n\t\t\t\t\taria-hidden=\"true\"\n\t\t\t\t\tclassName=\"size-1.5 rounded-full bg-destructive\"\n\t\t\t\t/>\n\t\t\t\tOutage\n\t\t\t</Badge>\n\t\t</div>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-badge-with-dot',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/particles/badge/with-dot/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-badge-with-icon": {
+            name: "craftui-particles-badge-with-icon",
+            description: "Badges with leading icons.",
+            type: "registry:component",
+            dependencies: ["lucide-react"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-badge"],
+            files: [
+  {
+    "path": "packages/craftui/particles/badge/with-icon/index.tsx",
+    "type": "registry:component",
+    "target": "components/craftui/particles/badge-with-icon.tsx",
+    "content": "import { ArrowRight, BadgeCheck, ShieldAlert } from \"lucide-react\";\nimport { Badge } from \"@/components/craftui/components/badge\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"flex flex-wrap items-center gap-2\">\n\t\t\t<Badge variant=\"info\">\n\t\t\t\t<BadgeCheck />\n\t\t\t\tVerified\n\t\t\t</Badge>\n\t\t\t<Badge variant=\"destructive\">\n\t\t\t\t<ShieldAlert />\n\t\t\t\tAction Required\n\t\t\t</Badge>\n\t\t\t<Badge variant=\"secondary\">\n\t\t\t\tNext Step\n\t\t\t\t<ArrowRight />\n\t\t\t</Badge>\n\t\t</div>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-badge-with-icon',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/particles/badge/with-icon/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-badge-with-link": {
+            name: "craftui-particles-badge-with-link",
+            description: "Interactive link badges using the render prop.",
+            type: "registry:component",
+            dependencies: ["lucide-react"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-badge"],
+            files: [
+  {
+    "path": "packages/craftui/particles/badge/with-link/index.tsx",
+    "type": "registry:component",
+    "target": "components/craftui/particles/badge-with-link.tsx",
+    "content": "import { ArrowUpRight } from \"lucide-react\";\nimport { Badge } from \"@/components/craftui/components/badge\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"flex flex-wrap items-center gap-2\">\n\t\t\t<Badge\n\t\t\t\tvariant=\"outline\"\n\t\t\t\trender={<a href=\"/docs/getting-started/introduction\" />}\n\t\t\t>\n\t\t\t\tDocumentation\n\t\t\t\t<ArrowUpRight />\n\t\t\t</Badge>\n\t\t\t<Badge\n\t\t\t\tvariant=\"secondary\"\n\t\t\t\trender={<a href=\"/docs/craftui/components/breadcrumb\" />}\n\t\t\t>\n\t\t\t\tBreadcrumb\n\t\t\t\t<ArrowUpRight />\n\t\t\t</Badge>\n\t\t</div>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-badge-with-link',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/particles/badge/with-link/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
           "craftui-particles-breadcrumb-collapsed": {
             name: "craftui-particles-breadcrumb-collapsed",
             description: "Collapsed breadcrumb with an ellipsis indicator.",
@@ -211,7 +727,7 @@ export const Registry: Record<string, any> = {
     "path": "packages/craftui/particles/breadcrumb/custom-link/index.tsx",
     "type": "registry:component",
     "target": "components/craftui/particles/breadcrumb-custom-link.tsx",
-    "content": "import Link from \"next/link\";\nimport {\n\tBreadcrumbItem,\n\tBreadcrumbLink,\n\tBreadcrumbList,\n\tBreadcrumbPage,\n\tBreadcrumbRoot,\n\tBreadcrumbSeparator,\n} from \"@/components/craftui/components/breadcrumb\";\n\nexport function Particle() {\n\treturn (\n\t\t<BreadcrumbRoot>\n\t\t\t<BreadcrumbList>\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<BreadcrumbLink render={<Link href=\"/\" />}>\n\t\t\t\t\t\tHome\n\t\t\t\t\t</BreadcrumbLink>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t\t<BreadcrumbSeparator />\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<BreadcrumbLink\n\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t<Link href=\"/docs/getting-started/introduction\" />\n\t\t\t\t\t\t}\n\t\t\t\t\t>\n\t\t\t\t\t\tDocs\n\t\t\t\t\t</BreadcrumbLink>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t\t<BreadcrumbSeparator />\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<BreadcrumbPage>Breadcrumb</BreadcrumbPage>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t</BreadcrumbList>\n\t\t</BreadcrumbRoot>\n\t);\n}\n\nexport default Particle;"
+    "content": "import {\n\tBreadcrumbItem,\n\tBreadcrumbLink,\n\tBreadcrumbList,\n\tBreadcrumbPage,\n\tBreadcrumbRoot,\n\tBreadcrumbSeparator,\n} from \"@/components/craftui/components/breadcrumb\";\n\nexport function Particle() {\n\treturn (\n\t\t<BreadcrumbRoot>\n\t\t\t<BreadcrumbList>\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<BreadcrumbLink render={<a href=\"/\" />}>\n\t\t\t\t\t\tHome\n\t\t\t\t\t</BreadcrumbLink>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t\t<BreadcrumbSeparator />\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<BreadcrumbLink\n\t\t\t\t\t\trender={<a href=\"/docs/getting-started/introduction\" />}\n\t\t\t\t\t>\n\t\t\t\t\t\tDocs\n\t\t\t\t\t</BreadcrumbLink>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t\t<BreadcrumbSeparator />\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<BreadcrumbPage>Breadcrumb</BreadcrumbPage>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t</BreadcrumbList>\n\t\t</BreadcrumbRoot>\n\t);\n}\n\nexport default Particle;"
   }
 ],
             keywords: [],

@@ -1,0 +1,116 @@
+---
+title: Badge
+description: Displays a badge or a component that looks like a badge.
+slug: /craftui/components/badge
+published: true
+date: 2026-11-05T00:00:00.000Z
+author:
+  name: Yogendra Rana
+  twitter: "https://twitter.com/yooogendra_rana"
+---
+
+<ComponentCodePreview name="craftui-particles-badge" />
+
+## Installation
+
+<Installation name="craftui-badge" />
+
+## Anatomy
+
+#### Usage
+
+```tsx
+<Badge>Badge</Badge>
+```
+
+```tsx
+<BadgeRoot>Badge</BadgeRoot>
+```
+
+## Demo
+
+#### Default
+
+<ComponentCodePreview name="craftui-particles-badge" />
+
+#### Secondary
+
+<ComponentCodePreview name="craftui-particles-badge-secondary" />
+
+#### Outline
+
+<ComponentCodePreview name="craftui-particles-badge-outline" />
+
+#### Ghost
+
+<ComponentCodePreview name="craftui-particles-badge-ghost" />
+
+#### Destructive
+
+<ComponentCodePreview name="craftui-particles-badge-destructive" />
+
+#### Status Variants
+
+<ComponentCodePreview name="craftui-particles-badge-status" />
+
+#### Sizes
+
+<ComponentCodePreview name="craftui-particles-badge-sizes" />
+
+#### Rounded & Counters
+
+<ComponentCodePreview name="craftui-particles-badge-rounded" />
+
+#### With Icon
+
+<ComponentCodePreview name="craftui-particles-badge-with-icon" />
+
+#### With Status Dot
+
+<ComponentCodePreview name="craftui-particles-badge-with-dot" />
+
+#### With Link
+
+Use the `render` prop to render a badge as an anchor element.
+
+<ComponentCodePreview name="craftui-particles-badge-with-link" />
+
+## Props
+
+#### Badge
+
+<PropsTable
+  data={[
+    {
+      prop: "variant",
+      type: '"default" | "secondary" | "outline" | "ghost" | "destructive" | "success" | "warning" | "info"',
+      default: '"default"',
+      description: "The visual style variant of the badge.",
+    },
+    {
+      prop: "size",
+      type: '"sm" | "md" | "lg"',
+      default: '"md"',
+      description: "The size of the badge.",
+    },
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default span element (e.g. render={<a href='/docs' />}).",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the badge.",
+    },
+    {
+      prop: "children",
+      type: "ReactNode",
+      default: "undefined",
+      description: "The content to be rendered inside the badge.",
+    },
+  ]}
+/>
+

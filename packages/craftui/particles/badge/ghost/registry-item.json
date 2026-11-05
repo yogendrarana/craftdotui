@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-badge-ghost",
+	"type": "registry:component",
+	"description": "Ghost badge variant.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-badge"],
+	"files": [
+		{
+			"path": "packages/craftui/particles/badge/ghost/index.tsx",
+			"type": "registry:component",
+			"target": "components/craftui/particles/badge-ghost.tsx"
+		}
+	]
+}

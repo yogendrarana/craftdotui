@@ -22,6 +22,24 @@
 			]
 		},
 		{
+			"name": "craftui-badge",
+			"type": "registry:component",
+			"description": "Displays a badge or a component that looks like a badge.",
+			"dependencies": [
+				"@base-ui/react",
+				"class-variance-authority",
+				"cn"
+			],
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "packages/craftui/components/badge/index.tsx",
+					"type": "registry:component",
+					"target": "components/craftui/components/badge.tsx"
+				}
+			]
+		},
+		{
 			"name": "craftui-breadcrumb",
 			"type": "registry:component",
 			"description": "Displays the path to the current resource using a hierarchy of links.",
@@ -60,6 +78,160 @@
 					"path": "packages/craftui/components/timeline/index.tsx",
 					"type": "registry:component",
 					"target": "components/craftui/components/timeline.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-badge-destructive",
+			"type": "registry:component",
+			"description": "Destructive badge variant.",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/craftui-badge"],
+			"files": [
+				{
+					"path": "packages/craftui/particles/badge/destructive/index.tsx",
+					"type": "registry:component",
+					"target": "components/craftui/particles/badge-destructive.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-badge-ghost",
+			"type": "registry:component",
+			"description": "Ghost badge variant.",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/craftui-badge"],
+			"files": [
+				{
+					"path": "packages/craftui/particles/badge/ghost/index.tsx",
+					"type": "registry:component",
+					"target": "components/craftui/particles/badge-ghost.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-badge-outline",
+			"type": "registry:component",
+			"description": "Outline badge variant.",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/craftui-badge"],
+			"files": [
+				{
+					"path": "packages/craftui/particles/badge/outline/index.tsx",
+					"type": "registry:component",
+					"target": "components/craftui/particles/badge-outline.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-badge",
+			"type": "registry:component",
+			"description": "Default badge variant.",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/craftui-badge"],
+			"files": [
+				{
+					"path": "packages/craftui/particles/badge/index.tsx",
+					"type": "registry:component",
+					"target": "components/craftui/particles/badge.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-badge-rounded",
+			"type": "registry:component",
+			"description": "Rounded pill and numeric counter badges.",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/craftui-badge"],
+			"files": [
+				{
+					"path": "packages/craftui/particles/badge/rounded/index.tsx",
+					"type": "registry:component",
+					"target": "components/craftui/particles/badge-rounded.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-badge-secondary",
+			"type": "registry:component",
+			"description": "Secondary badge variant.",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/craftui-badge"],
+			"files": [
+				{
+					"path": "packages/craftui/particles/badge/secondary/index.tsx",
+					"type": "registry:component",
+					"target": "components/craftui/particles/badge-secondary.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-badge-sizes",
+			"type": "registry:component",
+			"description": "Badge size variants.",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/craftui-badge"],
+			"files": [
+				{
+					"path": "packages/craftui/particles/badge/sizes/index.tsx",
+					"type": "registry:component",
+					"target": "components/craftui/particles/badge-sizes.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-badge-status",
+			"type": "registry:component",
+			"description": "Semantic status badge variants.",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/craftui-badge"],
+			"files": [
+				{
+					"path": "packages/craftui/particles/badge/status/index.tsx",
+					"type": "registry:component",
+					"target": "components/craftui/particles/badge-status.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-badge-with-dot",
+			"type": "registry:component",
+			"description": "Badges with a colored status indicator dot.",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/craftui-badge"],
+			"files": [
+				{
+					"path": "packages/craftui/particles/badge/with-dot/index.tsx",
+					"type": "registry:component",
+					"target": "components/craftui/particles/badge-with-dot.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-badge-with-icon",
+			"type": "registry:component",
+			"description": "Badges with leading icons.",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/craftui-badge"],
+			"files": [
+				{
+					"path": "packages/craftui/particles/badge/with-icon/index.tsx",
+					"type": "registry:component",
+					"target": "components/craftui/particles/badge-with-icon.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-badge-with-link",
+			"type": "registry:component",
+			"description": "Interactive link badges using the render prop.",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/craftui-badge"],
+			"files": [
+				{
+					"path": "packages/craftui/particles/badge/with-link/index.tsx",
+					"type": "registry:component",
+					"target": "components/craftui/particles/badge-with-link.tsx"
 				}
 			]
 		},

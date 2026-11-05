@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-badge-with-link",
+	"description": "Interactive link badges using the render prop.",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/craftui-badge"],
+	"files": [
+		{
+			"path": "packages/craftui/particles/badge/with-link/index.tsx",
+			"content": "import { ArrowUpRight } from \"lucide-react\";\nimport { Badge } from \"@/components/craftui/components/badge\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"flex flex-wrap items-center gap-2\">\n\t\t\t<Badge\n\t\t\t\tvariant=\"outline\"\n\t\t\t\trender={<a href=\"/docs/getting-started/introduction\" />}\n\t\t\t>\n\t\t\t\tDocumentation\n\t\t\t\t<ArrowUpRight />\n\t\t\t</Badge>\n\t\t\t<Badge\n\t\t\t\tvariant=\"secondary\"\n\t\t\t\trender={<a href=\"/docs/craftui/components/breadcrumb\" />}\n\t\t\t>\n\t\t\t\tBreadcrumb\n\t\t\t\t<ArrowUpRight />\n\t\t\t</Badge>\n\t\t</div>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/craftui/particles/badge-with-link.tsx"
+		}
+	],
+	"type": "registry:component"
+}
