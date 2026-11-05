@@ -48,7 +48,7 @@ const badgeVariants = cva(
 );
 
 /* -------------------------------------------------------------------------- */
-/* Component                                                                  */
+/* Badge Root                                                                 */
 /* -------------------------------------------------------------------------- */
 export interface BadgeProps
 	extends useRender.ComponentProps<"span">,
