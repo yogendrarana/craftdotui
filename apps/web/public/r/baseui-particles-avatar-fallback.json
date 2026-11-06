@@ -6,7 +6,7 @@
 	"registryDependencies": ["@craftdotui/baseui-avatar"],
 	"files": [
 		{
-			"path": "packages/baseui/particles/avatar/avatar-fallback/index.tsx",
+			"path": "packages/baseui/components/avatar/particles/avatar-fallback/index.tsx",
 			"content": "import {\n\tAvatarRoot,\n\tAvatarFallback,\n} from \"@/components/baseui/components/avatar\";\n\nexport default function Particle() {\n\treturn (\n\t\t<AvatarRoot>\n\t\t\t<AvatarFallback>YR</AvatarFallback>\n\t\t</AvatarRoot>\n\t);\n}\n",
 			"type": "registry:component",
 			"target": "components/particles/avatar-fallback.tsx"

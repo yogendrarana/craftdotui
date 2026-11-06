@@ -6,7 +6,7 @@
 	"registryDependencies": ["@craftdotui/baseui-preview-card"],
 	"files": [
 		{
-			"path": "packages/baseui/particles/preview-card/without-arrow/index.tsx",
+			"path": "packages/baseui/components/preview-card/particles/without-arrow/index.tsx",
 			"content": "\"use client\";\n\nimport {\n\tPreviewCardRoot,\n\tPreviewCardTrigger,\n\tPreviewCardContent,\n} from \"@/components/baseui/components/preview-card\";\n\nexport default function Particle() {\n\treturn (\n\t\t<p className=\"max-w-md text-base text-balance text-primary\">\n\t\t\tMinimalist designs often prefer a{\" \"}\n\t\t\t<PreviewCardRoot>\n\t\t\t\t<PreviewCardTrigger className=\"font-medium\">\n\t\t\t\t\tcleaner look\n\t\t\t\t</PreviewCardTrigger>\n\t\t\t\t<PreviewCardContent\n\t\t\t\t\thasArrow={false}\n\t\t\t\t\tpositionerProps={{ sideOffset: 10 }}\n\t\t\t\t>\n\t\t\t\t\t<p className=\"text-sm\">\n\t\t\t\t\t\tThis preview card has no arrow, providing a cleaner and\n\t\t\t\t\t\tmore minimalist appearance.\n\t\t\t\t\t</p>\n\t\t\t\t</PreviewCardContent>\n\t\t\t</PreviewCardRoot>{\" \"}\n\t\t\twithout any pointing indicators.\n\t\t</p>\n\t);\n}\n",
 			"type": "registry:component",
 			"target": "components/particles/preview-card-without-arrow.tsx"

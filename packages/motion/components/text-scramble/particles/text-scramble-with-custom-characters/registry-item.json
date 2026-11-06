@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "motion-particles-text-scramble-with-custom-characters",
+	"type": "registry:component",
+	"description": "Text scramble with custom characters demo",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/motion-text-scramble"],
+	"files": [
+		{
+			"path": "packages/motion/components/text-scramble/particles/text-scramble-with-custom-characters/index.tsx",
+			"type": "registry:component",
+			"target": "components/motion/particles/text-scramble-with-custom-characters.tsx"
+		}
+	]
+}

@@ -6,7 +6,7 @@
 	"registryDependencies": ["@craftdotui/baseui-meter"],
 	"files": [
 		{
-			"path": "packages/baseui/particles/meter/without-label/index.tsx",
+			"path": "packages/baseui/components/meter/particles/without-label/index.tsx",
 			"content": "import {\n\tMeterRoot,\n\tMeterTrack,\n\tMeterIndicator,\n\tMeterValue,\n} from \"@/components/baseui/components/meter\";\n\nexport function MeterExampleMinimal() {\n\treturn (\n\t\t<MeterRoot value={85} max={100} className=\"max-w-100\">\n\t\t\t<MeterTrack>\n\t\t\t\t<MeterIndicator />\n\t\t\t</MeterTrack>\n\t\t\t<MeterValue />\n\t\t</MeterRoot>\n\t);\n}\n\nexport default MeterExampleMinimal;\n",
 			"type": "registry:component",
 			"target": "components/particles/meter-without-label.tsx"

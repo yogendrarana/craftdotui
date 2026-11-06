@@ -6,7 +6,7 @@
 	"registryDependencies": ["@craftdotui/baseui-slider"],
 	"files": [
 		{
-			"path": "packages/baseui/particles/slider/disabled/index.tsx",
+			"path": "packages/baseui/components/slider/particles/disabled/index.tsx",
 			"content": "import {\n\tSliderRoot,\n\tSliderValue,\n\tSliderControl,\n\tSliderTrack,\n\tSliderIndicator,\n\tSliderThumb,\n} from \"@/components/baseui/components/slider\";\n\nexport function Particle() {\n\treturn (\n\t\t<SliderRoot defaultValue={70} disabled className=\"w-full max-w-sm\">\n\t\t\t<SliderValue />\n\t\t\t<SliderControl>\n\t\t\t\t<SliderTrack>\n\t\t\t\t\t<SliderIndicator />\n\t\t\t\t\t<SliderThumb />\n\t\t\t\t</SliderTrack>\n\t\t\t</SliderControl>\n\t\t</SliderRoot>\n\t);\n}\n\nexport default Particle;\n",
 			"type": "registry:component",
 			"target": "components/particles/slider-disabled.tsx"

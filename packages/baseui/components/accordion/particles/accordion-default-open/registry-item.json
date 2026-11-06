@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-accordion-default-open",
+	"type": "registry:component",
+	"description": "Accordion with an item open by default.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-accordion"],
+	"files": [
+		{
+			"path": "packages/baseui/components/accordion/particles/accordion-default-open/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/accordion-default-open.tsx"
+		}
+	]
+}

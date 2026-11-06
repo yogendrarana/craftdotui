@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "motion-particles-animated-tooltip",
+	"type": "registry:component",
+	"description": "Basic animated tooltip demo",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/motion-animated-tooltip"],
+	"files": [
+		{
+			"path": "packages/motion/components/animated-tooltip/particles/index.tsx",
+			"type": "registry:component",
+			"target": "components/motion/particles/animated-tooltip.tsx"
+		}
+	]
+}

@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-skeleton-table",
+	"type": "registry:component",
+	"description": "Table rows skeleton placeholder.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-skeleton"],
+	"files": [
+		{
+			"path": "packages/craftui/components/skeleton/particles/table/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/skeleton-table.tsx"
+		}
+	]
+}

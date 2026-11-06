@@ -6,7 +6,7 @@
 	"registryDependencies": ["@craftdotui/motion-cursor"],
 	"files": [
 		{
-			"path": "packages/motion/particles/cursor/cursor-with-text-trail/index.tsx",
+			"path": "packages/motion/components/cursor/particles/cursor-with-text-trail/index.tsx",
 			"content": "\"use client\";\n\nimport Cursor from \"@/components/motion/components/cursor\";\n\nexport default function Particle() {\n\treturn (\n\t\t<Cursor\n\t\t\tcursor={\n\t\t\t\t<span className=\"text-sm border px-2 py-1 rounded shadow\">\n\t\t\t\t\tHello, World!\n\t\t\t\t</span>\n\t\t\t}\n\t\t\tclassName=\"h-full w-full flex items-center justify-center\"\n\t\t>\n\t\t\t<div className=\"text-center\">\n\t\t\t\t<p>Hover over this area to see a text cursor</p>\n\t\t\t</div>\n\t\t</Cursor>\n\t);\n}\n",
 			"type": "registry:component",
 			"target": "components/motion/particles/cursor-with-text-trail.tsx"

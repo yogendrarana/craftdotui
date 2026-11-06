@@ -6,7 +6,7 @@
 	"registryDependencies": ["@craftdotui/craftui-breadcrumb"],
 	"files": [
 		{
-			"path": "packages/craftui/particles/breadcrumb/with-icons/index.tsx",
+			"path": "packages/craftui/components/breadcrumb/particles/with-icons/index.tsx",
 			"content": "import { FileCode, Folder, Home } from \"lucide-react\";\nimport {\n\tBreadcrumbItem,\n\tBreadcrumbLink,\n\tBreadcrumbList,\n\tBreadcrumbPage,\n\tBreadcrumbRoot,\n\tBreadcrumbSeparator,\n} from \"@/components/craftui/components/breadcrumb\";\n\nexport function Particle() {\n\treturn (\n\t\t<BreadcrumbRoot>\n\t\t\t<BreadcrumbList>\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<BreadcrumbLink href=\"#home\">\n\t\t\t\t\t\t<Home className=\"size-3.5\" />\n\t\t\t\t\t\t<span>Workspace</span>\n\t\t\t\t\t</BreadcrumbLink>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t\t<BreadcrumbSeparator />\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<BreadcrumbLink href=\"#packages\">\n\t\t\t\t\t\t<Folder className=\"size-3.5\" />\n\t\t\t\t\t\t<span>packages</span>\n\t\t\t\t\t</BreadcrumbLink>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t\t<BreadcrumbSeparator />\n\t\t\t\t<BreadcrumbItem>\n\t\t\t\t\t<BreadcrumbPage>\n\t\t\t\t\t\t<FileCode className=\"size-3.5 text-muted-foreground\" />\n\t\t\t\t\t\t<span>breadcrumb.tsx</span>\n\t\t\t\t\t</BreadcrumbPage>\n\t\t\t\t</BreadcrumbItem>\n\t\t\t</BreadcrumbList>\n\t\t</BreadcrumbRoot>\n\t);\n}\n\nexport default Particle;\n",
 			"type": "registry:component",
 			"target": "components/particles/breadcrumb-with-icons.tsx"

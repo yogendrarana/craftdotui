@@ -6,7 +6,7 @@
 	"registryDependencies": ["@craftdotui/baseui-button"],
 	"files": [
 		{
-			"path": "packages/baseui/particles/button/button-rounded/index.tsx",
+			"path": "packages/baseui/components/button/particles/button-rounded/index.tsx",
 			"content": "import { Button } from \"@/components/baseui/components/button\";\n\nexport default function Particle() {\n\treturn (\n\t\t<Button variant=\"outline\" className=\"rounded-full\">\n\t\t\tRounded\n\t\t</Button>\n\t);\n}\n",
 			"type": "registry:component",
 			"target": "components/particles/button-rounded.tsx"

@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-breadcrumb-collapsed",
+	"type": "registry:component",
+	"description": "Collapsed breadcrumb with an ellipsis indicator.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-breadcrumb"],
+	"files": [
+		{
+			"path": "packages/craftui/components/breadcrumb/particles/collapsed/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/breadcrumb-collapsed.tsx"
+		}
+	]
+}

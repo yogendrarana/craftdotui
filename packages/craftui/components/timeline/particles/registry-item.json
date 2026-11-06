@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-timeline",
+	"type": "registry:component",
+	"description": "Default vertical timeline demo.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-timeline"],
+	"files": [
+		{
+			"path": "packages/craftui/components/timeline/particles/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/timeline.tsx"
+		}
+	]
+}

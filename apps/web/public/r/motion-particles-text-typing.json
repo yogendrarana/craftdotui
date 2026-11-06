@@ -6,7 +6,7 @@
 	"registryDependencies": ["@craftdotui/motion-text-typing"],
 	"files": [
 		{
-			"path": "packages/motion/particles/text-typing/index.tsx",
+			"path": "packages/motion/components/text-typing/particles/index.tsx",
 			"content": "\"use client\";\n\nimport TextTyping from \"@/components/motion/components/text-typing\";\n\nexport default function Home() {\n\treturn (\n\t\t<TextTyping typingSpeed={100}>This is typing effect demo!</TextTyping>\n\t);\n}\n",
 			"type": "registry:component",
 			"target": "components/motion/particles/text-typing.tsx"

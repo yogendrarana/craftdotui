@@ -1,0 +1,17 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-tooltip",
+	"type": "registry:component",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/baseui-tooltip",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/baseui/components/tooltip/particles/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/tooltip.tsx"
+		}
+	]
+}

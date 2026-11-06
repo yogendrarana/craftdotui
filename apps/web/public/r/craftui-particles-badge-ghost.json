@@ -6,7 +6,7 @@
 	"registryDependencies": ["@craftdotui/craftui-badge"],
 	"files": [
 		{
-			"path": "packages/craftui/particles/badge/ghost/index.tsx",
+			"path": "packages/craftui/components/badge/particles/ghost/index.tsx",
 			"content": "import { Badge } from \"@/components/craftui/components/badge\";\n\nexport function Particle() {\n\treturn <Badge variant=\"ghost\">Ghost</Badge>;\n}\n\nexport default Particle;\n",
 			"type": "registry:component",
 			"target": "components/particles/badge-ghost.tsx"

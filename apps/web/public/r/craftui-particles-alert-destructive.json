@@ -6,7 +6,7 @@
 	"registryDependencies": ["@craftdotui/craftui-alert"],
 	"files": [
 		{
-			"path": "packages/craftui/particles/alert/destructive/index.tsx",
+			"path": "packages/craftui/components/alert/particles/destructive/index.tsx",
 			"content": "import { CircleAlert } from \"lucide-react\";\nimport {\n\tAlertDescription,\n\tAlertRoot,\n\tAlertTitle,\n} from \"@/components/craftui/components/alert\";\n\nexport function Particle() {\n\treturn (\n\t\t<AlertRoot variant=\"destructive\" className=\"max-w-lg\">\n\t\t\t<CircleAlert />\n\t\t\t<AlertTitle>Unable to process your payment.</AlertTitle>\n\t\t\t<AlertDescription>\n\t\t\t\t<p>Please verify your billing information and try again.</p>\n\t\t\t</AlertDescription>\n\t\t</AlertRoot>\n\t);\n}\n\nexport default Particle;\n",
 			"type": "registry:component",
 			"target": "components/particles/alert-destructive.tsx"

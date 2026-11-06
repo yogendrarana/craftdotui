@@ -6,7 +6,7 @@
 	"registryDependencies": ["@craftdotui/craftui-skeleton"],
 	"files": [
 		{
-			"path": "packages/craftui/particles/skeleton/form/index.tsx",
+			"path": "packages/craftui/components/skeleton/particles/form/index.tsx",
 			"content": "import { Skeleton } from \"@/components/craftui/components/skeleton\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"w-full max-w-xs space-y-4\">\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<Skeleton className=\"h-3.5 w-20\" />\n\t\t\t\t<Skeleton className=\"h-8 w-full rounded-md\" />\n\t\t\t</div>\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<Skeleton className=\"h-3.5 w-28\" />\n\t\t\t\t<Skeleton className=\"h-8 w-full rounded-md\" />\n\t\t\t</div>\n\t\t\t<Skeleton className=\"h-8 w-24 rounded-md\" />\n\t\t</div>\n\t);\n}\n\nexport default Particle;\n",
 			"type": "registry:component",
 			"target": "components/particles/skeleton-form.tsx"

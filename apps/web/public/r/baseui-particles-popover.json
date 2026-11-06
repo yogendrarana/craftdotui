@@ -5,7 +5,7 @@
 	"registryDependencies": ["@craftdotui/baseui-popover"],
 	"files": [
 		{
-			"path": "packages/baseui/particles/popover/index.tsx",
+			"path": "packages/baseui/components/popover/particles/index.tsx",
 			"content": "\"use client\";\n\nimport { Button } from \"@/components/baseui/components/button\";\nimport {\n\tPopoverRoot,\n\tPopoverTrigger,\n\tPopoverContent,\n\tPopoverTitle,\n\tPopoverDescription,\n} from \"@/components/baseui/components/popover\";\n\nexport default function Particle() {\n\treturn (\n\t\t<PopoverRoot>\n\t\t\t<PopoverTrigger\n\t\t\t\trender={<Button variant=\"outline\">Open Popover</Button>}\n\t\t\t/>\n\t\t\t<PopoverContent>\n\t\t\t\t<PopoverTitle>Popover Title</PopoverTitle>\n\t\t\t\t<PopoverDescription>\n\t\t\t\t\tThis is a simple popover description.\n\t\t\t\t</PopoverDescription>\n\t\t\t</PopoverContent>\n\t\t</PopoverRoot>\n\t);\n}\n",
 			"type": "registry:component",
 			"target": "components/particles/popover.tsx"

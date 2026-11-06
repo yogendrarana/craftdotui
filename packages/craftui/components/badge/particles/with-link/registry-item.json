@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-badge-with-link",
+	"type": "registry:component",
+	"description": "Interactive link badges using the render prop.",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/craftui-badge"],
+	"files": [
+		{
+			"path": "packages/craftui/components/badge/particles/with-link/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/badge-with-link.tsx"
+		}
+	]
+}

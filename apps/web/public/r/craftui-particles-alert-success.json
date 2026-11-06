@@ -6,7 +6,7 @@
 	"registryDependencies": ["@craftdotui/craftui-alert"],
 	"files": [
 		{
-			"path": "packages/craftui/particles/alert/success/index.tsx",
+			"path": "packages/craftui/components/alert/particles/success/index.tsx",
 			"content": "import { CircleCheck } from \"lucide-react\";\nimport {\n\tAlertDescription,\n\tAlertRoot,\n\tAlertTitle,\n} from \"@/components/craftui/components/alert\";\n\nexport function Particle() {\n\treturn (\n\t\t<AlertRoot variant=\"success\" className=\"max-w-lg\">\n\t\t\t<CircleCheck />\n\t\t\t<AlertTitle>Deployment successful!</AlertTitle>\n\t\t\t<AlertDescription>\n\t\t\t\tYour changes have been deployed to production and are now live.\n\t\t\t</AlertDescription>\n\t\t</AlertRoot>\n\t);\n}\n\nexport default Particle;\n",
 			"type": "registry:component",
 			"target": "components/particles/alert-success.tsx"

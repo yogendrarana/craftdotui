@@ -8,7 +8,7 @@
 	],
 	"files": [
 		{
-			"path": "packages/baseui/particles/tooltip/instant/index.tsx",
+			"path": "packages/baseui/components/tooltip/particles/instant/index.tsx",
 			"content": "import {\n\tTooltipRoot,\n\tTooltipContent,\n\tTooltipProvider,\n\tTooltipTrigger,\n} from \"@/components/baseui/components/tooltip\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport function Particle() {\n\treturn (\n\t\t<TooltipProvider delay={0}>\n\t\t\t<TooltipRoot>\n\t\t\t\t<TooltipTrigger\n\t\t\t\t\trender={\n\t\t\t\t\t\t<Button variant=\"outline\">Instant Animation</Button>\n\t\t\t\t\t}\n\t\t\t\t/>\n\t\t\t\t<TooltipContent>Custom Styled & Animated</TooltipContent>\n\t\t\t</TooltipRoot>\n\t\t</TooltipProvider>\n\t);\n}\n\nexport default Particle;\n",
 			"type": "registry:component",
 			"target": "components/particles/tooltip-instant.tsx"

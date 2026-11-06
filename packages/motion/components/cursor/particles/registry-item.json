@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "motion-particles-cursor",
+	"type": "registry:component",
+	"description": "Basic cursor demo",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/motion-cursor"],
+	"files": [
+		{
+			"path": "packages/motion/components/cursor/particles/index.tsx",
+			"type": "registry:component",
+			"target": "components/motion/particles/cursor.tsx"
+		}
+	]
+}

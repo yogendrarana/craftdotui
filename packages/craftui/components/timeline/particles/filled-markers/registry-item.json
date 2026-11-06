@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-timeline-filled-markers",
+	"type": "registry:component",
+	"description": "Timeline with filled markers indicating completed steps.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-timeline"],
+	"files": [
+		{
+			"path": "packages/craftui/components/timeline/particles/filled-markers/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/timeline-filled-markers.tsx"
+		}
+	]
+}

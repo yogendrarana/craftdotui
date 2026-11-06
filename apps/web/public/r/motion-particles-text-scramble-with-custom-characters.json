@@ -6,7 +6,7 @@
 	"registryDependencies": ["@craftdotui/motion-text-scramble"],
 	"files": [
 		{
-			"path": "packages/motion/particles/text-scramble/text-scramble-with-custom-characters/index.tsx",
+			"path": "packages/motion/components/text-scramble/particles/text-scramble-with-custom-characters/index.tsx",
 			"content": "\"use client\";\n\nimport TextScramble from \"@/components/motion/components/text-scramble\";\n\nexport default function Particle() {\n\treturn (\n\t\t<TextScramble speed={50} characterSet=\"*\">\n\t\t\tCustom Scramble\n\t\t</TextScramble>\n\t);\n}\n",
 			"type": "registry:component",
 			"target": "components/motion/particles/text-scramble-with-custom-characters.tsx"

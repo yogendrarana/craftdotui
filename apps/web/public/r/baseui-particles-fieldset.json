@@ -6,7 +6,7 @@
 	"registryDependencies": ["@craftdotui/baseui-fieldset"],
 	"files": [
 		{
-			"path": "packages/baseui/particles/fieldset/index.tsx",
+			"path": "packages/baseui/components/fieldset/particles/index.tsx",
 			"content": "import {\n\tFieldRoot,\n\tFieldLabel,\n\tFieldControl,\n} from \"@/components/baseui/components/field\";\n\nimport {\n\tFieldsetRoot,\n\tFieldsetLegend,\n} from \"@/components/baseui/components/fieldset\";\n\nexport function FieldsetExampleWithFields() {\n\treturn (\n\t\t<FieldsetRoot className=\"w-full max-w-xs\">\n\t\t\t<FieldsetLegend>Account details</FieldsetLegend>\n\n\t\t\t<FieldRoot>\n\t\t\t\t<FieldLabel>Email</FieldLabel>\n\t\t\t\t<FieldControl type=\"email\" />\n\t\t\t</FieldRoot>\n\n\t\t\t<FieldRoot>\n\t\t\t\t<FieldLabel>Password</FieldLabel>\n\t\t\t\t<FieldControl type=\"password\" />\n\t\t\t</FieldRoot>\n\t\t</FieldsetRoot>\n\t);\n}\n\nexport default FieldsetExampleWithFields;\n",
 			"type": "registry:component",
 			"target": "components/particles/fieldset.tsx"

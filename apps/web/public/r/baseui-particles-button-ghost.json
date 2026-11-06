@@ -6,7 +6,7 @@
 	"registryDependencies": ["@craftdotui/baseui-button"],
 	"files": [
 		{
-			"path": "packages/baseui/particles/button/button-ghost/index.tsx",
+			"path": "packages/baseui/components/button/particles/button-ghost/index.tsx",
 			"content": "import { Button } from \"@/components/baseui/components/button\";\n\nexport default function Particle() {\n\treturn <Button variant=\"ghost\">Ghost</Button>;\n}\n",
 			"type": "registry:component",
 			"target": "components/particles/button-ghost.tsx"

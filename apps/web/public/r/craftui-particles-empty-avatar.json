@@ -10,7 +10,7 @@
 	],
 	"files": [
 		{
-			"path": "packages/craftui/particles/empty/avatar/index.tsx",
+			"path": "packages/craftui/components/empty/particles/avatar/index.tsx",
 			"content": "import {\n\tEmptyContent,\n\tEmptyDescription,\n\tEmptyHeader,\n\tEmptyMedia,\n\tEmptyRoot,\n\tEmptyTitle,\n} from \"@/components/craftui/components/empty\";\nimport {\n\tAvatarFallback,\n\tAvatarImage,\n\tAvatarRoot,\n} from \"@/components/baseui/components/avatar\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport function Particle() {\n\treturn (\n\t\t<EmptyRoot>\n\t\t\t<EmptyHeader>\n\t\t\t\t<EmptyMedia variant=\"default\">\n\t\t\t\t\t<AvatarRoot className=\"size-12 grayscale\">\n\t\t\t\t\t\t<AvatarImage\n\t\t\t\t\t\t\tsrc=\"https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=120&auto=format&fit=crop&q=80\"\n\t\t\t\t\t\t\talt=\"User avatar\"\n\t\t\t\t\t\t/>\n\t\t\t\t\t\t<AvatarFallback>YR</AvatarFallback>\n\t\t\t\t\t</AvatarRoot>\n\t\t\t\t</EmptyMedia>\n\t\t\t\t<EmptyTitle>User Offline</EmptyTitle>\n\t\t\t\t<EmptyDescription>\n\t\t\t\t\tThis user is currently offline. You can leave a message to\n\t\t\t\t\tnotify them or try again later.\n\t\t\t\t</EmptyDescription>\n\t\t\t</EmptyHeader>\n\t\t\t<EmptyContent>\n\t\t\t\t<Button size=\"sm\">Leave Message</Button>\n\t\t\t</EmptyContent>\n\t\t</EmptyRoot>\n\t);\n}\n\nexport default Particle;\n",
 			"type": "registry:component",
 			"target": "components/particles/empty-avatar.tsx"

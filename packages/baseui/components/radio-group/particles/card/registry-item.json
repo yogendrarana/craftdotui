@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-radio-group-card",
+	"type": "registry:component",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-radio-group"],
+	"files": [
+		{
+			"path": "packages/baseui/components/radio-group/particles/card/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/radio-group-card.tsx"
+		}
+	]
+}

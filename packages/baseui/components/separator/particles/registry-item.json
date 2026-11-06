@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-separator",
+	"type": "registry:component",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-separator"],
+	"files": [
+		{
+			"path": "packages/baseui/components/separator/particles/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/separator.tsx"
+		}
+	]
+}

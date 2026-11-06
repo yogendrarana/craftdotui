@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-badge-rounded",
+	"type": "registry:component",
+	"description": "Rounded pill and numeric counter badges.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-badge"],
+	"files": [
+		{
+			"path": "packages/craftui/components/badge/particles/rounded/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/badge-rounded.tsx"
+		}
+	]
+}

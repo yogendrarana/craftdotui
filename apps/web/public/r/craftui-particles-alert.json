@@ -6,7 +6,7 @@
 	"registryDependencies": ["@craftdotui/craftui-alert"],
 	"files": [
 		{
-			"path": "packages/craftui/particles/alert/index.tsx",
+			"path": "packages/craftui/components/alert/particles/index.tsx",
 			"content": "import { Terminal } from \"lucide-react\";\nimport {\n\tAlertDescription,\n\tAlertRoot,\n\tAlertTitle,\n} from \"@/components/craftui/components/alert\";\n\nexport function Particle() {\n\treturn (\n\t\t<AlertRoot className=\"max-w-lg\">\n\t\t\t<Terminal />\n\t\t\t<AlertTitle>Heads up!</AlertTitle>\n\t\t\t<AlertDescription>\n\t\t\t\tYou can add components and dependencies to your app using the\n\t\t\t\tcli.\n\t\t\t</AlertDescription>\n\t\t</AlertRoot>\n\t);\n}\n\nexport default Particle;\n",
 			"type": "registry:component",
 			"target": "components/particles/alert.tsx"

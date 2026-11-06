@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-field",
+	"type": "registry:component",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-field"],
+	"files": [
+		{
+			"path": "packages/baseui/components/field/particles/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/field.tsx"
+		}
+	]
+}

@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-badge-destructive",
+	"type": "registry:component",
+	"description": "Destructive badge variant.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-badge"],
+	"files": [
+		{
+			"path": "packages/craftui/components/badge/particles/destructive/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/badge-destructive.tsx"
+		}
+	]
+}

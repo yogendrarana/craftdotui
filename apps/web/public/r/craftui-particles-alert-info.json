@@ -6,7 +6,7 @@
 	"registryDependencies": ["@craftdotui/craftui-alert"],
 	"files": [
 		{
-			"path": "packages/craftui/particles/alert/info/index.tsx",
+			"path": "packages/craftui/components/alert/particles/info/index.tsx",
 			"content": "import { Info } from \"lucide-react\";\nimport {\n\tAlertDescription,\n\tAlertRoot,\n\tAlertTitle,\n} from \"@/components/craftui/components/alert\";\n\nexport function Particle() {\n\treturn (\n\t\t<AlertRoot variant=\"info\" className=\"max-w-lg\">\n\t\t\t<Info />\n\t\t\t<AlertTitle>New version available</AlertTitle>\n\t\t\t<AlertDescription>\n\t\t\t\tCraft UI v2.0 is now available with support for Tailwind CSS v4\n\t\t\t\tdesign tokens.\n\t\t\t</AlertDescription>\n\t\t</AlertRoot>\n\t);\n}\n\nexport default Particle;\n",
 			"type": "registry:component",
 			"target": "components/particles/alert-info.tsx"

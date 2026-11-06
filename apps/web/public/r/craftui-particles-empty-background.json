@@ -9,7 +9,7 @@
 	],
 	"files": [
 		{
-			"path": "packages/craftui/particles/empty/background/index.tsx",
+			"path": "packages/craftui/components/empty/particles/background/index.tsx",
 			"content": "import { Bell, RefreshCcw } from \"lucide-react\";\nimport {\n\tEmptyContent,\n\tEmptyDescription,\n\tEmptyHeader,\n\tEmptyMedia,\n\tEmptyRoot,\n\tEmptyTitle,\n} from \"@/components/craftui/components/empty\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport function Particle() {\n\treturn (\n\t\t<EmptyRoot className=\"border border-border bg-muted/30\">\n\t\t\t<EmptyHeader>\n\t\t\t\t<EmptyMedia variant=\"icon\">\n\t\t\t\t\t<Bell />\n\t\t\t\t</EmptyMedia>\n\t\t\t\t<EmptyTitle>No notifications</EmptyTitle>\n\t\t\t\t<EmptyDescription>\n\t\t\t\t\tYou&apos;re all caught up. New notifications will appear\n\t\t\t\t\there.\n\t\t\t\t</EmptyDescription>\n\t\t\t</EmptyHeader>\n\t\t\t<EmptyContent>\n\t\t\t\t<Button variant=\"outline\" size=\"sm\">\n\t\t\t\t\t<RefreshCcw />\n\t\t\t\t\tRefresh\n\t\t\t\t</Button>\n\t\t\t</EmptyContent>\n\t\t</EmptyRoot>\n\t);\n}\n\nexport default Particle;\n",
 			"type": "registry:component",
 			"target": "components/particles/empty-background.tsx"

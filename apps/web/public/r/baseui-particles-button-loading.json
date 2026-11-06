@@ -6,7 +6,7 @@
 	"registryDependencies": ["@craftdotui/baseui-button"],
 	"files": [
 		{
-			"path": "packages/baseui/particles/button/button-loading/index.tsx",
+			"path": "packages/baseui/components/button/particles/button-loading/index.tsx",
 			"content": "import { Button } from \"@/components/baseui/components/button\";\n\nexport default function Particle() {\n\treturn (\n\t\t<Button loading variant=\"outline\">\n\t\t\tSubmitting\n\t\t</Button>\n\t);\n}\n",
 			"type": "registry:component",
 			"target": "components/particles/button-loading.tsx"

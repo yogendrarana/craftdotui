@@ -6,7 +6,7 @@
 	"registryDependencies": ["@craftdotui/craftui-badge"],
 	"files": [
 		{
-			"path": "packages/craftui/particles/badge/status/index.tsx",
+			"path": "packages/craftui/components/badge/particles/status/index.tsx",
 			"content": "import { Badge } from \"@/components/craftui/components/badge\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"flex flex-wrap items-center gap-2\">\n\t\t\t<Badge variant=\"success\">Success</Badge>\n\t\t\t<Badge variant=\"warning\">Warning</Badge>\n\t\t\t<Badge variant=\"info\">Info</Badge>\n\t\t\t<Badge variant=\"destructive\">Destructive</Badge>\n\t\t</div>\n\t);\n}\n\nexport default Particle;\n",
 			"type": "registry:component",
 			"target": "components/particles/badge-status.tsx"

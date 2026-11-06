@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "motion-particles-text-typing",
+	"type": "registry:component",
+	"description": "Basic typing effect demo",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/motion-text-typing"],
+	"files": [
+		{
+			"path": "packages/motion/components/text-typing/particles/index.tsx",
+			"type": "registry:component",
+			"target": "components/motion/particles/text-typing.tsx"
+		}
+	]
+}

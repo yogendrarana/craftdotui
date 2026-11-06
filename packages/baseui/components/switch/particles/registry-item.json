@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "baseui-particles-switch",
+	"type": "registry:component",
+	"description": "",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/baseui-switch"],
+	"files": [
+		{
+			"path": "packages/baseui/components/switch/particles/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/switch.tsx"
+		}
+	]
+}
