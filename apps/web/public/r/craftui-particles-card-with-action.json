@@ -1,0 +1,20 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-card-with-action",
+	"description": "Card with a header action button and metadata.",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/craftui-card",
+		"@craftdotui/craftui-badge",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/card/particles/with-action/index.tsx",
+			"content": "import { ArrowUpRightIcon, GitBranchIcon, StarIcon } from \"lucide-react\";\n\nimport { Button } from \"@/components/baseui/components/button\";\nimport { Badge } from \"@/components/craftui/components/badge\";\nimport {\n\tCardAction,\n\tCardContent,\n\tCardDescription,\n\tCardFooter,\n\tCardHeader,\n\tCardRoot,\n\tCardTitle,\n} from \"@/components/craftui/components/card\";\n\nexport default function Particle() {\n\treturn (\n\t\t<CardRoot className=\"w-full max-w-md\">\n\t\t\t<CardHeader>\n\t\t\t\t<div className=\"flex items-center gap-2\">\n\t\t\t\t\t<CardTitle>craftdotui/registry</CardTitle>\n\t\t\t\t\t<Badge variant=\"secondary\">Public</Badge>\n\t\t\t\t</div>\n\t\t\t\t<CardDescription>\n\t\t\t\t\tComposable UI primitives and motion components built on Base\n\t\t\t\t\tUI and Tailwind CSS.\n\t\t\t\t</CardDescription>\n\t\t\t\t<CardAction>\n\t\t\t\t\t<Button variant=\"outline\" size=\"sm\">\n\t\t\t\t\t\t<StarIcon className=\"size-3.5\" />\n\t\t\t\t\t\tStar\n\t\t\t\t\t</Button>\n\t\t\t\t</CardAction>\n\t\t\t</CardHeader>\n\t\t\t<CardContent>\n\t\t\t\t<div className=\"flex items-center gap-4 text-xs text-muted-foreground\">\n\t\t\t\t\t<span className=\"flex items-center gap-1.5\">\n\t\t\t\t\t\t<span className=\"size-2.5 rounded-full bg-info\" />\n\t\t\t\t\t\tTypeScript\n\t\t\t\t\t</span>\n\t\t\t\t\t<span className=\"flex items-center gap-1\">\n\t\t\t\t\t\t<StarIcon className=\"size-3.5\" />\n\t\t\t\t\t\t2.4k\n\t\t\t\t\t</span>\n\t\t\t\t\t<span className=\"flex items-center gap-1\">\n\t\t\t\t\t\t<GitBranchIcon className=\"size-3.5\" />\n\t\t\t\t\t\t148 forks\n\t\t\t\t\t</span>\n\t\t\t\t</div>\n\t\t\t</CardContent>\n\t\t\t<CardFooter className=\"justify-between text-xs text-muted-foreground\">\n\t\t\t\t<span>Updated 2 hours ago</span>\n\t\t\t\t<a\n\t\t\t\t\thref=\"#repo\"\n\t\t\t\t\tclassName=\"inline-flex items-center gap-1 font-medium text-foreground hover:underline\"\n\t\t\t\t>\n\t\t\t\t\tView repository\n\t\t\t\t\t<ArrowUpRightIcon className=\"size-3.5\" />\n\t\t\t\t</a>\n\t\t\t</CardFooter>\n\t\t</CardRoot>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/card-with-action.tsx"
+		}
+	],
+	"type": "registry:component"
+}

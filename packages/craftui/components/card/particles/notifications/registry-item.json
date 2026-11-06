@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-card-notifications",
+	"type": "registry:component",
+	"description": "Card with divided header and footer for notification settings.",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/craftui-card",
+		"@craftdotui/baseui-button",
+		"@craftdotui/baseui-switch"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/card/particles/notifications/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/card-notifications.tsx"
+		}
+	]
+}

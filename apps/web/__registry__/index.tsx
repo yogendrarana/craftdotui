@@ -1188,6 +1188,264 @@ export const Registry: Record<string, any> = {
 							return LazyComp;
 						})(),
           },
+          "craftui-particles-card-media": {
+            name: "craftui-particles-card-media",
+            description: "Card featuring a top cover image, badge action, and footer.",
+            type: "registry:component",
+            dependencies: ["lucide-react"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-card","@craftdotui/craftui-badge","@craftdotui/baseui-button"],
+            files: [
+  {
+    "path": "packages/craftui/components/card/particles/media/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/card-media.tsx",
+    "content": "import { ArrowRightIcon, ClockIcon } from \"lucide-react\";\n\nimport { Button } from \"@/components/baseui/components/button\";\nimport { Badge } from \"@/components/craftui/components/badge\";\nimport {\n\tCardAction,\n\tCardDescription,\n\tCardFooter,\n\tCardHeader,\n\tCardRoot,\n\tCardTitle,\n} from \"@/components/craftui/components/card\";\n\nexport default function Particle() {\n\treturn (\n\t\t<CardRoot className=\"w-full max-w-sm overflow-hidden pt-0\">\n\t\t\t<div className=\"aspect-16/9 w-full overflow-hidden border-b border-border bg-muted\">\n\t\t\t\t<img\n\t\t\t\t\tsrc=\"https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop&q=80\"\n\t\t\t\t\talt=\"Abstract geometric waves\"\n\t\t\t\t\tclassName=\"h-full w-full object-cover transition-transform duration-300 hover:scale-105\"\n\t\t\t\t/>\n\t\t\t</div>\n\t\t\t<CardHeader>\n\t\t\t\t<CardTitle>Design Systems at Scale</CardTitle>\n\t\t\t\t<CardDescription>\n\t\t\t\t\tHow composable tokens and headless primitives streamline\n\t\t\t\t\tcross-team product engineering.\n\t\t\t\t</CardDescription>\n\t\t\t\t<CardAction>\n\t\t\t\t\t<Badge variant=\"outline\">Architecture</Badge>\n\t\t\t\t</CardAction>\n\t\t\t</CardHeader>\n\t\t\t<CardFooter className=\"justify-between\">\n\t\t\t\t<span className=\"inline-flex items-center gap-1.5 text-xs text-muted-foreground\">\n\t\t\t\t\t<ClockIcon className=\"size-3.5\" />6 min read\n\t\t\t\t</span>\n\t\t\t\t<Button variant=\"ghost\" size=\"sm\">\n\t\t\t\t\tRead article\n\t\t\t\t\t<ArrowRightIcon className=\"size-3.5\" />\n\t\t\t\t</Button>\n\t\t\t</CardFooter>\n\t\t</CardRoot>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-card-media',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/card/particles/media/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-card-notifications": {
+            name: "craftui-particles-card-notifications",
+            description: "Card with divided header and footer for notification settings.",
+            type: "registry:component",
+            dependencies: ["lucide-react"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-card","@craftdotui/baseui-button","@craftdotui/baseui-switch"],
+            files: [
+  {
+    "path": "packages/craftui/components/card/particles/notifications/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/card-notifications.tsx",
+    "content": "import { BellIcon, ShieldAlertIcon, SparklesIcon } from \"lucide-react\";\n\nimport { Button } from \"@/components/baseui/components/button\";\nimport { Switch } from \"@/components/baseui/components/switch\";\nimport {\n\tCardContent,\n\tCardDescription,\n\tCardFooter,\n\tCardHeader,\n\tCardRoot,\n\tCardTitle,\n} from \"@/components/craftui/components/card\";\n\nconst notifications = [\n\t{\n\t\ticon: BellIcon,\n\t\ttitle: \"Push notifications\",\n\t\tdescription: \"Send alerts to your desktop and mobile devices.\",\n\t\tdefaultChecked: true,\n\t},\n\t{\n\t\ticon: ShieldAlertIcon,\n\t\ttitle: \"Security alerts\",\n\t\tdescription: \"Get notified about new sign-ins and API key usage.\",\n\t\tdefaultChecked: true,\n\t},\n\t{\n\t\ticon: SparklesIcon,\n\t\ttitle: \"Product updates\",\n\t\tdescription: \"Receive monthly changelog and new component releases.\",\n\t\tdefaultChecked: false,\n\t},\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<CardRoot className=\"w-full max-w-md\">\n\t\t\t<CardHeader className=\"border-b\">\n\t\t\t\t<CardTitle>Notification Preferences</CardTitle>\n\t\t\t\t<CardDescription>\n\t\t\t\t\tChoose how and when you want to be notified.\n\t\t\t\t</CardDescription>\n\t\t\t</CardHeader>\n\t\t\t<CardContent className=\"flex flex-col gap-4\">\n\t\t\t\t{notifications.map((item) => {\n\t\t\t\t\tconst Icon = item.icon;\n\t\t\t\t\treturn (\n\t\t\t\t\t\t<div\n\t\t\t\t\t\t\tkey={item.title}\n\t\t\t\t\t\t\tclassName=\"flex items-start justify-between gap-4\"\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t<div className=\"flex items-start gap-3\">\n\t\t\t\t\t\t\t\t<div className=\"mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-md border border-border bg-muted/50 text-muted-foreground\">\n\t\t\t\t\t\t\t\t\t<Icon className=\"size-4\" />\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div className=\"space-y-0.5\">\n\t\t\t\t\t\t\t\t\t<p className=\"text-sm font-medium text-foreground\">\n\t\t\t\t\t\t\t\t\t\t{item.title}\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t<p className=\"text-xs text-muted-foreground\">\n\t\t\t\t\t\t\t\t\t\t{item.description}\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<Switch defaultChecked={item.defaultChecked} />\n\t\t\t\t\t\t</div>\n\t\t\t\t\t);\n\t\t\t\t})}\n\t\t\t</CardContent>\n\t\t\t<CardFooter className=\"justify-end gap-2 border-t\">\n\t\t\t\t<Button variant=\"ghost\" size=\"sm\">\n\t\t\t\t\tReset\n\t\t\t\t</Button>\n\t\t\t\t<Button size=\"sm\">Save preferences</Button>\n\t\t\t</CardFooter>\n\t\t</CardRoot>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-card-notifications',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/card/particles/notifications/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-card": {
+            name: "craftui-particles-card",
+            description: "Default card with header action, form fields, and footer buttons.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-card","@craftdotui/baseui-button","@craftdotui/baseui-field"],
+            files: [
+  {
+    "path": "packages/craftui/components/card/particles/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/card.tsx",
+    "content": "import { Button } from \"@/components/baseui/components/button\";\nimport {\n\tFieldControl,\n\tFieldLabel,\n\tFieldRoot,\n} from \"@/components/baseui/components/field\";\nimport {\n\tCardAction,\n\tCardContent,\n\tCardDescription,\n\tCardFooter,\n\tCardHeader,\n\tCardRoot,\n\tCardTitle,\n} from \"@/components/craftui/components/card\";\n\nexport default function Particle() {\n\treturn (\n\t\t<CardRoot className=\"w-full max-w-sm\">\n\t\t\t<CardHeader>\n\t\t\t\t<CardTitle>Sign in to your account</CardTitle>\n\t\t\t\t<CardDescription>\n\t\t\t\t\tEnter your email below to access your workspace\n\t\t\t\t</CardDescription>\n\t\t\t\t<CardAction>\n\t\t\t\t\t<Button variant=\"link\" className=\"h-auto p-0\">\n\t\t\t\t\t\tSign up\n\t\t\t\t\t</Button>\n\t\t\t\t</CardAction>\n\t\t\t</CardHeader>\n\t\t\t<CardContent>\n\t\t\t\t<form className=\"flex flex-col gap-4\">\n\t\t\t\t\t<FieldRoot>\n\t\t\t\t\t\t<FieldLabel>Email</FieldLabel>\n\t\t\t\t\t\t<FieldControl\n\t\t\t\t\t\t\ttype=\"email\"\n\t\t\t\t\t\t\tplaceholder=\"you@craftui.com\"\n\t\t\t\t\t\t/>\n\t\t\t\t\t</FieldRoot>\n\t\t\t\t\t<FieldRoot>\n\t\t\t\t\t\t<div className=\"flex items-center justify-between\">\n\t\t\t\t\t\t\t<FieldLabel>Password</FieldLabel>\n\t\t\t\t\t\t\t<a\n\t\t\t\t\t\t\t\thref=\"#forgot-password\"\n\t\t\t\t\t\t\t\tclassName=\"text-xs text-muted-foreground underline-offset-4 hover:underline\"\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\tForgot password?\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<FieldControl type=\"password\" placeholder=\"••••••••\" />\n\t\t\t\t\t</FieldRoot>\n\t\t\t\t</form>\n\t\t\t</CardContent>\n\t\t\t<CardFooter className=\"flex-col gap-2\">\n\t\t\t\t<Button className=\"w-full\">Sign in</Button>\n\t\t\t\t<Button variant=\"outline\" className=\"w-full\">\n\t\t\t\t\tContinue with GitHub\n\t\t\t\t</Button>\n\t\t\t</CardFooter>\n\t\t</CardRoot>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-card',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/card/particles/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-card-shaded-footer": {
+            name: "craftui-particles-card-shaded-footer",
+            description: "Card featuring a shaded footer with top border and background.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-card","@craftdotui/baseui-button"],
+            files: [
+  {
+    "path": "packages/craftui/components/card/particles/shaded-footer/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/card-shaded-footer.tsx",
+    "content": "import { Button } from \"@/components/baseui/components/button\";\nimport {\n\tCardContent,\n\tCardDescription,\n\tCardFooter,\n\tCardHeader,\n\tCardRoot,\n\tCardTitle,\n} from \"@/components/craftui/components/card\";\n\nexport default function Particle() {\n\treturn (\n\t\t<CardRoot className=\"w-full max-w-md\">\n\t\t\t<CardHeader>\n\t\t\t\t<CardTitle>Project Domain</CardTitle>\n\t\t\t\t<CardDescription>\n\t\t\t\t\tConfigure custom DNS settings and primary production domain.\n\t\t\t\t</CardDescription>\n\t\t\t</CardHeader>\n\t\t\t<CardContent className=\"space-y-2\">\n\t\t\t\t<div className=\"rounded-lg border border-border p-3 text-sm\">\n\t\t\t\t\t<div className=\"font-mono text-xs font-medium text-foreground\">\n\t\t\t\t\t\tcraftui.example.com\n\t\t\t\t\t</div>\n\t\t\t\t\t<div className=\"mt-0.5 text-xs text-muted-foreground\">\n\t\t\t\t\t\tPoints to production deployment (active)\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</CardContent>\n\t\t\t<CardFooter\n\t\t\t\tvariant=\"shaded\"\n\t\t\t\tclassName=\"justify-between text-xs text-muted-foreground\"\n\t\t\t>\n\t\t\t\t<span>Learn more about domains</span>\n\t\t\t\t<Button size=\"sm\">Save changes</Button>\n\t\t\t</CardFooter>\n\t\t</CardRoot>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-card-shaded-footer',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/card/particles/shaded-footer/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-card-with-action": {
+            name: "craftui-particles-card-with-action",
+            description: "Card with a header action button and metadata.",
+            type: "registry:component",
+            dependencies: ["lucide-react"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-card","@craftdotui/craftui-badge","@craftdotui/baseui-button"],
+            files: [
+  {
+    "path": "packages/craftui/components/card/particles/with-action/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/card-with-action.tsx",
+    "content": "import { ArrowUpRightIcon, GitBranchIcon, StarIcon } from \"lucide-react\";\n\nimport { Button } from \"@/components/baseui/components/button\";\nimport { Badge } from \"@/components/craftui/components/badge\";\nimport {\n\tCardAction,\n\tCardContent,\n\tCardDescription,\n\tCardFooter,\n\tCardHeader,\n\tCardRoot,\n\tCardTitle,\n} from \"@/components/craftui/components/card\";\n\nexport default function Particle() {\n\treturn (\n\t\t<CardRoot className=\"w-full max-w-md\">\n\t\t\t<CardHeader>\n\t\t\t\t<div className=\"flex items-center gap-2\">\n\t\t\t\t\t<CardTitle>craftdotui/registry</CardTitle>\n\t\t\t\t\t<Badge variant=\"secondary\">Public</Badge>\n\t\t\t\t</div>\n\t\t\t\t<CardDescription>\n\t\t\t\t\tComposable UI primitives and motion components built on Base\n\t\t\t\t\tUI and Tailwind CSS.\n\t\t\t\t</CardDescription>\n\t\t\t\t<CardAction>\n\t\t\t\t\t<Button variant=\"outline\" size=\"sm\">\n\t\t\t\t\t\t<StarIcon className=\"size-3.5\" />\n\t\t\t\t\t\tStar\n\t\t\t\t\t</Button>\n\t\t\t\t</CardAction>\n\t\t\t</CardHeader>\n\t\t\t<CardContent>\n\t\t\t\t<div className=\"flex items-center gap-4 text-xs text-muted-foreground\">\n\t\t\t\t\t<span className=\"flex items-center gap-1.5\">\n\t\t\t\t\t\t<span className=\"size-2.5 rounded-full bg-info\" />\n\t\t\t\t\t\tTypeScript\n\t\t\t\t\t</span>\n\t\t\t\t\t<span className=\"flex items-center gap-1\">\n\t\t\t\t\t\t<StarIcon className=\"size-3.5\" />\n\t\t\t\t\t\t2.4k\n\t\t\t\t\t</span>\n\t\t\t\t\t<span className=\"flex items-center gap-1\">\n\t\t\t\t\t\t<GitBranchIcon className=\"size-3.5\" />\n\t\t\t\t\t\t148 forks\n\t\t\t\t\t</span>\n\t\t\t\t</div>\n\t\t\t</CardContent>\n\t\t\t<CardFooter className=\"justify-between text-xs text-muted-foreground\">\n\t\t\t\t<span>Updated 2 hours ago</span>\n\t\t\t\t<a\n\t\t\t\t\thref=\"#repo\"\n\t\t\t\t\tclassName=\"inline-flex items-center gap-1 font-medium text-foreground hover:underline\"\n\t\t\t\t>\n\t\t\t\t\tView repository\n\t\t\t\t\t<ArrowUpRightIcon className=\"size-3.5\" />\n\t\t\t\t</a>\n\t\t\t</CardFooter>\n\t\t</CardRoot>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-card-with-action',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/card/particles/with-action/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-card": {
+            name: "craftui-card",
+            description: "Displays a card with header, action, content, and footer.",
+            type: "registry:component",
+            dependencies: ["@base-ui/react","class-variance-authority","cn"],
+            devDependencies: undefined,
+            registryDependencies: [],
+            files: [
+  {
+    "path": "packages/craftui/components/card/index.tsx",
+    "type": "registry:component",
+    "target": "components/ui/card.tsx",
+    "content": "\"use client\";\n\nimport { cn } from \"cn\";\nimport { useRender } from \"@base-ui/react/use-render\";\nimport { mergeProps } from \"@base-ui/react/merge-props\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\n\n/* -------------------------------------------------------------------------- */\n/* Card Root                                                                  */\n/* -------------------------------------------------------------------------- */\n\nexport interface CardRootProps extends useRender.ComponentProps<\"div\"> {}\n\nfunction CardRoot({ className, render, ...props }: CardRootProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"card\",\n\t\tclassName: cn(\n\t\t\t\"bg-card text-card-foreground flex flex-col gap-6 rounded-xl border border-border py-6 shadow-xs\",\n\t\t\t\"has-[[data-slot=card-footer][data-variant=shaded]]:pb-0\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Card Header                                                                */\n/* -------------------------------------------------------------------------- */\n\nexport interface CardHeaderProps extends useRender.ComponentProps<\"div\"> {}\n\nfunction CardHeader({ className, render, ...props }: CardHeaderProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"card-header\",\n\t\tclassName: cn(\n\t\t\t\"@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Card Title                                                                 */\n/* -------------------------------------------------------------------------- */\n\nexport interface CardTitleProps extends useRender.ComponentProps<\"div\"> {}\n\nfunction CardTitle({ className, render, ...props }: CardTitleProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"card-title\",\n\t\tclassName: cn(\"leading-none font-semibold text-foreground\", className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Card Description                                                           */\n/* -------------------------------------------------------------------------- */\n\nexport interface CardDescriptionProps extends useRender.ComponentProps<\"div\"> {}\n\nfunction CardDescription({\n\tclassName,\n\trender,\n\t...props\n}: CardDescriptionProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"card-description\",\n\t\tclassName: cn(\"text-sm text-muted-foreground\", className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Card Action                                                                */\n/* -------------------------------------------------------------------------- */\n\nexport interface CardActionProps extends useRender.ComponentProps<\"div\"> {}\n\nfunction CardAction({ className, render, ...props }: CardActionProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"card-action\",\n\t\tclassName: cn(\n\t\t\t\"col-start-2 row-span-2 row-start-1 self-start justify-self-end\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Card Content                                                               */\n/* -------------------------------------------------------------------------- */\n\nexport interface CardContentProps extends useRender.ComponentProps<\"div\"> {}\n\nfunction CardContent({ className, render, ...props }: CardContentProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"card-content\",\n\t\tclassName: cn(\"px-6\", className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Card Footer Variants                                                       */\n/* -------------------------------------------------------------------------- */\n\nconst cardFooterVariants = cva(\"flex items-center px-6 shrink-0\", {\n\tvariants: {\n\t\tvariant: {\n\t\t\tdefault: \"[.border-t]:pt-6\",\n\t\t\tshaded: \"border-t border-border bg-muted/50 py-3 rounded-b-[calc(var(--radius-xl)-1px)]\",\n\t\t},\n\t},\n\tdefaultVariants: {\n\t\tvariant: \"default\",\n\t},\n});\n\nexport type CardFooterVariants = VariantProps<typeof cardFooterVariants>;\n\nexport interface CardFooterProps\n\textends useRender.ComponentProps<\"div\">,\n\t\tCardFooterVariants {}\n\nfunction CardFooter({\n\tclassName,\n\tvariant = \"default\",\n\trender,\n\t...props\n}: CardFooterProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"card-footer\",\n\t\t\"data-variant\": variant,\n\t\tclassName: cn(cardFooterVariants({ variant }), className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const Card = Object.assign(CardRoot, {\n\tRoot: CardRoot,\n\tHeader: CardHeader,\n\tTitle: CardTitle,\n\tDescription: CardDescription,\n\tAction: CardAction,\n\tContent: CardContent,\n\tFooter: CardFooter,\n});\n\nexport {\n\tCardRoot,\n\tCardHeader,\n\tCardTitle,\n\tCardDescription,\n\tCardAction,\n\tCardContent,\n\tCardFooter,\n\tcardFooterVariants,\n};"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-card',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/card/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
           "craftui-particles-empty-avatar": {
             name: "craftui-particles-empty-avatar",
             description: "Empty state featuring a user avatar.",

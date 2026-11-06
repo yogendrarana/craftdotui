@@ -1,0 +1,20 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-card-notifications",
+	"description": "Card with divided header and footer for notification settings.",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/craftui-card",
+		"@craftdotui/baseui-button",
+		"@craftdotui/baseui-switch"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/card/particles/notifications/index.tsx",
+			"content": "import { BellIcon, ShieldAlertIcon, SparklesIcon } from \"lucide-react\";\n\nimport { Button } from \"@/components/baseui/components/button\";\nimport { Switch } from \"@/components/baseui/components/switch\";\nimport {\n\tCardContent,\n\tCardDescription,\n\tCardFooter,\n\tCardHeader,\n\tCardRoot,\n\tCardTitle,\n} from \"@/components/craftui/components/card\";\n\nconst notifications = [\n\t{\n\t\ticon: BellIcon,\n\t\ttitle: \"Push notifications\",\n\t\tdescription: \"Send alerts to your desktop and mobile devices.\",\n\t\tdefaultChecked: true,\n\t},\n\t{\n\t\ticon: ShieldAlertIcon,\n\t\ttitle: \"Security alerts\",\n\t\tdescription: \"Get notified about new sign-ins and API key usage.\",\n\t\tdefaultChecked: true,\n\t},\n\t{\n\t\ticon: SparklesIcon,\n\t\ttitle: \"Product updates\",\n\t\tdescription: \"Receive monthly changelog and new component releases.\",\n\t\tdefaultChecked: false,\n\t},\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<CardRoot className=\"w-full max-w-md\">\n\t\t\t<CardHeader className=\"border-b\">\n\t\t\t\t<CardTitle>Notification Preferences</CardTitle>\n\t\t\t\t<CardDescription>\n\t\t\t\t\tChoose how and when you want to be notified.\n\t\t\t\t</CardDescription>\n\t\t\t</CardHeader>\n\t\t\t<CardContent className=\"flex flex-col gap-4\">\n\t\t\t\t{notifications.map((item) => {\n\t\t\t\t\tconst Icon = item.icon;\n\t\t\t\t\treturn (\n\t\t\t\t\t\t<div\n\t\t\t\t\t\t\tkey={item.title}\n\t\t\t\t\t\t\tclassName=\"flex items-start justify-between gap-4\"\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t<div className=\"flex items-start gap-3\">\n\t\t\t\t\t\t\t\t<div className=\"mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-md border border-border bg-muted/50 text-muted-foreground\">\n\t\t\t\t\t\t\t\t\t<Icon className=\"size-4\" />\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div className=\"space-y-0.5\">\n\t\t\t\t\t\t\t\t\t<p className=\"text-sm font-medium text-foreground\">\n\t\t\t\t\t\t\t\t\t\t{item.title}\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t<p className=\"text-xs text-muted-foreground\">\n\t\t\t\t\t\t\t\t\t\t{item.description}\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<Switch defaultChecked={item.defaultChecked} />\n\t\t\t\t\t\t</div>\n\t\t\t\t\t);\n\t\t\t\t})}\n\t\t\t</CardContent>\n\t\t\t<CardFooter className=\"justify-end gap-2 border-t\">\n\t\t\t\t<Button variant=\"ghost\" size=\"sm\">\n\t\t\t\t\tReset\n\t\t\t\t</Button>\n\t\t\t\t<Button size=\"sm\">Save preferences</Button>\n\t\t\t</CardFooter>\n\t\t</CardRoot>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/card-notifications.tsx"
+		}
+	],
+	"type": "registry:component"
+}

@@ -1,0 +1,20 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-card",
+	"description": "Default card with header action, form fields, and footer buttons.",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/craftui-card",
+		"@craftdotui/baseui-button",
+		"@craftdotui/baseui-field"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/card/particles/index.tsx",
+			"content": "import { Button } from \"@/components/baseui/components/button\";\nimport {\n\tFieldControl,\n\tFieldLabel,\n\tFieldRoot,\n} from \"@/components/baseui/components/field\";\nimport {\n\tCardAction,\n\tCardContent,\n\tCardDescription,\n\tCardFooter,\n\tCardHeader,\n\tCardRoot,\n\tCardTitle,\n} from \"@/components/craftui/components/card\";\n\nexport default function Particle() {\n\treturn (\n\t\t<CardRoot className=\"w-full max-w-sm\">\n\t\t\t<CardHeader>\n\t\t\t\t<CardTitle>Sign in to your account</CardTitle>\n\t\t\t\t<CardDescription>\n\t\t\t\t\tEnter your email below to access your workspace\n\t\t\t\t</CardDescription>\n\t\t\t\t<CardAction>\n\t\t\t\t\t<Button variant=\"link\" className=\"h-auto p-0\">\n\t\t\t\t\t\tSign up\n\t\t\t\t\t</Button>\n\t\t\t\t</CardAction>\n\t\t\t</CardHeader>\n\t\t\t<CardContent>\n\t\t\t\t<form className=\"flex flex-col gap-4\">\n\t\t\t\t\t<FieldRoot>\n\t\t\t\t\t\t<FieldLabel>Email</FieldLabel>\n\t\t\t\t\t\t<FieldControl\n\t\t\t\t\t\t\ttype=\"email\"\n\t\t\t\t\t\t\tplaceholder=\"you@craftui.com\"\n\t\t\t\t\t\t/>\n\t\t\t\t\t</FieldRoot>\n\t\t\t\t\t<FieldRoot>\n\t\t\t\t\t\t<div className=\"flex items-center justify-between\">\n\t\t\t\t\t\t\t<FieldLabel>Password</FieldLabel>\n\t\t\t\t\t\t\t<a\n\t\t\t\t\t\t\t\thref=\"#forgot-password\"\n\t\t\t\t\t\t\t\tclassName=\"text-xs text-muted-foreground underline-offset-4 hover:underline\"\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\tForgot password?\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<FieldControl type=\"password\" placeholder=\"••••••••\" />\n\t\t\t\t\t</FieldRoot>\n\t\t\t\t</form>\n\t\t\t</CardContent>\n\t\t\t<CardFooter className=\"flex-col gap-2\">\n\t\t\t\t<Button className=\"w-full\">Sign in</Button>\n\t\t\t\t<Button variant=\"outline\" className=\"w-full\">\n\t\t\t\t\tContinue with GitHub\n\t\t\t\t</Button>\n\t\t\t</CardFooter>\n\t\t</CardRoot>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/card.tsx"
+		}
+	],
+	"type": "registry:component"
+}

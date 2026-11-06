@@ -1,0 +1,203 @@
+---
+title: Card
+description: Displays a card with header, action, content, and footer.
+slug: /craftui/components/card
+published: true
+date: 2026-11-06T00:00:00.000Z
+author:
+  name: Yogendra Rana
+  twitter: "https://twitter.com/yooogendra_rana"
+---
+
+<ComponentCodePreview name="craftui-particles-card" />
+
+## Installation
+
+<Installation name="craftui-card" />
+
+## Anatomy
+
+#### Usage
+
+```tsx
+<CardRoot>
+  <CardHeader>
+    <CardTitle />
+    <CardDescription />
+    <CardAction />
+  </CardHeader>
+  <CardContent />
+  <CardFooter />
+</CardRoot>
+```
+
+```tsx
+<Card.Root>
+  <Card.Header>
+    <Card.Title />
+    <Card.Description />
+    <Card.Action />
+  </Card.Header>
+  <Card.Content />
+  <Card.Footer />
+</Card.Root>
+```
+
+## Demo
+
+#### With Action
+
+<ComponentCodePreview name="craftui-particles-card-with-action" />
+
+#### Media
+
+<ComponentCodePreview name="craftui-particles-card-media" />
+
+#### Notifications
+
+<ComponentCodePreview name="craftui-particles-card-notifications" />
+
+#### Shaded Footer
+
+<ComponentCodePreview name="craftui-particles-card-shaded-footer" />
+
+## Props
+
+#### CardRoot
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default div element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the card container.",
+    },
+  ]}
+/>
+
+#### CardHeader
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default div element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the card header.",
+    },
+  ]}
+/>
+
+#### CardTitle
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default div element (e.g. render={<h3 />}).",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the card title.",
+    },
+  ]}
+/>
+
+#### CardDescription
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default div element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the card description.",
+    },
+  ]}
+/>
+
+#### CardAction
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default div element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the card header action slot.",
+    },
+  ]}
+/>
+
+#### CardContent
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default div element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the card content area.",
+    },
+  ]}
+/>
+
+#### CardFooter
+
+<PropsTable
+  data={[
+    {
+      prop: "variant",
+      type: '"default" | "shaded"',
+      default: '"default"',
+      description: "Controls the footer styling. 'default' is the standard unstyled footer, while 'shaded' adds a top border and muted background.",
+    },
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default div element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the card footer.",
+    },
+  ]}
+/>

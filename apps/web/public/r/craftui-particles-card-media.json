@@ -1,0 +1,20 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-card-media",
+	"description": "Card featuring a top cover image, badge action, and footer.",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/craftui-card",
+		"@craftdotui/craftui-badge",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/card/particles/media/index.tsx",
+			"content": "import { ArrowRightIcon, ClockIcon } from \"lucide-react\";\n\nimport { Button } from \"@/components/baseui/components/button\";\nimport { Badge } from \"@/components/craftui/components/badge\";\nimport {\n\tCardAction,\n\tCardDescription,\n\tCardFooter,\n\tCardHeader,\n\tCardRoot,\n\tCardTitle,\n} from \"@/components/craftui/components/card\";\n\nexport default function Particle() {\n\treturn (\n\t\t<CardRoot className=\"w-full max-w-sm overflow-hidden pt-0\">\n\t\t\t<div className=\"aspect-16/9 w-full overflow-hidden border-b border-border bg-muted\">\n\t\t\t\t<img\n\t\t\t\t\tsrc=\"https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop&q=80\"\n\t\t\t\t\talt=\"Abstract geometric waves\"\n\t\t\t\t\tclassName=\"h-full w-full object-cover transition-transform duration-300 hover:scale-105\"\n\t\t\t\t/>\n\t\t\t</div>\n\t\t\t<CardHeader>\n\t\t\t\t<CardTitle>Design Systems at Scale</CardTitle>\n\t\t\t\t<CardDescription>\n\t\t\t\t\tHow composable tokens and headless primitives streamline\n\t\t\t\t\tcross-team product engineering.\n\t\t\t\t</CardDescription>\n\t\t\t\t<CardAction>\n\t\t\t\t\t<Badge variant=\"outline\">Architecture</Badge>\n\t\t\t\t</CardAction>\n\t\t\t</CardHeader>\n\t\t\t<CardFooter className=\"justify-between\">\n\t\t\t\t<span className=\"inline-flex items-center gap-1.5 text-xs text-muted-foreground\">\n\t\t\t\t\t<ClockIcon className=\"size-3.5\" />6 min read\n\t\t\t\t</span>\n\t\t\t\t<Button variant=\"ghost\" size=\"sm\">\n\t\t\t\t\tRead article\n\t\t\t\t\t<ArrowRightIcon className=\"size-3.5\" />\n\t\t\t\t</Button>\n\t\t\t</CardFooter>\n\t\t</CardRoot>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/card-media.tsx"
+		}
+	],
+	"type": "registry:component"
+}

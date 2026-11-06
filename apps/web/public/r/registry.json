@@ -417,6 +417,113 @@
 			]
 		},
 		{
+			"name": "craftui-particles-card-media",
+			"type": "registry:component",
+			"description": "Card featuring a top cover image, badge action, and footer.",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": [
+				"@craftdotui/craftui-card",
+				"@craftdotui/craftui-badge",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/card/particles/media/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/card-media.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-card-notifications",
+			"type": "registry:component",
+			"description": "Card with divided header and footer for notification settings.",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": [
+				"@craftdotui/craftui-card",
+				"@craftdotui/baseui-button",
+				"@craftdotui/baseui-switch"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/card/particles/notifications/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/card-notifications.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-card",
+			"type": "registry:component",
+			"description": "Default card with header action, form fields, and footer buttons.",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/craftui-card",
+				"@craftdotui/baseui-button",
+				"@craftdotui/baseui-field"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/card/particles/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/card.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-card-shaded-footer",
+			"type": "registry:component",
+			"description": "Card featuring a shaded footer with top border and background.",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/craftui-card",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/card/particles/shaded-footer/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/card-shaded-footer.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-card-with-action",
+			"type": "registry:component",
+			"description": "Card with a header action button and metadata.",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": [
+				"@craftdotui/craftui-card",
+				"@craftdotui/craftui-badge",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/card/particles/with-action/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/card-with-action.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-card",
+			"type": "registry:component",
+			"description": "Displays a card with header, action, content, and footer.",
+			"dependencies": [
+				"@base-ui/react",
+				"class-variance-authority",
+				"cn"
+			],
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "packages/craftui/components/card/index.tsx",
+					"type": "registry:component",
+					"target": "components/ui/card.tsx"
+				}
+			]
+		},
+		{
 			"name": "craftui-particles-empty-avatar",
 			"type": "registry:component",
 			"description": "Empty state featuring a user avatar.",

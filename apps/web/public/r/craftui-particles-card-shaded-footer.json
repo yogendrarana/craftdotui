@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-card-shaded-footer",
+	"description": "Card featuring a shaded footer with top border and background.",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/craftui-card",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/card/particles/shaded-footer/index.tsx",
+			"content": "import { Button } from \"@/components/baseui/components/button\";\nimport {\n\tCardContent,\n\tCardDescription,\n\tCardFooter,\n\tCardHeader,\n\tCardRoot,\n\tCardTitle,\n} from \"@/components/craftui/components/card\";\n\nexport default function Particle() {\n\treturn (\n\t\t<CardRoot className=\"w-full max-w-md\">\n\t\t\t<CardHeader>\n\t\t\t\t<CardTitle>Project Domain</CardTitle>\n\t\t\t\t<CardDescription>\n\t\t\t\t\tConfigure custom DNS settings and primary production domain.\n\t\t\t\t</CardDescription>\n\t\t\t</CardHeader>\n\t\t\t<CardContent className=\"space-y-2\">\n\t\t\t\t<div className=\"rounded-lg border border-border p-3 text-sm\">\n\t\t\t\t\t<div className=\"font-mono text-xs font-medium text-foreground\">\n\t\t\t\t\t\tcraftui.example.com\n\t\t\t\t\t</div>\n\t\t\t\t\t<div className=\"mt-0.5 text-xs text-muted-foreground\">\n\t\t\t\t\t\tPoints to production deployment (active)\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</CardContent>\n\t\t\t<CardFooter\n\t\t\t\tvariant=\"shaded\"\n\t\t\t\tclassName=\"justify-between text-xs text-muted-foreground\"\n\t\t\t>\n\t\t\t\t<span>Learn more about domains</span>\n\t\t\t\t<Button size=\"sm\">Save changes</Button>\n\t\t\t</CardFooter>\n\t\t</CardRoot>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/card-shaded-footer.tsx"
+		}
+	],
+	"type": "registry:component"
+}

@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-card-with-action",
+	"type": "registry:component",
+	"description": "Card with a header action button and metadata.",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/craftui-card",
+		"@craftdotui/craftui-badge",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/card/particles/with-action/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/card-with-action.tsx"
+		}
+	]
+}
