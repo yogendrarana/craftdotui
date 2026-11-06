@@ -1,14 +1,17 @@
 {
 	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
 	"name": "craftui-particles-stepper",
-	"type": "registry:block",
-	"description": "Basic stepper demo",
+	"type": "registry:component",
+	"description": "Default horizontal stepper demo.",
 	"dependencies": [],
-	"registryDependencies": ["@craftdotui/craftui-stepper"],
+	"registryDependencies": [
+		"@craftdotui/craftui-stepper",
+		"@craftdotui/baseui-button"
+	],
 	"files": [
 		{
 			"path": "packages/craftui/particles/stepper/index.tsx",
-			"type": "registry:block",
+			"type": "registry:component",
 			"target": "components/particles/stepper.tsx"
 		}
 	]

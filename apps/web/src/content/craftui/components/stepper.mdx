@@ -1,9 +1,9 @@
 ---
 title: Stepper
-description: A dock component that displays a list of items.
+description: Displays progress through a sequence of numbered or custom steps for multi-step forms, wizards, and onboarding flows.
 slug: /craftui/components/stepper
 published: true
-date: 2024-11-30T00:00:00.000Z
+date: 2026-11-06T00:00:00.000Z
 author:
   name: Yogendra Rana
   twitter: "https://twitter.com/yooogendra_rana"
@@ -15,57 +15,278 @@ author:
 
 <Installation name="craftui-stepper" />
 
+## Anatomy
+
+#### Usage
+
+```tsx
+<StepperRoot defaultValue={1}>
+  <StepperList>
+    <StepperItem step={1}>
+      <StepperTrigger>
+        <StepperIndicator />
+        <StepperTitle />
+        <StepperDescription />
+      </StepperTrigger>
+      <StepperSeparator />
+    </StepperItem>
+  </StepperList>
+  <StepperContent step={1} />
+  <StepperPrev />
+  <StepperNext />
+</StepperRoot>
+```
+
+```tsx
+<Stepper.Root defaultValue={1}>
+  <Stepper.List>
+    <Stepper.Item step={1}>
+      <Stepper.Trigger>
+        <Stepper.Indicator />
+        <Stepper.Title />
+        <Stepper.Description />
+      </Stepper.Trigger>
+      <Stepper.Separator />
+    </Stepper.Item>
+  </Stepper.List>
+  <Stepper.Content step={1} />
+  <Stepper.Prev />
+  <Stepper.Next />
+</Stepper.Root>
+```
+
 ## Demo
 
-#### Stepper with progress indicator
+#### Vertical
 
-<ComponentCodePreview name="craftui-particles-stepper-with-progress-indicator" />
+<ComponentCodePreview name="craftui-particles-stepper-vertical" />
 
-#### Controlled stepper with numbers indicator
+#### Collapsible
 
-<ComponentCodePreview name="craftui-particles-stepper-with-number-indicators" />
+<ComponentCodePreview name="craftui-particles-stepper-collapsible" />
 
-#### Controlled stepper with fraction indicator
+#### Form
 
-<ComponentCodePreview name="craftui-particles-stepper-with-fraction-indicator" />
+<ComponentCodePreview name="craftui-particles-stepper-form" />
 
-#### Controlled stepper with text indicator
+#### Accordion Form
 
-<ComponentCodePreview name="craftui-particles-stepper-with-text-indicator" />
+<ComponentCodePreview name="craftui-particles-stepper-accordion-form" />
+
+#### With Icons
+
+<ComponentCodePreview name="craftui-particles-stepper-with-icons" />
 
 ## Props
 
-#### Stepper
+#### StepperRoot
+
+<PropsTable
+  data={[
+    {
+      prop: "value",
+      type: "number",
+      default: "undefined",
+      description: "The controlled active step value (1-based).",
+    },
+    {
+      prop: "defaultValue",
+      type: "number",
+      default: "1",
+      description: "The initial active step value when uncontrolled.",
+    },
+    {
+      prop: "onValueChange",
+      type: "(value: number) => void",
+      default: "undefined",
+      description: "Callback fired when the active step changes.",
+    },
+    {
+      prop: "orientation",
+      type: '"horizontal" | "vertical"',
+      default: '"horizontal"',
+      description: "The layout orientation of the stepper.",
+    },
+    {
+      prop: "disabled",
+      type: "boolean",
+      default: "false",
+      description: "When true, prevents interaction with all steps and navigation triggers.",
+    },
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default div element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the stepper root.",
+    },
+  ]}
+/>
+
+#### StepperList
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default div element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the step list container.",
+    },
+  ]}
+/>
+
+#### StepperItem
+
+<PropsTable
+  data={[
+    {
+      prop: "step",
+      type: "number",
+      default: "required",
+      description: "The 1-based step number for this item.",
+    },
+    {
+      prop: "completed",
+      type: "boolean",
+      default: "undefined",
+      description: "Explicitly overrides the completed state of the step.",
+    },
+    {
+      prop: "disabled",
+      type: "boolean",
+      default: "false",
+      description: "When true, prevents selecting this step.",
+    },
+    {
+      prop: "loading",
+      type: "boolean",
+      default: "false",
+      description: "When true, displays a loading spinner inside StepperIndicator.",
+    },
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default div element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the step item.",
+    },
+  ]}
+/>
+
+#### StepperTrigger
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default button element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the step trigger.",
+    },
+  ]}
+/>
+
+#### StepperIndicator
 
 <PropsTable
   data={[
     {
       prop: "children",
       type: "ReactNode",
-      required: true,
-      description: "The content to be rendered inside Stepper component",
+      default: "undefined",
+      description: "Optional custom icon or content. Defaults to the step number or a checkmark when completed.",
     },
     {
-      prop: "totalSteps",
-      type: "number",
-      required: true,
-      description: "The total number of steps in the Stepper. Determines the range of valid steps.",
-    },
-    {
-      prop: "activeStep",
-      type: "number",
-      description: "The current active step (0-based index). Use this prop to control the Stepper externally.",
-    },
-    {
-      prop: "onStepChange",
-      type: "(step: number) => void",
-      description: "A callback function invoked whenever the active step changes. Use it for controlled behaviour.",
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default span element with a custom element.",
     },
     {
       prop: "className",
       type: "string",
-      default: '""',
-      description: "Additional class names to style the Stepper component",
+      default: "undefined",
+      description: "Additional CSS classes to style the indicator badge.",
+    },
+  ]}
+/>
+
+#### StepperSeparator
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default div element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the connector line.",
+    },
+  ]}
+/>
+
+#### StepperTitle
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default div element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the step title.",
+    },
+  ]}
+/>
+
+#### StepperDescription
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default p element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the step description.",
     },
   ]}
 />
@@ -75,147 +296,66 @@ author:
 <PropsTable
   data={[
     {
-      prop: "children",
-      type: "ReactNode",
-      required: true,
-      description: "The content to be rendered inside the Stepper component, typically steps or custom elements.",
-    },
-    {
-      prop: "className",
-      type: "string",
-      default: '""',
-      description: "Additional class names to style the StepperContent",
-    },
-  ]}
-/>
-
-#### Step
-
-<PropsTable
-  data={[
-    {
       prop: "step",
       type: "number",
-      required: true,
-      description: "The step number representing the position of this step in the Stepper.",
+      default: "undefined",
+      description: "The step number this content belongs to. Automatically inferred when nested inside StepperItem.",
     },
     {
-      prop: "children",
-      type: "ReactNode",
-      required: true,
-      description: "The content to be displayed inside the Step component",
+      prop: "forceMount",
+      type: "boolean",
+      default: "false",
+      description: "When true, keeps the content mounted in the DOM when inactive.",
+    },
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default div element with a custom element.",
     },
     {
       prop: "className",
       type: "string",
-      default: '""',
-      description: "Additional class names to style the Step component",
+      default: "undefined",
+      description: "Additional CSS classes to style the step content panel.",
     },
   ]}
 />
 
-#### StepTitle
+#### StepperPrev
 
 <PropsTable
   data={[
     {
-      prop: "children",
-      type: "ReactNode",
-      required: true,
-      description: "The content to be displayed inside the StepTitle component",
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default button element (e.g. render={<Button variant='outline' />}).",
     },
     {
       prop: "className",
       type: "string",
-      default: '""',
-      description: "Additional class names to style the StepTitle component",
+      default: "undefined",
+      description: "Additional CSS classes to style the previous step trigger.",
     },
   ]}
 />
 
-#### StepDescription
+#### StepperNext
 
 <PropsTable
   data={[
     {
-      prop: "children",
-      type: "ReactNode",
-      required: true,
-      description: "The content to be displayed inside the StepDescription component",
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default button element (e.g. render={<Button />}).",
     },
     {
       prop: "className",
       type: "string",
-      default: '""',
-      description: "Additional class names to style the StepDescription component",
-    },
-  ]}
-/>
-
-#### PrevStep
-
-<PropsTable
-  data={[
-    {
-      prop: "className",
-      type: "string",
-      default: '""',
-      description: "Additional class names to style the PrevStep",
-    },
-  ]}
-/>
-
-#### NextStep
-
-<PropsTable
-  data={[
-    {
-      prop: "onFinish",
-      type: "() => void",
-      description: "Callback function triggered when the final step is completed. Use it to handle finishing logic.",
-    },
-    {
-      prop: "className",
-      type: "string",
-      default: '""',
-      description: "Additional class names to style the NextStep button",
-    },
-  ]}
-/>
-
-#### StepIndicator
-
-<PropsTable
-  data={[
-    {
-      prop: "variant",
-      type: "string",
-      default: '"dots"',
-      description: "Determines the style of the step indicator (allowed variants are dots, fraction, progress, numbers, text).",
-    },
-    {
-      prop: "className",
-      type: "string",
-      default: '""',
-      description: "Additional CSS classes to style the StepIndicator component.",
-    },
-  ]}
-/>
-
-#### StepperNavigation
-
-<PropsTable
-  data={[
-    {
-      prop: "onFinish",
-      type: "() => void",
-      description: "Callback function triggered when the final step is completed. Use it to handle finishing logic.",
-    },
-    {
-      prop: "className",
-      type: "string",
-      default: '""',
-      description: "Additional class names to style the StepperNavigation button",
+      default: "undefined",
+      description: "Additional CSS classes to style the next step trigger.",
     },
   ]}
 />

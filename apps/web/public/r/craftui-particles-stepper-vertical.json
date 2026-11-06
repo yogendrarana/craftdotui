@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-stepper-vertical",
+	"description": "Vertical orientation stepper demo.",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/craftui-stepper",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/particles/stepper/vertical/index.tsx",
+			"content": "import { Button } from \"@/components/baseui/components/button\";\nimport {\n\tStepperDescription,\n\tStepperIndicator,\n\tStepperItem,\n\tStepperList,\n\tStepperNext,\n\tStepperPrev,\n\tStepperRoot,\n\tStepperSeparator,\n\tStepperTitle,\n\tStepperTrigger,\n} from \"@/components/craftui/components/stepper\";\n\nconst steps = [\n\t{\n\t\tstep: 1,\n\t\ttitle: \"Connect repository\",\n\t\tdescription: \"Link your GitHub or GitLab repository to import code.\",\n\t},\n\t{\n\t\tstep: 2,\n\t\ttitle: \"Configure build settings\",\n\t\tdescription:\n\t\t\t\"Set root directory, build command, and environment variables.\",\n\t},\n\t{\n\t\tstep: 3,\n\t\ttitle: \"Deploy to production\",\n\t\tdescription: \"Trigger your first build and assign a custom domain.\",\n\t},\n];\n\nexport function Particle() {\n\treturn (\n\t\t<StepperRoot\n\t\t\tdefaultValue={2}\n\t\t\torientation=\"vertical\"\n\t\t\tclassName=\"mx-auto w-full max-w-sm\"\n\t\t>\n\t\t\t<StepperList>\n\t\t\t\t{steps.map(({ step, title, description }, index) => (\n\t\t\t\t\t<StepperItem key={step} step={step}>\n\t\t\t\t\t\t<StepperTrigger className=\"items-start\">\n\t\t\t\t\t\t\t<StepperIndicator />\n\t\t\t\t\t\t\t<div className=\"flex flex-col gap-1\">\n\t\t\t\t\t\t\t\t<StepperTitle>{title}</StepperTitle>\n\t\t\t\t\t\t\t\t<StepperDescription>\n\t\t\t\t\t\t\t\t\t{description}\n\t\t\t\t\t\t\t\t</StepperDescription>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</StepperTrigger>\n\t\t\t\t\t\t{index < steps.length - 1 && <StepperSeparator />}\n\t\t\t\t\t</StepperItem>\n\t\t\t\t))}\n\t\t\t</StepperList>\n\n\t\t\t<div className=\"flex items-center gap-2\">\n\t\t\t\t<StepperPrev render={<Button variant=\"outline\" size=\"sm\" />}>\n\t\t\t\t\tPrevious\n\t\t\t\t</StepperPrev>\n\t\t\t\t<StepperNext render={<Button size=\"sm\" />}>Next</StepperNext>\n\t\t\t</div>\n\t\t</StepperRoot>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/particles/stepper-vertical.tsx"
+		}
+	],
+	"type": "registry:component"
+}

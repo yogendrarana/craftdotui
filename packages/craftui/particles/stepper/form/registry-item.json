@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-stepper-form",
+	"type": "registry:component",
+	"description": "Multi-step form stepper with Field and Button components.",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/craftui-stepper",
+		"@craftdotui/baseui-button",
+		"@craftdotui/baseui-field"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/particles/stepper/form/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/stepper-form.tsx"
+		}
+	]
+}

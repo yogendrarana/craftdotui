@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-stepper-with-icons",
+	"description": "Stepper with custom icons inside StepperIndicator.",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/craftui-stepper",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/particles/stepper/with-icons/index.tsx",
+			"content": "import { CreditCard, PackageCheck, ShieldCheck, User } from \"lucide-react\";\nimport { Button } from \"@/components/baseui/components/button\";\nimport {\n\tStepperIndicator,\n\tStepperItem,\n\tStepperList,\n\tStepperNext,\n\tStepperPrev,\n\tStepperRoot,\n\tStepperSeparator,\n\tStepperTitle,\n\tStepperTrigger,\n} from \"@/components/craftui/components/stepper\";\n\nconst steps = [\n\t{ step: 1, title: \"Identity\", icon: User },\n\t{ step: 2, title: \"Billing\", icon: CreditCard },\n\t{ step: 3, title: \"Security\", icon: ShieldCheck },\n\t{ step: 4, title: \"Ready\", icon: PackageCheck },\n];\n\nexport function Particle() {\n\treturn (\n\t\t<StepperRoot defaultValue={2} className=\"mx-auto w-full max-w-xl\">\n\t\t\t<StepperList>\n\t\t\t\t{steps.map(({ step, title, icon: Icon }, index) => (\n\t\t\t\t\t<StepperItem key={step} step={step}>\n\t\t\t\t\t\t<StepperTrigger className=\"flex-col gap-1.5 text-center\">\n\t\t\t\t\t\t\t<StepperIndicator className=\"size-8\">\n\t\t\t\t\t\t\t\t<Icon />\n\t\t\t\t\t\t\t</StepperIndicator>\n\t\t\t\t\t\t\t<StepperTitle className=\"text-xs\">\n\t\t\t\t\t\t\t\t{title}\n\t\t\t\t\t\t\t</StepperTitle>\n\t\t\t\t\t\t</StepperTrigger>\n\t\t\t\t\t\t{index < steps.length - 1 && (\n\t\t\t\t\t\t\t<StepperSeparator className=\"-mt-4\" />\n\t\t\t\t\t\t)}\n\t\t\t\t\t</StepperItem>\n\t\t\t\t))}\n\t\t\t</StepperList>\n\n\t\t\t<div className=\"flex items-center justify-center gap-2\">\n\t\t\t\t<StepperPrev render={<Button variant=\"outline\" size=\"sm\" />}>\n\t\t\t\t\tPrevious\n\t\t\t\t</StepperPrev>\n\t\t\t\t<StepperNext render={<Button size=\"sm\" />}>Next</StepperNext>\n\t\t\t</div>\n\t\t</StepperRoot>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/particles/stepper-with-icons.tsx"
+		}
+	],
+	"type": "registry:component"
+}

@@ -1,0 +1,18 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-stepper-vertical",
+	"type": "registry:component",
+	"description": "Vertical orientation stepper demo.",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/craftui-stepper",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/particles/stepper/vertical/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/stepper-vertical.tsx"
+		}
+	]
+}

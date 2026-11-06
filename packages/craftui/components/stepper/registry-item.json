@@ -2,8 +2,8 @@
 	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
 	"name": "craftui-stepper",
 	"type": "registry:component",
-	"description": "A stepper/wizard component",
-	"dependencies": ["motion", "lucide-react", "cn"],
+	"description": "A modular, composable stepper component for multi-step flows, forms, and onboarding.",
+	"dependencies": ["@base-ui/react", "lucide-react", "cn"],
 	"registryDependencies": [],
 	"files": [
 		{

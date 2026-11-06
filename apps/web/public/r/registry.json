@@ -106,8 +106,8 @@
 		{
 			"name": "craftui-stepper",
 			"type": "registry:component",
-			"description": "A stepper/wizard component",
-			"dependencies": ["motion", "lucide-react", "cn"],
+			"description": "A modular, composable stepper component for multi-step flows, forms, and onboarding.",
+			"dependencies": ["@base-ui/react", "lucide-react", "cn"],
 			"registryDependencies": [],
 			"files": [
 				{
@@ -651,72 +651,107 @@
 			]
 		},
 		{
-			"name": "craftui-particles-stepper",
-			"type": "registry:block",
-			"description": "Basic stepper demo",
+			"name": "craftui-particles-stepper-accordion-form",
+			"type": "registry:component",
+			"description": "Accordion-based multi-step onboarding form combining Accordion and Stepper primitives.",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": [
+				"@craftdotui/craftui-stepper",
+				"@craftdotui/baseui-accordion",
+				"@craftdotui/baseui-button",
+				"@craftdotui/baseui-field"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/particles/stepper/accordion-form/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/stepper-accordion-form.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-stepper-collapsible",
+			"type": "registry:component",
+			"description": "Accordion-style vertical stepper with inline collapsible step content.",
 			"dependencies": [],
-			"registryDependencies": ["@craftdotui/craftui-stepper"],
+			"registryDependencies": [
+				"@craftdotui/craftui-stepper",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/particles/stepper/collapsible/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/stepper-collapsible.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-stepper-form",
+			"type": "registry:component",
+			"description": "Multi-step form stepper with Field and Button components.",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/craftui-stepper",
+				"@craftdotui/baseui-button",
+				"@craftdotui/baseui-field"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/particles/stepper/form/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/stepper-form.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-stepper",
+			"type": "registry:component",
+			"description": "Default horizontal stepper demo.",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/craftui-stepper",
+				"@craftdotui/baseui-button"
+			],
 			"files": [
 				{
 					"path": "packages/craftui/particles/stepper/index.tsx",
-					"type": "registry:block",
+					"type": "registry:component",
 					"target": "components/particles/stepper.tsx"
 				}
 			]
 		},
 		{
-			"name": "craftui-particles-stepper-with-fraction-indicator",
+			"name": "craftui-particles-stepper-vertical",
 			"type": "registry:component",
-			"description": "Stepper with fraction indicator demo",
+			"description": "Vertical orientation stepper demo.",
 			"dependencies": [],
-			"registryDependencies": ["@craftdotui/craftui-stepper"],
+			"registryDependencies": [
+				"@craftdotui/craftui-stepper",
+				"@craftdotui/baseui-button"
+			],
 			"files": [
 				{
-					"path": "packages/craftui/particles/stepper/stepper-with-fraction-indicator/index.tsx",
+					"path": "packages/craftui/particles/stepper/vertical/index.tsx",
 					"type": "registry:component",
-					"target": "components/particles/stepper-with-fraction-indicator.tsx"
+					"target": "components/particles/stepper-vertical.tsx"
 				}
 			]
 		},
 		{
-			"name": "craftui-particles-stepper-with-number-indicators",
+			"name": "craftui-particles-stepper-with-icons",
 			"type": "registry:component",
-			"description": "Stepper with numbers indicator demo",
-			"dependencies": [],
-			"registryDependencies": ["@craftdotui/craftui-stepper"],
+			"description": "Stepper with custom icons inside StepperIndicator.",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": [
+				"@craftdotui/craftui-stepper",
+				"@craftdotui/baseui-button"
+			],
 			"files": [
 				{
-					"path": "packages/craftui/particles/stepper/stepper-with-number-indicators/index.tsx",
+					"path": "packages/craftui/particles/stepper/with-icons/index.tsx",
 					"type": "registry:component",
-					"target": "components/particles/stepper-with-number-indicators.tsx"
-				}
-			]
-		},
-		{
-			"name": "craftui-particles-stepper-with-progress-indicator",
-			"type": "registry:component",
-			"description": "Stepper with progress indicator demo",
-			"dependencies": [],
-			"registryDependencies": ["@craftdotui/craftui-stepper"],
-			"files": [
-				{
-					"path": "packages/craftui/particles/stepper/stepper-with-progress-indicator/index.tsx",
-					"type": "registry:component",
-					"target": "components/particles/stepper-with-progress-indicator.tsx"
-				}
-			]
-		},
-		{
-			"name": "craftui-particles-stepper-with-text-indicator",
-			"type": "registry:component",
-			"description": "Stepper with text indicator demo",
-			"dependencies": [],
-			"registryDependencies": ["@craftdotui/craftui-stepper"],
-			"files": [
-				{
-					"path": "packages/craftui/particles/stepper/stepper-with-text-indicator/index.tsx",
-					"type": "registry:component",
-					"target": "components/particles/stepper-with-text-indicator.tsx"
+					"target": "components/particles/stepper-with-icons.tsx"
 				}
 			]
 		},
