@@ -120,8 +120,8 @@
 		{
 			"name": "craftui-timeline",
 			"type": "registry:component",
-			"description": "A timeline component with vertical and horizontal variants",
-			"dependencies": ["class-variance-authority", "cn"],
+			"description": "A composable timeline component supporting vertical and horizontal orientations.",
+			"dependencies": ["@base-ui/react", "cn"],
 			"registryDependencies": [],
 			"files": [
 				{
@@ -721,9 +721,37 @@
 			]
 		},
 		{
+			"name": "craftui-particles-timeline-filled-markers",
+			"type": "registry:component",
+			"description": "Timeline with filled markers indicating completed steps.",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/craftui-timeline"],
+			"files": [
+				{
+					"path": "packages/craftui/particles/timeline/filled-markers/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/timeline-filled-markers.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-timeline-horizontal",
+			"type": "registry:component",
+			"description": "Horizontal orientation timeline demo.",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/craftui-timeline"],
+			"files": [
+				{
+					"path": "packages/craftui/particles/timeline/horizontal/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/timeline-horizontal.tsx"
+				}
+			]
+		},
+		{
 			"name": "craftui-particles-timeline",
 			"type": "registry:component",
-			"description": "Basic timeline demo",
+			"description": "Default vertical timeline demo.",
 			"dependencies": [],
 			"registryDependencies": ["@craftdotui/craftui-timeline"],
 			"files": [
@@ -735,30 +763,30 @@
 			]
 		},
 		{
-			"name": "craftui-particles-timeline-with-filled-markers",
+			"name": "craftui-particles-timeline-with-icons",
 			"type": "registry:component",
-			"description": "Timeline with filled markers demo",
-			"dependencies": [],
+			"description": "Timeline with custom icons inside TimelineMarker.",
+			"dependencies": ["lucide-react"],
 			"registryDependencies": ["@craftdotui/craftui-timeline"],
 			"files": [
 				{
-					"path": "packages/craftui/particles/timeline/timeline-with-filled-markers/index.tsx",
+					"path": "packages/craftui/particles/timeline/with-icons/index.tsx",
 					"type": "registry:component",
-					"target": "components/particles/timeline-with-filled-markers.tsx"
+					"target": "components/particles/timeline-with-icons.tsx"
 				}
 			]
 		},
 		{
-			"name": "craftui-particles-timeline-with-horizontal-layout",
+			"name": "craftui-particles-timeline-with-time",
 			"type": "registry:component",
-			"description": "Horizontal timeline demo",
+			"description": "Timeline with timestamps using TimelineTime.",
 			"dependencies": [],
 			"registryDependencies": ["@craftdotui/craftui-timeline"],
 			"files": [
 				{
-					"path": "packages/craftui/particles/timeline/timeline-with-horizontal-layout/index.tsx",
+					"path": "packages/craftui/particles/timeline/with-time/index.tsx",
 					"type": "registry:component",
-					"target": "components/particles/timeline-with-horizontal-layout.tsx"
+					"target": "components/particles/timeline-with-time.tsx"
 				}
 			]
 		},

@@ -59,4 +59,3 @@ export function Particle() {
 }
 
 export default Particle;
-

@@ -2,8 +2,8 @@
 	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
 	"name": "craftui-timeline",
 	"type": "registry:component",
-	"description": "A timeline component with vertical and horizontal variants",
-	"dependencies": ["class-variance-authority", "cn"],
+	"description": "A composable timeline component supporting vertical and horizontal orientations.",
+	"dependencies": ["@base-ui/react", "cn"],
 	"registryDependencies": [],
 	"files": [
 		{

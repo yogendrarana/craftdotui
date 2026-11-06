@@ -1,23 +1,36 @@
-"use client";
-
 import {
-	Timeline,
+	TimelineConnector,
+	TimelineContent,
+	TimelineDescription,
 	TimelineItem,
 	TimelineMarker,
-	TimelineContent,
+	TimelineRoot,
 	TimelineTitle,
-	TimelineDescription,
 } from "@craftdotui/craftui/components/timeline";
 
-export default function TimelinePreview() {
+export function Particle() {
 	return (
-		<Timeline variant="vertical" className="max-w-md mx-auto">
+		<TimelineRoot className="mx-auto max-w-md">
 			<TimelineItem>
 				<TimelineMarker />
+				<TimelineConnector />
 				<TimelineContent>
-					<TimelineTitle>Step 1</TimelineTitle>
+					<TimelineTitle>Project Kickoff</TimelineTitle>
 					<TimelineDescription>
-						This is the first step of the process.
+						Initial discovery session, scope alignment, and
+						architecture planning with the core engineering team.
+					</TimelineDescription>
+				</TimelineContent>
+			</TimelineItem>
+
+			<TimelineItem>
+				<TimelineMarker />
+				<TimelineConnector />
+				<TimelineContent>
+					<TimelineTitle>Design System & Primitives</TimelineTitle>
+					<TimelineDescription>
+						Built accessible, composable UI primitives and semantic
+						design tokens.
 					</TimelineDescription>
 				</TimelineContent>
 			</TimelineItem>
@@ -25,22 +38,15 @@ export default function TimelinePreview() {
 			<TimelineItem>
 				<TimelineMarker />
 				<TimelineContent>
-					<TimelineTitle>Step 2</TimelineTitle>
+					<TimelineTitle>Production Release</TimelineTitle>
 					<TimelineDescription>
-						Intermediate stage of the timeline.
+						Completed final QA, performance benchmarks, and rolled
+						out v1.0 to production.
 					</TimelineDescription>
 				</TimelineContent>
 			</TimelineItem>
-
-			<TimelineItem>
-				<TimelineMarker />
-				<TimelineContent>
-					<TimelineTitle>Final Step</TimelineTitle>
-					<TimelineDescription>
-						Congratulations! You’ve completed the journey.
-					</TimelineDescription>
-				</TimelineContent>
-			</TimelineItem>
-		</Timeline>
+		</TimelineRoot>
 	);
 }
+
+export default Particle;

@@ -287,9 +287,9 @@ export const Registry: Record<string, any> = {
           },
           "craftui-timeline": {
             name: "craftui-timeline",
-            description: "A timeline component with vertical and horizontal variants",
+            description: "A composable timeline component supporting vertical and horizontal orientations.",
             type: "registry:component",
-            dependencies: ["class-variance-authority","cn"],
+            dependencies: ["@base-ui/react","cn"],
             devDependencies: undefined,
             registryDependencies: [],
             files: [
@@ -297,7 +297,7 @@ export const Registry: Record<string, any> = {
     "path": "packages/craftui/components/timeline/index.tsx",
     "type": "registry:component",
     "target": "components/ui/timeline.tsx",
-    "content": "\"use client\";\n\nimport React, { useId } from \"react\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\n\nimport { cn } from \"cn\";\n\n// Define variants\nconst timelineVariants = cva(\"relative\", {\n\tvariants: {\n\t\tvariant: {\n\t\t\tvertical: \"flex flex-col gap-6\",\n\t\t\thorizontal: \"flex flex-row items-center gap-12\",\n\t\t},\n\t},\n\tdefaultVariants: {\n\t\tvariant: \"vertical\",\n\t},\n});\n\nconst markerVariants = cva(\n\t\"w-3 h-3 rounded-full border flex items-center justify-center shrink-0 relative z-10 transition-colors duration-200\",\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tempty: \"bg-white dark:bg-neutral-900\",\n\t\t\t\tfill: \"bg-neutral-300 dark:bg-neutral-600\",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: \"empty\",\n\t\t},\n\t},\n);\n\n// Context\ntype TimelineContextValue = {\n\tvariant: \"vertical\" | \"horizontal\";\n};\n\nconst TimelineContext = React.createContext<TimelineContextValue | undefined>(\n\tundefined,\n);\n\nconst useTimeline = () => {\n\tconst context = React.useContext(TimelineContext);\n\tif (!context) {\n\t\tthrow new Error(\"useTimeline must be used within a Timeline component\");\n\t}\n\treturn context;\n};\n\n/* -------------------------------------------------------------------------------------------------\n * Timeline\n * Main container component that provides context and layout for timeline items\n * -------------------------------------------------------------------------------------------------\n */\ninterface TimelineProps extends VariantProps<typeof timelineVariants> {\n\tchildren: React.ReactNode;\n\tclassName?: string;\n\tvariant?: \"vertical\" | \"horizontal\";\n\t\"aria-label\"?: string;\n}\n\nconst Timeline = React.forwardRef<HTMLUListElement, TimelineProps>(\n\t(\n\t\t{ children, variant = \"vertical\", className, \"aria-label\": ariaLabel },\n\t\tref,\n\t) => {\n\t\tconst id = useId();\n\n\t\treturn (\n\t\t\t<TimelineContext.Provider value={{ variant }}>\n\t\t\t\t<ul\n\t\t\t\t\tref={ref}\n\t\t\t\t\tid={id}\n\t\t\t\t\taria-label={ariaLabel || \"Timeline\"}\n\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\ttimelineVariants({ variant }),\n\t\t\t\t\t\t\"dark:text-neutral-200\",\n\t\t\t\t\t\tclassName,\n\t\t\t\t\t)}\n\t\t\t\t>\n\t\t\t\t\t<div\n\t\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t\t\"absolute\",\n\t\t\t\t\t\t\tvariant === \"vertical\"\n\t\t\t\t\t\t\t\t? \"left-1.5 top-0 w-px h-full\"\n\t\t\t\t\t\t\t\t: \"top-1.5 left-0 h-px w-full\",\n\t\t\t\t\t\t\t\"bg-neutral-200 dark:bg-neutral-700\",\n\t\t\t\t\t\t)}\n\t\t\t\t\t\taria-hidden=\"true\"\n\t\t\t\t\t/>\n\t\t\t\t\t{children}\n\t\t\t\t</ul>\n\t\t\t</TimelineContext.Provider>\n\t\t);\n\t},\n);\n\nTimeline.displayName = \"Timeline\";\n\n/* -------------------------------------------------------------------------------------------------\n * TimelineItem\n * Container for individual timeline entries\n * -------------------------------------------------------------------------------------------------\n */\ninterface TimelineItemProps {\n\tchildren: React.ReactNode;\n\tclassName?: string;\n}\n\nconst TimelineItem = ({ children, className }: TimelineItemProps) => {\n\tconst { variant } = useTimeline();\n\n\treturn (\n\t\t<li\n\t\t\tclassName={cn(\n\t\t\t\t\"relative flex items-start group\",\n\t\t\t\tvariant === \"horizontal\" && \"flex-col items-center\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t>\n\t\t\t{children}\n\t\t</li>\n\t);\n};\nTimelineItem.displayName = \"TimelineItem\";\n\n/* -------------------------------------------------------------------------------------------------\n * TimelineMarker\n * Visual indicator for timeline items\n * -------------------------------------------------------------------------------------------------\n */\ninterface TimelineMarkerProps extends VariantProps<typeof markerVariants> {\n\tclassName?: string;\n}\n\nconst TimelineMarker = ({\n\tvariant = \"empty\",\n\tclassName,\n}: TimelineMarkerProps) => {\n\treturn (\n\t\t<div\n\t\t\tclassName={cn(\n\t\t\t\tmarkerVariants({ variant }),\n\t\t\t\t\"border-neutral-300 dark:border-neutral-600\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\taria-hidden=\"true\"\n\t\t/>\n\t);\n};\n\n/* -------------------------------------------------------------------------------------------------\n * TimelineContent\n * Container for timeline item content\n * -------------------------------------------------------------------------------------------------\n */\ninterface TimelineContentProps {\n\tchildren: React.ReactNode;\n\tclassName?: string;\n}\n\nconst TimelineContent = ({ children, className }: TimelineContentProps) => {\n\tconst { variant } = useTimeline();\n\n\treturn (\n\t\t<div\n\t\t\tclassName={cn(\n\t\t\t\tvariant === \"vertical\" ? \"ml-4\" : \"mt-4 text-center\",\n\t\t\t\t\"relative z-10\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t>\n\t\t\t{children}\n\t\t</div>\n\t);\n};\n\nTimelineContent.displayName = \"TimelineContent\";\n\n/* -------------------------------------------------------------------------------------------------\n * TimelineTitle\n * Title component for timeline items\n * -------------------------------------------------------------------------------------------------\n */\ninterface TimelineTitleProps {\n\tchildren: React.ReactNode;\n\tclassName?: string;\n}\n\nconst TimelineTitle = ({ children, className }: TimelineTitleProps) => {\n\treturn (\n\t\t<h3\n\t\t\tclassName={cn(\n\t\t\t\t\"text-base font-medium text-neutral-900 dark:text-neutral-100 mb-1\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t>\n\t\t\t{children}\n\t\t</h3>\n\t);\n};\n\n/* -------------------------------------------------------------------------------------------------\n * TimelineDescription\n * Description component for timeline items\n * -------------------------------------------------------------------------------------------------\n */\ninterface TimelineDescriptionProps {\n\tchildren: React.ReactNode;\n\tclassName?: string;\n}\n\nconst TimelineDescription = ({\n\tchildren,\n\tclassName,\n}: TimelineDescriptionProps) => {\n\treturn (\n\t\t<p\n\t\t\tclassName={cn(\n\t\t\t\t\"text-sm text-neutral-600 dark:text-neutral-400\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t>\n\t\t\t{children}\n\t\t</p>\n\t);\n};\n\nexport {\n\tTimeline,\n\tTimelineItem,\n\tTimelineMarker,\n\tTimelineContent,\n\tTimelineTitle,\n\tTimelineDescription,\n\ttype TimelineProps,\n\ttype TimelineItemProps,\n\ttype TimelineMarkerProps,\n\ttype TimelineContentProps,\n\ttype TimelineTitleProps,\n\ttype TimelineDescriptionProps,\n};"
+    "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { cn } from \"cn\";\nimport { useRender } from \"@base-ui/react/use-render\";\nimport { mergeProps } from \"@base-ui/react/merge-props\";\n\n/* -------------------------------------------------------------------------- */\n/* Context                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport type TimelineOrientation = \"vertical\" | \"horizontal\";\n\ninterface TimelineContextValue {\n\torientation: TimelineOrientation;\n}\n\nconst TimelineContext = React.createContext<TimelineContextValue>({\n\torientation: \"vertical\",\n});\n\nfunction useTimeline() {\n\treturn React.useContext(TimelineContext);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Timeline Root                                                              */\n/* -------------------------------------------------------------------------- */\n\nexport interface TimelineRootProps extends useRender.ComponentProps<\"ol\"> {\n\torientation?: TimelineOrientation;\n}\n\nfunction TimelineRoot({\n\tclassName,\n\torientation = \"vertical\",\n\trender,\n\t...props\n}: TimelineRootProps) {\n\tconst defaultProps = {\n\t\t\"aria-label\": \"Timeline\",\n\t\t\"data-slot\": \"timeline\",\n\t\t\"data-orientation\": orientation,\n\t\tclassName: cn(\n\t\t\t\"relative flex\",\n\t\t\torientation === \"vertical\" ? \"flex-col\" : \"flex-row items-start\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\tconst element = useRender({\n\t\tdefaultTagName: \"ol\",\n\t\tprops: mergeProps<\"ol\">(defaultProps, props),\n\t\trender,\n\t});\n\n\treturn (\n\t\t<TimelineContext.Provider value={{ orientation }}>\n\t\t\t{element}\n\t\t</TimelineContext.Provider>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Timeline Item                                                              */\n/* -------------------------------------------------------------------------- */\n\nexport interface TimelineItemProps extends useRender.ComponentProps<\"li\"> {}\n\nfunction TimelineItem({ className, render, ...props }: TimelineItemProps) {\n\tconst { orientation } = useTimeline();\n\n\tconst defaultProps = {\n\t\t\"data-slot\": \"timeline-item\",\n\t\t\"data-orientation\": orientation,\n\t\tclassName: cn(\n\t\t\t\"group/timeline-item relative flex items-start\",\n\t\t\torientation === \"vertical\"\n\t\t\t\t? \"not-last:pb-8\"\n\t\t\t\t: \"flex-1 flex-col not-last:pr-8\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"li\",\n\t\tprops: mergeProps<\"li\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Timeline Connector                                                         */\n/* -------------------------------------------------------------------------- */\n\nexport interface TimelineConnectorProps\n\textends useRender.ComponentProps<\"div\"> {}\n\nfunction TimelineConnector({\n\tclassName,\n\trender,\n\t...props\n}: TimelineConnectorProps) {\n\tconst { orientation } = useTimeline();\n\n\tconst defaultProps = {\n\t\t\"aria-hidden\": true,\n\t\t\"data-slot\": \"timeline-connector\",\n\t\t\"data-orientation\": orientation,\n\t\tclassName: cn(\n\t\t\t\"absolute bg-border\",\n\t\t\torientation === \"vertical\"\n\t\t\t\t? \"top-2.5 left-1.5 h-full w-px -translate-x-1/2\"\n\t\t\t\t: \"top-1.5 left-1.5 h-px w-full -translate-y-1/2\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Timeline Marker                                                            */\n/* -------------------------------------------------------------------------- */\n\nexport interface TimelineMarkerProps extends useRender.ComponentProps<\"div\"> {}\n\nfunction TimelineMarker({ className, render, ...props }: TimelineMarkerProps) {\n\tconst { orientation } = useTimeline();\n\n\tconst defaultProps = {\n\t\t\"aria-hidden\": true,\n\t\t\"data-slot\": \"timeline-marker\",\n\t\t\"data-orientation\": orientation,\n\t\tclassName: cn(\n\t\t\t\"relative z-10 flex size-3 shrink-0 items-center justify-center rounded-full border border-border bg-background text-muted-foreground transition-colors\",\n\t\t\t\"has-[>svg]:size-6 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-3\",\n\t\t\torientation === \"vertical\"\n\t\t\t\t? \"mt-1 has-[>svg]:-mt-0.5 has-[>svg]:-ml-1.5\"\n\t\t\t\t: \"has-[>svg]:-mt-1.5 has-[>svg]:-ml-1.5\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Timeline Content                                                           */\n/* -------------------------------------------------------------------------- */\n\nexport interface TimelineContentProps extends useRender.ComponentProps<\"div\"> {}\n\nfunction TimelineContent({\n\tclassName,\n\trender,\n\t...props\n}: TimelineContentProps) {\n\tconst { orientation } = useTimeline();\n\n\tconst defaultProps = {\n\t\t\"data-slot\": \"timeline-content\",\n\t\t\"data-orientation\": orientation,\n\t\tclassName: cn(\n\t\t\t\"relative z-10 flex flex-col gap-1\",\n\t\t\torientation === \"vertical\" ? \"ml-4\" : \"mt-3\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Timeline Title                                                             */\n/* -------------------------------------------------------------------------- */\n\nexport interface TimelineTitleProps extends useRender.ComponentProps<\"div\"> {}\n\nfunction TimelineTitle({ className, render, ...props }: TimelineTitleProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"timeline-title\",\n\t\tclassName: cn(\n\t\t\t\"text-sm font-medium leading-snug text-foreground\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Timeline Description                                                       */\n/* -------------------------------------------------------------------------- */\n\nexport interface TimelineDescriptionProps\n\textends useRender.ComponentProps<\"p\"> {}\n\nfunction TimelineDescription({\n\tclassName,\n\trender,\n\t...props\n}: TimelineDescriptionProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"timeline-description\",\n\t\tclassName: cn(\"text-sm/relaxed text-muted-foreground\", className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"p\",\n\t\tprops: mergeProps<\"p\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Timeline Time                                                              */\n/* -------------------------------------------------------------------------- */\n\nexport interface TimelineTimeProps extends useRender.ComponentProps<\"time\"> {}\n\nfunction TimelineTime({ className, render, ...props }: TimelineTimeProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"timeline-time\",\n\t\tclassName: cn(\"text-xs font-medium text-muted-foreground\", className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"time\",\n\t\tprops: mergeProps<\"time\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const Timeline = Object.assign(TimelineRoot, {\n\tRoot: TimelineRoot,\n\tItem: TimelineItem,\n\tConnector: TimelineConnector,\n\tMarker: TimelineMarker,\n\tContent: TimelineContent,\n\tTitle: TimelineTitle,\n\tDescription: TimelineDescription,\n\tTime: TimelineTime,\n});\n\nexport type TimelineProps = TimelineRootProps;\n\nexport {\n\tTimelineRoot,\n\tTimelineItem,\n\tTimelineConnector,\n\tTimelineMarker,\n\tTimelineContent,\n\tTimelineTitle,\n\tTimelineDescription,\n\tTimelineTime,\n};"
   }
 ],
             keywords: [],
@@ -2048,9 +2048,95 @@ export const Registry: Record<string, any> = {
 							return LazyComp;
 						})(),
           },
+          "craftui-particles-timeline-filled-markers": {
+            name: "craftui-particles-timeline-filled-markers",
+            description: "Timeline with filled markers indicating completed steps.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-timeline"],
+            files: [
+  {
+    "path": "packages/craftui/particles/timeline/filled-markers/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/timeline-filled-markers.tsx",
+    "content": "import {\n\tTimelineConnector,\n\tTimelineContent,\n\tTimelineDescription,\n\tTimelineItem,\n\tTimelineMarker,\n\tTimelineRoot,\n\tTimelineTitle,\n} from \"@/components/craftui/components/timeline\";\n\nexport function Particle() {\n\treturn (\n\t\t<TimelineRoot className=\"mx-auto max-w-md\">\n\t\t\t<TimelineItem>\n\t\t\t\t<TimelineMarker className=\"border-primary bg-primary\" />\n\t\t\t\t<TimelineConnector className=\"bg-primary\" />\n\t\t\t\t<TimelineContent>\n\t\t\t\t\t<TimelineTitle>Order Confirmed</TimelineTitle>\n\t\t\t\t\t<TimelineDescription>\n\t\t\t\t\t\tYour order #40291 has been received and is being\n\t\t\t\t\t\tprepared for shipment.\n\t\t\t\t\t</TimelineDescription>\n\t\t\t\t</TimelineContent>\n\t\t\t</TimelineItem>\n\n\t\t\t<TimelineItem>\n\t\t\t\t<TimelineMarker className=\"border-primary bg-primary\" />\n\t\t\t\t<TimelineConnector />\n\t\t\t\t<TimelineContent>\n\t\t\t\t\t<TimelineTitle>In Transit</TimelineTitle>\n\t\t\t\t\t<TimelineDescription>\n\t\t\t\t\t\tPackage departed from the regional sorting facility.\n\t\t\t\t\t</TimelineDescription>\n\t\t\t\t</TimelineContent>\n\t\t\t</TimelineItem>\n\n\t\t\t<TimelineItem>\n\t\t\t\t<TimelineMarker />\n\t\t\t\t<TimelineContent>\n\t\t\t\t\t<TimelineTitle>Out for Delivery</TimelineTitle>\n\t\t\t\t\t<TimelineDescription>\n\t\t\t\t\t\tEstimated delivery by 5:00 PM today.\n\t\t\t\t\t</TimelineDescription>\n\t\t\t\t</TimelineContent>\n\t\t\t</TimelineItem>\n\t\t</TimelineRoot>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-timeline-filled-markers',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/particles/timeline/filled-markers/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-timeline-horizontal": {
+            name: "craftui-particles-timeline-horizontal",
+            description: "Horizontal orientation timeline demo.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-timeline"],
+            files: [
+  {
+    "path": "packages/craftui/particles/timeline/horizontal/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/timeline-horizontal.tsx",
+    "content": "import {\n\tTimelineConnector,\n\tTimelineContent,\n\tTimelineDescription,\n\tTimelineItem,\n\tTimelineMarker,\n\tTimelineRoot,\n\tTimelineTitle,\n} from \"@/components/craftui/components/timeline\";\n\nexport function Particle() {\n\treturn (\n\t\t<TimelineRoot orientation=\"horizontal\" className=\"w-full max-w-2xl\">\n\t\t\t<TimelineItem>\n\t\t\t\t<TimelineMarker className=\"border-primary bg-primary\" />\n\t\t\t\t<TimelineConnector className=\"bg-primary\" />\n\t\t\t\t<TimelineContent>\n\t\t\t\t\t<TimelineTitle>2023</TimelineTitle>\n\t\t\t\t\t<TimelineDescription>Company Founded</TimelineDescription>\n\t\t\t\t</TimelineContent>\n\t\t\t</TimelineItem>\n\n\t\t\t<TimelineItem>\n\t\t\t\t<TimelineMarker className=\"border-primary bg-primary\" />\n\t\t\t\t<TimelineConnector className=\"bg-primary\" />\n\t\t\t\t<TimelineContent>\n\t\t\t\t\t<TimelineTitle>2024</TimelineTitle>\n\t\t\t\t\t<TimelineDescription>Seed Round Raised</TimelineDescription>\n\t\t\t\t</TimelineContent>\n\t\t\t</TimelineItem>\n\n\t\t\t<TimelineItem>\n\t\t\t\t<TimelineMarker className=\"border-primary bg-primary\" />\n\t\t\t\t<TimelineConnector />\n\t\t\t\t<TimelineContent>\n\t\t\t\t\t<TimelineTitle>2025</TimelineTitle>\n\t\t\t\t\t<TimelineDescription>Global Launch</TimelineDescription>\n\t\t\t\t</TimelineContent>\n\t\t\t</TimelineItem>\n\n\t\t\t<TimelineItem>\n\t\t\t\t<TimelineMarker />\n\t\t\t\t<TimelineContent>\n\t\t\t\t\t<TimelineTitle>2026</TimelineTitle>\n\t\t\t\t\t<TimelineDescription>\n\t\t\t\t\t\tEnterprise Platform\n\t\t\t\t\t</TimelineDescription>\n\t\t\t\t</TimelineContent>\n\t\t\t</TimelineItem>\n\t\t</TimelineRoot>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-timeline-horizontal',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/particles/timeline/horizontal/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
           "craftui-particles-timeline": {
             name: "craftui-particles-timeline",
-            description: "Basic timeline demo",
+            description: "Default vertical timeline demo.",
             type: "registry:component",
             dependencies: [],
             devDependencies: undefined,
@@ -2060,7 +2146,7 @@ export const Registry: Record<string, any> = {
     "path": "packages/craftui/particles/timeline/index.tsx",
     "type": "registry:component",
     "target": "components/particles/timeline.tsx",
-    "content": "\"use client\";\n\nimport {\n\tTimeline,\n\tTimelineItem,\n\tTimelineMarker,\n\tTimelineContent,\n\tTimelineTitle,\n\tTimelineDescription,\n} from \"@/components/craftui/components/timeline\";\n\nexport default function TimelinePreview() {\n\treturn (\n\t\t<Timeline variant=\"vertical\" className=\"max-w-md mx-auto\">\n\t\t\t<TimelineItem>\n\t\t\t\t<TimelineMarker />\n\t\t\t\t<TimelineContent>\n\t\t\t\t\t<TimelineTitle>Step 1</TimelineTitle>\n\t\t\t\t\t<TimelineDescription>\n\t\t\t\t\t\tThis is the first step of the process.\n\t\t\t\t\t</TimelineDescription>\n\t\t\t\t</TimelineContent>\n\t\t\t</TimelineItem>\n\n\t\t\t<TimelineItem>\n\t\t\t\t<TimelineMarker />\n\t\t\t\t<TimelineContent>\n\t\t\t\t\t<TimelineTitle>Step 2</TimelineTitle>\n\t\t\t\t\t<TimelineDescription>\n\t\t\t\t\t\tIntermediate stage of the timeline.\n\t\t\t\t\t</TimelineDescription>\n\t\t\t\t</TimelineContent>\n\t\t\t</TimelineItem>\n\n\t\t\t<TimelineItem>\n\t\t\t\t<TimelineMarker />\n\t\t\t\t<TimelineContent>\n\t\t\t\t\t<TimelineTitle>Final Step</TimelineTitle>\n\t\t\t\t\t<TimelineDescription>\n\t\t\t\t\t\tCongratulations! You’ve completed the journey.\n\t\t\t\t\t</TimelineDescription>\n\t\t\t\t</TimelineContent>\n\t\t\t</TimelineItem>\n\t\t</Timeline>\n\t);\n}"
+    "content": "import {\n\tTimelineConnector,\n\tTimelineContent,\n\tTimelineDescription,\n\tTimelineItem,\n\tTimelineMarker,\n\tTimelineRoot,\n\tTimelineTitle,\n} from \"@/components/craftui/components/timeline\";\n\nexport function Particle() {\n\treturn (\n\t\t<TimelineRoot className=\"mx-auto max-w-md\">\n\t\t\t<TimelineItem>\n\t\t\t\t<TimelineMarker />\n\t\t\t\t<TimelineConnector />\n\t\t\t\t<TimelineContent>\n\t\t\t\t\t<TimelineTitle>Project Kickoff</TimelineTitle>\n\t\t\t\t\t<TimelineDescription>\n\t\t\t\t\t\tInitial discovery session, scope alignment, and\n\t\t\t\t\t\tarchitecture planning with the core engineering team.\n\t\t\t\t\t</TimelineDescription>\n\t\t\t\t</TimelineContent>\n\t\t\t</TimelineItem>\n\n\t\t\t<TimelineItem>\n\t\t\t\t<TimelineMarker />\n\t\t\t\t<TimelineConnector />\n\t\t\t\t<TimelineContent>\n\t\t\t\t\t<TimelineTitle>Design System & Primitives</TimelineTitle>\n\t\t\t\t\t<TimelineDescription>\n\t\t\t\t\t\tBuilt accessible, composable UI primitives and semantic\n\t\t\t\t\t\tdesign tokens.\n\t\t\t\t\t</TimelineDescription>\n\t\t\t\t</TimelineContent>\n\t\t\t</TimelineItem>\n\n\t\t\t<TimelineItem>\n\t\t\t\t<TimelineMarker />\n\t\t\t\t<TimelineContent>\n\t\t\t\t\t<TimelineTitle>Production Release</TimelineTitle>\n\t\t\t\t\t<TimelineDescription>\n\t\t\t\t\t\tCompleted final QA, performance benchmarks, and rolled\n\t\t\t\t\t\tout v1.0 to production.\n\t\t\t\t\t</TimelineDescription>\n\t\t\t\t</TimelineContent>\n\t\t\t</TimelineItem>\n\t\t</TimelineRoot>\n\t);\n}\n\nexport default Particle;"
   }
 ],
             keywords: [],
@@ -2091,26 +2177,26 @@ export const Registry: Record<string, any> = {
 							return LazyComp;
 						})(),
           },
-          "craftui-particles-timeline-with-filled-markers": {
-            name: "craftui-particles-timeline-with-filled-markers",
-            description: "Timeline with filled markers demo",
+          "craftui-particles-timeline-with-icons": {
+            name: "craftui-particles-timeline-with-icons",
+            description: "Timeline with custom icons inside TimelineMarker.",
             type: "registry:component",
-            dependencies: [],
+            dependencies: ["lucide-react"],
             devDependencies: undefined,
             registryDependencies: ["@craftdotui/craftui-timeline"],
             files: [
   {
-    "path": "packages/craftui/particles/timeline/timeline-with-filled-markers/index.tsx",
+    "path": "packages/craftui/particles/timeline/with-icons/index.tsx",
     "type": "registry:component",
-    "target": "components/particles/timeline-with-filled-markers.tsx",
-    "content": "\"use client\";\n\nimport {\n\tTimeline,\n\tTimelineItem,\n\tTimelineMarker,\n\tTimelineContent,\n\tTimelineTitle,\n\tTimelineDescription,\n} from \"@/components/craftui/components/timeline\";\n\nexport default function Particle() {\n\treturn (\n\t\t<Timeline variant=\"vertical\" className=\"max-w-md mx-auto\">\n\t\t\t<TimelineItem>\n\t\t\t\t<TimelineMarker variant=\"fill\" />\n\t\t\t\t<TimelineContent>\n\t\t\t\t\t<TimelineTitle>Step 1</TimelineTitle>\n\t\t\t\t\t<TimelineDescription>\n\t\t\t\t\t\tThis is the first step of the process.\n\t\t\t\t\t</TimelineDescription>\n\t\t\t\t</TimelineContent>\n\t\t\t</TimelineItem>\n\n\t\t\t<TimelineItem>\n\t\t\t\t<TimelineMarker variant=\"fill\" />\n\n\t\t\t\t<TimelineContent>\n\t\t\t\t\t<TimelineTitle>Step 2</TimelineTitle>\n\t\t\t\t\t<TimelineDescription>\n\t\t\t\t\t\tIntermediate stage of the timeline.\n\t\t\t\t\t</TimelineDescription>\n\t\t\t\t</TimelineContent>\n\t\t\t</TimelineItem>\n\n\t\t\t<TimelineItem>\n\t\t\t\t<TimelineMarker variant=\"fill\" />\n\n\t\t\t\t<TimelineContent>\n\t\t\t\t\t<TimelineTitle>Final Step</TimelineTitle>\n\t\t\t\t\t<TimelineDescription>\n\t\t\t\t\t\tCongratulations! You’ve completed the journey.\n\t\t\t\t\t</TimelineDescription>\n\t\t\t\t</TimelineContent>\n\t\t\t</TimelineItem>\n\t\t</Timeline>\n\t);\n}"
+    "target": "components/particles/timeline-with-icons.tsx",
+    "content": "import { Check, GitCommit, GitPullRequest, Rocket } from \"lucide-react\";\nimport {\n\tTimelineConnector,\n\tTimelineContent,\n\tTimelineDescription,\n\tTimelineItem,\n\tTimelineMarker,\n\tTimelineRoot,\n\tTimelineTime,\n\tTimelineTitle,\n} from \"@/components/craftui/components/timeline\";\n\nexport function Particle() {\n\treturn (\n\t\t<TimelineRoot className=\"mx-auto max-w-md\">\n\t\t\t<TimelineItem>\n\t\t\t\t<TimelineMarker className=\"border border-primary/30\">\n\t\t\t\t\t<GitCommit />\n\t\t\t\t</TimelineMarker>\n\t\t\t\t<TimelineConnector className=\"bg-primary/30\" />\n\t\t\t\t<TimelineContent>\n\t\t\t\t\t<TimelineTime>2 hours ago</TimelineTime>\n\t\t\t\t\t<TimelineTitle>\n\t\t\t\t\t\tPushed 4 commits to feat/timeline\n\t\t\t\t\t</TimelineTitle>\n\t\t\t\t\t<TimelineDescription>\n\t\t\t\t\t\tRefactored TimelineRoot orientation context and\n\t\t\t\t\t\tTimelineConnector primitive.\n\t\t\t\t\t</TimelineDescription>\n\t\t\t\t</TimelineContent>\n\t\t\t</TimelineItem>\n\n\t\t\t<TimelineItem>\n\t\t\t\t<TimelineMarker className=\"border border-primary/30\">\n\t\t\t\t\t<GitPullRequest />\n\t\t\t\t</TimelineMarker>\n\t\t\t\t<TimelineConnector className=\"bg-primary/30\" />\n\t\t\t\t<TimelineContent>\n\t\t\t\t\t<TimelineTime>45 minutes ago</TimelineTime>\n\t\t\t\t\t<TimelineTitle>Merged pull request #142</TimelineTitle>\n\t\t\t\t\t<TimelineDescription>\n\t\t\t\t\t\tAll CI checks passed and reviewed by 2 maintainers.\n\t\t\t\t\t</TimelineDescription>\n\t\t\t\t</TimelineContent>\n\t\t\t</TimelineItem>\n\n\t\t\t<TimelineItem>\n\t\t\t\t<TimelineMarker>\n\t\t\t\t\t<Check />\n\t\t\t\t</TimelineMarker>\n\t\t\t\t<TimelineConnector />\n\t\t\t\t<TimelineContent>\n\t\t\t\t\t<TimelineTime>10 minutes ago</TimelineTime>\n\t\t\t\t\t<TimelineTitle>Build verified</TimelineTitle>\n\t\t\t\t\t<TimelineDescription>\n\t\t\t\t\t\tRegistry artifacts and TypeScript declarations built\n\t\t\t\t\t\tsuccessfully.\n\t\t\t\t\t</TimelineDescription>\n\t\t\t\t</TimelineContent>\n\t\t\t</TimelineItem>\n\n\t\t\t<TimelineItem>\n\t\t\t\t<TimelineMarker>\n\t\t\t\t\t<Rocket />\n\t\t\t\t</TimelineMarker>\n\t\t\t\t<TimelineContent>\n\t\t\t\t\t<TimelineTime>Pending</TimelineTime>\n\t\t\t\t\t<TimelineTitle>Production deployment</TimelineTitle>\n\t\t\t\t\t<TimelineDescription>\n\t\t\t\t\t\tAwaiting manual approval to promote to edge network.\n\t\t\t\t\t</TimelineDescription>\n\t\t\t\t</TimelineContent>\n\t\t\t</TimelineItem>\n\t\t</TimelineRoot>\n\t);\n}\n\nexport default Particle;"
   }
 ],
             keywords: [],
-            command: '@craftdotui/craftui-particles-timeline-with-filled-markers',
+            command: '@craftdotui/craftui-particles-timeline-with-icons',
             component: (() => {
 							const LazyComp = React.lazy(async () => {
-								const mod = await import("@craftdotui/craftui/particles/timeline/timeline-with-filled-markers/index.tsx");
+								const mod = await import("@craftdotui/craftui/particles/timeline/with-icons/index.tsx");
 								let Comp = mod.default;
 
 								if (!Comp) {
@@ -2134,26 +2220,26 @@ export const Registry: Record<string, any> = {
 							return LazyComp;
 						})(),
           },
-          "craftui-particles-timeline-with-horizontal-layout": {
-            name: "craftui-particles-timeline-with-horizontal-layout",
-            description: "Horizontal timeline demo",
+          "craftui-particles-timeline-with-time": {
+            name: "craftui-particles-timeline-with-time",
+            description: "Timeline with timestamps using TimelineTime.",
             type: "registry:component",
             dependencies: [],
             devDependencies: undefined,
             registryDependencies: ["@craftdotui/craftui-timeline"],
             files: [
   {
-    "path": "packages/craftui/particles/timeline/timeline-with-horizontal-layout/index.tsx",
+    "path": "packages/craftui/particles/timeline/with-time/index.tsx",
     "type": "registry:component",
-    "target": "components/particles/timeline-with-horizontal-layout.tsx",
-    "content": "\"use client\";\n\nimport {\n\tTimeline,\n\tTimelineItem,\n\tTimelineMarker,\n\tTimelineContent,\n\tTimelineTitle,\n\tTimelineDescription,\n} from \"@/components/craftui/components/timeline\";\n\nexport default function Particle() {\n\treturn (\n\t\t<Timeline variant=\"horizontal\">\n\t\t\t<TimelineItem>\n\t\t\t\t<TimelineMarker variant=\"fill\" />\n\t\t\t\t<TimelineContent>\n\t\t\t\t\t<TimelineTitle>2022</TimelineTitle>\n\t\t\t\t\t<TimelineDescription>Company Founded</TimelineDescription>\n\t\t\t\t</TimelineContent>\n\t\t\t</TimelineItem>\n\t\t\t<TimelineItem>\n\t\t\t\t<TimelineMarker variant=\"fill\" />\n\t\t\t\t<TimelineContent>\n\t\t\t\t\t<TimelineTitle>2023</TimelineTitle>\n\t\t\t\t\t<TimelineDescription>\n\t\t\t\t\t\tFirst Major Client\n\t\t\t\t\t</TimelineDescription>\n\t\t\t\t</TimelineContent>\n\t\t\t</TimelineItem>\n\t\t\t<TimelineItem>\n\t\t\t\t<TimelineMarker variant=\"fill\" />\n\t\t\t\t<TimelineContent>\n\t\t\t\t\t<TimelineTitle>2024</TimelineTitle>\n\t\t\t\t\t<TimelineDescription>\n\t\t\t\t\t\tExpanded to 50 Employees\n\t\t\t\t\t</TimelineDescription>\n\t\t\t\t</TimelineContent>\n\t\t\t</TimelineItem>\n\t\t\t<TimelineItem>\n\t\t\t\t<TimelineMarker variant=\"empty\" />\n\t\t\t\t<TimelineContent>\n\t\t\t\t\t<TimelineTitle>2025</TimelineTitle>\n\t\t\t\t\t<TimelineDescription>\n\t\t\t\t\t\tInternational Expansion\n\t\t\t\t\t</TimelineDescription>\n\t\t\t\t</TimelineContent>\n\t\t\t</TimelineItem>\n\t\t</Timeline>\n\t);\n}"
+    "target": "components/particles/timeline-with-time.tsx",
+    "content": "import {\n\tTimelineConnector,\n\tTimelineContent,\n\tTimelineDescription,\n\tTimelineItem,\n\tTimelineMarker,\n\tTimelineRoot,\n\tTimelineTime,\n\tTimelineTitle,\n} from \"@/components/craftui/components/timeline\";\n\nexport function Particle() {\n\treturn (\n\t\t<TimelineRoot className=\"mx-auto max-w-md\">\n\t\t\t<TimelineItem>\n\t\t\t\t<TimelineMarker className=\"border-primary bg-primary\" />\n\t\t\t\t<TimelineConnector className=\"bg-primary\" />\n\t\t\t\t<TimelineContent>\n\t\t\t\t\t<TimelineTime dateTime=\"2026-01-15\">\n\t\t\t\t\t\tJan 15, 2026\n\t\t\t\t\t</TimelineTime>\n\t\t\t\t\t<TimelineTitle>v2.0 Architecture Overhaul</TimelineTitle>\n\t\t\t\t\t<TimelineDescription>\n\t\t\t\t\t\tMigrated core primitives to Base UI with full render\n\t\t\t\t\t\tprop composition and semantic Tailwind v4 tokens.\n\t\t\t\t\t</TimelineDescription>\n\t\t\t\t</TimelineContent>\n\t\t\t</TimelineItem>\n\n\t\t\t<TimelineItem>\n\t\t\t\t<TimelineMarker className=\"border-primary bg-primary\" />\n\t\t\t\t<TimelineConnector />\n\t\t\t\t<TimelineContent>\n\t\t\t\t\t<TimelineTime dateTime=\"2026-02-10\">\n\t\t\t\t\t\tFeb 10, 2026\n\t\t\t\t\t</TimelineTime>\n\t\t\t\t\t<TimelineTitle>Motion Package Extraction</TimelineTitle>\n\t\t\t\t\t<TimelineDescription>\n\t\t\t\t\t\tExtracted animation and physics primitives into the\n\t\t\t\t\t\tdedicated @craftdotui/motion package.\n\t\t\t\t\t</TimelineDescription>\n\t\t\t\t</TimelineContent>\n\t\t\t</TimelineItem>\n\n\t\t\t<TimelineItem>\n\t\t\t\t<TimelineMarker />\n\t\t\t\t<TimelineContent>\n\t\t\t\t\t<TimelineTime dateTime=\"2026-03-01\">\n\t\t\t\t\t\tMar 01, 2026\n\t\t\t\t\t</TimelineTime>\n\t\t\t\t\t<TimelineTitle>CLI Registry v2</TimelineTitle>\n\t\t\t\t\t<TimelineDescription>\n\t\t\t\t\t\tOne-command installation for components, particles, and\n\t\t\t\t\t\tblocks.\n\t\t\t\t\t</TimelineDescription>\n\t\t\t\t</TimelineContent>\n\t\t\t</TimelineItem>\n\t\t</TimelineRoot>\n\t);\n}\n\nexport default Particle;"
   }
 ],
             keywords: [],
-            command: '@craftdotui/craftui-particles-timeline-with-horizontal-layout',
+            command: '@craftdotui/craftui-particles-timeline-with-time',
             component: (() => {
 							const LazyComp = React.lazy(async () => {
-								const mod = await import("@craftdotui/craftui/particles/timeline/timeline-with-horizontal-layout/index.tsx");
+								const mod = await import("@craftdotui/craftui/particles/timeline/with-time/index.tsx");
 								let Comp = mod.default;
 
 								if (!Comp) {

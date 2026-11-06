@@ -1,9 +1,9 @@
 ---
 title: Timeline
-description: A timeline component to show the progress of a process.
+description: Displays a chronological sequence of events or steps in a vertical or horizontal layout.
 slug: /craftui/components/timeline
 published: true
-date: 2025-01-29T00:00:00.000Z
+date: 2026-11-06T00:00:00.000Z
 author:
   name: Yogendra Rana
   twitter: "https://twitter.com/yooogendra_rana"
@@ -15,45 +15,79 @@ author:
 
 <Installation name="craftui-timeline" />
 
+## Anatomy
+
+#### Usage
+
+```tsx
+<TimelineRoot>
+  <TimelineItem>
+    <TimelineMarker />
+    <TimelineConnector />
+    <TimelineContent>
+      <TimelineTime />
+      <TimelineTitle />
+      <TimelineDescription />
+    </TimelineContent>
+  </TimelineItem>
+</TimelineRoot>
+```
+
+```tsx
+<Timeline.Root>
+  <Timeline.Item>
+    <Timeline.Marker />
+    <Timeline.Connector />
+    <Timeline.Content>
+      <Timeline.Time />
+      <Timeline.Title />
+      <Timeline.Description />
+    </Timeline.Content>
+  </Timeline.Item>
+</Timeline.Root>
+```
+
 ## Demo
 
-#### Timeline with fill marker
+#### Filled Markers
 
-<ComponentCodePreview name="craftui-particles-timeline-with-filled-markers" />
+<ComponentCodePreview name="craftui-particles-timeline-filled-markers" />
 
-#### Timeline with horizontal layout
+#### Horizontal
 
-<ComponentCodePreview name="craftui-particles-timeline-with-horizontal-layout" />
+<ComponentCodePreview name="craftui-particles-timeline-horizontal" />
+
+#### With Time
+
+<ComponentCodePreview name="craftui-particles-timeline-with-time" />
+
+#### With Icons
+
+<ComponentCodePreview name="craftui-particles-timeline-with-icons" />
 
 ## Props
 
-#### Timeline
+#### TimelineRoot
 
 <PropsTable
   data={[
     {
-      prop: "children",
-      type: "ReactNode",
-      required: true,
-      description: "The content to be displayed inside the component",
+      prop: "orientation",
+      type: '"vertical" | "horizontal"',
+      default: '"vertical"',
+      description: "The layout orientation of the timeline.",
     },
     {
-      prop: "variant",
-      type: "string",
-      default: '"vertical"',
-      description: "Accepted values are vertical or horizontal",
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default ol element with a custom element.",
     },
     {
       prop: "className",
       type: "string",
-      default: '""',
-      description: "Additional CSS classes to style the Timeline component.",
-    },
-    {
-      prop: "aria-label",
-      type: "string",
-      default: '""',
-      description: "Accessible label describing the timeline for screen readers.",
+      default: "undefined",
+      description: "Additional CSS classes to style the timeline container.",
     },
   ]}
 />
@@ -63,15 +97,35 @@ author:
 <PropsTable
   data={[
     {
-      prop: "children",
-      type: "ReactNode",
-      required: true,
-      description: "The content to be displayed inside the TimelineItem component",
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default li element with a custom element.",
     },
     {
       prop: "className",
       type: "string",
-      description: "Additional CSS classes to style the TimelineItem component",
+      default: "undefined",
+      description: "Additional CSS classes to style the timeline item.",
+    },
+  ]}
+/>
+
+#### TimelineConnector
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default div element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the connector line.",
     },
   ]}
 />
@@ -81,15 +135,16 @@ author:
 <PropsTable
   data={[
     {
-      prop: "variant",
-      type: "string",
-      default: '"empty"',
-      description: "Use fill for a solid marker, empty for an outlined marker.",
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default div element with a custom element.",
     },
     {
       prop: "className",
       type: "string",
-      description: "Additional CSS classes to style the TimelineMarker component",
+      default: "undefined",
+      description: "Additional CSS classes to style the marker.",
     },
   ]}
 />
@@ -99,15 +154,16 @@ author:
 <PropsTable
   data={[
     {
-      prop: "children",
-      type: "ReactNode",
-      required: true,
-      description: "The content to be displayed inside the TimelineContent component",
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default div element with a custom element.",
     },
     {
       prop: "className",
       type: "string",
-      description: "Additional CSS classes to style the TimelineContent component",
+      default: "undefined",
+      description: "Additional CSS classes to style the content container.",
     },
   ]}
 />
@@ -117,15 +173,16 @@ author:
 <PropsTable
   data={[
     {
-      prop: "children",
-      type: "ReactNode",
-      required: true,
-      description: "The content to be displayed inside the TimelineTitle component",
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default div element (e.g. render={<h3 />}).",
     },
     {
       prop: "className",
       type: "string",
-      description: "Additional CSS classes to style the TimelineTitle component",
+      default: "undefined",
+      description: "Additional CSS classes to style the title.",
     },
   ]}
 />
@@ -135,15 +192,35 @@ author:
 <PropsTable
   data={[
     {
-      prop: "children",
-      type: "ReactNode",
-      required: true,
-      description: "The content to be displayed inside the TimelineDescription component",
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default p element with a custom element.",
     },
     {
       prop: "className",
       type: "string",
-      description: "Additional CSS classes to style the TimelineDescription component",
+      default: "undefined",
+      description: "Additional CSS classes to style the description.",
+    },
+  ]}
+/>
+
+#### TimelineTime
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default time element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the timestamp.",
     },
   ]}
 />

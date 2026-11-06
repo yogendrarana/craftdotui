@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-timeline-filled-markers",
+	"description": "Timeline with filled markers indicating completed steps.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-timeline"],
+	"files": [
+		{
+			"path": "packages/craftui/particles/timeline/filled-markers/index.tsx",
+			"content": "import {\n\tTimelineConnector,\n\tTimelineContent,\n\tTimelineDescription,\n\tTimelineItem,\n\tTimelineMarker,\n\tTimelineRoot,\n\tTimelineTitle,\n} from \"@/components/craftui/components/timeline\";\n\nexport function Particle() {\n\treturn (\n\t\t<TimelineRoot className=\"mx-auto max-w-md\">\n\t\t\t<TimelineItem>\n\t\t\t\t<TimelineMarker className=\"border-primary bg-primary\" />\n\t\t\t\t<TimelineConnector className=\"bg-primary\" />\n\t\t\t\t<TimelineContent>\n\t\t\t\t\t<TimelineTitle>Order Confirmed</TimelineTitle>\n\t\t\t\t\t<TimelineDescription>\n\t\t\t\t\t\tYour order #40291 has been received and is being\n\t\t\t\t\t\tprepared for shipment.\n\t\t\t\t\t</TimelineDescription>\n\t\t\t\t</TimelineContent>\n\t\t\t</TimelineItem>\n\n\t\t\t<TimelineItem>\n\t\t\t\t<TimelineMarker className=\"border-primary bg-primary\" />\n\t\t\t\t<TimelineConnector />\n\t\t\t\t<TimelineContent>\n\t\t\t\t\t<TimelineTitle>In Transit</TimelineTitle>\n\t\t\t\t\t<TimelineDescription>\n\t\t\t\t\t\tPackage departed from the regional sorting facility.\n\t\t\t\t\t</TimelineDescription>\n\t\t\t\t</TimelineContent>\n\t\t\t</TimelineItem>\n\n\t\t\t<TimelineItem>\n\t\t\t\t<TimelineMarker />\n\t\t\t\t<TimelineContent>\n\t\t\t\t\t<TimelineTitle>Out for Delivery</TimelineTitle>\n\t\t\t\t\t<TimelineDescription>\n\t\t\t\t\t\tEstimated delivery by 5:00 PM today.\n\t\t\t\t\t</TimelineDescription>\n\t\t\t\t</TimelineContent>\n\t\t\t</TimelineItem>\n\t\t</TimelineRoot>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/particles/timeline-filled-markers.tsx"
+		}
+	],
+	"type": "registry:component"
+}
