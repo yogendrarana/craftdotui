@@ -28,6 +28,14 @@ const docs = defineCollection({
 				twitter: z.string().optional(),
 			})
 			.optional(),
+		references: z
+			.array(
+				z.object({
+					label: z.string(),
+					url: z.url(),
+				}),
+			)
+			.optional(),
 
 		// other
 		content: z.string(),

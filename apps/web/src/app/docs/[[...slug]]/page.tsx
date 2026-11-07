@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { allDocs } from "content-collections";
+import { ExternalLink } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Mdx } from "@/components/mdx-components";
@@ -53,6 +54,23 @@ export default async function DocsPage({ params }: PageProps) {
 							<p className="text-balance text-base leading-relaxed text-muted-foreground">
 								{doc.description}
 							</p>
+						)}
+
+						{doc.references && doc.references.length > 0 && (
+							<div className="flex flex-wrap items-center gap-2 pt-1.5">
+								{doc.references.map((ref) => (
+									<a
+										key={ref.url}
+										href={ref.url}
+										target="_blank"
+										rel="noopener noreferrer"
+										className="h-6 px-2.5 text-xs font-normal border border-border rounded-md bg-background text-muted-foreground hover:text-foreground hover:bg-accent inline-flex items-center gap-1.5 no-underline transition-colors outline-none focus-visible:ring-2 focus-visible:ring-ring"
+									>
+										<ExternalLink className="size-3 shrink-0" />
+										<span>{ref.label}</span>
+									</a>
+								))}
+							</div>
 						)}
 					</div>
 				</div>
