@@ -1,0 +1,115 @@
+---
+title: Calendar
+description: A date field component that allows users to select single dates, multiple dates, or date ranges.
+slug: /craftui/components/calendar
+published: true
+date: 2026-11-07T00:00:00.000Z
+author:
+  name: Yogendra Rana
+  twitter: "https://twitter.com/yooogendra_rana"
+---
+
+<ComponentCodePreview name="craftui-particles-calendar" />
+
+## Installation
+
+<Installation name="craftui-calendar" />
+
+## Anatomy
+
+#### Usage
+
+```tsx
+<Calendar mode="single" selected={date} onSelect={setDate} />
+```
+
+```tsx
+<Calendar.Root mode="single" selected={date} onSelect={setDate} />
+```
+
+## Demo
+
+#### Range
+
+<ComponentCodePreview name="craftui-particles-calendar-range" />
+
+#### Multiple
+
+<ComponentCodePreview name="craftui-particles-calendar-multiple" />
+
+#### With Dropdowns
+
+<ComponentCodePreview name="craftui-particles-calendar-with-dropdowns" />
+
+#### With Presets
+
+<ComponentCodePreview name="craftui-particles-calendar-with-presets" />
+
+## Props
+
+#### CalendarRoot
+
+<PropsTable
+  data={[
+    {
+      prop: "mode",
+      type: '"single" | "multiple" | "range"',
+      default: "undefined",
+      description: "The selection mode of the calendar.",
+    },
+    {
+      prop: "selected",
+      type: "Date | Date[] | DateRange | undefined",
+      default: "undefined",
+      description: "The currently selected date(s) or range.",
+    },
+    {
+      prop: "onSelect",
+      type: "(selected: any) => void",
+      default: "undefined",
+      description: "Callback fired when the selection changes.",
+    },
+    {
+      prop: "showOutsideDays",
+      type: "boolean",
+      default: "true",
+      description: "Whether to display days from the previous and next months.",
+    },
+    {
+      prop: "captionLayout",
+      type: '"label" | "dropdown" | "dropdown-months" | "dropdown-years"',
+      default: '"label"',
+      description: "Layout of the month caption header.",
+    },
+    {
+      prop: "numberOfMonths",
+      type: "number",
+      default: "1",
+      description: "Number of months displayed side-by-side.",
+    },
+    {
+      prop: "buttonVariant",
+      type: '"outline" | "ghost"',
+      default: '"outline"',
+      description: "Visual variant for the month navigation buttons.",
+    },
+    {
+      prop: "disabled",
+      type: "Matcher | Matcher[]",
+      default: "undefined",
+      description: "Dates or matchers that should be disabled.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes for the calendar root container.",
+    },
+    {
+      prop: "classNames",
+      type: "Partial<ClassNames>",
+      default: "undefined",
+      description: "Custom class names for internal DayPicker UI elements.",
+    },
+  ]}
+/>

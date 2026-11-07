@@ -1188,6 +1188,264 @@ export const Registry: Record<string, any> = {
 							return LazyComp;
 						})(),
           },
+          "craftui-particles-calendar-multiple": {
+            name: "craftui-particles-calendar-multiple",
+            description: "Multi-date selection calendar",
+            type: "registry:component",
+            dependencies: ["date-fns"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-calendar"],
+            files: [
+  {
+    "path": "packages/craftui/components/calendar/particles/multiple/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/calendar-multiple.tsx",
+    "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { addDays } from \"date-fns\";\nimport { Calendar } from \"@/components/craftui/components/calendar\";\n\nexport default function Particle() {\n\tconst today = new Date();\n\tconst [dates, setDates] = React.useState<Date[] | undefined>([\n\t\ttoday,\n\t\taddDays(today, 2),\n\t\taddDays(today, 5),\n\t]);\n\n\treturn (\n\t\t<Calendar\n\t\t\tmode=\"multiple\"\n\t\t\tselected={dates}\n\t\t\tonSelect={setDates}\n\t\t\tclassName=\"rounded-lg border border-border shadow-2xs\"\n\t\t/>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-calendar-multiple',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/calendar/particles/multiple/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-calendar-range": {
+            name: "craftui-particles-calendar-range",
+            description: "Two-month date range selection calendar",
+            type: "registry:component",
+            dependencies: ["date-fns"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-calendar"],
+            files: [
+  {
+    "path": "packages/craftui/components/calendar/particles/range/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/calendar-range.tsx",
+    "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { addDays } from \"date-fns\";\nimport {\n\tCalendar,\n\ttype DateRange,\n} from \"@/components/craftui/components/calendar\";\n\nexport default function Particle() {\n\tconst [range, setRange] = React.useState<DateRange | undefined>({\n\t\tfrom: new Date(new Date().getFullYear(), new Date().getMonth(), 10),\n\t\tto: addDays(\n\t\t\tnew Date(new Date().getFullYear(), new Date().getMonth(), 10),\n\t\t\t8,\n\t\t),\n\t});\n\n\treturn (\n\t\t<Calendar\n\t\t\tmode=\"range\"\n\t\t\tdefaultMonth={range?.from}\n\t\t\tselected={range}\n\t\t\tonSelect={setRange}\n\t\t\tnumberOfMonths={2}\n\t\t\tclassName=\"rounded-lg border border-border shadow-2xs\"\n\t\t/>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-calendar-range',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/calendar/particles/range/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-calendar": {
+            name: "craftui-particles-calendar",
+            description: "Default single date selection calendar",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-calendar"],
+            files: [
+  {
+    "path": "packages/craftui/components/calendar/particles/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/calendar.tsx",
+    "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { Calendar } from \"@/components/craftui/components/calendar\";\n\nexport default function Particle() {\n\tconst [date, setDate] = React.useState<Date | undefined>(new Date());\n\n\treturn (\n\t\t<Calendar\n\t\t\tmode=\"single\"\n\t\t\tselected={date}\n\t\t\tonSelect={setDate}\n\t\t\tclassName=\"rounded-lg border border-border shadow-2xs\"\n\t\t/>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-calendar',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/calendar/particles/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-calendar-with-dropdowns": {
+            name: "craftui-particles-calendar-with-dropdowns",
+            description: "Calendar with month and year dropdown selectors",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-calendar"],
+            files: [
+  {
+    "path": "packages/craftui/components/calendar/particles/with-dropdowns/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/calendar-with-dropdowns.tsx",
+    "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { Calendar } from \"@/components/craftui/components/calendar\";\n\nexport default function Particle() {\n\tconst [date, setDate] = React.useState<Date | undefined>(new Date());\n\n\treturn (\n\t\t<Calendar\n\t\t\tmode=\"single\"\n\t\t\tcaptionLayout=\"dropdown\"\n\t\t\tselected={date}\n\t\t\tonSelect={setDate}\n\t\t\tstartMonth={new Date(1980, 0)}\n\t\t\tendMonth={new Date(2035, 11)}\n\t\t\tclassName=\"rounded-lg border border-border shadow-2xs\"\n\t\t/>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-calendar-with-dropdowns',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/calendar/particles/with-dropdowns/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-calendar-with-presets": {
+            name: "craftui-particles-calendar-with-presets",
+            description: "Calendar with quick date selection presets and formatted footer",
+            type: "registry:component",
+            dependencies: ["date-fns"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-calendar","@craftdotui/baseui-button"],
+            files: [
+  {
+    "path": "packages/craftui/components/calendar/particles/with-presets/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/calendar-with-presets.tsx",
+    "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { addDays, format } from \"date-fns\";\nimport { Button } from \"@/components/baseui/components/button\";\nimport { Calendar } from \"@/components/craftui/components/calendar\";\n\nconst presets = [\n\t{ label: \"Today\", offset: 0 },\n\t{ label: \"Tomorrow\", offset: 1 },\n\t{ label: \"In 3 days\", offset: 3 },\n\t{ label: \"In a week\", offset: 7 },\n\t{ label: \"In 2 weeks\", offset: 14 },\n];\n\nexport default function Particle() {\n\tconst [date, setDate] = React.useState<Date | undefined>(new Date());\n\tconst [month, setMonth] = React.useState<Date>(new Date());\n\n\treturn (\n\t\t<div className=\"flex flex-col sm:flex-row overflow-hidden rounded-lg border border-border bg-background shadow-2xs\">\n\t\t\t<div className=\"flex flex-row sm:flex-col gap-1 border-b sm:border-b-0 sm:border-r border-border p-3 sm:w-36 overflow-x-auto\">\n\t\t\t\t{presets.map((preset) => {\n\t\t\t\t\tconst targetDate = addDays(new Date(), preset.offset);\n\t\t\t\t\treturn (\n\t\t\t\t\t\t<Button\n\t\t\t\t\t\t\tkey={preset.label}\n\t\t\t\t\t\t\tvariant=\"ghost\"\n\t\t\t\t\t\t\tsize=\"sm\"\n\t\t\t\t\t\t\tclassName=\"justify-start font-normal text-xs shrink-0\"\n\t\t\t\t\t\t\tonClick={() => {\n\t\t\t\t\t\t\t\tsetDate(targetDate);\n\t\t\t\t\t\t\t\tsetMonth(targetDate);\n\t\t\t\t\t\t\t}}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t{preset.label}\n\t\t\t\t\t\t</Button>\n\t\t\t\t\t);\n\t\t\t\t})}\n\t\t\t</div>\n\t\t\t<div className=\"flex flex-col\">\n\t\t\t\t<Calendar\n\t\t\t\t\tmode=\"single\"\n\t\t\t\t\tmonth={month}\n\t\t\t\t\tonMonthChange={setMonth}\n\t\t\t\t\tselected={date}\n\t\t\t\t\tonSelect={setDate}\n\t\t\t\t/>\n\t\t\t\t<div className=\"border-t border-border bg-muted/40 px-3 py-2 text-xs text-muted-foreground\">\n\t\t\t\t\tSelected:{\" \"}\n\t\t\t\t\t<span className=\"font-medium text-foreground\">\n\t\t\t\t\t\t{date ? format(date, \"PPP\") : \"None\"}\n\t\t\t\t\t</span>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-calendar-with-presets',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/calendar/particles/with-presets/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-calendar": {
+            name: "craftui-calendar",
+            description: "A date field component that allows users to enter and edit date values.",
+            type: "registry:ui",
+            dependencies: ["@daypicker/react","lucide-react"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/cn","@craftdotui/baseui-button"],
+            files: [
+  {
+    "path": "packages/craftui/components/calendar/index.tsx",
+    "type": "registry:ui",
+    "target": "components/ui/calendar.tsx",
+    "content": "\"use client\";\n\nimport type * as React from \"react\";\nimport {\n\tDayPicker,\n\ttype DateRange,\n\ttype DayPickerProps,\n} from \"@daypicker/react\";\nimport {\n\tChevronDownIcon,\n\tChevronLeftIcon,\n\tChevronRightIcon,\n\tChevronUpIcon,\n} from \"lucide-react\";\nimport { cn } from \"cn\";\nimport { buttonVariants } from \"@/components/baseui/components/button\";\n\n/* -------------------------------------------------------------------------- */\n/* Calendar Root                                                              */\n/* -------------------------------------------------------------------------- */\n\nexport type CalendarProps = DayPickerProps & {\n\tbuttonVariant?: \"ghost\" | \"outline\";\n};\n\nfunction CalendarRoot({\n\tclassName,\n\tclassNames,\n\tshowOutsideDays = true,\n\tbuttonVariant = \"outline\",\n\tcomponents,\n\t...props\n}: CalendarProps): React.ReactElement {\n\treturn (\n\t\t<DayPicker\n\t\t\tdata-slot=\"calendar\"\n\t\t\tshowOutsideDays={showOutsideDays}\n\t\t\tclassName={cn(\"bg-background p-3 w-fit\", className)}\n\t\t\tclassNames={{\n\t\t\t\troot: \"relative\",\n\t\t\t\tmonths: \"relative flex flex-col sm:flex-row gap-4\",\n\t\t\t\tmonth: \"flex flex-col gap-4 w-full\",\n\t\t\t\tmonth_caption:\n\t\t\t\t\t\"relative flex h-7 items-center justify-center px-8\",\n\t\t\t\tcaption_label: cn(\n\t\t\t\t\t\"inline-flex items-center gap-1 text-sm font-medium select-none\",\n\t\t\t\t\tprops.captionLayout?.startsWith(\"dropdown\") &&\n\t\t\t\t\t\t\"rounded-md border border-border bg-background px-2 py-1 text-xs h-7\",\n\t\t\t\t),\n\t\t\t\tdropdowns:\n\t\t\t\t\t\"flex items-center justify-center gap-1.5 text-sm font-medium\",\n\t\t\t\tdropdown_root:\n\t\t\t\t\t\"relative inline-flex items-center has-focus:ring-2 has-focus:ring-ring rounded-md\",\n\t\t\t\tdropdown: \"absolute inset-0 w-full opacity-0 cursor-pointer\",\n\t\t\t\tnav: \"absolute inset-x-0 top-0 flex h-7 items-center justify-between pointer-events-none z-10\",\n\t\t\t\tbutton_previous: cn(\n\t\t\t\t\tbuttonVariants({ variant: buttonVariant, size: \"icon-xs\" }),\n\t\t\t\t\t\"size-7 p-0 pointer-events-auto text-muted-foreground hover:text-foreground aria-disabled:opacity-40 aria-disabled:pointer-events-none\",\n\t\t\t\t),\n\t\t\t\tbutton_next: cn(\n\t\t\t\t\tbuttonVariants({ variant: buttonVariant, size: \"icon-xs\" }),\n\t\t\t\t\t\"size-7 p-0 pointer-events-auto text-muted-foreground hover:text-foreground aria-disabled:opacity-40 aria-disabled:pointer-events-none\",\n\t\t\t\t),\n\t\t\t\tmonth_grid: \"w-full border-collapse\",\n\t\t\t\tweekdays: \"flex\",\n\t\t\t\tweekday:\n\t\t\t\t\t\"w-8 font-normal text-[0.8rem] text-muted-foreground rounded-md select-none text-center\",\n\t\t\t\tweek: \"mt-1.5 flex w-full\",\n\t\t\t\tweek_number_header:\n\t\t\t\t\t\"w-8 font-normal text-[0.8rem] text-muted-foreground select-none text-center\",\n\t\t\t\tweek_number:\n\t\t\t\t\t\"w-8 text-[0.75rem] text-muted-foreground select-none flex items-center justify-center\",\n\t\t\t\tday: cn(\n\t\t\t\t\t\"group/day relative p-0 text-center text-sm select-none focus-within:relative focus-within:z-20\",\n\t\t\t\t\t\"[&:has([aria-selected])]:bg-accent\",\n\t\t\t\t\tprops.mode === \"range\"\n\t\t\t\t\t\t? \"[&:has(>.day-range-end)]:rounded-r-md [&:has(>.day-range-start)]:rounded-l-md first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md\"\n\t\t\t\t\t\t: \"[&:has([aria-selected])]:rounded-md\",\n\t\t\t\t),\n\t\t\t\tday_button: cn(\n\t\t\t\t\tbuttonVariants({ variant: \"ghost\", size: \"icon-md\" }),\n\t\t\t\t\t\"size-8 p-0 font-normal transition-none aria-selected:opacity-100\",\n\t\t\t\t\t\"group-data-[today=true]/day:bg-accent group-data-[today=true]/day:text-accent-foreground\",\n\t\t\t\t\t\"group-data-[selected=true]/day:bg-primary group-data-[selected=true]/day:text-primary-foreground group-data-[selected=true]/day:hover:bg-primary group-data-[selected=true]/day:hover:text-primary-foreground\",\n\t\t\t\t\t\"group-[.day-range-middle]/day:bg-transparent group-[.day-range-middle]/day:text-accent-foreground group-[.day-range-middle]/day:hover:bg-accent group-[.day-range-middle]/day:rounded-none\",\n\t\t\t\t),\n\t\t\t\trange_start: \"day-range-start rounded-l-md bg-accent\",\n\t\t\t\trange_end: \"day-range-end rounded-r-md bg-accent\",\n\t\t\t\trange_middle:\n\t\t\t\t\t\"day-range-middle bg-accent text-accent-foreground rounded-none\",\n\t\t\t\tselected: \"day-selected\",\n\t\t\t\ttoday: \"day-today\",\n\t\t\t\toutside:\n\t\t\t\t\t\"day-outside text-muted-foreground opacity-50 aria-selected:text-muted-foreground\",\n\t\t\t\tdisabled: \"text-muted-foreground opacity-40 cursor-not-allowed\",\n\t\t\t\thidden: \"invisible\",\n\t\t\t\tfooter: \"pt-3 text-xs text-muted-foreground\",\n\t\t\t\t...classNames,\n\t\t\t}}\n\t\t\tcomponents={{\n\t\t\t\tChevron: ({ className: chevronClassName, orientation }) => {\n\t\t\t\t\tconst Icon =\n\t\t\t\t\t\torientation === \"left\"\n\t\t\t\t\t\t\t? ChevronLeftIcon\n\t\t\t\t\t\t\t: orientation === \"right\"\n\t\t\t\t\t\t\t\t? ChevronRightIcon\n\t\t\t\t\t\t\t\t: orientation === \"up\"\n\t\t\t\t\t\t\t\t\t? ChevronUpIcon\n\t\t\t\t\t\t\t\t\t: ChevronDownIcon;\n\t\t\t\t\treturn (\n\t\t\t\t\t\t<Icon\n\t\t\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t\t\t\"size-4 shrink-0 text-muted-foreground\",\n\t\t\t\t\t\t\t\tchevronClassName,\n\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t/>\n\t\t\t\t\t);\n\t\t\t\t},\n\t\t\t\t...components,\n\t\t\t}}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const Calendar = Object.assign(CalendarRoot, {\n\tRoot: CalendarRoot,\n});\n\nexport { CalendarRoot, type DateRange };"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-calendar',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/calendar/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
           "craftui-particles-card-media": {
             name: "craftui-particles-card-media",
             description: "Card featuring a top cover image, badge action, and footer.",

@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-calendar-with-presets",
+	"description": "Calendar with quick date selection presets and formatted footer",
+	"dependencies": ["date-fns"],
+	"registryDependencies": [
+		"@craftdotui/craftui-calendar",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/calendar/particles/with-presets/index.tsx",
+			"content": "\"use client\";\n\nimport * as React from \"react\";\nimport { addDays, format } from \"date-fns\";\nimport { Button } from \"@/components/baseui/components/button\";\nimport { Calendar } from \"@/components/craftui/components/calendar\";\n\nconst presets = [\n\t{ label: \"Today\", offset: 0 },\n\t{ label: \"Tomorrow\", offset: 1 },\n\t{ label: \"In 3 days\", offset: 3 },\n\t{ label: \"In a week\", offset: 7 },\n\t{ label: \"In 2 weeks\", offset: 14 },\n];\n\nexport default function Particle() {\n\tconst [date, setDate] = React.useState<Date | undefined>(new Date());\n\tconst [month, setMonth] = React.useState<Date>(new Date());\n\n\treturn (\n\t\t<div className=\"flex flex-col sm:flex-row overflow-hidden rounded-lg border border-border bg-background shadow-2xs\">\n\t\t\t<div className=\"flex flex-row sm:flex-col gap-1 border-b sm:border-b-0 sm:border-r border-border p-3 sm:w-36 overflow-x-auto\">\n\t\t\t\t{presets.map((preset) => {\n\t\t\t\t\tconst targetDate = addDays(new Date(), preset.offset);\n\t\t\t\t\treturn (\n\t\t\t\t\t\t<Button\n\t\t\t\t\t\t\tkey={preset.label}\n\t\t\t\t\t\t\tvariant=\"ghost\"\n\t\t\t\t\t\t\tsize=\"sm\"\n\t\t\t\t\t\t\tclassName=\"justify-start font-normal text-xs shrink-0\"\n\t\t\t\t\t\t\tonClick={() => {\n\t\t\t\t\t\t\t\tsetDate(targetDate);\n\t\t\t\t\t\t\t\tsetMonth(targetDate);\n\t\t\t\t\t\t\t}}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t{preset.label}\n\t\t\t\t\t\t</Button>\n\t\t\t\t\t);\n\t\t\t\t})}\n\t\t\t</div>\n\t\t\t<div className=\"flex flex-col\">\n\t\t\t\t<Calendar\n\t\t\t\t\tmode=\"single\"\n\t\t\t\t\tmonth={month}\n\t\t\t\t\tonMonthChange={setMonth}\n\t\t\t\t\tselected={date}\n\t\t\t\t\tonSelect={setDate}\n\t\t\t\t/>\n\t\t\t\t<div className=\"border-t border-border bg-muted/40 px-3 py-2 text-xs text-muted-foreground\">\n\t\t\t\t\tSelected:{\" \"}\n\t\t\t\t\t<span className=\"font-medium text-foreground\">\n\t\t\t\t\t\t{date ? format(date, \"PPP\") : \"None\"}\n\t\t\t\t\t</span>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/calendar-with-presets.tsx"
+		}
+	],
+	"type": "registry:component"
+}

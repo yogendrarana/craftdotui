@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-calendar",
+	"description": "Default single date selection calendar",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-calendar"],
+	"files": [
+		{
+			"path": "packages/craftui/components/calendar/particles/index.tsx",
+			"content": "\"use client\";\n\nimport * as React from \"react\";\nimport { Calendar } from \"@/components/craftui/components/calendar\";\n\nexport default function Particle() {\n\tconst [date, setDate] = React.useState<Date | undefined>(new Date());\n\n\treturn (\n\t\t<Calendar\n\t\t\tmode=\"single\"\n\t\t\tselected={date}\n\t\t\tonSelect={setDate}\n\t\t\tclassName=\"rounded-lg border border-border shadow-2xs\"\n\t\t/>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/calendar.tsx"
+		}
+	],
+	"type": "registry:component"
+}

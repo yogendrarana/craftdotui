@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-calendar-multiple",
+	"type": "registry:component",
+	"description": "Multi-date selection calendar",
+	"dependencies": ["date-fns"],
+	"registryDependencies": ["@craftdotui/craftui-calendar"],
+	"files": [
+		{
+			"path": "packages/craftui/components/calendar/particles/multiple/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/calendar-multiple.tsx"
+		}
+	]
+}

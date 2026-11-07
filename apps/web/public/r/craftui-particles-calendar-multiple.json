@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-calendar-multiple",
+	"description": "Multi-date selection calendar",
+	"dependencies": ["date-fns"],
+	"registryDependencies": ["@craftdotui/craftui-calendar"],
+	"files": [
+		{
+			"path": "packages/craftui/components/calendar/particles/multiple/index.tsx",
+			"content": "\"use client\";\n\nimport * as React from \"react\";\nimport { addDays } from \"date-fns\";\nimport { Calendar } from \"@/components/craftui/components/calendar\";\n\nexport default function Particle() {\n\tconst today = new Date();\n\tconst [dates, setDates] = React.useState<Date[] | undefined>([\n\t\ttoday,\n\t\taddDays(today, 2),\n\t\taddDays(today, 5),\n\t]);\n\n\treturn (\n\t\t<Calendar\n\t\t\tmode=\"multiple\"\n\t\t\tselected={dates}\n\t\t\tonSelect={setDates}\n\t\t\tclassName=\"rounded-lg border border-border shadow-2xs\"\n\t\t/>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/calendar-multiple.tsx"
+		}
+	],
+	"type": "registry:component"
+}

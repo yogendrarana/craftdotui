@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-calendar-range",
+	"type": "registry:component",
+	"description": "Two-month date range selection calendar",
+	"dependencies": ["date-fns"],
+	"registryDependencies": ["@craftdotui/craftui-calendar"],
+	"files": [
+		{
+			"path": "packages/craftui/components/calendar/particles/range/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/calendar-range.tsx"
+		}
+	]
+}

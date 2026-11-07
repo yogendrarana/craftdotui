@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-calendar-with-dropdowns",
+	"type": "registry:component",
+	"description": "Calendar with month and year dropdown selectors",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-calendar"],
+	"files": [
+		{
+			"path": "packages/craftui/components/calendar/particles/with-dropdowns/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/calendar-with-dropdowns.tsx"
+		}
+	]
+}

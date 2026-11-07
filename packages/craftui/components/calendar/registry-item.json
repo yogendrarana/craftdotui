@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-calendar",
+	"type": "registry:ui",
+	"description": "A date field component that allows users to enter and edit date values.",
+	"dependencies": ["@daypicker/react", "lucide-react"],
+	"registryDependencies": ["@craftdotui/cn", "@craftdotui/baseui-button"],
+	"files": [
+		{
+			"path": "packages/craftui/components/calendar/index.tsx",
+			"type": "registry:ui",
+			"target": "components/ui/calendar.tsx"
+		}
+	]
+}

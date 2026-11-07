@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-calendar-range",
+	"description": "Two-month date range selection calendar",
+	"dependencies": ["date-fns"],
+	"registryDependencies": ["@craftdotui/craftui-calendar"],
+	"files": [
+		{
+			"path": "packages/craftui/components/calendar/particles/range/index.tsx",
+			"content": "\"use client\";\n\nimport * as React from \"react\";\nimport { addDays } from \"date-fns\";\nimport {\n\tCalendar,\n\ttype DateRange,\n} from \"@/components/craftui/components/calendar\";\n\nexport default function Particle() {\n\tconst [range, setRange] = React.useState<DateRange | undefined>({\n\t\tfrom: new Date(new Date().getFullYear(), new Date().getMonth(), 10),\n\t\tto: addDays(\n\t\t\tnew Date(new Date().getFullYear(), new Date().getMonth(), 10),\n\t\t\t8,\n\t\t),\n\t});\n\n\treturn (\n\t\t<Calendar\n\t\t\tmode=\"range\"\n\t\t\tdefaultMonth={range?.from}\n\t\t\tselected={range}\n\t\t\tonSelect={setRange}\n\t\t\tnumberOfMonths={2}\n\t\t\tclassName=\"rounded-lg border border-border shadow-2xs\"\n\t\t/>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/calendar-range.tsx"
+		}
+	],
+	"type": "registry:component"
+}

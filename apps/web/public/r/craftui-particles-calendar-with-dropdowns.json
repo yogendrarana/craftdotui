@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-calendar-with-dropdowns",
+	"description": "Calendar with month and year dropdown selectors",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-calendar"],
+	"files": [
+		{
+			"path": "packages/craftui/components/calendar/particles/with-dropdowns/index.tsx",
+			"content": "\"use client\";\n\nimport * as React from \"react\";\nimport { Calendar } from \"@/components/craftui/components/calendar\";\n\nexport default function Particle() {\n\tconst [date, setDate] = React.useState<Date | undefined>(new Date());\n\n\treturn (\n\t\t<Calendar\n\t\t\tmode=\"single\"\n\t\t\tcaptionLayout=\"dropdown\"\n\t\t\tselected={date}\n\t\t\tonSelect={setDate}\n\t\t\tstartMonth={new Date(1980, 0)}\n\t\t\tendMonth={new Date(2035, 11)}\n\t\t\tclassName=\"rounded-lg border border-border shadow-2xs\"\n\t\t/>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/calendar-with-dropdowns.tsx"
+		}
+	],
+	"type": "registry:component"
+}

@@ -417,6 +417,96 @@
 			]
 		},
 		{
+			"name": "craftui-particles-calendar-multiple",
+			"type": "registry:component",
+			"description": "Multi-date selection calendar",
+			"dependencies": ["date-fns"],
+			"registryDependencies": ["@craftdotui/craftui-calendar"],
+			"files": [
+				{
+					"path": "packages/craftui/components/calendar/particles/multiple/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/calendar-multiple.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-calendar-range",
+			"type": "registry:component",
+			"description": "Two-month date range selection calendar",
+			"dependencies": ["date-fns"],
+			"registryDependencies": ["@craftdotui/craftui-calendar"],
+			"files": [
+				{
+					"path": "packages/craftui/components/calendar/particles/range/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/calendar-range.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-calendar",
+			"type": "registry:component",
+			"description": "Default single date selection calendar",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/craftui-calendar"],
+			"files": [
+				{
+					"path": "packages/craftui/components/calendar/particles/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/calendar.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-calendar-with-dropdowns",
+			"type": "registry:component",
+			"description": "Calendar with month and year dropdown selectors",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/craftui-calendar"],
+			"files": [
+				{
+					"path": "packages/craftui/components/calendar/particles/with-dropdowns/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/calendar-with-dropdowns.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-calendar-with-presets",
+			"type": "registry:component",
+			"description": "Calendar with quick date selection presets and formatted footer",
+			"dependencies": ["date-fns"],
+			"registryDependencies": [
+				"@craftdotui/craftui-calendar",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/calendar/particles/with-presets/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/calendar-with-presets.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-calendar",
+			"type": "registry:ui",
+			"description": "A date field component that allows users to enter and edit date values.",
+			"dependencies": ["@daypicker/react", "lucide-react"],
+			"registryDependencies": [
+				"@craftdotui/cn",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/calendar/index.tsx",
+					"type": "registry:ui",
+					"target": "components/ui/calendar.tsx"
+				}
+			]
+		},
+		{
 			"name": "craftui-particles-card-media",
 			"type": "registry:component",
 			"description": "Card featuring a top cover image, badge action, and footer.",
