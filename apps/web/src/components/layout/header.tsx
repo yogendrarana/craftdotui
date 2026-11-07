@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { ToggleMode } from "@/components/toggle-mode";
 import { GithubStars } from "@/components/github-stars";
+import { CommandMenu } from "@/components/command-menu";
 import DocsMobileSidebar from "@/components/docs-mobile-sidebar";
 import { docsNavItems } from "@/config/docs";
 import { Crosshair } from "@/components/grid-system";
@@ -69,6 +70,7 @@ export function Header() {
 						</div>
 
 						<GithubStars />
+						<CommandMenu />
 						<ToggleMode />
 						<div className="md:hidden flex items-stretch">
 							<DocsMobileSidebar items={docsNavItems} />
