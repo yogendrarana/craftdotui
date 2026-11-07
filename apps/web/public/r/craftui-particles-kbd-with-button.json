@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-kbd-with-button",
+	"description": "Kbd shortcuts inside buttons",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/craftui-kbd",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/kbd/particles/with-button/index.tsx",
+			"content": "import { CornerDownLeftIcon, SearchIcon } from \"lucide-react\";\nimport { Button } from \"@/components/baseui/components/button\";\nimport { Kbd, KbdGroup } from \"@/components/craftui/components/kbd\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"flex flex-wrap items-center gap-3\">\n\t\t\t<Button variant=\"outline\" size=\"sm\" className=\"pr-1.5\">\n\t\t\t\t<SearchIcon className=\"text-muted-foreground\" />\n\t\t\t\t<span>Search</span>\n\t\t\t\t<KbdGroup className=\"ml-2\">\n\t\t\t\t\t<Kbd size=\"sm\">⌘</Kbd>\n\t\t\t\t\t<Kbd size=\"sm\">K</Kbd>\n\t\t\t\t</KbdGroup>\n\t\t\t</Button>\n\n\t\t\t<Button variant=\"outline\" size=\"sm\" className=\"pr-1.5\">\n\t\t\t\t<span>Accept</span>\n\t\t\t\t<Kbd size=\"sm\" className=\"ml-1\">\n\t\t\t\t\t<CornerDownLeftIcon />\n\t\t\t\t</Kbd>\n\t\t\t</Button>\n\n\t\t\t<Button variant=\"ghost\" size=\"sm\" className=\"pr-1.5\">\n\t\t\t\t<span>Cancel</span>\n\t\t\t\t<Kbd size=\"sm\" variant=\"outline\" className=\"ml-1\">\n\t\t\t\t\tEsc\n\t\t\t\t</Kbd>\n\t\t\t</Button>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/kbd-with-button.tsx"
+		}
+	],
+	"type": "registry:component"
+}

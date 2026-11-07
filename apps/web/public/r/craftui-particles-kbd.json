@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-kbd",
+	"description": "Default keyboard keys and shortcut groups",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-kbd"],
+	"files": [
+		{
+			"path": "packages/craftui/components/kbd/particles/index.tsx",
+			"content": "import { Kbd, KbdGroup } from \"@/components/craftui/components/kbd\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"flex flex-col items-center gap-4\">\n\t\t\t<div className=\"flex flex-wrap items-center gap-2\">\n\t\t\t\t<Kbd>⌘</Kbd>\n\t\t\t\t<Kbd>⇧</Kbd>\n\t\t\t\t<Kbd>⌥</Kbd>\n\t\t\t\t<Kbd>⌃</Kbd>\n\t\t\t\t<Kbd>Esc</Kbd>\n\t\t\t\t<Kbd>↵</Kbd>\n\t\t\t</div>\n\n\t\t\t<div className=\"flex flex-wrap items-center gap-4\">\n\t\t\t\t<KbdGroup>\n\t\t\t\t\t<Kbd>⌘</Kbd>\n\t\t\t\t\t<Kbd>K</Kbd>\n\t\t\t\t</KbdGroup>\n\n\t\t\t\t<KbdGroup>\n\t\t\t\t\t<Kbd>Ctrl</Kbd>\n\t\t\t\t\t<span className=\"text-muted-foreground text-xs\">+</span>\n\t\t\t\t\t<Kbd>B</Kbd>\n\t\t\t\t</KbdGroup>\n\n\t\t\t\t<KbdGroup>\n\t\t\t\t\t<Kbd>⇧</Kbd>\n\t\t\t\t\t<Kbd>⌥</Kbd>\n\t\t\t\t\t<Kbd>P</Kbd>\n\t\t\t\t</KbdGroup>\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/kbd.tsx"
+		}
+	],
+	"type": "registry:component"
+}

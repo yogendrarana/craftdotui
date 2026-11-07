@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-kbd-sizes",
+	"description": "Kbd small, medium, and large sizes",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-kbd"],
+	"files": [
+		{
+			"path": "packages/craftui/components/kbd/particles/sizes/index.tsx",
+			"content": "import { Kbd, KbdGroup } from \"@/components/craftui/components/kbd\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"flex flex-wrap items-center gap-6\">\n\t\t\t<KbdGroup>\n\t\t\t\t<Kbd size=\"sm\">⌘</Kbd>\n\t\t\t\t<Kbd size=\"sm\">K</Kbd>\n\t\t\t</KbdGroup>\n\n\t\t\t<KbdGroup>\n\t\t\t\t<Kbd size=\"md\">⌘</Kbd>\n\t\t\t\t<Kbd size=\"md\">K</Kbd>\n\t\t\t</KbdGroup>\n\n\t\t\t<KbdGroup>\n\t\t\t\t<Kbd size=\"lg\">⌘</Kbd>\n\t\t\t\t<Kbd size=\"lg\">K</Kbd>\n\t\t\t</KbdGroup>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/kbd-sizes.tsx"
+		}
+	],
+	"type": "registry:component"
+}

@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-kbd",
+	"type": "registry:ui",
+	"description": "Displays keyboard shortcuts or individual keys with physical keycap styling and group support.",
+	"dependencies": ["@base-ui/react", "class-variance-authority"],
+	"registryDependencies": ["@craftdotui/cn"],
+	"files": [
+		{
+			"path": "packages/craftui/components/kbd/index.tsx",
+			"type": "registry:ui",
+			"target": "components/ui/kbd.tsx"
+		}
+	]
+}

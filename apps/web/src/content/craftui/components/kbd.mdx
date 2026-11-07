@@ -1,0 +1,116 @@
+---
+title: Kbd
+description: Displays keyboard shortcuts or individual keys with physical keycap styling and group support.
+slug: /craftui/components/kbd
+published: true
+date: 2026-11-07T00:00:00.000Z
+author:
+  name: Yogendra Rana
+  twitter: "https://twitter.com/yooogendra_rana"
+---
+
+<ComponentCodePreview name="craftui-particles-kbd" />
+
+## Installation
+
+<Installation name="craftui-kbd" />
+
+## Anatomy
+
+#### Usage
+
+```tsx
+<KbdGroup>
+  <Kbd>⌘</Kbd>
+  <Kbd>K</Kbd>
+</KbdGroup>
+```
+
+```tsx
+<Kbd.Group>
+  <Kbd.Root>⌘</Kbd.Root>
+  <Kbd.Root>K</Kbd.Root>
+</Kbd.Group>
+```
+
+## Demo
+
+#### Variants
+
+<ComponentCodePreview name="craftui-particles-kbd-variants" />
+
+#### Sizes
+
+<ComponentCodePreview name="craftui-particles-kbd-sizes" />
+
+#### With Button
+
+<ComponentCodePreview name="craftui-particles-kbd-with-button" />
+
+#### With Input
+
+<ComponentCodePreview name="craftui-particles-kbd-with-input" />
+
+## Props
+
+#### KbdRoot
+
+<PropsTable
+  data={[
+    {
+      prop: "variant",
+      type: '"default" | "outline" | "ghost"',
+      default: '"default"',
+      description: "The visual style variant of the keycap.",
+    },
+    {
+      prop: "size",
+      type: '"sm" | "md" | "lg"',
+      default: '"md"',
+      description: "The size of the keycap.",
+    },
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default kbd element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the keycap.",
+    },
+    {
+      prop: "children",
+      type: "ReactNode",
+      default: "undefined",
+      description: "The key symbol, label, or icon to render inside the keycap.",
+    },
+  ]}
+/>
+
+#### KbdGroup
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default kbd group wrapper element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the shortcut group.",
+    },
+    {
+      prop: "children",
+      type: "ReactNode",
+      default: "undefined",
+      description: "Multiple Kbd elements or separator tokens to group together.",
+    },
+  ]}
+/>

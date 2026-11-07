@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-kbd-variants",
+	"type": "registry:component",
+	"description": "Kbd default, outline, and ghost variants",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-kbd"],
+	"files": [
+		{
+			"path": "packages/craftui/components/kbd/particles/variants/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/kbd-variants.tsx"
+		}
+	]
+}

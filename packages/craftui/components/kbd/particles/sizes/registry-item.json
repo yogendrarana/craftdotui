@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-kbd-sizes",
+	"type": "registry:component",
+	"description": "Kbd small, medium, and large sizes",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-kbd"],
+	"files": [
+		{
+			"path": "packages/craftui/components/kbd/particles/sizes/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/kbd-sizes.tsx"
+		}
+	]
+}

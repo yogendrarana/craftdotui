@@ -1747,6 +1747,264 @@ export const Registry: Record<string, any> = {
 							return LazyComp;
 						})(),
           },
+          "craftui-particles-kbd": {
+            name: "craftui-particles-kbd",
+            description: "Default keyboard keys and shortcut groups",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-kbd"],
+            files: [
+  {
+    "path": "packages/craftui/components/kbd/particles/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/kbd.tsx",
+    "content": "import { Kbd, KbdGroup } from \"@/components/craftui/components/kbd\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"flex flex-col items-center gap-4\">\n\t\t\t<div className=\"flex flex-wrap items-center gap-2\">\n\t\t\t\t<Kbd>⌘</Kbd>\n\t\t\t\t<Kbd>⇧</Kbd>\n\t\t\t\t<Kbd>⌥</Kbd>\n\t\t\t\t<Kbd>⌃</Kbd>\n\t\t\t\t<Kbd>Esc</Kbd>\n\t\t\t\t<Kbd>↵</Kbd>\n\t\t\t</div>\n\n\t\t\t<div className=\"flex flex-wrap items-center gap-4\">\n\t\t\t\t<KbdGroup>\n\t\t\t\t\t<Kbd>⌘</Kbd>\n\t\t\t\t\t<Kbd>K</Kbd>\n\t\t\t\t</KbdGroup>\n\n\t\t\t\t<KbdGroup>\n\t\t\t\t\t<Kbd>Ctrl</Kbd>\n\t\t\t\t\t<span className=\"text-muted-foreground text-xs\">+</span>\n\t\t\t\t\t<Kbd>B</Kbd>\n\t\t\t\t</KbdGroup>\n\n\t\t\t\t<KbdGroup>\n\t\t\t\t\t<Kbd>⇧</Kbd>\n\t\t\t\t\t<Kbd>⌥</Kbd>\n\t\t\t\t\t<Kbd>P</Kbd>\n\t\t\t\t</KbdGroup>\n\t\t\t</div>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-kbd',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/kbd/particles/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-kbd-sizes": {
+            name: "craftui-particles-kbd-sizes",
+            description: "Kbd small, medium, and large sizes",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-kbd"],
+            files: [
+  {
+    "path": "packages/craftui/components/kbd/particles/sizes/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/kbd-sizes.tsx",
+    "content": "import { Kbd, KbdGroup } from \"@/components/craftui/components/kbd\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"flex flex-wrap items-center gap-6\">\n\t\t\t<KbdGroup>\n\t\t\t\t<Kbd size=\"sm\">⌘</Kbd>\n\t\t\t\t<Kbd size=\"sm\">K</Kbd>\n\t\t\t</KbdGroup>\n\n\t\t\t<KbdGroup>\n\t\t\t\t<Kbd size=\"md\">⌘</Kbd>\n\t\t\t\t<Kbd size=\"md\">K</Kbd>\n\t\t\t</KbdGroup>\n\n\t\t\t<KbdGroup>\n\t\t\t\t<Kbd size=\"lg\">⌘</Kbd>\n\t\t\t\t<Kbd size=\"lg\">K</Kbd>\n\t\t\t</KbdGroup>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-kbd-sizes',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/kbd/particles/sizes/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-kbd-variants": {
+            name: "craftui-particles-kbd-variants",
+            description: "Kbd default, outline, and ghost variants",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-kbd"],
+            files: [
+  {
+    "path": "packages/craftui/components/kbd/particles/variants/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/kbd-variants.tsx",
+    "content": "import { Kbd, KbdGroup } from \"@/components/craftui/components/kbd\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"flex flex-wrap items-center gap-6\">\n\t\t\t<div className=\"flex flex-col items-center gap-2\">\n\t\t\t\t<KbdGroup>\n\t\t\t\t\t<Kbd variant=\"default\">⌘</Kbd>\n\t\t\t\t\t<Kbd variant=\"default\">K</Kbd>\n\t\t\t\t</KbdGroup>\n\t\t\t\t<span className=\"text-muted-foreground text-xs\">Default</span>\n\t\t\t</div>\n\n\t\t\t<div className=\"flex flex-col items-center gap-2\">\n\t\t\t\t<KbdGroup>\n\t\t\t\t\t<Kbd variant=\"outline\">⌘</Kbd>\n\t\t\t\t\t<Kbd variant=\"outline\">K</Kbd>\n\t\t\t\t</KbdGroup>\n\t\t\t\t<span className=\"text-muted-foreground text-xs\">Outline</span>\n\t\t\t</div>\n\n\t\t\t<div className=\"flex flex-col items-center gap-2\">\n\t\t\t\t<KbdGroup>\n\t\t\t\t\t<Kbd variant=\"ghost\">⌘</Kbd>\n\t\t\t\t\t<Kbd variant=\"ghost\">K</Kbd>\n\t\t\t\t</KbdGroup>\n\t\t\t\t<span className=\"text-muted-foreground text-xs\">Ghost</span>\n\t\t\t</div>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-kbd-variants',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/kbd/particles/variants/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-kbd-with-button": {
+            name: "craftui-particles-kbd-with-button",
+            description: "Kbd shortcuts inside buttons",
+            type: "registry:component",
+            dependencies: ["lucide-react"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-kbd","@craftdotui/baseui-button"],
+            files: [
+  {
+    "path": "packages/craftui/components/kbd/particles/with-button/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/kbd-with-button.tsx",
+    "content": "import { CornerDownLeftIcon, SearchIcon } from \"lucide-react\";\nimport { Button } from \"@/components/baseui/components/button\";\nimport { Kbd, KbdGroup } from \"@/components/craftui/components/kbd\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"flex flex-wrap items-center gap-3\">\n\t\t\t<Button variant=\"outline\" size=\"sm\" className=\"pr-1.5\">\n\t\t\t\t<SearchIcon className=\"text-muted-foreground\" />\n\t\t\t\t<span>Search</span>\n\t\t\t\t<KbdGroup className=\"ml-2\">\n\t\t\t\t\t<Kbd size=\"sm\">⌘</Kbd>\n\t\t\t\t\t<Kbd size=\"sm\">K</Kbd>\n\t\t\t\t</KbdGroup>\n\t\t\t</Button>\n\n\t\t\t<Button variant=\"outline\" size=\"sm\" className=\"pr-1.5\">\n\t\t\t\t<span>Accept</span>\n\t\t\t\t<Kbd size=\"sm\" className=\"ml-1\">\n\t\t\t\t\t<CornerDownLeftIcon />\n\t\t\t\t</Kbd>\n\t\t\t</Button>\n\n\t\t\t<Button variant=\"ghost\" size=\"sm\" className=\"pr-1.5\">\n\t\t\t\t<span>Cancel</span>\n\t\t\t\t<Kbd size=\"sm\" variant=\"outline\" className=\"ml-1\">\n\t\t\t\t\tEsc\n\t\t\t\t</Kbd>\n\t\t\t</Button>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-kbd-with-button',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/kbd/particles/with-button/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-kbd-with-input": {
+            name: "craftui-particles-kbd-with-input",
+            description: "Search input with trailing Kbd shortcut",
+            type: "registry:component",
+            dependencies: ["lucide-react"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-kbd","@craftdotui/baseui-input"],
+            files: [
+  {
+    "path": "packages/craftui/components/kbd/particles/with-input/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/kbd-with-input.tsx",
+    "content": "import { SearchIcon } from \"lucide-react\";\nimport { Input } from \"@/components/baseui/components/input\";\nimport { Kbd, KbdGroup } from \"@/components/craftui/components/kbd\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"relative w-full max-w-xs\">\n\t\t\t<SearchIcon className=\"pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground\" />\n\t\t\t<Input\n\t\t\t\ttype=\"search\"\n\t\t\t\tplaceholder=\"Search documentation...\"\n\t\t\t\tclassName=\"pr-14 pl-9\"\n\t\t\t/>\n\t\t\t<KbdGroup className=\"pointer-events-none absolute top-1/2 right-2.5 -translate-y-1/2\">\n\t\t\t\t<Kbd size=\"sm\">⌘</Kbd>\n\t\t\t\t<Kbd size=\"sm\">K</Kbd>\n\t\t\t</KbdGroup>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-kbd-with-input',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/kbd/particles/with-input/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-kbd": {
+            name: "craftui-kbd",
+            description: "Displays keyboard shortcuts or individual keys with physical keycap styling and group support.",
+            type: "registry:ui",
+            dependencies: ["@base-ui/react","class-variance-authority"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/cn"],
+            files: [
+  {
+    "path": "packages/craftui/components/kbd/index.tsx",
+    "type": "registry:ui",
+    "target": "components/ui/kbd.tsx",
+    "content": "\"use client\";\n\nimport { cn } from \"cn\";\nimport { useRender } from \"@base-ui/react/use-render\";\nimport { mergeProps } from \"@base-ui/react/merge-props\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\n\n/* -------------------------------------------------------------------------- */\n/* Variants                                                                   */\n/* -------------------------------------------------------------------------- */\n\nconst kbdVariants = cva(\n\tcn(\n\t\t\"inline-flex items-center justify-center gap-1 shrink-0 w-fit\",\n\t\t\"rounded-sm border font-sans font-medium leading-none whitespace-nowrap select-none pointer-events-none\",\n\t\t\"[&_svg]:pointer-events-none [&_svg]:shrink-0\",\n\t\t\"in-data-[slot=tooltip-content]:bg-background/20 in-data-[slot=tooltip-content]:text-background in-data-[slot=tooltip-content]:border-background/25 in-data-[slot=tooltip-content]:shadow-none\",\n\t),\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault:\n\t\t\t\t\t\"bg-muted text-muted-foreground border-border/80 shadow-[0_1px_0_0_var(--border)] dark:bg-muted/70\",\n\t\t\t\toutline: \"bg-background text-muted-foreground border-border\",\n\t\t\t\tghost:\n\t\t\t\t\t\"bg-transparent text-muted-foreground border-transparent shadow-none\",\n\t\t\t},\n\t\t\tsize: {\n\t\t\t\tsm: \"h-4.5 min-w-4.5 px-1 text-[10px] [&_svg:not([class*='size-'])]:size-2.5\",\n\t\t\t\tmd: \"h-5 min-w-5 px-1.5 text-xs [&_svg:not([class*='size-'])]:size-3\",\n\t\t\t\tlg: \"h-6 min-w-6 px-2 text-xs [&_svg:not([class*='size-'])]:size-3.5\",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: \"default\",\n\t\t\tsize: \"md\",\n\t\t},\n\t},\n);\n\n/* -------------------------------------------------------------------------- */\n/* Kbd Root                                                                   */\n/* -------------------------------------------------------------------------- */\n\nexport interface KbdProps\n\textends useRender.ComponentProps<\"kbd\">,\n\t\tVariantProps<typeof kbdVariants> {}\n\nfunction KbdRoot({ className, variant, size, render, ...props }: KbdProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"kbd\",\n\t\tclassName: cn(kbdVariants({ variant, size }), className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"kbd\",\n\t\tprops: mergeProps<\"kbd\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Kbd Group                                                                  */\n/* -------------------------------------------------------------------------- */\n\nexport interface KbdGroupProps extends useRender.ComponentProps<\"kbd\"> {}\n\nfunction KbdGroup({ className, render, ...props }: KbdGroupProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"kbd-group\",\n\t\tclassName: cn(\"inline-flex items-center gap-1\", className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"kbd\",\n\t\tprops: mergeProps<\"kbd\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const Kbd = Object.assign(KbdRoot, {\n\tRoot: KbdRoot,\n\tGroup: KbdGroup,\n});\n\nexport { KbdRoot, KbdGroup, kbdVariants };"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-kbd',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/kbd/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
           "craftui-particles-label-disabled": {
             name: "craftui-particles-label-disabled",
             description: "Disabled label state with an input control.",

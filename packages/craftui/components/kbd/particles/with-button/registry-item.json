@@ -1,0 +1,18 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-kbd-with-button",
+	"type": "registry:component",
+	"description": "Kbd shortcuts inside buttons",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/craftui-kbd",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/kbd/particles/with-button/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/kbd-with-button.tsx"
+		}
+	]
+}

@@ -646,6 +646,96 @@
 			]
 		},
 		{
+			"name": "craftui-particles-kbd",
+			"type": "registry:component",
+			"description": "Default keyboard keys and shortcut groups",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/craftui-kbd"],
+			"files": [
+				{
+					"path": "packages/craftui/components/kbd/particles/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/kbd.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-kbd-sizes",
+			"type": "registry:component",
+			"description": "Kbd small, medium, and large sizes",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/craftui-kbd"],
+			"files": [
+				{
+					"path": "packages/craftui/components/kbd/particles/sizes/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/kbd-sizes.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-kbd-variants",
+			"type": "registry:component",
+			"description": "Kbd default, outline, and ghost variants",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/craftui-kbd"],
+			"files": [
+				{
+					"path": "packages/craftui/components/kbd/particles/variants/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/kbd-variants.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-kbd-with-button",
+			"type": "registry:component",
+			"description": "Kbd shortcuts inside buttons",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": [
+				"@craftdotui/craftui-kbd",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/kbd/particles/with-button/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/kbd-with-button.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-kbd-with-input",
+			"type": "registry:component",
+			"description": "Search input with trailing Kbd shortcut",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": [
+				"@craftdotui/craftui-kbd",
+				"@craftdotui/baseui-input"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/kbd/particles/with-input/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/kbd-with-input.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-kbd",
+			"type": "registry:ui",
+			"description": "Displays keyboard shortcuts or individual keys with physical keycap styling and group support.",
+			"dependencies": ["@base-ui/react", "class-variance-authority"],
+			"registryDependencies": ["@craftdotui/cn"],
+			"files": [
+				{
+					"path": "packages/craftui/components/kbd/index.tsx",
+					"type": "registry:ui",
+					"target": "components/ui/kbd.tsx"
+				}
+			]
+		},
+		{
 			"name": "craftui-particles-label-disabled",
 			"type": "registry:component",
 			"description": "Disabled label state with an input control.",
