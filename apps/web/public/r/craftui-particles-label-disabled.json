@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-label-disabled",
+	"description": "Disabled label state with an input control.",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/craftui-label",
+		"@craftdotui/baseui-input"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/label/particles/disabled/index.tsx",
+			"content": "import { Input } from \"@/components/baseui/components/input\";\nimport { Label } from \"@/components/craftui/components/label\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div\n\t\t\tdata-disabled=\"true\"\n\t\t\tclassName=\"group flex w-full max-w-xs flex-col gap-2\"\n\t\t>\n\t\t\t<Label htmlFor=\"label-disabled-input\">Workspace ID</Label>\n\t\t\t<Input\n\t\t\t\tid=\"label-disabled-input\"\n\t\t\t\tdisabled\n\t\t\t\tdefaultValue=\"ws_94f820a1b\"\n\t\t\t/>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/label-disabled.tsx"
+		}
+	],
+	"type": "registry:component"
+}

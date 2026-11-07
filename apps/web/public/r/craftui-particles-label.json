@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-label",
+	"description": "Default label associated with an input.",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/craftui-label",
+		"@craftdotui/baseui-input"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/label/particles/index.tsx",
+			"content": "import { Input } from \"@/components/baseui/components/input\";\nimport { Label } from \"@/components/craftui/components/label\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"flex w-full max-w-xs flex-col gap-2\">\n\t\t\t<Label htmlFor=\"label-demo-email\">Email address</Label>\n\t\t\t<Input\n\t\t\t\tid=\"label-demo-email\"\n\t\t\t\ttype=\"email\"\n\t\t\t\tplaceholder=\"you@craftui.com\"\n\t\t\t/>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/label.tsx"
+		}
+	],
+	"type": "registry:component"
+}

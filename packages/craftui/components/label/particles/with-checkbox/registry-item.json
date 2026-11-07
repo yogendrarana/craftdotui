@@ -1,0 +1,18 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-label-with-checkbox",
+	"type": "registry:component",
+	"description": "Label paired with a checkbox control.",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/craftui-label",
+		"@craftdotui/baseui-checkbox"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/label/particles/with-checkbox/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/label-with-checkbox.tsx"
+		}
+	]
+}

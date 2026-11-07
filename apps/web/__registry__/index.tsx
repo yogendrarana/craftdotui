@@ -1747,6 +1747,221 @@ export const Registry: Record<string, any> = {
 							return LazyComp;
 						})(),
           },
+          "craftui-particles-label-disabled": {
+            name: "craftui-particles-label-disabled",
+            description: "Disabled label state with an input control.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-label","@craftdotui/baseui-input"],
+            files: [
+  {
+    "path": "packages/craftui/components/label/particles/disabled/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/label-disabled.tsx",
+    "content": "import { Input } from \"@/components/baseui/components/input\";\nimport { Label } from \"@/components/craftui/components/label\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div\n\t\t\tdata-disabled=\"true\"\n\t\t\tclassName=\"group flex w-full max-w-xs flex-col gap-2\"\n\t\t>\n\t\t\t<Label htmlFor=\"label-disabled-input\">Workspace ID</Label>\n\t\t\t<Input\n\t\t\t\tid=\"label-disabled-input\"\n\t\t\t\tdisabled\n\t\t\t\tdefaultValue=\"ws_94f820a1b\"\n\t\t\t/>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-label-disabled',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/label/particles/disabled/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-label": {
+            name: "craftui-particles-label",
+            description: "Default label associated with an input.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-label","@craftdotui/baseui-input"],
+            files: [
+  {
+    "path": "packages/craftui/components/label/particles/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/label.tsx",
+    "content": "import { Input } from \"@/components/baseui/components/input\";\nimport { Label } from \"@/components/craftui/components/label\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"flex w-full max-w-xs flex-col gap-2\">\n\t\t\t<Label htmlFor=\"label-demo-email\">Email address</Label>\n\t\t\t<Input\n\t\t\t\tid=\"label-demo-email\"\n\t\t\t\ttype=\"email\"\n\t\t\t\tplaceholder=\"you@craftui.com\"\n\t\t\t/>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-label',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/label/particles/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-label-required": {
+            name: "craftui-particles-label-required",
+            description: "Label with a required indicator.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-label","@craftdotui/baseui-input"],
+            files: [
+  {
+    "path": "packages/craftui/components/label/particles/required/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/label-required.tsx",
+    "content": "import { Input } from \"@/components/baseui/components/input\";\nimport { Label } from \"@/components/craftui/components/label\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"flex w-full max-w-xs flex-col gap-2\">\n\t\t\t<Label htmlFor=\"label-required-name\" className=\"gap-1\">\n\t\t\t\tProject name\n\t\t\t\t<span aria-hidden=\"true\" className=\"text-destructive\">\n\t\t\t\t\t*\n\t\t\t\t</span>\n\t\t\t</Label>\n\t\t\t<Input\n\t\t\t\tid=\"label-required-name\"\n\t\t\t\trequired\n\t\t\t\tplaceholder=\"craft-design-system\"\n\t\t\t/>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-label-required',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/label/particles/required/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-label-with-checkbox": {
+            name: "craftui-particles-label-with-checkbox",
+            description: "Label paired with a checkbox control.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-label","@craftdotui/baseui-checkbox"],
+            files: [
+  {
+    "path": "packages/craftui/components/label/particles/with-checkbox/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/label-with-checkbox.tsx",
+    "content": "import {\n\tCheckboxIndicator,\n\tCheckboxRoot,\n} from \"@/components/baseui/components/checkbox\";\nimport { Label } from \"@/components/craftui/components/label\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"flex items-center gap-2\">\n\t\t\t<CheckboxRoot id=\"label-terms\" defaultChecked>\n\t\t\t\t<CheckboxIndicator />\n\t\t\t</CheckboxRoot>\n\t\t\t<Label htmlFor=\"label-terms\">Accept terms and conditions</Label>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-label-with-checkbox',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/label/particles/with-checkbox/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-label": {
+            name: "craftui-label",
+            description: "Renders an accessible label associated with form controls.",
+            type: "registry:component",
+            dependencies: ["@base-ui/react","cn"],
+            devDependencies: undefined,
+            registryDependencies: [],
+            files: [
+  {
+    "path": "packages/craftui/components/label/index.tsx",
+    "type": "registry:component",
+    "target": "components/ui/label.tsx",
+    "content": "\"use client\";\n\nimport { cn } from \"cn\";\nimport { useRender } from \"@base-ui/react/use-render\";\nimport { mergeProps } from \"@base-ui/react/merge-props\";\n\n/* -------------------------------------------------------------------------- */\n/* Label Root                                                                 */\n/* -------------------------------------------------------------------------- */\n\nexport interface LabelProps extends useRender.ComponentProps<\"label\"> {}\n\nfunction LabelRoot({ className, render, ...props }: LabelProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"label\",\n\t\tclassName: cn(\n\t\t\t\"flex items-center gap-2 text-sm leading-none font-medium text-foreground select-none\",\n\t\t\t\"group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"label\",\n\t\tprops: mergeProps<\"label\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const Label = Object.assign(LabelRoot, {\n\tRoot: LabelRoot,\n});\n\nexport { LabelRoot };"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-label',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/label/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
           "craftui-particles-skeleton-card": {
             name: "craftui-particles-skeleton-card",
             description: "Card layout skeleton placeholder.",

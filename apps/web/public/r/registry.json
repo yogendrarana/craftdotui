@@ -646,6 +646,88 @@
 			]
 		},
 		{
+			"name": "craftui-particles-label-disabled",
+			"type": "registry:component",
+			"description": "Disabled label state with an input control.",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/craftui-label",
+				"@craftdotui/baseui-input"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/label/particles/disabled/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/label-disabled.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-label",
+			"type": "registry:component",
+			"description": "Default label associated with an input.",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/craftui-label",
+				"@craftdotui/baseui-input"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/label/particles/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/label.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-label-required",
+			"type": "registry:component",
+			"description": "Label with a required indicator.",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/craftui-label",
+				"@craftdotui/baseui-input"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/label/particles/required/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/label-required.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-label-with-checkbox",
+			"type": "registry:component",
+			"description": "Label paired with a checkbox control.",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/craftui-label",
+				"@craftdotui/baseui-checkbox"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/label/particles/with-checkbox/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/label-with-checkbox.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-label",
+			"type": "registry:component",
+			"description": "Renders an accessible label associated with form controls.",
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "packages/craftui/components/label/index.tsx",
+					"type": "registry:component",
+					"target": "components/ui/label.tsx"
+				}
+			]
+		},
+		{
 			"name": "craftui-particles-skeleton-card",
 			"type": "registry:component",
 			"description": "Card layout skeleton placeholder.",

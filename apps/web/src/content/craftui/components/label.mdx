@@ -1,0 +1,69 @@
+---
+title: Label
+description: Renders an accessible label associated with form controls.
+slug: /craftui/components/label
+published: true
+date: 2026-11-07T00:00:00.000Z
+author:
+  name: Yogendra Rana
+  twitter: "https://twitter.com/yooogendra_rana"
+---
+
+<ComponentCodePreview name="craftui-particles-label" />
+
+## Installation
+
+<Installation name="craftui-label" />
+
+## Anatomy
+
+#### Usage
+
+```tsx
+<Label htmlFor="email">Email</Label>
+```
+
+```tsx
+<LabelRoot htmlFor="email">Email</LabelRoot>
+```
+
+## Demo
+
+#### With Checkbox
+
+<ComponentCodePreview name="craftui-particles-label-with-checkbox" />
+
+#### Required
+
+<ComponentCodePreview name="craftui-particles-label-required" />
+
+#### Disabled
+
+<ComponentCodePreview name="craftui-particles-label-disabled" />
+
+## Props
+
+#### Label
+
+<PropsTable
+  data={[
+    {
+      prop: "htmlFor",
+      type: "string",
+      default: "undefined",
+      description: "The ID of the form element the label is bound to.",
+    },
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default label element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the label.",
+    },
+  ]}
+/>

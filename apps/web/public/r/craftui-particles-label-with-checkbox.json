@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-label-with-checkbox",
+	"description": "Label paired with a checkbox control.",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/craftui-label",
+		"@craftdotui/baseui-checkbox"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/label/particles/with-checkbox/index.tsx",
+			"content": "import {\n\tCheckboxIndicator,\n\tCheckboxRoot,\n} from \"@/components/baseui/components/checkbox\";\nimport { Label } from \"@/components/craftui/components/label\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"flex items-center gap-2\">\n\t\t\t<CheckboxRoot id=\"label-terms\" defaultChecked>\n\t\t\t\t<CheckboxIndicator />\n\t\t\t</CheckboxRoot>\n\t\t\t<Label htmlFor=\"label-terms\">Accept terms and conditions</Label>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/label-with-checkbox.tsx"
+		}
+	],
+	"type": "registry:component"
+}

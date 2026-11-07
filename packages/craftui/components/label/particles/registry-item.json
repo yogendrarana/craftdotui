@@ -1,0 +1,18 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-label",
+	"type": "registry:component",
+	"description": "Default label associated with an input.",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/craftui-label",
+		"@craftdotui/baseui-input"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/label/particles/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/label.tsx"
+		}
+	]
+}
