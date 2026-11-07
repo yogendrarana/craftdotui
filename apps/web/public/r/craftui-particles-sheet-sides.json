@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-sheet-sides",
+	"description": "Sheets docking to top, right, bottom, and left edges.",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/craftui-sheet",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/sheet/particles/sides/index.tsx",
+			"content": "import { Button } from \"@/components/baseui/components/button\";\nimport {\n\tSheetClose,\n\tSheetContent,\n\tSheetDescription,\n\tSheetFooter,\n\tSheetHeader,\n\tSheetPanel,\n\tSheetRoot,\n\tSheetTitle,\n\tSheetTrigger,\n} from \"@/components/craftui/components/sheet\";\n\nconst SIDES = [\"top\", \"right\", \"bottom\", \"left\"] as const;\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"flex flex-wrap items-center justify-center gap-2\">\n\t\t\t{SIDES.map((side) => (\n\t\t\t\t<SheetRoot key={side}>\n\t\t\t\t\t<SheetTrigger\n\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t<Button variant=\"outline\" className=\"capitalize\" />\n\t\t\t\t\t\t}\n\t\t\t\t\t>\n\t\t\t\t\t\t{side}\n\t\t\t\t\t</SheetTrigger>\n\t\t\t\t\t<SheetContent side={side}>\n\t\t\t\t\t\t<SheetHeader>\n\t\t\t\t\t\t\t<SheetTitle className=\"capitalize\">\n\t\t\t\t\t\t\t\t{side} Sheet\n\t\t\t\t\t\t\t</SheetTitle>\n\t\t\t\t\t\t\t<SheetDescription>\n\t\t\t\t\t\t\t\tThis sheet slides in from the {side} edge of the\n\t\t\t\t\t\t\t\tviewport.\n\t\t\t\t\t\t\t</SheetDescription>\n\t\t\t\t\t\t</SheetHeader>\n\t\t\t\t\t\t<SheetPanel>\n\t\t\t\t\t\t\t<p className=\"text-sm text-muted-foreground leading-relaxed\">\n\t\t\t\t\t\t\t\tSheets reuse the modular Dialog primitives under\n\t\t\t\t\t\t\t\tthe hood while docking the popup container to\n\t\t\t\t\t\t\t\tany edge of the screen.\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t</SheetPanel>\n\t\t\t\t\t\t<SheetFooter>\n\t\t\t\t\t\t\t<SheetClose render={<Button variant=\"outline\" />}>\n\t\t\t\t\t\t\t\tClose\n\t\t\t\t\t\t\t</SheetClose>\n\t\t\t\t\t\t</SheetFooter>\n\t\t\t\t\t</SheetContent>\n\t\t\t\t</SheetRoot>\n\t\t\t))}\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/sheet-sides.tsx"
+		}
+	],
+	"type": "registry:component"
+}

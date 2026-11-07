@@ -1,0 +1,21 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-sheet-inset",
+	"description": "Floating inset sheet with rounded corners and margin from viewport edges.",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/craftui-sheet",
+		"@craftdotui/craftui-label",
+		"@craftdotui/baseui-button",
+		"@craftdotui/baseui-input"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/sheet/particles/inset/index.tsx",
+			"content": "import { Button } from \"@/components/baseui/components/button\";\nimport { Input } from \"@/components/baseui/components/input\";\nimport { Label } from \"@/components/craftui/components/label\";\nimport {\n\tSheetClose,\n\tSheetContent,\n\tSheetDescription,\n\tSheetFooter,\n\tSheetHeader,\n\tSheetPanel,\n\tSheetRoot,\n\tSheetTitle,\n\tSheetTrigger,\n} from \"@/components/craftui/components/sheet\";\n\nexport default function Particle() {\n\treturn (\n\t\t<SheetRoot>\n\t\t\t<SheetTrigger render={<Button variant=\"outline\" />}>\n\t\t\t\tOpen Inset Sheet\n\t\t\t</SheetTrigger>\n\t\t\t<SheetContent variant=\"inset\">\n\t\t\t\t<SheetHeader>\n\t\t\t\t\t<SheetTitle>Workspace Settings</SheetTitle>\n\t\t\t\t\t<SheetDescription>\n\t\t\t\t\t\tFloating inset sheet separated from the browser viewport\n\t\t\t\t\t\tedges with rounded corners.\n\t\t\t\t\t</SheetDescription>\n\t\t\t\t</SheetHeader>\n\t\t\t\t<SheetPanel className=\"gap-4\">\n\t\t\t\t\t<div className=\"flex flex-col gap-2\">\n\t\t\t\t\t\t<Label htmlFor=\"inset-workspace-name\">\n\t\t\t\t\t\t\tWorkspace name\n\t\t\t\t\t\t</Label>\n\t\t\t\t\t\t<Input\n\t\t\t\t\t\t\tid=\"inset-workspace-name\"\n\t\t\t\t\t\t\tdefaultValue=\"Craft UI\"\n\t\t\t\t\t\t/>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div className=\"flex flex-col gap-2\">\n\t\t\t\t\t\t<Label htmlFor=\"inset-workspace-slug\">\n\t\t\t\t\t\t\tWorkspace URL\n\t\t\t\t\t\t</Label>\n\t\t\t\t\t\t<Input\n\t\t\t\t\t\t\tid=\"inset-workspace-slug\"\n\t\t\t\t\t\t\tdefaultValue=\"craftdotui\"\n\t\t\t\t\t\t/>\n\t\t\t\t\t</div>\n\t\t\t\t</SheetPanel>\n\t\t\t\t<SheetFooter>\n\t\t\t\t\t<SheetClose render={<Button variant=\"ghost\" />}>\n\t\t\t\t\t\tCancel\n\t\t\t\t\t</SheetClose>\n\t\t\t\t\t<Button>Save changes</Button>\n\t\t\t\t</SheetFooter>\n\t\t\t</SheetContent>\n\t\t</SheetRoot>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/sheet-inset.tsx"
+		}
+	],
+	"type": "registry:component"
+}

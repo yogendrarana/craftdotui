@@ -1,0 +1,20 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-sheet-inset",
+	"type": "registry:component",
+	"description": "Floating inset sheet with rounded corners and margin from viewport edges.",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/craftui-sheet",
+		"@craftdotui/craftui-label",
+		"@craftdotui/baseui-button",
+		"@craftdotui/baseui-input"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/sheet/particles/inset/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/sheet-inset.tsx"
+		}
+	]
+}

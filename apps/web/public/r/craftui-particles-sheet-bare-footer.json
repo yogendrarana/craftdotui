@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-sheet-bare-footer",
+	"description": "Sheet using the bare footer variant without a top border or shaded background.",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/craftui-sheet",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/sheet/particles/bare-footer/index.tsx",
+			"content": "import { Button } from \"@/components/baseui/components/button\";\nimport {\n\tSheetClose,\n\tSheetContent,\n\tSheetDescription,\n\tSheetFooter,\n\tSheetHeader,\n\tSheetPanel,\n\tSheetRoot,\n\tSheetTitle,\n\tSheetTrigger,\n} from \"@/components/craftui/components/sheet\";\n\nexport default function Particle() {\n\treturn (\n\t\t<SheetRoot>\n\t\t\t<SheetTrigger render={<Button variant=\"outline\" />}>\n\t\t\t\tBare Footer Sheet\n\t\t\t</SheetTrigger>\n\t\t\t<SheetContent>\n\t\t\t\t<SheetHeader>\n\t\t\t\t\t<SheetTitle>Delete Workspace</SheetTitle>\n\t\t\t\t\t<SheetDescription>\n\t\t\t\t\t\tThis action will permanently remove all deployments,\n\t\t\t\t\t\tdomains, and environment variables associated with this\n\t\t\t\t\t\tworkspace.\n\t\t\t\t\t</SheetDescription>\n\t\t\t\t</SheetHeader>\n\t\t\t\t<SheetPanel>\n\t\t\t\t\t<div className=\"rounded-lg border border-destructive/30 bg-destructive/5 p-3 text-xs text-destructive\">\n\t\t\t\t\t\tWarning: Once deleted, this workspace cannot be\n\t\t\t\t\t\trecovered.\n\t\t\t\t\t</div>\n\t\t\t\t</SheetPanel>\n\t\t\t\t<SheetFooter variant=\"bare\" className=\"mt-auto\">\n\t\t\t\t\t<SheetClose render={<Button variant=\"outline\" />}>\n\t\t\t\t\t\tCancel\n\t\t\t\t\t</SheetClose>\n\t\t\t\t\t<Button variant=\"destructive\">Delete workspace</Button>\n\t\t\t\t</SheetFooter>\n\t\t\t</SheetContent>\n\t\t</SheetRoot>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/sheet-bare-footer.tsx"
+		}
+	],
+	"type": "registry:component"
+}

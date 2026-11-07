@@ -812,6 +812,114 @@
 			]
 		},
 		{
+			"name": "craftui-particles-sheet-bare-footer",
+			"type": "registry:component",
+			"description": "Sheet using the bare footer variant without a top border or shaded background.",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/craftui-sheet",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/sheet/particles/bare-footer/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/sheet-bare-footer.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-sheet-inset",
+			"type": "registry:component",
+			"description": "Floating inset sheet with rounded corners and margin from viewport edges.",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/craftui-sheet",
+				"@craftdotui/craftui-label",
+				"@craftdotui/baseui-button",
+				"@craftdotui/baseui-input"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/sheet/particles/inset/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/sheet-inset.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-sheet",
+			"type": "registry:component",
+			"description": "Default right-docked sheet with form controls and footer actions.",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/craftui-sheet",
+				"@craftdotui/craftui-label",
+				"@craftdotui/baseui-button",
+				"@craftdotui/baseui-input"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/sheet/particles/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/sheet.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-sheet-scrollable",
+			"type": "registry:component",
+			"description": "Sheet with scrollable panel content and sticky header and footer.",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/craftui-sheet",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/sheet/particles/scrollable/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/sheet-scrollable.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-sheet-sides",
+			"type": "registry:component",
+			"description": "Sheets docking to top, right, bottom, and left edges.",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/craftui-sheet",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/sheet/particles/sides/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/sheet-sides.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-sheet",
+			"type": "registry:component",
+			"description": "Extends the Dialog component to display content that complements the main screen.",
+			"dependencies": [
+				"@base-ui/react",
+				"class-variance-authority",
+				"lucide-react",
+				"cn"
+			],
+			"registryDependencies": ["@craftdotui/baseui-dialog"],
+			"files": [
+				{
+					"path": "packages/craftui/components/sheet/index.tsx",
+					"type": "registry:component",
+					"target": "components/ui/sheet.tsx"
+				}
+			]
+		},
+		{
 			"name": "craftui-particles-skeleton-card",
 			"type": "registry:component",
 			"description": "Card layout skeleton placeholder.",

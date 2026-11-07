@@ -2103,7 +2103,7 @@ export const Registry: Record<string, any> = {
     "path": "packages/craftui/components/pagination/particles/simple/index.tsx",
     "type": "registry:component",
     "target": "components/particles/pagination-simple.tsx",
-    "content": "import {\n\tPaginationContent,\n\tPaginationItem,\n\tPaginationNext,\n\tPaginationPrevious,\n\tPaginationRoot,\n} from \"@/components/craftui/components/pagination\";\n\nexport default function Particle() {\n\treturn (\n\t\t<PaginationRoot>\n\t\t\t<PaginationContent className=\"gap-4\">\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationPrevious\n\t\t\t\t\t\thref=\"#page-1\"\n\t\t\t\t\t\tvariant=\"outline\"\n\t\t\t\t\t\tsize=\"sm\"\n\t\t\t\t\t/>\n\t\t\t\t</PaginationItem>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<span className=\"text-sm text-muted-foreground\">\n\t\t\t\t\t\tPage <strong className=\"font-medium text-foreground\">2</strong>{\" \"}\n\t\t\t\t\t\tof <strong className=\"font-medium text-foreground\">12</strong>\n\t\t\t\t\t</span>\n\t\t\t\t</PaginationItem>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationNext\n\t\t\t\t\t\thref=\"#page-3\"\n\t\t\t\t\t\tvariant=\"outline\"\n\t\t\t\t\t\tsize=\"sm\"\n\t\t\t\t\t/>\n\t\t\t\t</PaginationItem>\n\t\t\t</PaginationContent>\n\t\t</PaginationRoot>\n\t);\n}"
+    "content": "import {\n\tPaginationContent,\n\tPaginationItem,\n\tPaginationNext,\n\tPaginationPrevious,\n\tPaginationRoot,\n} from \"@/components/craftui/components/pagination\";\n\nexport default function Particle() {\n\treturn (\n\t\t<PaginationRoot>\n\t\t\t<PaginationContent className=\"gap-4\">\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationPrevious\n\t\t\t\t\t\thref=\"#page-1\"\n\t\t\t\t\t\tvariant=\"outline\"\n\t\t\t\t\t\tsize=\"sm\"\n\t\t\t\t\t/>\n\t\t\t\t</PaginationItem>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<span className=\"text-sm text-muted-foreground\">\n\t\t\t\t\t\tPage{\" \"}\n\t\t\t\t\t\t<strong className=\"font-medium text-foreground\">\n\t\t\t\t\t\t\t2\n\t\t\t\t\t\t</strong>{\" \"}\n\t\t\t\t\t\tof{\" \"}\n\t\t\t\t\t\t<strong className=\"font-medium text-foreground\">\n\t\t\t\t\t\t\t12\n\t\t\t\t\t\t</strong>\n\t\t\t\t\t</span>\n\t\t\t\t</PaginationItem>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationNext\n\t\t\t\t\t\thref=\"#page-3\"\n\t\t\t\t\t\tvariant=\"outline\"\n\t\t\t\t\t\tsize=\"sm\"\n\t\t\t\t\t/>\n\t\t\t\t</PaginationItem>\n\t\t\t</PaginationContent>\n\t\t</PaginationRoot>\n\t);\n}"
   }
 ],
             keywords: [],
@@ -2197,6 +2197,264 @@ export const Registry: Record<string, any> = {
             component: (() => {
 							const LazyComp = React.lazy(async () => {
 								const mod = await import("@craftdotui/craftui/components/pagination/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-sheet-bare-footer": {
+            name: "craftui-particles-sheet-bare-footer",
+            description: "Sheet using the bare footer variant without a top border or shaded background.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-sheet","@craftdotui/baseui-button"],
+            files: [
+  {
+    "path": "packages/craftui/components/sheet/particles/bare-footer/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/sheet-bare-footer.tsx",
+    "content": "import { Button } from \"@/components/baseui/components/button\";\nimport {\n\tSheetClose,\n\tSheetContent,\n\tSheetDescription,\n\tSheetFooter,\n\tSheetHeader,\n\tSheetPanel,\n\tSheetRoot,\n\tSheetTitle,\n\tSheetTrigger,\n} from \"@/components/craftui/components/sheet\";\n\nexport default function Particle() {\n\treturn (\n\t\t<SheetRoot>\n\t\t\t<SheetTrigger render={<Button variant=\"outline\" />}>\n\t\t\t\tBare Footer Sheet\n\t\t\t</SheetTrigger>\n\t\t\t<SheetContent>\n\t\t\t\t<SheetHeader>\n\t\t\t\t\t<SheetTitle>Delete Workspace</SheetTitle>\n\t\t\t\t\t<SheetDescription>\n\t\t\t\t\t\tThis action will permanently remove all deployments,\n\t\t\t\t\t\tdomains, and environment variables associated with this\n\t\t\t\t\t\tworkspace.\n\t\t\t\t\t</SheetDescription>\n\t\t\t\t</SheetHeader>\n\t\t\t\t<SheetPanel>\n\t\t\t\t\t<div className=\"rounded-lg border border-destructive/30 bg-destructive/5 p-3 text-xs text-destructive\">\n\t\t\t\t\t\tWarning: Once deleted, this workspace cannot be\n\t\t\t\t\t\trecovered.\n\t\t\t\t\t</div>\n\t\t\t\t</SheetPanel>\n\t\t\t\t<SheetFooter variant=\"bare\" className=\"mt-auto\">\n\t\t\t\t\t<SheetClose render={<Button variant=\"outline\" />}>\n\t\t\t\t\t\tCancel\n\t\t\t\t\t</SheetClose>\n\t\t\t\t\t<Button variant=\"destructive\">Delete workspace</Button>\n\t\t\t\t</SheetFooter>\n\t\t\t</SheetContent>\n\t\t</SheetRoot>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-sheet-bare-footer',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/sheet/particles/bare-footer/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-sheet-inset": {
+            name: "craftui-particles-sheet-inset",
+            description: "Floating inset sheet with rounded corners and margin from viewport edges.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-sheet","@craftdotui/craftui-label","@craftdotui/baseui-button","@craftdotui/baseui-input"],
+            files: [
+  {
+    "path": "packages/craftui/components/sheet/particles/inset/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/sheet-inset.tsx",
+    "content": "import { Button } from \"@/components/baseui/components/button\";\nimport { Input } from \"@/components/baseui/components/input\";\nimport { Label } from \"@/components/craftui/components/label\";\nimport {\n\tSheetClose,\n\tSheetContent,\n\tSheetDescription,\n\tSheetFooter,\n\tSheetHeader,\n\tSheetPanel,\n\tSheetRoot,\n\tSheetTitle,\n\tSheetTrigger,\n} from \"@/components/craftui/components/sheet\";\n\nexport default function Particle() {\n\treturn (\n\t\t<SheetRoot>\n\t\t\t<SheetTrigger render={<Button variant=\"outline\" />}>\n\t\t\t\tOpen Inset Sheet\n\t\t\t</SheetTrigger>\n\t\t\t<SheetContent variant=\"inset\">\n\t\t\t\t<SheetHeader>\n\t\t\t\t\t<SheetTitle>Workspace Settings</SheetTitle>\n\t\t\t\t\t<SheetDescription>\n\t\t\t\t\t\tFloating inset sheet separated from the browser viewport\n\t\t\t\t\t\tedges with rounded corners.\n\t\t\t\t\t</SheetDescription>\n\t\t\t\t</SheetHeader>\n\t\t\t\t<SheetPanel className=\"gap-4\">\n\t\t\t\t\t<div className=\"flex flex-col gap-2\">\n\t\t\t\t\t\t<Label htmlFor=\"inset-workspace-name\">\n\t\t\t\t\t\t\tWorkspace name\n\t\t\t\t\t\t</Label>\n\t\t\t\t\t\t<Input\n\t\t\t\t\t\t\tid=\"inset-workspace-name\"\n\t\t\t\t\t\t\tdefaultValue=\"Craft UI\"\n\t\t\t\t\t\t/>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div className=\"flex flex-col gap-2\">\n\t\t\t\t\t\t<Label htmlFor=\"inset-workspace-slug\">\n\t\t\t\t\t\t\tWorkspace URL\n\t\t\t\t\t\t</Label>\n\t\t\t\t\t\t<Input\n\t\t\t\t\t\t\tid=\"inset-workspace-slug\"\n\t\t\t\t\t\t\tdefaultValue=\"craftdotui\"\n\t\t\t\t\t\t/>\n\t\t\t\t\t</div>\n\t\t\t\t</SheetPanel>\n\t\t\t\t<SheetFooter>\n\t\t\t\t\t<SheetClose render={<Button variant=\"ghost\" />}>\n\t\t\t\t\t\tCancel\n\t\t\t\t\t</SheetClose>\n\t\t\t\t\t<Button>Save changes</Button>\n\t\t\t\t</SheetFooter>\n\t\t\t</SheetContent>\n\t\t</SheetRoot>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-sheet-inset',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/sheet/particles/inset/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-sheet": {
+            name: "craftui-particles-sheet",
+            description: "Default right-docked sheet with form controls and footer actions.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-sheet","@craftdotui/craftui-label","@craftdotui/baseui-button","@craftdotui/baseui-input"],
+            files: [
+  {
+    "path": "packages/craftui/components/sheet/particles/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/sheet.tsx",
+    "content": "import { Button } from \"@/components/baseui/components/button\";\nimport { Input } from \"@/components/baseui/components/input\";\nimport { Label } from \"@/components/craftui/components/label\";\nimport {\n\tSheetClose,\n\tSheetContent,\n\tSheetDescription,\n\tSheetFooter,\n\tSheetHeader,\n\tSheetPanel,\n\tSheetRoot,\n\tSheetTitle,\n\tSheetTrigger,\n} from \"@/components/craftui/components/sheet\";\n\nexport default function Particle() {\n\treturn (\n\t\t<SheetRoot>\n\t\t\t<SheetTrigger render={<Button variant=\"outline\" />}>\n\t\t\t\tOpen Sheet\n\t\t\t</SheetTrigger>\n\t\t\t<SheetContent>\n\t\t\t\t<SheetHeader>\n\t\t\t\t\t<SheetTitle>Edit Profile</SheetTitle>\n\t\t\t\t\t<SheetDescription>\n\t\t\t\t\t\tMake changes to your public profile here. Click save\n\t\t\t\t\t\twhen you are done.\n\t\t\t\t\t</SheetDescription>\n\t\t\t\t</SheetHeader>\n\t\t\t\t<SheetPanel className=\"gap-4\">\n\t\t\t\t\t<div className=\"flex flex-col gap-2\">\n\t\t\t\t\t\t<Label htmlFor=\"sheet-name\">Full name</Label>\n\t\t\t\t\t\t<Input id=\"sheet-name\" defaultValue=\"Yogendra Rana\" />\n\t\t\t\t\t</div>\n\t\t\t\t\t<div className=\"flex flex-col gap-2\">\n\t\t\t\t\t\t<Label htmlFor=\"sheet-username\">Username</Label>\n\t\t\t\t\t\t<Input\n\t\t\t\t\t\t\tid=\"sheet-username\"\n\t\t\t\t\t\t\tdefaultValue=\"@yooogendra_rana\"\n\t\t\t\t\t\t/>\n\t\t\t\t\t</div>\n\t\t\t\t</SheetPanel>\n\t\t\t\t<SheetFooter>\n\t\t\t\t\t<SheetClose render={<Button variant=\"ghost\" />}>\n\t\t\t\t\t\tCancel\n\t\t\t\t\t</SheetClose>\n\t\t\t\t\t<Button>Save changes</Button>\n\t\t\t\t</SheetFooter>\n\t\t\t</SheetContent>\n\t\t</SheetRoot>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-sheet',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/sheet/particles/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-sheet-scrollable": {
+            name: "craftui-particles-sheet-scrollable",
+            description: "Sheet with scrollable panel content and sticky header and footer.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-sheet","@craftdotui/baseui-button"],
+            files: [
+  {
+    "path": "packages/craftui/components/sheet/particles/scrollable/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/sheet-scrollable.tsx",
+    "content": "import { Button } from \"@/components/baseui/components/button\";\nimport {\n\tSheetClose,\n\tSheetContent,\n\tSheetDescription,\n\tSheetFooter,\n\tSheetHeader,\n\tSheetPanel,\n\tSheetRoot,\n\tSheetTitle,\n\tSheetTrigger,\n} from \"@/components/craftui/components/sheet\";\n\nconst CHANGELOG_ITEMS = [\n\t{\n\t\tversion: \"v2.5.0\",\n\t\tdate: \"Nov 7, 2026\",\n\t\tnotes: \"Introduced modular Sheet and Pagination primitives under Craft UI with Base UI useRender support.\",\n\t},\n\t{\n\t\tversion: \"v2.4.0\",\n\t\tdate: \"Nov 7, 2026\",\n\t\tnotes: \"Added Table, Label, and Card primitives with container queries and shaded footer variants.\",\n\t},\n\t{\n\t\tversion: \"v2.3.0\",\n\t\tdate: \"Nov 6, 2026\",\n\t\tnotes: \"Overhauled Stepper and Timeline components with colocated particle architecture and accordion integration.\",\n\t},\n\t{\n\t\tversion: \"v2.2.0\",\n\t\tdate: \"Oct 28, 2026\",\n\t\tnotes: \"Added Empty state, Skeleton placeholders, and status Badge variants with accessible contrast.\",\n\t},\n\t{\n\t\tversion: \"v2.1.0\",\n\t\tdate: \"Oct 15, 2026\",\n\t\tnotes: \"Enhanced Dialog and AlertDialog with nested scaling, keyboard trap, and ScrollArea viewport integration.\",\n\t},\n\t{\n\t\tversion: \"v2.0.0\",\n\t\tdate: \"Oct 1, 2026\",\n\t\tnotes: \"Migrated core primitives to Base UI and Tailwind CSS v4 with modern CSS variables and color palettes.\",\n\t},\n\t{\n\t\tversion: \"v1.9.0\",\n\t\tdate: \"Sep 18, 2026\",\n\t\tnotes: \"Added Combobox, Autocomplete, and NumberField components with custom filtering and keyboard navigation.\",\n\t},\n\t{\n\t\tversion: \"v1.8.0\",\n\t\tdate: \"Sep 5, 2026\",\n\t\tnotes: \"Introduced DatePicker, Calendar, and Popover primitives with localized date formatting.\",\n\t},\n\t{\n\t\tversion: \"v1.7.0\",\n\t\tdate: \"Aug 22, 2026\",\n\t\tnotes: \"Added Toast notification system with swipe-to-dismiss, promise handlers, and custom action buttons.\",\n\t},\n\t{\n\t\tversion: \"v1.6.0\",\n\t\tdate: \"Aug 10, 2026\",\n\t\tnotes: \"Introduced Tooltip, HoverCard, and ContextMenu primitives with collision-aware floating placement.\",\n\t},\n\t{\n\t\tversion: \"v1.5.0\",\n\t\tdate: \"Jul 29, 2026\",\n\t\tnotes: \"Added Select, RadioGroup, and Switch components with accessible ARIA form control bindings.\",\n\t},\n\t{\n\t\tversion: \"v1.4.0\",\n\t\tdate: \"Jul 14, 2026\",\n\t\tnotes: \"Introduced Tabs, Accordion, and Collapsible primitives with fluid CSS grid height animations.\",\n\t},\n\t{\n\t\tversion: \"v1.3.0\",\n\t\tdate: \"Jun 30, 2026\",\n\t\tnotes: \"Added Avatar, Breadcrumb, and Separator layout primitives with flexible icon slots.\",\n\t},\n\t{\n\t\tversion: \"v1.2.0\",\n\t\tdate: \"Jun 16, 2026\",\n\t\tnotes: \"Added Button and Input variants with destructive, secondary, outline, and ghost presets.\",\n\t},\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<SheetRoot>\n\t\t\t<SheetTrigger render={<Button variant=\"outline\" />}>\n\t\t\t\tRelease Notes\n\t\t\t</SheetTrigger>\n\t\t\t<SheetContent>\n\t\t\t\t<SheetHeader className=\"border-b border-border pb-4\">\n\t\t\t\t\t<SheetTitle>Release Notes</SheetTitle>\n\t\t\t\t\t<SheetDescription>\n\t\t\t\t\t\tRecent updates and improvements to Craft UI.\n\t\t\t\t\t</SheetDescription>\n\t\t\t\t</SheetHeader>\n\t\t\t\t<SheetPanel className=\"gap-4\">\n\t\t\t\t\t{CHANGELOG_ITEMS.map((item) => (\n\t\t\t\t\t\t<div\n\t\t\t\t\t\t\tkey={item.version}\n\t\t\t\t\t\t\tclassName=\"rounded-lg border border-border bg-muted/30 p-3.5\"\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t<div className=\"flex items-center justify-between\">\n\t\t\t\t\t\t\t\t<span className=\"font-mono text-xs font-semibold text-foreground\">\n\t\t\t\t\t\t\t\t\t{item.version}\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t<span className=\"text-xs text-muted-foreground\">\n\t\t\t\t\t\t\t\t\t{item.date}\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<p className=\"mt-1.5 text-xs text-muted-foreground leading-relaxed\">\n\t\t\t\t\t\t\t\t{item.notes}\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t))}\n\t\t\t\t</SheetPanel>\n\t\t\t\t<SheetFooter>\n\t\t\t\t\t<SheetClose render={<Button className=\"w-full\" />}>\n\t\t\t\t\t\tGot it\n\t\t\t\t\t</SheetClose>\n\t\t\t\t</SheetFooter>\n\t\t\t</SheetContent>\n\t\t</SheetRoot>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-sheet-scrollable',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/sheet/particles/scrollable/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-sheet-sides": {
+            name: "craftui-particles-sheet-sides",
+            description: "Sheets docking to top, right, bottom, and left edges.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-sheet","@craftdotui/baseui-button"],
+            files: [
+  {
+    "path": "packages/craftui/components/sheet/particles/sides/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/sheet-sides.tsx",
+    "content": "import { Button } from \"@/components/baseui/components/button\";\nimport {\n\tSheetClose,\n\tSheetContent,\n\tSheetDescription,\n\tSheetFooter,\n\tSheetHeader,\n\tSheetPanel,\n\tSheetRoot,\n\tSheetTitle,\n\tSheetTrigger,\n} from \"@/components/craftui/components/sheet\";\n\nconst SIDES = [\"top\", \"right\", \"bottom\", \"left\"] as const;\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"flex flex-wrap items-center justify-center gap-2\">\n\t\t\t{SIDES.map((side) => (\n\t\t\t\t<SheetRoot key={side}>\n\t\t\t\t\t<SheetTrigger\n\t\t\t\t\t\trender={\n\t\t\t\t\t\t\t<Button variant=\"outline\" className=\"capitalize\" />\n\t\t\t\t\t\t}\n\t\t\t\t\t>\n\t\t\t\t\t\t{side}\n\t\t\t\t\t</SheetTrigger>\n\t\t\t\t\t<SheetContent side={side}>\n\t\t\t\t\t\t<SheetHeader>\n\t\t\t\t\t\t\t<SheetTitle className=\"capitalize\">\n\t\t\t\t\t\t\t\t{side} Sheet\n\t\t\t\t\t\t\t</SheetTitle>\n\t\t\t\t\t\t\t<SheetDescription>\n\t\t\t\t\t\t\t\tThis sheet slides in from the {side} edge of the\n\t\t\t\t\t\t\t\tviewport.\n\t\t\t\t\t\t\t</SheetDescription>\n\t\t\t\t\t\t</SheetHeader>\n\t\t\t\t\t\t<SheetPanel>\n\t\t\t\t\t\t\t<p className=\"text-sm text-muted-foreground leading-relaxed\">\n\t\t\t\t\t\t\t\tSheets reuse the modular Dialog primitives under\n\t\t\t\t\t\t\t\tthe hood while docking the popup container to\n\t\t\t\t\t\t\t\tany edge of the screen.\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t</SheetPanel>\n\t\t\t\t\t\t<SheetFooter>\n\t\t\t\t\t\t\t<SheetClose render={<Button variant=\"outline\" />}>\n\t\t\t\t\t\t\t\tClose\n\t\t\t\t\t\t\t</SheetClose>\n\t\t\t\t\t\t</SheetFooter>\n\t\t\t\t\t</SheetContent>\n\t\t\t\t</SheetRoot>\n\t\t\t))}\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-sheet-sides',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/sheet/particles/sides/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-sheet": {
+            name: "craftui-sheet",
+            description: "Extends the Dialog component to display content that complements the main screen.",
+            type: "registry:component",
+            dependencies: ["@base-ui/react","class-variance-authority","lucide-react","cn"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/baseui-dialog"],
+            files: [
+  {
+    "path": "packages/craftui/components/sheet/index.tsx",
+    "type": "registry:component",
+    "target": "components/ui/sheet.tsx",
+    "content": "\"use client\";\n\nimport type * as React from \"react\";\nimport { XIcon } from \"lucide-react\";\nimport { cn } from \"cn\";\nimport { Dialog as DialogPrimitive } from \"@base-ui/react/dialog\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\nimport {\n\tcreateHandle,\n\tDialogBackdrop,\n\tDialogClose,\n\tDialogDescription,\n\tDialogFooter,\n\ttype DialogFooterProps,\n\tDialogHeader,\n\ttype DialogHeaderProps,\n\tDialogPanel,\n\ttype DialogPanelProps,\n\tDialogPortal,\n\tDialogRoot,\n\tDialogTitle,\n\tDialogTrigger,\n} from \"@/components/baseui/components/dialog\";\n\n/* -------------------------------------------------------------------------- */\n/* Variants                                                                   */\n/* -------------------------------------------------------------------------- */\n\nconst sheetViewportVariants = cva(\"fixed inset-0 z-50\", {\n\tvariants: {\n\t\tside: {\n\t\t\tright: \"flex justify-end\",\n\t\t\tleft: \"flex justify-start\",\n\t\t\ttop: \"grid grid-rows-[auto_1fr] pb-12\",\n\t\t\tbottom: \"grid grid-rows-[1fr_auto] pt-12\",\n\t\t},\n\t\tvariant: {\n\t\t\tdefault: \"\",\n\t\t\tinset: \"sm:p-4\",\n\t\t},\n\t},\n\tdefaultVariants: {\n\t\tside: \"right\",\n\t\tvariant: \"default\",\n\t},\n});\n\nconst sheetVariants = cva(\n\tcn(\n\t\t\"relative flex max-h-full min-h-0 w-full min-w-0 flex-col bg-popover not-dark:bg-clip-padding text-popover-foreground shadow-lg border-border\",\n\t\t\"transition-[opacity,translate] duration-250 ease-out will-change-transform\",\n\t\t\"data-starting-style:opacity-0 data-ending-style:opacity-0\",\n\t\t\"focus:outline-none\",\n\t),\n\t{\n\t\tvariants: {\n\t\t\tside: {\n\t\t\t\tright: \"h-full w-[calc(100%-(--spacing(12)))] max-w-sm border-l data-starting-style:translate-x-8 data-ending-style:translate-x-8\",\n\t\t\t\tleft: \"h-full w-[calc(100%-(--spacing(12)))] max-w-sm border-r data-starting-style:-translate-x-8 data-ending-style:-translate-x-8\",\n\t\t\t\ttop: \"h-auto max-h-[85vh] border-b data-starting-style:-translate-y-8 data-ending-style:-translate-y-8\",\n\t\t\t\tbottom: \"row-start-2 h-auto max-h-[85vh] border-t data-starting-style:translate-y-8 data-ending-style:translate-y-8\",\n\t\t\t},\n\t\t\tvariant: {\n\t\t\t\tdefault: \"\",\n\t\t\t\tinset: \"sm:rounded-2xl sm:border\",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tside: \"right\",\n\t\t\tvariant: \"default\",\n\t\t},\n\t},\n);\n\nexport type SheetVariants = VariantProps<typeof sheetVariants>;\n\n/* -------------------------------------------------------------------------- */\n/* Re-exported Dialog Primitives                                              */\n/* -------------------------------------------------------------------------- */\n\nconst SheetRoot = DialogRoot;\nconst SheetTrigger = DialogTrigger;\nconst SheetPortal = DialogPortal;\nconst SheetBackdrop = DialogBackdrop;\nconst SheetHeader = DialogHeader;\nconst SheetPanel = DialogPanel;\nconst SheetTitle = DialogTitle;\nconst SheetDescription = DialogDescription;\nconst SheetClose = DialogClose;\n\n/* -------------------------------------------------------------------------- */\n/* Sheet Viewport                                                             */\n/* -------------------------------------------------------------------------- */\n\nexport interface SheetViewportProps\n\textends DialogPrimitive.Viewport.Props,\n\t\tSheetVariants {}\n\nfunction SheetViewport({\n\tside = \"right\",\n\tvariant = \"default\",\n\tclassName,\n\t...props\n}: SheetViewportProps): React.ReactElement {\n\treturn (\n\t\t<DialogPrimitive.Viewport\n\t\t\tdata-slot=\"sheet-viewport\"\n\t\t\tdata-side={side}\n\t\t\tdata-variant={variant}\n\t\t\tclassName={cn(sheetViewportVariants({ side, variant }), className)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Sheet Popup                                                                */\n/* -------------------------------------------------------------------------- */\n\nexport interface SheetPopupProps\n\textends DialogPrimitive.Popup.Props,\n\t\tSheetVariants {}\n\nfunction SheetPopup({\n\tside = \"right\",\n\tvariant = \"default\",\n\tclassName,\n\t...props\n}: SheetPopupProps): React.ReactElement {\n\treturn (\n\t\t<DialogPrimitive.Popup\n\t\t\tdata-slot=\"sheet-popup\"\n\t\t\tdata-side={side}\n\t\t\tdata-variant={variant}\n\t\t\tclassName={cn(sheetVariants({ side, variant }), className)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Sheet Content (Composite Component)                                        */\n/* -------------------------------------------------------------------------- */\n\nexport interface SheetContentProps extends SheetPopupProps {\n\thasBackdrop?: boolean;\n\tshowCloseButton?: boolean;\n\tportalProps?: DialogPrimitive.Portal.Props;\n\tbackdropProps?: DialogPrimitive.Backdrop.Props;\n\tviewportProps?: DialogPrimitive.Viewport.Props;\n}\n\nfunction SheetContent({\n\tside = \"right\",\n\tvariant = \"default\",\n\tclassName,\n\tchildren,\n\thasBackdrop = true,\n\tshowCloseButton = true,\n\tportalProps,\n\tbackdropProps,\n\tviewportProps,\n\t...props\n}: SheetContentProps): React.ReactElement {\n\treturn (\n\t\t<SheetPortal {...portalProps}>\n\t\t\t{hasBackdrop && <SheetBackdrop {...backdropProps} />}\n\t\t\t<SheetViewport side={side} variant={variant} {...viewportProps}>\n\t\t\t\t<SheetPopup\n\t\t\t\t\tside={side}\n\t\t\t\t\tvariant={variant}\n\t\t\t\t\tclassName={className}\n\t\t\t\t\t{...props}\n\t\t\t\t>\n\t\t\t\t\t{showCloseButton && (\n\t\t\t\t\t\t<SheetClose\n\t\t\t\t\t\t\tclassName=\"absolute top-4 right-4 rounded-sm text-muted-foreground transition-colors hover:text-foreground focus:outline-none\"\n\t\t\t\t\t\t\taria-label=\"Close\"\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t<XIcon className=\"size-4\" />\n\t\t\t\t\t\t</SheetClose>\n\t\t\t\t\t)}\n\t\t\t\t\t{children}\n\t\t\t\t</SheetPopup>\n\t\t\t</SheetViewport>\n\t\t</SheetPortal>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Sheet Footer                                                               */\n/* -------------------------------------------------------------------------- */\n\nexport interface SheetFooterProps extends DialogFooterProps {}\n\nfunction SheetFooter({\n\tclassName,\n\t...props\n}: SheetFooterProps): React.ReactElement {\n\treturn (\n\t\t<DialogFooter\n\t\t\tdata-slot=\"sheet-footer\"\n\t\t\tclassName={cn(\n\t\t\t\t\"sm:rounded-b-none in-[[data-slot=sheet-popup][data-variant=inset]]:sm:rounded-b-[calc(var(--radius-2xl)-1px)]\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const Sheet = Object.assign(SheetRoot, {\n\tRoot: SheetRoot,\n\tTrigger: SheetTrigger,\n\tPortal: SheetPortal,\n\tBackdrop: SheetBackdrop,\n\tViewport: SheetViewport,\n\tPopup: SheetPopup,\n\tContent: SheetContent,\n\tHeader: SheetHeader,\n\tPanel: SheetPanel,\n\tTitle: SheetTitle,\n\tDescription: SheetDescription,\n\tClose: SheetClose,\n\tFooter: SheetFooter,\n\tcreateHandle,\n});\n\nexport {\n\tSheetRoot,\n\tSheetTrigger,\n\tSheetPortal,\n\tSheetBackdrop,\n\tSheetViewport,\n\tSheetPopup,\n\tSheetContent,\n\tSheetHeader,\n\tSheetPanel,\n\tSheetTitle,\n\tSheetDescription,\n\tSheetClose,\n\tSheetFooter,\n\tsheetVariants,\n\tsheetViewportVariants,\n\tcreateHandle,\n\ttype DialogHeaderProps as SheetHeaderProps,\n\ttype DialogPanelProps as SheetPanelProps,\n};"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-sheet',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/sheet/index.tsx");
 								let Comp = mod.default;
 
 								if (!Comp) {

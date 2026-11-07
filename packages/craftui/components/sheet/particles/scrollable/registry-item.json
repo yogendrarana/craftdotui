@@ -1,0 +1,18 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-sheet-scrollable",
+	"type": "registry:component",
+	"description": "Sheet with scrollable panel content and sticky header and footer.",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/craftui-sheet",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/sheet/particles/scrollable/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/sheet-scrollable.tsx"
+		}
+	]
+}

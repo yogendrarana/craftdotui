@@ -1,0 +1,20 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-sheet",
+	"type": "registry:component",
+	"description": "Default right-docked sheet with form controls and footer actions.",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/craftui-sheet",
+		"@craftdotui/craftui-label",
+		"@craftdotui/baseui-button",
+		"@craftdotui/baseui-input"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/sheet/particles/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/sheet.tsx"
+		}
+	]
+}

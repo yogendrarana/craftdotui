@@ -1,0 +1,20 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-sheet",
+	"type": "registry:component",
+	"description": "Extends the Dialog component to display content that complements the main screen.",
+	"dependencies": [
+		"@base-ui/react",
+		"class-variance-authority",
+		"lucide-react",
+		"cn"
+	],
+	"registryDependencies": ["@craftdotui/baseui-dialog"],
+	"files": [
+		{
+			"path": "packages/craftui/components/sheet/index.tsx",
+			"type": "registry:component",
+			"target": "components/ui/sheet.tsx"
+		}
+	]
+}

@@ -1,0 +1,18 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-sheet-sides",
+	"type": "registry:component",
+	"description": "Sheets docking to top, right, bottom, and left edges.",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/craftui-sheet",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/sheet/particles/sides/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/sheet-sides.tsx"
+		}
+	]
+}

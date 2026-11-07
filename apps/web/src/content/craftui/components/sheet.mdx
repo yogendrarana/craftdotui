@@ -1,0 +1,297 @@
+---
+title: Sheet
+description: Extends the Dialog component to display content that complements the main screen.
+slug: /craftui/components/sheet
+published: true
+date: 2026-11-07T00:00:00.000Z
+author:
+  name: Yogendra Rana
+  twitter: "https://twitter.com/yooogendra_rana"
+---
+
+<ComponentCodePreview name="craftui-particles-sheet" />
+
+## Installation
+
+<Installation name="craftui-sheet" />
+
+## Anatomy
+
+#### Usage
+
+```tsx
+<SheetRoot>
+  <SheetTrigger />
+  <SheetContent side="right">
+    <SheetHeader>
+      <SheetTitle />
+      <SheetDescription />
+    </SheetHeader>
+    <SheetPanel />
+    <SheetFooter>
+      <SheetClose />
+    </SheetFooter>
+  </SheetContent>
+</SheetRoot>
+```
+
+```tsx
+<Sheet.Root>
+  <Sheet.Trigger />
+  <Sheet.Content side="right">
+    <Sheet.Header>
+      <Sheet.Title />
+      <Sheet.Description />
+    </Sheet.Header>
+    <Sheet.Panel />
+    <Sheet.Footer>
+      <Sheet.Close />
+    </Sheet.Footer>
+  </Sheet.Content>
+</Sheet.Root>
+```
+
+## Demo
+
+#### Sides
+
+<ComponentCodePreview name="craftui-particles-sheet-sides" />
+
+#### Inset
+
+<ComponentCodePreview name="craftui-particles-sheet-inset" />
+
+#### Scrollable Content
+
+<ComponentCodePreview name="craftui-particles-sheet-scrollable" />
+
+#### Bare Footer
+
+<ComponentCodePreview name="craftui-particles-sheet-bare-footer" />
+
+## Props
+
+#### SheetRoot
+
+<PropsTable
+  data={[
+    {
+      prop: "open",
+      type: "boolean",
+      default: "undefined",
+      description: "Controlled open state of the sheet.",
+    },
+    {
+      prop: "defaultOpen",
+      type: "boolean",
+      default: "false",
+      description: "Initial open state when uncontrolled.",
+    },
+    {
+      prop: "onOpenChange",
+      type: "(open: boolean, eventDetails: object) => void",
+      default: "undefined",
+      description: "Callback fired when the open state changes.",
+    },
+  ]}
+/>
+
+#### SheetTrigger
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default trigger button with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the trigger.",
+    },
+  ]}
+/>
+
+#### SheetContent
+
+<PropsTable
+  data={[
+    {
+      prop: "side",
+      type: '"top" | "right" | "bottom" | "left"',
+      default: '"right"',
+      description: "The viewport edge the sheet docks to and slides in from.",
+    },
+    {
+      prop: "variant",
+      type: '"default" | "inset"',
+      default: '"default"',
+      description: "Controls whether the sheet docks flush to the edge ('default') or floats with rounded corners and margin ('inset').",
+    },
+    {
+      prop: "hasBackdrop",
+      type: "boolean",
+      default: "true",
+      description: "Whether to render the backdrop overlay behind the sheet.",
+    },
+    {
+      prop: "showCloseButton",
+      type: "boolean",
+      default: "true",
+      description: "Whether to render the top-right close button.",
+    },
+    {
+      prop: "portalProps",
+      type: "DialogPrimitive.Portal.Props",
+      default: "undefined",
+      description: "Props forwarded to the Portal primitive.",
+    },
+    {
+      prop: "backdropProps",
+      type: "DialogPrimitive.Backdrop.Props",
+      default: "undefined",
+      description: "Props forwarded to the Backdrop primitive.",
+    },
+    {
+      prop: "viewportProps",
+      type: "DialogPrimitive.Viewport.Props",
+      default: "undefined",
+      description: "Props forwarded to the Viewport primitive.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the sheet popup container.",
+    },
+  ]}
+/>
+
+#### SheetHeader
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default div element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the sheet header.",
+    },
+  ]}
+/>
+
+#### SheetPanel
+
+<PropsTable
+  data={[
+    {
+      prop: "scrollable",
+      type: "boolean",
+      default: "true",
+      description: "Wraps the panel content in a ScrollArea so overflowing body content scrolls smoothly.",
+    },
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default div element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the sheet body panel.",
+    },
+  ]}
+/>
+
+#### SheetTitle
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default heading element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the sheet title.",
+    },
+  ]}
+/>
+
+#### SheetDescription
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default paragraph element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the sheet description.",
+    },
+  ]}
+/>
+
+#### SheetFooter
+
+<PropsTable
+  data={[
+    {
+      prop: "variant",
+      type: '"default" | "bare"',
+      default: '"default"',
+      description: "Controls the footer style. 'default' renders a top border and muted background, while 'bare' renders without extra borders.",
+    },
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default div element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the sheet footer.",
+    },
+  ]}
+/>
+
+#### SheetClose
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default close button with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the close button.",
+    },
+  ]}
+/>
