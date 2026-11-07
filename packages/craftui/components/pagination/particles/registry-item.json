@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-pagination",
+	"type": "registry:component",
+	"description": "Default pagination with previous, next, page links, and ellipsis.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-pagination"],
+	"files": [
+		{
+			"path": "packages/craftui/components/pagination/particles/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/pagination.tsx"
+		}
+	]
+}

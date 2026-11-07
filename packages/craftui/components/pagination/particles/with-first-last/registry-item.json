@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-pagination-with-first-last",
+	"type": "registry:component",
+	"description": "Pagination with first and last page jump controls.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-pagination"],
+	"files": [
+		{
+			"path": "packages/craftui/components/pagination/particles/with-first-last/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/pagination-with-first-last.tsx"
+		}
+	]
+}

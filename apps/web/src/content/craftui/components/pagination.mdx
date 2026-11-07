@@ -1,0 +1,337 @@
+---
+title: Pagination
+description: Pagination with page navigation, next and previous links.
+slug: /craftui/components/pagination
+published: true
+date: 2026-11-07T00:00:00.000Z
+author:
+  name: Yogendra Rana
+  twitter: "https://twitter.com/yooogendra_rana"
+---
+
+<ComponentCodePreview name="craftui-particles-pagination" />
+
+## Installation
+
+<Installation name="craftui-pagination" />
+
+## Anatomy
+
+#### Usage
+
+```tsx
+<PaginationRoot>
+  <PaginationContent>
+    <PaginationItem>
+      <PaginationFirst href="#" />
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationPrevious href="#" />
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationLink href="#" isActive>
+        1
+      </PaginationLink>
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationEllipsis />
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationNext href="#" />
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationLast href="#" />
+    </PaginationItem>
+  </PaginationContent>
+</PaginationRoot>
+```
+
+```tsx
+<Pagination.Root>
+  <Pagination.Content>
+    <Pagination.Item>
+      <Pagination.First href="#" />
+    </Pagination.Item>
+    <Pagination.Item>
+      <Pagination.Previous href="#" />
+    </Pagination.Item>
+    <Pagination.Item>
+      <Pagination.Link href="#" isActive>
+        1
+      </Pagination.Link>
+    </Pagination.Item>
+    <Pagination.Item>
+      <Pagination.Ellipsis />
+    </Pagination.Item>
+    <Pagination.Item>
+      <Pagination.Next href="#" />
+    </Pagination.Item>
+    <Pagination.Item>
+      <Pagination.Last href="#" />
+    </Pagination.Item>
+  </Pagination.Content>
+</Pagination.Root>
+```
+
+## Demo
+
+#### With First and Last
+
+<ComponentCodePreview name="craftui-particles-pagination-with-first-last" />
+
+#### Icon Only
+
+<ComponentCodePreview name="craftui-particles-pagination-icon-only" />
+
+#### Simple Pager
+
+<ComponentCodePreview name="craftui-particles-pagination-simple" />
+
+#### Controlled
+
+<ComponentCodePreview name="craftui-particles-pagination-controlled" />
+
+## Props
+
+#### PaginationRoot
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default nav element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the pagination nav container.",
+    },
+  ]}
+/>
+
+#### PaginationContent
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default ul element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the pagination list.",
+    },
+  ]}
+/>
+
+#### PaginationItem
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default li element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the list item.",
+    },
+  ]}
+/>
+
+#### PaginationLink
+
+<PropsTable
+  data={[
+    {
+      prop: "isActive",
+      type: "boolean",
+      default: "false",
+      description: "Marks the link as the currently active page (sets aria-current='page' and outline variant).",
+    },
+    {
+      prop: "disabled",
+      type: "boolean",
+      default: "false",
+      description: "Disables interaction and reduces opacity.",
+    },
+    {
+      prop: "size",
+      type: '"xs" | "sm" | "md" | "lg" | "xl" | "icon-xs" | "icon-sm" | "icon" | "icon-md" | "icon-lg" | "icon-xl"',
+      default: '"icon"',
+      description: "Controls the size of the pagination link button.",
+    },
+    {
+      prop: "variant",
+      type: '"default" | "secondary" | "destructive" | "outline" | "ghost" | "link"',
+      default: 'isActive ? "outline" : "ghost"',
+      description: "Overrides the button visual variant.",
+    },
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default anchor element (e.g. render={<Link href='...' />} or render={<button type='button' />}).",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the pagination link.",
+    },
+  ]}
+/>
+
+#### PaginationPrevious
+
+<PropsTable
+  data={[
+    {
+      prop: "size",
+      type: "ButtonProps['size']",
+      default: '"md"',
+      description: "Size of the previous button.",
+    },
+    {
+      prop: "disabled",
+      type: "boolean",
+      default: "false",
+      description: "Disables the previous page action.",
+    },
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default anchor element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the previous control.",
+    },
+  ]}
+/>
+
+#### PaginationNext
+
+<PropsTable
+  data={[
+    {
+      prop: "size",
+      type: "ButtonProps['size']",
+      default: '"md"',
+      description: "Size of the next button.",
+    },
+    {
+      prop: "disabled",
+      type: "boolean",
+      default: "false",
+      description: "Disables the next page action.",
+    },
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default anchor element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the next control.",
+    },
+  ]}
+/>
+
+#### PaginationFirst
+
+<PropsTable
+  data={[
+    {
+      prop: "size",
+      type: "ButtonProps['size']",
+      default: '"icon"',
+      description: "Size of the first-page jump button.",
+    },
+    {
+      prop: "disabled",
+      type: "boolean",
+      default: "false",
+      description: "Disables the first-page action.",
+    },
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default anchor element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the first-page control.",
+    },
+  ]}
+/>
+
+#### PaginationLast
+
+<PropsTable
+  data={[
+    {
+      prop: "size",
+      type: "ButtonProps['size']",
+      default: '"icon"',
+      description: "Size of the last-page jump button.",
+    },
+    {
+      prop: "disabled",
+      type: "boolean",
+      default: "false",
+      description: "Disables the last-page action.",
+    },
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default anchor element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the last-page control.",
+    },
+  ]}
+/>
+
+#### PaginationEllipsis
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default span element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the ellipsis indicator.",
+    },
+  ]}
+/>

@@ -1962,6 +1962,264 @@ export const Registry: Record<string, any> = {
 							return LazyComp;
 						})(),
           },
+          "craftui-particles-pagination-controlled": {
+            name: "craftui-particles-pagination-controlled",
+            description: "Interactive controlled pagination rendered as buttons.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-pagination"],
+            files: [
+  {
+    "path": "packages/craftui/components/pagination/particles/controlled/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/pagination-controlled.tsx",
+    "content": "\"use client\";\n\nimport { useState } from \"react\";\n\nimport {\n\tPaginationContent,\n\tPaginationFirst,\n\tPaginationItem,\n\tPaginationLast,\n\tPaginationLink,\n\tPaginationNext,\n\tPaginationPrevious,\n\tPaginationRoot,\n} from \"@/components/craftui/components/pagination\";\n\nconst TOTAL_PAGES = 5;\n\nexport default function Particle() {\n\tconst [page, setPage] = useState(2);\n\n\treturn (\n\t\t<PaginationRoot>\n\t\t\t<PaginationContent>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationFirst\n\t\t\t\t\t\tdisabled={page === 1}\n\t\t\t\t\t\tonClick={() => setPage(1)}\n\t\t\t\t\t\trender={<button type=\"button\" />}\n\t\t\t\t\t/>\n\t\t\t\t</PaginationItem>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationPrevious\n\t\t\t\t\t\tdisabled={page === 1}\n\t\t\t\t\t\tonClick={() => setPage((p) => Math.max(1, p - 1))}\n\t\t\t\t\t\trender={<button type=\"button\" />}\n\t\t\t\t\t/>\n\t\t\t\t</PaginationItem>\n\n\t\t\t\t{Array.from({ length: TOTAL_PAGES }, (_, i) => i + 1).map(\n\t\t\t\t\t(pageNumber) => (\n\t\t\t\t\t\t<PaginationItem key={pageNumber}>\n\t\t\t\t\t\t\t<PaginationLink\n\t\t\t\t\t\t\t\tisActive={page === pageNumber}\n\t\t\t\t\t\t\t\tonClick={() => setPage(pageNumber)}\n\t\t\t\t\t\t\t\trender={<button type=\"button\" />}\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t{pageNumber}\n\t\t\t\t\t\t\t</PaginationLink>\n\t\t\t\t\t\t</PaginationItem>\n\t\t\t\t\t),\n\t\t\t\t)}\n\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationNext\n\t\t\t\t\t\tdisabled={page === TOTAL_PAGES}\n\t\t\t\t\t\tonClick={() =>\n\t\t\t\t\t\t\tsetPage((p) => Math.min(TOTAL_PAGES, p + 1))\n\t\t\t\t\t\t}\n\t\t\t\t\t\trender={<button type=\"button\" />}\n\t\t\t\t\t/>\n\t\t\t\t</PaginationItem>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationLast\n\t\t\t\t\t\tdisabled={page === TOTAL_PAGES}\n\t\t\t\t\t\tonClick={() => setPage(TOTAL_PAGES)}\n\t\t\t\t\t\trender={<button type=\"button\" />}\n\t\t\t\t\t/>\n\t\t\t\t</PaginationItem>\n\t\t\t</PaginationContent>\n\t\t</PaginationRoot>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-pagination-controlled',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/pagination/particles/controlled/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-pagination-icon-only": {
+            name: "craftui-particles-pagination-icon-only",
+            description: "Compact pagination with icon-only previous and next controls.",
+            type: "registry:component",
+            dependencies: ["lucide-react"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-pagination"],
+            files: [
+  {
+    "path": "packages/craftui/components/pagination/particles/icon-only/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/pagination-icon-only.tsx",
+    "content": "import { ChevronLeftIcon, ChevronRightIcon } from \"lucide-react\";\n\nimport {\n\tPaginationContent,\n\tPaginationEllipsis,\n\tPaginationItem,\n\tPaginationLink,\n\tPaginationNext,\n\tPaginationPrevious,\n\tPaginationRoot,\n} from \"@/components/craftui/components/pagination\";\n\nexport default function Particle() {\n\treturn (\n\t\t<PaginationRoot>\n\t\t\t<PaginationContent>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationPrevious\n\t\t\t\t\t\thref=\"#page-1\"\n\t\t\t\t\t\tsize=\"icon\"\n\t\t\t\t\t\tclassName=\"px-0 sm:pl-0\"\n\t\t\t\t\t>\n\t\t\t\t\t\t<ChevronLeftIcon className=\"size-4\" />\n\t\t\t\t\t</PaginationPrevious>\n\t\t\t\t</PaginationItem>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationLink href=\"#page-1\">1</PaginationLink>\n\t\t\t\t</PaginationItem>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationLink href=\"#page-2\" isActive>\n\t\t\t\t\t\t2\n\t\t\t\t\t</PaginationLink>\n\t\t\t\t</PaginationItem>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationLink href=\"#page-3\">3</PaginationLink>\n\t\t\t\t</PaginationItem>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationEllipsis />\n\t\t\t\t</PaginationItem>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationLink href=\"#page-8\">8</PaginationLink>\n\t\t\t\t</PaginationItem>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationNext\n\t\t\t\t\t\thref=\"#page-3\"\n\t\t\t\t\t\tsize=\"icon\"\n\t\t\t\t\t\tclassName=\"px-0 sm:pr-0\"\n\t\t\t\t\t>\n\t\t\t\t\t\t<ChevronRightIcon className=\"size-4\" />\n\t\t\t\t\t</PaginationNext>\n\t\t\t\t</PaginationItem>\n\t\t\t</PaginationContent>\n\t\t</PaginationRoot>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-pagination-icon-only',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/pagination/particles/icon-only/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-pagination": {
+            name: "craftui-particles-pagination",
+            description: "Default pagination with previous, next, page links, and ellipsis.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-pagination"],
+            files: [
+  {
+    "path": "packages/craftui/components/pagination/particles/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/pagination.tsx",
+    "content": "import {\n\tPaginationContent,\n\tPaginationEllipsis,\n\tPaginationItem,\n\tPaginationLink,\n\tPaginationNext,\n\tPaginationPrevious,\n\tPaginationRoot,\n} from \"@/components/craftui/components/pagination\";\n\nexport default function Particle() {\n\treturn (\n\t\t<PaginationRoot>\n\t\t\t<PaginationContent>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationPrevious href=\"#page-1\" />\n\t\t\t\t</PaginationItem>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationLink href=\"#page-1\">1</PaginationLink>\n\t\t\t\t</PaginationItem>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationLink href=\"#page-2\" isActive>\n\t\t\t\t\t\t2\n\t\t\t\t\t</PaginationLink>\n\t\t\t\t</PaginationItem>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationLink href=\"#page-3\">3</PaginationLink>\n\t\t\t\t</PaginationItem>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationEllipsis />\n\t\t\t\t</PaginationItem>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationLink href=\"#page-10\">10</PaginationLink>\n\t\t\t\t</PaginationItem>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationNext href=\"#page-3\" />\n\t\t\t\t</PaginationItem>\n\t\t\t</PaginationContent>\n\t\t</PaginationRoot>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-pagination',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/pagination/particles/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-pagination-simple": {
+            name: "craftui-particles-pagination-simple",
+            description: "Minimal pager showing current page count with previous and next buttons.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-pagination"],
+            files: [
+  {
+    "path": "packages/craftui/components/pagination/particles/simple/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/pagination-simple.tsx",
+    "content": "import {\n\tPaginationContent,\n\tPaginationItem,\n\tPaginationNext,\n\tPaginationPrevious,\n\tPaginationRoot,\n} from \"@/components/craftui/components/pagination\";\n\nexport default function Particle() {\n\treturn (\n\t\t<PaginationRoot>\n\t\t\t<PaginationContent className=\"gap-4\">\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationPrevious\n\t\t\t\t\t\thref=\"#page-1\"\n\t\t\t\t\t\tvariant=\"outline\"\n\t\t\t\t\t\tsize=\"sm\"\n\t\t\t\t\t/>\n\t\t\t\t</PaginationItem>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<span className=\"text-sm text-muted-foreground\">\n\t\t\t\t\t\tPage <strong className=\"font-medium text-foreground\">2</strong>{\" \"}\n\t\t\t\t\t\tof <strong className=\"font-medium text-foreground\">12</strong>\n\t\t\t\t\t</span>\n\t\t\t\t</PaginationItem>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationNext\n\t\t\t\t\t\thref=\"#page-3\"\n\t\t\t\t\t\tvariant=\"outline\"\n\t\t\t\t\t\tsize=\"sm\"\n\t\t\t\t\t/>\n\t\t\t\t</PaginationItem>\n\t\t\t</PaginationContent>\n\t\t</PaginationRoot>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-pagination-simple',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/pagination/particles/simple/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-pagination-with-first-last": {
+            name: "craftui-particles-pagination-with-first-last",
+            description: "Pagination with first and last page jump controls.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-pagination"],
+            files: [
+  {
+    "path": "packages/craftui/components/pagination/particles/with-first-last/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/pagination-with-first-last.tsx",
+    "content": "import {\n\tPaginationContent,\n\tPaginationEllipsis,\n\tPaginationFirst,\n\tPaginationItem,\n\tPaginationLast,\n\tPaginationLink,\n\tPaginationNext,\n\tPaginationPrevious,\n\tPaginationRoot,\n} from \"@/components/craftui/components/pagination\";\n\nexport default function Particle() {\n\treturn (\n\t\t<PaginationRoot>\n\t\t\t<PaginationContent>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationFirst href=\"#page-1\" />\n\t\t\t\t</PaginationItem>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationPrevious href=\"#page-3\" />\n\t\t\t\t</PaginationItem>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationLink href=\"#page-3\">3</PaginationLink>\n\t\t\t\t</PaginationItem>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationLink href=\"#page-4\" isActive>\n\t\t\t\t\t\t4\n\t\t\t\t\t</PaginationLink>\n\t\t\t\t</PaginationItem>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationLink href=\"#page-5\">5</PaginationLink>\n\t\t\t\t</PaginationItem>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationEllipsis />\n\t\t\t\t</PaginationItem>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationNext href=\"#page-5\" />\n\t\t\t\t</PaginationItem>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationLast href=\"#page-20\" />\n\t\t\t\t</PaginationItem>\n\t\t\t</PaginationContent>\n\t\t</PaginationRoot>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-pagination-with-first-last',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/pagination/particles/with-first-last/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-pagination": {
+            name: "craftui-pagination",
+            description: "Pagination with page navigation, next and previous links.",
+            type: "registry:component",
+            dependencies: ["@base-ui/react","lucide-react","cn"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/baseui-button"],
+            files: [
+  {
+    "path": "packages/craftui/components/pagination/index.tsx",
+    "type": "registry:component",
+    "target": "components/ui/pagination.tsx",
+    "content": "\"use client\";\n\nimport {\n\tChevronLeftIcon,\n\tChevronRightIcon,\n\tChevronsLeftIcon,\n\tChevronsRightIcon,\n\tMoreHorizontalIcon,\n} from \"lucide-react\";\nimport { cn } from \"cn\";\nimport { useRender } from \"@base-ui/react/use-render\";\nimport { mergeProps } from \"@base-ui/react/merge-props\";\nimport {\n\ttype ButtonProps,\n\tbuttonVariants,\n} from \"@/components/baseui/components/button\";\n\n/* -------------------------------------------------------------------------- */\n/* Pagination Root                                                            */\n/* -------------------------------------------------------------------------- */\n\nexport interface PaginationRootProps extends useRender.ComponentProps<\"nav\"> {}\n\nfunction PaginationRoot({ className, render, ...props }: PaginationRootProps) {\n\tconst defaultProps = {\n\t\t\"aria-label\": \"pagination\",\n\t\t\"data-slot\": \"pagination\",\n\t\tclassName: cn(\"mx-auto flex w-full justify-center\", className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"nav\",\n\t\tprops: mergeProps<\"nav\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Pagination Content                                                         */\n/* -------------------------------------------------------------------------- */\n\nexport interface PaginationContentProps\n\textends useRender.ComponentProps<\"ul\"> {}\n\nfunction PaginationContent({\n\tclassName,\n\trender,\n\t...props\n}: PaginationContentProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"pagination-content\",\n\t\tclassName: cn(\"flex flex-row items-center gap-1\", className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"ul\",\n\t\tprops: mergeProps<\"ul\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Pagination Item                                                            */\n/* -------------------------------------------------------------------------- */\n\nexport interface PaginationItemProps extends useRender.ComponentProps<\"li\"> {}\n\nfunction PaginationItem({ className, render, ...props }: PaginationItemProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"pagination-item\",\n\t\tclassName: cn(\"\", className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"li\",\n\t\tprops: mergeProps<\"li\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Pagination Link                                                            */\n/* -------------------------------------------------------------------------- */\n\nexport interface PaginationLinkProps\n\textends useRender.ComponentProps<\"a\">,\n\t\tPick<ButtonProps, \"size\" | \"variant\"> {\n\tisActive?: boolean;\n\tdisabled?: boolean;\n}\n\nfunction PaginationLink({\n\tclassName,\n\tisActive,\n\tdisabled,\n\tsize = \"icon\",\n\tvariant,\n\trender,\n\t...props\n}: PaginationLinkProps) {\n\tconst resolvedVariant = variant ?? (isActive ? \"outline\" : \"ghost\");\n\n\tconst defaultProps = {\n\t\t\"aria-current\": isActive ? (\"page\" as const) : undefined,\n\t\t\"aria-disabled\": disabled || undefined,\n\t\t\"data-slot\": \"pagination-link\",\n\t\t\"data-active\": isActive || undefined,\n\t\t\"data-disabled\": disabled || undefined,\n\t\tclassName: cn(\n\t\t\tbuttonVariants({ variant: resolvedVariant, size }),\n\t\t\tdisabled && \"pointer-events-none opacity-50\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"a\",\n\t\tprops: mergeProps<\"a\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Pagination Previous                                                        */\n/* -------------------------------------------------------------------------- */\n\nexport interface PaginationPreviousProps extends PaginationLinkProps {}\n\nfunction PaginationPrevious({\n\tclassName,\n\tsize = \"md\",\n\tchildren,\n\t...props\n}: PaginationPreviousProps) {\n\treturn (\n\t\t<PaginationLink\n\t\t\taria-label=\"Go to previous page\"\n\t\t\tdata-slot=\"pagination-previous\"\n\t\t\tsize={size}\n\t\t\tclassName={cn(\"gap-1 px-2.5 sm:pl-2.5\", className)}\n\t\t\t{...props}\n\t\t>\n\t\t\t{children ?? (\n\t\t\t\t<>\n\t\t\t\t\t<ChevronLeftIcon className=\"size-4\" />\n\t\t\t\t\t<span className=\"hidden sm:block\">Previous</span>\n\t\t\t\t</>\n\t\t\t)}\n\t\t</PaginationLink>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Pagination Next                                                            */\n/* -------------------------------------------------------------------------- */\n\nexport interface PaginationNextProps extends PaginationLinkProps {}\n\nfunction PaginationNext({\n\tclassName,\n\tsize = \"md\",\n\tchildren,\n\t...props\n}: PaginationNextProps) {\n\treturn (\n\t\t<PaginationLink\n\t\t\taria-label=\"Go to next page\"\n\t\t\tdata-slot=\"pagination-next\"\n\t\t\tsize={size}\n\t\t\tclassName={cn(\"gap-1 px-2.5 sm:pr-2.5\", className)}\n\t\t\t{...props}\n\t\t>\n\t\t\t{children ?? (\n\t\t\t\t<>\n\t\t\t\t\t<span className=\"hidden sm:block\">Next</span>\n\t\t\t\t\t<ChevronRightIcon className=\"size-4\" />\n\t\t\t\t</>\n\t\t\t)}\n\t\t</PaginationLink>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Pagination First                                                           */\n/* -------------------------------------------------------------------------- */\n\nexport interface PaginationFirstProps extends PaginationLinkProps {}\n\nfunction PaginationFirst({\n\tclassName,\n\tsize = \"icon\",\n\tchildren,\n\t...props\n}: PaginationFirstProps) {\n\treturn (\n\t\t<PaginationLink\n\t\t\taria-label=\"Go to first page\"\n\t\t\tdata-slot=\"pagination-first\"\n\t\t\tsize={size}\n\t\t\tclassName={cn(className)}\n\t\t\t{...props}\n\t\t>\n\t\t\t{children ?? <ChevronsLeftIcon className=\"size-4\" />}\n\t\t</PaginationLink>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Pagination Last                                                            */\n/* -------------------------------------------------------------------------- */\n\nexport interface PaginationLastProps extends PaginationLinkProps {}\n\nfunction PaginationLast({\n\tclassName,\n\tsize = \"icon\",\n\tchildren,\n\t...props\n}: PaginationLastProps) {\n\treturn (\n\t\t<PaginationLink\n\t\t\taria-label=\"Go to last page\"\n\t\t\tdata-slot=\"pagination-last\"\n\t\t\tsize={size}\n\t\t\tclassName={cn(className)}\n\t\t\t{...props}\n\t\t>\n\t\t\t{children ?? <ChevronsRightIcon className=\"size-4\" />}\n\t\t</PaginationLink>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Pagination Ellipsis                                                        */\n/* -------------------------------------------------------------------------- */\n\nexport interface PaginationEllipsisProps\n\textends useRender.ComponentProps<\"span\"> {}\n\nfunction PaginationEllipsis({\n\tclassName,\n\tchildren,\n\trender,\n\t...props\n}: PaginationEllipsisProps) {\n\tconst defaultProps = {\n\t\t\"aria-hidden\": true,\n\t\t\"data-slot\": \"pagination-ellipsis\",\n\t\tclassName: cn(\n\t\t\t\"flex size-8 items-center justify-center text-muted-foreground\",\n\t\t\tclassName,\n\t\t),\n\t\tchildren: children ?? (\n\t\t\t<>\n\t\t\t\t<MoreHorizontalIcon className=\"size-4\" />\n\t\t\t\t<span className=\"sr-only\">More pages</span>\n\t\t\t</>\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"span\",\n\t\tprops: mergeProps<\"span\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const Pagination = Object.assign(PaginationRoot, {\n\tRoot: PaginationRoot,\n\tContent: PaginationContent,\n\tItem: PaginationItem,\n\tLink: PaginationLink,\n\tPrevious: PaginationPrevious,\n\tNext: PaginationNext,\n\tFirst: PaginationFirst,\n\tLast: PaginationLast,\n\tEllipsis: PaginationEllipsis,\n});\n\nexport {\n\tPaginationRoot,\n\tPaginationContent,\n\tPaginationItem,\n\tPaginationLink,\n\tPaginationPrevious,\n\tPaginationNext,\n\tPaginationFirst,\n\tPaginationLast,\n\tPaginationEllipsis,\n};"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-pagination',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/pagination/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
           "craftui-particles-skeleton-card": {
             name: "craftui-particles-skeleton-card",
             description: "Card layout skeleton placeholder.",

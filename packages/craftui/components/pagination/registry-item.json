@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-pagination",
+	"type": "registry:component",
+	"description": "Pagination with page navigation, next and previous links.",
+	"dependencies": ["@base-ui/react", "lucide-react", "cn"],
+	"registryDependencies": ["@craftdotui/baseui-button"],
+	"files": [
+		{
+			"path": "packages/craftui/components/pagination/index.tsx",
+			"type": "registry:component",
+			"target": "components/ui/pagination.tsx"
+		}
+	]
+}

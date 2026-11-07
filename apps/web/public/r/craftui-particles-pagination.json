@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-pagination",
+	"description": "Default pagination with previous, next, page links, and ellipsis.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-pagination"],
+	"files": [
+		{
+			"path": "packages/craftui/components/pagination/particles/index.tsx",
+			"content": "import {\n\tPaginationContent,\n\tPaginationEllipsis,\n\tPaginationItem,\n\tPaginationLink,\n\tPaginationNext,\n\tPaginationPrevious,\n\tPaginationRoot,\n} from \"@/components/craftui/components/pagination\";\n\nexport default function Particle() {\n\treturn (\n\t\t<PaginationRoot>\n\t\t\t<PaginationContent>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationPrevious href=\"#page-1\" />\n\t\t\t\t</PaginationItem>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationLink href=\"#page-1\">1</PaginationLink>\n\t\t\t\t</PaginationItem>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationLink href=\"#page-2\" isActive>\n\t\t\t\t\t\t2\n\t\t\t\t\t</PaginationLink>\n\t\t\t\t</PaginationItem>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationLink href=\"#page-3\">3</PaginationLink>\n\t\t\t\t</PaginationItem>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationEllipsis />\n\t\t\t\t</PaginationItem>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationLink href=\"#page-10\">10</PaginationLink>\n\t\t\t\t</PaginationItem>\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationNext href=\"#page-3\" />\n\t\t\t\t</PaginationItem>\n\t\t\t</PaginationContent>\n\t\t</PaginationRoot>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/pagination.tsx"
+		}
+	],
+	"type": "registry:component"
+}

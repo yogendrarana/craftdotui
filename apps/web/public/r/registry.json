@@ -728,6 +728,90 @@
 			]
 		},
 		{
+			"name": "craftui-particles-pagination-controlled",
+			"type": "registry:component",
+			"description": "Interactive controlled pagination rendered as buttons.",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/craftui-pagination"],
+			"files": [
+				{
+					"path": "packages/craftui/components/pagination/particles/controlled/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/pagination-controlled.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-pagination-icon-only",
+			"type": "registry:component",
+			"description": "Compact pagination with icon-only previous and next controls.",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/craftui-pagination"],
+			"files": [
+				{
+					"path": "packages/craftui/components/pagination/particles/icon-only/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/pagination-icon-only.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-pagination",
+			"type": "registry:component",
+			"description": "Default pagination with previous, next, page links, and ellipsis.",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/craftui-pagination"],
+			"files": [
+				{
+					"path": "packages/craftui/components/pagination/particles/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/pagination.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-pagination-simple",
+			"type": "registry:component",
+			"description": "Minimal pager showing current page count with previous and next buttons.",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/craftui-pagination"],
+			"files": [
+				{
+					"path": "packages/craftui/components/pagination/particles/simple/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/pagination-simple.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-pagination-with-first-last",
+			"type": "registry:component",
+			"description": "Pagination with first and last page jump controls.",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/craftui-pagination"],
+			"files": [
+				{
+					"path": "packages/craftui/components/pagination/particles/with-first-last/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/pagination-with-first-last.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-pagination",
+			"type": "registry:component",
+			"description": "Pagination with page navigation, next and previous links.",
+			"dependencies": ["@base-ui/react", "lucide-react", "cn"],
+			"registryDependencies": ["@craftdotui/baseui-button"],
+			"files": [
+				{
+					"path": "packages/craftui/components/pagination/index.tsx",
+					"type": "registry:component",
+					"target": "components/ui/pagination.tsx"
+				}
+			]
+		},
+		{
 			"name": "craftui-particles-skeleton-card",
 			"type": "registry:component",
 			"description": "Card layout skeleton placeholder.",
