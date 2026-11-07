@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Star } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+import { GitHub } from "./icons/github";
 
 interface PropTypes {
 	className?: string;
@@ -50,15 +51,22 @@ export const GithubStars = ({ className }: PropTypes) => {
 			href="https://github.com/yogendrarana/craftui"
 			target="_blank"
 			rel="noopener noreferrer"
+			aria-label={`GitHub repository, ${stars} stars`}
 			className={cn(
-				"hidden sm:inline-flex items-center gap-2 px-4 h-full rounded-none bg-background text-foreground hover:bg-muted/40 transition-colors font-mono text-xs",
+				"hidden sm:inline-flex h-full items-center gap-2 px-3",
+				"text-sm text-muted-foreground",
+				"hover:text-foreground hover:bg-muted/50",
+				"transition-colors duration-200",
+				"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
 				className,
 			)}
-			aria-label="GitHub repository"
 		>
-			<Star className="size-3.5 fill-current text-foreground" />
+			<GitHub className="size-4" />
+
 			<span className="font-medium">GitHub</span>
-			<span className="rounded-sm border border bg-muted px-1.5 py-0.5 text-[11px] font-mono leading-none text-muted-foreground">
+
+			<span className="inline-flex items-center gap-1 rounded-full bg-muted px-2 py-0.5 text-xs tabular-nums text-muted-foreground">
+				<Star className="size-3 fill-current" />
 				{stars}
 			</span>
 		</Link>
