@@ -214,6 +214,10 @@ export const docsNavItems: Array<DocsNavItem> = [
 				href: "/docs/craftui/components/stepper",
 			},
 			{
+				title: "Table",
+				href: "/docs/craftui/components/table",
+			},
+			{
 				title: "Timeline",
 				href: "/docs/craftui/components/timeline",
 			},

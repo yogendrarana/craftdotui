@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-table",
+	"description": "Default table with header, body, footer summary, and caption.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-table"],
+	"files": [
+		{
+			"path": "packages/craftui/components/table/particles/index.tsx",
+			"content": "import {\n\tTableBody,\n\tTableCaption,\n\tTableCell,\n\tTableFooter,\n\tTableHead,\n\tTableHeader,\n\tTableRoot,\n\tTableRow,\n} from \"@/components/craftui/components/table\";\n\nconst invoices = [\n\t{\n\t\tinvoice: \"INV-001\",\n\t\tpaymentStatus: \"Paid\",\n\t\ttotalAmount: \"$250.00\",\n\t\tpaymentMethod: \"Credit Card\",\n\t},\n\t{\n\t\tinvoice: \"INV-002\",\n\t\tpaymentStatus: \"Pending\",\n\t\ttotalAmount: \"$150.00\",\n\t\tpaymentMethod: \"PayPal\",\n\t},\n\t{\n\t\tinvoice: \"INV-003\",\n\t\tpaymentStatus: \"Unpaid\",\n\t\ttotalAmount: \"$350.00\",\n\t\tpaymentMethod: \"Bank Transfer\",\n\t},\n\t{\n\t\tinvoice: \"INV-004\",\n\t\tpaymentStatus: \"Paid\",\n\t\ttotalAmount: \"$450.00\",\n\t\tpaymentMethod: \"Credit Card\",\n\t},\n\t{\n\t\tinvoice: \"INV-005\",\n\t\tpaymentStatus: \"Paid\",\n\t\ttotalAmount: \"$550.00\",\n\t\tpaymentMethod: \"PayPal\",\n\t},\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"w-full max-w-2xl\">\n\t\t\t<TableRoot>\n\t\t\t\t<TableCaption>A list of your recent invoices.</TableCaption>\n\t\t\t\t<TableHeader>\n\t\t\t\t\t<TableRow>\n\t\t\t\t\t\t<TableHead className=\"w-[100px]\">Invoice</TableHead>\n\t\t\t\t\t\t<TableHead>Status</TableHead>\n\t\t\t\t\t\t<TableHead>Method</TableHead>\n\t\t\t\t\t\t<TableHead className=\"text-right\">Amount</TableHead>\n\t\t\t\t\t</TableRow>\n\t\t\t\t</TableHeader>\n\t\t\t\t<TableBody>\n\t\t\t\t\t{invoices.map((invoice) => (\n\t\t\t\t\t\t<TableRow key={invoice.invoice}>\n\t\t\t\t\t\t\t<TableCell className=\"font-medium\">\n\t\t\t\t\t\t\t\t{invoice.invoice}\n\t\t\t\t\t\t\t</TableCell>\n\t\t\t\t\t\t\t<TableCell>{invoice.paymentStatus}</TableCell>\n\t\t\t\t\t\t\t<TableCell className=\"text-muted-foreground\">\n\t\t\t\t\t\t\t\t{invoice.paymentMethod}\n\t\t\t\t\t\t\t</TableCell>\n\t\t\t\t\t\t\t<TableCell className=\"text-right font-mono\">\n\t\t\t\t\t\t\t\t{invoice.totalAmount}\n\t\t\t\t\t\t\t</TableCell>\n\t\t\t\t\t\t</TableRow>\n\t\t\t\t\t))}\n\t\t\t\t</TableBody>\n\t\t\t\t<TableFooter>\n\t\t\t\t\t<TableRow>\n\t\t\t\t\t\t<TableCell colSpan={3}>Total</TableCell>\n\t\t\t\t\t\t<TableCell className=\"text-right font-mono\">\n\t\t\t\t\t\t\t$1,750.00\n\t\t\t\t\t\t</TableCell>\n\t\t\t\t\t</TableRow>\n\t\t\t\t</TableFooter>\n\t\t\t</TableRoot>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/table.tsx"
+		}
+	],
+	"type": "registry:component"
+}

@@ -1,0 +1,18 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-table-framed",
+	"type": "registry:component",
+	"description": "Framed table with bordered container, shaded header, and status badges.",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/craftui-table",
+		"@craftdotui/craftui-badge"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/table/particles/framed/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/table-framed.tsx"
+		}
+	]
+}

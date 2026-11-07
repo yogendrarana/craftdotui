@@ -1,0 +1,236 @@
+---
+title: Table
+description: A responsive table component for displaying tabular data.
+slug: /craftui/components/table
+published: true
+date: 2026-11-07T00:00:00.000Z
+author:
+  name: Yogendra Rana
+  twitter: "https://twitter.com/yooogendra_rana"
+---
+
+<ComponentCodePreview name="craftui-particles-table" />
+
+## Installation
+
+<Installation name="craftui-table" />
+
+## Anatomy
+
+#### Usage
+
+```tsx
+<TableRoot>
+  <TableCaption />
+  <TableHeader>
+    <TableRow>
+      <TableHead />
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell />
+    </TableRow>
+  </TableBody>
+  <TableFooter>
+    <TableRow>
+      <TableCell />
+    </TableRow>
+  </TableFooter>
+</TableRoot>
+```
+
+```tsx
+<Table.Root>
+  <Table.Caption />
+  <Table.Header>
+    <Table.Row>
+      <Table.Head />
+    </Table.Row>
+  </Table.Header>
+  <Table.Body>
+    <Table.Row>
+      <Table.Cell />
+    </Table.Row>
+  </Table.Body>
+  <Table.Footer>
+    <Table.Row>
+      <Table.Cell />
+    </Table.Row>
+  </Table.Footer>
+</Table.Root>
+```
+
+## Demo
+
+#### Framed
+
+<ComponentCodePreview name="craftui-particles-table-framed" />
+
+#### Striped
+
+<ComponentCodePreview name="craftui-particles-table-striped" />
+
+#### Vertical Lines
+
+<ComponentCodePreview name="craftui-particles-table-vertical-lines" />
+
+## Props
+
+#### TableRoot
+
+<PropsTable
+  data={[
+    {
+      prop: "containerClassName",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes applied to the outer scrollable table wrapper.",
+    },
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default table element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the table element.",
+    },
+  ]}
+/>
+
+#### TableHeader
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default thead element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the table header.",
+    },
+  ]}
+/>
+
+#### TableBody
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default tbody element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the table body.",
+    },
+  ]}
+/>
+
+#### TableFooter
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default tfoot element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the table footer.",
+    },
+  ]}
+/>
+
+#### TableRow
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default tr element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the table row.",
+    },
+  ]}
+/>
+
+#### TableHead
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default th element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the table header cell.",
+    },
+  ]}
+/>
+
+#### TableCell
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default td element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the table data cell.",
+    },
+  ]}
+/>
+
+#### TableCaption
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default caption element with a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to style the table caption.",
+    },
+  ]}
+/>

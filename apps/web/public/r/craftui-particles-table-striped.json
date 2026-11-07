@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-table-striped",
+	"description": "Table with alternating zebra-striped rows.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-table"],
+	"files": [
+		{
+			"path": "packages/craftui/components/table/particles/striped/index.tsx",
+			"content": "import {\n\tTableBody,\n\tTableCell,\n\tTableHead,\n\tTableHeader,\n\tTableRoot,\n\tTableRow,\n} from \"@/components/craftui/components/table\";\n\nconst logs = [\n\t{\n\t\ttimestamp: \"2026-11-07 09:42:11\",\n\t\tmethod: \"POST\",\n\t\tpath: \"/api/v1/auth/session\",\n\t\tstatus: 200,\n\t\tlatency: \"24ms\",\n\t},\n\t{\n\t\ttimestamp: \"2026-11-07 09:41:58\",\n\t\tmethod: \"GET\",\n\t\tpath: \"/api/v1/projects\",\n\t\tstatus: 200,\n\t\tlatency: \"18ms\",\n\t},\n\t{\n\t\ttimestamp: \"2026-11-07 09:41:02\",\n\t\tmethod: \"PATCH\",\n\t\tpath: \"/api/v1/projects/prj_92a\",\n\t\tstatus: 204,\n\t\tlatency: \"41ms\",\n\t},\n\t{\n\t\ttimestamp: \"2026-11-07 09:39:45\",\n\t\tmethod: \"DELETE\",\n\t\tpath: \"/api/v1/tokens/tok_18c\",\n\t\tstatus: 403,\n\t\tlatency: \"9ms\",\n\t},\n\t{\n\t\ttimestamp: \"2026-11-07 09:38:12\",\n\t\tmethod: \"GET\",\n\t\tpath: \"/api/v1/members\",\n\t\tstatus: 200,\n\t\tlatency: \"15ms\",\n\t},\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"w-full max-w-2xl\">\n\t\t\t<TableRoot>\n\t\t\t\t<TableHeader>\n\t\t\t\t\t<TableRow>\n\t\t\t\t\t\t<TableHead>Timestamp</TableHead>\n\t\t\t\t\t\t<TableHead>Method</TableHead>\n\t\t\t\t\t\t<TableHead>Path</TableHead>\n\t\t\t\t\t\t<TableHead>Status</TableHead>\n\t\t\t\t\t\t<TableHead className=\"text-right\">Latency</TableHead>\n\t\t\t\t\t</TableRow>\n\t\t\t\t</TableHeader>\n\t\t\t\t<TableBody>\n\t\t\t\t\t{logs.map((log) => (\n\t\t\t\t\t\t<TableRow\n\t\t\t\t\t\t\tkey={log.timestamp}\n\t\t\t\t\t\t\tclassName=\"border-0 odd:bg-muted/40 hover:odd:bg-muted/60\"\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t<TableCell className=\"font-mono text-xs text-muted-foreground\">\n\t\t\t\t\t\t\t\t{log.timestamp}\n\t\t\t\t\t\t\t</TableCell>\n\t\t\t\t\t\t\t<TableCell className=\"font-mono text-xs font-medium\">\n\t\t\t\t\t\t\t\t{log.method}\n\t\t\t\t\t\t\t</TableCell>\n\t\t\t\t\t\t\t<TableCell className=\"font-mono text-xs\">\n\t\t\t\t\t\t\t\t{log.path}\n\t\t\t\t\t\t\t</TableCell>\n\t\t\t\t\t\t\t<TableCell className=\"font-mono text-xs\">\n\t\t\t\t\t\t\t\t{log.status}\n\t\t\t\t\t\t\t</TableCell>\n\t\t\t\t\t\t\t<TableCell className=\"text-right font-mono text-xs text-muted-foreground\">\n\t\t\t\t\t\t\t\t{log.latency}\n\t\t\t\t\t\t\t</TableCell>\n\t\t\t\t\t\t</TableRow>\n\t\t\t\t\t))}\n\t\t\t\t</TableBody>\n\t\t\t</TableRoot>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/table-striped.tsx"
+		}
+	],
+	"type": "registry:component"
+}

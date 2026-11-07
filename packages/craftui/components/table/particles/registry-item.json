@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-table",
+	"type": "registry:component",
+	"description": "Default table with header, body, footer summary, and caption.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-table"],
+	"files": [
+		{
+			"path": "packages/craftui/components/table/particles/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/table.tsx"
+		}
+	]
+}

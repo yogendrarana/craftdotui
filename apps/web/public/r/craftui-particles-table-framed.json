@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-table-framed",
+	"description": "Framed table with bordered container, shaded header, and status badges.",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/craftui-table",
+		"@craftdotui/craftui-badge"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/table/particles/framed/index.tsx",
+			"content": "import { Badge } from \"@/components/craftui/components/badge\";\nimport {\n\tTableBody,\n\tTableCell,\n\tTableHead,\n\tTableHeader,\n\tTableRoot,\n\tTableRow,\n} from \"@/components/craftui/components/table\";\n\nconst deployments = [\n\t{\n\t\tid: \"dpl_8f92a1c\",\n\t\tbranch: \"main\",\n\t\tenvironment: \"Production\",\n\t\tstatus: \"Ready\",\n\t\tstatusVariant: \"success\" as const,\n\t\tduration: \"42s\",\n\t},\n\t{\n\t\tid: \"dpl_3b41e9d\",\n\t\tbranch: \"feat/table-primitive\",\n\t\tenvironment: \"Preview\",\n\t\tstatus: \"Building\",\n\t\tstatusVariant: \"warning\" as const,\n\t\tduration: \"18s\",\n\t},\n\t{\n\t\tid: \"dpl_7c19f0a\",\n\t\tbranch: \"fix/card-footer\",\n\t\tenvironment: \"Preview\",\n\t\tstatus: \"Ready\",\n\t\tstatusVariant: \"success\" as const,\n\t\tduration: \"38s\",\n\t},\n\t{\n\t\tid: \"dpl_1e55b2b\",\n\t\tbranch: \"chore/deps\",\n\t\tenvironment: \"Preview\",\n\t\tstatus: \"Failed\",\n\t\tstatusVariant: \"destructive\" as const,\n\t\tduration: \"12s\",\n\t},\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"w-full max-w-2xl overflow-hidden border border-border\">\n\t\t\t<TableRoot>\n\t\t\t\t<TableHeader className=\"bg-muted/50\">\n\t\t\t\t\t<TableRow className=\"hover:bg-transparent\">\n\t\t\t\t\t\t<TableHead>Deployment</TableHead>\n\t\t\t\t\t\t<TableHead>Branch</TableHead>\n\t\t\t\t\t\t<TableHead>Environment</TableHead>\n\t\t\t\t\t\t<TableHead>Status</TableHead>\n\t\t\t\t\t\t<TableHead className=\"text-right\">Duration</TableHead>\n\t\t\t\t\t</TableRow>\n\t\t\t\t</TableHeader>\n\t\t\t\t<TableBody>\n\t\t\t\t\t{deployments.map((item) => (\n\t\t\t\t\t\t<TableRow key={item.id}>\n\t\t\t\t\t\t\t<TableCell className=\"font-mono text-xs font-medium\">\n\t\t\t\t\t\t\t\t{item.id}\n\t\t\t\t\t\t\t</TableCell>\n\t\t\t\t\t\t\t<TableCell className=\"font-mono text-xs text-muted-foreground\">\n\t\t\t\t\t\t\t\t{item.branch}\n\t\t\t\t\t\t\t</TableCell>\n\t\t\t\t\t\t\t<TableCell>{item.environment}</TableCell>\n\t\t\t\t\t\t\t<TableCell>\n\t\t\t\t\t\t\t\t<Badge variant={item.statusVariant} size=\"sm\">\n\t\t\t\t\t\t\t\t\t{item.status}\n\t\t\t\t\t\t\t\t</Badge>\n\t\t\t\t\t\t\t</TableCell>\n\t\t\t\t\t\t\t<TableCell className=\"text-right text-muted-foreground\">\n\t\t\t\t\t\t\t\t{item.duration}\n\t\t\t\t\t\t\t</TableCell>\n\t\t\t\t\t\t</TableRow>\n\t\t\t\t\t))}\n\t\t\t\t</TableBody>\n\t\t\t</TableRoot>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/table-framed.tsx"
+		}
+	],
+	"type": "registry:component"
+}

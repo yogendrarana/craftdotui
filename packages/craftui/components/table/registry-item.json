@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-table",
+	"type": "registry:component",
+	"description": "A responsive table component for displaying tabular data.",
+	"dependencies": ["@base-ui/react", "cn"],
+	"registryDependencies": [],
+	"files": [
+		{
+			"path": "packages/craftui/components/table/index.tsx",
+			"type": "registry:component",
+			"target": "components/ui/table.tsx"
+		}
+	]
+}

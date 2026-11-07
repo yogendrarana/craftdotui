@@ -2306,6 +2306,221 @@ export const Registry: Record<string, any> = {
 							return LazyComp;
 						})(),
           },
+          "craftui-particles-table-framed": {
+            name: "craftui-particles-table-framed",
+            description: "Framed table with bordered container, shaded header, and status badges.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-table","@craftdotui/craftui-badge"],
+            files: [
+  {
+    "path": "packages/craftui/components/table/particles/framed/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/table-framed.tsx",
+    "content": "import { Badge } from \"@/components/craftui/components/badge\";\nimport {\n\tTableBody,\n\tTableCell,\n\tTableHead,\n\tTableHeader,\n\tTableRoot,\n\tTableRow,\n} from \"@/components/craftui/components/table\";\n\nconst deployments = [\n\t{\n\t\tid: \"dpl_8f92a1c\",\n\t\tbranch: \"main\",\n\t\tenvironment: \"Production\",\n\t\tstatus: \"Ready\",\n\t\tstatusVariant: \"success\" as const,\n\t\tduration: \"42s\",\n\t},\n\t{\n\t\tid: \"dpl_3b41e9d\",\n\t\tbranch: \"feat/table-primitive\",\n\t\tenvironment: \"Preview\",\n\t\tstatus: \"Building\",\n\t\tstatusVariant: \"warning\" as const,\n\t\tduration: \"18s\",\n\t},\n\t{\n\t\tid: \"dpl_7c19f0a\",\n\t\tbranch: \"fix/card-footer\",\n\t\tenvironment: \"Preview\",\n\t\tstatus: \"Ready\",\n\t\tstatusVariant: \"success\" as const,\n\t\tduration: \"38s\",\n\t},\n\t{\n\t\tid: \"dpl_1e55b2b\",\n\t\tbranch: \"chore/deps\",\n\t\tenvironment: \"Preview\",\n\t\tstatus: \"Failed\",\n\t\tstatusVariant: \"destructive\" as const,\n\t\tduration: \"12s\",\n\t},\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"w-full max-w-2xl overflow-hidden border border-border\">\n\t\t\t<TableRoot>\n\t\t\t\t<TableHeader className=\"bg-muted/50\">\n\t\t\t\t\t<TableRow className=\"hover:bg-transparent\">\n\t\t\t\t\t\t<TableHead>Deployment</TableHead>\n\t\t\t\t\t\t<TableHead>Branch</TableHead>\n\t\t\t\t\t\t<TableHead>Environment</TableHead>\n\t\t\t\t\t\t<TableHead>Status</TableHead>\n\t\t\t\t\t\t<TableHead className=\"text-right\">Duration</TableHead>\n\t\t\t\t\t</TableRow>\n\t\t\t\t</TableHeader>\n\t\t\t\t<TableBody>\n\t\t\t\t\t{deployments.map((item) => (\n\t\t\t\t\t\t<TableRow key={item.id}>\n\t\t\t\t\t\t\t<TableCell className=\"font-mono text-xs font-medium\">\n\t\t\t\t\t\t\t\t{item.id}\n\t\t\t\t\t\t\t</TableCell>\n\t\t\t\t\t\t\t<TableCell className=\"font-mono text-xs text-muted-foreground\">\n\t\t\t\t\t\t\t\t{item.branch}\n\t\t\t\t\t\t\t</TableCell>\n\t\t\t\t\t\t\t<TableCell>{item.environment}</TableCell>\n\t\t\t\t\t\t\t<TableCell>\n\t\t\t\t\t\t\t\t<Badge variant={item.statusVariant} size=\"sm\">\n\t\t\t\t\t\t\t\t\t{item.status}\n\t\t\t\t\t\t\t\t</Badge>\n\t\t\t\t\t\t\t</TableCell>\n\t\t\t\t\t\t\t<TableCell className=\"text-right text-muted-foreground\">\n\t\t\t\t\t\t\t\t{item.duration}\n\t\t\t\t\t\t\t</TableCell>\n\t\t\t\t\t\t</TableRow>\n\t\t\t\t\t))}\n\t\t\t\t</TableBody>\n\t\t\t</TableRoot>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-table-framed',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/table/particles/framed/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-table": {
+            name: "craftui-particles-table",
+            description: "Default table with header, body, footer summary, and caption.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-table"],
+            files: [
+  {
+    "path": "packages/craftui/components/table/particles/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/table.tsx",
+    "content": "import {\n\tTableBody,\n\tTableCaption,\n\tTableCell,\n\tTableFooter,\n\tTableHead,\n\tTableHeader,\n\tTableRoot,\n\tTableRow,\n} from \"@/components/craftui/components/table\";\n\nconst invoices = [\n\t{\n\t\tinvoice: \"INV-001\",\n\t\tpaymentStatus: \"Paid\",\n\t\ttotalAmount: \"$250.00\",\n\t\tpaymentMethod: \"Credit Card\",\n\t},\n\t{\n\t\tinvoice: \"INV-002\",\n\t\tpaymentStatus: \"Pending\",\n\t\ttotalAmount: \"$150.00\",\n\t\tpaymentMethod: \"PayPal\",\n\t},\n\t{\n\t\tinvoice: \"INV-003\",\n\t\tpaymentStatus: \"Unpaid\",\n\t\ttotalAmount: \"$350.00\",\n\t\tpaymentMethod: \"Bank Transfer\",\n\t},\n\t{\n\t\tinvoice: \"INV-004\",\n\t\tpaymentStatus: \"Paid\",\n\t\ttotalAmount: \"$450.00\",\n\t\tpaymentMethod: \"Credit Card\",\n\t},\n\t{\n\t\tinvoice: \"INV-005\",\n\t\tpaymentStatus: \"Paid\",\n\t\ttotalAmount: \"$550.00\",\n\t\tpaymentMethod: \"PayPal\",\n\t},\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"w-full max-w-2xl\">\n\t\t\t<TableRoot>\n\t\t\t\t<TableCaption>A list of your recent invoices.</TableCaption>\n\t\t\t\t<TableHeader>\n\t\t\t\t\t<TableRow>\n\t\t\t\t\t\t<TableHead className=\"w-[100px]\">Invoice</TableHead>\n\t\t\t\t\t\t<TableHead>Status</TableHead>\n\t\t\t\t\t\t<TableHead>Method</TableHead>\n\t\t\t\t\t\t<TableHead className=\"text-right\">Amount</TableHead>\n\t\t\t\t\t</TableRow>\n\t\t\t\t</TableHeader>\n\t\t\t\t<TableBody>\n\t\t\t\t\t{invoices.map((invoice) => (\n\t\t\t\t\t\t<TableRow key={invoice.invoice}>\n\t\t\t\t\t\t\t<TableCell className=\"font-medium\">\n\t\t\t\t\t\t\t\t{invoice.invoice}\n\t\t\t\t\t\t\t</TableCell>\n\t\t\t\t\t\t\t<TableCell>{invoice.paymentStatus}</TableCell>\n\t\t\t\t\t\t\t<TableCell className=\"text-muted-foreground\">\n\t\t\t\t\t\t\t\t{invoice.paymentMethod}\n\t\t\t\t\t\t\t</TableCell>\n\t\t\t\t\t\t\t<TableCell className=\"text-right font-mono\">\n\t\t\t\t\t\t\t\t{invoice.totalAmount}\n\t\t\t\t\t\t\t</TableCell>\n\t\t\t\t\t\t</TableRow>\n\t\t\t\t\t))}\n\t\t\t\t</TableBody>\n\t\t\t\t<TableFooter>\n\t\t\t\t\t<TableRow>\n\t\t\t\t\t\t<TableCell colSpan={3}>Total</TableCell>\n\t\t\t\t\t\t<TableCell className=\"text-right font-mono\">\n\t\t\t\t\t\t\t$1,750.00\n\t\t\t\t\t\t</TableCell>\n\t\t\t\t\t</TableRow>\n\t\t\t\t</TableFooter>\n\t\t\t</TableRoot>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-table',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/table/particles/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-table-striped": {
+            name: "craftui-particles-table-striped",
+            description: "Table with alternating zebra-striped rows.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-table"],
+            files: [
+  {
+    "path": "packages/craftui/components/table/particles/striped/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/table-striped.tsx",
+    "content": "import {\n\tTableBody,\n\tTableCell,\n\tTableHead,\n\tTableHeader,\n\tTableRoot,\n\tTableRow,\n} from \"@/components/craftui/components/table\";\n\nconst logs = [\n\t{\n\t\ttimestamp: \"2026-11-07 09:42:11\",\n\t\tmethod: \"POST\",\n\t\tpath: \"/api/v1/auth/session\",\n\t\tstatus: 200,\n\t\tlatency: \"24ms\",\n\t},\n\t{\n\t\ttimestamp: \"2026-11-07 09:41:58\",\n\t\tmethod: \"GET\",\n\t\tpath: \"/api/v1/projects\",\n\t\tstatus: 200,\n\t\tlatency: \"18ms\",\n\t},\n\t{\n\t\ttimestamp: \"2026-11-07 09:41:02\",\n\t\tmethod: \"PATCH\",\n\t\tpath: \"/api/v1/projects/prj_92a\",\n\t\tstatus: 204,\n\t\tlatency: \"41ms\",\n\t},\n\t{\n\t\ttimestamp: \"2026-11-07 09:39:45\",\n\t\tmethod: \"DELETE\",\n\t\tpath: \"/api/v1/tokens/tok_18c\",\n\t\tstatus: 403,\n\t\tlatency: \"9ms\",\n\t},\n\t{\n\t\ttimestamp: \"2026-11-07 09:38:12\",\n\t\tmethod: \"GET\",\n\t\tpath: \"/api/v1/members\",\n\t\tstatus: 200,\n\t\tlatency: \"15ms\",\n\t},\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"w-full max-w-2xl\">\n\t\t\t<TableRoot>\n\t\t\t\t<TableHeader>\n\t\t\t\t\t<TableRow>\n\t\t\t\t\t\t<TableHead>Timestamp</TableHead>\n\t\t\t\t\t\t<TableHead>Method</TableHead>\n\t\t\t\t\t\t<TableHead>Path</TableHead>\n\t\t\t\t\t\t<TableHead>Status</TableHead>\n\t\t\t\t\t\t<TableHead className=\"text-right\">Latency</TableHead>\n\t\t\t\t\t</TableRow>\n\t\t\t\t</TableHeader>\n\t\t\t\t<TableBody>\n\t\t\t\t\t{logs.map((log) => (\n\t\t\t\t\t\t<TableRow\n\t\t\t\t\t\t\tkey={log.timestamp}\n\t\t\t\t\t\t\tclassName=\"border-0 odd:bg-muted/40 hover:odd:bg-muted/60\"\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t<TableCell className=\"font-mono text-xs text-muted-foreground\">\n\t\t\t\t\t\t\t\t{log.timestamp}\n\t\t\t\t\t\t\t</TableCell>\n\t\t\t\t\t\t\t<TableCell className=\"font-mono text-xs font-medium\">\n\t\t\t\t\t\t\t\t{log.method}\n\t\t\t\t\t\t\t</TableCell>\n\t\t\t\t\t\t\t<TableCell className=\"font-mono text-xs\">\n\t\t\t\t\t\t\t\t{log.path}\n\t\t\t\t\t\t\t</TableCell>\n\t\t\t\t\t\t\t<TableCell className=\"font-mono text-xs\">\n\t\t\t\t\t\t\t\t{log.status}\n\t\t\t\t\t\t\t</TableCell>\n\t\t\t\t\t\t\t<TableCell className=\"text-right font-mono text-xs text-muted-foreground\">\n\t\t\t\t\t\t\t\t{log.latency}\n\t\t\t\t\t\t\t</TableCell>\n\t\t\t\t\t\t</TableRow>\n\t\t\t\t\t))}\n\t\t\t\t</TableBody>\n\t\t\t</TableRoot>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-table-striped',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/table/particles/striped/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-table-vertical-lines": {
+            name: "craftui-particles-table-vertical-lines",
+            description: "Grid table with vertical column dividers.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-table"],
+            files: [
+  {
+    "path": "packages/craftui/components/table/particles/vertical-lines/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/table-vertical-lines.tsx",
+    "content": "import {\n\tTableBody,\n\tTableCell,\n\tTableHead,\n\tTableHeader,\n\tTableRoot,\n\tTableRow,\n} from \"@/components/craftui/components/table\";\n\nconst specs = [\n\t{\n\t\tproperty: \"Architecture\",\n\t\tvalue: \"ARM64 (8-core)\",\n\t\ttier: \"Pro\",\n\t},\n\t{\n\t\tproperty: \"Memory\",\n\t\tvalue: \"32 GB LPDDR5\",\n\t\ttier: \"Pro\",\n\t},\n\t{\n\t\tproperty: \"Storage\",\n\t\tvalue: \"512 GB NVMe SSD\",\n\t\ttier: \"Standard\",\n\t},\n\t{\n\t\tproperty: \"Network Bandwidth\",\n\t\tvalue: \"10 Gbps Dedicated\",\n\t\ttier: \"Enterprise\",\n\t},\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"w-full max-w-2xl overflow-hidden border border-border\">\n\t\t\t<TableRoot className=\"[&_td:not(:last-child)]:border-r [&_td]:border-border [&_th:not(:last-child)]:border-r [&_th]:border-border\">\n\t\t\t\t<TableHeader className=\"bg-muted/50\">\n\t\t\t\t\t<TableRow className=\"hover:bg-transparent\">\n\t\t\t\t\t\t<TableHead>Specification</TableHead>\n\t\t\t\t\t\t<TableHead>Configuration</TableHead>\n\t\t\t\t\t\t<TableHead>Tier</TableHead>\n\t\t\t\t\t</TableRow>\n\t\t\t\t</TableHeader>\n\t\t\t\t<TableBody>\n\t\t\t\t\t{specs.map((spec) => (\n\t\t\t\t\t\t<TableRow key={spec.property}>\n\t\t\t\t\t\t\t<TableCell className=\"font-medium\">\n\t\t\t\t\t\t\t\t{spec.property}\n\t\t\t\t\t\t\t</TableCell>\n\t\t\t\t\t\t\t<TableCell className=\"text-muted-foreground\">\n\t\t\t\t\t\t\t\t{spec.value}\n\t\t\t\t\t\t\t</TableCell>\n\t\t\t\t\t\t\t<TableCell>{spec.tier}</TableCell>\n\t\t\t\t\t\t</TableRow>\n\t\t\t\t\t))}\n\t\t\t\t</TableBody>\n\t\t\t</TableRoot>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-table-vertical-lines',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/table/particles/vertical-lines/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-table": {
+            name: "craftui-table",
+            description: "A responsive table component for displaying tabular data.",
+            type: "registry:component",
+            dependencies: ["@base-ui/react","cn"],
+            devDependencies: undefined,
+            registryDependencies: [],
+            files: [
+  {
+    "path": "packages/craftui/components/table/index.tsx",
+    "type": "registry:component",
+    "target": "components/ui/table.tsx",
+    "content": "\"use client\";\n\nimport { cn } from \"cn\";\nimport { useRender } from \"@base-ui/react/use-render\";\nimport { mergeProps } from \"@base-ui/react/merge-props\";\n\n/* -------------------------------------------------------------------------- */\n/* Table Root                                                                 */\n/* -------------------------------------------------------------------------- */\n\nexport interface TableRootProps extends useRender.ComponentProps<\"table\"> {\n\tcontainerClassName?: string;\n}\n\nfunction TableRoot({\n\tclassName,\n\tcontainerClassName,\n\trender,\n\t...props\n}: TableRootProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"table\",\n\t\tclassName: cn(\"w-full caption-bottom text-sm\", className),\n\t};\n\n\tconst tableElement = useRender({\n\t\tdefaultTagName: \"table\",\n\t\tprops: mergeProps<\"table\">(defaultProps, props),\n\t\trender,\n\t});\n\n\treturn (\n\t\t<div\n\t\t\tdata-slot=\"table-container\"\n\t\t\tclassName={cn(\n\t\t\t\t\"relative w-full overflow-x-auto\",\n\t\t\t\tcontainerClassName,\n\t\t\t)}\n\t\t>\n\t\t\t{tableElement}\n\t\t</div>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Table Header                                                               */\n/* -------------------------------------------------------------------------- */\n\nexport interface TableHeaderProps extends useRender.ComponentProps<\"thead\"> {}\n\nfunction TableHeader({ className, render, ...props }: TableHeaderProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"table-header\",\n\t\tclassName: cn(\"[&_tr]:border-b [&_tr]:border-border\", className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"thead\",\n\t\tprops: mergeProps<\"thead\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Table Body                                                                 */\n/* -------------------------------------------------------------------------- */\n\nexport interface TableBodyProps extends useRender.ComponentProps<\"tbody\"> {}\n\nfunction TableBody({ className, render, ...props }: TableBodyProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"table-body\",\n\t\tclassName: cn(\"[&_tr:last-child]:border-0\", className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"tbody\",\n\t\tprops: mergeProps<\"tbody\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Table Footer                                                               */\n/* -------------------------------------------------------------------------- */\n\nexport interface TableFooterProps extends useRender.ComponentProps<\"tfoot\"> {}\n\nfunction TableFooter({ className, render, ...props }: TableFooterProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"table-footer\",\n\t\tclassName: cn(\n\t\t\t\"border-t border-border bg-muted/50 font-medium [&>tr]:last:border-b-0\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"tfoot\",\n\t\tprops: mergeProps<\"tfoot\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Table Row                                                                  */\n/* -------------------------------------------------------------------------- */\n\nexport interface TableRowProps extends useRender.ComponentProps<\"tr\"> {}\n\nfunction TableRow({ className, render, ...props }: TableRowProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"table-row\",\n\t\tclassName: cn(\n\t\t\t\"border-b border-border transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"tr\",\n\t\tprops: mergeProps<\"tr\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Table Head                                                                 */\n/* -------------------------------------------------------------------------- */\n\nexport interface TableHeadProps extends useRender.ComponentProps<\"th\"> {}\n\nfunction TableHead({ className, render, ...props }: TableHeadProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"table-head\",\n\t\tclassName: cn(\n\t\t\t\"h-10 px-3 text-left align-middle font-medium whitespace-nowrap text-foreground [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"th\",\n\t\tprops: mergeProps<\"th\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Table Cell                                                                 */\n/* -------------------------------------------------------------------------- */\n\nexport interface TableCellProps extends useRender.ComponentProps<\"td\"> {}\n\nfunction TableCell({ className, render, ...props }: TableCellProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"table-cell\",\n\t\tclassName: cn(\n\t\t\t\"p-3 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"td\",\n\t\tprops: mergeProps<\"td\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Table Caption                                                              */\n/* -------------------------------------------------------------------------- */\n\nexport interface TableCaptionProps\n\textends useRender.ComponentProps<\"caption\"> {}\n\nfunction TableCaption({ className, render, ...props }: TableCaptionProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"table-caption\",\n\t\tclassName: cn(\"mt-4 text-sm text-muted-foreground\", className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"caption\",\n\t\tprops: mergeProps<\"caption\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const Table = Object.assign(TableRoot, {\n\tRoot: TableRoot,\n\tHeader: TableHeader,\n\tBody: TableBody,\n\tFooter: TableFooter,\n\tHead: TableHead,\n\tRow: TableRow,\n\tCell: TableCell,\n\tCaption: TableCaption,\n});\n\nexport {\n\tTableRoot,\n\tTableHeader,\n\tTableBody,\n\tTableFooter,\n\tTableHead,\n\tTableRow,\n\tTableCell,\n\tTableCaption,\n};"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-table',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/table/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
           "craftui-particles-timeline-filled-markers": {
             name: "craftui-particles-timeline-filled-markers",
             description: "Timeline with filled markers indicating completed steps.",

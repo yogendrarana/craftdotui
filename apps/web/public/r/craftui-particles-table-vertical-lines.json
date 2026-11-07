@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-table-vertical-lines",
+	"description": "Grid table with vertical column dividers.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-table"],
+	"files": [
+		{
+			"path": "packages/craftui/components/table/particles/vertical-lines/index.tsx",
+			"content": "import {\n\tTableBody,\n\tTableCell,\n\tTableHead,\n\tTableHeader,\n\tTableRoot,\n\tTableRow,\n} from \"@/components/craftui/components/table\";\n\nconst specs = [\n\t{\n\t\tproperty: \"Architecture\",\n\t\tvalue: \"ARM64 (8-core)\",\n\t\ttier: \"Pro\",\n\t},\n\t{\n\t\tproperty: \"Memory\",\n\t\tvalue: \"32 GB LPDDR5\",\n\t\ttier: \"Pro\",\n\t},\n\t{\n\t\tproperty: \"Storage\",\n\t\tvalue: \"512 GB NVMe SSD\",\n\t\ttier: \"Standard\",\n\t},\n\t{\n\t\tproperty: \"Network Bandwidth\",\n\t\tvalue: \"10 Gbps Dedicated\",\n\t\ttier: \"Enterprise\",\n\t},\n];\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"w-full max-w-2xl overflow-hidden border border-border\">\n\t\t\t<TableRoot className=\"[&_td:not(:last-child)]:border-r [&_td]:border-border [&_th:not(:last-child)]:border-r [&_th]:border-border\">\n\t\t\t\t<TableHeader className=\"bg-muted/50\">\n\t\t\t\t\t<TableRow className=\"hover:bg-transparent\">\n\t\t\t\t\t\t<TableHead>Specification</TableHead>\n\t\t\t\t\t\t<TableHead>Configuration</TableHead>\n\t\t\t\t\t\t<TableHead>Tier</TableHead>\n\t\t\t\t\t</TableRow>\n\t\t\t\t</TableHeader>\n\t\t\t\t<TableBody>\n\t\t\t\t\t{specs.map((spec) => (\n\t\t\t\t\t\t<TableRow key={spec.property}>\n\t\t\t\t\t\t\t<TableCell className=\"font-medium\">\n\t\t\t\t\t\t\t\t{spec.property}\n\t\t\t\t\t\t\t</TableCell>\n\t\t\t\t\t\t\t<TableCell className=\"text-muted-foreground\">\n\t\t\t\t\t\t\t\t{spec.value}\n\t\t\t\t\t\t\t</TableCell>\n\t\t\t\t\t\t\t<TableCell>{spec.tier}</TableCell>\n\t\t\t\t\t\t</TableRow>\n\t\t\t\t\t))}\n\t\t\t\t</TableBody>\n\t\t\t</TableRoot>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/table-vertical-lines.tsx"
+		}
+	],
+	"type": "registry:component"
+}

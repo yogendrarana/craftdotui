@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-table-striped",
+	"type": "registry:component",
+	"description": "Table with alternating zebra-striped rows.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-table"],
+	"files": [
+		{
+			"path": "packages/craftui/components/table/particles/striped/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/table-striped.tsx"
+		}
+	]
+}

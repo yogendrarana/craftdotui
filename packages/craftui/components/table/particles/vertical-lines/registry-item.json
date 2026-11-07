@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-table-vertical-lines",
+	"type": "registry:component",
+	"description": "Grid table with vertical column dividers.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-table"],
+	"files": [
+		{
+			"path": "packages/craftui/components/table/particles/vertical-lines/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/table-vertical-lines.tsx"
+		}
+	]
+}
