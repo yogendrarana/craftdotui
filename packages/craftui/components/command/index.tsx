@@ -19,6 +19,13 @@ import {
 	inputVariants,
 	type InputVariants,
 } from "@craftdotui/baseui/components/input";
+import {
+	ScrollAreaContent,
+	ScrollAreaRoot,
+	ScrollAreaScrollbar,
+	ScrollAreaThumb,
+	ScrollAreaViewport,
+} from "@craftdotui/baseui/components/scroll-area";
 
 /* -------------------------------------------------------------------------- */
 /* Command Root                                                               */
@@ -144,21 +151,54 @@ function CommandInput({
 /* -------------------------------------------------------------------------- */
 
 export interface CommandListProps
-	extends React.ComponentProps<typeof CommandPrimitive.List> {}
+	extends React.ComponentProps<typeof CommandPrimitive.List> {
+	scrollable?: boolean;
+}
 
 function CommandList({
 	className,
+	children,
+	scrollable = true,
 	...props
 }: CommandListProps): React.ReactElement {
+	if (!scrollable) {
+		return (
+			<CommandPrimitive.List
+				data-slot="command-list"
+				className={cn(
+					"max-h-75 scroll-py-1 overflow-x-hidden overflow-y-auto",
+					className,
+				)}
+				{...props}
+			>
+				{children}
+			</CommandPrimitive.List>
+		);
+	}
+
 	return (
-		<CommandPrimitive.List
-			data-slot="command-list"
+		<ScrollAreaRoot
+			data-slot="command-list-scroll-area"
 			className={cn(
-				"max-h-75 scroll-py-1 overflow-x-hidden overflow-y-auto",
+				"relative flex flex-1 flex-col max-h-75 min-h-0 overflow-hidden w-full p-0",
 				className,
 			)}
-			{...props}
-		/>
+		>
+			<ScrollAreaViewport className="flex-1 min-h-0 overflow-y-auto overscroll-contain outline-none">
+				<ScrollAreaContent>
+					<CommandPrimitive.List
+						data-slot="command-list"
+						className="scroll-py-1"
+						{...props}
+					>
+						{children}
+					</CommandPrimitive.List>
+				</ScrollAreaContent>
+			</ScrollAreaViewport>
+			<ScrollAreaScrollbar>
+				<ScrollAreaThumb />
+			</ScrollAreaScrollbar>
+		</ScrollAreaRoot>
 	);
 }
 

@@ -673,7 +673,8 @@
 			"registryDependencies": [
 				"@craftdotui/cn",
 				"@craftdotui/baseui-dialog",
-				"@craftdotui/baseui-input"
+				"@craftdotui/baseui-input",
+				"@craftdotui/baseui-scroll-area"
 			],
 			"files": [
 				{
