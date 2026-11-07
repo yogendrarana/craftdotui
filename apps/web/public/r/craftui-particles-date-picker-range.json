@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-date-picker-range",
+	"description": "Two-month date range picker",
+	"dependencies": ["date-fns"],
+	"registryDependencies": ["@craftdotui/craftui-date-picker"],
+	"files": [
+		{
+			"path": "packages/craftui/components/date-picker/particles/range/index.tsx",
+			"content": "\"use client\";\n\nimport * as React from \"react\";\nimport { addDays } from \"date-fns\";\nimport {\n\tDateRangePicker,\n\ttype DateRange,\n} from \"@/components/craftui/components/date-picker\";\n\nexport default function Particle() {\n\tconst [range, setRange] = React.useState<DateRange | undefined>({\n\t\tfrom: new Date(),\n\t\tto: addDays(new Date(), 7),\n\t});\n\n\treturn <DateRangePicker value={range} onValueChange={setRange} />;\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/date-picker-range.tsx"
+		}
+	],
+	"type": "registry:component"
+}

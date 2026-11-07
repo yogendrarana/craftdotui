@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-date-picker-with-dropdowns",
+	"description": "Date of birth picker with month and year dropdown navigation",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-date-picker"],
+	"files": [
+		{
+			"path": "packages/craftui/components/date-picker/particles/with-dropdowns/index.tsx",
+			"content": "\"use client\";\n\nimport * as React from \"react\";\nimport { DatePicker } from \"@/components/craftui/components/date-picker\";\n\nexport default function Particle() {\n\tconst [date, setDate] = React.useState<Date | undefined>();\n\n\treturn (\n\t\t<DatePicker\n\t\t\tvalue={date}\n\t\t\tonValueChange={setDate}\n\t\t\tplaceholder=\"Select date of birth\"\n\t\t\tcalendarProps={{\n\t\t\t\tcaptionLayout: \"dropdown\",\n\t\t\t\tstartMonth: new Date(1950, 0),\n\t\t\t\tendMonth: new Date(),\n\t\t\t}}\n\t\t/>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/date-picker-with-dropdowns.tsx"
+		}
+	],
+	"type": "registry:component"
+}

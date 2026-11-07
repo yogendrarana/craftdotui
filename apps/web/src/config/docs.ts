@@ -210,6 +210,10 @@ export const docsNavItems: Array<DocsNavItem> = [
 				href: "/docs/craftui/components/command",
 			},
 			{
+				title: "Date Picker",
+				href: "/docs/craftui/components/date-picker",
+			},
+			{
 				title: "Empty",
 				href: "/docs/craftui/components/empty",
 			},

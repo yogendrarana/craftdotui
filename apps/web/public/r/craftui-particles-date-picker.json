@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-date-picker",
+	"description": "Default single date picker",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-date-picker"],
+	"files": [
+		{
+			"path": "packages/craftui/components/date-picker/particles/index.tsx",
+			"content": "\"use client\";\n\nimport * as React from \"react\";\nimport { DatePicker } from \"@/components/craftui/components/date-picker\";\n\nexport default function Particle() {\n\tconst [date, setDate] = React.useState<Date | undefined>(new Date());\n\n\treturn <DatePicker value={date} onValueChange={setDate} />;\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/date-picker.tsx"
+		}
+	],
+	"type": "registry:component"
+}

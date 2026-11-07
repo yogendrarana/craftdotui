@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-date-picker-with-presets",
+	"description": "Date picker with quick preset buttons inside the popover",
+	"dependencies": ["date-fns"],
+	"registryDependencies": [
+		"@craftdotui/craftui-date-picker",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/date-picker/particles/with-presets/index.tsx",
+			"content": "\"use client\";\n\nimport * as React from \"react\";\nimport { addDays } from \"date-fns\";\nimport { Button } from \"@/components/baseui/components/button\";\nimport { DatePicker } from \"@/components/craftui/components/date-picker\";\n\nconst presets = [\n\t{ label: \"Today\", offset: 0 },\n\t{ label: \"Tomorrow\", offset: 1 },\n\t{ label: \"In 3 days\", offset: 3 },\n\t{ label: \"In a week\", offset: 7 },\n];\n\nexport default function Particle() {\n\tconst [date, setDate] = React.useState<Date | undefined>(new Date());\n\tconst [month, setMonth] = React.useState<Date>(new Date());\n\n\treturn (\n\t\t<DatePicker\n\t\t\tvalue={date}\n\t\t\tonValueChange={setDate}\n\t\t\tcalendarProps={{\n\t\t\t\tmonth,\n\t\t\t\tonMonthChange: setMonth,\n\t\t\t}}\n\t\t>\n\t\t\t<div className=\"grid grid-cols-2 gap-1.5 border-b border-border p-2.5\">\n\t\t\t\t{presets.map((preset) => {\n\t\t\t\t\tconst target = addDays(new Date(), preset.offset);\n\t\t\t\t\treturn (\n\t\t\t\t\t\t<Button\n\t\t\t\t\t\t\tkey={preset.label}\n\t\t\t\t\t\t\tvariant=\"outline\"\n\t\t\t\t\t\t\tsize=\"xs\"\n\t\t\t\t\t\t\tclassName=\"w-full justify-center font-normal text-xs\"\n\t\t\t\t\t\t\tonClick={() => {\n\t\t\t\t\t\t\t\tsetDate(target);\n\t\t\t\t\t\t\t\tsetMonth(target);\n\t\t\t\t\t\t\t}}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t{preset.label}\n\t\t\t\t\t\t</Button>\n\t\t\t\t\t);\n\t\t\t\t})}\n\t\t\t</div>\n\t\t</DatePicker>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/date-picker-with-presets.tsx"
+		}
+	],
+	"type": "registry:component"
+}

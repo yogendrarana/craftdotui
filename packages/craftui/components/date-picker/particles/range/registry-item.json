@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-date-picker-range",
+	"type": "registry:component",
+	"description": "Two-month date range picker",
+	"dependencies": ["date-fns"],
+	"registryDependencies": ["@craftdotui/craftui-date-picker"],
+	"files": [
+		{
+			"path": "packages/craftui/components/date-picker/particles/range/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/date-picker-range.tsx"
+		}
+	]
+}

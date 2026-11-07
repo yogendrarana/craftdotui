@@ -1,0 +1,206 @@
+---
+title: Date Picker
+description: A composable date picker and date range picker built on Popover, Button, and Calendar.
+slug: /craftui/components/date-picker
+published: true
+date: 2026-11-07T00:00:00.000Z
+author:
+  name: Yogendra Rana
+  twitter: "https://twitter.com/yooogendra_rana"
+---
+
+<ComponentCodePreview name="craftui-particles-date-picker" />
+
+## Installation
+
+<Installation name="craftui-date-picker" />
+
+## Anatomy
+
+#### Usage
+
+```tsx
+<DatePicker value={date} onValueChange={setDate} />
+```
+
+```tsx
+<DatePicker.Root value={date} onValueChange={setDate} />
+```
+
+```tsx
+<DateRangePicker value={range} onValueChange={setRange} />
+```
+
+## Demo
+
+#### Range
+
+<ComponentCodePreview name="craftui-particles-date-picker-range" />
+
+#### With Presets
+
+<ComponentCodePreview name="craftui-particles-date-picker-with-presets" />
+
+#### With Dropdowns
+
+<ComponentCodePreview name="craftui-particles-date-picker-with-dropdowns" />
+
+## Props
+
+#### DatePickerRoot
+
+<PropsTable
+  data={[
+    {
+      prop: "value",
+      type: "Date | undefined",
+      default: "undefined",
+      description: "Controlled selected date.",
+    },
+    {
+      prop: "defaultValue",
+      type: "Date | undefined",
+      default: "undefined",
+      description: "Initial selected date when uncontrolled.",
+    },
+    {
+      prop: "onValueChange",
+      type: "(date: Date | undefined) => void",
+      default: "undefined",
+      description: "Callback fired when the selected date changes.",
+    },
+    {
+      prop: "placeholder",
+      type: "string",
+      default: '"Pick a date"',
+      description: "Text displayed when no date is selected.",
+    },
+    {
+      prop: "formatStr",
+      type: "string",
+      default: '"PPP"',
+      description: "date-fns format token used to format the selected date.",
+    },
+    {
+      prop: "closeOnSelect",
+      type: "boolean",
+      default: "true",
+      description: "Whether the popover closes automatically upon selecting a date.",
+    },
+    {
+      prop: "align",
+      type: '"start" | "center" | "end"',
+      default: '"start"',
+      description: "Alignment of the popover relative to the trigger button.",
+    },
+    {
+      prop: "disabled",
+      type: "boolean",
+      default: "false",
+      description: "Whether the date picker trigger is disabled.",
+    },
+    {
+      prop: "buttonProps",
+      type: "Omit<ButtonProps, 'value' | 'defaultValue'>",
+      default: "undefined",
+      description: "Additional props forwarded to the trigger Button.",
+    },
+    {
+      prop: "calendarProps",
+      type: "Omit<CalendarProps, 'mode' | 'selected' | 'onSelect'>",
+      default: "undefined",
+      description: "Additional props forwarded to the inner Calendar.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes for the trigger button.",
+    },
+    {
+      prop: "contentClassName",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes for the popover popup container.",
+    },
+  ]}
+/>
+
+#### DateRangePicker
+
+<PropsTable
+  data={[
+    {
+      prop: "value",
+      type: "DateRange | undefined",
+      default: "undefined",
+      description: "Controlled selected date range ({ from, to }).",
+    },
+    {
+      prop: "defaultValue",
+      type: "DateRange | undefined",
+      default: "undefined",
+      description: "Initial selected date range when uncontrolled.",
+    },
+    {
+      prop: "onValueChange",
+      type: "(range: DateRange | undefined) => void",
+      default: "undefined",
+      description: "Callback fired when the selected date range changes.",
+    },
+    {
+      prop: "placeholder",
+      type: "string",
+      default: '"Pick a date range"',
+      description: "Text displayed when no range is selected.",
+    },
+    {
+      prop: "formatStr",
+      type: "string",
+      default: '"LLL dd, y"',
+      description: "date-fns format token used to format each endpoint of the range.",
+    },
+    {
+      prop: "numberOfMonths",
+      type: "number",
+      default: "2",
+      description: "Number of calendar months displayed inside the popover.",
+    },
+    {
+      prop: "align",
+      type: '"start" | "center" | "end"',
+      default: '"start"',
+      description: "Alignment of the popover relative to the trigger button.",
+    },
+    {
+      prop: "disabled",
+      type: "boolean",
+      default: "false",
+      description: "Whether the date range picker trigger is disabled.",
+    },
+    {
+      prop: "buttonProps",
+      type: "Omit<ButtonProps, 'value' | 'defaultValue'>",
+      default: "undefined",
+      description: "Additional props forwarded to the trigger Button.",
+    },
+    {
+      prop: "calendarProps",
+      type: "Omit<CalendarProps, 'mode' | 'selected' | 'onSelect'>",
+      default: "undefined",
+      description: "Additional props forwarded to the inner Calendar.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes for the trigger button.",
+    },
+    {
+      prop: "contentClassName",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes for the popover popup container.",
+    },
+  ]}
+/>

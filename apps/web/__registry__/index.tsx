@@ -1876,6 +1876,221 @@ export const Registry: Record<string, any> = {
 							return LazyComp;
 						})(),
           },
+          "craftui-particles-date-picker-range": {
+            name: "craftui-particles-date-picker-range",
+            description: "Two-month date range picker",
+            type: "registry:component",
+            dependencies: ["date-fns"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-date-picker"],
+            files: [
+  {
+    "path": "packages/craftui/components/date-picker/particles/range/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/date-picker-range.tsx",
+    "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { addDays } from \"date-fns\";\nimport {\n\tDateRangePicker,\n\ttype DateRange,\n} from \"@/components/craftui/components/date-picker\";\n\nexport default function Particle() {\n\tconst [range, setRange] = React.useState<DateRange | undefined>({\n\t\tfrom: new Date(),\n\t\tto: addDays(new Date(), 7),\n\t});\n\n\treturn <DateRangePicker value={range} onValueChange={setRange} />;\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-date-picker-range',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/date-picker/particles/range/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-date-picker": {
+            name: "craftui-particles-date-picker",
+            description: "Default single date picker",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-date-picker"],
+            files: [
+  {
+    "path": "packages/craftui/components/date-picker/particles/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/date-picker.tsx",
+    "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { DatePicker } from \"@/components/craftui/components/date-picker\";\n\nexport default function Particle() {\n\tconst [date, setDate] = React.useState<Date | undefined>(new Date());\n\n\treturn <DatePicker value={date} onValueChange={setDate} />;\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-date-picker',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/date-picker/particles/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-date-picker-with-dropdowns": {
+            name: "craftui-particles-date-picker-with-dropdowns",
+            description: "Date of birth picker with month and year dropdown navigation",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-date-picker"],
+            files: [
+  {
+    "path": "packages/craftui/components/date-picker/particles/with-dropdowns/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/date-picker-with-dropdowns.tsx",
+    "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { DatePicker } from \"@/components/craftui/components/date-picker\";\n\nexport default function Particle() {\n\tconst [date, setDate] = React.useState<Date | undefined>();\n\n\treturn (\n\t\t<DatePicker\n\t\t\tvalue={date}\n\t\t\tonValueChange={setDate}\n\t\t\tplaceholder=\"Select date of birth\"\n\t\t\tcalendarProps={{\n\t\t\t\tcaptionLayout: \"dropdown\",\n\t\t\t\tstartMonth: new Date(1950, 0),\n\t\t\t\tendMonth: new Date(),\n\t\t\t}}\n\t\t/>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-date-picker-with-dropdowns',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/date-picker/particles/with-dropdowns/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-date-picker-with-presets": {
+            name: "craftui-particles-date-picker-with-presets",
+            description: "Date picker with quick preset buttons inside the popover",
+            type: "registry:component",
+            dependencies: ["date-fns"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-date-picker","@craftdotui/baseui-button"],
+            files: [
+  {
+    "path": "packages/craftui/components/date-picker/particles/with-presets/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/date-picker-with-presets.tsx",
+    "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { addDays } from \"date-fns\";\nimport { Button } from \"@/components/baseui/components/button\";\nimport { DatePicker } from \"@/components/craftui/components/date-picker\";\n\nconst presets = [\n\t{ label: \"Today\", offset: 0 },\n\t{ label: \"Tomorrow\", offset: 1 },\n\t{ label: \"In 3 days\", offset: 3 },\n\t{ label: \"In a week\", offset: 7 },\n];\n\nexport default function Particle() {\n\tconst [date, setDate] = React.useState<Date | undefined>(new Date());\n\tconst [month, setMonth] = React.useState<Date>(new Date());\n\n\treturn (\n\t\t<DatePicker\n\t\t\tvalue={date}\n\t\t\tonValueChange={setDate}\n\t\t\tcalendarProps={{\n\t\t\t\tmonth,\n\t\t\t\tonMonthChange: setMonth,\n\t\t\t}}\n\t\t>\n\t\t\t<div className=\"grid grid-cols-2 gap-1.5 border-b border-border p-2.5\">\n\t\t\t\t{presets.map((preset) => {\n\t\t\t\t\tconst target = addDays(new Date(), preset.offset);\n\t\t\t\t\treturn (\n\t\t\t\t\t\t<Button\n\t\t\t\t\t\t\tkey={preset.label}\n\t\t\t\t\t\t\tvariant=\"outline\"\n\t\t\t\t\t\t\tsize=\"xs\"\n\t\t\t\t\t\t\tclassName=\"w-full justify-center font-normal text-xs\"\n\t\t\t\t\t\t\tonClick={() => {\n\t\t\t\t\t\t\t\tsetDate(target);\n\t\t\t\t\t\t\t\tsetMonth(target);\n\t\t\t\t\t\t\t}}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t{preset.label}\n\t\t\t\t\t\t</Button>\n\t\t\t\t\t);\n\t\t\t\t})}\n\t\t\t</div>\n\t\t</DatePicker>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-date-picker-with-presets',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/date-picker/particles/with-presets/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-date-picker": {
+            name: "craftui-date-picker",
+            description: "A composable date picker and date range picker built on Popover, Button, and Calendar.",
+            type: "registry:ui",
+            dependencies: ["date-fns","lucide-react"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/cn","@craftdotui/baseui-button","@craftdotui/baseui-popover","@craftdotui/craftui-calendar"],
+            files: [
+  {
+    "path": "packages/craftui/components/date-picker/index.tsx",
+    "type": "registry:ui",
+    "target": "components/ui/date-picker.tsx",
+    "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { format } from \"date-fns\";\nimport { CalendarIcon } from \"lucide-react\";\nimport { cn } from \"cn\";\nimport { Button, type ButtonProps } from \"@/components/baseui/components/button\";\nimport {\n\tPopoverContent,\n\tPopoverRoot,\n\tPopoverTrigger,\n} from \"@/components/baseui/components/popover\";\nimport {\n\tCalendar,\n\ttype CalendarProps,\n\ttype DateRange,\n} from \"@/components/craftui/components/calendar\";\n\n/* -------------------------------------------------------------------------- */\n/* Date Picker (Single)                                                       */\n/* -------------------------------------------------------------------------- */\n\nexport interface DatePickerProps {\n\tvalue?: Date;\n\tdefaultValue?: Date;\n\tonValueChange?: (date: Date | undefined) => void;\n\tplaceholder?: string;\n\tformatStr?: string;\n\tcloseOnSelect?: boolean;\n\tdisabled?: boolean;\n\talign?: \"start\" | \"center\" | \"end\";\n\tclassName?: string;\n\tcontentClassName?: string;\n\tbuttonProps?: Omit<ButtonProps, \"value\" | \"defaultValue\">;\n\tcalendarProps?: Omit<\n\t\tExtract<CalendarProps, { mode?: \"single\" }>,\n\t\t\"mode\" | \"selected\" | \"onSelect\"\n\t>;\n\tchildren?: React.ReactNode;\n}\n\nfunction DatePickerRoot({\n\tvalue: controlledValue,\n\tdefaultValue,\n\tonValueChange,\n\tplaceholder = \"Pick a date\",\n\tformatStr = \"PPP\",\n\tcloseOnSelect = true,\n\tdisabled = false,\n\talign = \"start\",\n\tclassName,\n\tcontentClassName,\n\tbuttonProps,\n\tcalendarProps,\n\tchildren,\n}: DatePickerProps): React.ReactElement {\n\tconst [open, setOpen] = React.useState(false);\n\tconst [uncontrolledValue, setUncontrolledValue] = React.useState<\n\t\tDate | undefined\n\t>(defaultValue);\n\n\tconst isControlled = controlledValue !== undefined;\n\tconst selectedDate = isControlled ? controlledValue : uncontrolledValue;\n\n\tconst handleSelect = (date: Date | undefined) => {\n\t\tif (!isControlled) {\n\t\t\tsetUncontrolledValue(date);\n\t\t}\n\t\tonValueChange?.(date);\n\t\tif (closeOnSelect && date) {\n\t\t\tsetOpen(false);\n\t\t}\n\t};\n\n\treturn (\n\t\t<PopoverRoot open={open} onOpenChange={setOpen}>\n\t\t\t<PopoverTrigger\n\t\t\t\tdisabled={disabled}\n\t\t\t\trender={\n\t\t\t\t\t<Button\n\t\t\t\t\t\tvariant=\"outline\"\n\t\t\t\t\t\tdisabled={disabled}\n\t\t\t\t\t\tdata-slot=\"date-picker-trigger\"\n\t\t\t\t\t\tdata-empty={!selectedDate || undefined}\n\t\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t\t\"w-64 justify-start text-left font-normal\",\n\t\t\t\t\t\t\t!selectedDate && \"text-muted-foreground\",\n\t\t\t\t\t\t\tclassName,\n\t\t\t\t\t\t)}\n\t\t\t\t\t\t{...buttonProps}\n\t\t\t\t\t/>\n\t\t\t\t}\n\t\t\t>\n\t\t\t\t<CalendarIcon className=\"size-4 text-muted-foreground\" />\n\t\t\t\t{selectedDate ? (\n\t\t\t\t\t<span>{format(selectedDate, formatStr)}</span>\n\t\t\t\t) : (\n\t\t\t\t\t<span>{placeholder}</span>\n\t\t\t\t)}\n\t\t\t</PopoverTrigger>\n\t\t\t<PopoverContent\n\t\t\t\tdata-slot=\"date-picker-content\"\n\t\t\t\thasArrow={false}\n\t\t\t\tpositionerProps={{ align, sideOffset: 6 }}\n\t\t\t\tclassName={cn(\"w-auto p-0\", contentClassName)}\n\t\t\t>\n\t\t\t\t{children}\n\t\t\t\t<Calendar\n\t\t\t\t\tmode=\"single\"\n\t\t\t\t\tselected={selectedDate}\n\t\t\t\t\tonSelect={handleSelect}\n\t\t\t\t\tdefaultMonth={selectedDate}\n\t\t\t\t\t{...calendarProps}\n\t\t\t\t/>\n\t\t\t</PopoverContent>\n\t\t</PopoverRoot>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Date Range Picker                                                          */\n/* -------------------------------------------------------------------------- */\n\nexport interface DateRangePickerProps {\n\tvalue?: DateRange;\n\tdefaultValue?: DateRange;\n\tonValueChange?: (range: DateRange | undefined) => void;\n\tplaceholder?: string;\n\tformatStr?: string;\n\tnumberOfMonths?: number;\n\tdisabled?: boolean;\n\talign?: \"start\" | \"center\" | \"end\";\n\tclassName?: string;\n\tcontentClassName?: string;\n\tbuttonProps?: Omit<ButtonProps, \"value\" | \"defaultValue\">;\n\tcalendarProps?: Omit<\n\t\tExtract<CalendarProps, { mode: \"range\" }>,\n\t\t\"mode\" | \"selected\" | \"onSelect\"\n\t>;\n\tchildren?: React.ReactNode;\n}\n\nfunction DateRangePicker({\n\tvalue: controlledValue,\n\tdefaultValue,\n\tonValueChange,\n\tplaceholder = \"Pick a date range\",\n\tformatStr = \"LLL dd, y\",\n\tnumberOfMonths = 2,\n\tdisabled = false,\n\talign = \"start\",\n\tclassName,\n\tcontentClassName,\n\tbuttonProps,\n\tcalendarProps,\n\tchildren,\n}: DateRangePickerProps): React.ReactElement {\n\tconst [open, setOpen] = React.useState(false);\n\tconst [uncontrolledValue, setUncontrolledValue] = React.useState<\n\t\tDateRange | undefined\n\t>(defaultValue);\n\n\tconst isControlled = controlledValue !== undefined;\n\tconst selectedRange = isControlled ? controlledValue : uncontrolledValue;\n\n\tconst handleSelect = (range: DateRange | undefined) => {\n\t\tif (!isControlled) {\n\t\t\tsetUncontrolledValue(range);\n\t\t}\n\t\tonValueChange?.(range);\n\t};\n\n\treturn (\n\t\t<PopoverRoot open={open} onOpenChange={setOpen}>\n\t\t\t<PopoverTrigger\n\t\t\t\tdisabled={disabled}\n\t\t\t\trender={\n\t\t\t\t\t<Button\n\t\t\t\t\t\tvariant=\"outline\"\n\t\t\t\t\t\tdisabled={disabled}\n\t\t\t\t\t\tdata-slot=\"date-range-picker-trigger\"\n\t\t\t\t\t\tdata-empty={!selectedRange?.from || undefined}\n\t\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t\t\"w-72 justify-start text-left font-normal\",\n\t\t\t\t\t\t\t!selectedRange?.from && \"text-muted-foreground\",\n\t\t\t\t\t\t\tclassName,\n\t\t\t\t\t\t)}\n\t\t\t\t\t\t{...buttonProps}\n\t\t\t\t\t/>\n\t\t\t\t}\n\t\t\t>\n\t\t\t\t<CalendarIcon className=\"size-4 text-muted-foreground\" />\n\t\t\t\t{selectedRange?.from ? (\n\t\t\t\t\tselectedRange.to ? (\n\t\t\t\t\t\t<span>\n\t\t\t\t\t\t\t{format(selectedRange.from, formatStr)} –{\" \"}\n\t\t\t\t\t\t\t{format(selectedRange.to, formatStr)}\n\t\t\t\t\t\t</span>\n\t\t\t\t\t) : (\n\t\t\t\t\t\t<span>{format(selectedRange.from, formatStr)}</span>\n\t\t\t\t\t)\n\t\t\t\t) : (\n\t\t\t\t\t<span>{placeholder}</span>\n\t\t\t\t)}\n\t\t\t</PopoverTrigger>\n\t\t\t<PopoverContent\n\t\t\t\tdata-slot=\"date-range-picker-content\"\n\t\t\t\thasArrow={false}\n\t\t\t\tpositionerProps={{ align, sideOffset: 6 }}\n\t\t\t\tclassName={cn(\"w-auto p-0\", contentClassName)}\n\t\t\t>\n\t\t\t\t{children}\n\t\t\t\t<Calendar\n\t\t\t\t\tmode=\"range\"\n\t\t\t\t\tdefaultMonth={selectedRange?.from}\n\t\t\t\t\tselected={selectedRange}\n\t\t\t\t\tonSelect={handleSelect}\n\t\t\t\t\tnumberOfMonths={numberOfMonths}\n\t\t\t\t\t{...calendarProps}\n\t\t\t\t/>\n\t\t\t</PopoverContent>\n\t\t</PopoverRoot>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const DatePicker = Object.assign(DatePickerRoot, {\n\tRoot: DatePickerRoot,\n\tRange: DateRangePicker,\n});\n\nexport { DatePickerRoot, DateRangePicker, type DateRange };"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-date-picker',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/date-picker/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
           "craftui-particles-empty-avatar": {
             name: "craftui-particles-empty-avatar",
             description: "Empty state featuring a user avatar.",

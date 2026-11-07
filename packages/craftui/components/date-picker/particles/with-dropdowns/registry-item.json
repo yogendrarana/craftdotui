@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-date-picker-with-dropdowns",
+	"type": "registry:component",
+	"description": "Date of birth picker with month and year dropdown navigation",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-date-picker"],
+	"files": [
+		{
+			"path": "packages/craftui/components/date-picker/particles/with-dropdowns/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/date-picker-with-dropdowns.tsx"
+		}
+	]
+}

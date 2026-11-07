@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-date-picker",
+	"type": "registry:component",
+	"description": "Default single date picker",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-date-picker"],
+	"files": [
+		{
+			"path": "packages/craftui/components/date-picker/particles/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/date-picker.tsx"
+		}
+	]
+}
