@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-command",
+	"type": "registry:ui",
+	"description": "Fast, composable command menu and search palette powered by cmdk.",
+	"dependencies": ["@base-ui/react", "cmdk", "lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/cn",
+		"@craftdotui/baseui-dialog",
+		"@craftdotui/baseui-input"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/command/index.tsx",
+			"type": "registry:ui",
+			"target": "components/ui/command.tsx"
+		}
+	]
+}

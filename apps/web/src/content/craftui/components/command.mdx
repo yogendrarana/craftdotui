@@ -1,0 +1,352 @@
+---
+title: Command
+description: Fast, composable command menu and search palette powered by cmdk.
+slug: /craftui/components/command
+published: true
+date: 2026-11-07T00:00:00.000Z
+author:
+  name: Yogendra Rana
+  twitter: "https://twitter.com/yooogendra_rana"
+---
+
+<ComponentCodePreview name="craftui-particles-command" />
+
+## Installation
+
+<Installation name="craftui-command" />
+
+## Anatomy
+
+#### Usage
+
+```tsx
+<Command>
+  <CommandInput placeholder="Type a command or search..." />
+  <CommandList>
+    <CommandEmpty>No results found.</CommandEmpty>
+    <CommandGroup heading="Suggestions">
+      <CommandItem>
+        <span>Calendar</span>
+        <CommandShortcut>⌘K</CommandShortcut>
+      </CommandItem>
+    </CommandGroup>
+    <CommandSeparator />
+  </CommandList>
+  <CommandFooter />
+</Command>
+```
+
+```tsx
+<Command.Root>
+  <Command.Input placeholder="Type a command or search..." />
+  <Command.List>
+    <Command.Empty>No results found.</Command.Empty>
+    <Command.Group heading="Suggestions">
+      <Command.Item>
+        <span>Calendar</span>
+        <Command.Shortcut>⌘K</Command.Shortcut>
+      </Command.Item>
+    </Command.Group>
+    <Command.Separator />
+  </Command.List>
+  <Command.Footer />
+</Command.Root>
+```
+
+## Demo
+
+#### Dialog
+
+<ComponentCodePreview name="craftui-particles-command-dialog" />
+
+#### With Footer
+
+<ComponentCodePreview name="craftui-particles-command-with-footer" />
+
+## Props
+
+#### CommandRoot
+
+<PropsTable
+  data={[
+    {
+      prop: "value",
+      type: "string",
+      default: "undefined",
+      description: "Controlled value of the currently selected command item.",
+    },
+    {
+      prop: "onValueChange",
+      type: "(value: string) => void",
+      default: "undefined",
+      description: "Event handler called when the selected command item changes.",
+    },
+    {
+      prop: "shouldFilter",
+      type: "boolean",
+      default: "true",
+      description: "Whether cmdk should automatically filter and sort items.",
+    },
+    {
+      prop: "loop",
+      type: "boolean",
+      default: "false",
+      description: "Whether arrow key navigation loops from the last item back to the first.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes for the command root container.",
+    },
+  ]}
+/>
+
+#### CommandDialog
+
+<PropsTable
+  data={[
+    {
+      prop: "open",
+      type: "boolean",
+      default: "undefined",
+      description: "Controlled open state of the command dialog.",
+    },
+    {
+      prop: "onOpenChange",
+      type: "(open: boolean) => void",
+      default: "undefined",
+      description: "Event handler called when the dialog open state changes.",
+    },
+    {
+      prop: "title",
+      type: "string",
+      default: '"Command Palette"',
+      description: "Accessible screen-reader title for the dialog.",
+    },
+    {
+      prop: "description",
+      type: "string",
+      default: '"Search for a command to run..."',
+      description: "Accessible screen-reader description for the dialog.",
+    },
+    {
+      prop: "commandProps",
+      type: "CommandRootProps",
+      default: "undefined",
+      description: "Props forwarded to the inner CommandRoot instance.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes for the dialog popup.",
+    },
+  ]}
+/>
+
+#### CommandInput
+
+<PropsTable
+  data={[
+    {
+      prop: "variant",
+      type: '"default" | "ghost"',
+      default: '"ghost"',
+      description: "Visual variant from the input design system.",
+    },
+    {
+      prop: "size",
+      type: '"xs" | "sm" | "md" | "lg" | "xl"',
+      default: '"md"',
+      description: "Size preset from the input design system.",
+    },
+    {
+      prop: "value",
+      type: "string",
+      default: "undefined",
+      description: "Controlled search input string.",
+    },
+    {
+      prop: "onValueChange",
+      type: "(search: string) => void",
+      default: "undefined",
+      description: "Event handler called when the search input value changes.",
+    },
+    {
+      prop: "placeholder",
+      type: "string",
+      default: "undefined",
+      description: "Placeholder text for the search input.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes for the input wrapper container.",
+    },
+    {
+      prop: "inputClassName",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes for the inner input element.",
+    },
+  ]}
+/>
+
+#### CommandList
+
+<PropsTable
+  data={[
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes for the scrollable command list.",
+    },
+  ]}
+/>
+
+#### CommandEmpty
+
+<PropsTable
+  data={[
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes for the empty state container.",
+    },
+  ]}
+/>
+
+#### CommandGroup
+
+<PropsTable
+  data={[
+    {
+      prop: "heading",
+      type: "ReactNode",
+      default: "undefined",
+      description: "Heading label rendered above the group items.",
+    },
+    {
+      prop: "value",
+      type: "string",
+      default: "undefined",
+      description: "Unique identifier for the group if no heading string is provided.",
+    },
+    {
+      prop: "forceMount",
+      type: "boolean",
+      default: "false",
+      description: "Always render this group regardless of search filtering.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes for the command group.",
+    },
+  ]}
+/>
+
+#### CommandItem
+
+<PropsTable
+  data={[
+    {
+      prop: "value",
+      type: "string",
+      default: "undefined",
+      description: "Unique value matched during search filtering (inferred from text content if omitted).",
+    },
+    {
+      prop: "keywords",
+      type: "string[]",
+      default: "undefined",
+      description: "Additional keywords to match against when filtering.",
+    },
+    {
+      prop: "onSelect",
+      type: "(value: string) => void",
+      default: "undefined",
+      description: "Callback fired when the item is selected via click or Enter key.",
+    },
+    {
+      prop: "disabled",
+      type: "boolean",
+      default: "false",
+      description: "Whether the item is disabled and non-selectable.",
+    },
+    {
+      prop: "forceMount",
+      type: "boolean",
+      default: "false",
+      description: "Always render this item regardless of search filtering.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes for the command item.",
+    },
+  ]}
+/>
+
+#### CommandShortcut
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default span element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes for the trailing shortcut container.",
+    },
+  ]}
+/>
+
+#### CommandSeparator
+
+<PropsTable
+  data={[
+    {
+      prop: "alwaysRender",
+      type: "boolean",
+      default: "false",
+      description: "Whether to render the separator even when filtering is active.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes for the separator line.",
+    },
+  ]}
+/>
+
+#### CommandFooter
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "ReactElement | ((props, state) => ReactElement)",
+      default: "undefined",
+      description: "Replaces the default footer div element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes for the command footer bar.",
+    },
+  ]}
+/>

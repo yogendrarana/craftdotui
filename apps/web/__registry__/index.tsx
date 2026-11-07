@@ -1446,6 +1446,178 @@ export const Registry: Record<string, any> = {
 							return LazyComp;
 						})(),
           },
+          "craftui-particles-command-dialog": {
+            name: "craftui-particles-command-dialog",
+            description: "Modal command palette dialog with keyboard shortcut trigger and footer hints",
+            type: "registry:component",
+            dependencies: ["lucide-react"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-command","@craftdotui/craftui-kbd","@craftdotui/baseui-button"],
+            files: [
+  {
+    "path": "packages/craftui/components/command/particles/dialog/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/command-dialog.tsx",
+    "content": "\"use client\";\n\nimport * as React from \"react\";\nimport {\n\tCalculatorIcon,\n\tCalendarIcon,\n\tCornerDownLeftIcon,\n\tCreditCardIcon,\n\tSearchIcon,\n\tSettingsIcon,\n\tSmileIcon,\n\tUserIcon,\n} from \"lucide-react\";\nimport { Button } from \"@/components/baseui/components/button\";\nimport {\n\tCommandDialog,\n\tCommandEmpty,\n\tCommandFooter,\n\tCommandGroup,\n\tCommandInput,\n\tCommandItem,\n\tCommandList,\n\tCommandSeparator,\n\tCommandShortcut,\n} from \"@/components/craftui/components/command\";\nimport { Kbd, KbdGroup } from \"@/components/craftui/components/kbd\";\n\nexport default function Particle() {\n\tconst [open, setOpen] = React.useState(false);\n\n\tReact.useEffect(() => {\n\t\tconst down = (e: KeyboardEvent) => {\n\t\t\tif (e.key === \"j\" && (e.metaKey || e.ctrlKey)) {\n\t\t\t\te.preventDefault();\n\t\t\t\tsetOpen((prev) => !prev);\n\t\t\t}\n\t\t};\n\n\t\tdocument.addEventListener(\"keydown\", down);\n\t\treturn () => document.removeEventListener(\"keydown\", down);\n\t}, []);\n\n\treturn (\n\t\t<>\n\t\t\t<Button\n\t\t\t\tvariant=\"outline\"\n\t\t\t\tclassName=\"w-64 justify-between pr-1.5 text-muted-foreground font-normal\"\n\t\t\t\tonClick={() => setOpen(true)}\n\t\t\t>\n\t\t\t\t<span className=\"inline-flex items-center gap-2\">\n\t\t\t\t\t<SearchIcon className=\"size-3.5\" />\n\t\t\t\t\t<span>Search commands...</span>\n\t\t\t\t</span>\n\t\t\t\t<KbdGroup>\n\t\t\t\t\t<Kbd size=\"sm\">⌘</Kbd>\n\t\t\t\t\t<Kbd size=\"sm\">J</Kbd>\n\t\t\t\t</KbdGroup>\n\t\t\t</Button>\n\n\t\t\t<CommandDialog open={open} onOpenChange={setOpen}>\n\t\t\t\t<CommandInput placeholder=\"Type a command or search...\" />\n\t\t\t\t<CommandList>\n\t\t\t\t\t<CommandEmpty>No results found.</CommandEmpty>\n\t\t\t\t\t<CommandGroup heading=\"Suggestions\">\n\t\t\t\t\t\t<CommandItem onSelect={() => setOpen(false)}>\n\t\t\t\t\t\t\t<CalendarIcon />\n\t\t\t\t\t\t\t<span>Calendar</span>\n\t\t\t\t\t\t</CommandItem>\n\t\t\t\t\t\t<CommandItem onSelect={() => setOpen(false)}>\n\t\t\t\t\t\t\t<SmileIcon />\n\t\t\t\t\t\t\t<span>Search Emoji</span>\n\t\t\t\t\t\t</CommandItem>\n\t\t\t\t\t\t<CommandItem onSelect={() => setOpen(false)}>\n\t\t\t\t\t\t\t<CalculatorIcon />\n\t\t\t\t\t\t\t<span>Calculator</span>\n\t\t\t\t\t\t</CommandItem>\n\t\t\t\t\t</CommandGroup>\n\t\t\t\t\t<CommandSeparator />\n\t\t\t\t\t<CommandGroup heading=\"Settings\">\n\t\t\t\t\t\t<CommandItem onSelect={() => setOpen(false)}>\n\t\t\t\t\t\t\t<UserIcon />\n\t\t\t\t\t\t\t<span>Profile</span>\n\t\t\t\t\t\t\t<CommandShortcut>\n\t\t\t\t\t\t\t\t<KbdGroup>\n\t\t\t\t\t\t\t\t\t<Kbd size=\"sm\">⌘</Kbd>\n\t\t\t\t\t\t\t\t\t<Kbd size=\"sm\">P</Kbd>\n\t\t\t\t\t\t\t\t</KbdGroup>\n\t\t\t\t\t\t\t</CommandShortcut>\n\t\t\t\t\t\t</CommandItem>\n\t\t\t\t\t\t<CommandItem onSelect={() => setOpen(false)}>\n\t\t\t\t\t\t\t<CreditCardIcon />\n\t\t\t\t\t\t\t<span>Billing</span>\n\t\t\t\t\t\t\t<CommandShortcut>\n\t\t\t\t\t\t\t\t<KbdGroup>\n\t\t\t\t\t\t\t\t\t<Kbd size=\"sm\">⌘</Kbd>\n\t\t\t\t\t\t\t\t\t<Kbd size=\"sm\">B</Kbd>\n\t\t\t\t\t\t\t\t</KbdGroup>\n\t\t\t\t\t\t\t</CommandShortcut>\n\t\t\t\t\t\t</CommandItem>\n\t\t\t\t\t\t<CommandItem onSelect={() => setOpen(false)}>\n\t\t\t\t\t\t\t<SettingsIcon />\n\t\t\t\t\t\t\t<span>Settings</span>\n\t\t\t\t\t\t\t<CommandShortcut>\n\t\t\t\t\t\t\t\t<KbdGroup>\n\t\t\t\t\t\t\t\t\t<Kbd size=\"sm\">⌘</Kbd>\n\t\t\t\t\t\t\t\t\t<Kbd size=\"sm\">S</Kbd>\n\t\t\t\t\t\t\t\t</KbdGroup>\n\t\t\t\t\t\t\t</CommandShortcut>\n\t\t\t\t\t\t</CommandItem>\n\t\t\t\t\t</CommandGroup>\n\t\t\t\t</CommandList>\n\t\t\t\t<CommandFooter>\n\t\t\t\t\t<div className=\"flex items-center gap-1.5\">\n\t\t\t\t\t\t<Kbd size=\"sm\">\n\t\t\t\t\t\t\t<CornerDownLeftIcon />\n\t\t\t\t\t\t</Kbd>\n\t\t\t\t\t\t<span>Select</span>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div className=\"flex items-center gap-1.5\">\n\t\t\t\t\t\t<Kbd size=\"sm\">Esc</Kbd>\n\t\t\t\t\t\t<span>Close</span>\n\t\t\t\t\t</div>\n\t\t\t\t</CommandFooter>\n\t\t\t</CommandDialog>\n\t\t</>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-command-dialog',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/command/particles/dialog/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-command": {
+            name: "craftui-particles-command",
+            description: "Default inline command menu with groups, icons, and keyboard shortcuts",
+            type: "registry:component",
+            dependencies: ["lucide-react"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-command","@craftdotui/craftui-kbd"],
+            files: [
+  {
+    "path": "packages/craftui/components/command/particles/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/command.tsx",
+    "content": "import {\n\tCalculatorIcon,\n\tCalendarIcon,\n\tCreditCardIcon,\n\tSettingsIcon,\n\tSmileIcon,\n\tUserIcon,\n} from \"lucide-react\";\nimport {\n\tCommand,\n\tCommandEmpty,\n\tCommandGroup,\n\tCommandInput,\n\tCommandItem,\n\tCommandList,\n\tCommandSeparator,\n\tCommandShortcut,\n} from \"@/components/craftui/components/command\";\nimport { Kbd, KbdGroup } from \"@/components/craftui/components/kbd\";\n\nexport default function Particle() {\n\treturn (\n\t\t<Command className=\"max-w-md rounded-lg border border-border shadow-sm\">\n\t\t\t<CommandInput placeholder=\"Type a command or search...\" />\n\t\t\t<CommandList>\n\t\t\t\t<CommandEmpty>No results found.</CommandEmpty>\n\t\t\t\t<CommandGroup heading=\"Suggestions\">\n\t\t\t\t\t<CommandItem>\n\t\t\t\t\t\t<CalendarIcon />\n\t\t\t\t\t\t<span>Calendar</span>\n\t\t\t\t\t</CommandItem>\n\t\t\t\t\t<CommandItem>\n\t\t\t\t\t\t<SmileIcon />\n\t\t\t\t\t\t<span>Search Emoji</span>\n\t\t\t\t\t</CommandItem>\n\t\t\t\t\t<CommandItem disabled>\n\t\t\t\t\t\t<CalculatorIcon />\n\t\t\t\t\t\t<span>Calculator</span>\n\t\t\t\t\t</CommandItem>\n\t\t\t\t</CommandGroup>\n\t\t\t\t<CommandSeparator />\n\t\t\t\t<CommandGroup heading=\"Settings\">\n\t\t\t\t\t<CommandItem>\n\t\t\t\t\t\t<UserIcon />\n\t\t\t\t\t\t<span>Profile</span>\n\t\t\t\t\t\t<CommandShortcut>\n\t\t\t\t\t\t\t<KbdGroup>\n\t\t\t\t\t\t\t\t<Kbd size=\"sm\">⌘</Kbd>\n\t\t\t\t\t\t\t\t<Kbd size=\"sm\">P</Kbd>\n\t\t\t\t\t\t\t</KbdGroup>\n\t\t\t\t\t\t</CommandShortcut>\n\t\t\t\t\t</CommandItem>\n\t\t\t\t\t<CommandItem>\n\t\t\t\t\t\t<CreditCardIcon />\n\t\t\t\t\t\t<span>Billing</span>\n\t\t\t\t\t\t<CommandShortcut>\n\t\t\t\t\t\t\t<KbdGroup>\n\t\t\t\t\t\t\t\t<Kbd size=\"sm\">⌘</Kbd>\n\t\t\t\t\t\t\t\t<Kbd size=\"sm\">B</Kbd>\n\t\t\t\t\t\t\t</KbdGroup>\n\t\t\t\t\t\t</CommandShortcut>\n\t\t\t\t\t</CommandItem>\n\t\t\t\t\t<CommandItem>\n\t\t\t\t\t\t<SettingsIcon />\n\t\t\t\t\t\t<span>Settings</span>\n\t\t\t\t\t\t<CommandShortcut>\n\t\t\t\t\t\t\t<KbdGroup>\n\t\t\t\t\t\t\t\t<Kbd size=\"sm\">⌘</Kbd>\n\t\t\t\t\t\t\t\t<Kbd size=\"sm\">S</Kbd>\n\t\t\t\t\t\t\t</KbdGroup>\n\t\t\t\t\t\t</CommandShortcut>\n\t\t\t\t\t</CommandItem>\n\t\t\t\t</CommandGroup>\n\t\t\t</CommandList>\n\t\t</Command>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-command',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/command/particles/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-command-with-footer": {
+            name: "craftui-particles-command-with-footer",
+            description: "Command menu with footer navigation hints",
+            type: "registry:component",
+            dependencies: ["lucide-react"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-command","@craftdotui/craftui-kbd"],
+            files: [
+  {
+    "path": "packages/craftui/components/command/particles/with-footer/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/command-with-footer.tsx",
+    "content": "import {\n\tArrowDownIcon,\n\tArrowUpIcon,\n\tCornerDownLeftIcon,\n\tFileTextIcon,\n\tFolderIcon,\n\tPlusCircleIcon,\n\tTerminalIcon,\n} from \"lucide-react\";\nimport {\n\tCommand,\n\tCommandEmpty,\n\tCommandFooter,\n\tCommandGroup,\n\tCommandInput,\n\tCommandItem,\n\tCommandList,\n\tCommandShortcut,\n} from \"@/components/craftui/components/command\";\nimport { Kbd, KbdGroup } from \"@/components/craftui/components/kbd\";\n\nexport default function Particle() {\n\treturn (\n\t\t<Command className=\"max-w-md rounded-lg border border-border shadow-sm\">\n\t\t\t<CommandInput placeholder=\"Filter workspace actions...\" />\n\t\t\t<CommandList>\n\t\t\t\t<CommandEmpty>No matching actions.</CommandEmpty>\n\t\t\t\t<CommandGroup heading=\"Quick Actions\">\n\t\t\t\t\t<CommandItem>\n\t\t\t\t\t\t<PlusCircleIcon />\n\t\t\t\t\t\t<span>Create New Component</span>\n\t\t\t\t\t\t<CommandShortcut>\n\t\t\t\t\t\t\t<KbdGroup>\n\t\t\t\t\t\t\t\t<Kbd size=\"sm\">⌘</Kbd>\n\t\t\t\t\t\t\t\t<Kbd size=\"sm\">N</Kbd>\n\t\t\t\t\t\t\t</KbdGroup>\n\t\t\t\t\t\t</CommandShortcut>\n\t\t\t\t\t</CommandItem>\n\t\t\t\t\t<CommandItem>\n\t\t\t\t\t\t<FileTextIcon />\n\t\t\t\t\t\t<span>Search Documentation</span>\n\t\t\t\t\t\t<CommandShortcut>\n\t\t\t\t\t\t\t<KbdGroup>\n\t\t\t\t\t\t\t\t<Kbd size=\"sm\">⌘</Kbd>\n\t\t\t\t\t\t\t\t<Kbd size=\"sm\">K</Kbd>\n\t\t\t\t\t\t\t</KbdGroup>\n\t\t\t\t\t\t</CommandShortcut>\n\t\t\t\t\t</CommandItem>\n\t\t\t\t\t<CommandItem>\n\t\t\t\t\t\t<FolderIcon />\n\t\t\t\t\t\t<span>Browse Registry</span>\n\t\t\t\t\t\t<CommandShortcut>\n\t\t\t\t\t\t\t<KbdGroup>\n\t\t\t\t\t\t\t\t<Kbd size=\"sm\">⌘</Kbd>\n\t\t\t\t\t\t\t\t<Kbd size=\"sm\">O</Kbd>\n\t\t\t\t\t\t\t</KbdGroup>\n\t\t\t\t\t\t</CommandShortcut>\n\t\t\t\t\t</CommandItem>\n\t\t\t\t\t<CommandItem>\n\t\t\t\t\t\t<TerminalIcon />\n\t\t\t\t\t\t<span>Copy CLI Command</span>\n\t\t\t\t\t\t<CommandShortcut>\n\t\t\t\t\t\t\t<KbdGroup>\n\t\t\t\t\t\t\t\t<Kbd size=\"sm\">⇧</Kbd>\n\t\t\t\t\t\t\t\t<Kbd size=\"sm\">⌘</Kbd>\n\t\t\t\t\t\t\t\t<Kbd size=\"sm\">C</Kbd>\n\t\t\t\t\t\t\t</KbdGroup>\n\t\t\t\t\t\t</CommandShortcut>\n\t\t\t\t\t</CommandItem>\n\t\t\t\t</CommandGroup>\n\t\t\t</CommandList>\n\t\t\t<CommandFooter>\n\t\t\t\t<div className=\"flex items-center gap-1.5\">\n\t\t\t\t\t<KbdGroup>\n\t\t\t\t\t\t<Kbd size=\"sm\">\n\t\t\t\t\t\t\t<ArrowUpIcon />\n\t\t\t\t\t\t</Kbd>\n\t\t\t\t\t\t<Kbd size=\"sm\">\n\t\t\t\t\t\t\t<ArrowDownIcon />\n\t\t\t\t\t\t</Kbd>\n\t\t\t\t\t</KbdGroup>\n\t\t\t\t\t<span>Navigate</span>\n\t\t\t\t</div>\n\t\t\t\t<div className=\"flex items-center gap-1.5\">\n\t\t\t\t\t<Kbd size=\"sm\">\n\t\t\t\t\t\t<CornerDownLeftIcon />\n\t\t\t\t\t</Kbd>\n\t\t\t\t\t<span>Run</span>\n\t\t\t\t</div>\n\t\t\t</CommandFooter>\n\t\t</Command>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-command-with-footer',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/command/particles/with-footer/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-command": {
+            name: "craftui-command",
+            description: "Fast, composable command menu and search palette powered by cmdk.",
+            type: "registry:ui",
+            dependencies: ["@base-ui/react","cmdk","lucide-react"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/cn","@craftdotui/baseui-dialog","@craftdotui/baseui-input"],
+            files: [
+  {
+    "path": "packages/craftui/components/command/index.tsx",
+    "type": "registry:ui",
+    "target": "components/ui/command.tsx",
+    "content": "\"use client\";\n\nimport type * as React from \"react\";\nimport { Command as CommandPrimitive } from \"cmdk\";\nimport { SearchIcon } from \"lucide-react\";\nimport { cn } from \"cn\";\nimport { useRender } from \"@base-ui/react/use-render\";\nimport { mergeProps } from \"@base-ui/react/merge-props\";\nimport {\n\tDialogBackdrop,\n\tDialogDescription,\n\tDialogPopup,\n\tDialogPortal,\n\tDialogRoot,\n\tDialogTitle,\n\tDialogViewport,\n} from \"@/components/baseui/components/dialog\";\nimport {\n\tinputVariants,\n\ttype InputVariants,\n} from \"@/components/baseui/components/input\";\n\n/* -------------------------------------------------------------------------- */\n/* Command Root                                                               */\n/* -------------------------------------------------------------------------- */\n\nexport interface CommandRootProps\n\textends React.ComponentProps<typeof CommandPrimitive> {}\n\nfunction CommandRoot({\n\tclassName,\n\t...props\n}: CommandRootProps): React.ReactElement {\n\treturn (\n\t\t<CommandPrimitive\n\t\t\tdata-slot=\"command\"\n\t\t\tclassName={cn(\n\t\t\t\t\"bg-popover text-popover-foreground flex h-full w-full flex-col overflow-hidden rounded-lg\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Command Dialog                                                             */\n/* -------------------------------------------------------------------------- */\n\nexport interface CommandDialogProps\n\textends Omit<React.ComponentProps<typeof DialogRoot>, \"children\"> {\n\ttitle?: string;\n\tdescription?: string;\n\tclassName?: string;\n\tchildren?: React.ReactNode;\n\tcommandProps?: CommandRootProps;\n}\n\nfunction CommandDialog({\n\ttitle = \"Command Palette\",\n\tdescription = \"Search for a command to run...\",\n\tchildren,\n\tclassName,\n\tcommandProps,\n\t...props\n}: CommandDialogProps): React.ReactElement {\n\treturn (\n\t\t<DialogRoot {...props}>\n\t\t\t<DialogPortal>\n\t\t\t\t<DialogBackdrop />\n\t\t\t\t<DialogViewport>\n\t\t\t\t\t<DialogPopup\n\t\t\t\t\t\tdata-slot=\"command-dialog-popup\"\n\t\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t\t\"overflow-hidden p-0 shadow-xl sm:max-w-lg\",\n\t\t\t\t\t\t\tclassName,\n\t\t\t\t\t\t)}\n\t\t\t\t\t>\n\t\t\t\t\t\t<DialogTitle className=\"sr-only\">{title}</DialogTitle>\n\t\t\t\t\t\t<DialogDescription className=\"sr-only\">\n\t\t\t\t\t\t\t{description}\n\t\t\t\t\t\t</DialogDescription>\n\t\t\t\t\t\t<CommandRoot\n\t\t\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t\t\t\"**:[[cmdk-group-heading]]:text-muted-foreground\",\n\t\t\t\t\t\t\t\t\"**:[[cmdk-group-heading]]:px-2 **:[[cmdk-group-heading]]:font-medium\",\n\t\t\t\t\t\t\t\t\"**:[[cmdk-group]]:px-2 [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0\",\n\t\t\t\t\t\t\t\t\"[&_[cmdk-input-wrapper]_svg]:size-4\",\n\t\t\t\t\t\t\t\t\"**:[[cmdk-item]]:px-2 **:[[cmdk-item]]:py-2\",\n\t\t\t\t\t\t\t\tcommandProps?.className,\n\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t\t{...commandProps}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t{children}\n\t\t\t\t\t\t</CommandRoot>\n\t\t\t\t\t</DialogPopup>\n\t\t\t\t</DialogViewport>\n\t\t\t</DialogPortal>\n\t\t</DialogRoot>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Command Input                                                              */\n/* -------------------------------------------------------------------------- */\n\nexport interface CommandInputProps\n\textends Omit<React.ComponentProps<typeof CommandPrimitive.Input>, \"size\">,\n\t\tInputVariants {\n\tinputClassName?: string;\n}\n\nfunction CommandInput({\n\tclassName,\n\tinputClassName,\n\tvariant = \"ghost\",\n\tsize = \"md\",\n\t...props\n}: CommandInputProps): React.ReactElement {\n\treturn (\n\t\t<div\n\t\t\tdata-slot=\"command-input-wrapper\"\n\t\t\tclassName={cn(\n\t\t\t\t\"relative flex items-center border-b border-border\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t>\n\t\t\t<SearchIcon className=\"pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground opacity-60\" />\n\t\t\t<CommandPrimitive.Input\n\t\t\t\tdata-slot=\"command-input\"\n\t\t\t\tclassName={cn(\n\t\t\t\t\tinputVariants({ variant, size }),\n\t\t\t\t\t\"rounded-none border-0 shadow-none pl-9 focus:outline-none focus-visible:ring-0\",\n\t\t\t\t\tinputClassName,\n\t\t\t\t)}\n\t\t\t\t{...props}\n\t\t\t/>\n\t\t</div>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Command List                                                               */\n/* -------------------------------------------------------------------------- */\n\nexport interface CommandListProps\n\textends React.ComponentProps<typeof CommandPrimitive.List> {}\n\nfunction CommandList({\n\tclassName,\n\t...props\n}: CommandListProps): React.ReactElement {\n\treturn (\n\t\t<CommandPrimitive.List\n\t\t\tdata-slot=\"command-list\"\n\t\t\tclassName={cn(\n\t\t\t\t\"max-h-75 scroll-py-1 overflow-x-hidden overflow-y-auto\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Command Empty                                                              */\n/* -------------------------------------------------------------------------- */\n\nexport interface CommandEmptyProps\n\textends React.ComponentProps<typeof CommandPrimitive.Empty> {}\n\nfunction CommandEmpty({\n\tclassName,\n\t...props\n}: CommandEmptyProps): React.ReactElement {\n\treturn (\n\t\t<CommandPrimitive.Empty\n\t\t\tdata-slot=\"command-empty\"\n\t\t\tclassName={cn(\n\t\t\t\t\"py-6 text-center text-sm text-muted-foreground\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Command Group                                                              */\n/* -------------------------------------------------------------------------- */\n\nexport interface CommandGroupProps\n\textends React.ComponentProps<typeof CommandPrimitive.Group> {}\n\nfunction CommandGroup({\n\tclassName,\n\t...props\n}: CommandGroupProps): React.ReactElement {\n\treturn (\n\t\t<CommandPrimitive.Group\n\t\t\tdata-slot=\"command-group\"\n\t\t\tclassName={cn(\n\t\t\t\t\"text-foreground **:[[cmdk-group-heading]]:text-muted-foreground overflow-hidden p-1\",\n\t\t\t\t\"**:[[cmdk-group-heading]]:px-2 **:[[cmdk-group-heading]]:py-1.5 **:[[cmdk-group-heading]]:text-xs **:[[cmdk-group-heading]]:font-medium\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Command Separator                                                          */\n/* -------------------------------------------------------------------------- */\n\nexport interface CommandSeparatorProps\n\textends React.ComponentProps<typeof CommandPrimitive.Separator> {}\n\nfunction CommandSeparator({\n\tclassName,\n\t...props\n}: CommandSeparatorProps): React.ReactElement {\n\treturn (\n\t\t<CommandPrimitive.Separator\n\t\t\tdata-slot=\"command-separator\"\n\t\t\tclassName={cn(\"bg-border -mx-1 h-px\", className)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Command Item                                                               */\n/* -------------------------------------------------------------------------- */\n\nexport interface CommandItemProps\n\textends React.ComponentProps<typeof CommandPrimitive.Item> {}\n\nfunction CommandItem({\n\tclassName,\n\t...props\n}: CommandItemProps): React.ReactElement {\n\treturn (\n\t\t<CommandPrimitive.Item\n\t\t\tdata-slot=\"command-item\"\n\t\t\tclassName={cn(\n\t\t\t\t\"relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none\",\n\t\t\t\t\"data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground\",\n\t\t\t\t\"data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50\",\n\t\t\t\t\"[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4\",\n\t\t\t\t\"[&_svg:not([class*='text-'])]:text-muted-foreground\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Command Shortcut                                                           */\n/* -------------------------------------------------------------------------- */\n\nexport interface CommandShortcutProps\n\textends useRender.ComponentProps<\"span\"> {}\n\nfunction CommandShortcut({\n\tclassName,\n\trender,\n\t...props\n}: CommandShortcutProps): React.ReactElement {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"command-shortcut\",\n\t\tclassName: cn(\n\t\t\t\"text-muted-foreground ml-auto flex items-center gap-1 text-xs tracking-widest\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"span\",\n\t\tprops: mergeProps<\"span\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Command Footer                                                             */\n/* -------------------------------------------------------------------------- */\n\nexport interface CommandFooterProps extends useRender.ComponentProps<\"div\"> {}\n\nfunction CommandFooter({\n\tclassName,\n\trender,\n\t...props\n}: CommandFooterProps): React.ReactElement {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"command-footer\",\n\t\tclassName: cn(\n\t\t\t\"flex items-center justify-between gap-4 border-t border-border bg-muted/50 px-3 py-2 text-xs text-muted-foreground\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const Command = Object.assign(CommandRoot, {\n\tRoot: CommandRoot,\n\tDialog: CommandDialog,\n\tInput: CommandInput,\n\tList: CommandList,\n\tEmpty: CommandEmpty,\n\tGroup: CommandGroup,\n\tItem: CommandItem,\n\tShortcut: CommandShortcut,\n\tSeparator: CommandSeparator,\n\tFooter: CommandFooter,\n});\n\nexport {\n\tCommandRoot,\n\tCommandDialog,\n\tCommandInput,\n\tCommandList,\n\tCommandEmpty,\n\tCommandGroup,\n\tCommandItem,\n\tCommandShortcut,\n\tCommandSeparator,\n\tCommandFooter,\n};"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-command',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/command/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
           "craftui-particles-empty-avatar": {
             name: "craftui-particles-empty-avatar",
             description: "Empty state featuring a user avatar.",
@@ -1974,7 +2146,7 @@ export const Registry: Record<string, any> = {
     "path": "packages/craftui/components/kbd/index.tsx",
     "type": "registry:ui",
     "target": "components/ui/kbd.tsx",
-    "content": "\"use client\";\n\nimport { cn } from \"cn\";\nimport { useRender } from \"@base-ui/react/use-render\";\nimport { mergeProps } from \"@base-ui/react/merge-props\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\n\n/* -------------------------------------------------------------------------- */\n/* Variants                                                                   */\n/* -------------------------------------------------------------------------- */\n\nconst kbdVariants = cva(\n\tcn(\n\t\t\"inline-flex items-center justify-center gap-1 shrink-0 w-fit\",\n\t\t\"rounded-sm border font-sans font-medium leading-none whitespace-nowrap select-none pointer-events-none\",\n\t\t\"[&_svg]:pointer-events-none [&_svg]:shrink-0\",\n\t\t\"in-data-[slot=tooltip-content]:bg-background/20 in-data-[slot=tooltip-content]:text-background in-data-[slot=tooltip-content]:border-background/25 in-data-[slot=tooltip-content]:shadow-none\",\n\t),\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault:\n\t\t\t\t\t\"bg-muted text-muted-foreground border-border/80 shadow-[0_1px_0_0_var(--border)] dark:bg-muted/70\",\n\t\t\t\toutline: \"bg-background text-muted-foreground border-border\",\n\t\t\t\tghost:\n\t\t\t\t\t\"bg-transparent text-muted-foreground border-transparent shadow-none\",\n\t\t\t},\n\t\t\tsize: {\n\t\t\t\tsm: \"h-4.5 min-w-4.5 px-1 text-[10px] [&_svg:not([class*='size-'])]:size-2.5\",\n\t\t\t\tmd: \"h-5 min-w-5 px-1.5 text-xs [&_svg:not([class*='size-'])]:size-3\",\n\t\t\t\tlg: \"h-6 min-w-6 px-2 text-xs [&_svg:not([class*='size-'])]:size-3.5\",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: \"default\",\n\t\t\tsize: \"md\",\n\t\t},\n\t},\n);\n\n/* -------------------------------------------------------------------------- */\n/* Kbd Root                                                                   */\n/* -------------------------------------------------------------------------- */\n\nexport interface KbdProps\n\textends useRender.ComponentProps<\"kbd\">,\n\t\tVariantProps<typeof kbdVariants> {}\n\nfunction KbdRoot({ className, variant, size, render, ...props }: KbdProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"kbd\",\n\t\tclassName: cn(kbdVariants({ variant, size }), className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"kbd\",\n\t\tprops: mergeProps<\"kbd\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Kbd Group                                                                  */\n/* -------------------------------------------------------------------------- */\n\nexport interface KbdGroupProps extends useRender.ComponentProps<\"kbd\"> {}\n\nfunction KbdGroup({ className, render, ...props }: KbdGroupProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"kbd-group\",\n\t\tclassName: cn(\"inline-flex items-center gap-1\", className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"kbd\",\n\t\tprops: mergeProps<\"kbd\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const Kbd = Object.assign(KbdRoot, {\n\tRoot: KbdRoot,\n\tGroup: KbdGroup,\n});\n\nexport { KbdRoot, KbdGroup, kbdVariants };"
+    "content": "\"use client\";\n\nimport { cn } from \"cn\";\nimport { useRender } from \"@base-ui/react/use-render\";\nimport { mergeProps } from \"@base-ui/react/merge-props\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\n\n/* -------------------------------------------------------------------------- */\n/* Variants                                                                   */\n/* -------------------------------------------------------------------------- */\n\nconst kbdVariants = cva(\n\tcn(\n\t\t\"inline-flex items-center justify-center gap-1 shrink-0 w-fit\",\n\t\t\"rounded-sm border font-sans font-medium leading-none whitespace-nowrap select-none pointer-events-none\",\n\t\t\"[&_svg]:pointer-events-none [&_svg]:shrink-0\",\n\t\t\"in-data-[slot=tooltip-content]:bg-background/20 in-data-[slot=tooltip-content]:text-background in-data-[slot=tooltip-content]:border-background/25 in-data-[slot=tooltip-content]:shadow-none\",\n\t),\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault:\n\t\t\t\t\t\"bg-muted text-muted-foreground border-border/80 shadow-[0_1px_0_0_var(--border)] dark:bg-muted/70\",\n\t\t\t\toutline: \"bg-background text-muted-foreground border-border\",\n\t\t\t\tghost: \"bg-transparent text-muted-foreground border-transparent shadow-none\",\n\t\t\t},\n\t\t\tsize: {\n\t\t\t\tsm: \"h-4.5 min-w-4.5 px-1 text-[10px] [&_svg:not([class*='size-'])]:size-2.5\",\n\t\t\t\tmd: \"h-5 min-w-5 px-1.5 text-xs [&_svg:not([class*='size-'])]:size-3\",\n\t\t\t\tlg: \"h-6 min-w-6 px-2 text-xs [&_svg:not([class*='size-'])]:size-3.5\",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: \"default\",\n\t\t\tsize: \"md\",\n\t\t},\n\t},\n);\n\n/* -------------------------------------------------------------------------- */\n/* Kbd Root                                                                   */\n/* -------------------------------------------------------------------------- */\n\nexport interface KbdProps\n\textends useRender.ComponentProps<\"kbd\">,\n\t\tVariantProps<typeof kbdVariants> {}\n\nfunction KbdRoot({ className, variant, size, render, ...props }: KbdProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"kbd\",\n\t\tclassName: cn(kbdVariants({ variant, size }), className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"kbd\",\n\t\tprops: mergeProps<\"kbd\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Kbd Group                                                                  */\n/* -------------------------------------------------------------------------- */\n\nexport interface KbdGroupProps extends useRender.ComponentProps<\"kbd\"> {}\n\nfunction KbdGroup({ className, render, ...props }: KbdGroupProps) {\n\tconst defaultProps = {\n\t\t\"data-slot\": \"kbd-group\",\n\t\tclassName: cn(\"inline-flex items-center gap-1\", className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"kbd\",\n\t\tprops: mergeProps<\"kbd\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const Kbd = Object.assign(KbdRoot, {\n\tRoot: KbdRoot,\n\tGroup: KbdGroup,\n});\n\nexport { KbdRoot, KbdGroup, kbdVariants };"
   }
 ],
             keywords: [],

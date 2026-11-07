@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-command-with-footer",
+	"description": "Command menu with footer navigation hints",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/craftui-command",
+		"@craftdotui/craftui-kbd"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/command/particles/with-footer/index.tsx",
+			"content": "import {\n\tArrowDownIcon,\n\tArrowUpIcon,\n\tCornerDownLeftIcon,\n\tFileTextIcon,\n\tFolderIcon,\n\tPlusCircleIcon,\n\tTerminalIcon,\n} from \"lucide-react\";\nimport {\n\tCommand,\n\tCommandEmpty,\n\tCommandFooter,\n\tCommandGroup,\n\tCommandInput,\n\tCommandItem,\n\tCommandList,\n\tCommandShortcut,\n} from \"@/components/craftui/components/command\";\nimport { Kbd, KbdGroup } from \"@/components/craftui/components/kbd\";\n\nexport default function Particle() {\n\treturn (\n\t\t<Command className=\"max-w-md rounded-lg border border-border shadow-sm\">\n\t\t\t<CommandInput placeholder=\"Filter workspace actions...\" />\n\t\t\t<CommandList>\n\t\t\t\t<CommandEmpty>No matching actions.</CommandEmpty>\n\t\t\t\t<CommandGroup heading=\"Quick Actions\">\n\t\t\t\t\t<CommandItem>\n\t\t\t\t\t\t<PlusCircleIcon />\n\t\t\t\t\t\t<span>Create New Component</span>\n\t\t\t\t\t\t<CommandShortcut>\n\t\t\t\t\t\t\t<KbdGroup>\n\t\t\t\t\t\t\t\t<Kbd size=\"sm\">⌘</Kbd>\n\t\t\t\t\t\t\t\t<Kbd size=\"sm\">N</Kbd>\n\t\t\t\t\t\t\t</KbdGroup>\n\t\t\t\t\t\t</CommandShortcut>\n\t\t\t\t\t</CommandItem>\n\t\t\t\t\t<CommandItem>\n\t\t\t\t\t\t<FileTextIcon />\n\t\t\t\t\t\t<span>Search Documentation</span>\n\t\t\t\t\t\t<CommandShortcut>\n\t\t\t\t\t\t\t<KbdGroup>\n\t\t\t\t\t\t\t\t<Kbd size=\"sm\">⌘</Kbd>\n\t\t\t\t\t\t\t\t<Kbd size=\"sm\">K</Kbd>\n\t\t\t\t\t\t\t</KbdGroup>\n\t\t\t\t\t\t</CommandShortcut>\n\t\t\t\t\t</CommandItem>\n\t\t\t\t\t<CommandItem>\n\t\t\t\t\t\t<FolderIcon />\n\t\t\t\t\t\t<span>Browse Registry</span>\n\t\t\t\t\t\t<CommandShortcut>\n\t\t\t\t\t\t\t<KbdGroup>\n\t\t\t\t\t\t\t\t<Kbd size=\"sm\">⌘</Kbd>\n\t\t\t\t\t\t\t\t<Kbd size=\"sm\">O</Kbd>\n\t\t\t\t\t\t\t</KbdGroup>\n\t\t\t\t\t\t</CommandShortcut>\n\t\t\t\t\t</CommandItem>\n\t\t\t\t\t<CommandItem>\n\t\t\t\t\t\t<TerminalIcon />\n\t\t\t\t\t\t<span>Copy CLI Command</span>\n\t\t\t\t\t\t<CommandShortcut>\n\t\t\t\t\t\t\t<KbdGroup>\n\t\t\t\t\t\t\t\t<Kbd size=\"sm\">⇧</Kbd>\n\t\t\t\t\t\t\t\t<Kbd size=\"sm\">⌘</Kbd>\n\t\t\t\t\t\t\t\t<Kbd size=\"sm\">C</Kbd>\n\t\t\t\t\t\t\t</KbdGroup>\n\t\t\t\t\t\t</CommandShortcut>\n\t\t\t\t\t</CommandItem>\n\t\t\t\t</CommandGroup>\n\t\t\t</CommandList>\n\t\t\t<CommandFooter>\n\t\t\t\t<div className=\"flex items-center gap-1.5\">\n\t\t\t\t\t<KbdGroup>\n\t\t\t\t\t\t<Kbd size=\"sm\">\n\t\t\t\t\t\t\t<ArrowUpIcon />\n\t\t\t\t\t\t</Kbd>\n\t\t\t\t\t\t<Kbd size=\"sm\">\n\t\t\t\t\t\t\t<ArrowDownIcon />\n\t\t\t\t\t\t</Kbd>\n\t\t\t\t\t</KbdGroup>\n\t\t\t\t\t<span>Navigate</span>\n\t\t\t\t</div>\n\t\t\t\t<div className=\"flex items-center gap-1.5\">\n\t\t\t\t\t<Kbd size=\"sm\">\n\t\t\t\t\t\t<CornerDownLeftIcon />\n\t\t\t\t\t</Kbd>\n\t\t\t\t\t<span>Run</span>\n\t\t\t\t</div>\n\t\t\t</CommandFooter>\n\t\t</Command>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/command-with-footer.tsx"
+		}
+	],
+	"type": "registry:component"
+}

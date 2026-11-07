@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-command",
+	"description": "Default inline command menu with groups, icons, and keyboard shortcuts",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/craftui-command",
+		"@craftdotui/craftui-kbd"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/command/particles/index.tsx",
+			"content": "import {\n\tCalculatorIcon,\n\tCalendarIcon,\n\tCreditCardIcon,\n\tSettingsIcon,\n\tSmileIcon,\n\tUserIcon,\n} from \"lucide-react\";\nimport {\n\tCommand,\n\tCommandEmpty,\n\tCommandGroup,\n\tCommandInput,\n\tCommandItem,\n\tCommandList,\n\tCommandSeparator,\n\tCommandShortcut,\n} from \"@/components/craftui/components/command\";\nimport { Kbd, KbdGroup } from \"@/components/craftui/components/kbd\";\n\nexport default function Particle() {\n\treturn (\n\t\t<Command className=\"max-w-md rounded-lg border border-border shadow-sm\">\n\t\t\t<CommandInput placeholder=\"Type a command or search...\" />\n\t\t\t<CommandList>\n\t\t\t\t<CommandEmpty>No results found.</CommandEmpty>\n\t\t\t\t<CommandGroup heading=\"Suggestions\">\n\t\t\t\t\t<CommandItem>\n\t\t\t\t\t\t<CalendarIcon />\n\t\t\t\t\t\t<span>Calendar</span>\n\t\t\t\t\t</CommandItem>\n\t\t\t\t\t<CommandItem>\n\t\t\t\t\t\t<SmileIcon />\n\t\t\t\t\t\t<span>Search Emoji</span>\n\t\t\t\t\t</CommandItem>\n\t\t\t\t\t<CommandItem disabled>\n\t\t\t\t\t\t<CalculatorIcon />\n\t\t\t\t\t\t<span>Calculator</span>\n\t\t\t\t\t</CommandItem>\n\t\t\t\t</CommandGroup>\n\t\t\t\t<CommandSeparator />\n\t\t\t\t<CommandGroup heading=\"Settings\">\n\t\t\t\t\t<CommandItem>\n\t\t\t\t\t\t<UserIcon />\n\t\t\t\t\t\t<span>Profile</span>\n\t\t\t\t\t\t<CommandShortcut>\n\t\t\t\t\t\t\t<KbdGroup>\n\t\t\t\t\t\t\t\t<Kbd size=\"sm\">⌘</Kbd>\n\t\t\t\t\t\t\t\t<Kbd size=\"sm\">P</Kbd>\n\t\t\t\t\t\t\t</KbdGroup>\n\t\t\t\t\t\t</CommandShortcut>\n\t\t\t\t\t</CommandItem>\n\t\t\t\t\t<CommandItem>\n\t\t\t\t\t\t<CreditCardIcon />\n\t\t\t\t\t\t<span>Billing</span>\n\t\t\t\t\t\t<CommandShortcut>\n\t\t\t\t\t\t\t<KbdGroup>\n\t\t\t\t\t\t\t\t<Kbd size=\"sm\">⌘</Kbd>\n\t\t\t\t\t\t\t\t<Kbd size=\"sm\">B</Kbd>\n\t\t\t\t\t\t\t</KbdGroup>\n\t\t\t\t\t\t</CommandShortcut>\n\t\t\t\t\t</CommandItem>\n\t\t\t\t\t<CommandItem>\n\t\t\t\t\t\t<SettingsIcon />\n\t\t\t\t\t\t<span>Settings</span>\n\t\t\t\t\t\t<CommandShortcut>\n\t\t\t\t\t\t\t<KbdGroup>\n\t\t\t\t\t\t\t\t<Kbd size=\"sm\">⌘</Kbd>\n\t\t\t\t\t\t\t\t<Kbd size=\"sm\">S</Kbd>\n\t\t\t\t\t\t\t</KbdGroup>\n\t\t\t\t\t\t</CommandShortcut>\n\t\t\t\t\t</CommandItem>\n\t\t\t\t</CommandGroup>\n\t\t\t</CommandList>\n\t\t</Command>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/command.tsx"
+		}
+	],
+	"type": "registry:component"
+}
