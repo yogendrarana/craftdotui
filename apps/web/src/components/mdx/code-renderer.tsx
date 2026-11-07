@@ -29,17 +29,23 @@ export function CodeRenderer({
 }: CodeRendererProps) {
 	return (
 		<ScrollAreaRoot
-			className={cn("h-full w-full overflow-hidden relative", className)}
+			className={cn(
+				"h-full w-full min-h-0 min-w-0 overflow-hidden relative",
+				className,
+			)}
 		>
-			<ScrollAreaViewport>
-				<ScrollAreaContent>
+			<ScrollAreaViewport className="h-full w-full">
+				<ScrollAreaContent className="min-w-full w-max">
 					<pre className="p-4 font-mono text-xs leading-relaxed text-foreground">
 						{code}
 					</pre>
 				</ScrollAreaContent>
 			</ScrollAreaViewport>
 
-			<ScrollAreaScrollbar>
+			<ScrollAreaScrollbar orientation="vertical">
+				<ScrollAreaThumb />
+			</ScrollAreaScrollbar>
+			<ScrollAreaScrollbar orientation="horizontal">
 				<ScrollAreaThumb />
 			</ScrollAreaScrollbar>
 

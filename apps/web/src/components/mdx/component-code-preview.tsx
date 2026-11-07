@@ -10,14 +10,14 @@ import { InstallCommandDropdown } from "./install-command";
 import { ComponentPreview } from "./component-preview";
 
 import {
-	DrawerClose,
-	DrawerContent,
-	DrawerHeader,
-	DrawerPanel,
-	DrawerRoot,
-	DrawerTitle,
-	DrawerTrigger,
-} from "@craftdotui/baseui/components/drawer";
+	SheetClose,
+	SheetContent,
+	SheetHeader,
+	SheetPanel,
+	SheetRoot,
+	SheetTitle,
+	SheetTrigger,
+} from "@craftdotui/craftui/components/sheet";
 import { Button, buttonVariants } from "@craftdotui/baseui/components/button";
 
 interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -61,8 +61,8 @@ export function ComponentCodePreview({
 
 			{/* Bottom action bar */}
 			<div className="px-3.5 py-2.5 flex flex-wrap items-center justify-between gap-2 border-t border-border bg-muted/40">
-				<DrawerRoot position="right" variant="inset">
-					<DrawerTrigger
+				<SheetRoot>
+					<SheetTrigger
 						render={
 							<Button
 								variant="outline"
@@ -72,20 +72,20 @@ export function ComponentCodePreview({
 						}
 					>
 						View code
-					</DrawerTrigger>
+					</SheetTrigger>
 
-					<DrawerContent
-						showHandle={false}
-						popupProps={{
-							className: "w-full sm:w-[550px] md:w-[640px]",
-						}}
+					<SheetContent
+						side="right"
+						variant="inset"
+						showCloseButton={false}
+						className="w-full sm:max-w-lg md:max-w-xl"
 					>
-						<DrawerHeader className="flex-row items-center justify-between border-b px-6 pt-5 pb-3 select-none">
-							<DrawerTitle className="text-base font-semibold">
+						<SheetHeader className="flex-row items-center justify-between border-b px-6 pt-5 pb-3 select-none">
+							<SheetTitle className="text-base font-semibold">
 								Installation
-							</DrawerTitle>
+							</SheetTitle>
 
-							<DrawerClose
+							<SheetClose
 								className={cn(
 									buttonVariants({
 										variant: "outline",
@@ -93,20 +93,23 @@ export function ComponentCodePreview({
 									}),
 									"rounded-md cursor-pointer",
 								)}
-								aria-label="Close code drawer"
+								aria-label="Close code preview"
 							>
 								<XIcon className="size-4" />
-							</DrawerClose>
-						</DrawerHeader>
+							</SheetClose>
+						</SheetHeader>
 
-						<DrawerPanel className="overflow-hidden flex flex-col">
+						<SheetPanel
+							scrollable={false}
+							className="flex-1 min-h-0 min-w-0 p-6 overflow-hidden flex flex-col"
+						>
 							<CodeRenderer
 								code={code}
-								className="h-full w-full border rounded-md"
+								className="h-full w-full min-h-0 min-w-0 border rounded-md"
 							/>
-						</DrawerPanel>
-					</DrawerContent>
-				</DrawerRoot>
+						</SheetPanel>
+					</SheetContent>
+				</SheetRoot>
 
 				<InstallCommandDropdown pkg={registryItem?.command} />
 			</div>

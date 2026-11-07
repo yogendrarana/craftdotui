@@ -6,6 +6,7 @@ import {
 	type DateRange,
 	type DayPickerProps,
 } from "@daypicker/react";
+import { format } from "date-fns";
 import {
 	ChevronDownIcon,
 	ChevronLeftIcon,
@@ -27,8 +28,9 @@ function CalendarRoot({
 	className,
 	classNames,
 	showOutsideDays = true,
-	buttonVariant = "outline",
+	buttonVariant = "ghost",
 	components,
+	formatters,
 	...props
 }: CalendarProps): React.ReactElement {
 	return (
@@ -36,6 +38,13 @@ function CalendarRoot({
 			data-slot="calendar"
 			showOutsideDays={showOutsideDays}
 			className={cn("bg-background p-3 w-fit", className)}
+			formatters={{
+				formatMonthDropdown: (month, dateLib) =>
+					dateLib
+						? dateLib.format(month, "LLL")
+						: format(month, "LLL"),
+				...formatters,
+			}}
 			classNames={{
 				root: "relative",
 				months: "relative flex flex-col sm:flex-row gap-4",

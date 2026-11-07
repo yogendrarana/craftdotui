@@ -493,7 +493,7 @@
 			"name": "craftui-calendar",
 			"type": "registry:ui",
 			"description": "A date field component that allows users to enter and edit date values.",
-			"dependencies": ["@daypicker/react", "lucide-react"],
+			"dependencies": ["@daypicker/react", "date-fns", "lucide-react"],
 			"registryDependencies": [
 				"@craftdotui/cn",
 				"@craftdotui/baseui-button"
