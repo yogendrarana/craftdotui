@@ -614,6 +614,147 @@
 			]
 		},
 		{
+			"name": "craftui-particles-carousel-orientation",
+			"type": "registry:component",
+			"description": "Vertical carousel orientation with top and bottom controls",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/craftui-carousel",
+				"@craftdotui/craftui-card"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/carousel/particles/orientation/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/carousel-orientation.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-carousel",
+			"type": "registry:component",
+			"description": "Default single-slide carousel with previous and next controls",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/craftui-carousel",
+				"@craftdotui/craftui-card"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/carousel/particles/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/carousel.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-carousel-sizes",
+			"type": "registry:component",
+			"description": "Carousel displaying multiple slides per view using responsive flex basis classes",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/craftui-carousel",
+				"@craftdotui/craftui-card"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/carousel/particles/sizes/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/carousel-sizes.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-carousel-spacing",
+			"type": "registry:component",
+			"description": "Carousel with custom gap spacing between slides using negative margin and padding",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/craftui-carousel",
+				"@craftdotui/craftui-card"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/carousel/particles/spacing/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/carousel-spacing.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-carousel-thumbnails",
+			"type": "registry:component",
+			"description": "Carousel with synchronized clickable thumbnail strip below the main viewport",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/cn",
+				"@craftdotui/craftui-carousel",
+				"@craftdotui/craftui-card"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/carousel/particles/thumbnails/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/carousel-thumbnails.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-carousel-with-counter",
+			"type": "registry:component",
+			"description": "Carousel with an active slide counter updated using the Embla API",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/craftui-carousel",
+				"@craftdotui/craftui-card"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/carousel/particles/with-counter/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/carousel-with-counter.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-carousel-with-dots",
+			"type": "registry:component",
+			"description": "Looping carousel with dot pagination indicators",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/craftui-carousel",
+				"@craftdotui/craftui-card"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/carousel/particles/with-dots/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/carousel-with-dots.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-carousel",
+			"type": "registry:ui",
+			"description": "A composable carousel with motion and swipe built on Embla.",
+			"dependencies": [
+				"@base-ui/react",
+				"embla-carousel-react",
+				"lucide-react"
+			],
+			"registryDependencies": [
+				"@craftdotui/cn",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/carousel/index.tsx",
+					"type": "registry:ui",
+					"target": "components/ui/carousel.tsx"
+				}
+			]
+		},
+		{
 			"name": "craftui-particles-command-dialog",
 			"type": "registry:component",
 			"description": "Modal command palette dialog with keyboard shortcut trigger and footer hints",

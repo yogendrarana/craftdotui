@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-carousel",
+	"type": "registry:ui",
+	"description": "A composable carousel with motion and swipe built on Embla.",
+	"dependencies": ["@base-ui/react", "embla-carousel-react", "lucide-react"],
+	"registryDependencies": ["@craftdotui/cn", "@craftdotui/baseui-button"],
+	"files": [
+		{
+			"path": "packages/craftui/components/carousel/index.tsx",
+			"type": "registry:ui",
+			"target": "components/ui/carousel.tsx"
+		}
+	]
+}

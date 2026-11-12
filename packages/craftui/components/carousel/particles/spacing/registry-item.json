@@ -1,0 +1,18 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-carousel-spacing",
+	"type": "registry:component",
+	"description": "Carousel with custom gap spacing between slides using negative margin and padding",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/craftui-carousel",
+		"@craftdotui/craftui-card"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/carousel/particles/spacing/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/carousel-spacing.tsx"
+		}
+	]
+}

@@ -1,0 +1,18 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-carousel-sizes",
+	"type": "registry:component",
+	"description": "Carousel displaying multiple slides per view using responsive flex basis classes",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/craftui-carousel",
+		"@craftdotui/craftui-card"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/carousel/particles/sizes/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/carousel-sizes.tsx"
+		}
+	]
+}

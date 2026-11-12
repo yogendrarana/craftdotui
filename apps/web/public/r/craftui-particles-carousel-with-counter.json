@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-carousel-with-counter",
+	"description": "Carousel with an active slide counter updated using the Embla API",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/craftui-carousel",
+		"@craftdotui/craftui-card"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/carousel/particles/with-counter/index.tsx",
+			"content": "\"use client\";\n\nimport * as React from \"react\";\nimport {\n\tCarousel,\n\ttype CarouselApi,\n\tCarouselContent,\n\tCarouselItem,\n\tCarouselNext,\n\tCarouselPrevious,\n} from \"@/components/craftui/components/carousel\";\nimport { Card, CardContent } from \"@/components/craftui/components/card\";\n\nexport default function Particle() {\n\tconst [api, setApi] = React.useState<CarouselApi>();\n\tconst [current, setCurrent] = React.useState(0);\n\tconst [count, setCount] = React.useState(0);\n\n\tReact.useEffect(() => {\n\t\tif (!api) return;\n\n\t\tsetCount(api.scrollSnapList().length);\n\t\tsetCurrent(api.selectedScrollSnap() + 1);\n\n\t\tconst onSelect = () => {\n\t\t\tsetCurrent(api.selectedScrollSnap() + 1);\n\t\t};\n\n\t\tapi.on(\"select\", onSelect);\n\t\treturn () => {\n\t\t\tapi.off(\"select\", onSelect);\n\t\t};\n\t}, [api]);\n\n\treturn (\n\t\t<div className=\"w-full px-12 flex flex-col items-center gap-2\">\n\t\t\t<Carousel setApi={setApi} className=\"w-full max-w-xs\">\n\t\t\t\t<CarouselContent>\n\t\t\t\t\t{Array.from({ length: 5 }).map((_, index) => (\n\t\t\t\t\t\t<CarouselItem key={index}>\n\t\t\t\t\t\t\t<div className=\"p-1\">\n\t\t\t\t\t\t\t\t<Card className=\"py-0\">\n\t\t\t\t\t\t\t\t\t<CardContent className=\"flex aspect-square items-center justify-center p-6\">\n\t\t\t\t\t\t\t\t\t\t<span className=\"text-4xl font-semibold\">\n\t\t\t\t\t\t\t\t\t\t\t{index + 1}\n\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t</CardContent>\n\t\t\t\t\t\t\t\t</Card>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</CarouselItem>\n\t\t\t\t\t))}\n\t\t\t\t</CarouselContent>\n\t\t\t\t<CarouselPrevious />\n\t\t\t\t<CarouselNext />\n\t\t\t</Carousel>\n\t\t\t<div className=\"text-center text-xs text-muted-foreground\">\n\t\t\t\tSlide {current} of {count}\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/carousel-with-counter.tsx"
+		}
+	],
+	"type": "registry:component"
+}

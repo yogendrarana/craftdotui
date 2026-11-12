@@ -1,0 +1,18 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-carousel-with-counter",
+	"type": "registry:component",
+	"description": "Carousel with an active slide counter updated using the Embla API",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/craftui-carousel",
+		"@craftdotui/craftui-card"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/carousel/particles/with-counter/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/carousel-with-counter.tsx"
+		}
+	]
+}

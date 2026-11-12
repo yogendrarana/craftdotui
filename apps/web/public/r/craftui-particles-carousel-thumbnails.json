@@ -1,0 +1,20 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-carousel-thumbnails",
+	"description": "Carousel with synchronized clickable thumbnail strip below the main viewport",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/cn",
+		"@craftdotui/craftui-carousel",
+		"@craftdotui/craftui-card"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/carousel/particles/thumbnails/index.tsx",
+			"content": "\"use client\";\n\nimport * as React from \"react\";\nimport { cn } from \"cn\";\nimport {\n\tCarousel,\n\ttype CarouselApi,\n\tCarouselContent,\n\tCarouselItem,\n\tCarouselNext,\n\tCarouselPrevious,\n} from \"@/components/craftui/components/carousel\";\nimport { Card, CardContent } from \"@/components/craftui/components/card\";\n\nexport default function Particle() {\n\tconst [api, setApi] = React.useState<CarouselApi>();\n\tconst [selectedIndex, setSelectedIndex] = React.useState(0);\n\n\tReact.useEffect(() => {\n\t\tif (!api) return;\n\n\t\tconst onSelect = () => {\n\t\t\tsetSelectedIndex(api.selectedScrollSnap());\n\t\t};\n\n\t\tonSelect();\n\t\tapi.on(\"select\", onSelect);\n\t\treturn () => {\n\t\t\tapi.off(\"select\", onSelect);\n\t\t};\n\t}, [api]);\n\n\treturn (\n\t\t<div className=\"w-full px-12 flex flex-col items-center gap-3\">\n\t\t\t<Carousel setApi={setApi} className=\"w-full max-w-xs\">\n\t\t\t\t<CarouselContent>\n\t\t\t\t\t{Array.from({ length: 5 }).map((_, index) => (\n\t\t\t\t\t\t<CarouselItem key={index}>\n\t\t\t\t\t\t\t<div className=\"p-1\">\n\t\t\t\t\t\t\t\t<Card className=\"py-0\">\n\t\t\t\t\t\t\t\t\t<CardContent className=\"flex aspect-video items-center justify-center p-6\">\n\t\t\t\t\t\t\t\t\t\t<span className=\"text-4xl font-semibold\">\n\t\t\t\t\t\t\t\t\t\t\t{index + 1}\n\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t</CardContent>\n\t\t\t\t\t\t\t\t</Card>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</CarouselItem>\n\t\t\t\t\t))}\n\t\t\t\t</CarouselContent>\n\t\t\t\t<CarouselPrevious />\n\t\t\t\t<CarouselNext />\n\t\t\t</Carousel>\n\n\t\t\t<div className=\"grid w-full max-w-xs grid-cols-5 gap-2 px-1\">\n\t\t\t\t{Array.from({ length: 5 }).map((_, index) => {\n\t\t\t\t\tconst isActive = index === selectedIndex;\n\t\t\t\t\treturn (\n\t\t\t\t\t\t<button\n\t\t\t\t\t\t\tkey={index}\n\t\t\t\t\t\t\ttype=\"button\"\n\t\t\t\t\t\t\tonClick={() => api?.scrollTo(index)}\n\t\t\t\t\t\t\taria-label={`Select slide ${index + 1}`}\n\t\t\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t\t\t\"flex aspect-square items-center justify-center rounded-lg border text-sm font-medium transition-all cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-ring\",\n\t\t\t\t\t\t\t\tisActive\n\t\t\t\t\t\t\t\t\t? \"border-primary bg-primary/10 text-foreground ring-1 ring-primary\"\n\t\t\t\t\t\t\t\t\t: \"border-border bg-card text-muted-foreground opacity-60 hover:opacity-100\",\n\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t{index + 1}\n\t\t\t\t\t\t</button>\n\t\t\t\t\t);\n\t\t\t\t})}\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/carousel-thumbnails.tsx"
+		}
+	],
+	"type": "registry:component"
+}
