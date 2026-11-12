@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-tree-view-search-filter",
+	"type": "registry:component",
+	"description": "Tree view search and filter demo with auto-expanding branches.",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/craftui-tree-view"],
+	"files": [
+		{
+			"path": "packages/craftui/components/tree-view/particles/search-filter/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/tree-view-search-filter.tsx"
+		}
+	]
+}

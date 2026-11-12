@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-banner-with-action",
+	"description": "Promotional banner with an inline Call-to-Action button.",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/craftui-banner",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/banner/particles/with-action/index.tsx",
+			"content": "import { ArrowRight, Sparkles } from \"lucide-react\";\nimport {\n\tBannerAction,\n\tBannerClose,\n\tBannerContent,\n\tBannerDescription,\n\tBannerIcon,\n\tBannerRoot,\n\tBannerTitle,\n} from \"@/components/craftui/components/banner\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport function Particle() {\n\treturn (\n\t\t<BannerRoot\n\t\t\tvariant=\"promotional\"\n\t\t\tappearance=\"inset\"\n\t\t\tclassName=\"max-w-3xl\"\n\t\t>\n\t\t\t<BannerIcon>\n\t\t\t\t<Sparkles />\n\t\t\t</BannerIcon>\n\t\t\t<BannerContent>\n\t\t\t\t<BannerTitle>Early Access</BannerTitle>\n\t\t\t\t<BannerDescription>\n\t\t\t\t\tTry the new AI design copilot features ahead of public\n\t\t\t\t\tlaunch.\n\t\t\t\t</BannerDescription>\n\t\t\t</BannerContent>\n\t\t\t<BannerAction>\n\t\t\t\t<Button\n\t\t\t\t\tsize=\"xs\"\n\t\t\t\t\tvariant=\"secondary\"\n\t\t\t\t\tclassName=\"font-medium gap-1\"\n\t\t\t\t>\n\t\t\t\t\tJoin Waitlist\n\t\t\t\t\t<ArrowRight className=\"size-3\" />\n\t\t\t\t</Button>\n\t\t\t</BannerAction>\n\t\t\t<BannerClose />\n\t\t</BannerRoot>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/particles/banner-with-action.tsx"
+		}
+	],
+	"type": "registry:component"
+}

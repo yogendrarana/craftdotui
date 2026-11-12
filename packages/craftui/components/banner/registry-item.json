@@ -1,0 +1,20 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-banner",
+	"type": "registry:component",
+	"description": "Displays a prominent announcement or notice with layout appearances, semantic variants, and dismissibility.",
+	"dependencies": [
+		"@base-ui/react",
+		"class-variance-authority",
+		"cn",
+		"lucide-react"
+	],
+	"registryDependencies": [],
+	"files": [
+		{
+			"path": "packages/craftui/components/banner/index.tsx",
+			"type": "registry:component",
+			"target": "components/ui/banner.tsx"
+		}
+	]
+}

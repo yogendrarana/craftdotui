@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-banner-sticky",
+	"description": "Sticky top announcement bar with centered content and status link.",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/craftui-banner",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/banner/particles/sticky/index.tsx",
+			"content": "import { ExternalLink, Info } from \"lucide-react\";\nimport {\n\tBannerAction,\n\tBannerClose,\n\tBannerContent,\n\tBannerDescription,\n\tBannerIcon,\n\tBannerRoot,\n\tBannerTitle,\n} from \"@/components/craftui/components/banner\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"relative w-full overflow-hidden rounded-lg border bg-background\">\n\t\t\t<BannerRoot appearance=\"sticky\" variant=\"info\">\n\t\t\t\t<BannerIcon>\n\t\t\t\t\t<Info />\n\t\t\t\t</BannerIcon>\n\t\t\t\t<BannerContent centered>\n\t\t\t\t\t<BannerTitle>Scheduled Maintenance:</BannerTitle>\n\t\t\t\t\t<BannerDescription>\n\t\t\t\t\t\tSystems will undergo upgrade on Sunday at 02:00 UTC.\n\t\t\t\t\t</BannerDescription>\n\t\t\t\t</BannerContent>\n\t\t\t\t<BannerAction>\n\t\t\t\t\t<Button\n\t\t\t\t\t\tsize=\"xs\"\n\t\t\t\t\t\tvariant=\"ghost\"\n\t\t\t\t\t\tclassName=\"gap-1 text-xs\"\n\t\t\t\t\t\trender={<a href=\"#status\" />}\n\t\t\t\t\t>\n\t\t\t\t\t\tStatus Page\n\t\t\t\t\t\t<ExternalLink className=\"size-3\" />\n\t\t\t\t\t</Button>\n\t\t\t\t</BannerAction>\n\t\t\t\t<BannerClose />\n\t\t\t</BannerRoot>\n\t\t\t<div className=\"p-8 text-center text-sm text-muted-foreground\">\n\t\t\t\tPage content scrolls below the sticky announcement bar.\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/particles/banner-sticky.tsx"
+		}
+	],
+	"type": "registry:component"
+}

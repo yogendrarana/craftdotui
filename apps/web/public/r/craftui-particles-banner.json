@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-banner",
+	"description": "Default announcement banner with icon, title, description, and dismiss trigger.",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/craftui-banner"],
+	"files": [
+		{
+			"path": "packages/craftui/components/banner/particles/index.tsx",
+			"content": "import { Megaphone } from \"lucide-react\";\nimport {\n\tBannerClose,\n\tBannerContent,\n\tBannerDescription,\n\tBannerIcon,\n\tBannerRoot,\n\tBannerTitle,\n} from \"@/components/craftui/components/banner\";\n\nexport function Particle() {\n\treturn (\n\t\t<BannerRoot appearance=\"inset\" className=\"max-w-2xl\">\n\t\t\t<BannerIcon>\n\t\t\t\t<Megaphone />\n\t\t\t</BannerIcon>\n\t\t\t<BannerContent>\n\t\t\t\t<BannerTitle>New Release!</BannerTitle>\n\t\t\t\t<BannerDescription>\n\t\t\t\t\tCraft UI v2.0 is now live with enhanced components and full\n\t\t\t\t\tTailwind v4 support.\n\t\t\t\t</BannerDescription>\n\t\t\t</BannerContent>\n\t\t\t<BannerClose />\n\t\t</BannerRoot>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/particles/banner.tsx"
+		}
+	],
+	"type": "registry:component"
+}

@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-color-picker-swatches",
+	"description": "Color picker with custom brand palette swatches and compound subcomponents.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-color-picker"],
+	"files": [
+		{
+			"path": "packages/craftui/components/color-picker/particles/swatches/index.tsx",
+			"content": "\"use client\";\n\nimport * as React from \"react\";\nimport {\n\tColorPickerCanvas,\n\tColorPickerContent,\n\tColorPickerEyeDropper,\n\tColorPickerHueSlider,\n\tColorPickerInputs,\n\tColorPickerPreview,\n\tColorPickerRoot,\n\tColorPickerSwatches,\n} from \"@/components/craftui/components/color-picker\";\n\nconst BRAND_PALETTE = [\n\t\"#6366f1\",\n\t\"#8b5cf6\",\n\t\"#ec4899\",\n\t\"#f43f5e\",\n\t\"#ef4444\",\n\t\"#f97316\",\n\t\"#f59e0b\",\n\t\"#10b981\",\n];\n\nexport function Particle() {\n\tconst [color, setColor] = React.useState(\"#8b5cf6\");\n\n\treturn (\n\t\t<div className=\"flex flex-col items-center justify-center p-4\">\n\t\t\t<ColorPickerRoot value={color} onValueChange={setColor}>\n\t\t\t\t<ColorPickerContent className=\"w-72\">\n\t\t\t\t\t<ColorPickerCanvas />\n\t\t\t\t\t<div className=\"flex items-center gap-2\">\n\t\t\t\t\t\t<ColorPickerEyeDropper />\n\t\t\t\t\t\t<div className=\"flex-1\">\n\t\t\t\t\t\t\t<ColorPickerHueSlider />\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<ColorPickerPreview />\n\t\t\t\t\t</div>\n\t\t\t\t\t<ColorPickerInputs showAlpha={false} />\n\t\t\t\t\t<div className=\"pt-1\">\n\t\t\t\t\t\t<span className=\"text-[11px] font-medium text-muted-foreground\">\n\t\t\t\t\t\t\tBrand Palette\n\t\t\t\t\t\t</span>\n\t\t\t\t\t\t<ColorPickerSwatches swatches={BRAND_PALETTE} />\n\t\t\t\t\t</div>\n\t\t\t\t</ColorPickerContent>\n\t\t\t</ColorPickerRoot>\n\t\t</div>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/particles/color-picker-swatches.tsx"
+		}
+	],
+	"type": "registry:component"
+}

@@ -1,0 +1,45 @@
+---
+title: Color Picker
+description: An interactive control for selecting, tweaking, and converting colors across multiple color formats.
+slug: /craftui/components/color-picker
+published: true
+date: 2026-11-13T00:00:00.000Z
+author:
+  name: Yogendra Rana
+  twitter: "https://twitter.com/yooogendra_rana"
+---
+
+<ComponentCodePreview name="craftui-particles-color-picker" />
+
+## Installation
+
+<Installation name="craftui-color-picker" />
+
+## Anatomy
+
+#### Usage
+
+```tsx
+<ColorPicker value={color} onValueChange={setColor} />
+```
+
+```tsx
+<ColorPickerRoot value={color} onValueChange={setColor}>
+  <ColorPickerArea />
+  <ColorPickerHueSlider />
+  <ColorPickerAlphaSlider />
+  <ColorPickerFormatSelect />
+  <ColorPickerEyeDropper />
+  <ColorPickerSwatches />
+</ColorPickerRoot>
+```
+
+## Demo
+
+#### Popover
+
+<ComponentCodePreview name="craftui-particles-color-picker-popover" />
+
+#### Swatches
+
+<ComponentCodePreview name="craftui-particles-color-picker-swatches" />

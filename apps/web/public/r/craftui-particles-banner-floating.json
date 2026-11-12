@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-banner-floating",
+	"description": "Floating pill banner with badge icon and rounded action button.",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/craftui-banner",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/banner/particles/floating/index.tsx",
+			"content": "import { ArrowRight, Zap } from \"lucide-react\";\nimport {\n\tBannerAction,\n\tBannerClose,\n\tBannerContent,\n\tBannerDescription,\n\tBannerIcon,\n\tBannerRoot,\n\tBannerTitle,\n} from \"@/components/craftui/components/banner\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"relative min-h-[140px] w-full rounded-lg border bg-muted/20 p-6\">\n\t\t\t<BannerRoot\n\t\t\t\tappearance=\"floating\"\n\t\t\t\tvariant=\"default\"\n\t\t\t\tclassName=\"static translate-x-0 mx-auto\"\n\t\t\t>\n\t\t\t\t<BannerIcon>\n\t\t\t\t\t<Zap className=\"text-warning fill-warning\" />\n\t\t\t\t</BannerIcon>\n\t\t\t\t<BannerContent>\n\t\t\t\t\t<BannerTitle>Pro Plan 50% Off</BannerTitle>\n\t\t\t\t\t<BannerDescription>\n\t\t\t\t\t\tLimited-time offer for the next 48 hours.\n\t\t\t\t\t</BannerDescription>\n\t\t\t\t</BannerContent>\n\t\t\t\t<BannerAction>\n\t\t\t\t\t<Button\n\t\t\t\t\t\tsize=\"xs\"\n\t\t\t\t\t\tvariant=\"default\"\n\t\t\t\t\t\tclassName=\"rounded-full gap-1\"\n\t\t\t\t\t>\n\t\t\t\t\t\tClaim Offer\n\t\t\t\t\t\t<ArrowRight className=\"size-3\" />\n\t\t\t\t\t</Button>\n\t\t\t\t</BannerAction>\n\t\t\t\t<BannerClose />\n\t\t\t</BannerRoot>\n\t\t</div>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/particles/banner-floating.tsx"
+		}
+	],
+	"type": "registry:component"
+}

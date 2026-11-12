@@ -313,6 +313,121 @@
 			]
 		},
 		{
+			"name": "craftui-particles-banner-dismissible",
+			"type": "registry:component",
+			"description": "Dismissible banner with controlled state and reset trigger.",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": [
+				"@craftdotui/craftui-banner",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/banner/particles/dismissible/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/banner-dismissible.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-banner-floating",
+			"type": "registry:component",
+			"description": "Floating pill banner with badge icon and rounded action button.",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": [
+				"@craftdotui/craftui-banner",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/banner/particles/floating/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/banner-floating.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-banner",
+			"type": "registry:component",
+			"description": "Default announcement banner with icon, title, description, and dismiss trigger.",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/craftui-banner"],
+			"files": [
+				{
+					"path": "packages/craftui/components/banner/particles/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/banner.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-banner-sticky",
+			"type": "registry:component",
+			"description": "Sticky top announcement bar with centered content and status link.",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": [
+				"@craftdotui/craftui-banner",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/banner/particles/sticky/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/banner-sticky.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-banner-variants",
+			"type": "registry:component",
+			"description": "Showcase of all semantic variants (default, info, success, warning, destructive, promotional).",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/craftui-banner"],
+			"files": [
+				{
+					"path": "packages/craftui/components/banner/particles/variants/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/banner-variants.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-banner-with-action",
+			"type": "registry:component",
+			"description": "Promotional banner with an inline Call-to-Action button.",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": [
+				"@craftdotui/craftui-banner",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/banner/particles/with-action/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/banner-with-action.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-banner",
+			"type": "registry:component",
+			"description": "Displays a prominent announcement or notice with layout appearances, semantic variants, and dismissibility.",
+			"dependencies": [
+				"@base-ui/react",
+				"class-variance-authority",
+				"cn",
+				"lucide-react"
+			],
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "packages/craftui/components/banner/index.tsx",
+					"type": "registry:component",
+					"target": "components/ui/banner.tsx"
+				}
+			]
+		},
+		{
 			"name": "craftui-particles-breadcrumb-collapsed",
 			"type": "registry:component",
 			"description": "Collapsed breadcrumb with an ellipsis indicator.",
@@ -751,6 +866,72 @@
 					"path": "packages/craftui/components/carousel/index.tsx",
 					"type": "registry:ui",
 					"target": "components/ui/carousel.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-color-picker-popover",
+			"type": "registry:component",
+			"description": "Color picker in popover dropdown mode with swatch trigger button.",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/craftui-color-picker"],
+			"files": [
+				{
+					"path": "packages/craftui/components/color-picker/particles/popover/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/color-picker-popover.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-color-picker",
+			"type": "registry:component",
+			"description": "Default inline color picker with visual canvas, sliders, format selector, and swatches.",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/craftui-color-picker"],
+			"files": [
+				{
+					"path": "packages/craftui/components/color-picker/particles/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/color-picker.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-color-picker-swatches",
+			"type": "registry:component",
+			"description": "Color picker with custom brand palette swatches and compound subcomponents.",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/craftui-color-picker"],
+			"files": [
+				{
+					"path": "packages/craftui/components/color-picker/particles/swatches/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/color-picker-swatches.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-color-picker",
+			"type": "registry:component",
+			"description": "A comprehensive, accessible color picker with 2D saturation/brightness area, hue and alpha sliders, format switching, eyedropper, and swatches.",
+			"dependencies": [
+				"@base-ui/react",
+				"class-variance-authority",
+				"cn",
+				"lucide-react"
+			],
+			"registryDependencies": ["@craftdotui/baseui-popover"],
+			"files": [
+				{
+					"path": "packages/craftui/components/color-picker/index.tsx",
+					"type": "registry:component",
+					"target": "components/ui/color-picker.tsx"
+				},
+				{
+					"path": "packages/craftui/components/color-picker/color-utils.ts",
+					"type": "registry:component",
+					"target": "components/ui/color-utils.ts"
 				}
 			]
 		},
@@ -1819,6 +2000,95 @@
 					"path": "packages/craftui/components/timeline/index.tsx",
 					"type": "registry:component",
 					"target": "components/ui/timeline.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-tree-view-async-loading",
+			"type": "registry:component",
+			"description": "Async lazy-loading tree demo fetching remote branches on expand.",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/craftui-tree-view"],
+			"files": [
+				{
+					"path": "packages/craftui/components/tree-view/particles/async-loading/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/tree-view-async-loading.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-tree-view-file-tree",
+			"type": "registry:component",
+			"description": "Rich file explorer demo with custom file icons and action buttons.",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/craftui-tree-view"],
+			"files": [
+				{
+					"path": "packages/craftui/components/tree-view/particles/file-tree/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/tree-view-file-tree.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-tree-view-multi-select",
+			"type": "registry:component",
+			"description": "Multi-selection tree view demo with selection counts and batch controls.",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/craftui-tree-view"],
+			"files": [
+				{
+					"path": "packages/craftui/components/tree-view/particles/multi-select/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/tree-view-multi-select.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-tree-view",
+			"type": "registry:component",
+			"description": "Default interactive tree view demo with compound components.",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/craftui-tree-view"],
+			"files": [
+				{
+					"path": "packages/craftui/components/tree-view/particles/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/tree-view.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-tree-view-search-filter",
+			"type": "registry:component",
+			"description": "Tree view search and filter demo with auto-expanding branches.",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": ["@craftdotui/craftui-tree-view"],
+			"files": [
+				{
+					"path": "packages/craftui/components/tree-view/particles/search-filter/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/tree-view-search-filter.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-tree-view",
+			"type": "registry:component",
+			"description": "A hierarchical tree view component with WAI-ARIA 1.2 navigation, multi-selection, search filtering, and async loading.",
+			"dependencies": [
+				"@base-ui/react",
+				"class-variance-authority",
+				"lucide-react",
+				"cn"
+			],
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "packages/craftui/components/tree-view/index.tsx",
+					"type": "registry:component",
+					"target": "components/ui/tree-view.tsx"
 				}
 			]
 		},

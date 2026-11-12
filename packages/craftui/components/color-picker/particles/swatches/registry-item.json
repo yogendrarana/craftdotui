@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-color-picker-swatches",
+	"type": "registry:component",
+	"description": "Color picker with custom brand palette swatches and compound subcomponents.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-color-picker"],
+	"files": [
+		{
+			"path": "packages/craftui/components/color-picker/particles/swatches/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/color-picker-swatches.tsx"
+		}
+	]
+}

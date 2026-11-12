@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-color-picker-popover",
+	"type": "registry:component",
+	"description": "Color picker in popover dropdown mode with swatch trigger button.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-color-picker"],
+	"files": [
+		{
+			"path": "packages/craftui/components/color-picker/particles/popover/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/color-picker-popover.tsx"
+		}
+	]
+}

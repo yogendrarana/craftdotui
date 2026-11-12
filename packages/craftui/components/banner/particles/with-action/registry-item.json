@@ -1,0 +1,18 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-banner-with-action",
+	"type": "registry:component",
+	"description": "Promotional banner with an inline Call-to-Action button.",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/craftui-banner",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/banner/particles/with-action/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/banner-with-action.tsx"
+		}
+	]
+}

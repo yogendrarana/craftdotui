@@ -194,6 +194,10 @@ export const docsNavItems: Array<DocsNavItem> = [
 				href: "/docs/craftui/components/badge",
 			},
 			{
+				title: "Banner",
+				href: "/docs/craftui/components/banner",
+			},
+			{
 				title: "Breadcrumb",
 				href: "/docs/craftui/components/breadcrumb",
 			},
@@ -208,6 +212,10 @@ export const docsNavItems: Array<DocsNavItem> = [
 			{
 				title: "Carousel",
 				href: "/docs/craftui/components/carousel",
+			},
+			{
+				title: "Color Picker",
+				href: "/docs/craftui/components/color-picker",
 			},
 			{
 				title: "Command",
@@ -256,6 +264,10 @@ export const docsNavItems: Array<DocsNavItem> = [
 			{
 				title: "Timeline",
 				href: "/docs/craftui/components/timeline",
+			},
+			{
+				title: "Tree View",
+				href: "/docs/craftui/components/tree-view",
 			},
 		],
 	},

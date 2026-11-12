@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-color-picker-popover",
+	"description": "Color picker in popover dropdown mode with swatch trigger button.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-color-picker"],
+	"files": [
+		{
+			"path": "packages/craftui/components/color-picker/particles/popover/index.tsx",
+			"content": "\"use client\";\n\nimport * as React from \"react\";\nimport { ColorPicker } from \"@/components/craftui/components/color-picker\";\n\nexport function Particle() {\n\tconst [color, setColor] = React.useState(\"#10b981\");\n\n\treturn (\n\t\t<div className=\"flex flex-col items-center justify-center p-8\">\n\t\t\t<ColorPicker\n\t\t\t\tinline={false}\n\t\t\t\tvalue={color}\n\t\t\t\tonValueChange={setColor}\n\t\t\t/>\n\t\t</div>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/particles/color-picker-popover.tsx"
+		}
+	],
+	"type": "registry:component"
+}

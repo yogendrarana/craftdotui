@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-banner-dismissible",
+	"description": "Dismissible banner with controlled state and reset trigger.",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/craftui-banner",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/banner/particles/dismissible/index.tsx",
+			"content": "import * as React from \"react\";\nimport { Bell, RotateCcw } from \"lucide-react\";\nimport {\n\tBannerClose,\n\tBannerContent,\n\tBannerDescription,\n\tBannerIcon,\n\tBannerRoot,\n\tBannerTitle,\n} from \"@/components/craftui/components/banner\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport function Particle() {\n\tconst [open, setOpen] = React.useState(true);\n\n\treturn (\n\t\t<div className=\"flex flex-col items-center gap-4 w-full max-w-2xl\">\n\t\t\t<BannerRoot\n\t\t\t\tappearance=\"inset\"\n\t\t\t\tvariant=\"info\"\n\t\t\t\topen={open}\n\t\t\t\tonOpenChange={setOpen}\n\t\t\t\tclassName=\"w-full\"\n\t\t\t>\n\t\t\t\t<BannerIcon>\n\t\t\t\t\t<Bell />\n\t\t\t\t</BannerIcon>\n\t\t\t\t<BannerContent>\n\t\t\t\t\t<BannerTitle>Dismissible Notice:</BannerTitle>\n\t\t\t\t\t<BannerDescription>\n\t\t\t\t\t\tClick the close button on the right to dismiss this\n\t\t\t\t\t\tnotice with a smooth exit animation.\n\t\t\t\t\t</BannerDescription>\n\t\t\t\t</BannerContent>\n\t\t\t\t<BannerClose />\n\t\t\t</BannerRoot>\n\n\t\t\t{!open && (\n\t\t\t\t<Button\n\t\t\t\t\tsize=\"sm\"\n\t\t\t\t\tvariant=\"outline\"\n\t\t\t\t\tonClick={() => setOpen(true)}\n\t\t\t\t\tclassName=\"gap-1.5\"\n\t\t\t\t>\n\t\t\t\t\t<RotateCcw className=\"size-3.5\" />\n\t\t\t\t\tReset Banner\n\t\t\t\t</Button>\n\t\t\t)}\n\t\t</div>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/particles/banner-dismissible.tsx"
+		}
+	],
+	"type": "registry:component"
+}

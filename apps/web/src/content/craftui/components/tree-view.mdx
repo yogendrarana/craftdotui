@@ -1,0 +1,57 @@
+---
+title: Tree View
+description: A hierarchical list component supporting keyboard navigation, selection, and search filtering.
+slug: /craftui/components/tree-view
+published: true
+date: 2026-11-13T00:00:00.000Z
+author:
+  name: Yogendra Rana
+  twitter: "https://twitter.com/yooogendra_rana"
+---
+
+<ComponentCodePreview name="craftui-particles-tree-view" />
+
+## Installation
+
+<Installation name="craftui-tree-view" />
+
+## Anatomy
+
+#### Usage
+
+```tsx
+<TreeRoot value={selected} onValueChange={setSelected}>
+  <TreeItem value="node-1" label="Node 1">
+    <TreeItemTrigger>
+      <TreeItemChevron />
+      <TreeItemIcon />
+      <TreeItemLabel>Node 1</TreeItemLabel>
+    </TreeItemTrigger>
+    <TreeItemContent>
+      <TreeItem value="node-1-1" label="Subnode 1">
+        <TreeItemTrigger>
+          <TreeItemLabel>Subnode 1</TreeItemLabel>
+        </TreeItemTrigger>
+      </TreeItem>
+    </TreeItemContent>
+  </TreeItem>
+</TreeRoot>
+```
+
+## Demo
+
+#### File Tree
+
+<ComponentCodePreview name="craftui-particles-tree-view-file-tree" />
+
+#### Multi Select
+
+<ComponentCodePreview name="craftui-particles-tree-view-multi-select" />
+
+#### Async Loading
+
+<ComponentCodePreview name="craftui-particles-tree-view-async-loading" />
+
+#### Search Filter
+
+<ComponentCodePreview name="craftui-particles-tree-view-search-filter" />

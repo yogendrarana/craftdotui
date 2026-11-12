@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-color-picker",
+	"description": "Default inline color picker with visual canvas, sliders, format selector, and swatches.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-color-picker"],
+	"files": [
+		{
+			"path": "packages/craftui/components/color-picker/particles/index.tsx",
+			"content": "\"use client\";\n\nimport * as React from \"react\";\nimport { ColorPicker } from \"@/components/craftui/components/color-picker\";\n\nexport function Particle() {\n\tconst [color, setColor] = React.useState(\"#3b82f6\");\n\n\treturn (\n\t\t<div className=\"flex flex-col items-center justify-center p-4\">\n\t\t\t<ColorPicker value={color} onValueChange={setColor} />\n\t\t</div>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/particles/color-picker.tsx"
+		}
+	],
+	"type": "registry:component"
+}
