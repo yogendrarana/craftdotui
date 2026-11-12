@@ -143,7 +143,7 @@ function PaginationPrevious({
 			{children ?? (
 				<>
 					<ChevronLeftIcon className="size-4" />
-					<span className="hidden sm:block">Previous</span>
+					<span className="hidden sm:block">Prev</span>
 				</>
 			)}
 		</PaginationLink>
