@@ -1,0 +1,226 @@
+---
+title: Carousel
+description: A composable carousel with motion, swipe, and keyboard navigation built on Embla.
+slug: /craftui/components/carousel
+published: true
+date: 2026-11-12T00:00:00.000Z
+author:
+  name: Yogendra Rana
+  twitter: "https://twitter.com/yooogendra_rana"
+references:
+  - label: "Embla Carousel Reference"
+    url: "https://www.embla-carousel.com"
+---
+
+<ComponentCodePreview name="craftui-particles-carousel" />
+
+## Installation
+
+<Installation name="craftui-carousel" />
+
+## Anatomy
+
+#### Usage
+
+```tsx
+<Carousel>
+  <CarouselContent>
+    <CarouselItem>Slide 1</CarouselItem>
+    <CarouselItem>Slide 2</CarouselItem>
+    <CarouselItem>Slide 3</CarouselItem>
+  </CarouselContent>
+  <CarouselPrevious />
+  <CarouselNext />
+  <CarouselDots />
+</Carousel>
+```
+
+```tsx
+<Carousel.Root>
+  <Carousel.Content>
+    <Carousel.Item>Slide 1</Carousel.Item>
+    <Carousel.Item>Slide 2</Carousel.Item>
+    <Carousel.Item>Slide 3</Carousel.Item>
+  </Carousel.Content>
+  <Carousel.Previous />
+  <Carousel.Next />
+  <Carousel.Dots />
+</Carousel.Root>
+```
+
+## Demo
+
+#### Sizes
+
+Use `basis-*` utility classes on `<CarouselItem />` to display multiple slides per view.
+
+<ComponentCodePreview name="craftui-particles-carousel-sizes" />
+
+#### Spacing
+
+Customize the gap between slides by applying `-ml-*` on `<CarouselContent />` and a matching `pl-*` on `<CarouselItem />`.
+
+<ComponentCodePreview name="craftui-particles-carousel-spacing" />
+
+#### Orientation
+
+Set `orientation="vertical"` to scroll slides vertically.
+
+<ComponentCodePreview name="craftui-particles-carousel-orientation" />
+
+#### With Dots
+
+Use `<CarouselDots />` to render clickable pagination indicators for the slides.
+
+<ComponentCodePreview name="craftui-particles-carousel-with-dots" />
+
+#### With Counter
+
+Use `setApi` to listen to Embla events and display an active slide counter.
+
+<ComponentCodePreview name="craftui-particles-carousel-with-counter" />
+
+#### Thumbnails
+
+Synchronize a clickable thumbnail strip with the main carousel using `setApi`.
+
+<ComponentCodePreview name="craftui-particles-carousel-thumbnails" />
+
+## Props
+
+#### CarouselRoot
+
+<PropsTable
+  data={[
+    {
+      prop: "opts",
+      type: "CarouselOptions",
+      default: "undefined",
+      description: "Embla carousel options such as align, loop, dragFree, or slidesToScroll.",
+    },
+    {
+      prop: "plugins",
+      type: "CarouselPlugin",
+      default: "undefined",
+      description: "Array of Embla carousel plugins (e.g. Autoplay, AutoScroll).",
+    },
+    {
+      prop: "orientation",
+      type: '"horizontal" | "vertical"',
+      default: '"horizontal"',
+      description: "Scroll axis orientation of the carousel.",
+    },
+    {
+      prop: "setApi",
+      type: "(api: CarouselApi) => void",
+      default: "undefined",
+      description: "Callback that receives the Embla Carousel API instance once initialized.",
+    },
+    {
+      prop: "render",
+      type: "useRender.RenderProp",
+      default: "undefined",
+      description: "Allows the carousel container to be rendered as a custom element or component.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes for the carousel root element.",
+    },
+  ]}
+/>
+
+#### CarouselContent
+
+<PropsTable
+  data={[
+    {
+      prop: "viewportClassName",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes applied to the outer overflow-hidden Embla viewport container.",
+    },
+    {
+      prop: "render",
+      type: "useRender.RenderProp",
+      default: "undefined",
+      description: "Allows the inner slide track to be rendered as a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes for the inner flex slide track.",
+    },
+  ]}
+/>
+
+#### CarouselItem
+
+<PropsTable
+  data={[
+    {
+      prop: "render",
+      type: "useRender.RenderProp",
+      default: "undefined",
+      description: "Allows the slide item to be rendered as a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes for the slide item (e.g. basis-1/2, basis-1/3).",
+    },
+  ]}
+/>
+
+#### CarouselPrevious / CarouselNext
+
+<PropsTable
+  data={[
+    {
+      prop: "variant",
+      type: '"default" | "secondary" | "destructive" | "outline" | "ghost" | "link"',
+      default: '"outline"',
+      description: "Button visual style variant.",
+    },
+    {
+      prop: "size",
+      type: '"xs" | "sm" | "md" | "lg" | "xl" | "icon" | "icon-xs" | "icon-sm" | "icon-md" | "icon-lg" | "icon-xl"',
+      default: '"icon"',
+      description: "Button size.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes for positioning or styling the navigation button.",
+    },
+  ]}
+/>
+
+#### CarouselDots
+
+<PropsTable
+  data={[
+    {
+      prop: "dotClassName",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes applied to each individual dot indicator button.",
+    },
+    {
+      prop: "render",
+      type: "useRender.RenderProp",
+      default: "undefined",
+      description: "Allows the dots container to be rendered as a custom element.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes for the dots container.",
+    },
+  ]}
+/>

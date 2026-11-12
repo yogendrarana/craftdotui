@@ -1704,6 +1704,350 @@ export const Registry: Record<string, any> = {
 							return LazyComp;
 						})(),
           },
+          "craftui-particles-carousel-orientation": {
+            name: "craftui-particles-carousel-orientation",
+            description: "Vertical carousel orientation with top and bottom controls",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-carousel","@craftdotui/craftui-card"],
+            files: [
+  {
+    "path": "packages/craftui/components/carousel/particles/orientation/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/carousel-orientation.tsx",
+    "content": "\"use client\";\n\nimport {\n\tCarousel,\n\tCarouselContent,\n\tCarouselItem,\n\tCarouselNext,\n\tCarouselPrevious,\n} from \"@/components/craftui/components/carousel\";\nimport { Card, CardContent } from \"@/components/craftui/components/card\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"w-full py-12 flex justify-center\">\n\t\t\t<Carousel\n\t\t\t\topts={{\n\t\t\t\t\talign: \"start\",\n\t\t\t\t}}\n\t\t\t\torientation=\"vertical\"\n\t\t\t\tclassName=\"w-full max-w-xs\"\n\t\t\t>\n\t\t\t\t<CarouselContent className=\"-mt-1 h-[220px]\">\n\t\t\t\t\t{Array.from({ length: 5 }).map((_, index) => (\n\t\t\t\t\t\t<CarouselItem key={index} className=\"pt-1 basis-1/2\">\n\t\t\t\t\t\t\t<div className=\"p-1\">\n\t\t\t\t\t\t\t\t<Card className=\"py-0\">\n\t\t\t\t\t\t\t\t\t<CardContent className=\"flex items-center justify-center p-6\">\n\t\t\t\t\t\t\t\t\t\t<span className=\"text-3xl font-semibold\">\n\t\t\t\t\t\t\t\t\t\t\t{index + 1}\n\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t</CardContent>\n\t\t\t\t\t\t\t\t</Card>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</CarouselItem>\n\t\t\t\t\t))}\n\t\t\t\t</CarouselContent>\n\t\t\t\t<CarouselPrevious />\n\t\t\t\t<CarouselNext />\n\t\t\t</Carousel>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-carousel-orientation',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/carousel/particles/orientation/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-carousel": {
+            name: "craftui-particles-carousel",
+            description: "Default single-slide carousel with previous and next controls",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-carousel","@craftdotui/craftui-card"],
+            files: [
+  {
+    "path": "packages/craftui/components/carousel/particles/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/carousel.tsx",
+    "content": "\"use client\";\n\nimport {\n\tCarousel,\n\tCarouselContent,\n\tCarouselItem,\n\tCarouselNext,\n\tCarouselPrevious,\n} from \"@/components/craftui/components/carousel\";\nimport { Card, CardContent } from \"@/components/craftui/components/card\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"w-full px-12 flex justify-center\">\n\t\t\t<Carousel className=\"w-full max-w-xs\">\n\t\t\t\t<CarouselContent>\n\t\t\t\t\t{Array.from({ length: 5 }).map((_, index) => (\n\t\t\t\t\t\t<CarouselItem key={index}>\n\t\t\t\t\t\t\t<div className=\"p-1\">\n\t\t\t\t\t\t\t\t<Card className=\"py-0\">\n\t\t\t\t\t\t\t\t\t<CardContent className=\"flex aspect-square items-center justify-center p-6\">\n\t\t\t\t\t\t\t\t\t\t<span className=\"text-4xl font-semibold\">\n\t\t\t\t\t\t\t\t\t\t\t{index + 1}\n\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t</CardContent>\n\t\t\t\t\t\t\t\t</Card>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</CarouselItem>\n\t\t\t\t\t))}\n\t\t\t\t</CarouselContent>\n\t\t\t\t<CarouselPrevious />\n\t\t\t\t<CarouselNext />\n\t\t\t</Carousel>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-carousel',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/carousel/particles/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-carousel-sizes": {
+            name: "craftui-particles-carousel-sizes",
+            description: "Carousel displaying multiple slides per view using responsive flex basis classes",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-carousel","@craftdotui/craftui-card"],
+            files: [
+  {
+    "path": "packages/craftui/components/carousel/particles/sizes/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/carousel-sizes.tsx",
+    "content": "\"use client\";\n\nimport {\n\tCarousel,\n\tCarouselContent,\n\tCarouselItem,\n\tCarouselNext,\n\tCarouselPrevious,\n} from \"@/components/craftui/components/carousel\";\nimport { Card, CardContent } from \"@/components/craftui/components/card\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"w-full px-12 flex justify-center\">\n\t\t\t<Carousel\n\t\t\t\topts={{\n\t\t\t\t\talign: \"start\",\n\t\t\t\t}}\n\t\t\t\tclassName=\"w-full max-w-sm\"\n\t\t\t>\n\t\t\t\t<CarouselContent>\n\t\t\t\t\t{Array.from({ length: 6 }).map((_, index) => (\n\t\t\t\t\t\t<CarouselItem\n\t\t\t\t\t\t\tkey={index}\n\t\t\t\t\t\t\tclassName=\"basis-1/2 sm:basis-1/3\"\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t<div className=\"p-1\">\n\t\t\t\t\t\t\t\t<Card className=\"py-0\">\n\t\t\t\t\t\t\t\t\t<CardContent className=\"flex aspect-square items-center justify-center p-6\">\n\t\t\t\t\t\t\t\t\t\t<span className=\"text-2xl font-semibold\">\n\t\t\t\t\t\t\t\t\t\t\t{index + 1}\n\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t</CardContent>\n\t\t\t\t\t\t\t\t</Card>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</CarouselItem>\n\t\t\t\t\t))}\n\t\t\t\t</CarouselContent>\n\t\t\t\t<CarouselPrevious />\n\t\t\t\t<CarouselNext />\n\t\t\t</Carousel>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-carousel-sizes',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/carousel/particles/sizes/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-carousel-spacing": {
+            name: "craftui-particles-carousel-spacing",
+            description: "Carousel with custom gap spacing between slides using negative margin and padding",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-carousel","@craftdotui/craftui-card"],
+            files: [
+  {
+    "path": "packages/craftui/components/carousel/particles/spacing/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/carousel-spacing.tsx",
+    "content": "\"use client\";\n\nimport {\n\tCarousel,\n\tCarouselContent,\n\tCarouselItem,\n\tCarouselNext,\n\tCarouselPrevious,\n} from \"@/components/craftui/components/carousel\";\nimport { Card, CardContent } from \"@/components/craftui/components/card\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"w-full px-12 flex justify-center\">\n\t\t\t<Carousel\n\t\t\t\topts={{\n\t\t\t\t\talign: \"start\",\n\t\t\t\t}}\n\t\t\t\tclassName=\"w-full max-w-sm\"\n\t\t\t>\n\t\t\t\t<CarouselContent className=\"-ml-1\">\n\t\t\t\t\t{Array.from({ length: 6 }).map((_, index) => (\n\t\t\t\t\t\t<CarouselItem\n\t\t\t\t\t\t\tkey={index}\n\t\t\t\t\t\t\tclassName=\"pl-1 basis-1/2 sm:basis-1/3\"\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t<div className=\"p-1\">\n\t\t\t\t\t\t\t\t<Card className=\"py-0\">\n\t\t\t\t\t\t\t\t\t<CardContent className=\"flex aspect-square items-center justify-center p-6\">\n\t\t\t\t\t\t\t\t\t\t<span className=\"text-2xl font-semibold\">\n\t\t\t\t\t\t\t\t\t\t\t{index + 1}\n\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t</CardContent>\n\t\t\t\t\t\t\t\t</Card>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</CarouselItem>\n\t\t\t\t\t))}\n\t\t\t\t</CarouselContent>\n\t\t\t\t<CarouselPrevious />\n\t\t\t\t<CarouselNext />\n\t\t\t</Carousel>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-carousel-spacing',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/carousel/particles/spacing/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-carousel-thumbnails": {
+            name: "craftui-particles-carousel-thumbnails",
+            description: "Carousel with synchronized clickable thumbnail strip below the main viewport",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/cn","@craftdotui/craftui-carousel","@craftdotui/craftui-card"],
+            files: [
+  {
+    "path": "packages/craftui/components/carousel/particles/thumbnails/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/carousel-thumbnails.tsx",
+    "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { cn } from \"cn\";\nimport {\n\tCarousel,\n\ttype CarouselApi,\n\tCarouselContent,\n\tCarouselItem,\n\tCarouselNext,\n\tCarouselPrevious,\n} from \"@/components/craftui/components/carousel\";\nimport { Card, CardContent } from \"@/components/craftui/components/card\";\n\nexport default function Particle() {\n\tconst [api, setApi] = React.useState<CarouselApi>();\n\tconst [selectedIndex, setSelectedIndex] = React.useState(0);\n\n\tReact.useEffect(() => {\n\t\tif (!api) return;\n\n\t\tconst onSelect = () => {\n\t\t\tsetSelectedIndex(api.selectedScrollSnap());\n\t\t};\n\n\t\tonSelect();\n\t\tapi.on(\"select\", onSelect);\n\t\treturn () => {\n\t\t\tapi.off(\"select\", onSelect);\n\t\t};\n\t}, [api]);\n\n\treturn (\n\t\t<div className=\"w-full px-12 flex flex-col items-center gap-3\">\n\t\t\t<Carousel setApi={setApi} className=\"w-full max-w-xs\">\n\t\t\t\t<CarouselContent>\n\t\t\t\t\t{Array.from({ length: 5 }).map((_, index) => (\n\t\t\t\t\t\t<CarouselItem key={index}>\n\t\t\t\t\t\t\t<div className=\"p-1\">\n\t\t\t\t\t\t\t\t<Card className=\"py-0\">\n\t\t\t\t\t\t\t\t\t<CardContent className=\"flex aspect-video items-center justify-center p-6\">\n\t\t\t\t\t\t\t\t\t\t<span className=\"text-4xl font-semibold\">\n\t\t\t\t\t\t\t\t\t\t\t{index + 1}\n\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t</CardContent>\n\t\t\t\t\t\t\t\t</Card>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</CarouselItem>\n\t\t\t\t\t))}\n\t\t\t\t</CarouselContent>\n\t\t\t\t<CarouselPrevious />\n\t\t\t\t<CarouselNext />\n\t\t\t</Carousel>\n\n\t\t\t<div className=\"grid w-full max-w-xs grid-cols-5 gap-2 px-1\">\n\t\t\t\t{Array.from({ length: 5 }).map((_, index) => {\n\t\t\t\t\tconst isActive = index === selectedIndex;\n\t\t\t\t\treturn (\n\t\t\t\t\t\t<button\n\t\t\t\t\t\t\tkey={index}\n\t\t\t\t\t\t\ttype=\"button\"\n\t\t\t\t\t\t\tonClick={() => api?.scrollTo(index)}\n\t\t\t\t\t\t\taria-label={`Select slide ${index + 1}`}\n\t\t\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t\t\t\"flex aspect-square items-center justify-center rounded-lg border text-sm font-medium transition-all cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-ring\",\n\t\t\t\t\t\t\t\tisActive\n\t\t\t\t\t\t\t\t\t? \"border-primary bg-primary/10 text-foreground ring-1 ring-primary\"\n\t\t\t\t\t\t\t\t\t: \"border-border bg-card text-muted-foreground opacity-60 hover:opacity-100\",\n\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t{index + 1}\n\t\t\t\t\t\t</button>\n\t\t\t\t\t);\n\t\t\t\t})}\n\t\t\t</div>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-carousel-thumbnails',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/carousel/particles/thumbnails/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-carousel-with-counter": {
+            name: "craftui-particles-carousel-with-counter",
+            description: "Carousel with an active slide counter updated using the Embla API",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-carousel","@craftdotui/craftui-card"],
+            files: [
+  {
+    "path": "packages/craftui/components/carousel/particles/with-counter/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/carousel-with-counter.tsx",
+    "content": "\"use client\";\n\nimport * as React from \"react\";\nimport {\n\tCarousel,\n\ttype CarouselApi,\n\tCarouselContent,\n\tCarouselItem,\n\tCarouselNext,\n\tCarouselPrevious,\n} from \"@/components/craftui/components/carousel\";\nimport { Card, CardContent } from \"@/components/craftui/components/card\";\n\nexport default function Particle() {\n\tconst [api, setApi] = React.useState<CarouselApi>();\n\tconst [current, setCurrent] = React.useState(0);\n\tconst [count, setCount] = React.useState(0);\n\n\tReact.useEffect(() => {\n\t\tif (!api) return;\n\n\t\tsetCount(api.scrollSnapList().length);\n\t\tsetCurrent(api.selectedScrollSnap() + 1);\n\n\t\tconst onSelect = () => {\n\t\t\tsetCurrent(api.selectedScrollSnap() + 1);\n\t\t};\n\n\t\tapi.on(\"select\", onSelect);\n\t\treturn () => {\n\t\t\tapi.off(\"select\", onSelect);\n\t\t};\n\t}, [api]);\n\n\treturn (\n\t\t<div className=\"w-full px-12 flex flex-col items-center gap-2\">\n\t\t\t<Carousel setApi={setApi} className=\"w-full max-w-xs\">\n\t\t\t\t<CarouselContent>\n\t\t\t\t\t{Array.from({ length: 5 }).map((_, index) => (\n\t\t\t\t\t\t<CarouselItem key={index}>\n\t\t\t\t\t\t\t<div className=\"p-1\">\n\t\t\t\t\t\t\t\t<Card className=\"py-0\">\n\t\t\t\t\t\t\t\t\t<CardContent className=\"flex aspect-square items-center justify-center p-6\">\n\t\t\t\t\t\t\t\t\t\t<span className=\"text-4xl font-semibold\">\n\t\t\t\t\t\t\t\t\t\t\t{index + 1}\n\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t</CardContent>\n\t\t\t\t\t\t\t\t</Card>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</CarouselItem>\n\t\t\t\t\t))}\n\t\t\t\t</CarouselContent>\n\t\t\t\t<CarouselPrevious />\n\t\t\t\t<CarouselNext />\n\t\t\t</Carousel>\n\t\t\t<div className=\"text-center text-xs text-muted-foreground\">\n\t\t\t\tSlide {current} of {count}\n\t\t\t</div>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-carousel-with-counter',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/carousel/particles/with-counter/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-carousel-with-dots": {
+            name: "craftui-particles-carousel-with-dots",
+            description: "Looping carousel with dot pagination indicators",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-carousel","@craftdotui/craftui-card"],
+            files: [
+  {
+    "path": "packages/craftui/components/carousel/particles/with-dots/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/carousel-with-dots.tsx",
+    "content": "\"use client\";\n\nimport {\n\tCarousel,\n\tCarouselContent,\n\tCarouselDots,\n\tCarouselItem,\n\tCarouselNext,\n\tCarouselPrevious,\n} from \"@/components/craftui/components/carousel\";\nimport { Card, CardContent } from \"@/components/craftui/components/card\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"w-full px-12 flex justify-center\">\n\t\t\t<Carousel opts={{ loop: true }} className=\"w-full max-w-xs\">\n\t\t\t\t<CarouselContent>\n\t\t\t\t\t{Array.from({ length: 5 }).map((_, index) => (\n\t\t\t\t\t\t<CarouselItem key={index}>\n\t\t\t\t\t\t\t<div className=\"p-1\">\n\t\t\t\t\t\t\t\t<Card className=\"py-0\">\n\t\t\t\t\t\t\t\t\t<CardContent className=\"flex aspect-square items-center justify-center p-6\">\n\t\t\t\t\t\t\t\t\t\t<span className=\"text-4xl font-semibold\">\n\t\t\t\t\t\t\t\t\t\t\t{index + 1}\n\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t</CardContent>\n\t\t\t\t\t\t\t\t</Card>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</CarouselItem>\n\t\t\t\t\t))}\n\t\t\t\t</CarouselContent>\n\t\t\t\t<CarouselPrevious />\n\t\t\t\t<CarouselNext />\n\t\t\t\t<CarouselDots />\n\t\t\t</Carousel>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-carousel-with-dots',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/carousel/particles/with-dots/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-carousel": {
+            name: "craftui-carousel",
+            description: "A composable carousel with motion and swipe built on Embla.",
+            type: "registry:ui",
+            dependencies: ["@base-ui/react","embla-carousel-react","lucide-react"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/cn","@craftdotui/baseui-button"],
+            files: [
+  {
+    "path": "packages/craftui/components/carousel/index.tsx",
+    "type": "registry:ui",
+    "target": "components/ui/carousel.tsx",
+    "content": "\"use client\";\n\nimport * as React from \"react\";\nimport useEmblaCarousel, {\n\ttype UseEmblaCarouselType,\n} from \"embla-carousel-react\";\nimport { ArrowLeftIcon, ArrowRightIcon } from \"lucide-react\";\nimport { cn } from \"cn\";\nimport { useRender } from \"@base-ui/react/use-render\";\nimport { mergeProps } from \"@base-ui/react/merge-props\";\nimport { Button, type ButtonProps } from \"@/components/baseui/components/button\";\n\n/* -------------------------------------------------------------------------- */\n/* Types & Context                                                            */\n/* -------------------------------------------------------------------------- */\n\nexport type CarouselApi = UseEmblaCarouselType[1];\ntype UseCarouselParameters = Parameters<typeof useEmblaCarousel>;\nexport type CarouselOptions = UseCarouselParameters[0];\nexport type CarouselPlugin = UseCarouselParameters[1];\nexport type CarouselOrientation = \"horizontal\" | \"vertical\";\n\nexport interface CarouselProps {\n\topts?: CarouselOptions;\n\tplugins?: CarouselPlugin;\n\torientation?: CarouselOrientation;\n\tsetApi?: (api: CarouselApi) => void;\n}\n\ninterface CarouselContextValue extends CarouselProps {\n\tcarouselRef: ReturnType<typeof useEmblaCarousel>[0];\n\tapi: ReturnType<typeof useEmblaCarousel>[1];\n\torientation: CarouselOrientation;\n\tscrollPrev: () => void;\n\tscrollNext: () => void;\n\tscrollTo: (index: number) => void;\n\tcanScrollPrev: boolean;\n\tcanScrollNext: boolean;\n\tselectedIndex: number;\n\tscrollSnapList: number[];\n}\n\nconst CarouselContext = React.createContext<CarouselContextValue | null>(null);\n\nfunction useCarousel() {\n\tconst context = React.useContext(CarouselContext);\n\tif (!context) {\n\t\tthrow new Error(\"useCarousel must be used within a <CarouselRoot />\");\n\t}\n\treturn context;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Carousel Root                                                              */\n/* -------------------------------------------------------------------------- */\n\nexport interface CarouselRootProps\n\textends useRender.ComponentProps<\"div\">,\n\t\tCarouselProps {}\n\nfunction CarouselRoot({\n\torientation = \"horizontal\",\n\topts,\n\tsetApi,\n\tplugins,\n\tclassName,\n\trender,\n\t...props\n}: CarouselRootProps) {\n\tconst resolvedOrientation: CarouselOrientation =\n\t\torientation || (opts?.axis === \"y\" ? \"vertical\" : \"horizontal\");\n\n\tconst [carouselRef, api] = useEmblaCarousel(\n\t\t{\n\t\t\t...opts,\n\t\t\taxis: resolvedOrientation === \"horizontal\" ? \"x\" : \"y\",\n\t\t},\n\t\tplugins,\n\t);\n\n\tconst [canScrollPrev, setCanScrollPrev] = React.useState(false);\n\tconst [canScrollNext, setCanScrollNext] = React.useState(false);\n\tconst [selectedIndex, setSelectedIndex] = React.useState(0);\n\tconst [scrollSnapList, setScrollSnapList] = React.useState<number[]>([]);\n\n\tconst onSelect = React.useCallback((emblaApi: CarouselApi) => {\n\t\tif (!emblaApi) return;\n\t\tsetCanScrollPrev(emblaApi.canScrollPrev());\n\t\tsetCanScrollNext(emblaApi.canScrollNext());\n\t\tsetSelectedIndex(emblaApi.selectedScrollSnap());\n\t}, []);\n\n\tconst onInit = React.useCallback((emblaApi: CarouselApi) => {\n\t\tif (!emblaApi) return;\n\t\tsetScrollSnapList(emblaApi.scrollSnapList());\n\t}, []);\n\n\tconst scrollPrev = React.useCallback(() => {\n\t\tapi?.scrollPrev();\n\t}, [api]);\n\n\tconst scrollNext = React.useCallback(() => {\n\t\tapi?.scrollNext();\n\t}, [api]);\n\n\tconst scrollTo = React.useCallback(\n\t\t(index: number) => {\n\t\t\tapi?.scrollTo(index);\n\t\t},\n\t\t[api],\n\t);\n\n\tconst handleKeyDown = React.useCallback(\n\t\t(event: React.KeyboardEvent<HTMLDivElement>) => {\n\t\t\tif (resolvedOrientation === \"horizontal\") {\n\t\t\t\tif (event.key === \"ArrowLeft\") {\n\t\t\t\t\tevent.preventDefault();\n\t\t\t\t\tscrollPrev();\n\t\t\t\t} else if (event.key === \"ArrowRight\") {\n\t\t\t\t\tevent.preventDefault();\n\t\t\t\t\tscrollNext();\n\t\t\t\t}\n\t\t\t} else {\n\t\t\t\tif (event.key === \"ArrowUp\") {\n\t\t\t\t\tevent.preventDefault();\n\t\t\t\t\tscrollPrev();\n\t\t\t\t} else if (event.key === \"ArrowDown\") {\n\t\t\t\t\tevent.preventDefault();\n\t\t\t\t\tscrollNext();\n\t\t\t\t}\n\t\t\t}\n\t\t},\n\t\t[resolvedOrientation, scrollPrev, scrollNext],\n\t);\n\n\tReact.useEffect(() => {\n\t\tif (!api || !setApi) return;\n\t\tsetApi(api);\n\t}, [api, setApi]);\n\n\tReact.useEffect(() => {\n\t\tif (!api) return;\n\t\tonInit(api);\n\t\tonSelect(api);\n\t\tapi.on(\"reInit\", onInit);\n\t\tapi.on(\"reInit\", onSelect);\n\t\tapi.on(\"select\", onSelect);\n\n\t\treturn () => {\n\t\t\tapi.off(\"reInit\", onInit);\n\t\t\tapi.off(\"reInit\", onSelect);\n\t\t\tapi.off(\"select\", onSelect);\n\t\t};\n\t}, [api, onInit, onSelect]);\n\n\tconst contextValue = React.useMemo<CarouselContextValue>(\n\t\t() => ({\n\t\t\tcarouselRef,\n\t\t\tapi,\n\t\t\topts,\n\t\t\tplugins,\n\t\t\torientation: resolvedOrientation,\n\t\t\tscrollPrev,\n\t\t\tscrollNext,\n\t\t\tscrollTo,\n\t\t\tcanScrollPrev,\n\t\t\tcanScrollNext,\n\t\t\tselectedIndex,\n\t\t\tscrollSnapList,\n\t\t}),\n\t\t[\n\t\t\tcarouselRef,\n\t\t\tapi,\n\t\t\topts,\n\t\t\tplugins,\n\t\t\tresolvedOrientation,\n\t\t\tscrollPrev,\n\t\t\tscrollNext,\n\t\t\tscrollTo,\n\t\t\tcanScrollPrev,\n\t\t\tcanScrollNext,\n\t\t\tselectedIndex,\n\t\t\tscrollSnapList,\n\t\t],\n\t);\n\n\tconst defaultProps = {\n\t\trole: \"region\",\n\t\t\"aria-roledescription\": \"carousel\",\n\t\t\"data-slot\": \"carousel\",\n\t\t\"data-orientation\": resolvedOrientation,\n\t\tonKeyDownCapture: handleKeyDown,\n\t\tclassName: cn(\"relative\", className),\n\t};\n\n\tconst element = useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n\n\treturn (\n\t\t<CarouselContext.Provider value={contextValue}>\n\t\t\t{element}\n\t\t</CarouselContext.Provider>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Carousel Content                                                           */\n/* -------------------------------------------------------------------------- */\n\nexport interface CarouselContentProps extends useRender.ComponentProps<\"div\"> {\n\tviewportClassName?: string;\n}\n\nfunction CarouselContent({\n\tclassName,\n\tviewportClassName,\n\trender,\n\t...props\n}: CarouselContentProps) {\n\tconst { carouselRef, orientation } = useCarousel();\n\n\tconst defaultProps = {\n\t\t\"data-slot\": \"carousel-content\",\n\t\t\"data-orientation\": orientation,\n\t\tclassName: cn(\n\t\t\t\"flex\",\n\t\t\torientation === \"horizontal\" ? \"-ml-4\" : \"-mt-4 flex-col\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\tconst track = useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n\n\treturn (\n\t\t<div\n\t\t\tref={carouselRef}\n\t\t\tdata-slot=\"carousel-viewport\"\n\t\t\tclassName={cn(\"overflow-hidden\", viewportClassName)}\n\t\t>\n\t\t\t{track}\n\t\t</div>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Carousel Item                                                              */\n/* -------------------------------------------------------------------------- */\n\nexport interface CarouselItemProps extends useRender.ComponentProps<\"div\"> {}\n\nfunction CarouselItem({ className, render, ...props }: CarouselItemProps) {\n\tconst { orientation } = useCarousel();\n\n\tconst defaultProps = {\n\t\trole: \"group\",\n\t\t\"aria-roledescription\": \"slide\",\n\t\t\"data-slot\": \"carousel-item\",\n\t\t\"data-orientation\": orientation,\n\t\tclassName: cn(\n\t\t\t\"min-w-0 shrink-0 grow-0 basis-full\",\n\t\t\torientation === \"horizontal\" ? \"pl-4\" : \"pt-4\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Carousel Previous                                                          */\n/* -------------------------------------------------------------------------- */\n\nexport interface CarouselPreviousProps extends ButtonProps {}\n\nfunction CarouselPrevious({\n\tclassName,\n\tvariant = \"outline\",\n\tsize = \"icon\",\n\tchildren,\n\t...props\n}: CarouselPreviousProps) {\n\tconst { orientation, scrollPrev, canScrollPrev } = useCarousel();\n\n\treturn (\n\t\t<Button\n\t\t\tdata-slot=\"carousel-previous\"\n\t\t\tvariant={variant}\n\t\t\tsize={size}\n\t\t\tdisabled={!canScrollPrev}\n\t\t\tonClick={scrollPrev}\n\t\t\tclassName={cn(\n\t\t\t\t\"absolute rounded-full\",\n\t\t\t\torientation === \"horizontal\"\n\t\t\t\t\t? \"top-1/2 -left-12 -translate-y-1/2\"\n\t\t\t\t\t: \"-top-12 left-1/2 -translate-x-1/2 rotate-90\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t{children ?? (\n\t\t\t\t<>\n\t\t\t\t\t<ArrowLeftIcon className=\"size-4\" />\n\t\t\t\t\t<span className=\"sr-only\">Previous slide</span>\n\t\t\t\t</>\n\t\t\t)}\n\t\t</Button>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Carousel Next                                                              */\n/* -------------------------------------------------------------------------- */\n\nexport interface CarouselNextProps extends ButtonProps {}\n\nfunction CarouselNext({\n\tclassName,\n\tvariant = \"outline\",\n\tsize = \"icon\",\n\tchildren,\n\t...props\n}: CarouselNextProps) {\n\tconst { orientation, scrollNext, canScrollNext } = useCarousel();\n\n\treturn (\n\t\t<Button\n\t\t\tdata-slot=\"carousel-next\"\n\t\t\tvariant={variant}\n\t\t\tsize={size}\n\t\t\tdisabled={!canScrollNext}\n\t\t\tonClick={scrollNext}\n\t\t\tclassName={cn(\n\t\t\t\t\"absolute rounded-full\",\n\t\t\t\torientation === \"horizontal\"\n\t\t\t\t\t? \"top-1/2 -right-12 -translate-y-1/2\"\n\t\t\t\t\t: \"-bottom-12 left-1/2 -translate-x-1/2 rotate-90\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t{children ?? (\n\t\t\t\t<>\n\t\t\t\t\t<ArrowRightIcon className=\"size-4\" />\n\t\t\t\t\t<span className=\"sr-only\">Next slide</span>\n\t\t\t\t</>\n\t\t\t)}\n\t\t</Button>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Carousel Dots                                                              */\n/* -------------------------------------------------------------------------- */\n\nexport interface CarouselDotsProps extends useRender.ComponentProps<\"div\"> {\n\tdotClassName?: string;\n}\n\nfunction CarouselDots({\n\tclassName,\n\tdotClassName,\n\trender,\n\t...props\n}: CarouselDotsProps) {\n\tconst { scrollSnapList, selectedIndex, scrollTo, orientation } =\n\t\tuseCarousel();\n\n\tconst defaultProps = {\n\t\trole: \"tablist\",\n\t\t\"aria-label\": \"Slide navigation\",\n\t\t\"data-slot\": \"carousel-dots\",\n\t\t\"data-orientation\": orientation,\n\t\tclassName: cn(\n\t\t\t\"flex items-center justify-center gap-1.5 pt-3\",\n\t\t\tclassName,\n\t\t),\n\t\tchildren: scrollSnapList.map((_, index) => {\n\t\t\tconst isActive = index === selectedIndex;\n\t\t\treturn (\n\t\t\t\t<button\n\t\t\t\t\tkey={index}\n\t\t\t\t\ttype=\"button\"\n\t\t\t\t\trole=\"tab\"\n\t\t\t\t\taria-selected={isActive}\n\t\t\t\t\taria-label={`Go to slide ${index + 1}`}\n\t\t\t\t\tdata-slot=\"carousel-dot\"\n\t\t\t\t\tdata-active={isActive || undefined}\n\t\t\t\t\tonClick={() => scrollTo(index)}\n\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t\"h-2 rounded-full transition-all duration-200 cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-ring\",\n\t\t\t\t\t\tisActive\n\t\t\t\t\t\t\t? \"w-5 bg-primary\"\n\t\t\t\t\t\t\t: \"w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50\",\n\t\t\t\t\t\tdotClassName,\n\t\t\t\t\t)}\n\t\t\t\t/>\n\t\t\t);\n\t\t}),\n\t};\n\n\tconst element = useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n\n\tif (scrollSnapList.length <= 1) return null;\n\n\treturn element;\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const Carousel = Object.assign(CarouselRoot, {\n\tRoot: CarouselRoot,\n\tContent: CarouselContent,\n\tItem: CarouselItem,\n\tPrevious: CarouselPrevious,\n\tNext: CarouselNext,\n\tDots: CarouselDots,\n});\n\nexport {\n\tCarouselRoot,\n\tCarouselContent,\n\tCarouselItem,\n\tCarouselPrevious,\n\tCarouselNext,\n\tCarouselDots,\n\tuseCarousel,\n};"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-carousel',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/carousel/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
           "craftui-particles-command-dialog": {
             name: "craftui-particles-command-dialog",
             description: "Modal command palette dialog with keyboard shortcut trigger and footer hints",

@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-carousel-sizes",
+	"description": "Carousel displaying multiple slides per view using responsive flex basis classes",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/craftui-carousel",
+		"@craftdotui/craftui-card"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/carousel/particles/sizes/index.tsx",
+			"content": "\"use client\";\n\nimport {\n\tCarousel,\n\tCarouselContent,\n\tCarouselItem,\n\tCarouselNext,\n\tCarouselPrevious,\n} from \"@/components/craftui/components/carousel\";\nimport { Card, CardContent } from \"@/components/craftui/components/card\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"w-full px-12 flex justify-center\">\n\t\t\t<Carousel\n\t\t\t\topts={{\n\t\t\t\t\talign: \"start\",\n\t\t\t\t}}\n\t\t\t\tclassName=\"w-full max-w-sm\"\n\t\t\t>\n\t\t\t\t<CarouselContent>\n\t\t\t\t\t{Array.from({ length: 6 }).map((_, index) => (\n\t\t\t\t\t\t<CarouselItem\n\t\t\t\t\t\t\tkey={index}\n\t\t\t\t\t\t\tclassName=\"basis-1/2 sm:basis-1/3\"\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t<div className=\"p-1\">\n\t\t\t\t\t\t\t\t<Card className=\"py-0\">\n\t\t\t\t\t\t\t\t\t<CardContent className=\"flex aspect-square items-center justify-center p-6\">\n\t\t\t\t\t\t\t\t\t\t<span className=\"text-2xl font-semibold\">\n\t\t\t\t\t\t\t\t\t\t\t{index + 1}\n\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t</CardContent>\n\t\t\t\t\t\t\t\t</Card>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</CarouselItem>\n\t\t\t\t\t))}\n\t\t\t\t</CarouselContent>\n\t\t\t\t<CarouselPrevious />\n\t\t\t\t<CarouselNext />\n\t\t\t</Carousel>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/carousel-sizes.tsx"
+		}
+	],
+	"type": "registry:component"
+}
