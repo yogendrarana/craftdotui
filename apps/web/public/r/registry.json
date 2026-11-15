@@ -1282,6 +1282,79 @@
 			]
 		},
 		{
+			"name": "craftui-particles-resizable-collapsible",
+			"type": "registry:component",
+			"description": "Collapsible sidebar panel with imperative collapse and expand controls",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": [
+				"@craftdotui/craftui-resizable",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/resizable/particles/collapsible/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/resizable-collapsible.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-resizable",
+			"type": "registry:component",
+			"description": "Default nested horizontal and vertical resizable panel layout",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/craftui-resizable"],
+			"files": [
+				{
+					"path": "packages/craftui/components/resizable/particles/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/resizable.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-resizable-vertical",
+			"type": "registry:component",
+			"description": "Vertical resizable panel group with stacked header and content panels",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/craftui-resizable"],
+			"files": [
+				{
+					"path": "packages/craftui/components/resizable/particles/vertical/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/resizable-vertical.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-resizable-with-handle",
+			"type": "registry:component",
+			"description": "Resizable panels with a visible grip handle on the separator",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/craftui-resizable"],
+			"files": [
+				{
+					"path": "packages/craftui/components/resizable/particles/with-handle/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/resizable-with-handle.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-resizable",
+			"type": "registry:ui",
+			"description": "Accessible resizable panel groups and layouts with keyboard support built on react-resizable-panels.",
+			"dependencies": ["lucide-react", "react-resizable-panels"],
+			"registryDependencies": ["@craftdotui/cn"],
+			"files": [
+				{
+					"path": "packages/craftui/components/resizable/index.tsx",
+					"type": "registry:ui",
+					"target": "components/ui/resizable.tsx"
+				}
+			]
+		},
+		{
 			"name": "craftui-particles-sheet-bare-footer",
 			"type": "registry:component",
 			"description": "Sheet using the bare footer variant without a top border or shaded background.",

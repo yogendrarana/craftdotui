@@ -12,7 +12,8 @@
 		"date-fns": "^4.4.0",
 		"embla-carousel-react": "^8.6.0",
 		"lucide-react": "^1.52.0",
-		"motion": "^12.23.26"
+		"motion": "^12.23.26",
+		"react-resizable-panels": "^4.21.0"
 	},
 	"peerDependencies": {
 		"react": "^19.0.0",

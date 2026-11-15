@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-resizable",
+	"type": "registry:ui",
+	"description": "Accessible resizable panel groups and layouts with keyboard support built on react-resizable-panels.",
+	"dependencies": ["lucide-react", "react-resizable-panels"],
+	"registryDependencies": ["@craftdotui/cn"],
+	"files": [
+		{
+			"path": "packages/craftui/components/resizable/index.tsx",
+			"type": "registry:ui",
+			"target": "components/ui/resizable.tsx"
+		}
+	]
+}

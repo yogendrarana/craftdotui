@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-resizable",
+	"description": "Default nested horizontal and vertical resizable panel layout",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-resizable"],
+	"files": [
+		{
+			"path": "packages/craftui/components/resizable/particles/index.tsx",
+			"content": "\"use client\";\n\nimport {\n\tResizableHandle,\n\tResizablePanel,\n\tResizablePanelGroup,\n} from \"@/components/craftui/components/resizable\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"h-[240px] w-full max-w-lg\">\n\t\t\t<ResizablePanelGroup\n\t\t\t\torientation=\"horizontal\"\n\t\t\t\tclassName=\"overflow-hidden rounded-lg border border-border bg-card shadow-xs\"\n\t\t\t>\n\t\t\t\t<ResizablePanel defaultSize=\"45%\">\n\t\t\t\t\t<div className=\"flex h-full items-center justify-center overflow-hidden bg-muted/30 p-6\">\n\t\t\t\t\t\t<span className=\"whitespace-nowrap text-sm font-medium text-foreground\">\n\t\t\t\t\t\t\tOne\n\t\t\t\t\t\t</span>\n\t\t\t\t\t</div>\n\t\t\t\t</ResizablePanel>\n\t\t\t\t<ResizableHandle withHandle />\n\t\t\t\t<ResizablePanel defaultSize=\"55%\">\n\t\t\t\t\t<ResizablePanelGroup orientation=\"vertical\">\n\t\t\t\t\t\t<ResizablePanel defaultSize=\"35%\">\n\t\t\t\t\t\t\t<div className=\"flex h-full items-center justify-center overflow-hidden bg-muted/15 p-6\">\n\t\t\t\t\t\t\t\t<span className=\"whitespace-nowrap text-sm font-medium text-foreground\">\n\t\t\t\t\t\t\t\t\tTwo\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</ResizablePanel>\n\t\t\t\t\t\t<ResizableHandle withHandle />\n\t\t\t\t\t\t<ResizablePanel defaultSize=\"65%\">\n\t\t\t\t\t\t\t<div className=\"flex h-full items-center justify-center overflow-hidden p-6\">\n\t\t\t\t\t\t\t\t<span className=\"whitespace-nowrap text-sm font-medium text-foreground\">\n\t\t\t\t\t\t\t\t\tThree\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</ResizablePanel>\n\t\t\t\t\t</ResizablePanelGroup>\n\t\t\t\t</ResizablePanel>\n\t\t\t</ResizablePanelGroup>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/resizable.tsx"
+		}
+	],
+	"type": "registry:component"
+}

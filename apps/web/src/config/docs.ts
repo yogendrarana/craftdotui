@@ -234,6 +234,10 @@ export const docsNavItems: Array<DocsNavItem> = [
 				href: "/docs/craftui/components/pagination",
 			},
 			{
+				title: "Resizable",
+				href: "/docs/craftui/components/resizable",
+			},
+			{
 				title: "Sheet",
 				href: "/docs/craftui/components/sheet",
 			},

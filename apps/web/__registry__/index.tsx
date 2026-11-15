@@ -3467,6 +3467,221 @@ export const Registry: Record<string, any> = {
 							return LazyComp;
 						})(),
           },
+          "craftui-particles-resizable-collapsible": {
+            name: "craftui-particles-resizable-collapsible",
+            description: "Collapsible sidebar panel with imperative collapse and expand controls",
+            type: "registry:component",
+            dependencies: ["lucide-react"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-resizable","@craftdotui/baseui-button"],
+            files: [
+  {
+    "path": "packages/craftui/components/resizable/particles/collapsible/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/resizable-collapsible.tsx",
+    "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { PanelLeftCloseIcon, PanelLeftOpenIcon } from \"lucide-react\";\nimport {\n\tResizableHandle,\n\tResizablePanel,\n\tResizablePanelGroup,\n\tusePanelRef,\n} from \"@/components/craftui/components/resizable\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport default function Particle() {\n\tconst sidebarRef = usePanelRef();\n\tconst [isCollapsed, setIsCollapsed] = React.useState(false);\n\n\tconst toggleSidebar = () => {\n\t\tconst panel = sidebarRef.current;\n\t\tif (!panel) return;\n\t\tif (panel.isCollapsed()) {\n\t\t\tpanel.expand();\n\t\t} else {\n\t\t\tpanel.collapse();\n\t\t}\n\t};\n\n\treturn (\n\t\t<div className=\"flex h-[260px] w-full max-w-lg flex-col overflow-hidden rounded-lg border border-border bg-card shadow-xs\">\n\t\t\t<div className=\"flex items-center justify-between border-b border-border bg-muted/30 px-3 py-2\">\n\t\t\t\t<Button variant=\"outline\" size=\"xs\" onClick={toggleSidebar}>\n\t\t\t\t\t{isCollapsed ? (\n\t\t\t\t\t\t<>\n\t\t\t\t\t\t\t<PanelLeftOpenIcon className=\"size-3.5\" />\n\t\t\t\t\t\t\t<span>Expand</span>\n\t\t\t\t\t\t</>\n\t\t\t\t\t) : (\n\t\t\t\t\t\t<>\n\t\t\t\t\t\t\t<PanelLeftCloseIcon className=\"size-3.5\" />\n\t\t\t\t\t\t\t<span>Collapse</span>\n\t\t\t\t\t\t</>\n\t\t\t\t\t)}\n\t\t\t\t</Button>\n\t\t\t</div>\n\t\t\t<ResizablePanelGroup\n\t\t\t\torientation=\"horizontal\"\n\t\t\t\tclassName=\"min-h-0 flex-1\"\n\t\t\t>\n\t\t\t\t<ResizablePanel\n\t\t\t\t\tpanelRef={sidebarRef}\n\t\t\t\t\tcollapsible\n\t\t\t\t\tcollapsedSize=\"0%\"\n\t\t\t\t\tminSize=\"22%\"\n\t\t\t\t\tdefaultSize=\"32%\"\n\t\t\t\t\tonResize={(size) => setIsCollapsed(size.asPercentage === 0)}\n\t\t\t\t>\n\t\t\t\t\t<div className=\"flex h-full items-center justify-center overflow-hidden bg-muted/30 p-4\">\n\t\t\t\t\t\t<span className=\"whitespace-nowrap text-sm font-medium text-foreground\">\n\t\t\t\t\t\t\tSidebar\n\t\t\t\t\t\t</span>\n\t\t\t\t\t</div>\n\t\t\t\t</ResizablePanel>\n\t\t\t\t<ResizableHandle withHandle />\n\t\t\t\t<ResizablePanel defaultSize=\"68%\" minSize=\"30%\">\n\t\t\t\t\t<div className=\"flex h-full items-center justify-center p-4\">\n\t\t\t\t\t\t<span className=\"text-sm font-medium text-foreground\">\n\t\t\t\t\t\t\tContent\n\t\t\t\t\t\t</span>\n\t\t\t\t\t</div>\n\t\t\t\t</ResizablePanel>\n\t\t\t</ResizablePanelGroup>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-resizable-collapsible',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/resizable/particles/collapsible/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-resizable": {
+            name: "craftui-particles-resizable",
+            description: "Default nested horizontal and vertical resizable panel layout",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-resizable"],
+            files: [
+  {
+    "path": "packages/craftui/components/resizable/particles/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/resizable.tsx",
+    "content": "\"use client\";\n\nimport {\n\tResizableHandle,\n\tResizablePanel,\n\tResizablePanelGroup,\n} from \"@/components/craftui/components/resizable\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"h-[240px] w-full max-w-lg\">\n\t\t\t<ResizablePanelGroup\n\t\t\t\torientation=\"horizontal\"\n\t\t\t\tclassName=\"overflow-hidden rounded-lg border border-border bg-card shadow-xs\"\n\t\t\t>\n\t\t\t\t<ResizablePanel defaultSize=\"45%\">\n\t\t\t\t\t<div className=\"flex h-full items-center justify-center overflow-hidden bg-muted/30 p-6\">\n\t\t\t\t\t\t<span className=\"whitespace-nowrap text-sm font-medium text-foreground\">\n\t\t\t\t\t\t\tOne\n\t\t\t\t\t\t</span>\n\t\t\t\t\t</div>\n\t\t\t\t</ResizablePanel>\n\t\t\t\t<ResizableHandle withHandle />\n\t\t\t\t<ResizablePanel defaultSize=\"55%\">\n\t\t\t\t\t<ResizablePanelGroup orientation=\"vertical\">\n\t\t\t\t\t\t<ResizablePanel defaultSize=\"35%\">\n\t\t\t\t\t\t\t<div className=\"flex h-full items-center justify-center overflow-hidden bg-muted/15 p-6\">\n\t\t\t\t\t\t\t\t<span className=\"whitespace-nowrap text-sm font-medium text-foreground\">\n\t\t\t\t\t\t\t\t\tTwo\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</ResizablePanel>\n\t\t\t\t\t\t<ResizableHandle withHandle />\n\t\t\t\t\t\t<ResizablePanel defaultSize=\"65%\">\n\t\t\t\t\t\t\t<div className=\"flex h-full items-center justify-center overflow-hidden p-6\">\n\t\t\t\t\t\t\t\t<span className=\"whitespace-nowrap text-sm font-medium text-foreground\">\n\t\t\t\t\t\t\t\t\tThree\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</ResizablePanel>\n\t\t\t\t\t</ResizablePanelGroup>\n\t\t\t\t</ResizablePanel>\n\t\t\t</ResizablePanelGroup>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-resizable',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/resizable/particles/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-resizable-vertical": {
+            name: "craftui-particles-resizable-vertical",
+            description: "Vertical resizable panel group with stacked header and content panels",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-resizable"],
+            files: [
+  {
+    "path": "packages/craftui/components/resizable/particles/vertical/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/resizable-vertical.tsx",
+    "content": "\"use client\";\n\nimport {\n\tResizableHandle,\n\tResizablePanel,\n\tResizablePanelGroup,\n} from \"@/components/craftui/components/resizable\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"h-[240px] w-full max-w-lg\">\n\t\t\t<ResizablePanelGroup\n\t\t\t\torientation=\"vertical\"\n\t\t\t\tclassName=\"overflow-hidden rounded-lg border border-border bg-card shadow-xs\"\n\t\t\t>\n\t\t\t\t<ResizablePanel defaultSize=\"35%\" minSize=\"25%\">\n\t\t\t\t\t<div className=\"flex h-full items-center justify-center bg-muted/30 p-6\">\n\t\t\t\t\t\t<span className=\"text-sm font-medium text-foreground\">\n\t\t\t\t\t\t\tHeader\n\t\t\t\t\t\t</span>\n\t\t\t\t\t</div>\n\t\t\t\t</ResizablePanel>\n\t\t\t\t<ResizableHandle withHandle />\n\t\t\t\t<ResizablePanel defaultSize=\"65%\" minSize=\"25%\">\n\t\t\t\t\t<div className=\"flex h-full items-center justify-center p-6\">\n\t\t\t\t\t\t<span className=\"text-sm font-medium text-foreground\">\n\t\t\t\t\t\t\tContent\n\t\t\t\t\t\t</span>\n\t\t\t\t\t</div>\n\t\t\t\t</ResizablePanel>\n\t\t\t</ResizablePanelGroup>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-resizable-vertical',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/resizable/particles/vertical/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-resizable-with-handle": {
+            name: "craftui-particles-resizable-with-handle",
+            description: "Resizable panels with a visible grip handle on the separator",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-resizable"],
+            files: [
+  {
+    "path": "packages/craftui/components/resizable/particles/with-handle/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/resizable-with-handle.tsx",
+    "content": "\"use client\";\n\nimport {\n\tResizableHandle,\n\tResizablePanel,\n\tResizablePanelGroup,\n} from \"@/components/craftui/components/resizable\";\n\nexport default function Particle() {\n\treturn (\n\t\t<div className=\"h-[240px] w-full max-w-lg\">\n\t\t\t<ResizablePanelGroup\n\t\t\t\torientation=\"horizontal\"\n\t\t\t\tclassName=\"overflow-hidden rounded-lg border border-border bg-card shadow-xs\"\n\t\t\t>\n\t\t\t\t<ResizablePanel defaultSize=\"32%\" minSize=\"20%\">\n\t\t\t\t\t<div className=\"flex h-full items-center justify-center bg-muted/30 p-6\">\n\t\t\t\t\t\t<span className=\"text-sm font-medium text-foreground\">\n\t\t\t\t\t\t\tSidebar\n\t\t\t\t\t\t</span>\n\t\t\t\t\t</div>\n\t\t\t\t</ResizablePanel>\n\t\t\t\t<ResizableHandle withHandle />\n\t\t\t\t<ResizablePanel defaultSize=\"68%\" minSize=\"25%\">\n\t\t\t\t\t<div className=\"flex h-full items-center justify-center p-6\">\n\t\t\t\t\t\t<span className=\"text-sm font-medium text-foreground\">\n\t\t\t\t\t\t\tContent\n\t\t\t\t\t\t</span>\n\t\t\t\t\t</div>\n\t\t\t\t</ResizablePanel>\n\t\t\t</ResizablePanelGroup>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-resizable-with-handle',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/resizable/particles/with-handle/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-resizable": {
+            name: "craftui-resizable",
+            description: "Accessible resizable panel groups and layouts with keyboard support built on react-resizable-panels.",
+            type: "registry:ui",
+            dependencies: ["lucide-react","react-resizable-panels"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/cn"],
+            files: [
+  {
+    "path": "packages/craftui/components/resizable/index.tsx",
+    "type": "registry:ui",
+    "target": "components/ui/resizable.tsx",
+    "content": "\"use client\";\n\nimport type * as React from \"react\";\nimport {\n\tGroup,\n\ttype GroupImperativeHandle,\n\ttype GroupProps,\n\ttype Layout,\n\tPanel,\n\ttype PanelImperativeHandle,\n\ttype PanelProps,\n\ttype PanelSize,\n\tSeparator,\n\ttype SeparatorProps,\n\tuseDefaultLayout,\n\tuseGroupRef,\n\tusePanelRef,\n\tuseParentGroup,\n\tuseParentPanel,\n} from \"react-resizable-panels\";\nimport { GripVerticalIcon } from \"lucide-react\";\nimport { cn } from \"cn\";\n\n/* -------------------------------------------------------------------------- */\n/* Resizable Panel Group                                                      */\n/* -------------------------------------------------------------------------- */\n\nexport interface ResizablePanelGroupProps extends GroupProps {\n\t/**\n\t * Alias for `orientation` (\"horizontal\" | \"vertical\").\n\t */\n\tdirection?: \"horizontal\" | \"vertical\";\n}\n\nfunction ResizablePanelGroup({\n\tclassName,\n\torientation,\n\tdirection,\n\t...props\n}: ResizablePanelGroupProps): React.ReactElement {\n\tconst resolvedOrientation = orientation ?? direction ?? \"horizontal\";\n\n\treturn (\n\t\t<Group\n\t\t\tdata-slot=\"resizable-panel-group\"\n\t\t\tdata-orientation={resolvedOrientation}\n\t\t\torientation={resolvedOrientation}\n\t\t\tclassName={cn(\n\t\t\t\t\"group/panel-group flex h-full w-full data-[orientation=vertical]:flex-col\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Resizable Panel                                                            */\n/* -------------------------------------------------------------------------- */\n\nexport interface ResizablePanelProps extends PanelProps {}\n\nfunction ResizablePanel({\n\tclassName,\n\t...props\n}: ResizablePanelProps): React.ReactElement {\n\treturn (\n\t\t<Panel\n\t\t\tdata-slot=\"resizable-panel\"\n\t\t\tclassName={cn(\n\t\t\t\t\"min-h-0 min-w-0 transition-[flex-grow] duration-150 ease-out group-has-[[data-separator=active]]/panel-group:transition-none\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Resizable Handle                                                           */\n/* -------------------------------------------------------------------------- */\n\nexport interface ResizableHandleProps extends SeparatorProps {\n\twithHandle?: boolean;\n}\n\nfunction ResizableHandle({\n\twithHandle = false,\n\tclassName,\n\tchildren,\n\t...props\n}: ResizableHandleProps): React.ReactElement {\n\treturn (\n\t\t<Separator\n\t\t\taria-label=\"Resize\"\n\t\t\tdata-slot=\"resizable-handle\"\n\t\t\tclassName={cn(\n\t\t\t\t\"group/handle relative flex w-px shrink-0 cursor-col-resize items-center justify-center bg-border ring-offset-background transition-colors select-none\",\n\t\t\t\t\"after:absolute after:inset-y-0 after:left-1/2 after:w-2 after:-translate-x-1/2\",\n\t\t\t\t\"data-[separator=active]:bg-ring\",\n\t\t\t\t\"focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-1\",\n\t\t\t\t\"aria-[orientation=horizontal]:h-px aria-[orientation=horizontal]:w-full aria-[orientation=horizontal]:cursor-row-resize\",\n\t\t\t\t\"aria-[orientation=horizontal]:after:inset-y-auto aria-[orientation=horizontal]:after:top-1/2 aria-[orientation=horizontal]:after:left-0 aria-[orientation=horizontal]:after:h-2 aria-[orientation=horizontal]:after:w-full aria-[orientation=horizontal]:after:translate-x-0 aria-[orientation=horizontal]:after:-translate-y-1/2\",\n\t\t\t\t\"aria-disabled:pointer-events-none aria-disabled:cursor-default aria-disabled:opacity-50\",\n\t\t\t\t\"[&[aria-orientation=horizontal]>div]:rotate-90\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t{children ??\n\t\t\t\t(withHandle && (\n\t\t\t\t\t<div\n\t\t\t\t\t\tdata-slot=\"resizable-handle-grip\"\n\t\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t\t\"z-10 flex h-5 w-3.5 items-center justify-center rounded-sm border border-border bg-background text-muted-foreground shadow-xs transition-colors\",\n\t\t\t\t\t\t\t\"group-hover/handle:text-foreground\",\n\t\t\t\t\t\t\t\"group-data-[separator=active]/handle:border-ring group-data-[separator=active]/handle:text-foreground\",\n\t\t\t\t\t\t)}\n\t\t\t\t\t>\n\t\t\t\t\t\t<GripVerticalIcon\n\t\t\t\t\t\t\taria-hidden=\"true\"\n\t\t\t\t\t\t\tclassName=\"size-2.5\"\n\t\t\t\t\t\t/>\n\t\t\t\t\t</div>\n\t\t\t\t))}\n\t\t</Separator>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const Resizable = Object.assign(ResizablePanelGroup, {\n\tRoot: ResizablePanelGroup,\n\tPanelGroup: ResizablePanelGroup,\n\tPanel: ResizablePanel,\n\tHandle: ResizableHandle,\n});\n\nexport {\n\tResizablePanelGroup,\n\tResizablePanel,\n\tResizableHandle,\n\tusePanelRef,\n\tuseGroupRef,\n\tuseDefaultLayout,\n\tuseParentGroup,\n\tuseParentPanel,\n\ttype GroupImperativeHandle,\n\ttype PanelImperativeHandle,\n\ttype PanelSize,\n\ttype Layout,\n};"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-resizable',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/resizable/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
           "craftui-particles-sheet-bare-footer": {
             name: "craftui-particles-sheet-bare-footer",
             description: "Sheet using the bare footer variant without a top border or shaded background.",

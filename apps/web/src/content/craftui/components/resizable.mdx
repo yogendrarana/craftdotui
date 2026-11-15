@@ -1,0 +1,202 @@
+---
+title: Resizable
+description: Accessible resizable panel groups and layouts with keyboard support.
+slug: /craftui/components/resizable
+published: true
+date: 2026-11-12T00:00:00.000Z
+author:
+  name: Yogendra Rana
+  twitter: "https://twitter.com/yooogendra_rana"
+references:
+  - label: "react-resizable-panels Reference"
+    url: "https://react-resizable-panels.vercel.app"
+---
+
+<ComponentCodePreview name="craftui-particles-resizable" />
+
+## Installation
+
+<Installation name="craftui-resizable" />
+
+## Anatomy
+
+#### Usage
+
+```tsx
+<ResizablePanelGroup orientation="horizontal">
+  <ResizablePanel>One</ResizablePanel>
+  <ResizableHandle withHandle />
+  <ResizablePanel>Two</ResizablePanel>
+</ResizablePanelGroup>
+```
+
+```tsx
+<Resizable.Root orientation="horizontal">
+  <Resizable.Panel>One</Resizable.Panel>
+  <Resizable.Handle withHandle />
+  <Resizable.Panel>Two</Resizable.Panel>
+</Resizable.Root>
+```
+
+## Demo
+
+#### Vertical
+
+Use `orientation="vertical"` on `<ResizablePanelGroup />` to stack panels vertically.
+
+<ComponentCodePreview name="craftui-particles-resizable-vertical" />
+
+#### With Handle
+
+Pass `withHandle` to `<ResizableHandle />` to render a visible drag grip indicator.
+
+<ComponentCodePreview name="craftui-particles-resizable-with-handle" />
+
+#### Collapsible
+
+Enable `collapsible` on `<ResizablePanel />` and use `usePanelRef()` to imperatively collapse or expand panels.
+
+<ComponentCodePreview name="craftui-particles-resizable-collapsible" />
+
+## Props
+
+#### ResizablePanelGroup
+
+<PropsTable
+  data={[
+    {
+      prop: "orientation",
+      type: '"horizontal" | "vertical"',
+      default: '"horizontal"',
+      description: "The layout and resize axis orientation of the panel group.",
+    },
+    {
+      prop: "direction",
+      type: '"horizontal" | "vertical"',
+      default: "undefined",
+      description: "Alias for orientation.",
+    },
+    {
+      prop: "defaultLayout",
+      type: "Layout",
+      default: "undefined",
+      description: "Default layout map of panel IDs to percentages (0..100).",
+    },
+    {
+      prop: "onLayoutChange",
+      type: "(layout: Layout) => void",
+      default: "undefined",
+      description: "Callback fired continuously as the group layout changes.",
+    },
+    {
+      prop: "onLayoutChanged",
+      type: "(layout: Layout, meta: LayoutChangedMeta) => void",
+      default: "undefined",
+      description: "Callback fired after a layout change completes (e.g. pointer release).",
+    },
+    {
+      prop: "disabled",
+      type: "boolean",
+      default: "false",
+      description: "Disables resizing for all panels and handles in the group.",
+    },
+    {
+      prop: "groupRef",
+      type: "Ref<GroupImperativeHandle | null>",
+      default: "undefined",
+      description: "Ref exposing imperative getLayout and setLayout methods.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes for the panel group container.",
+    },
+  ]}
+/>
+
+#### ResizablePanel
+
+<PropsTable
+  data={[
+    {
+      prop: "defaultSize",
+      type: "number | string",
+      default: "undefined",
+      description: 'Initial size of the panel (e.g. "50%" for percentage or 200 / "200px" for pixels).',
+    },
+    {
+      prop: "minSize",
+      type: "number | string",
+      default: '"0%"',
+      description: 'Minimum size of the panel (e.g. "20%" or 150).',
+    },
+    {
+      prop: "maxSize",
+      type: "number | string",
+      default: '"100%"',
+      description: 'Maximum size of the panel (e.g. "80%" or 500).',
+    },
+    {
+      prop: "collapsible",
+      type: "boolean",
+      default: "false",
+      description: "Whether the panel can collapse when dragged past its minSize threshold.",
+    },
+    {
+      prop: "collapsedSize",
+      type: "number | string",
+      default: '"0%"',
+      description: "Size of the panel when collapsed.",
+    },
+    {
+      prop: "onResize",
+      type: "(size: PanelSize, id?: string | number, prevSize?: PanelSize) => void",
+      default: "undefined",
+      description: "Callback fired when the panel size changes.",
+    },
+    {
+      prop: "panelRef",
+      type: "Ref<PanelImperativeHandle | null>",
+      default: "undefined",
+      description: "Ref exposing imperative collapse, expand, resize, getSize, and isCollapsed methods.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes for the panel content wrapper.",
+    },
+  ]}
+/>
+
+#### ResizableHandle
+
+<PropsTable
+  data={[
+    {
+      prop: "withHandle",
+      type: "boolean",
+      default: "false",
+      description: "Whether to display a visible grip handle icon on the separator.",
+    },
+    {
+      prop: "disabled",
+      type: "boolean",
+      default: "false",
+      description: "Whether dragging the handle is disabled.",
+    },
+    {
+      prop: "disableDoubleClick",
+      type: "boolean",
+      default: "false",
+      description: "Disables resetting the neighboring panel to its defaultSize on double-click.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes for the separator element.",
+    },
+  ]}
+/>
