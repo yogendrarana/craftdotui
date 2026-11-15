@@ -31,6 +31,7 @@
 		"posthog-js": "^1.434.2",
 		"react": "^19.3.0",
 		"react-dom": "^19.3.0",
+		"react-resizable-panels": "^4.21.0",
 		"react-syntax-highlighter": "^16.1.1",
 		"sonner": "^2.0.8",
 		"tailwindcss-animate": "^1.0.7",

@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-resizable-collapsible",
+	"description": "Collapsible sidebar panel with imperative collapse and expand controls",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/craftui-resizable",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/resizable/particles/collapsible/index.tsx",
+			"content": "\"use client\";\n\nimport * as React from \"react\";\nimport { PanelLeftCloseIcon, PanelLeftOpenIcon } from \"lucide-react\";\nimport {\n\tResizableHandle,\n\tResizablePanel,\n\tResizablePanelGroup,\n\tusePanelRef,\n} from \"@/components/craftui/components/resizable\";\nimport { Button } from \"@/components/baseui/components/button\";\n\nexport default function Particle() {\n\tconst sidebarRef = usePanelRef();\n\tconst [isCollapsed, setIsCollapsed] = React.useState(false);\n\n\tconst toggleSidebar = () => {\n\t\tconst panel = sidebarRef.current;\n\t\tif (!panel) return;\n\t\tif (panel.isCollapsed()) {\n\t\t\tpanel.expand();\n\t\t} else {\n\t\t\tpanel.collapse();\n\t\t}\n\t};\n\n\treturn (\n\t\t<div className=\"flex h-[260px] w-full max-w-lg flex-col overflow-hidden rounded-lg border border-border bg-card shadow-xs\">\n\t\t\t<div className=\"flex items-center justify-between border-b border-border bg-muted/30 px-3 py-2\">\n\t\t\t\t<Button variant=\"outline\" size=\"xs\" onClick={toggleSidebar}>\n\t\t\t\t\t{isCollapsed ? (\n\t\t\t\t\t\t<>\n\t\t\t\t\t\t\t<PanelLeftOpenIcon className=\"size-3.5\" />\n\t\t\t\t\t\t\t<span>Expand</span>\n\t\t\t\t\t\t</>\n\t\t\t\t\t) : (\n\t\t\t\t\t\t<>\n\t\t\t\t\t\t\t<PanelLeftCloseIcon className=\"size-3.5\" />\n\t\t\t\t\t\t\t<span>Collapse</span>\n\t\t\t\t\t\t</>\n\t\t\t\t\t)}\n\t\t\t\t</Button>\n\t\t\t</div>\n\t\t\t<ResizablePanelGroup\n\t\t\t\torientation=\"horizontal\"\n\t\t\t\tclassName=\"min-h-0 flex-1\"\n\t\t\t>\n\t\t\t\t<ResizablePanel\n\t\t\t\t\tpanelRef={sidebarRef}\n\t\t\t\t\tcollapsible\n\t\t\t\t\tcollapsedSize=\"0%\"\n\t\t\t\t\tminSize=\"22%\"\n\t\t\t\t\tdefaultSize=\"32%\"\n\t\t\t\t\tonResize={(size) => setIsCollapsed(size.asPercentage === 0)}\n\t\t\t\t>\n\t\t\t\t\t<div className=\"flex h-full items-center justify-center overflow-hidden bg-muted/30 p-4\">\n\t\t\t\t\t\t<span className=\"whitespace-nowrap text-sm font-medium text-foreground\">\n\t\t\t\t\t\t\tSidebar\n\t\t\t\t\t\t</span>\n\t\t\t\t\t</div>\n\t\t\t\t</ResizablePanel>\n\t\t\t\t<ResizableHandle withHandle />\n\t\t\t\t<ResizablePanel defaultSize=\"68%\" minSize=\"30%\">\n\t\t\t\t\t<div className=\"flex h-full items-center justify-center p-4\">\n\t\t\t\t\t\t<span className=\"text-sm font-medium text-foreground\">\n\t\t\t\t\t\t\tContent\n\t\t\t\t\t\t</span>\n\t\t\t\t\t</div>\n\t\t\t\t</ResizablePanel>\n\t\t\t</ResizablePanelGroup>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/particles/resizable-collapsible.tsx"
+		}
+	],
+	"type": "registry:component"
+}

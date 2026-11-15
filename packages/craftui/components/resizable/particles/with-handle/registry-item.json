@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-resizable-with-handle",
+	"type": "registry:component",
+	"description": "Resizable panels with a visible grip handle on the separator",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-resizable"],
+	"files": [
+		{
+			"path": "packages/craftui/components/resizable/particles/with-handle/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/resizable-with-handle.tsx"
+		}
+	]
+}
