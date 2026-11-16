@@ -15,10 +15,6 @@ author:
 
 <Installation name="motion-magnetic" />
 
-#### Magnetic Navbar Items
-
-<ComponentCodePreview name="motion-particles-magnetic-with-navbar-items" />
-
 ## Props
 
 #### Magnetic
@@ -29,7 +25,30 @@ author:
       prop: "children",
       type: "ReactNode",
       required: true,
-      description: "The content to be rendered inside the component",
+      description: "The content to be rendered inside the component.",
+    },
+    {
+      prop: "strength",
+      type: "number",
+      default: "0.35",
+      description: "Multiplier controlling how strongly the element follows the pointer.",
+    },
+    {
+      prop: "duration",
+      type: "number",
+      default: "1",
+      description: "Duration of the elastic spring animation in seconds.",
+    },
+    {
+      prop: "disabled",
+      type: "boolean",
+      default: "false",
+      description: "Disables the magnetic effect when true.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional class names for the wrapper element.",
     },
   ]}
 />

@@ -284,10 +284,6 @@ export const docsNavItems: Array<DocsNavItem> = [
 				href: "/docs/motion/components/confetti",
 			},
 			{
-				title: "Cursor",
-				href: "/docs/motion/components/cursor",
-			},
-			{
 				title: "Dock",
 				href: "/docs/motion/components/dock",
 			},
