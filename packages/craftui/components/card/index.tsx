@@ -16,7 +16,7 @@ function CardRoot({ className, render, ...props }: CardRootProps) {
 		"data-slot": "card",
 		className: cn(
 			"bg-card text-card-foreground flex flex-col gap-6 rounded-xl border border-border py-6 shadow-xs",
-			"has-[[data-slot=card-footer][data-variant=shaded]]:pb-0",
+			"has-[[data-slot=card-footer]]:pb-0",
 			className,
 		),
 	};
@@ -32,15 +32,28 @@ function CardRoot({ className, render, ...props }: CardRootProps) {
 /* Card Header                                                                */
 /* -------------------------------------------------------------------------- */
 
-export interface CardHeaderProps extends useRender.ComponentProps<"div"> {}
+const cardHeaderVariants = cva(
+	"@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto]",
+	{
+		variants: {
+			variant: {
+				bordered: "border-b border-border pb-6",
+			},
+		},
+	},
+);
 
-function CardHeader({ className, render, ...props }: CardHeaderProps) {
+export type CardHeaderVariants = VariantProps<typeof cardHeaderVariants>;
+
+export interface CardHeaderProps
+	extends useRender.ComponentProps<"div">,
+		CardHeaderVariants {}
+
+function CardHeader({ className, variant, render, ...props }: CardHeaderProps) {
 	const defaultProps = {
 		"data-slot": "card-header",
-		className: cn(
-			"@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6",
-			className,
-		),
+		"data-variant": variant,
+		className: cn(cardHeaderVariants({ variant }), className),
 	};
 
 	return useRender({
@@ -137,17 +150,20 @@ function CardContent({ className, render, ...props }: CardContentProps) {
 /* Card Footer Variants                                                       */
 /* -------------------------------------------------------------------------- */
 
-const cardFooterVariants = cva("flex items-center px-6 shrink-0", {
-	variants: {
-		variant: {
-			default: "[.border-t]:pt-6",
-			shaded: "border-t border-border bg-muted/50 py-3 rounded-b-[calc(var(--radius-xl)-1px)]",
+const cardFooterVariants = cva(
+	"flex items-center px-6 py-4 shrink-0 rounded-b-[calc(var(--radius-xl)-1px)]",
+	{
+		variants: {
+			variant: {
+				bordered: "border-t border-border",
+				shaded: "border-t border-border bg-muted/50",
+			},
+		},
+		defaultVariants: {
+			variant: "bordered",
 		},
 	},
-	defaultVariants: {
-		variant: "default",
-	},
-});
+);
 
 export type CardFooterVariants = VariantProps<typeof cardFooterVariants>;
 
@@ -155,12 +171,7 @@ export interface CardFooterProps
 	extends useRender.ComponentProps<"div">,
 		CardFooterVariants {}
 
-function CardFooter({
-	className,
-	variant = "default",
-	render,
-	...props
-}: CardFooterProps) {
+function CardFooter({ className, variant, render, ...props }: CardFooterProps) {
 	const defaultProps = {
 		"data-slot": "card-footer",
 		"data-variant": variant,
@@ -196,5 +207,6 @@ export {
 	CardAction,
 	CardContent,
 	CardFooter,
+	cardHeaderVariants,
 	cardFooterVariants,
 };

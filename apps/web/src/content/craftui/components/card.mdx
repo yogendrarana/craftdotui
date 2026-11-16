@@ -51,9 +51,9 @@ author:
 
 <ComponentCodePreview name="craftui-particles-card-media" />
 
-#### Notifications
+#### Bordered
 
-<ComponentCodePreview name="craftui-particles-card-notifications" />
+<ComponentCodePreview name="craftui-particles-card-bordered" />
 
 #### Shaded Footer
 
@@ -84,6 +84,12 @@ author:
 
 <PropsTable
   data={[
+    {
+      prop: "variant",
+      type: '"bordered"',
+      default: "undefined",
+      description: "Controls the header styling. 'bordered' adds a bottom border and bottom padding.",
+    },
     {
       prop: "render",
       type: "ReactElement | ((props, state) => ReactElement)",
@@ -181,9 +187,9 @@ author:
   data={[
     {
       prop: "variant",
-      type: '"default" | "shaded"',
-      default: '"default"',
-      description: "Controls the footer styling. 'default' is the standard unstyled footer, while 'shaded' adds a top border and muted background.",
+      type: '"bordered" | "shaded"',
+      default: "undefined",
+      description: "Controls the footer styling. 'bordered' adds a top border, while 'shaded' adds a top border and muted background.",
     },
     {
       prop: "render",

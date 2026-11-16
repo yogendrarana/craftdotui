@@ -35,7 +35,7 @@ const notifications = [
 export default function Particle() {
 	return (
 		<CardRoot className="w-full max-w-md">
-			<CardHeader className="border-b">
+			<CardHeader variant="bordered">
 				<CardTitle>Notification Preferences</CardTitle>
 				<CardDescription>
 					Choose how and when you want to be notified.
@@ -67,7 +67,7 @@ export default function Particle() {
 					);
 				})}
 			</CardContent>
-			<CardFooter className="justify-end gap-2 border-t">
+			<CardFooter variant="bordered" className="justify-end gap-2">
 				<Button variant="ghost" size="sm">
 					Reset
 				</Button>

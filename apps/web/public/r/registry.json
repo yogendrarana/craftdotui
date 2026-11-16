@@ -622,6 +622,24 @@
 			]
 		},
 		{
+			"name": "craftui-particles-card-bordered",
+			"type": "registry:component",
+			"description": "Card with bordered header and footer for notification settings.",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": [
+				"@craftdotui/craftui-card",
+				"@craftdotui/baseui-button",
+				"@craftdotui/baseui-switch"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/card/particles/bordered/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/card-bordered.tsx"
+				}
+			]
+		},
+		{
 			"name": "craftui-particles-card-media",
 			"type": "registry:component",
 			"description": "Card featuring a top cover image, badge action, and footer.",
@@ -636,24 +654,6 @@
 					"path": "packages/craftui/components/card/particles/media/index.tsx",
 					"type": "registry:component",
 					"target": "components/particles/card-media.tsx"
-				}
-			]
-		},
-		{
-			"name": "craftui-particles-card-notifications",
-			"type": "registry:component",
-			"description": "Card with divided header and footer for notification settings.",
-			"dependencies": ["lucide-react"],
-			"registryDependencies": [
-				"@craftdotui/craftui-card",
-				"@craftdotui/baseui-button",
-				"@craftdotui/baseui-switch"
-			],
-			"files": [
-				{
-					"path": "packages/craftui/components/card/particles/notifications/index.tsx",
-					"type": "registry:component",
-					"target": "components/particles/card-notifications.tsx"
 				}
 			]
 		},
