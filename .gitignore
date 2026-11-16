@@ -41,3 +41,7 @@ next-env.d.ts
 
 # kilo
 .kilo
+
+# agent tools
+.agents
+.freebuff
