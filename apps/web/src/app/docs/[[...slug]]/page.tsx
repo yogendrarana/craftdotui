@@ -1,7 +1,9 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { allDocs } from "content-collections";
 import { ExternalLink } from "lucide-react";
 
+import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { Mdx } from "@/components/mdx-components";
 import { TableOfContent } from "@/components/toc";
@@ -23,6 +25,54 @@ async function getDocFromParams(paramsPromise: PageProps["params"]) {
 	const slug = params.slug?.join("/");
 	const doc = allDocs.find((doc) => doc.slugAsParams === slug);
 	return doc ?? null;
+}
+
+export async function generateMetadata({
+	params,
+}: PageProps): Promise<Metadata> {
+	const doc = await getDocFromParams(params);
+
+	if (!doc?.published) {
+		return {};
+	}
+
+	const url = `/docs/${doc.slugAsParams}`;
+
+	return {
+		title: doc.title,
+		description: doc.description,
+		alternates: {
+			canonical: url,
+		},
+		openGraph: {
+			title: `${doc.title} - ${siteConfig.name}`,
+			description: doc.description,
+			type: "article",
+			url,
+			images: [
+				{
+					url: "/opengraph-image.png",
+					width: 1200,
+					height: 630,
+					alt: doc.title,
+				},
+			],
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: `${doc.title} - ${siteConfig.name}`,
+			description: doc.description,
+			images: ["/opengraph-image.png"],
+		},
+	};
+}
+
+export function generateStaticParams() {
+	return allDocs
+		.filter((doc) => doc.published)
+		.map((doc) => ({
+			slug: doc.slugAsParams.split("/"),
+		}));
 }
 
 export default async function DocsPage({ params }: PageProps) {

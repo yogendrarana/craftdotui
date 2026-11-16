@@ -3,9 +3,25 @@ import { Header } from "@/components/layout/header";
 import { ThemeStudio } from "@/components/theming/theme-studio";
 
 export const metadata: Metadata = {
-	title: "Theme Studio - Craft UI",
+	title: "Theme Studio",
 	description:
 		"Interactive OKLCH design token workbench for shadcn/ui and Craft UI semantic extensions. Customize, preview, import, and export Tailwind CSS v4 themes.",
+	alternates: {
+		canonical: "/theming",
+	},
+	openGraph: {
+		title: "Theme Studio - Craft UI",
+		description:
+			"Interactive OKLCH design token workbench for shadcn/ui and Craft UI semantic extensions. Customize, preview, import, and export Tailwind CSS v4 themes.",
+		url: "/theming",
+		type: "website",
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "Theme Studio - Craft UI",
+		description:
+			"Interactive OKLCH design token workbench for shadcn/ui and Craft UI semantic extensions. Customize, preview, import, and export Tailwind CSS v4 themes.",
+	},
 };
 
 export default function ThemingPage() {

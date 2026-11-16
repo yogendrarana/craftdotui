@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -41,8 +42,15 @@ export function Header() {
 				<nav className="flex h-14 items-stretch justify-between">
 					<Link
 						href="/"
-						className="inline-flex items-center gap-2.5 px-4 sm:px-6 text-sm font-semibold tracking-tight text-foreground"
+						className="inline-flex items-center gap-2.5 px-4 text-sm font-semibold tracking-tight text-foreground"
 					>
+						<Image
+							src="/icon.png"
+							alt="Craft UI Logo"
+							width={24}
+							height={24}
+							className="size-6 shrink-0"
+						/>
 						<span>Craft UI</span>
 					</Link>
 

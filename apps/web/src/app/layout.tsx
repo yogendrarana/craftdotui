@@ -9,19 +9,56 @@ import { cn } from "@/lib/utils";
 
 // metadata
 export const metadata: Metadata = {
-	title: siteConfig.title,
+	title: {
+		default: siteConfig.title,
+		template: `%s - ${siteConfig.name}`,
+	},
 	description: siteConfig.description,
 	metadataBase: new URL(siteConfig.url),
-	creator: "Yogendra Rana",
+	alternates: {
+		canonical: "/",
+	},
+	icons: {
+		icon: [
+			{ url: "/favicon.ico", sizes: "any" },
+			{ url: "/icon.png", type: "image/png", sizes: "192x192" },
+		],
+		apple: [
+			{ url: "/apple-icon.png", type: "image/png", sizes: "180x180" },
+		],
+	},
+	creator: siteConfig.author.name,
 	authors: [
 		{ name: siteConfig.author.name, url: siteConfig.author.links.twitter },
 	],
-	keywords: ["React", "Next.js", "Tailwind CSS", "Motion", "Shad CN"],
+	keywords: [
+		"Craft UI",
+		"React",
+		"Next.js",
+		"Tailwind CSS",
+		"Base UI",
+		"Motion",
+		"shadcn/ui",
+		"UI Components",
+		"Design System",
+	],
+	robots: {
+		index: true,
+		follow: true,
+		googleBot: {
+			index: true,
+			follow: true,
+			"max-video-preview": -1,
+			"max-image-preview": "large",
+			"max-snippet": -1,
+		},
+	},
 	openGraph: {
 		title: siteConfig.title,
 		description: siteConfig.description,
 		url: siteConfig.url,
-		siteName: "Craft UI",
+		siteName: siteConfig.name,
+		locale: "en_US",
 		images: [
 			{
 				url: `${siteConfig.url}/opengraph-image.png`,

@@ -246,13 +246,6 @@ const BASEUI_COMPONENTS: BaseUIComponentItem[] = [
 		previewName: "baseui-particles-toggle-group",
 	},
 	{
-		title: "Toolbar",
-		description:
-			"A container for grouping a set of controls, such as buttons or toggles.",
-		href: "/docs/baseui/components/toolbar",
-		previewName: "baseui-particles-toolbar",
-	},
-	{
 		title: "Tooltip",
 		description:
 			"A popup that displays information related to an element on hover or focus.",

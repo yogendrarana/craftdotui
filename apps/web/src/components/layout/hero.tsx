@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 export function Hero() {
 	return (
 		<section className="flex-1 flex flex-col w-full border-b border-border bg-background">
-			<div className="flex-1 flex flex-col items-center justify-center max-w-7xl w-full mx-auto border-x border-border relative px-6 py-24 text-center">
+			<div className="flex-1 flex flex-col items-center justify-center max-w-7xl w-full mx-auto border-x border-border relative px-6 py-30 text-center">
 				<CornerCrosshairs top={false} bottom />
 
 				<div className="max-w-2xl flex flex-col items-center">
