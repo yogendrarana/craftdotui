@@ -8,7 +8,7 @@
 	"files": [
 		{
 			"path": "packages/hooks/use-mounted/index.ts",
-			"content": "import * as React from \"react\";\n\nexport function useMounted() {\n\tconst [mounted, setMounted] = React.useState(false);\n\n\tReact.useEffect(() => {\n\t\tsetMounted(true);\n\n\t\treturn () => setMounted(false);\n\t}, []);\n\n\treturn mounted;\n}\n",
+			"content": "import * as React from \"react\";\n\nexport function useMounted() {\n\tconst [mounted, setMounted] = React.useState(false);\n\n\tReact.useEffect(() => {\n\t\tsetMounted(true);\n\t}, []);\n\n\treturn mounted;\n}\n",
 			"type": "registry:hook",
 			"target": "hooks/use-mounted.ts"
 		}

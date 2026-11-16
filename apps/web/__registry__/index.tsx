@@ -16385,7 +16385,7 @@ export const Registry: Record<string, any> = {
     "path": "packages/hooks/use-click-outside/index.ts",
     "type": "registry:hook",
     "target": "hooks/use-clink-outside.tsx",
-    "content": "import { useEffect, type RefObject } from \"react\";\n\nexport function useClickOutside<T extends HTMLElement = HTMLElement>(\n\tref: RefObject<T>,\n\thandler: (event: MouseEvent | TouchEvent) => void,\n): void {\n\tuseEffect(() => {\n\t\tconst listener = (event: MouseEvent | TouchEvent) => {\n\t\t\tconst el = ref?.current;\n\n\t\t\t// Do nothing if clicking ref's element or descendent elements\n\t\t\tif (!el || el.contains(event.target as Node)) {\n\t\t\t\treturn;\n\t\t\t}\n\n\t\t\thandler(event);\n\t\t};\n\n\t\tdocument.addEventListener(\"mousedown\", listener);\n\t\tdocument.addEventListener(\"touchstart\", listener);\n\n\t\treturn () => {\n\t\t\tdocument.removeEventListener(\"mousedown\", listener);\n\t\t\tdocument.removeEventListener(\"touchstart\", listener);\n\t\t};\n\t}, [ref, handler]);\n}"
+    "content": "import { type RefObject, useEffect, useRef } from \"react\";\n\nexport function useClickOutside<T extends HTMLElement = HTMLElement>(\n\tref: RefObject<T | null>,\n\thandler: (event: PointerEvent) => void,\n): void {\n\tconst handlerRef = useRef(handler);\n\thandlerRef.current = handler;\n\n\tuseEffect(() => {\n\t\tconst listener = (event: PointerEvent) => {\n\t\t\tconst el = ref.current;\n\t\t\tif (!el || el.contains(event.target as Node)) {\n\t\t\t\treturn;\n\t\t\t}\n\n\t\t\thandlerRef.current(event);\n\t\t};\n\n\t\tdocument.addEventListener(\"pointerdown\", listener);\n\t\treturn () => {\n\t\t\tdocument.removeEventListener(\"pointerdown\", listener);\n\t\t};\n\t}, [ref]);\n}"
   }
 ],
             keywords: [],
@@ -16514,7 +16514,7 @@ export const Registry: Record<string, any> = {
     "path": "packages/hooks/use-hydrated/index.ts",
     "type": "registry:hook",
     "target": "hooks/use-hydrated.ts",
-    "content": "import { useEffect, useState } from \"react\";\n\n/**\n * Hook to safely handle client-side only code and prevent hydration mismatches\n * @returns boolean indicating if the component has hydrated\n */\nexport function useHydrated() {\n\tconst [isHydrated, setIsHydrated] = useState(false);\n\n\tuseEffect(() => {\n\t\tsetIsHydrated(true);\n\t}, []);\n\n\treturn isHydrated;\n}"
+    "content": "import { useSyncExternalStore } from \"react\";\n\nconst emptySubscribe = () => () => {};\n\n/**\n * Hook to safely handle client-side only code and prevent hydration mismatches\n * @returns boolean indicating if the component has hydrated\n */\nexport function useHydrated(): boolean {\n\treturn useSyncExternalStore(\n\t\temptySubscribe,\n\t\t() => true,\n\t\t() => false,\n\t);\n}"
   }
 ],
             keywords: [],
@@ -16557,7 +16557,7 @@ export const Registry: Record<string, any> = {
     "path": "packages/hooks/use-is-mobile/index.ts",
     "type": "registry:hook",
     "target": "hooks/use-is-mobile.ts",
-    "content": "import * as React from \"react\";\n\nconst MOBILE_BREAKPOINT = 768;\n\nexport function useIsMobile() {\n\tconst [isMobile, setIsMobile] = React.useState<boolean | undefined>(\n\t\tundefined,\n\t);\n\n\tReact.useEffect(() => {\n\t\tconst mql = window.matchMedia(\n\t\t\t`(max-width: ${MOBILE_BREAKPOINT - 1}px)`,\n\t\t);\n\t\tconst onChange = () => {\n\t\t\tsetIsMobile(window.innerWidth < MOBILE_BREAKPOINT);\n\t\t};\n\t\tmql.addEventListener(\"change\", onChange);\n\t\tsetIsMobile(window.innerWidth < MOBILE_BREAKPOINT);\n\t\treturn () => mql.removeEventListener(\"change\", onChange);\n\t}, []);\n\n\treturn !!isMobile;\n}"
+    "content": "import { useCallback, useSyncExternalStore } from \"react\";\n\nconst DEFAULT_MOBILE_BREAKPOINT = 768;\n\nexport function useIsMobile(breakpoint = DEFAULT_MOBILE_BREAKPOINT): boolean {\n\tconst query = `(max-width: ${breakpoint - 1}px)`;\n\n\tconst subscribe = useCallback(\n\t\t(onStoreChange: () => void) => {\n\t\t\tconst mql = window.matchMedia(query);\n\t\t\tmql.addEventListener(\"change\", onStoreChange);\n\t\t\treturn () => mql.removeEventListener(\"change\", onStoreChange);\n\t\t},\n\t\t[query],\n\t);\n\n\tconst getSnapshot = useCallback(\n\t\t() => window.matchMedia(query).matches,\n\t\t[query],\n\t);\n\n\treturn useSyncExternalStore(subscribe, getSnapshot, () => false);\n}"
   }
 ],
             keywords: [],
@@ -16600,7 +16600,7 @@ export const Registry: Record<string, any> = {
     "path": "packages/hooks/use-media-query/index.ts",
     "type": "registry:hook",
     "target": "hooks/use-auto-height.tsx",
-    "content": "import { useEffect, useState } from \"react\";\n\nexport function useMediaQuery(query: string): boolean {\n\tconst [matches, setMatches] = useState(false);\n\n\tuseEffect(() => {\n\t\tconst media = window.matchMedia(query);\n\n\t\t// Set initial value\n\t\tsetMatches(media.matches);\n\n\t\t// Create event listener\n\t\tconst listener = (event: MediaQueryListEvent) => {\n\t\t\tsetMatches(event.matches);\n\t\t};\n\n\t\t// Add listener\n\t\tmedia.addEventListener(\"change\", listener);\n\n\t\t// Cleanup\n\t\treturn () => media.removeEventListener(\"change\", listener);\n\t}, [query]);\n\n\treturn matches;\n}"
+    "content": "import { useCallback, useSyncExternalStore } from \"react\";\n\nexport function useMediaQuery(query: string): boolean {\n\tconst subscribe = useCallback(\n\t\t(onStoreChange: () => void) => {\n\t\t\tconst media = window.matchMedia(query);\n\t\t\tmedia.addEventListener(\"change\", onStoreChange);\n\t\t\treturn () => media.removeEventListener(\"change\", onStoreChange);\n\t\t},\n\t\t[query],\n\t);\n\n\tconst getSnapshot = useCallback(\n\t\t() => window.matchMedia(query).matches,\n\t\t[query],\n\t);\n\n\treturn useSyncExternalStore(subscribe, getSnapshot, () => false);\n}"
   }
 ],
             keywords: [],
@@ -16643,7 +16643,7 @@ export const Registry: Record<string, any> = {
     "path": "packages/hooks/use-mounted/index.ts",
     "type": "registry:hook",
     "target": "hooks/use-mounted.ts",
-    "content": "import * as React from \"react\";\n\nexport function useMounted() {\n\tconst [mounted, setMounted] = React.useState(false);\n\n\tReact.useEffect(() => {\n\t\tsetMounted(true);\n\n\t\treturn () => setMounted(false);\n\t}, []);\n\n\treturn mounted;\n}"
+    "content": "import * as React from \"react\";\n\nexport function useMounted() {\n\tconst [mounted, setMounted] = React.useState(false);\n\n\tReact.useEffect(() => {\n\t\tsetMounted(true);\n\t}, []);\n\n\treturn mounted;\n}"
   }
 ],
             keywords: [],
@@ -16729,7 +16729,7 @@ export const Registry: Record<string, any> = {
     "path": "packages/hooks/use-query-string/index.ts",
     "type": "registry:hook",
     "target": "hooks/use-query-string.ts",
-    "content": "import * as React from \"react\";\n\ntype QueryParams = Record<string, string | number | null>;\n\nexport function useQueryString(searchParams: URLSearchParams) {\n\tconst createQueryString = React.useCallback(\n\t\t(params: QueryParams) => {\n\t\t\tconst newSearchParams = new URLSearchParams(\n\t\t\t\tsearchParams?.toString(),\n\t\t\t);\n\n\t\t\tfor (const [key, value] of Object.entries(params)) {\n\t\t\t\tif (value === null) {\n\t\t\t\t\tnewSearchParams.delete(key);\n\t\t\t\t} else {\n\t\t\t\t\tnewSearchParams.set(key, String(value));\n\t\t\t\t}\n\t\t\t}\n\n\t\t\treturn newSearchParams.toString();\n\t\t},\n\t\t[searchParams],\n\t);\n\n\treturn { createQueryString };\n}"
+    "content": "import * as React from \"react\";\n\ntype QueryParams = Record<string, string | number | boolean | null | undefined>;\n\nexport function useQueryString(searchParams: URLSearchParams) {\n\tconst createQueryString = React.useCallback(\n\t\t(params: QueryParams) => {\n\t\t\tconst newSearchParams = new URLSearchParams(\n\t\t\t\tsearchParams?.toString(),\n\t\t\t);\n\n\t\t\tfor (const [key, value] of Object.entries(params)) {\n\t\t\t\tif (value === null || value === undefined) {\n\t\t\t\t\tnewSearchParams.delete(key);\n\t\t\t\t} else {\n\t\t\t\t\tnewSearchParams.set(key, String(value));\n\t\t\t\t}\n\t\t\t}\n\n\t\t\treturn newSearchParams.toString();\n\t\t},\n\t\t[searchParams],\n\t);\n\n\treturn { createQueryString };\n}"
   }
 ],
             keywords: [],

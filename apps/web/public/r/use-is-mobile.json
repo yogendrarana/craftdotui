@@ -8,7 +8,7 @@
 	"files": [
 		{
 			"path": "packages/hooks/use-is-mobile/index.ts",
-			"content": "import * as React from \"react\";\n\nconst MOBILE_BREAKPOINT = 768;\n\nexport function useIsMobile() {\n\tconst [isMobile, setIsMobile] = React.useState<boolean | undefined>(\n\t\tundefined,\n\t);\n\n\tReact.useEffect(() => {\n\t\tconst mql = window.matchMedia(\n\t\t\t`(max-width: ${MOBILE_BREAKPOINT - 1}px)`,\n\t\t);\n\t\tconst onChange = () => {\n\t\t\tsetIsMobile(window.innerWidth < MOBILE_BREAKPOINT);\n\t\t};\n\t\tmql.addEventListener(\"change\", onChange);\n\t\tsetIsMobile(window.innerWidth < MOBILE_BREAKPOINT);\n\t\treturn () => mql.removeEventListener(\"change\", onChange);\n\t}, []);\n\n\treturn !!isMobile;\n}\n",
+			"content": "import { useCallback, useSyncExternalStore } from \"react\";\n\nconst DEFAULT_MOBILE_BREAKPOINT = 768;\n\nexport function useIsMobile(breakpoint = DEFAULT_MOBILE_BREAKPOINT): boolean {\n\tconst query = `(max-width: ${breakpoint - 1}px)`;\n\n\tconst subscribe = useCallback(\n\t\t(onStoreChange: () => void) => {\n\t\t\tconst mql = window.matchMedia(query);\n\t\t\tmql.addEventListener(\"change\", onStoreChange);\n\t\t\treturn () => mql.removeEventListener(\"change\", onStoreChange);\n\t\t},\n\t\t[query],\n\t);\n\n\tconst getSnapshot = useCallback(\n\t\t() => window.matchMedia(query).matches,\n\t\t[query],\n\t);\n\n\treturn useSyncExternalStore(subscribe, getSnapshot, () => false);\n}\n",
 			"type": "registry:hook",
 			"target": "hooks/use-is-mobile.ts"
 		}
