@@ -5548,7 +5548,10 @@
 		{
 			"name": "motion-particles-confetti",
 			"type": "registry:component",
-			"registryDependencies": ["@craftdotui/use-confetti"],
+			"registryDependencies": [
+				"@craftdotui/use-confetti",
+				"@craftdotui/baseui-button"
+			],
 			"files": [
 				{
 					"path": "packages/motion/particles/confetti/index.tsx",

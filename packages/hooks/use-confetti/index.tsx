@@ -13,10 +13,11 @@ export interface ConfettiOptions {
 		| "bottom-left"
 		| "bottom-right";
 	duration?: number;
+	colors?: string[];
 }
 
 interface Particle {
-	update: () => void;
+	update: (dt: number) => void;
 	render: (ctx: CanvasRenderingContext2D) => void;
 	position: { x: number; y: number };
 }
@@ -30,11 +31,12 @@ const terminalVelocity = 3;
 const randomRange = (min: number, max: number) =>
 	Math.random() * (max - min) + min;
 
-const randomColor = () => {
-	const r = Math.floor(Math.random() * 256);
-	const g = Math.floor(Math.random() * 256);
-	const b = Math.floor(Math.random() * 256);
-	return `rgb(${r},${g},${b})`;
+const pickColor = (colors?: string[]) => {
+	if (colors && colors.length > 0) {
+		return colors[Math.floor(Math.random() * colors.length)] as string;
+	}
+	const hue = Math.floor(Math.random() * 360);
+	return `hsl(${hue}, 90%, 60%)`;
 };
 
 const initConfettoVelocity = (
@@ -53,37 +55,43 @@ const initConfettoVelocity = (
 };
 
 function calculateOrigin(
-	canvasWidth: number,
-	canvasHeight: number,
+	viewportWidth: number,
+	viewportHeight: number,
 	origin?: ConfettiOptions["origin"],
 ) {
 	const originMap = {
 		center: {
-			x: [canvasWidth / 2 - 50, canvasWidth / 2 + 50],
-			y: [canvasHeight / 2 + 50, canvasHeight / 2 + 100],
+			x: [viewportWidth / 2 - 50, viewportWidth / 2 + 50],
+			y: [viewportHeight / 2 + 50, viewportHeight / 2 + 100],
 		},
-		top: { x: [canvasWidth / 2 - 50, canvasWidth / 2 + 50], y: [50, 100] },
+		top: {
+			x: [viewportWidth / 2 - 50, viewportWidth / 2 + 50],
+			y: [50, 100],
+		},
 		bottom: {
-			x: [canvasWidth / 2 - 50, canvasWidth / 2 + 50],
-			y: [canvasHeight - 100, canvasHeight - 50],
+			x: [viewportWidth / 2 - 50, viewportWidth / 2 + 50],
+			y: [viewportHeight - 100, viewportHeight - 50],
 		},
 		left: {
 			x: [50, 100],
-			y: [canvasHeight / 2 - 50, canvasHeight / 2 + 50],
+			y: [viewportHeight / 2 - 50, viewportHeight / 2 + 50],
 		},
 		right: {
-			x: [canvasWidth - 100, canvasWidth - 50],
-			y: [canvasHeight / 2 - 50, canvasHeight / 2 + 50],
+			x: [viewportWidth - 100, viewportWidth - 50],
+			y: [viewportHeight / 2 - 50, viewportHeight / 2 + 50],
 		},
 		"top-left": { x: [50, 100], y: [50, 100] },
-		"top-right": { x: [canvasWidth - 100, canvasWidth - 50], y: [50, 100] },
+		"top-right": {
+			x: [viewportWidth - 100, viewportWidth - 50],
+			y: [50, 100],
+		},
 		"bottom-left": {
 			x: [50, 100],
-			y: [canvasHeight - 100, canvasHeight - 50],
+			y: [viewportHeight - 100, viewportHeight - 50],
 		},
 		"bottom-right": {
-			x: [canvasWidth - 100, canvasWidth - 50],
-			y: [canvasHeight - 100, canvasHeight - 50],
+			x: [viewportWidth - 100, viewportWidth - 50],
+			y: [viewportHeight - 100, viewportHeight - 50],
 		},
 	};
 
@@ -91,13 +99,14 @@ function calculateOrigin(
 }
 
 function createConfetto(
-	canvasWidth: number,
-	canvasHeight: number,
+	viewportWidth: number,
+	viewportHeight: number,
 	origin?: ConfettiOptions["origin"],
+	colors?: string[],
 ): Particle {
-	const originBounds = calculateOrigin(canvasWidth, canvasHeight, origin);
+	const originBounds = calculateOrigin(viewportWidth, viewportHeight, origin);
 	const randomModifier = randomRange(0, 99);
-	const color = { front: randomColor(), back: randomColor() };
+	const color = { front: pickColor(colors), back: pickColor(colors) };
 
 	const dimensions = { x: randomRange(5, 9), y: randomRange(8, 15) };
 	const position = {
@@ -110,16 +119,17 @@ function createConfetto(
 	const velocity = initConfettoVelocity([-9, 9], [6, 11]);
 
 	return {
-		update() {
-			velocity.x -= velocity.x * dragConfetti;
+		update(dt) {
+			velocity.x -= velocity.x * dragConfetti * dt;
 			velocity.y = Math.min(
-				velocity.y + gravityConfetti,
+				velocity.y + gravityConfetti * dt,
 				terminalVelocity,
 			);
-			velocity.x += Math.random() > 0.5 ? Math.random() : -Math.random();
+			velocity.x +=
+				(Math.random() > 0.5 ? Math.random() : -Math.random()) * dt;
 
-			position.x += velocity.x;
-			position.y += velocity.y;
+			position.x += velocity.x * dt;
+			position.y += velocity.y * dt;
 
 			scale.y = Math.cos((position.y + randomModifier) * 0.09);
 		},
@@ -141,12 +151,13 @@ function createConfetto(
 }
 
 function createSequin(
-	canvasWidth: number,
-	canvasHeight: number,
+	viewportWidth: number,
+	viewportHeight: number,
 	origin?: ConfettiOptions["origin"],
+	colors?: string[],
 ): Particle {
-	const originBounds = calculateOrigin(canvasWidth, canvasHeight, origin);
-	const color = randomColor();
+	const originBounds = calculateOrigin(viewportWidth, viewportHeight, origin);
+	const color = pickColor(colors);
 	const radius = randomRange(1, 2);
 
 	const position = {
@@ -156,12 +167,12 @@ function createSequin(
 	const velocity = { x: randomRange(-6, 6), y: randomRange(-8, -12) };
 
 	return {
-		update() {
-			velocity.x -= velocity.x * dragSequins;
-			velocity.y += gravitySequins;
+		update(dt) {
+			velocity.x -= velocity.x * dragSequins * dt;
+			velocity.y += gravitySequins * dt;
 
-			position.x += velocity.x;
-			position.y += velocity.y;
+			position.x += velocity.x * dt;
+			position.y += velocity.y * dt;
 		},
 		render(ctx) {
 			ctx.save();
@@ -185,8 +196,49 @@ export function useConfetti() {
 	const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
 	const particlesRef = useRef<Particle[]>([]);
 	const frameRef = useRef<number | null>(null);
+	const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+	const lastTimeRef = useRef<number>(0);
 
-	const createCanvas = () => {
+	const resizeCanvas = useCallback(() => {
+		const canvas = canvasRef.current;
+		const ctx = ctxRef.current;
+		if (!canvas || !ctx) return;
+
+		const dpr = window.devicePixelRatio || 1;
+		canvas.width = window.innerWidth * dpr;
+		canvas.height = window.innerHeight * dpr;
+		canvas.style.width = "100vw";
+		canvas.style.height = "100vh";
+		ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+	}, []);
+
+	const removeCanvas = useCallback(() => {
+		if (typeof window !== "undefined") {
+			window.removeEventListener("resize", resizeCanvas);
+		}
+
+		if (timeoutRef.current) {
+			clearTimeout(timeoutRef.current);
+			timeoutRef.current = null;
+		}
+
+		if (frameRef.current) {
+			cancelAnimationFrame(frameRef.current);
+			frameRef.current = null;
+		}
+
+		const canvas = canvasRef.current;
+		if (canvas?.parentNode) {
+			canvas.parentNode.removeChild(canvas);
+		}
+
+		canvasRef.current = null;
+		ctxRef.current = null;
+		particlesRef.current = [];
+		lastTimeRef.current = 0;
+	}, [resizeCanvas]);
+
+	const createCanvas = useCallback(() => {
 		if (typeof window === "undefined") return;
 
 		const canvas = document.createElement("canvas");
@@ -201,90 +253,95 @@ export function useConfetti() {
 		ctxRef.current = canvas.getContext("2d");
 
 		resizeCanvas();
-
 		window.addEventListener("resize", resizeCanvas);
-	};
+	}, [resizeCanvas]);
 
-	const resizeCanvas = () => {
-		const canvas = canvasRef.current;
-		if (!canvas) return;
+	const render = useCallback(
+		(now: number) => {
+			const canvas = canvasRef.current;
+			const ctx = ctxRef.current;
+			if (!canvas || !ctx) return;
 
-		canvas.width = window.innerWidth;
-		canvas.height = window.innerHeight;
-	};
+			const dt = lastTimeRef.current
+				? Math.min((now - lastTimeRef.current) / 16.667, 2)
+				: 1;
+			lastTimeRef.current = now;
 
-	const removeCanvas = () => {
-		const canvas = canvasRef.current;
-		if (canvas && canvas.parentNode) canvas.parentNode.removeChild(canvas);
+			const viewportWidth = window.innerWidth;
+			const viewportHeight = window.innerHeight;
 
-		if (frameRef.current) cancelAnimationFrame(frameRef.current);
+			ctx.clearRect(0, 0, viewportWidth, viewportHeight);
 
-		canvasRef.current = null;
-		ctxRef.current = null;
-		particlesRef.current = [];
-		frameRef.current = null;
-	};
+			for (const p of particlesRef.current) {
+				p.update(dt);
+				p.render(ctx);
+			}
 
-	const render = () => {
-		const canvas = canvasRef.current;
-		const ctx = ctxRef.current;
-		if (!canvas || !ctx) return;
+			particlesRef.current = particlesRef.current.filter(
+				(p) => p.position.y < viewportHeight,
+			);
 
-		ctx.clearRect(0, 0, canvas.width, canvas.height);
+			if (particlesRef.current.length > 0) {
+				frameRef.current = requestAnimationFrame(render);
+			} else {
+				removeCanvas();
+			}
+		},
+		[removeCanvas],
+	);
 
-		particlesRef.current.forEach((p) => {
-			p.update();
-			p.render(ctx);
-		});
+	const triggerConfetti = useCallback(
+		(options: ConfettiOptions = {}) => {
+			if (
+				typeof window === "undefined" ||
+				window.matchMedia("(prefers-reduced-motion: reduce)").matches
+			) {
+				return;
+			}
 
-		particlesRef.current = particlesRef.current.filter(
-			(p) => p.position.y < canvas.height,
-		);
+			const {
+				particleCount = 50,
+				origin = "center",
+				duration = 3000,
+				colors,
+			} = options;
 
-		if (particlesRef.current.length > 0) {
-			frameRef.current = requestAnimationFrame(render);
-		} else {
-			removeCanvas();
-		}
-	};
+			if (!canvasRef.current) createCanvas();
+			if (!canvasRef.current || !ctxRef.current) return;
 
-	const triggerConfetti = useCallback((options: ConfettiOptions = {}) => {
-		const {
-			particleCount = 50,
-			origin = "center",
-			duration = 3000,
-		} = options;
+			const viewportWidth = window.innerWidth;
+			const viewportHeight = window.innerHeight;
 
-		if (!canvasRef.current) createCanvas();
-		if (!canvasRef.current || !ctxRef.current) return;
+			const confettiCount = Math.floor(particleCount * 0.75);
+			const sequinCount = Math.floor(particleCount * 0.25);
 
-		const canvas = canvasRef.current;
+			const newConfetti = Array.from({ length: confettiCount }, () =>
+				createConfetto(viewportWidth, viewportHeight, origin, colors),
+			);
+			const newSequins = Array.from({ length: sequinCount }, () =>
+				createSequin(viewportWidth, viewportHeight, origin, colors),
+			);
 
-		const confettiCount = Math.floor(particleCount * 0.75);
-		const sequinCount = Math.floor(particleCount * 0.25);
+			particlesRef.current.push(...newConfetti, ...newSequins);
 
-		const newConfetti = Array.from({ length: confettiCount }, () =>
-			createConfetto(canvas.width, canvas.height, origin),
-		);
-		const newSequins = Array.from({ length: sequinCount }, () =>
-			createSequin(canvas.width, canvas.height, origin),
-		);
+			if (!frameRef.current) {
+				lastTimeRef.current = 0;
+				frameRef.current = requestAnimationFrame(render);
+			}
 
-		particlesRef.current.push(...newConfetti, ...newSequins);
+			if (timeoutRef.current) {
+				clearTimeout(timeoutRef.current);
+			}
+			timeoutRef.current = setTimeout(() => {
+				removeCanvas();
+			}, duration);
+		},
+		[createCanvas, render, removeCanvas],
+	);
 
-		if (!frameRef.current) {
-			frameRef.current = requestAnimationFrame(render);
-		}
-
-		setTimeout(() => {
-			if (particlesRef.current.length === 0) removeCanvas();
-		}, duration);
-	}, []);
-
-	// Cleanup if component unmounts
 	useEffect(() => {
 		return () => removeCanvas();
-	}, []);
+	}, [removeCanvas]);
 
 	return triggerConfetti;
 }

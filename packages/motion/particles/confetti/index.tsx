@@ -1,18 +1,21 @@
 "use client";
 
+import { Button } from "@craftdotui/baseui/components/button";
 import { useConfetti } from "@craftdotui/hooks/use-confetti";
+
+const origins = ["top", "bottom", "center", "left", "right"] as const;
 
 export default function ConfettiDemo() {
 	const triggerConfetti = useConfetti();
 
-	const origins = ["top", "bottom", "center", "left", "right"] as const;
-
 	return (
-		<div className="flex justify-center flex-wrap gap-4 dark:text-white">
+		<div className="flex flex-wrap justify-center gap-3">
 			{origins.map((origin) => (
-				<button
+				<Button
 					key={origin}
-					type="button"
+					variant="outline"
+					size="sm"
+					className="capitalize"
 					onClick={() => {
 						triggerConfetti({
 							particleCount: 50,
@@ -20,11 +23,9 @@ export default function ConfettiDemo() {
 							duration: 5000,
 						});
 					}}
-					className="px-4 py-2 rounded bg-gray-200 dark:bg-zinc-800 hover:bg-gray-300 dark:hover:bg-zinc-600 transition"
 				>
-					{origin.charAt(0).toUpperCase() +
-						origin.slice(1).replace("-", " ")}
-				</button>
+					{origin}
+				</Button>
 			))}
 		</div>
 	);
