@@ -20,53 +20,10 @@ references:
 
 ## Anatomy
 
-#### Components
-
-```tsx
-<DrawerRoot>
-  <DrawerTrigger>Open Drawer</DrawerTrigger>
-
-  <DrawerContent>
-    <DrawerHeader>
-      <DrawerTitle>Drawer Title</DrawerTitle>
-      <DrawerDescription>Drawer Description</DrawerDescription>
-    </DrawerHeader>
-
-    <DrawerPanel>Content</DrawerPanel>
-
-    <DrawerFooter>
-      <DrawerClose>Close</DrawerClose>
-    </DrawerFooter>
-  </DrawerContent>
-</DrawerRoot>
-```
-
-#### Primitives (Base UI)
-
-```tsx
-<Drawer.Provider>
-  <Drawer.IndentBackground />
-  <Drawer.Indent>
-    <Drawer.Root>
-      <Drawer.Trigger />
-      <Drawer.SwipeArea />
-      <Drawer.Portal>
-        <Drawer.Backdrop />
-        <Drawer.Viewport>
-          <Drawer.Popup>
-            <Drawer.Handle />
-            <Drawer.Content>
-              <Drawer.Title />
-              <Drawer.Description />
-              <Drawer.Close />
-            </Drawer.Content>
-          </Drawer.Popup>
-        </Drawer.Viewport>
-      </Drawer.Portal>
-    </Drawer.Root>
-  </Drawer.Indent>
-</Drawer.Provider>
-```
+<AnatomyTabs
+  components={"<DrawerRoot>\n  <DrawerTrigger>Open Drawer</DrawerTrigger>\n\n  <DrawerContent>\n    <DrawerHeader>\n      <DrawerTitle>Drawer Title</DrawerTitle>\n      <DrawerDescription>Drawer Description</DrawerDescription>\n    </DrawerHeader>\n\n    <DrawerPanel>Content</DrawerPanel>\n\n    <DrawerFooter>\n      <DrawerClose>Close</DrawerClose>\n    </DrawerFooter>\n  </DrawerContent>\n</DrawerRoot>"}
+  primitives={"<Drawer.Provider>\n  <Drawer.IndentBackground />\n  <Drawer.Indent>\n    <Drawer.Root>\n      <Drawer.Trigger />\n      <Drawer.SwipeArea />\n      <Drawer.Portal>\n        <Drawer.Backdrop />\n        <Drawer.Viewport>\n          <Drawer.Popup>\n            <Drawer.Handle />\n            <Drawer.Content>\n              <Drawer.Title />\n              <Drawer.Description />\n              <Drawer.Close />\n            </Drawer.Content>\n          </Drawer.Popup>\n        </Drawer.Viewport>\n      </Drawer.Portal>\n    </Drawer.Root>\n  </Drawer.Indent>\n</Drawer.Provider>"}
+/>
 
 ## Demo
 

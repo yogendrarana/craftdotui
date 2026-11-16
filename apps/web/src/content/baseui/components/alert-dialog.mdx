@@ -20,44 +20,10 @@ references:
 
 ## Anatomy
 
-#### Components
-
-```tsx
-<AlertDialogRoot>
-    <AlertDialogTrigger>Open Alert Dialog</AlertDialogTrigger>
-
-    <AlertDialogContent>
-        <AlertDialogHeader>
-            <AlertDialogTitle>Alert Title</AlertDialogTitle>
-            <AlertDialogDescription>Alert Description</AlertDialogDescription>
-        </AlertDialogHeader>
-
-        <AlertDialogFooter>
-            <AlertDialogClose>Cancel</AlertDialogClose>
-            <AlertDialogClose>Confirm</AlertDialogClose>
-        </AlertDialogFooter>
-    </AlertDialogContent>
-</AlertDialogRoot>
-```
-
-#### Primitives (Base UI)
-
-```tsx
-<AlertDialog.Root>
-    <AlertDialog.Trigger>Open Alert Dialog</AlertDialog.Trigger>
-
-    <AlertDialog.Portal>
-        <AlertDialog.Backdrop />
-        <AlertDialog.Viewport>
-            <AlertDialog.Popup>
-                <AlertDialog.Title>Alert Title</AlertDialog.Title>
-                <AlertDialog.Description>Alert Description</AlertDialog.Description>
-                <AlertDialog.Close>Close</AlertDialog.Close>
-            </AlertDialog.Popup>
-        </AlertDialog.Viewport>
-    </AlertDialog.Portal>
-</AlertDialog.Root>
-```
+<AnatomyTabs
+  components={"<AlertDialogRoot>\n    <AlertDialogTrigger>Open Alert Dialog</AlertDialogTrigger>\n\n    <AlertDialogContent>\n        <AlertDialogHeader>\n            <AlertDialogTitle>Alert Title</AlertDialogTitle>\n            <AlertDialogDescription>Alert Description</AlertDialogDescription>\n        </AlertDialogHeader>\n\n        <AlertDialogFooter>\n            <AlertDialogClose>Cancel</AlertDialogClose>\n            <AlertDialogClose>Confirm</AlertDialogClose>\n        </AlertDialogFooter>\n    </AlertDialogContent>\n</AlertDialogRoot>"}
+  primitives={"<AlertDialog.Root>\n    <AlertDialog.Trigger>Open Alert Dialog</AlertDialog.Trigger>\n\n    <AlertDialog.Portal>\n        <AlertDialog.Backdrop />\n        <AlertDialog.Viewport>\n            <AlertDialog.Popup>\n                <AlertDialog.Title>Alert Title</AlertDialog.Title>\n                <AlertDialog.Description>Alert Description</AlertDialog.Description>\n                <AlertDialog.Close>Close</AlertDialog.Close>\n            </AlertDialog.Popup>\n        </AlertDialog.Viewport>\n    </AlertDialog.Portal>\n</AlertDialog.Root>"}
+/>
 
 ## Demo
 

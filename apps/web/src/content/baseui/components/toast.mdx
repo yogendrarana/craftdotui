@@ -20,71 +20,10 @@ references:
 
 ## Anatomy
 
-#### Components
-
-```tsx
-<ToastProvider>
-  <ToastPortal>
-    <ToastViewport>
-      {/* Stacked toasts */}
-      <ToastRoot>
-        <ToastContent>
-          <ToastTitle />
-          <ToastDescription />
-          <ToastAction />
-          <ToastClose />
-        </ToastContent>
-      </ToastRoot>
-
-      {/* Anchored toasts */}
-      <ToastPositioner>
-        <ToastRoot>
-          <ToastArrow />
-          <ToastContent>
-            <ToastTitle />
-            <ToastDescription />
-            <ToastAction />
-            <ToastClose />
-          </ToastContent>
-        </ToastRoot>
-      </ToastPositioner>
-    </ToastViewport>
-  </ToastPortal>
-</ToastProvider>
-```
-
-#### Primitives (Base UI)
-
-```tsx
-<Toast.Provider>
-  <Toast.Portal>
-    <Toast.Viewport>
-      {/* Stacked toasts */}
-      <Toast.Root>
-        <Toast.Content>
-          <Toast.Title />
-          <Toast.Description />
-          <Toast.Action />
-          <Toast.Close />
-        </Toast.Content>
-      </Toast.Root>
-
-      {/* Anchored toasts */}
-      <Toast.Positioner>
-        <Toast.Root>
-          <Toast.Arrow />
-          <Toast.Content>
-            <Toast.Title />
-            <Toast.Description />
-            <Toast.Action />
-            <Toast.Close />
-          </Toast.Content>
-        </Toast.Root>
-      </Toast.Positioner>
-    </Toast.Viewport>
-  </Toast.Portal>
-</Toast.Provider>
-```
+<AnatomyTabs
+  components={"<ToastProvider>\n  <ToastPortal>\n    <ToastViewport>\n      {/* Stacked toasts */}\n      <ToastRoot>\n        <ToastContent>\n          <ToastTitle />\n          <ToastDescription />\n          <ToastAction />\n          <ToastClose />\n        </ToastContent>\n      </ToastRoot>\n\n      {/* Anchored toasts */}\n      <ToastPositioner>\n        <ToastRoot>\n          <ToastArrow />\n          <ToastContent>\n            <ToastTitle />\n            <ToastDescription />\n            <ToastAction />\n            <ToastClose />\n          </ToastContent>\n        </ToastRoot>\n      </ToastPositioner>\n    </ToastViewport>\n  </ToastPortal>\n</ToastProvider>"}
+  primitives={"<Toast.Provider>\n  <Toast.Portal>\n    <Toast.Viewport>\n      {/* Stacked toasts */}\n      <Toast.Root>\n        <Toast.Content>\n          <Toast.Title />\n          <Toast.Description />\n          <Toast.Action />\n          <Toast.Close />\n        </Toast.Content>\n      </Toast.Root>\n\n      {/* Anchored toasts */}\n      <Toast.Positioner>\n        <Toast.Root>\n          <Toast.Arrow />\n          <Toast.Content>\n            <Toast.Title />\n            <Toast.Description />\n            <Toast.Action />\n            <Toast.Close />\n          </Toast.Content>\n        </Toast.Root>\n      </Toast.Positioner>\n    </Toast.Viewport>\n  </Toast.Portal>\n</Toast.Provider>"}
+/>
 
 ## Demo
 

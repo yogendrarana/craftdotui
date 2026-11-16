@@ -20,74 +20,10 @@ references:
 
 ## Anatomy
 
-#### Components
-
-```tsx
-<ComboboxRoot items={items}>
-  <ComboboxInputGroup inputProps={{ placeholder: "Select framework..." }} />
-
-  <ComboboxContent>
-    <ComboboxEmpty>No results found.</ComboboxEmpty>
-    <ComboboxList>
-      {(item) => (
-        <ComboboxItem key={item.value} value={item}>
-          {item.label}
-        </ComboboxItem>
-      )}
-    </ComboboxList>
-  </ComboboxContent>
-</ComboboxRoot>
-```
-
-#### Primitives (Base UI)
-
-```tsx
-<Combobox.Root>
-  <Combobox.Label />
-
-  <Combobox.InputGroup>
-    <Combobox.Input />
-    <Combobox.Trigger />
-    <Combobox.Icon />
-    <Combobox.Clear />
-    <Combobox.Value />
-
-    <Combobox.Chips>
-      <Combobox.Chip>
-        <Combobox.ChipRemove />
-      </Combobox.Chip>
-    </Combobox.Chips>
-  </Combobox.InputGroup>
-
-  <Combobox.Portal>
-    <Combobox.Backdrop />
-    <Combobox.Positioner>
-      <Combobox.Popup>
-        <Combobox.Arrow />
-
-        <Combobox.Status />
-        <Combobox.Empty />
-
-        <Combobox.List>
-          <Combobox.Row>
-            <Combobox.Item>
-              <Combobox.ItemIndicator />
-            </Combobox.Item>
-          </Combobox.Row>
-
-          <Combobox.Separator />
-
-          <Combobox.Group>
-            <Combobox.GroupLabel />
-          </Combobox.Group>
-
-          <Combobox.Collection />
-        </Combobox.List>
-      </Combobox.Popup>
-    </Combobox.Positioner>
-  </Combobox.Portal>
-</Combobox.Root>
-```
+<AnatomyTabs
+  components={"<ComboboxRoot items={items}>\n  <ComboboxInputGroup inputProps={{ placeholder: \"Select framework...\" }} />\n\n  <ComboboxContent>\n    <ComboboxEmpty>No results found.</ComboboxEmpty>\n    <ComboboxList>\n      {(item) => (\n        <ComboboxItem key={item.value} value={item}>\n          {item.label}\n        </ComboboxItem>\n      )}\n    </ComboboxList>\n  </ComboboxContent>\n</ComboboxRoot>"}
+  primitives={"<Combobox.Root>\n  <Combobox.Label />\n\n  <Combobox.InputGroup>\n    <Combobox.Input />\n    <Combobox.Trigger />\n    <Combobox.Icon />\n    <Combobox.Clear />\n    <Combobox.Value />\n\n    <Combobox.Chips>\n      <Combobox.Chip>\n        <Combobox.ChipRemove />\n      </Combobox.Chip>\n    </Combobox.Chips>\n  </Combobox.InputGroup>\n\n  <Combobox.Portal>\n    <Combobox.Backdrop />\n    <Combobox.Positioner>\n      <Combobox.Popup>\n        <Combobox.Arrow />\n\n        <Combobox.Status />\n        <Combobox.Empty />\n\n        <Combobox.List>\n          <Combobox.Row>\n            <Combobox.Item>\n              <Combobox.ItemIndicator />\n            </Combobox.Item>\n          </Combobox.Row>\n\n          <Combobox.Separator />\n\n          <Combobox.Group>\n            <Combobox.GroupLabel />\n          </Combobox.Group>\n\n          <Combobox.Collection />\n        </Combobox.List>\n      </Combobox.Popup>\n    </Combobox.Positioner>\n  </Combobox.Portal>\n</Combobox.Root>"}
+/>
 
 ## Demo
 

@@ -20,74 +20,10 @@ references:
 
 ## Anatomy
 
-#### Components
-
-```tsx
-<ContextMenuRoot>
-  <ContextMenuTrigger />
-
-  <ContextMenuContent>
-    <ContextMenuArrow />
-    <ContextMenuItem />
-    <ContextMenuShortcut />
-    <ContextMenuSeparator />
-
-    <ContextMenuSubmenu>
-      <ContextMenuSubmenuTrigger />
-      <ContextMenuContent>
-        <ContextMenuItem />
-      </ContextMenuContent>
-    </ContextMenuSubmenu>
-
-    <ContextMenuGroup>
-      <ContextMenuGroupLabel />
-    </ContextMenuGroup>
-
-    <ContextMenuRadioGroup>
-      <ContextMenuRadioItem />
-    </ContextMenuRadioGroup>
-
-    <ContextMenuCheckboxItem />
-  </ContextMenuContent>
-</ContextMenuRoot>
-```
-
-#### Primitives (Base UI)
-
-```tsx
-<ContextMenu.Root>
-  <ContextMenu.Trigger />
-  <ContextMenu.Portal>
-    <ContextMenu.Backdrop />
-    <ContextMenu.Positioner>
-      <ContextMenu.Popup>
-        <ContextMenu.Arrow />
-        <ContextMenu.Item />
-        <ContextMenu.LinkItem />
-        <ContextMenu.Separator />
-
-        <ContextMenu.SubmenuRoot>
-          <ContextMenu.SubmenuTrigger />
-        </ContextMenu.SubmenuRoot>
-
-        <ContextMenu.Group>
-          <ContextMenu.GroupLabel />
-        </ContextMenu.Group>
-
-        <ContextMenu.RadioGroup>
-          <ContextMenu.RadioItem>
-            <ContextMenu.RadioItemIndicator />
-          </ContextMenu.RadioItem>
-        </ContextMenu.RadioGroup>
-
-        <ContextMenu.CheckboxItem>
-          <ContextMenu.CheckboxItemIndicator />
-        </ContextMenu.CheckboxItem>
-      </ContextMenu.Popup>
-    </ContextMenu.Positioner>
-  </ContextMenu.Portal>
-</ContextMenu.Root>
-```
+<AnatomyTabs
+  components={"<ContextMenuRoot>\n  <ContextMenuTrigger />\n\n  <ContextMenuContent>\n    <ContextMenuArrow />\n    <ContextMenuItem />\n    <ContextMenuShortcut />\n    <ContextMenuSeparator />\n\n    <ContextMenuSubmenu>\n      <ContextMenuSubmenuTrigger />\n      <ContextMenuContent>\n        <ContextMenuItem />\n      </ContextMenuContent>\n    </ContextMenuSubmenu>\n\n    <ContextMenuGroup>\n      <ContextMenuGroupLabel />\n    </ContextMenuGroup>\n\n    <ContextMenuRadioGroup>\n      <ContextMenuRadioItem />\n    </ContextMenuRadioGroup>\n\n    <ContextMenuCheckboxItem />\n  </ContextMenuContent>\n</ContextMenuRoot>"}
+  primitives={"<ContextMenu.Root>\n  <ContextMenu.Trigger />\n  <ContextMenu.Portal>\n    <ContextMenu.Backdrop />\n    <ContextMenu.Positioner>\n      <ContextMenu.Popup>\n        <ContextMenu.Arrow />\n        <ContextMenu.Item />\n        <ContextMenu.LinkItem />\n        <ContextMenu.Separator />\n\n        <ContextMenu.SubmenuRoot>\n          <ContextMenu.SubmenuTrigger />\n        </ContextMenu.SubmenuRoot>\n\n        <ContextMenu.Group>\n          <ContextMenu.GroupLabel />\n        </ContextMenu.Group>\n\n        <ContextMenu.RadioGroup>\n          <ContextMenu.RadioItem>\n            <ContextMenu.RadioItemIndicator />\n          </ContextMenu.RadioItem>\n        </ContextMenu.RadioGroup>\n\n        <ContextMenu.CheckboxItem>\n          <ContextMenu.CheckboxItemIndicator />\n        </ContextMenu.CheckboxItem>\n      </ContextMenu.Popup>\n    </ContextMenu.Positioner>\n  </ContextMenu.Portal>\n</ContextMenu.Root>"}
+/>
 
 ## Demo
 

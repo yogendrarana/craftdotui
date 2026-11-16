@@ -20,85 +20,10 @@ references:
 
 ## Anatomy
 
-#### Components
-
-```tsx
-<MenuRoot>
-  <MenuTrigger />
-
-  <MenuContent>
-    <MenuArrow />
-    <MenuItem />
-    <MenuShortcut />
-    <MenuSeparator />
-
-    <MenuSubmenu>
-      <MenuSubmenuTrigger />
-      <MenuContent>
-        <MenuItem />
-      </MenuContent>
-    </MenuSubmenu>
-
-    <MenuGroup>
-      <MenuGroupLabel />
-    </MenuGroup>
-
-    <MenuRadioGroup>
-      <MenuRadioItem />
-    </MenuRadioGroup>
-
-    <MenuCheckboxItem />
-  </MenuContent>
-</MenuRoot>
-```
-
-#### Primitives (Base UI)
-
-```tsx
-<Menu.FilterProvider>
-  <Menu.Root>
-    <Menu.Trigger />
-    <Menu.Portal>
-      <Menu.Backdrop />
-      <Menu.Positioner>
-        <Menu.Popup>
-          <Menu.Arrow />
-          <Menu.Input />
-          <Menu.Clear />
-          <Menu.Empty />
-
-          <Menu.List>
-            <Menu.Item />
-            <Menu.LinkItem />
-            <Menu.Separator />
-
-            <Menu.SubmenuRoot>
-              <Menu.SubmenuTrigger />
-            </Menu.SubmenuRoot>
-
-            <Menu.Group>
-              <Menu.GroupLabel />
-            </Menu.Group>
-
-            <Menu.RadioGroup>
-              <Menu.GroupLabel />
-              <Menu.RadioItem>
-                <Menu.RadioItemIndicator />
-              </Menu.RadioItem>
-            </Menu.RadioGroup>
-
-            <Menu.CheckboxItem>
-              <Menu.CheckboxItemIndicator />
-            </Menu.CheckboxItem>
-          </Menu.List>
-
-          <Menu.Viewport />
-        </Menu.Popup>
-      </Menu.Positioner>
-    </Menu.Portal>
-  </Menu.Root>
-</Menu.FilterProvider>
-```
+<AnatomyTabs
+  components={"<MenuRoot>\n  <MenuTrigger />\n\n  <MenuContent>\n    <MenuArrow />\n    <MenuItem />\n    <MenuShortcut />\n    <MenuSeparator />\n\n    <MenuSubmenu>\n      <MenuSubmenuTrigger />\n      <MenuContent>\n        <MenuItem />\n      </MenuContent>\n    </MenuSubmenu>\n\n    <MenuGroup>\n      <MenuGroupLabel />\n    </MenuGroup>\n\n    <MenuRadioGroup>\n      <MenuRadioItem />\n    </MenuRadioGroup>\n\n    <MenuCheckboxItem />\n  </MenuContent>\n</MenuRoot>"}
+  primitives={"<Menu.FilterProvider>\n  <Menu.Root>\n    <Menu.Trigger />\n    <Menu.Portal>\n      <Menu.Backdrop />\n      <Menu.Positioner>\n        <Menu.Popup>\n          <Menu.Arrow />\n          <Menu.Input />\n          <Menu.Clear />\n          <Menu.Empty />\n\n          <Menu.List>\n            <Menu.Item />\n            <Menu.LinkItem />\n            <Menu.Separator />\n\n            <Menu.SubmenuRoot>\n              <Menu.SubmenuTrigger />\n            </Menu.SubmenuRoot>\n\n            <Menu.Group>\n              <Menu.GroupLabel />\n            </Menu.Group>\n\n            <Menu.RadioGroup>\n              <Menu.GroupLabel />\n              <Menu.RadioItem>\n                <Menu.RadioItemIndicator />\n              </Menu.RadioItem>\n            </Menu.RadioGroup>\n\n            <Menu.CheckboxItem>\n              <Menu.CheckboxItemIndicator />\n            </Menu.CheckboxItem>\n          </Menu.List>\n\n          <Menu.Viewport />\n        </Menu.Popup>\n      </Menu.Positioner>\n    </Menu.Portal>\n  </Menu.Root>\n</Menu.FilterProvider>"}
+/>
 
 ## Demo
 

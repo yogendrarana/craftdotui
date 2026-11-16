@@ -20,64 +20,10 @@ references:
 
 ## Anatomy
 
-#### Components
-
-```tsx
-<AutocompleteRoot items={items}>
-  <AutocompleteInputGroup inputProps={{ placeholder: "Search..." }} />
-
-  <AutocompleteContent>
-    <AutocompleteEmpty>No results found.</AutocompleteEmpty>
-    <AutocompleteList>
-      {(item) => (
-        <AutocompleteItem key={item.id} value={item}>
-          {item.label}
-        </AutocompleteItem>
-      )}
-    </AutocompleteList>
-  </AutocompleteContent>
-</AutocompleteRoot>
-```
-
-#### Primitives (Base UI)
-
-```tsx
-<Autocomplete.Root>
-  <Autocomplete.InputGroup>
-    <Autocomplete.Input />
-    <Autocomplete.Trigger />
-    <Autocomplete.Icon />
-    <Autocomplete.Clear />
-    <Autocomplete.Value />
-  </Autocomplete.InputGroup>
-
-  <Autocomplete.Portal>
-    <Autocomplete.Backdrop />
-    <Autocomplete.Positioner>
-      <Autocomplete.Popup>
-        <Autocomplete.Arrow />
-
-        <Autocomplete.Status />
-        <Autocomplete.Empty />
-
-        <Autocomplete.List>
-          <Autocomplete.Row>
-            <Autocomplete.Item />
-          </Autocomplete.Row>
-
-          <Autocomplete.Separator />
-
-          <Autocomplete.Group>
-            <Autocomplete.GroupLabel />
-          </Autocomplete.Group>
-
-          <Autocomplete.Collection />
-        </Autocomplete.List>
-      </Autocomplete.Popup>
-    </Autocomplete.Positioner>
-  </Autocomplete.Portal>
-</Autocomplete.Root>
-```
+<AnatomyTabs
+  components={"<AutocompleteRoot items={items}>\n  <AutocompleteInputGroup inputProps={{ placeholder: \"Search...\" }} />\n\n  <AutocompleteContent>\n    <AutocompleteEmpty>No results found.</AutocompleteEmpty>\n    <AutocompleteList>\n      {(item) => (\n        <AutocompleteItem key={item.id} value={item}>\n          {item.label}\n        </AutocompleteItem>\n      )}\n    </AutocompleteList>\n  </AutocompleteContent>\n</AutocompleteRoot>"}
+  primitives={"<Autocomplete.Root>\n  <Autocomplete.InputGroup>\n    <Autocomplete.Input />\n    <Autocomplete.Trigger />\n    <Autocomplete.Icon />\n    <Autocomplete.Clear />\n    <Autocomplete.Value />\n  </Autocomplete.InputGroup>\n\n  <Autocomplete.Portal>\n    <Autocomplete.Backdrop />\n    <Autocomplete.Positioner>\n      <Autocomplete.Popup>\n        <Autocomplete.Arrow />\n\n        <Autocomplete.Status />\n        <Autocomplete.Empty />\n\n        <Autocomplete.List>\n          <Autocomplete.Row>\n            <Autocomplete.Item />\n          </Autocomplete.Row>\n\n          <Autocomplete.Separator />\n\n          <Autocomplete.Group>\n            <Autocomplete.GroupLabel />\n          </Autocomplete.Group>\n\n          <Autocomplete.Collection />\n        </Autocomplete.List>\n      </Autocomplete.Popup>\n    </Autocomplete.Positioner>\n  </Autocomplete.Portal>\n</Autocomplete.Root>"}
+/>
 
 ## Demo
 

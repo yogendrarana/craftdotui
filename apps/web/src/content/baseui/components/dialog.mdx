@@ -20,44 +20,10 @@ references:
 
 ## Anatomy
 
-#### Components
-
-```tsx
-<DialogRoot>
-  <DialogTrigger>Open Dialog</DialogTrigger>
-
-  <DialogContent showCloseButton>
-    <DialogHeader>
-      <DialogTitle>Dialog Title</DialogTitle>
-      <DialogDescription>Dialog Description</DialogDescription>
-    </DialogHeader>
-
-    <DialogPanel>Content</DialogPanel>
-
-    <DialogFooter>
-      <DialogClose>Close</DialogClose>
-    </DialogFooter>
-  </DialogContent>
-</DialogRoot>
-```
-
-#### Primitives (Base UI)
-
-```tsx
-<Dialog.Root>
-  <Dialog.Trigger />
-  <Dialog.Portal>
-    <Dialog.Backdrop />
-    <Dialog.Viewport>
-      <Dialog.Popup>
-        <Dialog.Title />
-        <Dialog.Description />
-        <Dialog.Close />
-      </Dialog.Popup>
-    </Dialog.Viewport>
-  </Dialog.Portal>
-</Dialog.Root>
-```
+<AnatomyTabs
+  components={"<DialogRoot>\n  <DialogTrigger>Open Dialog</DialogTrigger>\n\n  <DialogContent showCloseButton>\n    <DialogHeader>\n      <DialogTitle>Dialog Title</DialogTitle>\n      <DialogDescription>Dialog Description</DialogDescription>\n    </DialogHeader>\n\n    <DialogPanel>Content</DialogPanel>\n\n    <DialogFooter>\n      <DialogClose>Close</DialogClose>\n    </DialogFooter>\n  </DialogContent>\n</DialogRoot>"}
+  primitives={"<Dialog.Root>\n  <Dialog.Trigger />\n  <Dialog.Portal>\n    <Dialog.Backdrop />\n    <Dialog.Viewport>\n      <Dialog.Popup>\n        <Dialog.Title />\n        <Dialog.Description />\n        <Dialog.Close />\n      </Dialog.Popup>\n    </Dialog.Viewport>\n  </Dialog.Portal>\n</Dialog.Root>"}
+/>
 
 ## Demo
 

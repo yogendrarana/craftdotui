@@ -1,10 +1,10 @@
-/** biome-ignore-all lint/suspicious/noExplicitAny: <no_explanation> */
-
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { CopyButton } from "./mdx/copy-button";
 import { Installation } from "./mdx/installation";
+import { AnatomyTabs } from "./mdx/anatomy-tabs";
 import { CodeRenderer } from "./mdx/code-renderer";
 import { ComponentPreview } from "./mdx/component-preview";
 import { useMDXComponent } from "@content-collections/mdx/react";
@@ -12,25 +12,53 @@ import { ComponentSource } from "@/components/mdx/component-source";
 import { ComponentCodePreview } from "@/components/mdx/component-code-preview";
 import { PropsTable } from "@/components/mdx/props";
 
-const CustomLink = (props: any) => {
-	const href = props.href;
+function extractText(node: React.ReactNode): string {
+	if (typeof node === "string" || typeof node === "number") {
+		return String(node);
+	}
+	if (Array.isArray(node)) {
+		return node.map(extractText).join("");
+	}
+	if (React.isValidElement<{ children?: React.ReactNode }>(node)) {
+		return extractText(node.props.children);
+	}
+	return "";
+}
+
+const CustomLink = ({
+	href,
+	children,
+	...props
+}: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
+	if (!href) {
+		return <a {...props}>{children}</a>;
+	}
 
 	if (href.startsWith("/")) {
 		return (
-			<Link {...props} href={href}>
-				{props.children}
+			<Link href={href} {...props}>
+				{children}
 			</Link>
 		);
 	}
 
 	if (href.startsWith("#")) {
-		return <a {...props} />;
+		return (
+			<a href={href} {...props}>
+				{children}
+			</a>
+		);
 	}
 
-	return <a target="_blank" rel="noopener noreferrer" {...props} />;
+	return (
+		<a href={href} target="_blank" rel="noopener noreferrer" {...props}>
+			{children}
+		</a>
+	);
 };
 
 const components = {
+	AnatomyTabs,
 	ComponentSource,
 	CodeRenderer,
 	ComponentPreview,
@@ -47,23 +75,69 @@ const components = {
 			{...props}
 		/>
 	),
-	h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+	h2: ({
+		className,
+		children,
+		id,
+		...props
+	}: React.HTMLAttributes<HTMLHeadingElement>) => (
 		<h2
+			id={id}
 			className={cn(
-				"mt-10 mb-4 scroll-m-20 border-b border-border pb-2.5 text-xl sm:text-2xl font-semibold tracking-tight text-foreground",
+				"group mt-10 mb-4 scroll-m-20 border-b border-border pb-2.5 text-xl sm:text-2xl font-semibold tracking-tight text-foreground",
 				className,
 			)}
 			{...props}
-		/>
+		>
+			{id ? (
+				<a
+					href={`#${id}`}
+					className="inline-flex items-center gap-2 no-underline"
+				>
+					{children}
+					<span
+						aria-hidden="true"
+						className="text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100"
+					>
+						#
+					</span>
+				</a>
+			) : (
+				children
+			)}
+		</h2>
 	),
-	h3: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+	h3: ({
+		className,
+		children,
+		id,
+		...props
+	}: React.HTMLAttributes<HTMLHeadingElement>) => (
 		<h3
+			id={id}
 			className={cn(
-				"mt-8 mb-3 scroll-m-20 text-lg font-semibold tracking-tight text-foreground",
+				"group mt-8 mb-3 scroll-m-20 text-lg font-semibold tracking-tight text-foreground",
 				className,
 			)}
 			{...props}
-		/>
+		>
+			{id ? (
+				<a
+					href={`#${id}`}
+					className="inline-flex items-center gap-2 no-underline"
+				>
+					{children}
+					<span
+						aria-hidden="true"
+						className="text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100"
+					>
+						#
+					</span>
+				</a>
+			) : (
+				children
+			)}
+		</h3>
 	),
 	h4: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
 		<h4
@@ -93,7 +167,10 @@ const components = {
 		/>
 	),
 
-	a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
+	a: ({
+		className,
+		...props
+	}: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
 		<CustomLink
 			className={cn(
 				"font-medium text-foreground underline underline-offset-4 hover:text-muted-foreground transition-colors",
@@ -135,9 +212,24 @@ const components = {
 	}: React.HTMLAttributes<HTMLElement>) => (
 		<blockquote
 			className={cn(
-				"mt-6 border-l-2 border-foreground bg-muted/40 px-4 py-3 text-sm text-muted-foreground",
+				"my-6 border-l-2 border-foreground bg-muted/40 px-4 py-3 text-sm text-muted-foreground",
 				className,
 			)}
+			{...props}
+		/>
+	),
+	hr: ({ className, ...props }: React.HTMLAttributes<HTMLHRElement>) => (
+		<hr className={cn("my-8 border-border", className)} {...props} />
+	),
+	img: ({
+		className,
+		alt,
+		...props
+	}: React.ImgHTMLAttributes<HTMLImageElement>) => (
+		// biome-ignore lint/performance/noImgElement: Markdown images have dynamic/unknown dimensions
+		<img
+			className={cn("my-4 rounded-md border border-border", className)}
+			alt={alt ?? ""}
 			{...props}
 		/>
 	),
@@ -195,16 +287,14 @@ const components = {
 		className,
 		children,
 		...props
-	}: React.HTMLProps<HTMLPreElement>) => {
-		const codeText = String(
-			(children as any)?.props?.children ?? children ?? "",
-		).trim();
+	}: React.HTMLAttributes<HTMLPreElement>) => {
+		const codeText = extractText(children).trim();
 
 		return (
-			<div className="relative mx-auto my-4 border border-border rounded-md overflow-hidden bg-muted/40">
+			<div className="relative my-4 border border-border rounded-md overflow-hidden bg-muted/40">
 				<pre
 					className={cn(
-						"px-4 py-3 font-mono text-xs sm:text-sm overflow-x-auto rounded-md",
+						"px-4 py-3 pr-12 font-mono text-xs sm:text-sm overflow-x-auto rounded-md [&_code]:border-0 [&_code]:bg-transparent [&_code]:p-0 [&_code]:rounded-none [&_code]:text-inherit",
 						className,
 					)}
 					{...props}
@@ -277,12 +367,16 @@ interface MDXProps {
 	className?: string;
 }
 
+type MDXComponentsMap = React.ComponentProps<
+	ReturnType<typeof useMDXComponent>
+>["components"];
+
 export function Mdx({ code, className }: MDXProps) {
 	const Component = useMDXComponent(code);
 
 	return (
 		<article className={cn("w-full mx-auto", className)}>
-			<Component components={components as any} />
+			<Component components={components as MDXComponentsMap} />
 		</article>
 	);
 }
