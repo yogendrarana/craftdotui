@@ -51,11 +51,12 @@ export function ComponentCodePreview({
 			{...props}
 		>
 			{/* Component preview surface */}
-			<div className="relative min-h-88 w-full p-6 flex items-center justify-center bg-background">
+			<div className="relative flex min-h-88 w-full bg-background">
 				<ComponentPreview
 					name={name}
 					key={key}
 					hasReTrigger={hasReTrigger}
+					className="min-h-88 p-6"
 				/>
 			</div>
 

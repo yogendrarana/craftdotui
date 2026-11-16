@@ -1,14 +1,13 @@
 "use client";
 
 import type React from "react";
-import { useState, useEffect, useCallback } from "react";
-
+import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "cn";
 
-interface PropType {
+export interface TextScrambleProps
+	extends Omit<React.HTMLAttributes<HTMLElement>, "children"> {
 	children: string;
 	speed?: number;
-	duration?: number;
 	trigger?: boolean;
 	className?: string;
 	characterSet?: string;
@@ -19,27 +18,40 @@ interface PropType {
 const defaultCharacterSet =
 	"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-export default function TextScramble({
+export function TextScramble({
 	children = "Hello, World!",
 	speed = 50,
-	duration = 3,
 	trigger = true,
-	className = "",
+	className,
 	characterSet = defaultCharacterSet,
 	as: Component = "span",
 	onScrambleEnd,
-}: PropType) {
+	...props
+}: TextScrambleProps) {
 	const [scrambledText, setScrambledText] = useState(children);
+	const onScrambleEndRef = useRef(onScrambleEnd);
+	onScrambleEndRef.current = onScrambleEnd;
 
 	const scrambleText = useCallback(() => {
-		let currentIndex = 0;
-		const endTime = Date.now() + duration * 1000;
+		const chars =
+			characterSet.length > 0 ? characterSet : defaultCharacterSet;
+
+		if (
+			typeof window !== "undefined" &&
+			window.matchMedia("(prefers-reduced-motion: reduce)").matches
+		) {
+			setScrambledText(children);
+			onScrambleEndRef.current?.();
+			return;
+		}
+
+		let revealedCount = 0;
 
 		const scrambleInterval = setInterval(() => {
-			if (Date.now() > endTime) {
+			if (revealedCount >= children.length) {
 				clearInterval(scrambleInterval);
 				setScrambledText(children);
-				onScrambleEnd?.();
+				onScrambleEndRef.current?.();
 				return;
 			}
 
@@ -49,33 +61,35 @@ export default function TextScramble({
 					if (char === " ") {
 						return " ";
 					}
-					return index < currentIndex
+					return index < revealedCount
 						? char
-						: characterSet[
-								Math.floor(Math.random() * characterSet.length)
-							];
+						: chars[Math.floor(Math.random() * chars.length)];
 				})
 				.join("");
 
 			setScrambledText(scrambled);
-			currentIndex = Math.min(currentIndex + 1, children.length);
+			revealedCount += 1;
 		}, speed);
 
 		return () => clearInterval(scrambleInterval);
-	}, [children, duration, speed, characterSet, onScrambleEnd]);
+	}, [children, speed, characterSet]);
 
 	useEffect(() => {
 		if (trigger) {
-			const cleanup = scrambleText();
-			return cleanup;
-		} else {
-			setScrambledText(children);
+			return scrambleText();
 		}
+		setScrambledText(children);
 	}, [trigger, scrambleText, children]);
 
 	return (
-		<Component className={cn("font-mono", className)}>
+		<Component
+			aria-label={children}
+			className={cn("font-mono", className)}
+			{...props}
+		>
 			{scrambledText}
 		</Component>
 	);
 }
+
+export default TextScramble;

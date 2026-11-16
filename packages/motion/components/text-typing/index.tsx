@@ -1,50 +1,97 @@
 "use client";
 
+import type React from "react";
 import { motion } from "motion/react";
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
+import { cn } from "cn";
 
-interface TextTypingProps {
+export interface TextTypingProps
+	extends Omit<React.HTMLAttributes<HTMLElement>, "children"> {
 	children: string;
 	typingSpeed?: number;
+	trigger?: boolean;
+	showCursor?: boolean;
 	className?: string;
+	as?: React.ElementType;
+	onTypingEnd?: () => void;
 }
 
-export default function TextTyping({
+export function TextTyping({
 	children,
 	typingSpeed = 100,
-	className = "",
+	trigger = true,
+	showCursor = true,
+	className,
+	as: Component = "div",
+	onTypingEnd,
+	...props
 }: TextTypingProps) {
 	const [displayedText, setDisplayedText] = useState("");
-
-	const text = children;
+	const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+	const onTypingEndRef = useRef(onTypingEnd);
+	onTypingEndRef.current = onTypingEnd;
 
 	useEffect(() => {
-		let currentIndex = 0;
+		const reducedMotion =
+			typeof window !== "undefined" &&
+			window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+		setPrefersReducedMotion(reducedMotion);
+
+		if (!trigger || reducedMotion) {
+			setDisplayedText(children);
+			if (reducedMotion) {
+				onTypingEndRef.current?.();
+			}
+			return;
+		}
+
+		setDisplayedText("");
+		let currentIndex = 1;
+
 		const intervalId = setInterval(() => {
-			if (currentIndex <= text.length) {
-				setDisplayedText(text.slice(0, currentIndex));
-				currentIndex++;
+			if (currentIndex <= children.length) {
+				setDisplayedText(children.slice(0, currentIndex));
+				currentIndex += 1;
 			} else {
 				clearInterval(intervalId);
+				onTypingEndRef.current?.();
 			}
 		}, typingSpeed);
 
 		return () => clearInterval(intervalId);
-	}, [text, typingSpeed]);
+	}, [children, typingSpeed, trigger]);
 
 	return (
-		<div className={`font-mono ${className}`}>
+		<Component
+			aria-label={children}
+			className={cn("tracking-wide", className)}
+			{...props}
+		>
 			{displayedText}
-			<motion.span
-				animate={{ opacity: [0, 1] }}
-				transition={{
-					duration: 0.5,
-					repeat: Infinity,
-					repeatType: "reverse",
-				}}
-			>
-				|
-			</motion.span>
-		</div>
+			{showCursor && (
+				<motion.span
+					aria-hidden="true"
+					className="ml-1 select-none"
+					animate={
+						prefersReducedMotion
+							? { opacity: 1 }
+							: { opacity: [0, 1] }
+					}
+					transition={
+						prefersReducedMotion
+							? undefined
+							: {
+									duration: 0.5,
+									repeat: Infinity,
+									repeatType: "reverse",
+								}
+					}
+				>
+					|
+				</motion.span>
+			)}
+		</Component>
 	);
 }
+
+export default TextTyping;
