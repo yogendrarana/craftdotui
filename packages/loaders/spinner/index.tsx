@@ -1,6 +1,23 @@
-export default function Spinner() {
+"use client";
+
+import type React from "react";
+
+export default function Spinner({
+	className,
+	...props
+}: React.HTMLAttributes<HTMLDivElement>) {
 	return (
-		<div className="animate-spin rounded-full h-10 w-10 border-b-2 border-black dark:border-white">
+		<div
+			role="status"
+			aria-label="Loading"
+			className={[
+				"size-10 animate-spin rounded-full border-b-2 border-current text-foreground",
+				className,
+			]
+				.filter(Boolean)
+				.join(" ")}
+			{...props}
+		>
 			<span className="sr-only">Loading...</span>
 		</div>
 	);

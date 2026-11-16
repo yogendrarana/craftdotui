@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "loader-wave-bars",
+	"type": "registry:component",
+	"description": "An audio wave bars loader",
+	"dependencies": [],
+	"registryDependencies": [],
+	"files": [
+		{
+			"path": "packages/loaders/wave-bars/index.tsx",
+			"type": "registry:component",
+			"target": "components/loaders/wave-bars.tsx"
+		}
+	]
+}

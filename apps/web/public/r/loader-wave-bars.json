@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "loader-wave-bars",
+	"description": "An audio wave bars loader",
+	"dependencies": [],
+	"registryDependencies": [],
+	"files": [
+		{
+			"path": "packages/loaders/wave-bars/index.tsx",
+			"content": "\"use client\";\n\nimport type React from \"react\";\n\nexport default function WaveBars({\n\tclassName,\n\t...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n\tconst bars = 5;\n\tconst duration = 1;\n\n\treturn (\n\t\t<div\n\t\t\trole=\"status\"\n\t\t\taria-label=\"Loading\"\n\t\t\tclassName={[\n\t\t\t\t\"flex h-8 items-center justify-center gap-1 text-foreground\",\n\t\t\t\tclassName,\n\t\t\t]\n\t\t\t\t.filter(Boolean)\n\t\t\t\t.join(\" \")}\n\t\t\t{...props}\n\t\t>\n\t\t\t{Array.from({ length: bars }).map((_, index) => (\n\t\t\t\t<div\n\t\t\t\t\tkey={index}\n\t\t\t\t\tclassName=\"h-full w-1 rounded-full bg-current\"\n\t\t\t\t\tstyle={{\n\t\t\t\t\t\tanimation: `loader-wave-bars ${duration}s ease-in-out infinite`,\n\t\t\t\t\t\tanimationDelay: `-${((bars - index) * duration) / bars}s`,\n\t\t\t\t\t}}\n\t\t\t\t/>\n\t\t\t))}\n\n\t\t\t<style>{`\n\t\t\t\t@keyframes loader-wave-bars {\n\t\t\t\t\t0%,\n\t\t\t\t\t100% {\n\t\t\t\t\t\ttransform: scaleY(0.3);\n\t\t\t\t\t\topacity: 0.5;\n\t\t\t\t\t}\n\t\t\t\t\t50% {\n\t\t\t\t\t\ttransform: scaleY(1);\n\t\t\t\t\t\topacity: 1;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t`}</style>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/loaders/wave-bars.tsx"
+		}
+	],
+	"type": "registry:component"
+}

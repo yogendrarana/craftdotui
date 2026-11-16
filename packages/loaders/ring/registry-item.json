@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "loader-ring",
+	"type": "registry:component",
+	"description": "A smooth SVG ring arc loader",
+	"dependencies": [],
+	"registryDependencies": [],
+	"files": [
+		{
+			"path": "packages/loaders/ring/index.tsx",
+			"type": "registry:component",
+			"target": "components/loaders/ring.tsx"
+		}
+	]
+}

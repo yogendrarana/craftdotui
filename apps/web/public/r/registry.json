@@ -5809,6 +5809,20 @@
 			]
 		},
 		{
+			"name": "loader-dot-grid",
+			"type": "registry:component",
+			"description": "A 3x3 pulsing dot grid loader",
+			"dependencies": [],
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "packages/loaders/dot-grid/index.tsx",
+					"type": "registry:component",
+					"target": "components/loaders/dot-grid.tsx"
+				}
+			]
+		},
+		{
 			"name": "loader-jumping-dots",
 			"type": "registry:component",
 			"description": "A jumping dots loader animation",
@@ -5839,8 +5853,8 @@
 		{
 			"name": "loader-line-spinner",
 			"type": "registry:component",
-			"description": "A line spinner loader using framer-motion",
-			"dependencies": ["motion"],
+			"description": "A CSS line spinner loader",
+			"dependencies": [],
 			"registryDependencies": [],
 			"files": [
 				{
@@ -5911,6 +5925,34 @@
 			]
 		},
 		{
+			"name": "loader-ring",
+			"type": "registry:component",
+			"description": "A smooth SVG ring arc loader",
+			"dependencies": [],
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "packages/loaders/ring/index.tsx",
+					"type": "registry:component",
+					"target": "components/loaders/ring.tsx"
+				}
+			]
+		},
+		{
+			"name": "loader-ripple",
+			"type": "registry:component",
+			"description": "A concentric expanding ripple loader",
+			"dependencies": [],
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "packages/loaders/ripple/index.tsx",
+					"type": "registry:component",
+					"target": "components/loaders/ripple.tsx"
+				}
+			]
+		},
+		{
 			"name": "loader-spinner",
 			"type": "registry:component",
 			"description": "A simple spinner loader",
@@ -5937,6 +5979,34 @@
 					"path": "packages/loaders/spiral/index.tsx",
 					"type": "registry:component",
 					"target": "components/loaders/spiral.tsx"
+				}
+			]
+		},
+		{
+			"name": "loader-typing-dots",
+			"type": "registry:component",
+			"description": "A compact 3-dot typing indicator loader",
+			"dependencies": [],
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "packages/loaders/typing-dots/index.tsx",
+					"type": "registry:component",
+					"target": "components/loaders/typing-dots.tsx"
+				}
+			]
+		},
+		{
+			"name": "loader-wave-bars",
+			"type": "registry:component",
+			"description": "An audio wave bars loader",
+			"dependencies": [],
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "packages/loaders/wave-bars/index.tsx",
+					"type": "registry:component",
+					"target": "components/loaders/wave-bars.tsx"
 				}
 			]
 		},

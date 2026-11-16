@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "loader-ripple",
+	"description": "A concentric expanding ripple loader",
+	"dependencies": [],
+	"registryDependencies": [],
+	"files": [
+		{
+			"path": "packages/loaders/ripple/index.tsx",
+			"content": "\"use client\";\n\nimport type React from \"react\";\n\nexport default function Ripple({\n\tclassName,\n\t...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n\treturn (\n\t\t<div\n\t\t\trole=\"status\"\n\t\t\taria-label=\"Loading\"\n\t\t\tclassName={[\"relative size-10 text-foreground\", className]\n\t\t\t\t.filter(Boolean)\n\t\t\t\t.join(\" \")}\n\t\t\t{...props}\n\t\t>\n\t\t\t{[0, 1].map((index) => (\n\t\t\t\t<div\n\t\t\t\t\tkey={index}\n\t\t\t\t\tclassName=\"absolute inset-0 rounded-full border-2 border-current\"\n\t\t\t\t\tstyle={{\n\t\t\t\t\t\tanimation:\n\t\t\t\t\t\t\t\"loader-ripple 1.8s cubic-bezier(0, 0.2, 0.8, 1) infinite\",\n\t\t\t\t\t\tanimationDelay: index === 1 ? \"-0.9s\" : \"0s\",\n\t\t\t\t\t}}\n\t\t\t\t/>\n\t\t\t))}\n\n\t\t\t<style>{`\n\t\t\t\t@keyframes loader-ripple {\n\t\t\t\t\t0% {\n\t\t\t\t\t\ttransform: scale(0);\n\t\t\t\t\t\topacity: 1;\n\t\t\t\t\t}\n\t\t\t\t\t100% {\n\t\t\t\t\t\ttransform: scale(1);\n\t\t\t\t\t\topacity: 0;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t`}</style>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/loaders/ripple.tsx"
+		}
+	],
+	"type": "registry:component"
+}

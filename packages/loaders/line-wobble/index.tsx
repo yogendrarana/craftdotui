@@ -1,16 +1,28 @@
 "use client";
 
-export default function LineWobble() {
-	return (
-		<div className="relative flex items-center h-1 w-20 rounded-full overflow-hidden">
-			{/* track */}
-			<div className="absolute inset-0 bg-black/10 dark:bg-white/10" />
+import type React from "react";
 
-			{/* wobble bar */}
-			<div className="h-full w-full rounded-full bg-black dark:bg-white animate-wobble" />
+export default function LineWobble({
+	className,
+	...props
+}: React.HTMLAttributes<HTMLDivElement>) {
+	return (
+		<div
+			role="status"
+			aria-label="Loading"
+			className={[
+				"relative flex h-1 w-20 items-center overflow-hidden rounded-full text-foreground",
+				className,
+			]
+				.filter(Boolean)
+				.join(" ")}
+			{...props}
+		>
+			<div className="absolute inset-0 bg-current opacity-10" />
+			<div className="h-full w-full rounded-full bg-current animate-[loader-wobble_1.75s_ease-in-out_infinite]" />
 
 			<style>{`
-				@keyframes wobble {
+				@keyframes loader-wobble {
 					0%,
 					100% {
 						transform: translateX(-95%);
@@ -18,10 +30,6 @@ export default function LineWobble() {
 					50% {
 						transform: translateX(95%);
 					}
-				}
-
-				.animate-wobble {
-					animation: wobble 1.75s ease-in-out infinite;
 				}
 			`}</style>
 		</div>

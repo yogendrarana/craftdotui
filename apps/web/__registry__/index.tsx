@@ -16772,7 +16772,7 @@ export const Registry: Record<string, any> = {
     "path": "packages/loaders/classic/index.tsx",
     "type": "registry:component",
     "target": "components/loaders/classic.tsx",
-    "content": "\"use client\";\n\nexport default function ClassicLoader() {\n\treturn (\n\t\t<div className=\"animate-spin size-8 border-2 rounded-full border-current border-t-transparent\" />\n\t);\n}"
+    "content": "\"use client\";\n\nimport type React from \"react\";\n\nexport default function ClassicLoader({\n\tclassName,\n\t...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n\treturn (\n\t\t<div\n\t\t\trole=\"status\"\n\t\t\taria-label=\"Loading\"\n\t\t\tclassName={[\n\t\t\t\t\"size-8 animate-spin rounded-full border-2 border-current border-t-transparent text-foreground\",\n\t\t\t\tclassName,\n\t\t\t]\n\t\t\t\t.filter(Boolean)\n\t\t\t\t.join(\" \")}\n\t\t\t{...props}\n\t\t/>\n\t);\n}"
   }
 ],
             keywords: [],
@@ -16780,6 +16780,49 @@ export const Registry: Record<string, any> = {
             component: (() => {
 							const LazyComp = React.lazy(async () => {
 								const mod = await import("@craftdotui/loaders/classic/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "loader-dot-grid": {
+            name: "loader-dot-grid",
+            description: "A 3x3 pulsing dot grid loader",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: [],
+            files: [
+  {
+    "path": "packages/loaders/dot-grid/index.tsx",
+    "type": "registry:component",
+    "target": "components/loaders/dot-grid.tsx",
+    "content": "\"use client\";\n\nimport type React from \"react\";\n\nconst delays = [0, 0.15, 0.3, 0.15, 0.3, 0.45, 0.3, 0.45, 0.6];\n\nexport default function DotGrid({\n\tclassName,\n\t...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n\treturn (\n\t\t<div\n\t\t\trole=\"status\"\n\t\t\taria-label=\"Loading\"\n\t\t\tclassName={[\"grid grid-cols-3 gap-1.5 text-foreground\", className]\n\t\t\t\t.filter(Boolean)\n\t\t\t\t.join(\" \")}\n\t\t\t{...props}\n\t\t>\n\t\t\t{delays.map((delay, index) => (\n\t\t\t\t<div\n\t\t\t\t\tkey={index}\n\t\t\t\t\tclassName=\"size-2 rounded-full bg-current\"\n\t\t\t\t\tstyle={{\n\t\t\t\t\t\tanimation: \"loader-dot-grid 1.3s ease-in-out infinite\",\n\t\t\t\t\t\tanimationDelay: `${delay}s`,\n\t\t\t\t\t}}\n\t\t\t\t/>\n\t\t\t))}\n\n\t\t\t<style>{`\n\t\t\t\t@keyframes loader-dot-grid {\n\t\t\t\t\t0%,\n\t\t\t\t\t100% {\n\t\t\t\t\t\ttransform: scale(0.4);\n\t\t\t\t\t\topacity: 0.3;\n\t\t\t\t\t}\n\t\t\t\t\t50% {\n\t\t\t\t\t\ttransform: scale(1);\n\t\t\t\t\t\topacity: 1;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t`}</style>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/loader-dot-grid',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/loaders/dot-grid/index.tsx");
 								let Comp = mod.default;
 
 								if (!Comp) {
@@ -16815,7 +16858,7 @@ export const Registry: Record<string, any> = {
     "path": "packages/loaders/jumping-dots/index.tsx",
     "type": "registry:component",
     "target": "components/loaders/jumping-dots.tsx",
-    "content": "\"use client\";\n\nexport default function JumpingDots() {\n\tconst dots = 4;\n\n\treturn (\n\t\t<div className=\"flex items-end gap-1.5\">\n\t\t\t{Array.from({ length: dots }).map((_, index) => (\n\t\t\t\t<div\n\t\t\t\t\tkey={index}\n\t\t\t\t\tclassName=\"w-2 h-2 rounded-full bg-black dark:bg-white animate-[jump_1s_ease-in-out_infinite]\"\n\t\t\t\t\tstyle={{\n\t\t\t\t\t\tanimationDelay: `-${(dots - index) * 0.15}s`,\n\t\t\t\t\t}}\n\t\t\t\t/>\n\t\t\t))}\n\n\t\t\t<style>{`\n\t\t\t\t@keyframes jump {\n\t\t\t\t\t0%,\n\t\t\t\t\t100% {\n\t\t\t\t\t\ttransform: translateY(0);\n\t\t\t\t\t}\n\t\t\t\t\t50% {\n\t\t\t\t\t\ttransform: translateY(-200%);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t`}</style>\n\t\t</div>\n\t);\n}"
+    "content": "\"use client\";\n\nimport type React from \"react\";\n\nexport default function JumpingDots({\n\tclassName,\n\t...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n\tconst dots = 4;\n\n\treturn (\n\t\t<div\n\t\t\trole=\"status\"\n\t\t\taria-label=\"Loading\"\n\t\t\tclassName={[\"flex items-end gap-1.5 text-foreground\", className]\n\t\t\t\t.filter(Boolean)\n\t\t\t\t.join(\" \")}\n\t\t\t{...props}\n\t\t>\n\t\t\t{Array.from({ length: dots }).map((_, index) => (\n\t\t\t\t<div\n\t\t\t\t\tkey={index}\n\t\t\t\t\tclassName=\"size-2 rounded-full bg-current animate-[loader-jump_1s_ease-in-out_infinite]\"\n\t\t\t\t\tstyle={{\n\t\t\t\t\t\tanimationDelay: `-${(dots - index) * 0.15}s`,\n\t\t\t\t\t}}\n\t\t\t\t/>\n\t\t\t))}\n\n\t\t\t<style>{`\n\t\t\t\t@keyframes loader-jump {\n\t\t\t\t\t0%,\n\t\t\t\t\t100% {\n\t\t\t\t\t\ttransform: translateY(0);\n\t\t\t\t\t}\n\t\t\t\t\t50% {\n\t\t\t\t\t\ttransform: translateY(-200%);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t`}</style>\n\t\t</div>\n\t);\n}"
   }
 ],
             keywords: [],
@@ -16858,7 +16901,7 @@ export const Registry: Record<string, any> = {
     "path": "packages/loaders/leapfrog/index.tsx",
     "type": "registry:component",
     "target": "components/loaders/leapfrog.tsx",
-    "content": "\"use client\";\n\nexport default function LeapFrog() {\n\tconst delays = [\"0s\", \"-0.833s\", \"-1.667s\"];\n\n\treturn (\n\t\t<div className=\"relative h-10 w-10\">\n\t\t\t{delays.map((delay, index) => (\n\t\t\t\t<div\n\t\t\t\t\tkey={index}\n\t\t\t\t\tclassName=\"absolute inset-0 w-full h-full flex items-center justify-start before:content-[''] before:block before:w-2 before:h-2 before:rounded-full before:bg-black dark:before:bg-white before:transition-colors before:duration-200 before:ease-in-out animate-leap-frog\"\n\t\t\t\t\tstyle={{ animationDelay: delay }}\n\t\t\t\t/>\n\t\t\t))}\n\n\t\t\t<style>{`\n\t\t\t\t@keyframes leap-frog {\n\t\t\t\t\t0% {\n\t\t\t\t\t\ttransform: translateX(0) rotate(0deg);\n\t\t\t\t\t}\n\t\t\t\t\t33.333% {\n\t\t\t\t\t\ttransform: translateX(0) rotate(180deg);\n\t\t\t\t\t}\n\t\t\t\t\t66.666% {\n\t\t\t\t\t\ttransform: translateX(-15px) rotate(180deg);\n\t\t\t\t\t}\n\t\t\t\t\t99.999% {\n\t\t\t\t\t\ttransform: translateX(-31px) rotate(180deg);\n\t\t\t\t\t}\n\t\t\t\t\t100% {\n\t\t\t\t\t\ttransform: translateX(0) rotate(0deg);\n\t\t\t\t\t}\n\t\t\t\t}\n\n\t\t\t\t.animate-leap-frog {\n\t\t\t\t\tanimation: leap-frog 2.5s ease infinite;\n\t\t\t\t}\n\t\t\t`}</style>\n\t\t</div>\n\t);\n}"
+    "content": "\"use client\";\n\nimport type React from \"react\";\n\nexport default function LeapFrog({\n\tclassName,\n\t...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n\tconst delays = [\"0s\", \"-0.833s\", \"-1.667s\"];\n\n\treturn (\n\t\t<div\n\t\t\trole=\"status\"\n\t\t\taria-label=\"Loading\"\n\t\t\tclassName={[\"relative size-10 text-foreground\", className]\n\t\t\t\t.filter(Boolean)\n\t\t\t\t.join(\" \")}\n\t\t\t{...props}\n\t\t>\n\t\t\t{delays.map((delay, index) => (\n\t\t\t\t<div\n\t\t\t\t\tkey={index}\n\t\t\t\t\tclassName=\"absolute inset-0 flex size-full items-center justify-start animate-[loader-leap-frog_2.5s_ease_infinite] before:block before:size-2 before:rounded-full before:bg-current before:content-['']\"\n\t\t\t\t\tstyle={{ animationDelay: delay }}\n\t\t\t\t/>\n\t\t\t))}\n\n\t\t\t<style>{`\n\t\t\t\t@keyframes loader-leap-frog {\n\t\t\t\t\t0% {\n\t\t\t\t\t\ttransform: translateX(0) rotate(0deg);\n\t\t\t\t\t}\n\t\t\t\t\t33.333% {\n\t\t\t\t\t\ttransform: translateX(0) rotate(180deg);\n\t\t\t\t\t}\n\t\t\t\t\t66.666% {\n\t\t\t\t\t\ttransform: translateX(-15px) rotate(180deg);\n\t\t\t\t\t}\n\t\t\t\t\t99.999% {\n\t\t\t\t\t\ttransform: translateX(-31px) rotate(180deg);\n\t\t\t\t\t}\n\t\t\t\t\t100% {\n\t\t\t\t\t\ttransform: translateX(0) rotate(0deg);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t`}</style>\n\t\t</div>\n\t);\n}"
   }
 ],
             keywords: [],
@@ -16891,9 +16934,9 @@ export const Registry: Record<string, any> = {
           },
           "loader-line-spinner": {
             name: "loader-line-spinner",
-            description: "A line spinner loader using framer-motion",
+            description: "A CSS line spinner loader",
             type: "registry:component",
-            dependencies: ["motion"],
+            dependencies: [],
             devDependencies: undefined,
             registryDependencies: [],
             files: [
@@ -16901,7 +16944,7 @@ export const Registry: Record<string, any> = {
     "path": "packages/loaders/line-spinner/index.tsx",
     "type": "registry:component",
     "target": "components/loaders/line-spinner.tsx",
-    "content": "\"use client\";\n\nimport { motion } from \"motion/react\";\n\nexport default function LineSpinner() {\n\tconst lines = 12;\n\n\treturn (\n\t\t<div className=\"relative w-12 h-12\">\n\t\t\t{Array.from({ length: lines }).map((_, i) => (\n\t\t\t\t<motion.div\n\t\t\t\t\tkey={i}\n\t\t\t\t\tclassName=\"absolute w-1 h-4 rounded-full bg-black dark:bg-white\"\n\t\t\t\t\tstyle={{\n\t\t\t\t\t\tleft: \"50%\",\n\t\t\t\t\t\ttop: \"50%\",\n\t\t\t\t\t\trotate: `-${i * 30}deg`,\n\t\t\t\t\t\ttransformOrigin: \"0% 0%\",\n\t\t\t\t\t}}\n\t\t\t\t\tanimate={{ opacity: [0.1, 1, 0.1] }}\n\t\t\t\t\ttransition={{\n\t\t\t\t\t\tduration: 1,\n\t\t\t\t\t\trepeat: Infinity,\n\t\t\t\t\t\tdelay: i * 0.1,\n\t\t\t\t\t\tease: \"linear\",\n\t\t\t\t\t}}\n\t\t\t\t/>\n\t\t\t))}\n\t\t</div>\n\t);\n}"
+    "content": "\"use client\";\n\nimport type React from \"react\";\n\nexport default function LineSpinner({\n\tclassName,\n\t...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n\tconst lines = 12;\n\tconst duration = 1;\n\n\treturn (\n\t\t<div\n\t\t\trole=\"status\"\n\t\t\taria-label=\"Loading\"\n\t\t\tclassName={[\"relative size-10 text-foreground\", className]\n\t\t\t\t.filter(Boolean)\n\t\t\t\t.join(\" \")}\n\t\t\t{...props}\n\t\t>\n\t\t\t{Array.from({ length: lines }).map((_, i) => (\n\t\t\t\t<div\n\t\t\t\t\tkey={i}\n\t\t\t\t\tclassName=\"absolute top-0 left-1/2 h-full w-1 -translate-x-1/2\"\n\t\t\t\t\tstyle={{ transform: `rotate(${i * (360 / lines)}deg)` }}\n\t\t\t\t>\n\t\t\t\t\t<div\n\t\t\t\t\t\tclassName=\"h-[28%] w-full rounded-full bg-current\"\n\t\t\t\t\t\tstyle={{\n\t\t\t\t\t\t\tanimation: `loader-line-spinner ${duration}s linear infinite`,\n\t\t\t\t\t\t\tanimationDelay: `-${((lines - i) * duration) / lines}s`,\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\t\t\t\t</div>\n\t\t\t))}\n\n\t\t\t<style>{`\n\t\t\t\t@keyframes loader-line-spinner {\n\t\t\t\t\t0%,\n\t\t\t\t\t100% {\n\t\t\t\t\t\topacity: 0.15;\n\t\t\t\t\t}\n\t\t\t\t\t50% {\n\t\t\t\t\t\topacity: 1;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t`}</style>\n\t\t</div>\n\t);\n}"
   }
 ],
             keywords: [],
@@ -16944,7 +16987,7 @@ export const Registry: Record<string, any> = {
     "path": "packages/loaders/line-wobble/index.tsx",
     "type": "registry:component",
     "target": "components/loaders/line-wobble.tsx",
-    "content": "\"use client\";\n\nexport default function LineWobble() {\n\treturn (\n\t\t<div className=\"relative flex items-center h-1 w-20 rounded-full overflow-hidden\">\n\t\t\t{/* track */}\n\t\t\t<div className=\"absolute inset-0 bg-black/10 dark:bg-white/10\" />\n\n\t\t\t{/* wobble bar */}\n\t\t\t<div className=\"h-full w-full rounded-full bg-black dark:bg-white animate-wobble\" />\n\n\t\t\t<style>{`\n\t\t\t\t@keyframes wobble {\n\t\t\t\t\t0%,\n\t\t\t\t\t100% {\n\t\t\t\t\t\ttransform: translateX(-95%);\n\t\t\t\t\t}\n\t\t\t\t\t50% {\n\t\t\t\t\t\ttransform: translateX(95%);\n\t\t\t\t\t}\n\t\t\t\t}\n\n\t\t\t\t.animate-wobble {\n\t\t\t\t\tanimation: wobble 1.75s ease-in-out infinite;\n\t\t\t\t}\n\t\t\t`}</style>\n\t\t</div>\n\t);\n}"
+    "content": "\"use client\";\n\nimport type React from \"react\";\n\nexport default function LineWobble({\n\tclassName,\n\t...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n\treturn (\n\t\t<div\n\t\t\trole=\"status\"\n\t\t\taria-label=\"Loading\"\n\t\t\tclassName={[\n\t\t\t\t\"relative flex h-1 w-20 items-center overflow-hidden rounded-full text-foreground\",\n\t\t\t\tclassName,\n\t\t\t]\n\t\t\t\t.filter(Boolean)\n\t\t\t\t.join(\" \")}\n\t\t\t{...props}\n\t\t>\n\t\t\t<div className=\"absolute inset-0 bg-current opacity-10\" />\n\t\t\t<div className=\"h-full w-full rounded-full bg-current animate-[loader-wobble_1.75s_ease-in-out_infinite]\" />\n\n\t\t\t<style>{`\n\t\t\t\t@keyframes loader-wobble {\n\t\t\t\t\t0%,\n\t\t\t\t\t100% {\n\t\t\t\t\t\ttransform: translateX(-95%);\n\t\t\t\t\t}\n\t\t\t\t\t50% {\n\t\t\t\t\t\ttransform: translateX(95%);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t`}</style>\n\t\t</div>\n\t);\n}"
   }
 ],
             keywords: [],
@@ -16987,7 +17030,7 @@ export const Registry: Record<string, any> = {
     "path": "packages/loaders/newtons-cradle/index.tsx",
     "type": "registry:component",
     "target": "components/loaders/newtons-cradle.tsx",
-    "content": "\"use client\";\n\nexport default function NewtonsCradle() {\n\tconst dots = 5;\n\n\treturn (\n\t\t<>\n\t\t\t<div className=\"relative flex items-center justify-center\">\n\t\t\t\t{Array.from({ length: dots }).map((_, index) => (\n\t\t\t\t\t<div\n\t\t\t\t\t\tkey={index}\n\t\t\t\t\t\tclassName={`h-10 flex items-center justify-center origin-top ${\n\t\t\t\t\t\t\tindex === 0\n\t\t\t\t\t\t\t\t? \"swing\"\n\t\t\t\t\t\t\t\t: index === dots - 1\n\t\t\t\t\t\t\t\t\t? \"swing-2\"\n\t\t\t\t\t\t\t\t\t: \"\"\n\t\t\t\t\t\t}`.trim()}\n\t\t\t\t\t>\n\t\t\t\t\t\t<div className=\"bg-primary size-2 rounded-full\"></div>\n\t\t\t\t\t</div>\n\t\t\t\t))}\n\t\t\t</div>\n\n\t\t\t<style>{`\n                .swing {\n                    animation: swing 1.4s linear infinite;\n                }\n\n                .swing-2 {\n                    animation: swing-2 1.4s linear infinite;\n                }\n\n                @keyframes swing {\n                    0% {\n                        transform: rotate(0deg);\n                        animation-timing-function: ease-out;\n                    }\n                    25% {\n                        transform: rotate(70deg);\n                        animation-timing-function: ease-in;\n                    }\n                    50% {\n                        transform: rotate(0deg);\n                        animation-timing-function: linear;\n                    }\n                    100% {\n                        transform: rotate(0deg);\n                    }\n                }\n\n                @keyframes swing-2 {\n                    0% {\n                        transform: rotate(0deg);\n                        animation-timing-function: linear;\n                    }\n                    50% {\n                        transform: rotate(0deg);\n                        animation-timing-function: ease-out;\n                    }\n                    75% {\n                        transform: rotate(-70deg);\n                        animation-timing-function: ease-in;\n                    }\n                    100% {\n                        transform: rotate(0deg);\n                    }\n                }\n            `}</style>\n\t\t</>\n\t);\n}"
+    "content": "\"use client\";\n\nimport type React from \"react\";\n\nexport default function NewtonsCradle({\n\tclassName,\n\t...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n\tconst dots = 5;\n\n\treturn (\n\t\t<div\n\t\t\trole=\"status\"\n\t\t\taria-label=\"Loading\"\n\t\t\tclassName={[\n\t\t\t\t\"relative flex items-center justify-center text-foreground\",\n\t\t\t\tclassName,\n\t\t\t]\n\t\t\t\t.filter(Boolean)\n\t\t\t\t.join(\" \")}\n\t\t\t{...props}\n\t\t>\n\t\t\t{Array.from({ length: dots }).map((_, index) => (\n\t\t\t\t<div\n\t\t\t\t\tkey={index}\n\t\t\t\t\tclassName={[\n\t\t\t\t\t\t\"flex h-10 origin-top items-center justify-center\",\n\t\t\t\t\t\tindex === 0\n\t\t\t\t\t\t\t? \"animate-[loader-swing_1.4s_linear_infinite]\"\n\t\t\t\t\t\t\t: index === dots - 1\n\t\t\t\t\t\t\t\t? \"animate-[loader-swing-2_1.4s_linear_infinite]\"\n\t\t\t\t\t\t\t\t: \"\",\n\t\t\t\t\t]\n\t\t\t\t\t\t.filter(Boolean)\n\t\t\t\t\t\t.join(\" \")}\n\t\t\t\t>\n\t\t\t\t\t<div className=\"size-2 rounded-full bg-current\" />\n\t\t\t\t</div>\n\t\t\t))}\n\n\t\t\t<style>{`\n\t\t\t\t@keyframes loader-swing {\n\t\t\t\t\t0% {\n\t\t\t\t\t\ttransform: rotate(0deg);\n\t\t\t\t\t\tanimation-timing-function: ease-out;\n\t\t\t\t\t}\n\t\t\t\t\t25% {\n\t\t\t\t\t\ttransform: rotate(70deg);\n\t\t\t\t\t\tanimation-timing-function: ease-in;\n\t\t\t\t\t}\n\t\t\t\t\t50% {\n\t\t\t\t\t\ttransform: rotate(0deg);\n\t\t\t\t\t\tanimation-timing-function: linear;\n\t\t\t\t\t}\n\t\t\t\t\t100% {\n\t\t\t\t\t\ttransform: rotate(0deg);\n\t\t\t\t\t}\n\t\t\t\t}\n\n\t\t\t\t@keyframes loader-swing-2 {\n\t\t\t\t\t0% {\n\t\t\t\t\t\ttransform: rotate(0deg);\n\t\t\t\t\t\tanimation-timing-function: linear;\n\t\t\t\t\t}\n\t\t\t\t\t50% {\n\t\t\t\t\t\ttransform: rotate(0deg);\n\t\t\t\t\t\tanimation-timing-function: ease-out;\n\t\t\t\t\t}\n\t\t\t\t\t75% {\n\t\t\t\t\t\ttransform: rotate(-70deg);\n\t\t\t\t\t\tanimation-timing-function: ease-in;\n\t\t\t\t\t}\n\t\t\t\t\t100% {\n\t\t\t\t\t\ttransform: rotate(0deg);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t`}</style>\n\t\t</div>\n\t);\n}"
   }
 ],
             keywords: [],
@@ -17030,7 +17073,7 @@ export const Registry: Record<string, any> = {
     "path": "packages/loaders/orbit/index.tsx",
     "type": "registry:component",
     "target": "components/loaders/orbit.tsx",
-    "content": "\"use client\";\n\nimport type { CSSProperties } from \"react\";\n\nexport default function Orbit({ className }: { className?: string }) {\n\tconst size = 35; // px\n\tconst speed = 1.4; // seconds\n\n\treturn (\n\t\t<div\n\t\t\tclassName={`relative ${className ?? \"\"}`.trim()}\n\t\t\tstyle={\n\t\t\t\t{\n\t\t\t\t\t\"--orbit-size\": `${size}px`,\n\t\t\t\t\t\"--orbit-speed\": `${speed}s`,\n\t\t\t\t} as CSSProperties\n\t\t\t}\n\t\t>\n\t\t\t{[0, 1].map((i) => (\n\t\t\t\t<div\n\t\t\t\t\tkey={i}\n\t\t\t\t\tclassName=\"bg-primary absolute left-0 top-1/2 size-4 -translate-y-1/2 rounded-full\"\n\t\t\t\t\tstyle={{\n\t\t\t\t\t\tanimation: \"orbit var(--orbit-speed) linear infinite\",\n\t\t\t\t\t\tanimationDelay:\n\t\t\t\t\t\t\ti === 1 ? \"calc(var(--orbit-speed) / -2)\" : \"0s\",\n\t\t\t\t\t}}\n\t\t\t\t/>\n\t\t\t))}\n\n\t\t\t<style>\n\t\t\t\t{`\n                    @keyframes orbit {\n                    0% {\n                        transform: translateX(calc(var(--orbit-size) * 0.25)) scale(0.73684);\n                        opacity: 0.65;\n                    }\n                    5% {\n                        transform: translateX(calc(var(--orbit-size) * 0.235)) scale(0.684208);\n                        opacity: 0.58;\n                    }\n                    10% {\n                        transform: translateX(calc(var(--orbit-size) * 0.182)) scale(0.631576);\n                        opacity: 0.51;\n                    }\n                    15% {\n                        transform: translateX(calc(var(--orbit-size) * 0.129)) scale(0.578944);\n                        opacity: 0.44;\n                    }\n                    20% {\n                        transform: translateX(calc(var(--orbit-size) * 0.076)) scale(0.526312);\n                        opacity: 0.37;\n                    }\n                    25% {\n                        transform: translateX(0%) scale(0.47368);\n                        opacity: 0.3;\n                    }\n                    30% {\n                        transform: translateX(calc(var(--orbit-size) * -0.076)) scale(0.526312);\n                        opacity: 0.37;\n                    }\n                    35% {\n                        transform: translateX(calc(var(--orbit-size) * -0.129)) scale(0.578944);\n                        opacity: 0.44;\n                    }\n                    40% {\n                        transform: translateX(calc(var(--orbit-size) * -0.182)) scale(0.631576);\n                        opacity: 0.51;\n                    }\n                    45% {\n                        transform: translateX(calc(var(--orbit-size) * -0.235)) scale(0.684208);\n                        opacity: 0.58;\n                    }\n                    50% {\n                        transform: translateX(calc(var(--orbit-size) * -0.25)) scale(0.73684);\n                        opacity: 0.65;\n                    }\n                    55% {\n                        transform: translateX(calc(var(--orbit-size) * -0.235)) scale(0.789472);\n                        opacity: 0.72;\n                    }\n                    60% {\n                        transform: translateX(calc(var(--orbit-size) * -0.182)) scale(0.842104);\n                        opacity: 0.79;\n                    }\n                    65% {\n                        transform: translateX(calc(var(--orbit-size) * -0.129)) scale(0.894736);\n                        opacity: 0.86;\n                    }\n                    70% {\n                        transform: translateX(calc(var(--orbit-size) * -0.076)) scale(0.947368);\n                        opacity: 0.93;\n                    }\n                    75% {\n                        transform: translateX(0%) scale(1);\n                        opacity: 1;\n                    }\n                    80% {\n                        transform: translateX(calc(var(--orbit-size) * 0.076)) scale(0.947368);\n                        opacity: 0.93;\n                    }\n                    85% {\n                        transform: translateX(calc(var(--orbit-size) * 0.129)) scale(0.894736);\n                        opacity: 0.86;\n                    }\n                    90% {\n                        transform: translateX(calc(var(--orbit-size) * 0.182)) scale(0.842104);\n                        opacity: 0.79;\n                    }\n                    95% {\n                        transform: translateX(calc(var(--orbit-size) * 0.235)) scale(0.789472);\n                        opacity: 0.72;\n                    }\n                    100% {\n                        transform: translateX(calc(var(--orbit-size) * 0.25)) scale(0.73684);\n                        opacity: 0.65;\n                    }\n                }\n            `}\n\t\t\t</style>\n\t\t</div>\n\t);\n}"
+    "content": "\"use client\";\n\nimport type React from \"react\";\n\nexport default function Orbit({\n\tclassName,\n\tstyle,\n\t...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n\tconst size = 35;\n\tconst speed = 1.4;\n\n\treturn (\n\t\t<div\n\t\t\trole=\"status\"\n\t\t\taria-label=\"Loading\"\n\t\t\tclassName={[\n\t\t\t\t\"relative size-[var(--orbit-size)] text-foreground\",\n\t\t\t\tclassName,\n\t\t\t]\n\t\t\t\t.filter(Boolean)\n\t\t\t\t.join(\" \")}\n\t\t\tstyle={\n\t\t\t\t{\n\t\t\t\t\t\"--orbit-size\": `${size}px`,\n\t\t\t\t\t\"--orbit-speed\": `${speed}s`,\n\t\t\t\t\t...style,\n\t\t\t\t} as React.CSSProperties\n\t\t\t}\n\t\t\t{...props}\n\t\t>\n\t\t\t{[0, 1].map((i) => (\n\t\t\t\t<div\n\t\t\t\t\tkey={i}\n\t\t\t\t\tclassName=\"absolute top-1/2 left-1/2 size-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-current\"\n\t\t\t\t\tstyle={{\n\t\t\t\t\t\tanimation:\n\t\t\t\t\t\t\t\"loader-orbit var(--orbit-speed) linear infinite\",\n\t\t\t\t\t\tanimationDelay:\n\t\t\t\t\t\t\ti === 1 ? \"calc(var(--orbit-speed) / -2)\" : \"0s\",\n\t\t\t\t\t}}\n\t\t\t\t/>\n\t\t\t))}\n\n\t\t\t<style>\n\t\t\t\t{`\n\t\t\t\t\t@keyframes loader-orbit {\n\t\t\t\t\t\t0% {\n\t\t\t\t\t\t\ttransform: translateX(calc(var(--orbit-size) * 0.25)) scale(0.73684);\n\t\t\t\t\t\t\topacity: 0.65;\n\t\t\t\t\t\t}\n\t\t\t\t\t\t5% {\n\t\t\t\t\t\t\ttransform: translateX(calc(var(--orbit-size) * 0.235)) scale(0.684208);\n\t\t\t\t\t\t\topacity: 0.58;\n\t\t\t\t\t\t}\n\t\t\t\t\t\t10% {\n\t\t\t\t\t\t\ttransform: translateX(calc(var(--orbit-size) * 0.182)) scale(0.631576);\n\t\t\t\t\t\t\topacity: 0.51;\n\t\t\t\t\t\t}\n\t\t\t\t\t\t15% {\n\t\t\t\t\t\t\ttransform: translateX(calc(var(--orbit-size) * 0.129)) scale(0.578944);\n\t\t\t\t\t\t\topacity: 0.44;\n\t\t\t\t\t\t}\n\t\t\t\t\t\t20% {\n\t\t\t\t\t\t\ttransform: translateX(calc(var(--orbit-size) * 0.076)) scale(0.526312);\n\t\t\t\t\t\t\topacity: 0.37;\n\t\t\t\t\t\t}\n\t\t\t\t\t\t25% {\n\t\t\t\t\t\t\ttransform: translateX(0%) scale(0.47368);\n\t\t\t\t\t\t\topacity: 0.3;\n\t\t\t\t\t\t}\n\t\t\t\t\t\t30% {\n\t\t\t\t\t\t\ttransform: translateX(calc(var(--orbit-size) * -0.076)) scale(0.526312);\n\t\t\t\t\t\t\topacity: 0.37;\n\t\t\t\t\t\t}\n\t\t\t\t\t\t35% {\n\t\t\t\t\t\t\ttransform: translateX(calc(var(--orbit-size) * -0.129)) scale(0.578944);\n\t\t\t\t\t\t\topacity: 0.44;\n\t\t\t\t\t\t}\n\t\t\t\t\t\t40% {\n\t\t\t\t\t\t\ttransform: translateX(calc(var(--orbit-size) * -0.182)) scale(0.631576);\n\t\t\t\t\t\t\topacity: 0.51;\n\t\t\t\t\t\t}\n\t\t\t\t\t\t45% {\n\t\t\t\t\t\t\ttransform: translateX(calc(var(--orbit-size) * -0.235)) scale(0.684208);\n\t\t\t\t\t\t\topacity: 0.58;\n\t\t\t\t\t\t}\n\t\t\t\t\t\t50% {\n\t\t\t\t\t\t\ttransform: translateX(calc(var(--orbit-size) * -0.25)) scale(0.73684);\n\t\t\t\t\t\t\topacity: 0.65;\n\t\t\t\t\t\t}\n\t\t\t\t\t\t55% {\n\t\t\t\t\t\t\ttransform: translateX(calc(var(--orbit-size) * -0.235)) scale(0.789472);\n\t\t\t\t\t\t\topacity: 0.72;\n\t\t\t\t\t\t}\n\t\t\t\t\t\t60% {\n\t\t\t\t\t\t\ttransform: translateX(calc(var(--orbit-size) * -0.182)) scale(0.842104);\n\t\t\t\t\t\t\topacity: 0.79;\n\t\t\t\t\t\t}\n\t\t\t\t\t\t65% {\n\t\t\t\t\t\t\ttransform: translateX(calc(var(--orbit-size) * -0.129)) scale(0.894736);\n\t\t\t\t\t\t\topacity: 0.86;\n\t\t\t\t\t\t}\n\t\t\t\t\t\t70% {\n\t\t\t\t\t\t\ttransform: translateX(calc(var(--orbit-size) * -0.076)) scale(0.947368);\n\t\t\t\t\t\t\topacity: 0.93;\n\t\t\t\t\t\t}\n\t\t\t\t\t\t75% {\n\t\t\t\t\t\t\ttransform: translateX(0%) scale(1);\n\t\t\t\t\t\t\topacity: 1;\n\t\t\t\t\t\t}\n\t\t\t\t\t\t80% {\n\t\t\t\t\t\t\ttransform: translateX(calc(var(--orbit-size) * 0.076)) scale(0.947368);\n\t\t\t\t\t\t\topacity: 0.93;\n\t\t\t\t\t\t}\n\t\t\t\t\t\t85% {\n\t\t\t\t\t\t\ttransform: translateX(calc(var(--orbit-size) * 0.129)) scale(0.894736);\n\t\t\t\t\t\t\topacity: 0.86;\n\t\t\t\t\t\t}\n\t\t\t\t\t\t90% {\n\t\t\t\t\t\t\ttransform: translateX(calc(var(--orbit-size) * 0.182)) scale(0.842104);\n\t\t\t\t\t\t\topacity: 0.79;\n\t\t\t\t\t\t}\n\t\t\t\t\t\t95% {\n\t\t\t\t\t\t\ttransform: translateX(calc(var(--orbit-size) * 0.235)) scale(0.789472);\n\t\t\t\t\t\t\topacity: 0.72;\n\t\t\t\t\t\t}\n\t\t\t\t\t\t100% {\n\t\t\t\t\t\t\ttransform: translateX(calc(var(--orbit-size) * 0.25)) scale(0.73684);\n\t\t\t\t\t\t\topacity: 0.65;\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t`}\n\t\t\t</style>\n\t\t</div>\n\t);\n}"
   }
 ],
             keywords: [],
@@ -17073,7 +17116,7 @@ export const Registry: Record<string, any> = {
     "path": "packages/loaders/pulsating-dots/index.tsx",
     "type": "registry:component",
     "target": "components/loaders/pulsating-dots.tsx",
-    "content": "\"use client\";\n\nexport default function PulsingDots() {\n\tconst dotCount = 5;\n\tconst duration = 1.3;\n\n\treturn (\n\t\t<div className=\"relative flex items-center justify-between gap-1\">\n\t\t\t{Array.from({ length: dotCount }).map((_, i) => {\n\t\t\t\tconst fraction =\n\t\t\t\t\tdotCount > 1 ? -0.25 * (i / (dotCount - 1)) : 0;\n\n\t\t\t\treturn (\n\t\t\t\t\t<div\n\t\t\t\t\t\tkey={i}\n\t\t\t\t\t\tclassName=\"w-[10.32px] h-[10.32px] rounded-full bg-black dark:bg-white\"\n\t\t\t\t\t\tstyle={{\n\t\t\t\t\t\t\tanimation: `pulse ${duration}s ease-in-out infinite`,\n\t\t\t\t\t\t\tanimationDelay: `calc(${duration}s * ${fraction})`,\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\t\t\t\t);\n\t\t\t})}\n\n\t\t\t<style>{`\n\t\t\t\t@keyframes pulse {\n\t\t\t\t\t0%, 100% {\n\t\t\t\t\t\ttransform: scale(0);\n\t\t\t\t\t}\n\t\t\t\t\t50% {\n\t\t\t\t\t\ttransform: scale(1);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t`}</style>\n\t\t</div>\n\t);\n}"
+    "content": "\"use client\";\n\nimport type React from \"react\";\n\nexport default function PulsingDots({\n\tclassName,\n\t...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n\tconst dotCount = 5;\n\tconst duration = 1.3;\n\n\treturn (\n\t\t<div\n\t\t\trole=\"status\"\n\t\t\taria-label=\"Loading\"\n\t\t\tclassName={[\n\t\t\t\t\"relative flex items-center justify-between gap-1 text-foreground\",\n\t\t\t\tclassName,\n\t\t\t]\n\t\t\t\t.filter(Boolean)\n\t\t\t\t.join(\" \")}\n\t\t\t{...props}\n\t\t>\n\t\t\t{Array.from({ length: dotCount }).map((_, i) => {\n\t\t\t\tconst fraction =\n\t\t\t\t\tdotCount > 1 ? -0.25 * (i / (dotCount - 1)) : 0;\n\n\t\t\t\treturn (\n\t\t\t\t\t<div\n\t\t\t\t\t\tkey={i}\n\t\t\t\t\t\tclassName=\"size-2.5 rounded-full bg-current\"\n\t\t\t\t\t\tstyle={{\n\t\t\t\t\t\t\tanimation: `loader-pulsating-dots ${duration}s ease-in-out infinite`,\n\t\t\t\t\t\t\tanimationDelay: `calc(${duration}s * ${fraction})`,\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\t\t\t\t);\n\t\t\t})}\n\n\t\t\t<style>{`\n\t\t\t\t@keyframes loader-pulsating-dots {\n\t\t\t\t\t0%,\n\t\t\t\t\t100% {\n\t\t\t\t\t\ttransform: scale(0);\n\t\t\t\t\t}\n\t\t\t\t\t50% {\n\t\t\t\t\t\ttransform: scale(1);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t`}</style>\n\t\t</div>\n\t);\n}"
   }
 ],
             keywords: [],
@@ -17081,6 +17124,92 @@ export const Registry: Record<string, any> = {
             component: (() => {
 							const LazyComp = React.lazy(async () => {
 								const mod = await import("@craftdotui/loaders/pulsating-dots/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "loader-ring": {
+            name: "loader-ring",
+            description: "A smooth SVG ring arc loader",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: [],
+            files: [
+  {
+    "path": "packages/loaders/ring/index.tsx",
+    "type": "registry:component",
+    "target": "components/loaders/ring.tsx",
+    "content": "\"use client\";\n\nimport type React from \"react\";\n\nexport default function Ring({\n\tclassName,\n\t...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n\treturn (\n\t\t<div\n\t\t\trole=\"status\"\n\t\t\taria-label=\"Loading\"\n\t\t\tclassName={[\"size-10 text-foreground\", className]\n\t\t\t\t.filter(Boolean)\n\t\t\t\t.join(\" \")}\n\t\t\t{...props}\n\t\t>\n\t\t\t<svg\n\t\t\t\tviewBox=\"0 0 40 40\"\n\t\t\t\tclassName=\"size-full origin-center transform-gpu will-change-transform animate-[loader-ring-rotate_1.4s_linear_infinite] motion-reduce:animate-[loader-ring-rotate_4.2s_linear_infinite]\"\n\t\t\t\taria-hidden=\"true\"\n\t\t\t>\n\t\t\t\t<circle\n\t\t\t\t\tcx=\"20\"\n\t\t\t\t\tcy=\"20\"\n\t\t\t\t\tr=\"17.5\"\n\t\t\t\t\tpathLength={100}\n\t\t\t\t\tfill=\"none\"\n\t\t\t\t\tstroke=\"currentColor\"\n\t\t\t\t\tstrokeWidth=\"3.5\"\n\t\t\t\t\tstrokeLinecap=\"round\"\n\t\t\t\t\tshapeRendering=\"geometricPrecision\"\n\t\t\t\t\tclassName=\"animate-[loader-ring-dash_1.1s_linear_infinite] motion-reduce:animate-[loader-ring-dash_3.3s_linear_infinite]\"\n\t\t\t\t/>\n\t\t\t</svg>\n\n\t\t\t<style>{`\n\t\t\t\t@keyframes loader-ring-rotate {\n\t\t\t\t\tto {\n\t\t\t\t\t\ttransform: rotate(360deg);\n\t\t\t\t\t}\n\t\t\t\t}\n\n\t\t\t\t@keyframes loader-ring-dash {\n\t\t\t\t\t0% {\n\t\t\t\t\t\tstroke-dasharray: 15 85;\n\t\t\t\t\t\tstroke-dashoffset: 0;\n\t\t\t\t\t}\n\t\t\t\t\t50% {\n\t\t\t\t\t\tstroke-dasharray: 70 30;\n\t\t\t\t\t\tstroke-dashoffset: -15;\n\t\t\t\t\t}\n\t\t\t\t\t100% {\n\t\t\t\t\t\tstroke-dasharray: 15 85;\n\t\t\t\t\t\tstroke-dashoffset: -100;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t`}</style>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/loader-ring',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/loaders/ring/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "loader-ripple": {
+            name: "loader-ripple",
+            description: "A concentric expanding ripple loader",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: [],
+            files: [
+  {
+    "path": "packages/loaders/ripple/index.tsx",
+    "type": "registry:component",
+    "target": "components/loaders/ripple.tsx",
+    "content": "\"use client\";\n\nimport type React from \"react\";\n\nexport default function Ripple({\n\tclassName,\n\t...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n\treturn (\n\t\t<div\n\t\t\trole=\"status\"\n\t\t\taria-label=\"Loading\"\n\t\t\tclassName={[\"relative size-10 text-foreground\", className]\n\t\t\t\t.filter(Boolean)\n\t\t\t\t.join(\" \")}\n\t\t\t{...props}\n\t\t>\n\t\t\t{[0, 1].map((index) => (\n\t\t\t\t<div\n\t\t\t\t\tkey={index}\n\t\t\t\t\tclassName=\"absolute inset-0 rounded-full border-2 border-current\"\n\t\t\t\t\tstyle={{\n\t\t\t\t\t\tanimation:\n\t\t\t\t\t\t\t\"loader-ripple 1.8s cubic-bezier(0, 0.2, 0.8, 1) infinite\",\n\t\t\t\t\t\tanimationDelay: index === 1 ? \"-0.9s\" : \"0s\",\n\t\t\t\t\t}}\n\t\t\t\t/>\n\t\t\t))}\n\n\t\t\t<style>{`\n\t\t\t\t@keyframes loader-ripple {\n\t\t\t\t\t0% {\n\t\t\t\t\t\ttransform: scale(0);\n\t\t\t\t\t\topacity: 1;\n\t\t\t\t\t}\n\t\t\t\t\t100% {\n\t\t\t\t\t\ttransform: scale(1);\n\t\t\t\t\t\topacity: 0;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t`}</style>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/loader-ripple',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/loaders/ripple/index.tsx");
 								let Comp = mod.default;
 
 								if (!Comp) {
@@ -17116,7 +17245,7 @@ export const Registry: Record<string, any> = {
     "path": "packages/loaders/spinner/index.tsx",
     "type": "registry:component",
     "target": "components/loaders/spinner.tsx",
-    "content": "export default function Spinner() {\n\treturn (\n\t\t<div className=\"animate-spin rounded-full h-10 w-10 border-b-2 border-black dark:border-white\">\n\t\t\t<span className=\"sr-only\">Loading...</span>\n\t\t</div>\n\t);\n}"
+    "content": "\"use client\";\n\nimport type React from \"react\";\n\nexport default function Spinner({\n\tclassName,\n\t...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n\treturn (\n\t\t<div\n\t\t\trole=\"status\"\n\t\t\taria-label=\"Loading\"\n\t\t\tclassName={[\n\t\t\t\t\"size-10 animate-spin rounded-full border-b-2 border-current text-foreground\",\n\t\t\t\tclassName,\n\t\t\t]\n\t\t\t\t.filter(Boolean)\n\t\t\t\t.join(\" \")}\n\t\t\t{...props}\n\t\t>\n\t\t\t<span className=\"sr-only\">Loading...</span>\n\t\t</div>\n\t);\n}"
   }
 ],
             keywords: [],
@@ -17159,7 +17288,7 @@ export const Registry: Record<string, any> = {
     "path": "packages/loaders/spiral/index.tsx",
     "type": "registry:component",
     "target": "components/loaders/spiral.tsx",
-    "content": "\"use client\";\n\nexport default function Spiral() {\n\tconst dotCount = 8;\n\tconst duration = 0.9;\n\n\treturn (\n\t\t<div className=\"relative flex items-center justify-start h-[40px] w-[40px]\">\n\t\t\t{Array.from({ length: dotCount }).map((_, index) => {\n\t\t\t\tconst rotation = (360 / dotCount) * index;\n\n\t\t\t\treturn (\n\t\t\t\t\t<div\n\t\t\t\t\t\tkey={index}\n\t\t\t\t\t\tclassName=\"absolute top-0 left-0 flex items-center justify-start h-full w-full\"\n\t\t\t\t\t\tstyle={{ transform: `rotate(${rotation}deg)` }}\n\t\t\t\t\t>\n\t\t\t\t\t\t<div\n\t\t\t\t\t\t\tclassName=\"h-[20%] w-[20%] rounded-full bg-black dark:bg-white\"\n\t\t\t\t\t\t\tstyle={{\n\t\t\t\t\t\t\t\tanimation: `pulse ${duration}s ease-in-out infinite`,\n\t\t\t\t\t\t\t\tanimationDelay: `-${index * (duration / dotCount)}s`,\n\t\t\t\t\t\t\t}}\n\t\t\t\t\t\t/>\n\t\t\t\t\t</div>\n\t\t\t\t);\n\t\t\t})}\n\n\t\t\t<style>{`\n\t\t\t\t@keyframes pulse {\n\t\t\t\t\t0%, 100% {\n\t\t\t\t\t\ttransform: scale(0);\n\t\t\t\t\t\topacity: 0.5;\n\t\t\t\t\t}\n\t\t\t\t\t50% {\n\t\t\t\t\t\ttransform: scale(1);\n\t\t\t\t\t\topacity: 1;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t`}</style>\n\t\t</div>\n\t);\n}"
+    "content": "\"use client\";\n\nimport type React from \"react\";\n\nexport default function Spiral({\n\tclassName,\n\t...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n\tconst dotCount = 8;\n\tconst duration = 0.9;\n\n\treturn (\n\t\t<div\n\t\t\trole=\"status\"\n\t\t\taria-label=\"Loading\"\n\t\t\tclassName={[\"relative size-10 text-foreground\", className]\n\t\t\t\t.filter(Boolean)\n\t\t\t\t.join(\" \")}\n\t\t\t{...props}\n\t\t>\n\t\t\t{Array.from({ length: dotCount }).map((_, index) => {\n\t\t\t\tconst rotation = (360 / dotCount) * index;\n\n\t\t\t\treturn (\n\t\t\t\t\t<div\n\t\t\t\t\t\tkey={index}\n\t\t\t\t\t\tclassName=\"absolute top-0 left-0 flex size-full items-center justify-start\"\n\t\t\t\t\t\tstyle={{ transform: `rotate(${rotation}deg)` }}\n\t\t\t\t\t>\n\t\t\t\t\t\t<div\n\t\t\t\t\t\t\tclassName=\"size-[20%] rounded-full bg-current\"\n\t\t\t\t\t\t\tstyle={{\n\t\t\t\t\t\t\t\tanimation: `loader-spiral ${duration}s ease-in-out infinite`,\n\t\t\t\t\t\t\t\tanimationDelay: `-${index * (duration / dotCount)}s`,\n\t\t\t\t\t\t\t}}\n\t\t\t\t\t\t/>\n\t\t\t\t\t</div>\n\t\t\t\t);\n\t\t\t})}\n\n\t\t\t<style>{`\n\t\t\t\t@keyframes loader-spiral {\n\t\t\t\t\t0%,\n\t\t\t\t\t100% {\n\t\t\t\t\t\ttransform: scale(0);\n\t\t\t\t\t\topacity: 0.5;\n\t\t\t\t\t}\n\t\t\t\t\t50% {\n\t\t\t\t\t\ttransform: scale(1);\n\t\t\t\t\t\topacity: 1;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t`}</style>\n\t\t</div>\n\t);\n}"
   }
 ],
             keywords: [],
@@ -17167,6 +17296,92 @@ export const Registry: Record<string, any> = {
             component: (() => {
 							const LazyComp = React.lazy(async () => {
 								const mod = await import("@craftdotui/loaders/spiral/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "loader-typing-dots": {
+            name: "loader-typing-dots",
+            description: "A compact 3-dot typing indicator loader",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: [],
+            files: [
+  {
+    "path": "packages/loaders/typing-dots/index.tsx",
+    "type": "registry:component",
+    "target": "components/loaders/typing-dots.tsx",
+    "content": "\"use client\";\n\nimport type React from \"react\";\n\nexport default function TypingDots({\n\tclassName,\n\t...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n\tconst dots = 3;\n\tconst duration = 1.2;\n\n\treturn (\n\t\t<div\n\t\t\trole=\"status\"\n\t\t\taria-label=\"Loading\"\n\t\t\tclassName={[\"flex items-center gap-1 text-foreground\", className]\n\t\t\t\t.filter(Boolean)\n\t\t\t\t.join(\" \")}\n\t\t\t{...props}\n\t\t>\n\t\t\t{Array.from({ length: dots }).map((_, index) => (\n\t\t\t\t<div\n\t\t\t\t\tkey={index}\n\t\t\t\t\tclassName=\"size-1.5 rounded-full bg-current\"\n\t\t\t\t\tstyle={{\n\t\t\t\t\t\tanimation: `loader-typing-dots ${duration}s ease-in-out infinite`,\n\t\t\t\t\t\tanimationDelay: `${index * 0.16}s`,\n\t\t\t\t\t}}\n\t\t\t\t/>\n\t\t\t))}\n\n\t\t\t<style>{`\n\t\t\t\t@keyframes loader-typing-dots {\n\t\t\t\t\t0%,\n\t\t\t\t\t60%,\n\t\t\t\t\t100% {\n\t\t\t\t\t\ttransform: translateY(0);\n\t\t\t\t\t\topacity: 0.4;\n\t\t\t\t\t}\n\t\t\t\t\t30% {\n\t\t\t\t\t\ttransform: translateY(-4px);\n\t\t\t\t\t\topacity: 1;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t`}</style>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/loader-typing-dots',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/loaders/typing-dots/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "loader-wave-bars": {
+            name: "loader-wave-bars",
+            description: "An audio wave bars loader",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: [],
+            files: [
+  {
+    "path": "packages/loaders/wave-bars/index.tsx",
+    "type": "registry:component",
+    "target": "components/loaders/wave-bars.tsx",
+    "content": "\"use client\";\n\nimport type React from \"react\";\n\nexport default function WaveBars({\n\tclassName,\n\t...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n\tconst bars = 5;\n\tconst duration = 1;\n\n\treturn (\n\t\t<div\n\t\t\trole=\"status\"\n\t\t\taria-label=\"Loading\"\n\t\t\tclassName={[\n\t\t\t\t\"flex h-8 items-center justify-center gap-1 text-foreground\",\n\t\t\t\tclassName,\n\t\t\t]\n\t\t\t\t.filter(Boolean)\n\t\t\t\t.join(\" \")}\n\t\t\t{...props}\n\t\t>\n\t\t\t{Array.from({ length: bars }).map((_, index) => (\n\t\t\t\t<div\n\t\t\t\t\tkey={index}\n\t\t\t\t\tclassName=\"h-full w-1 rounded-full bg-current\"\n\t\t\t\t\tstyle={{\n\t\t\t\t\t\tanimation: `loader-wave-bars ${duration}s ease-in-out infinite`,\n\t\t\t\t\t\tanimationDelay: `-${((bars - index) * duration) / bars}s`,\n\t\t\t\t\t}}\n\t\t\t\t/>\n\t\t\t))}\n\n\t\t\t<style>{`\n\t\t\t\t@keyframes loader-wave-bars {\n\t\t\t\t\t0%,\n\t\t\t\t\t100% {\n\t\t\t\t\t\ttransform: scaleY(0.3);\n\t\t\t\t\t\topacity: 0.5;\n\t\t\t\t\t}\n\t\t\t\t\t50% {\n\t\t\t\t\t\ttransform: scaleY(1);\n\t\t\t\t\t\topacity: 1;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t`}</style>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/loader-wave-bars',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/loaders/wave-bars/index.tsx");
 								let Comp = mod.default;
 
 								if (!Comp) {
@@ -17202,7 +17417,7 @@ export const Registry: Record<string, any> = {
     "path": "packages/loaders/zoomies/index.tsx",
     "type": "registry:component",
     "target": "components/loaders/zoomies.tsx",
-    "content": "\"use client\";\n\nexport default function Zoomies() {\n\tconst duration = 1.4;\n\n\treturn (\n\t\t<div className=\"relative flex items-center justify-center h-[5px] w-[80px] rounded-[2.5px] overflow-hidden\">\n\t\t\t{/* bg */}\n\t\t\t<div className=\"absolute inset-0 bg-black dark:bg-white opacity-10 transition-colors duration-200\" />\n\n\t\t\t{/* moving bar */}\n\t\t\t<div\n\t\t\t\tclassName=\"h-full w-full rounded-[2.5px] bg-black dark:bg-white transition-colors duration-200\"\n\t\t\t\tstyle={{\n\t\t\t\t\tanimation: `zoom ${duration}s ease-in-out infinite`,\n\t\t\t\t}}\n\t\t\t/>\n\n\t\t\t<style>\n\t\t\t\t{`\n                    @keyframes zoom {\n                        0% {\n                            transform: translateX(-100%);\n                        }\n                        100% {\n                            transform: translateX(100%);\n                        }\n                    }\n                `}\n\t\t\t</style>\n\t\t</div>\n\t);\n}"
+    "content": "\"use client\";\n\nimport type React from \"react\";\n\nexport default function Zoomies({\n\tclassName,\n\t...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n\tconst duration = 1.4;\n\n\treturn (\n\t\t<div\n\t\t\trole=\"status\"\n\t\t\taria-label=\"Loading\"\n\t\t\tclassName={[\n\t\t\t\t\"relative flex h-[5px] w-20 items-center justify-center overflow-hidden rounded-full text-foreground\",\n\t\t\t\tclassName,\n\t\t\t]\n\t\t\t\t.filter(Boolean)\n\t\t\t\t.join(\" \")}\n\t\t\t{...props}\n\t\t>\n\t\t\t<div className=\"absolute inset-0 bg-current opacity-10\" />\n\t\t\t<div\n\t\t\t\tclassName=\"size-full rounded-full bg-current\"\n\t\t\t\tstyle={{\n\t\t\t\t\tanimation: `loader-zoom ${duration}s ease-in-out infinite`,\n\t\t\t\t}}\n\t\t\t/>\n\n\t\t\t<style>\n\t\t\t\t{`\n\t\t\t\t\t@keyframes loader-zoom {\n\t\t\t\t\t\t0% {\n\t\t\t\t\t\t\ttransform: translateX(-100%);\n\t\t\t\t\t\t}\n\t\t\t\t\t\t100% {\n\t\t\t\t\t\t\ttransform: translateX(100%);\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t`}\n\t\t\t</style>\n\t\t</div>\n\t);\n}"
   }
 ],
             keywords: [],

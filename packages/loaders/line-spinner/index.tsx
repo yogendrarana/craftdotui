@@ -1,31 +1,50 @@
 "use client";
 
-import { motion } from "motion/react";
+import type React from "react";
 
-export default function LineSpinner() {
+export default function LineSpinner({
+	className,
+	...props
+}: React.HTMLAttributes<HTMLDivElement>) {
 	const lines = 12;
+	const duration = 1;
 
 	return (
-		<div className="relative w-12 h-12">
+		<div
+			role="status"
+			aria-label="Loading"
+			className={["relative size-10 text-foreground", className]
+				.filter(Boolean)
+				.join(" ")}
+			{...props}
+		>
 			{Array.from({ length: lines }).map((_, i) => (
-				<motion.div
+				<div
 					key={i}
-					className="absolute w-1 h-4 rounded-full bg-black dark:bg-white"
-					style={{
-						left: "50%",
-						top: "50%",
-						rotate: `-${i * 30}deg`,
-						transformOrigin: "0% 0%",
-					}}
-					animate={{ opacity: [0.1, 1, 0.1] }}
-					transition={{
-						duration: 1,
-						repeat: Infinity,
-						delay: i * 0.1,
-						ease: "linear",
-					}}
-				/>
+					className="absolute top-0 left-1/2 h-full w-1 -translate-x-1/2"
+					style={{ transform: `rotate(${i * (360 / lines)}deg)` }}
+				>
+					<div
+						className="h-[28%] w-full rounded-full bg-current"
+						style={{
+							animation: `loader-line-spinner ${duration}s linear infinite`,
+							animationDelay: `-${((lines - i) * duration) / lines}s`,
+						}}
+					/>
+				</div>
 			))}
+
+			<style>{`
+				@keyframes loader-line-spinner {
+					0%,
+					100% {
+						opacity: 0.15;
+					}
+					50% {
+						opacity: 1;
+					}
+				}
+			`}</style>
 		</div>
 	);
 }

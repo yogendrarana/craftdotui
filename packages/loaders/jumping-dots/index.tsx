@@ -1,14 +1,26 @@
 "use client";
 
-export default function JumpingDots() {
+import type React from "react";
+
+export default function JumpingDots({
+	className,
+	...props
+}: React.HTMLAttributes<HTMLDivElement>) {
 	const dots = 4;
 
 	return (
-		<div className="flex items-end gap-1.5">
+		<div
+			role="status"
+			aria-label="Loading"
+			className={["flex items-end gap-1.5 text-foreground", className]
+				.filter(Boolean)
+				.join(" ")}
+			{...props}
+		>
 			{Array.from({ length: dots }).map((_, index) => (
 				<div
 					key={index}
-					className="w-2 h-2 rounded-full bg-black dark:bg-white animate-[jump_1s_ease-in-out_infinite]"
+					className="size-2 rounded-full bg-current animate-[loader-jump_1s_ease-in-out_infinite]"
 					style={{
 						animationDelay: `-${(dots - index) * 0.15}s`,
 					}}
@@ -16,7 +28,7 @@ export default function JumpingDots() {
 			))}
 
 			<style>{`
-				@keyframes jump {
+				@keyframes loader-jump {
 					0%,
 					100% {
 						transform: translateY(0);

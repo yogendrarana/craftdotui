@@ -1,5 +1,6 @@
 export { default as SpinnerLoader } from "./spinner";
 export { default as Classic } from "./classic";
+export { default as DotGrid } from "./dot-grid";
 export { default as JumpingDots } from "./jumping-dots";
 export { default as LeapFrog } from "./leapfrog";
 export { default as LineSpinner } from "./line-spinner";
@@ -7,6 +8,9 @@ export { default as LineWobble } from "./line-wobble";
 export { default as NewtonsCradle } from "./newtons-cradle";
 export { default as Orbit } from "./orbit";
 export { default as PulsingDots } from "./pulsating-dots";
+export { default as Ring } from "./ring";
+export { default as Ripple } from "./ripple";
 export { default as Spiral } from "./spiral";
-export { default as ThreeBody } from "./three-body";
+export { default as TypingDots } from "./typing-dots";
+export { default as WaveBars } from "./wave-bars";
 export { default as Zoomies } from "./zoomies";

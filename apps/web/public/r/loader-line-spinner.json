@@ -1,13 +1,13 @@
 {
 	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
 	"name": "loader-line-spinner",
-	"description": "A line spinner loader using framer-motion",
-	"dependencies": ["motion"],
+	"description": "A CSS line spinner loader",
+	"dependencies": [],
 	"registryDependencies": [],
 	"files": [
 		{
 			"path": "packages/loaders/line-spinner/index.tsx",
-			"content": "\"use client\";\n\nimport { motion } from \"motion/react\";\n\nexport default function LineSpinner() {\n\tconst lines = 12;\n\n\treturn (\n\t\t<div className=\"relative w-12 h-12\">\n\t\t\t{Array.from({ length: lines }).map((_, i) => (\n\t\t\t\t<motion.div\n\t\t\t\t\tkey={i}\n\t\t\t\t\tclassName=\"absolute w-1 h-4 rounded-full bg-black dark:bg-white\"\n\t\t\t\t\tstyle={{\n\t\t\t\t\t\tleft: \"50%\",\n\t\t\t\t\t\ttop: \"50%\",\n\t\t\t\t\t\trotate: `-${i * 30}deg`,\n\t\t\t\t\t\ttransformOrigin: \"0% 0%\",\n\t\t\t\t\t}}\n\t\t\t\t\tanimate={{ opacity: [0.1, 1, 0.1] }}\n\t\t\t\t\ttransition={{\n\t\t\t\t\t\tduration: 1,\n\t\t\t\t\t\trepeat: Infinity,\n\t\t\t\t\t\tdelay: i * 0.1,\n\t\t\t\t\t\tease: \"linear\",\n\t\t\t\t\t}}\n\t\t\t\t/>\n\t\t\t))}\n\t\t</div>\n\t);\n}\n",
+			"content": "\"use client\";\n\nimport type React from \"react\";\n\nexport default function LineSpinner({\n\tclassName,\n\t...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n\tconst lines = 12;\n\tconst duration = 1;\n\n\treturn (\n\t\t<div\n\t\t\trole=\"status\"\n\t\t\taria-label=\"Loading\"\n\t\t\tclassName={[\"relative size-10 text-foreground\", className]\n\t\t\t\t.filter(Boolean)\n\t\t\t\t.join(\" \")}\n\t\t\t{...props}\n\t\t>\n\t\t\t{Array.from({ length: lines }).map((_, i) => (\n\t\t\t\t<div\n\t\t\t\t\tkey={i}\n\t\t\t\t\tclassName=\"absolute top-0 left-1/2 h-full w-1 -translate-x-1/2\"\n\t\t\t\t\tstyle={{ transform: `rotate(${i * (360 / lines)}deg)` }}\n\t\t\t\t>\n\t\t\t\t\t<div\n\t\t\t\t\t\tclassName=\"h-[28%] w-full rounded-full bg-current\"\n\t\t\t\t\t\tstyle={{\n\t\t\t\t\t\t\tanimation: `loader-line-spinner ${duration}s linear infinite`,\n\t\t\t\t\t\t\tanimationDelay: `-${((lines - i) * duration) / lines}s`,\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\t\t\t\t</div>\n\t\t\t))}\n\n\t\t\t<style>{`\n\t\t\t\t@keyframes loader-line-spinner {\n\t\t\t\t\t0%,\n\t\t\t\t\t100% {\n\t\t\t\t\t\topacity: 0.15;\n\t\t\t\t\t}\n\t\t\t\t\t50% {\n\t\t\t\t\t\topacity: 1;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t`}</style>\n\t\t</div>\n\t);\n}\n",
 			"type": "registry:component",
 			"target": "components/loaders/line-spinner.tsx"
 		}

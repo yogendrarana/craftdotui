@@ -7,7 +7,7 @@
 	"files": [
 		{
 			"path": "packages/loaders/classic/index.tsx",
-			"content": "\"use client\";\n\nexport default function ClassicLoader() {\n\treturn (\n\t\t<div className=\"animate-spin size-8 border-2 rounded-full border-current border-t-transparent\" />\n\t);\n}\n",
+			"content": "\"use client\";\n\nimport type React from \"react\";\n\nexport default function ClassicLoader({\n\tclassName,\n\t...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n\treturn (\n\t\t<div\n\t\t\trole=\"status\"\n\t\t\taria-label=\"Loading\"\n\t\t\tclassName={[\n\t\t\t\t\"size-8 animate-spin rounded-full border-2 border-current border-t-transparent text-foreground\",\n\t\t\t\tclassName,\n\t\t\t]\n\t\t\t\t.filter(Boolean)\n\t\t\t\t.join(\" \")}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n",
 			"type": "registry:component",
 			"target": "components/loaders/classic.tsx"
 		}

@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "loader-dot-grid",
+	"description": "A 3x3 pulsing dot grid loader",
+	"dependencies": [],
+	"registryDependencies": [],
+	"files": [
+		{
+			"path": "packages/loaders/dot-grid/index.tsx",
+			"content": "\"use client\";\n\nimport type React from \"react\";\n\nconst delays = [0, 0.15, 0.3, 0.15, 0.3, 0.45, 0.3, 0.45, 0.6];\n\nexport default function DotGrid({\n\tclassName,\n\t...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n\treturn (\n\t\t<div\n\t\t\trole=\"status\"\n\t\t\taria-label=\"Loading\"\n\t\t\tclassName={[\"grid grid-cols-3 gap-1.5 text-foreground\", className]\n\t\t\t\t.filter(Boolean)\n\t\t\t\t.join(\" \")}\n\t\t\t{...props}\n\t\t>\n\t\t\t{delays.map((delay, index) => (\n\t\t\t\t<div\n\t\t\t\t\tkey={index}\n\t\t\t\t\tclassName=\"size-2 rounded-full bg-current\"\n\t\t\t\t\tstyle={{\n\t\t\t\t\t\tanimation: \"loader-dot-grid 1.3s ease-in-out infinite\",\n\t\t\t\t\t\tanimationDelay: `${delay}s`,\n\t\t\t\t\t}}\n\t\t\t\t/>\n\t\t\t))}\n\n\t\t\t<style>{`\n\t\t\t\t@keyframes loader-dot-grid {\n\t\t\t\t\t0%,\n\t\t\t\t\t100% {\n\t\t\t\t\t\ttransform: scale(0.4);\n\t\t\t\t\t\topacity: 0.3;\n\t\t\t\t\t}\n\t\t\t\t\t50% {\n\t\t\t\t\t\ttransform: scale(1);\n\t\t\t\t\t\topacity: 1;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t`}</style>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/loaders/dot-grid.tsx"
+		}
+	],
+	"type": "registry:component"
+}

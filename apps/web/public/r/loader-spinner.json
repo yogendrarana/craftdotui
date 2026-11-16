@@ -8,7 +8,7 @@
 	"files": [
 		{
 			"path": "packages/loaders/spinner/index.tsx",
-			"content": "export default function Spinner() {\n\treturn (\n\t\t<div className=\"animate-spin rounded-full h-10 w-10 border-b-2 border-black dark:border-white\">\n\t\t\t<span className=\"sr-only\">Loading...</span>\n\t\t</div>\n\t);\n}\n",
+			"content": "\"use client\";\n\nimport type React from \"react\";\n\nexport default function Spinner({\n\tclassName,\n\t...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n\treturn (\n\t\t<div\n\t\t\trole=\"status\"\n\t\t\taria-label=\"Loading\"\n\t\t\tclassName={[\n\t\t\t\t\"size-10 animate-spin rounded-full border-b-2 border-current text-foreground\",\n\t\t\t\tclassName,\n\t\t\t]\n\t\t\t\t.filter(Boolean)\n\t\t\t\t.join(\" \")}\n\t\t\t{...props}\n\t\t>\n\t\t\t<span className=\"sr-only\">Loading...</span>\n\t\t</div>\n\t);\n}\n",
 			"type": "registry:component",
 			"target": "components/loaders/spinner.tsx"
 		}

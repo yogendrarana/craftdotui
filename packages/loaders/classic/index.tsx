@@ -1,7 +1,22 @@
 "use client";
 
-export default function ClassicLoader() {
+import type React from "react";
+
+export default function ClassicLoader({
+	className,
+	...props
+}: React.HTMLAttributes<HTMLDivElement>) {
 	return (
-		<div className="animate-spin size-8 border-2 rounded-full border-current border-t-transparent" />
+		<div
+			role="status"
+			aria-label="Loading"
+			className={[
+				"size-8 animate-spin rounded-full border-2 border-current border-t-transparent text-foreground",
+				className,
+			]
+				.filter(Boolean)
+				.join(" ")}
+			{...props}
+		/>
 	);
 }

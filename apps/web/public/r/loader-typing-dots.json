@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "loader-typing-dots",
+	"description": "A compact 3-dot typing indicator loader",
+	"dependencies": [],
+	"registryDependencies": [],
+	"files": [
+		{
+			"path": "packages/loaders/typing-dots/index.tsx",
+			"content": "\"use client\";\n\nimport type React from \"react\";\n\nexport default function TypingDots({\n\tclassName,\n\t...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n\tconst dots = 3;\n\tconst duration = 1.2;\n\n\treturn (\n\t\t<div\n\t\t\trole=\"status\"\n\t\t\taria-label=\"Loading\"\n\t\t\tclassName={[\"flex items-center gap-1 text-foreground\", className]\n\t\t\t\t.filter(Boolean)\n\t\t\t\t.join(\" \")}\n\t\t\t{...props}\n\t\t>\n\t\t\t{Array.from({ length: dots }).map((_, index) => (\n\t\t\t\t<div\n\t\t\t\t\tkey={index}\n\t\t\t\t\tclassName=\"size-1.5 rounded-full bg-current\"\n\t\t\t\t\tstyle={{\n\t\t\t\t\t\tanimation: `loader-typing-dots ${duration}s ease-in-out infinite`,\n\t\t\t\t\t\tanimationDelay: `${index * 0.16}s`,\n\t\t\t\t\t}}\n\t\t\t\t/>\n\t\t\t))}\n\n\t\t\t<style>{`\n\t\t\t\t@keyframes loader-typing-dots {\n\t\t\t\t\t0%,\n\t\t\t\t\t60%,\n\t\t\t\t\t100% {\n\t\t\t\t\t\ttransform: translateY(0);\n\t\t\t\t\t\topacity: 0.4;\n\t\t\t\t\t}\n\t\t\t\t\t30% {\n\t\t\t\t\t\ttransform: translateY(-4px);\n\t\t\t\t\t\topacity: 1;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t`}</style>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/loaders/typing-dots.tsx"
+		}
+	],
+	"type": "registry:component"
+}

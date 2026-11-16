@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "loader-ripple",
+	"type": "registry:component",
+	"description": "A concentric expanding ripple loader",
+	"dependencies": [],
+	"registryDependencies": [],
+	"files": [
+		{
+			"path": "packages/loaders/ripple/index.tsx",
+			"type": "registry:component",
+			"target": "components/loaders/ripple.tsx"
+		}
+	]
+}

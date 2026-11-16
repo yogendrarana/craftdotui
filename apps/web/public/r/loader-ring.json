@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "loader-ring",
+	"description": "A smooth SVG ring arc loader",
+	"dependencies": [],
+	"registryDependencies": [],
+	"files": [
+		{
+			"path": "packages/loaders/ring/index.tsx",
+			"content": "\"use client\";\n\nimport type React from \"react\";\n\nexport default function Ring({\n\tclassName,\n\t...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n\treturn (\n\t\t<div\n\t\t\trole=\"status\"\n\t\t\taria-label=\"Loading\"\n\t\t\tclassName={[\"size-10 text-foreground\", className]\n\t\t\t\t.filter(Boolean)\n\t\t\t\t.join(\" \")}\n\t\t\t{...props}\n\t\t>\n\t\t\t<svg\n\t\t\t\tviewBox=\"0 0 40 40\"\n\t\t\t\tclassName=\"size-full origin-center transform-gpu will-change-transform animate-[loader-ring-rotate_1.4s_linear_infinite] motion-reduce:animate-[loader-ring-rotate_4.2s_linear_infinite]\"\n\t\t\t\taria-hidden=\"true\"\n\t\t\t>\n\t\t\t\t<circle\n\t\t\t\t\tcx=\"20\"\n\t\t\t\t\tcy=\"20\"\n\t\t\t\t\tr=\"17.5\"\n\t\t\t\t\tpathLength={100}\n\t\t\t\t\tfill=\"none\"\n\t\t\t\t\tstroke=\"currentColor\"\n\t\t\t\t\tstrokeWidth=\"3.5\"\n\t\t\t\t\tstrokeLinecap=\"round\"\n\t\t\t\t\tshapeRendering=\"geometricPrecision\"\n\t\t\t\t\tclassName=\"animate-[loader-ring-dash_1.1s_linear_infinite] motion-reduce:animate-[loader-ring-dash_3.3s_linear_infinite]\"\n\t\t\t\t/>\n\t\t\t</svg>\n\n\t\t\t<style>{`\n\t\t\t\t@keyframes loader-ring-rotate {\n\t\t\t\t\tto {\n\t\t\t\t\t\ttransform: rotate(360deg);\n\t\t\t\t\t}\n\t\t\t\t}\n\n\t\t\t\t@keyframes loader-ring-dash {\n\t\t\t\t\t0% {\n\t\t\t\t\t\tstroke-dasharray: 15 85;\n\t\t\t\t\t\tstroke-dashoffset: 0;\n\t\t\t\t\t}\n\t\t\t\t\t50% {\n\t\t\t\t\t\tstroke-dasharray: 70 30;\n\t\t\t\t\t\tstroke-dashoffset: -15;\n\t\t\t\t\t}\n\t\t\t\t\t100% {\n\t\t\t\t\t\tstroke-dasharray: 15 85;\n\t\t\t\t\t\tstroke-dashoffset: -100;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t`}</style>\n\t\t</div>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/loaders/ring.tsx"
+		}
+	],
+	"type": "registry:component"
+}

@@ -1,32 +1,44 @@
 "use client";
 
-export default function Zoomies() {
+import type React from "react";
+
+export default function Zoomies({
+	className,
+	...props
+}: React.HTMLAttributes<HTMLDivElement>) {
 	const duration = 1.4;
 
 	return (
-		<div className="relative flex items-center justify-center h-[5px] w-[80px] rounded-[2.5px] overflow-hidden">
-			{/* bg */}
-			<div className="absolute inset-0 bg-black dark:bg-white opacity-10 transition-colors duration-200" />
-
-			{/* moving bar */}
+		<div
+			role="status"
+			aria-label="Loading"
+			className={[
+				"relative flex h-[5px] w-20 items-center justify-center overflow-hidden rounded-full text-foreground",
+				className,
+			]
+				.filter(Boolean)
+				.join(" ")}
+			{...props}
+		>
+			<div className="absolute inset-0 bg-current opacity-10" />
 			<div
-				className="h-full w-full rounded-[2.5px] bg-black dark:bg-white transition-colors duration-200"
+				className="size-full rounded-full bg-current"
 				style={{
-					animation: `zoom ${duration}s ease-in-out infinite`,
+					animation: `loader-zoom ${duration}s ease-in-out infinite`,
 				}}
 			/>
 
 			<style>
 				{`
-                    @keyframes zoom {
-                        0% {
-                            transform: translateX(-100%);
-                        }
-                        100% {
-                            transform: translateX(100%);
-                        }
-                    }
-                `}
+					@keyframes loader-zoom {
+						0% {
+							transform: translateX(-100%);
+						}
+						100% {
+							transform: translateX(100%);
+						}
+					}
+				`}
 			</style>
 		</div>
 	);

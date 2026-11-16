@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "loader-dot-grid",
+	"type": "registry:component",
+	"description": "A 3x3 pulsing dot grid loader",
+	"dependencies": [],
+	"registryDependencies": [],
+	"files": [
+		{
+			"path": "packages/loaders/dot-grid/index.tsx",
+			"type": "registry:component",
+			"target": "components/loaders/dot-grid.tsx"
+		}
+	]
+}

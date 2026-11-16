@@ -316,6 +316,10 @@ export const docsNavItems: Array<DocsNavItem> = [
 				href: "/docs/loaders/classic",
 			},
 			{
+				title: "Dot Grid",
+				href: "/docs/loaders/dot-grid",
+			},
+			{
 				title: "Jumping Dots",
 				href: "/docs/loaders/jumping-dots",
 			},
@@ -344,12 +348,28 @@ export const docsNavItems: Array<DocsNavItem> = [
 				href: "/docs/loaders/pulsating-dots",
 			},
 			{
+				title: "Ring",
+				href: "/docs/loaders/ring",
+			},
+			{
+				title: "Ripple",
+				href: "/docs/loaders/ripple",
+			},
+			{
 				title: "Spinner",
 				href: "/docs/loaders/spinner",
 			},
 			{
 				title: "Spiral",
 				href: "/docs/loaders/spiral",
+			},
+			{
+				title: "Typing Dots",
+				href: "/docs/loaders/typing-dots",
+			},
+			{
+				title: "Wave Bars",
+				href: "/docs/loaders/wave-bars",
 			},
 			{
 				title: "Zoomies",

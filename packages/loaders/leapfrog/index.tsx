@@ -1,20 +1,32 @@
 "use client";
 
-export default function LeapFrog() {
+import type React from "react";
+
+export default function LeapFrog({
+	className,
+	...props
+}: React.HTMLAttributes<HTMLDivElement>) {
 	const delays = ["0s", "-0.833s", "-1.667s"];
 
 	return (
-		<div className="relative h-10 w-10">
+		<div
+			role="status"
+			aria-label="Loading"
+			className={["relative size-10 text-foreground", className]
+				.filter(Boolean)
+				.join(" ")}
+			{...props}
+		>
 			{delays.map((delay, index) => (
 				<div
 					key={index}
-					className="absolute inset-0 w-full h-full flex items-center justify-start before:content-[''] before:block before:w-2 before:h-2 before:rounded-full before:bg-black dark:before:bg-white before:transition-colors before:duration-200 before:ease-in-out animate-leap-frog"
+					className="absolute inset-0 flex size-full items-center justify-start animate-[loader-leap-frog_2.5s_ease_infinite] before:block before:size-2 before:rounded-full before:bg-current before:content-['']"
 					style={{ animationDelay: delay }}
 				/>
 			))}
 
 			<style>{`
-				@keyframes leap-frog {
+				@keyframes loader-leap-frog {
 					0% {
 						transform: translateX(0) rotate(0deg);
 					}
@@ -30,10 +42,6 @@ export default function LeapFrog() {
 					100% {
 						transform: translateX(0) rotate(0deg);
 					}
-				}
-
-				.animate-leap-frog {
-					animation: leap-frog 2.5s ease infinite;
 				}
 			`}</style>
 		</div>

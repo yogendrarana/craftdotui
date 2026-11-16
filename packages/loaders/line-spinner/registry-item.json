@@ -2,8 +2,8 @@
 	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
 	"name": "loader-line-spinner",
 	"type": "registry:component",
-	"description": "A line spinner loader using framer-motion",
-	"dependencies": ["motion"],
+	"description": "A CSS line spinner loader",
+	"dependencies": [],
 	"registryDependencies": [],
 	"files": [
 		{

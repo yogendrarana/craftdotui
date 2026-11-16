@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "loader-typing-dots",
+	"type": "registry:component",
+	"description": "A compact 3-dot typing indicator loader",
+	"dependencies": [],
+	"registryDependencies": [],
+	"files": [
+		{
+			"path": "packages/loaders/typing-dots/index.tsx",
+			"type": "registry:component",
+			"target": "components/loaders/typing-dots.tsx"
+		}
+	]
+}
