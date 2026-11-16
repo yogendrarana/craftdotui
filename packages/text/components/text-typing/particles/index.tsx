@@ -1,6 +1,6 @@
 "use client";
 
-import TextTyping from "@craftdotui/motion/components/text-typing";
+import TextTyping from "@craftdotui/text/components/text-typing";
 
 export default function Home() {
 	return (

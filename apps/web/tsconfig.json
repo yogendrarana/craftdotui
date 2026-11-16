@@ -9,7 +9,8 @@
 			"@craftdotui/craftui/*": ["../../packages/craftui/*"],
 			"@craftdotui/hooks/*": ["../../packages/hooks/*"],
 			"@craftdotui/loaders/*": ["../../packages/loaders/*"],
-			"@craftdotui/motion/*": ["../../packages/motion/*"]
+			"@craftdotui/motion/*": ["../../packages/motion/*"],
+			"@craftdotui/text/*": ["../../packages/text/*"]
 		}
 	},
 	"include": [

@@ -39,6 +39,7 @@ async function buildRegistryFile() {
 		path.join(process.cwd(), "packages", "craftui"),
 		path.join(process.cwd(), "packages", "baseui"),
 		path.join(process.cwd(), "packages", "motion"),
+		path.join(process.cwd(), "packages", "text"),
 		path.join(process.cwd(), "packages", "hooks"),
 		path.join(process.cwd(), "packages", "loaders"),
 		path.join(process.cwd(), "packages", "styles"),
@@ -136,6 +137,9 @@ function rewriteImports(inputStr: string): string {
 		} else if (content.startsWith("@craftdotui/motion/components/")) {
 			const rest = content.slice("@craftdotui/motion/components/".length);
 			return `${quote}@/components/motion/components/${rest}${quote}`;
+		} else if (content.startsWith("@craftdotui/text/components/")) {
+			const rest = content.slice("@craftdotui/text/components/".length);
+			return `${quote}@/components/text/components/${rest}${quote}`;
 		} else if (content.startsWith("@craftdotui/baseui/components/")) {
 			const rest = content.slice("@craftdotui/baseui/components/".length);
 			return `${quote}@/components/baseui/components/${rest}${quote}`;
@@ -198,6 +202,11 @@ async function buildRegistryIndex() {
 					} else if (filePath.startsWith("packages/motion/")) {
 						return `@craftdotui/motion/${filePath.replace(
 							"packages/motion/",
+							"",
+						)}`;
+					} else if (filePath.startsWith("packages/text/")) {
+						return `@craftdotui/text/${filePath.replace(
+							"packages/text/",
 							"",
 						)}`;
 					} else if (filePath.startsWith("packages/baseui/")) {

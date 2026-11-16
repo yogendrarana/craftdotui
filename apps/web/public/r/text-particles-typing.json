@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "text-particles-typing",
+	"description": "Basic typing effect demo",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/text-typing"],
+	"files": [
+		{
+			"path": "packages/text/components/text-typing/particles/index.tsx",
+			"content": "\"use client\";\n\nimport TextTyping from \"@/components/text/components/text-typing\";\n\nexport default function Home() {\n\treturn (\n\t\t<TextTyping typingSpeed={100}>This is typing effect demo!</TextTyping>\n\t);\n}\n",
+			"type": "registry:component",
+			"target": "components/text/particles/text-typing.tsx"
+		}
+	],
+	"type": "registry:component"
+}

@@ -1,15 +1,15 @@
 {
 	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
-	"name": "motion-text-scramble",
+	"name": "text-scramble",
 	"description": "A text scrambling animation effect component",
 	"dependencies": ["cn"],
 	"registryDependencies": [],
 	"files": [
 		{
-			"path": "packages/motion/components/text-scramble/index.tsx",
+			"path": "packages/text/components/text-scramble/index.tsx",
 			"content": "\"use client\";\n\nimport type React from \"react\";\nimport { useCallback, useEffect, useRef, useState } from \"react\";\nimport { cn } from \"cn\";\n\nexport interface TextScrambleProps\n\textends Omit<React.HTMLAttributes<HTMLElement>, \"children\"> {\n\tchildren: string;\n\tspeed?: number;\n\ttrigger?: boolean;\n\tclassName?: string;\n\tcharacterSet?: string;\n\tas?: React.ElementType;\n\tonScrambleEnd?: () => void;\n}\n\nconst defaultCharacterSet =\n\t\"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789\";\n\nexport function TextScramble({\n\tchildren = \"Hello, World!\",\n\tspeed = 50,\n\ttrigger = true,\n\tclassName,\n\tcharacterSet = defaultCharacterSet,\n\tas: Component = \"span\",\n\tonScrambleEnd,\n\t...props\n}: TextScrambleProps) {\n\tconst [scrambledText, setScrambledText] = useState(children);\n\tconst onScrambleEndRef = useRef(onScrambleEnd);\n\tonScrambleEndRef.current = onScrambleEnd;\n\n\tconst scrambleText = useCallback(() => {\n\t\tconst chars =\n\t\t\tcharacterSet.length > 0 ? characterSet : defaultCharacterSet;\n\n\t\tif (\n\t\t\ttypeof window !== \"undefined\" &&\n\t\t\twindow.matchMedia(\"(prefers-reduced-motion: reduce)\").matches\n\t\t) {\n\t\t\tsetScrambledText(children);\n\t\t\tonScrambleEndRef.current?.();\n\t\t\treturn;\n\t\t}\n\n\t\tlet revealedCount = 0;\n\n\t\tconst scrambleInterval = setInterval(() => {\n\t\t\tif (revealedCount >= children.length) {\n\t\t\t\tclearInterval(scrambleInterval);\n\t\t\t\tsetScrambledText(children);\n\t\t\t\tonScrambleEndRef.current?.();\n\t\t\t\treturn;\n\t\t\t}\n\n\t\t\tconst scrambled = children\n\t\t\t\t.split(\"\")\n\t\t\t\t.map((char, index) => {\n\t\t\t\t\tif (char === \" \") {\n\t\t\t\t\t\treturn \" \";\n\t\t\t\t\t}\n\t\t\t\t\treturn index < revealedCount\n\t\t\t\t\t\t? char\n\t\t\t\t\t\t: chars[Math.floor(Math.random() * chars.length)];\n\t\t\t\t})\n\t\t\t\t.join(\"\");\n\n\t\t\tsetScrambledText(scrambled);\n\t\t\trevealedCount += 1;\n\t\t}, speed);\n\n\t\treturn () => clearInterval(scrambleInterval);\n\t}, [children, speed, characterSet]);\n\n\tuseEffect(() => {\n\t\tif (trigger) {\n\t\t\treturn scrambleText();\n\t\t}\n\t\tsetScrambledText(children);\n\t}, [trigger, scrambleText, children]);\n\n\treturn (\n\t\t<Component\n\t\t\taria-label={children}\n\t\t\tclassName={cn(\"font-mono\", className)}\n\t\t\t{...props}\n\t\t>\n\t\t\t{scrambledText}\n\t\t</Component>\n\t);\n}\n\nexport default TextScramble;\n",
 			"type": "registry:component",
-			"target": "components/motion/components/text-scramble.tsx"
+			"target": "components/text/components/text-scramble.tsx"
 		}
 	],
 	"type": "registry:component"

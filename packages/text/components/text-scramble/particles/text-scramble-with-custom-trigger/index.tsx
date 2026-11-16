@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import TextScramble from "@craftdotui/motion/components/text-scramble";
+import TextScramble from "@craftdotui/text/components/text-scramble";
 
 export default function Particle() {
 	const [triggerScramble, setTriggerScramble] = React.useState(false);

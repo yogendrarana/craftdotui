@@ -284,10 +284,6 @@ export const docsNavItems: Array<DocsNavItem> = [
 				href: "/docs/motion/components/confetti",
 			},
 			{
-				title: "Dock",
-				href: "/docs/motion/components/dock",
-			},
-			{
 				title: "Magnetic",
 				href: "/docs/motion/components/magnetic",
 			},
@@ -295,13 +291,19 @@ export const docsNavItems: Array<DocsNavItem> = [
 				title: "Marquee",
 				href: "/docs/motion/components/marquee",
 			},
+		],
+	},
+
+	{
+		title: "Text",
+		items: [
 			{
 				title: "Text Scramble",
-				href: "/docs/motion/components/text-scramble",
+				href: "/docs/text/text-scramble",
 			},
 			{
 				title: "Text Typing",
-				href: "/docs/motion/components/text-typing",
+				href: "/docs/text/text-typing",
 			},
 		],
 	},

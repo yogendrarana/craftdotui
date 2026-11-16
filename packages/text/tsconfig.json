@@ -1,0 +1,10 @@
+{
+	"extends": "@craftdotui/tsconfig/react-library.json",
+	"compilerOptions": {
+		"paths": {
+			"@craftdotui/text/*": ["./*"]
+		}
+	},
+	"include": ["."],
+	"exclude": ["node_modules", "dist"]
+}

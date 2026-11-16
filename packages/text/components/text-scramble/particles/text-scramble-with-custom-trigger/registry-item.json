@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "text-particles-scramble-with-custom-trigger",
+	"type": "registry:component",
+	"description": "Text scramble with custom trigger demo",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/text-scramble"],
+	"files": [
+		{
+			"path": "packages/text/components/text-scramble/particles/text-scramble-with-custom-trigger/index.tsx",
+			"type": "registry:component",
+			"target": "components/text/particles/text-scramble-with-custom-trigger.tsx"
+		}
+	]
+}

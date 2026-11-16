@@ -16029,264 +16029,6 @@ export const Registry: Record<string, any> = {
 							return LazyComp;
 						})(),
           },
-          "motion-particles-text-scramble": {
-            name: "motion-particles-text-scramble",
-            description: "Basic text scramble demo",
-            type: "registry:component",
-            dependencies: [],
-            devDependencies: undefined,
-            registryDependencies: ["@craftdotui/motion-text-scramble"],
-            files: [
-  {
-    "path": "packages/motion/components/text-scramble/particles/index.tsx",
-    "type": "registry:component",
-    "target": "components/motion/particles/text-scramble.tsx",
-    "content": "\"use client\";\n\nimport TextScramble from \"@/components/motion/components/text-scramble\";\n\nexport default function TextScrambleBasic() {\n\treturn <TextScramble speed={50}>Welcome to Text Scramble!</TextScramble>;\n}"
-  }
-],
-            keywords: [],
-            command: '@craftdotui/motion-particles-text-scramble',
-            component: (() => {
-							const LazyComp = React.lazy(async () => {
-								const mod = await import("@craftdotui/motion/components/text-scramble/particles/index.tsx");
-								let Comp = mod.default;
-
-								if (!Comp) {
-									const exportName =
-									Object.keys(mod).find((key) => {
-										const value = mod[key];
-										return typeof value === "function" || typeof value === "object";
-									}) || "default";
-
-									Comp = mod[exportName];
-								}
-
-								if (mod.animations) {
-									(LazyComp as any).animations = mod.animations;
-								}
-
-								return { default: Comp };
-							});
-
-						    LazyComp.demoProps = {};
-							return LazyComp;
-						})(),
-          },
-          "motion-particles-text-scramble-with-custom-characters": {
-            name: "motion-particles-text-scramble-with-custom-characters",
-            description: "Text scramble with custom characters demo",
-            type: "registry:component",
-            dependencies: [],
-            devDependencies: undefined,
-            registryDependencies: ["@craftdotui/motion-text-scramble"],
-            files: [
-  {
-    "path": "packages/motion/components/text-scramble/particles/text-scramble-with-custom-characters/index.tsx",
-    "type": "registry:component",
-    "target": "components/motion/particles/text-scramble-with-custom-characters.tsx",
-    "content": "\"use client\";\n\nimport TextScramble from \"@/components/motion/components/text-scramble\";\n\nexport default function Particle() {\n\treturn (\n\t\t<TextScramble speed={50} characterSet=\".\">\n\t\t\tCustom Scramble\n\t\t</TextScramble>\n\t);\n}"
-  }
-],
-            keywords: [],
-            command: '@craftdotui/motion-particles-text-scramble-with-custom-characters',
-            component: (() => {
-							const LazyComp = React.lazy(async () => {
-								const mod = await import("@craftdotui/motion/components/text-scramble/particles/text-scramble-with-custom-characters/index.tsx");
-								let Comp = mod.default;
-
-								if (!Comp) {
-									const exportName =
-									Object.keys(mod).find((key) => {
-										const value = mod[key];
-										return typeof value === "function" || typeof value === "object";
-									}) || "default";
-
-									Comp = mod[exportName];
-								}
-
-								if (mod.animations) {
-									(LazyComp as any).animations = mod.animations;
-								}
-
-								return { default: Comp };
-							});
-
-						    LazyComp.demoProps = {};
-							return LazyComp;
-						})(),
-          },
-          "motion-particles-text-scramble-with-custom-trigger": {
-            name: "motion-particles-text-scramble-with-custom-trigger",
-            description: "Text scramble with custom trigger demo",
-            type: "registry:component",
-            dependencies: [],
-            devDependencies: undefined,
-            registryDependencies: ["@craftdotui/motion-text-scramble"],
-            files: [
-  {
-    "path": "packages/motion/components/text-scramble/particles/text-scramble-with-custom-trigger/index.tsx",
-    "type": "registry:component",
-    "target": "components/motion/particles/text-scramble-with-custom-trigger.tsx",
-    "content": "\"use client\";\n\nimport React from \"react\";\nimport TextScramble from \"@/components/motion/components/text-scramble\";\n\nexport default function Particle() {\n\tconst [triggerScramble, setTriggerScramble] = React.useState(false);\n\treturn (\n\t\t<div\n\t\t\tonMouseEnter={() => setTriggerScramble(true)}\n\t\t\tonMouseLeave={() => setTriggerScramble(false)}\n\t\t>\n\t\t\t<TextScramble\n\t\t\t\tspeed={50}\n\t\t\t\tclassName=\"cursor-pointer uppercase\"\n\t\t\t\ttrigger={triggerScramble}\n\t\t\t>\n\t\t\t\tHover to scramble this text!\n\t\t\t</TextScramble>\n\t\t</div>\n\t);\n}"
-  }
-],
-            keywords: [],
-            command: '@craftdotui/motion-particles-text-scramble-with-custom-trigger',
-            component: (() => {
-							const LazyComp = React.lazy(async () => {
-								const mod = await import("@craftdotui/motion/components/text-scramble/particles/text-scramble-with-custom-trigger/index.tsx");
-								let Comp = mod.default;
-
-								if (!Comp) {
-									const exportName =
-									Object.keys(mod).find((key) => {
-										const value = mod[key];
-										return typeof value === "function" || typeof value === "object";
-									}) || "default";
-
-									Comp = mod[exportName];
-								}
-
-								if (mod.animations) {
-									(LazyComp as any).animations = mod.animations;
-								}
-
-								return { default: Comp };
-							});
-
-						    LazyComp.demoProps = {};
-							return LazyComp;
-						})(),
-          },
-          "motion-text-scramble": {
-            name: "motion-text-scramble",
-            description: "A text scrambling animation effect component",
-            type: "registry:component",
-            dependencies: ["cn"],
-            devDependencies: undefined,
-            registryDependencies: [],
-            files: [
-  {
-    "path": "packages/motion/components/text-scramble/index.tsx",
-    "type": "registry:component",
-    "target": "components/motion/components/text-scramble.tsx",
-    "content": "\"use client\";\n\nimport type React from \"react\";\nimport { useCallback, useEffect, useRef, useState } from \"react\";\nimport { cn } from \"cn\";\n\nexport interface TextScrambleProps\n\textends Omit<React.HTMLAttributes<HTMLElement>, \"children\"> {\n\tchildren: string;\n\tspeed?: number;\n\ttrigger?: boolean;\n\tclassName?: string;\n\tcharacterSet?: string;\n\tas?: React.ElementType;\n\tonScrambleEnd?: () => void;\n}\n\nconst defaultCharacterSet =\n\t\"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789\";\n\nexport function TextScramble({\n\tchildren = \"Hello, World!\",\n\tspeed = 50,\n\ttrigger = true,\n\tclassName,\n\tcharacterSet = defaultCharacterSet,\n\tas: Component = \"span\",\n\tonScrambleEnd,\n\t...props\n}: TextScrambleProps) {\n\tconst [scrambledText, setScrambledText] = useState(children);\n\tconst onScrambleEndRef = useRef(onScrambleEnd);\n\tonScrambleEndRef.current = onScrambleEnd;\n\n\tconst scrambleText = useCallback(() => {\n\t\tconst chars =\n\t\t\tcharacterSet.length > 0 ? characterSet : defaultCharacterSet;\n\n\t\tif (\n\t\t\ttypeof window !== \"undefined\" &&\n\t\t\twindow.matchMedia(\"(prefers-reduced-motion: reduce)\").matches\n\t\t) {\n\t\t\tsetScrambledText(children);\n\t\t\tonScrambleEndRef.current?.();\n\t\t\treturn;\n\t\t}\n\n\t\tlet revealedCount = 0;\n\n\t\tconst scrambleInterval = setInterval(() => {\n\t\t\tif (revealedCount >= children.length) {\n\t\t\t\tclearInterval(scrambleInterval);\n\t\t\t\tsetScrambledText(children);\n\t\t\t\tonScrambleEndRef.current?.();\n\t\t\t\treturn;\n\t\t\t}\n\n\t\t\tconst scrambled = children\n\t\t\t\t.split(\"\")\n\t\t\t\t.map((char, index) => {\n\t\t\t\t\tif (char === \" \") {\n\t\t\t\t\t\treturn \" \";\n\t\t\t\t\t}\n\t\t\t\t\treturn index < revealedCount\n\t\t\t\t\t\t? char\n\t\t\t\t\t\t: chars[Math.floor(Math.random() * chars.length)];\n\t\t\t\t})\n\t\t\t\t.join(\"\");\n\n\t\t\tsetScrambledText(scrambled);\n\t\t\trevealedCount += 1;\n\t\t}, speed);\n\n\t\treturn () => clearInterval(scrambleInterval);\n\t}, [children, speed, characterSet]);\n\n\tuseEffect(() => {\n\t\tif (trigger) {\n\t\t\treturn scrambleText();\n\t\t}\n\t\tsetScrambledText(children);\n\t}, [trigger, scrambleText, children]);\n\n\treturn (\n\t\t<Component\n\t\t\taria-label={children}\n\t\t\tclassName={cn(\"font-mono\", className)}\n\t\t\t{...props}\n\t\t>\n\t\t\t{scrambledText}\n\t\t</Component>\n\t);\n}\n\nexport default TextScramble;"
-  }
-],
-            keywords: [],
-            command: '@craftdotui/motion-text-scramble',
-            component: (() => {
-							const LazyComp = React.lazy(async () => {
-								const mod = await import("@craftdotui/motion/components/text-scramble/index.tsx");
-								let Comp = mod.default;
-
-								if (!Comp) {
-									const exportName =
-									Object.keys(mod).find((key) => {
-										const value = mod[key];
-										return typeof value === "function" || typeof value === "object";
-									}) || "default";
-
-									Comp = mod[exportName];
-								}
-
-								if (mod.animations) {
-									(LazyComp as any).animations = mod.animations;
-								}
-
-								return { default: Comp };
-							});
-
-						    LazyComp.demoProps = {};
-							return LazyComp;
-						})(),
-          },
-          "motion-particles-text-typing": {
-            name: "motion-particles-text-typing",
-            description: "Basic typing effect demo",
-            type: "registry:component",
-            dependencies: [],
-            devDependencies: undefined,
-            registryDependencies: ["@craftdotui/motion-text-typing"],
-            files: [
-  {
-    "path": "packages/motion/components/text-typing/particles/index.tsx",
-    "type": "registry:component",
-    "target": "components/motion/particles/text-typing.tsx",
-    "content": "\"use client\";\n\nimport TextTyping from \"@/components/motion/components/text-typing\";\n\nexport default function Home() {\n\treturn (\n\t\t<TextTyping typingSpeed={100}>This is typing effect demo!</TextTyping>\n\t);\n}"
-  }
-],
-            keywords: [],
-            command: '@craftdotui/motion-particles-text-typing',
-            component: (() => {
-							const LazyComp = React.lazy(async () => {
-								const mod = await import("@craftdotui/motion/components/text-typing/particles/index.tsx");
-								let Comp = mod.default;
-
-								if (!Comp) {
-									const exportName =
-									Object.keys(mod).find((key) => {
-										const value = mod[key];
-										return typeof value === "function" || typeof value === "object";
-									}) || "default";
-
-									Comp = mod[exportName];
-								}
-
-								if (mod.animations) {
-									(LazyComp as any).animations = mod.animations;
-								}
-
-								return { default: Comp };
-							});
-
-						    LazyComp.demoProps = {};
-							return LazyComp;
-						})(),
-          },
-          "motion-text-typing": {
-            name: "motion-text-typing",
-            description: "A typing animation effect component",
-            type: "registry:component",
-            dependencies: ["motion","cn"],
-            devDependencies: undefined,
-            registryDependencies: [],
-            files: [
-  {
-    "path": "packages/motion/components/text-typing/index.tsx",
-    "type": "registry:component",
-    "target": "components/motion/components/text-typing.tsx",
-    "content": "\"use client\";\n\nimport type React from \"react\";\nimport { motion } from \"motion/react\";\nimport { useEffect, useRef, useState } from \"react\";\nimport { cn } from \"cn\";\n\nexport interface TextTypingProps\n\textends Omit<React.HTMLAttributes<HTMLElement>, \"children\"> {\n\tchildren: string;\n\ttypingSpeed?: number;\n\ttrigger?: boolean;\n\tshowCursor?: boolean;\n\tclassName?: string;\n\tas?: React.ElementType;\n\tonTypingEnd?: () => void;\n}\n\nexport function TextTyping({\n\tchildren,\n\ttypingSpeed = 100,\n\ttrigger = true,\n\tshowCursor = true,\n\tclassName,\n\tas: Component = \"div\",\n\tonTypingEnd,\n\t...props\n}: TextTypingProps) {\n\tconst [displayedText, setDisplayedText] = useState(\"\");\n\tconst [prefersReducedMotion, setPrefersReducedMotion] = useState(false);\n\tconst onTypingEndRef = useRef(onTypingEnd);\n\tonTypingEndRef.current = onTypingEnd;\n\n\tuseEffect(() => {\n\t\tconst reducedMotion =\n\t\t\ttypeof window !== \"undefined\" &&\n\t\t\twindow.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\t\tsetPrefersReducedMotion(reducedMotion);\n\n\t\tif (!trigger || reducedMotion) {\n\t\t\tsetDisplayedText(children);\n\t\t\tif (reducedMotion) {\n\t\t\t\tonTypingEndRef.current?.();\n\t\t\t}\n\t\t\treturn;\n\t\t}\n\n\t\tsetDisplayedText(\"\");\n\t\tlet currentIndex = 1;\n\n\t\tconst intervalId = setInterval(() => {\n\t\t\tif (currentIndex <= children.length) {\n\t\t\t\tsetDisplayedText(children.slice(0, currentIndex));\n\t\t\t\tcurrentIndex += 1;\n\t\t\t} else {\n\t\t\t\tclearInterval(intervalId);\n\t\t\t\tonTypingEndRef.current?.();\n\t\t\t}\n\t\t}, typingSpeed);\n\n\t\treturn () => clearInterval(intervalId);\n\t}, [children, typingSpeed, trigger]);\n\n\treturn (\n\t\t<Component\n\t\t\taria-label={children}\n\t\t\tclassName={cn(\"tracking-wide\", className)}\n\t\t\t{...props}\n\t\t>\n\t\t\t{displayedText}\n\t\t\t{showCursor && (\n\t\t\t\t<motion.span\n\t\t\t\t\taria-hidden=\"true\"\n\t\t\t\t\tclassName=\"ml-1 select-none\"\n\t\t\t\t\tanimate={\n\t\t\t\t\t\tprefersReducedMotion\n\t\t\t\t\t\t\t? { opacity: 1 }\n\t\t\t\t\t\t\t: { opacity: [0, 1] }\n\t\t\t\t\t}\n\t\t\t\t\ttransition={\n\t\t\t\t\t\tprefersReducedMotion\n\t\t\t\t\t\t\t? undefined\n\t\t\t\t\t\t\t: {\n\t\t\t\t\t\t\t\t\tduration: 0.5,\n\t\t\t\t\t\t\t\t\trepeat: Infinity,\n\t\t\t\t\t\t\t\t\trepeatType: \"reverse\",\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t>\n\t\t\t\t\t|\n\t\t\t\t</motion.span>\n\t\t\t)}\n\t\t</Component>\n\t);\n}\n\nexport default TextTyping;"
-  }
-],
-            keywords: [],
-            command: '@craftdotui/motion-text-typing',
-            component: (() => {
-							const LazyComp = React.lazy(async () => {
-								const mod = await import("@craftdotui/motion/components/text-typing/index.tsx");
-								let Comp = mod.default;
-
-								if (!Comp) {
-									const exportName =
-									Object.keys(mod).find((key) => {
-										const value = mod[key];
-										return typeof value === "function" || typeof value === "object";
-									}) || "default";
-
-									Comp = mod[exportName];
-								}
-
-								if (mod.animations) {
-									(LazyComp as any).animations = mod.animations;
-								}
-
-								return { default: Comp };
-							});
-
-						    LazyComp.demoProps = {};
-							return LazyComp;
-						})(),
-          },
           "motion-particles-confetti": {
             name: "motion-particles-confetti",
             description: "",
@@ -16307,6 +16049,264 @@ export const Registry: Record<string, any> = {
             component: (() => {
 							const LazyComp = React.lazy(async () => {
 								const mod = await import("@craftdotui/motion/particles/confetti/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "text-particles-scramble": {
+            name: "text-particles-scramble",
+            description: "Basic text scramble demo",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/text-scramble"],
+            files: [
+  {
+    "path": "packages/text/components/text-scramble/particles/index.tsx",
+    "type": "registry:component",
+    "target": "components/text/particles/text-scramble.tsx",
+    "content": "\"use client\";\n\nimport TextScramble from \"@/components/text/components/text-scramble\";\n\nexport default function TextScrambleBasic() {\n\treturn <TextScramble speed={50}>Welcome to Text Scramble!</TextScramble>;\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/text-particles-scramble',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/text/components/text-scramble/particles/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "text-particles-scramble-with-custom-characters": {
+            name: "text-particles-scramble-with-custom-characters",
+            description: "Text scramble with custom characters demo",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/text-scramble"],
+            files: [
+  {
+    "path": "packages/text/components/text-scramble/particles/text-scramble-with-custom-characters/index.tsx",
+    "type": "registry:component",
+    "target": "components/text/particles/text-scramble-with-custom-characters.tsx",
+    "content": "\"use client\";\n\nimport TextScramble from \"@/components/text/components/text-scramble\";\n\nexport default function Particle() {\n\treturn (\n\t\t<TextScramble speed={50} characterSet=\".\">\n\t\t\tCustom Scramble\n\t\t</TextScramble>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/text-particles-scramble-with-custom-characters',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/text/components/text-scramble/particles/text-scramble-with-custom-characters/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "text-particles-scramble-with-custom-trigger": {
+            name: "text-particles-scramble-with-custom-trigger",
+            description: "Text scramble with custom trigger demo",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/text-scramble"],
+            files: [
+  {
+    "path": "packages/text/components/text-scramble/particles/text-scramble-with-custom-trigger/index.tsx",
+    "type": "registry:component",
+    "target": "components/text/particles/text-scramble-with-custom-trigger.tsx",
+    "content": "\"use client\";\n\nimport React from \"react\";\nimport TextScramble from \"@/components/text/components/text-scramble\";\n\nexport default function Particle() {\n\tconst [triggerScramble, setTriggerScramble] = React.useState(false);\n\treturn (\n\t\t<div\n\t\t\tonMouseEnter={() => setTriggerScramble(true)}\n\t\t\tonMouseLeave={() => setTriggerScramble(false)}\n\t\t>\n\t\t\t<TextScramble\n\t\t\t\tspeed={50}\n\t\t\t\tclassName=\"cursor-pointer uppercase\"\n\t\t\t\ttrigger={triggerScramble}\n\t\t\t>\n\t\t\t\tHover to scramble this text!\n\t\t\t</TextScramble>\n\t\t</div>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/text-particles-scramble-with-custom-trigger',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/text/components/text-scramble/particles/text-scramble-with-custom-trigger/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "text-scramble": {
+            name: "text-scramble",
+            description: "A text scrambling animation effect component",
+            type: "registry:component",
+            dependencies: ["cn"],
+            devDependencies: undefined,
+            registryDependencies: [],
+            files: [
+  {
+    "path": "packages/text/components/text-scramble/index.tsx",
+    "type": "registry:component",
+    "target": "components/text/components/text-scramble.tsx",
+    "content": "\"use client\";\n\nimport type React from \"react\";\nimport { useCallback, useEffect, useRef, useState } from \"react\";\nimport { cn } from \"cn\";\n\nexport interface TextScrambleProps\n\textends Omit<React.HTMLAttributes<HTMLElement>, \"children\"> {\n\tchildren: string;\n\tspeed?: number;\n\ttrigger?: boolean;\n\tclassName?: string;\n\tcharacterSet?: string;\n\tas?: React.ElementType;\n\tonScrambleEnd?: () => void;\n}\n\nconst defaultCharacterSet =\n\t\"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789\";\n\nexport function TextScramble({\n\tchildren = \"Hello, World!\",\n\tspeed = 50,\n\ttrigger = true,\n\tclassName,\n\tcharacterSet = defaultCharacterSet,\n\tas: Component = \"span\",\n\tonScrambleEnd,\n\t...props\n}: TextScrambleProps) {\n\tconst [scrambledText, setScrambledText] = useState(children);\n\tconst onScrambleEndRef = useRef(onScrambleEnd);\n\tonScrambleEndRef.current = onScrambleEnd;\n\n\tconst scrambleText = useCallback(() => {\n\t\tconst chars =\n\t\t\tcharacterSet.length > 0 ? characterSet : defaultCharacterSet;\n\n\t\tif (\n\t\t\ttypeof window !== \"undefined\" &&\n\t\t\twindow.matchMedia(\"(prefers-reduced-motion: reduce)\").matches\n\t\t) {\n\t\t\tsetScrambledText(children);\n\t\t\tonScrambleEndRef.current?.();\n\t\t\treturn;\n\t\t}\n\n\t\tlet revealedCount = 0;\n\n\t\tconst scrambleInterval = setInterval(() => {\n\t\t\tif (revealedCount >= children.length) {\n\t\t\t\tclearInterval(scrambleInterval);\n\t\t\t\tsetScrambledText(children);\n\t\t\t\tonScrambleEndRef.current?.();\n\t\t\t\treturn;\n\t\t\t}\n\n\t\t\tconst scrambled = children\n\t\t\t\t.split(\"\")\n\t\t\t\t.map((char, index) => {\n\t\t\t\t\tif (char === \" \") {\n\t\t\t\t\t\treturn \" \";\n\t\t\t\t\t}\n\t\t\t\t\treturn index < revealedCount\n\t\t\t\t\t\t? char\n\t\t\t\t\t\t: chars[Math.floor(Math.random() * chars.length)];\n\t\t\t\t})\n\t\t\t\t.join(\"\");\n\n\t\t\tsetScrambledText(scrambled);\n\t\t\trevealedCount += 1;\n\t\t}, speed);\n\n\t\treturn () => clearInterval(scrambleInterval);\n\t}, [children, speed, characterSet]);\n\n\tuseEffect(() => {\n\t\tif (trigger) {\n\t\t\treturn scrambleText();\n\t\t}\n\t\tsetScrambledText(children);\n\t}, [trigger, scrambleText, children]);\n\n\treturn (\n\t\t<Component\n\t\t\taria-label={children}\n\t\t\tclassName={cn(\"font-mono\", className)}\n\t\t\t{...props}\n\t\t>\n\t\t\t{scrambledText}\n\t\t</Component>\n\t);\n}\n\nexport default TextScramble;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/text-scramble',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/text/components/text-scramble/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "text-particles-typing": {
+            name: "text-particles-typing",
+            description: "Basic typing effect demo",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/text-typing"],
+            files: [
+  {
+    "path": "packages/text/components/text-typing/particles/index.tsx",
+    "type": "registry:component",
+    "target": "components/text/particles/text-typing.tsx",
+    "content": "\"use client\";\n\nimport TextTyping from \"@/components/text/components/text-typing\";\n\nexport default function Home() {\n\treturn (\n\t\t<TextTyping typingSpeed={100}>This is typing effect demo!</TextTyping>\n\t);\n}"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/text-particles-typing',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/text/components/text-typing/particles/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "text-typing": {
+            name: "text-typing",
+            description: "A typing animation effect component",
+            type: "registry:component",
+            dependencies: ["motion","cn"],
+            devDependencies: undefined,
+            registryDependencies: [],
+            files: [
+  {
+    "path": "packages/text/components/text-typing/index.tsx",
+    "type": "registry:component",
+    "target": "components/text/components/text-typing.tsx",
+    "content": "\"use client\";\n\nimport type React from \"react\";\nimport { motion } from \"motion/react\";\nimport { useEffect, useRef, useState } from \"react\";\nimport { cn } from \"cn\";\n\nexport interface TextTypingProps\n\textends Omit<React.HTMLAttributes<HTMLElement>, \"children\"> {\n\tchildren: string;\n\ttypingSpeed?: number;\n\ttrigger?: boolean;\n\tshowCursor?: boolean;\n\tclassName?: string;\n\tas?: React.ElementType;\n\tonTypingEnd?: () => void;\n}\n\nexport function TextTyping({\n\tchildren,\n\ttypingSpeed = 100,\n\ttrigger = true,\n\tshowCursor = true,\n\tclassName,\n\tas: Component = \"div\",\n\tonTypingEnd,\n\t...props\n}: TextTypingProps) {\n\tconst [displayedText, setDisplayedText] = useState(\"\");\n\tconst [prefersReducedMotion, setPrefersReducedMotion] = useState(false);\n\tconst onTypingEndRef = useRef(onTypingEnd);\n\tonTypingEndRef.current = onTypingEnd;\n\n\tuseEffect(() => {\n\t\tconst reducedMotion =\n\t\t\ttypeof window !== \"undefined\" &&\n\t\t\twindow.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\t\tsetPrefersReducedMotion(reducedMotion);\n\n\t\tif (!trigger || reducedMotion) {\n\t\t\tsetDisplayedText(children);\n\t\t\tif (reducedMotion) {\n\t\t\t\tonTypingEndRef.current?.();\n\t\t\t}\n\t\t\treturn;\n\t\t}\n\n\t\tsetDisplayedText(\"\");\n\t\tlet currentIndex = 1;\n\n\t\tconst intervalId = setInterval(() => {\n\t\t\tif (currentIndex <= children.length) {\n\t\t\t\tsetDisplayedText(children.slice(0, currentIndex));\n\t\t\t\tcurrentIndex += 1;\n\t\t\t} else {\n\t\t\t\tclearInterval(intervalId);\n\t\t\t\tonTypingEndRef.current?.();\n\t\t\t}\n\t\t}, typingSpeed);\n\n\t\treturn () => clearInterval(intervalId);\n\t}, [children, typingSpeed, trigger]);\n\n\treturn (\n\t\t<Component\n\t\t\taria-label={children}\n\t\t\tclassName={cn(\"tracking-wide\", className)}\n\t\t\t{...props}\n\t\t>\n\t\t\t{displayedText}\n\t\t\t{showCursor && (\n\t\t\t\t<motion.span\n\t\t\t\t\taria-hidden=\"true\"\n\t\t\t\t\tclassName=\"ml-1 select-none\"\n\t\t\t\t\tanimate={\n\t\t\t\t\t\tprefersReducedMotion\n\t\t\t\t\t\t\t? { opacity: 1 }\n\t\t\t\t\t\t\t: { opacity: [0, 1] }\n\t\t\t\t\t}\n\t\t\t\t\ttransition={\n\t\t\t\t\t\tprefersReducedMotion\n\t\t\t\t\t\t\t? undefined\n\t\t\t\t\t\t\t: {\n\t\t\t\t\t\t\t\t\tduration: 0.5,\n\t\t\t\t\t\t\t\t\trepeat: Infinity,\n\t\t\t\t\t\t\t\t\trepeatType: \"reverse\",\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t>\n\t\t\t\t\t|\n\t\t\t\t</motion.span>\n\t\t\t)}\n\t\t</Component>\n\t);\n}\n\nexport default TextTyping;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/text-typing',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/text/components/text-typing/index.tsx");
 								let Comp = mod.default;
 
 								if (!Comp) {
