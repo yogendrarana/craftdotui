@@ -1,0 +1,199 @@
+---
+title: Editable
+description: An inline editable text component that toggles between a preview and an input with keyboard, blur, and trigger controls.
+slug: /craftui/components/editable
+published: true
+date: 2026-11-18T00:00:00.000Z
+author:
+  name: Yogendra Rana
+  twitter: "https://twitter.com/yooogendra_rana"
+---
+
+<ComponentCodePreview name="craftui-particles-editable" />
+
+## Installation
+
+<Installation name="craftui-editable" />
+
+## Anatomy
+
+```tsx
+<EditableRoot defaultValue="Click to edit">
+  <EditableLabel />
+  <EditableArea>
+    <EditablePreview />
+    <EditableInput />
+  </EditableArea>
+  <EditableControl>
+    <EditableEditTrigger />
+    <EditableSubmitTrigger />
+    <EditableCancelTrigger />
+  </EditableControl>
+</EditableRoot>
+```
+
+```tsx
+<Editable.Root defaultValue="Click to edit">
+  <Editable.Label />
+  <Editable.Area>
+    <Editable.Preview />
+    <Editable.Input />
+  </Editable.Area>
+  <Editable.Control>
+    <Editable.EditTrigger />
+    <Editable.SubmitTrigger />
+    <Editable.CancelTrigger />
+  </Editable.Control>
+</Editable.Root>
+```
+
+## Demo
+
+#### Double Click
+
+<ComponentCodePreview name="craftui-particles-editable-double-click" />
+
+#### Multiline
+
+<ComponentCodePreview name="craftui-particles-editable-multiline" />
+
+#### Sizes
+
+<ComponentCodePreview name="craftui-particles-editable-sizes" />
+
+## Props
+
+#### EditableRoot
+
+<PropsTable
+  data={[
+    {
+      prop: "value",
+      type: "string",
+      default: "undefined",
+      description: "The controlled committed value.",
+    },
+    {
+      prop: "defaultValue",
+      type: "string",
+      default: '""',
+      description: "The initial committed value when uncontrolled.",
+    },
+    {
+      prop: "onValueChange",
+      type: "(value: string) => void",
+      default: "undefined",
+      description: "Callback fired when the value is committed.",
+    },
+    {
+      prop: "onDraftChange",
+      type: "(value: string) => void",
+      default: "undefined",
+      description: "Callback fired when the draft value changes while editing.",
+    },
+    {
+      prop: "onCancel",
+      type: "(value: string) => void",
+      default: "undefined",
+      description: "Callback fired when editing is cancelled.",
+    },
+    {
+      prop: "editing",
+      type: "boolean",
+      default: "undefined",
+      description: "The controlled editing state.",
+    },
+    {
+      prop: "defaultEditing",
+      type: "boolean",
+      default: "false",
+      description: "The initial editing state when uncontrolled.",
+    },
+    {
+      prop: "onEditingChange",
+      type: "(editing: boolean) => void",
+      default: "undefined",
+      description: "Callback fired when the editing state changes.",
+    },
+    {
+      prop: "activationMode",
+      type: '"click" | "dblclick" | "focus" | "none"',
+      default: '"click"',
+      description: "How edit mode is activated from the preview.",
+    },
+    {
+      prop: "submitMode",
+      type: '"both" | "enter" | "blur" | "none"',
+      default: '"both"',
+      description: "How edits are submitted from the input.",
+    },
+    {
+      prop: "orientation",
+      type: '"horizontal" | "vertical"',
+      default: '"horizontal"',
+      description: "Layout orientation of the editable root.",
+    },
+    {
+      prop: "selectOnFocus",
+      type: "boolean",
+      default: "true",
+      description: "Whether to select all text when entering edit mode.",
+    },
+    {
+      prop: "placeholder",
+      type: "string",
+      default: "undefined",
+      description: "Placeholder text shown when the value is empty.",
+    },
+    {
+      prop: "disabled",
+      type: "boolean",
+      default: "false",
+      description: "Whether the editable is disabled.",
+    },
+    {
+      prop: "readOnly",
+      type: "boolean",
+      default: "false",
+      description: "Whether the editable is read-only.",
+    },
+    {
+      prop: "name",
+      type: "string",
+      default: "undefined",
+      description: "Optional form field name for submitting the committed value.",
+    },
+  ]}
+/>
+
+#### EditablePreview
+
+<PropsTable
+  data={[
+    {
+      prop: "size",
+      type: '"sm" | "md" | "lg"',
+      default: '"md"',
+      description: "Visual size of the preview.",
+    },
+  ]}
+/>
+
+#### EditableInput
+
+<PropsTable
+  data={[
+    {
+      prop: "size",
+      type: '"sm" | "md" | "lg"',
+      default: '"md"',
+      description: "Visual size of the input.",
+    },
+    {
+      prop: "multiline",
+      type: "boolean",
+      default: "false",
+      description: "Render as a multiline textarea by default.",
+    },
+  ]}
+/>

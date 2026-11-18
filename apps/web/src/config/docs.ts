@@ -226,6 +226,10 @@ export const docsNavItems: Array<DocsNavItem> = [
 				href: "/docs/craftui/components/date-picker",
 			},
 			{
+				title: "Editable",
+				href: "/docs/craftui/components/editable",
+			},
+			{
 				title: "Empty",
 				href: "/docs/craftui/components/empty",
 			},

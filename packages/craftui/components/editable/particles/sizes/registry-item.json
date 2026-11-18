@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-editable-sizes",
+	"type": "registry:component",
+	"description": "Editable component in small, medium, and large sizes.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-editable"],
+	"files": [
+		{
+			"path": "packages/craftui/components/editable/particles/sizes/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/editable-sizes.tsx"
+		}
+	]
+}

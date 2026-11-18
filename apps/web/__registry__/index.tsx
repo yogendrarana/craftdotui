@@ -2914,6 +2914,221 @@ export const Registry: Record<string, any> = {
 							return LazyComp;
 						})(),
           },
+          "craftui-particles-editable-double-click": {
+            name: "craftui-particles-editable-double-click",
+            description: "Editable component activated on double-click.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-editable"],
+            files: [
+  {
+    "path": "packages/craftui/components/editable/particles/double-click/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/editable-double-click.tsx",
+    "content": "import {\n\tEditableArea,\n\tEditableInput,\n\tEditableLabel,\n\tEditablePreview,\n\tEditableRoot,\n} from \"@/components/craftui/components/editable\";\n\nexport function Particle() {\n\treturn (\n\t\t<EditableRoot\n\t\t\tdefaultValue=\"Double-click to edit\"\n\t\t\tplaceholder=\"Enter text...\"\n\t\t\tactivationMode=\"dblclick\"\n\t\t\torientation=\"vertical\"\n\t\t\tclassName=\"mx-auto w-full max-w-sm\"\n\t\t>\n\t\t\t<EditableLabel>Project Name</EditableLabel>\n\t\t\t<EditableArea>\n\t\t\t\t<EditablePreview />\n\t\t\t\t<EditableInput />\n\t\t\t</EditableArea>\n\t\t</EditableRoot>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-editable-double-click',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/editable/particles/double-click/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-editable-multiline": {
+            name: "craftui-particles-editable-multiline",
+            description: "Multiline textarea editable with vertical orientation and explicit save/cancel buttons.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-editable","@craftdotui/baseui-button"],
+            files: [
+  {
+    "path": "packages/craftui/components/editable/particles/multiline/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/editable-multiline.tsx",
+    "content": "import { Button } from \"@/components/baseui/components/button\";\nimport {\n\tEditableArea,\n\tEditableCancelTrigger,\n\tEditableControl,\n\tEditableEditTrigger,\n\tEditableInput,\n\tEditableLabel,\n\tEditablePreview,\n\tEditableRoot,\n\tEditableSubmitTrigger,\n} from \"@/components/craftui/components/editable\";\n\nexport function Particle() {\n\treturn (\n\t\t<EditableRoot\n\t\t\tdefaultValue=\"Write a short bio or description here. Press Cmd/Ctrl + Enter to save, or Escape to cancel.\"\n\t\t\tplaceholder=\"Add a description...\"\n\t\t\torientation=\"vertical\"\n\t\t\tsubmitMode=\"none\"\n\t\t\tclassName=\"mx-auto w-full max-w-md\"\n\t\t>\n\t\t\t<EditableLabel>Bio</EditableLabel>\n\t\t\t<EditableArea>\n\t\t\t\t<EditablePreview className=\"whitespace-pre-wrap\" />\n\t\t\t\t<EditableInput multiline rows={3} />\n\t\t\t</EditableArea>\n\t\t\t<EditableControl>\n\t\t\t\t<EditableEditTrigger\n\t\t\t\t\trender={<Button variant=\"outline\" size=\"sm\" />}\n\t\t\t\t>\n\t\t\t\t\tEdit\n\t\t\t\t</EditableEditTrigger>\n\t\t\t\t<EditableCancelTrigger\n\t\t\t\t\trender={<Button variant=\"ghost\" size=\"sm\" />}\n\t\t\t\t>\n\t\t\t\t\tCancel\n\t\t\t\t</EditableCancelTrigger>\n\t\t\t\t<EditableSubmitTrigger render={<Button size=\"sm\" />}>\n\t\t\t\t\tSave\n\t\t\t\t</EditableSubmitTrigger>\n\t\t\t</EditableControl>\n\t\t</EditableRoot>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-editable-multiline',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/editable/particles/multiline/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-editable": {
+            name: "craftui-particles-editable",
+            description: "Default inline editable component with edit, save, and cancel controls.",
+            type: "registry:component",
+            dependencies: ["lucide-react"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-editable","@craftdotui/baseui-button"],
+            files: [
+  {
+    "path": "packages/craftui/components/editable/particles/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/editable.tsx",
+    "content": "import { Check, Pencil, X } from \"lucide-react\";\nimport { Button } from \"@/components/baseui/components/button\";\nimport {\n\tEditableArea,\n\tEditableCancelTrigger,\n\tEditableControl,\n\tEditableEditTrigger,\n\tEditableInput,\n\tEditablePreview,\n\tEditableRoot,\n\tEditableSubmitTrigger,\n} from \"@/components/craftui/components/editable\";\n\nexport function Particle() {\n\treturn (\n\t\t<EditableRoot\n\t\t\tdefaultValue=\"Click to edit title\"\n\t\t\tplaceholder=\"Enter a title...\"\n\t\t\tclassName=\"mx-auto w-full max-w-sm\"\n\t\t>\n\t\t\t<EditableArea>\n\t\t\t\t<EditablePreview />\n\t\t\t\t<EditableInput />\n\t\t\t</EditableArea>\n\t\t\t<EditableControl>\n\t\t\t\t<EditableEditTrigger\n\t\t\t\t\trender={<Button variant=\"ghost\" size=\"icon-sm\" />}\n\t\t\t\t\taria-label=\"Edit\"\n\t\t\t\t>\n\t\t\t\t\t<Pencil className=\"size-3.5\" />\n\t\t\t\t</EditableEditTrigger>\n\t\t\t\t<EditableSubmitTrigger\n\t\t\t\t\trender={<Button variant=\"ghost\" size=\"icon-sm\" />}\n\t\t\t\t\taria-label=\"Save\"\n\t\t\t\t>\n\t\t\t\t\t<Check className=\"size-3.5\" />\n\t\t\t\t</EditableSubmitTrigger>\n\t\t\t\t<EditableCancelTrigger\n\t\t\t\t\trender={<Button variant=\"ghost\" size=\"icon-sm\" />}\n\t\t\t\t\taria-label=\"Cancel\"\n\t\t\t\t>\n\t\t\t\t\t<X className=\"size-3.5\" />\n\t\t\t\t</EditableCancelTrigger>\n\t\t\t</EditableControl>\n\t\t</EditableRoot>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-editable',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/editable/particles/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-particles-editable-sizes": {
+            name: "craftui-particles-editable-sizes",
+            description: "Editable component in small, medium, and large sizes.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/craftui-editable"],
+            files: [
+  {
+    "path": "packages/craftui/components/editable/particles/sizes/index.tsx",
+    "type": "registry:component",
+    "target": "components/particles/editable-sizes.tsx",
+    "content": "import {\n\tEditableArea,\n\tEditableInput,\n\tEditablePreview,\n\tEditableRoot,\n} from \"@/components/craftui/components/editable\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"mx-auto flex w-full max-w-sm flex-col gap-3\">\n\t\t\t<EditableRoot defaultValue=\"Small editable\">\n\t\t\t\t<EditableArea>\n\t\t\t\t\t<EditablePreview size=\"sm\" />\n\t\t\t\t\t<EditableInput size=\"sm\" />\n\t\t\t\t</EditableArea>\n\t\t\t</EditableRoot>\n\n\t\t\t<EditableRoot defaultValue=\"Medium editable\">\n\t\t\t\t<EditableArea>\n\t\t\t\t\t<EditablePreview size=\"md\" />\n\t\t\t\t\t<EditableInput size=\"md\" />\n\t\t\t\t</EditableArea>\n\t\t\t</EditableRoot>\n\n\t\t\t<EditableRoot defaultValue=\"Large editable\">\n\t\t\t\t<EditableArea>\n\t\t\t\t\t<EditablePreview size=\"lg\" />\n\t\t\t\t\t<EditableInput size=\"lg\" />\n\t\t\t\t</EditableArea>\n\t\t\t</EditableRoot>\n\t\t</div>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-particles-editable-sizes',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/editable/particles/sizes/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "craftui-editable": {
+            name: "craftui-editable",
+            description: "An inline editable text component that toggles between a preview and an input with keyboard, blur, and trigger controls.",
+            type: "registry:component",
+            dependencies: ["@base-ui/react","cn"],
+            devDependencies: undefined,
+            registryDependencies: [],
+            files: [
+  {
+    "path": "packages/craftui/components/editable/index.tsx",
+    "type": "registry:component",
+    "target": "components/ui/editable.tsx",
+    "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { cn } from \"cn\";\nimport { useRender } from \"@base-ui/react/use-render\";\nimport { mergeProps } from \"@base-ui/react/merge-props\";\n\n/* -------------------------------------------------------------------------- */\n/* Types & Context                                                            */\n/* -------------------------------------------------------------------------- */\n\nexport type EditableOrientation = \"horizontal\" | \"vertical\";\nexport type EditableActivationMode = \"click\" | \"dblclick\" | \"focus\" | \"none\";\nexport type EditableSubmitMode = \"both\" | \"enter\" | \"blur\" | \"none\";\nexport type EditableSize = \"sm\" | \"md\" | \"lg\";\n\ninterface EditableContextValue {\n\tvalue: string;\n\tdraftValue: string;\n\tsetDraftValue: (value: string) => void;\n\tediting: boolean;\n\tisEmpty: boolean;\n\tdisabled: boolean;\n\treadOnly: boolean;\n\trequired: boolean;\n\tinvalid: boolean;\n\tplaceholder?: string;\n\torientation: EditableOrientation;\n\tactivationMode: EditableActivationMode;\n\tsubmitMode: EditableSubmitMode;\n\tselectOnFocus: boolean;\n\tmaxLength?: number;\n\tinputId: string;\n\tlabelId: string;\n\tinputRef: React.RefObject<HTMLInputElement | HTMLTextAreaElement | null>;\n\tstartEditing: () => void;\n\tsubmit: () => void;\n\tcancel: () => void;\n}\n\nconst EditableContext = React.createContext<EditableContextValue | undefined>(\n\tundefined,\n);\n\nfunction useEditable() {\n\tconst context = React.useContext(EditableContext);\n\tif (!context) {\n\t\tthrow new Error(\"useEditable must be used within an EditableRoot\");\n\t}\n\treturn context;\n}\n\nfunction mergeRefs<T>(\n\t...refs: Array<React.Ref<T> | undefined>\n): React.RefCallback<T> {\n\treturn (node) => {\n\t\tfor (const ref of refs) {\n\t\t\tif (typeof ref === \"function\") {\n\t\t\t\tref(node);\n\t\t\t} else if (ref && typeof ref === \"object\") {\n\t\t\t\t(ref as React.MutableRefObject<T | null>).current = node;\n\t\t\t}\n\t\t}\n\t};\n}\n\n/* -------------------------------------------------------------------------- */\n/* Editable Root                                                              */\n/* -------------------------------------------------------------------------- */\n\nexport interface EditableRootProps\n\textends Omit<useRender.ComponentProps<\"div\">, \"defaultValue\" | \"onChange\"> {\n\t/**\n\t * The controlled committed value.\n\t */\n\tvalue?: string;\n\t/**\n\t * The initial committed value when uncontrolled.\n\t */\n\tdefaultValue?: string;\n\t/**\n\t * Callback fired when the value is committed.\n\t */\n\tonValueChange?: (value: string) => void;\n\t/**\n\t * Callback fired when the draft value changes while editing.\n\t */\n\tonDraftChange?: (value: string) => void;\n\t/**\n\t * Callback fired when editing is cancelled.\n\t */\n\tonCancel?: (value: string) => void;\n\t/**\n\t * The controlled editing state.\n\t */\n\tediting?: boolean;\n\t/**\n\t * The initial editing state when uncontrolled.\n\t */\n\tdefaultEditing?: boolean;\n\t/**\n\t * Callback fired when editing state changes.\n\t */\n\tonEditingChange?: (editing: boolean) => void;\n\t/**\n\t * Placeholder text shown when the value is empty.\n\t */\n\tplaceholder?: string;\n\t/**\n\t * Layout orientation of the editable root.\n\t */\n\torientation?: EditableOrientation;\n\t/**\n\t * How edit mode is activated from the preview.\n\t */\n\tactivationMode?: EditableActivationMode;\n\t/**\n\t * How edits are submitted from the input.\n\t */\n\tsubmitMode?: EditableSubmitMode;\n\t/**\n\t * Whether to select all text when entering edit mode.\n\t */\n\tselectOnFocus?: boolean;\n\t/**\n\t * Whether the editable is disabled.\n\t */\n\tdisabled?: boolean;\n\t/**\n\t * Whether the editable is read-only.\n\t */\n\treadOnly?: boolean;\n\t/**\n\t * Whether the editable is required.\n\t */\n\trequired?: boolean;\n\t/**\n\t * Whether the editable is in an invalid state.\n\t */\n\tinvalid?: boolean;\n\t/**\n\t * Maximum character length for the input.\n\t */\n\tmaxLength?: number;\n\t/**\n\t * Optional form field name for submitting the committed value.\n\t */\n\tname?: string;\n}\n\nfunction EditableRoot({\n\tvalue: controlledValue,\n\tdefaultValue = \"\",\n\tonValueChange,\n\tonDraftChange,\n\tonCancel,\n\tediting: controlledEditing,\n\tdefaultEditing = false,\n\tonEditingChange,\n\tplaceholder,\n\torientation = \"horizontal\",\n\tactivationMode = \"click\",\n\tsubmitMode = \"both\",\n\tselectOnFocus = true,\n\tdisabled = false,\n\treadOnly = false,\n\trequired = false,\n\tinvalid = false,\n\tmaxLength,\n\tname,\n\tclassName,\n\trender,\n\tchildren,\n\t...props\n}: EditableRootProps) {\n\tconst [uncontrolledValue, setUncontrolledValue] =\n\t\tReact.useState(defaultValue);\n\tconst [uncontrolledEditing, setUncontrolledEditing] =\n\t\tReact.useState(defaultEditing);\n\n\tconst isValueControlled = controlledValue !== undefined;\n\tconst value = isValueControlled ? controlledValue : uncontrolledValue;\n\n\tconst isEditingControlled = controlledEditing !== undefined;\n\tconst editing = isEditingControlled\n\t\t? controlledEditing\n\t\t: uncontrolledEditing;\n\n\tconst [draftValue, setDraftValueState] = React.useState(value);\n\n\tconst inputId = React.useId();\n\tconst labelId = React.useId();\n\tconst inputRef = React.useRef<\n\t\tHTMLInputElement | HTMLTextAreaElement | null\n\t>(null);\n\n\tReact.useEffect(() => {\n\t\tif (!editing) {\n\t\t\tsetDraftValueState(value);\n\t\t}\n\t}, [value, editing]);\n\n\tconst setEditing = React.useCallback(\n\t\t(next: boolean) => {\n\t\t\tif (!isEditingControlled) {\n\t\t\t\tsetUncontrolledEditing(next);\n\t\t\t}\n\t\t\tonEditingChange?.(next);\n\t\t},\n\t\t[isEditingControlled, onEditingChange],\n\t);\n\n\tconst setDraftValue = React.useCallback(\n\t\t(next: string) => {\n\t\t\tsetDraftValueState(next);\n\t\t\tonDraftChange?.(next);\n\t\t},\n\t\t[onDraftChange],\n\t);\n\n\tconst startEditing = React.useCallback(() => {\n\t\tif (disabled || readOnly || editing) return;\n\t\tsetDraftValueState(value);\n\t\tsetEditing(true);\n\t}, [disabled, readOnly, editing, value, setEditing]);\n\n\tconst submit = React.useCallback(() => {\n\t\tif (disabled || readOnly) return;\n\t\tif (!isValueControlled) {\n\t\t\tsetUncontrolledValue(draftValue);\n\t\t}\n\t\tonValueChange?.(draftValue);\n\t\tsetEditing(false);\n\t}, [\n\t\tdisabled,\n\t\treadOnly,\n\t\tisValueControlled,\n\t\tdraftValue,\n\t\tonValueChange,\n\t\tsetEditing,\n\t]);\n\n\tconst cancel = React.useCallback(() => {\n\t\tsetDraftValueState(value);\n\t\tonCancel?.(value);\n\t\tsetEditing(false);\n\t}, [value, onCancel, setEditing]);\n\n\tReact.useEffect(() => {\n\t\tif (!editing) return;\n\t\tconst el = inputRef.current;\n\t\tif (!el) return;\n\t\tel.focus();\n\t\tif (selectOnFocus) {\n\t\t\tel.select();\n\t\t}\n\t}, [editing, selectOnFocus]);\n\n\tconst isEmpty = value.length === 0;\n\n\tconst contextValue = React.useMemo<EditableContextValue>(\n\t\t() => ({\n\t\t\tvalue,\n\t\t\tdraftValue,\n\t\t\tsetDraftValue,\n\t\t\tediting,\n\t\t\tisEmpty,\n\t\t\tdisabled,\n\t\t\treadOnly,\n\t\t\trequired,\n\t\t\tinvalid,\n\t\t\tplaceholder,\n\t\t\torientation,\n\t\t\tactivationMode,\n\t\t\tsubmitMode,\n\t\t\tselectOnFocus,\n\t\t\tmaxLength,\n\t\t\tinputId,\n\t\t\tlabelId,\n\t\t\tinputRef,\n\t\t\tstartEditing,\n\t\t\tsubmit,\n\t\t\tcancel,\n\t\t}),\n\t\t[\n\t\t\tvalue,\n\t\t\tdraftValue,\n\t\t\tsetDraftValue,\n\t\t\tediting,\n\t\t\tisEmpty,\n\t\t\tdisabled,\n\t\t\treadOnly,\n\t\t\trequired,\n\t\t\tinvalid,\n\t\t\tplaceholder,\n\t\t\torientation,\n\t\t\tactivationMode,\n\t\t\tsubmitMode,\n\t\t\tselectOnFocus,\n\t\t\tmaxLength,\n\t\t\tinputId,\n\t\t\tlabelId,\n\t\t\tstartEditing,\n\t\t\tsubmit,\n\t\t\tcancel,\n\t\t],\n\t);\n\n\tconst defaultProps: useRender.ElementProps<\"div\"> & Record<string, unknown> =\n\t\t{\n\t\t\t\"data-slot\": \"editable\",\n\t\t\t\"data-orientation\": orientation,\n\t\t\t\"data-editing\": editing ? \"\" : undefined,\n\t\t\t\"data-disabled\": disabled ? \"\" : undefined,\n\t\t\t\"data-readonly\": readOnly ? \"\" : undefined,\n\t\t\t\"data-invalid\": invalid ? \"\" : undefined,\n\t\t\t\"data-placeholder-shown\": isEmpty ? \"\" : undefined,\n\t\t\tclassName: cn(\n\t\t\t\t\"group/editable flex w-full min-w-0 items-center gap-1.5\",\n\t\t\t\t\"data-[orientation=vertical]:flex-col data-[orientation=vertical]:items-stretch\",\n\t\t\t\tclassName,\n\t\t\t),\n\t\t\tchildren: (\n\t\t\t\t<>\n\t\t\t\t\t{children}\n\t\t\t\t\t{name ? (\n\t\t\t\t\t\t<input type=\"hidden\" name={name} value={value} />\n\t\t\t\t\t) : null}\n\t\t\t\t</>\n\t\t\t),\n\t\t};\n\n\tconst element = useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n\n\treturn (\n\t\t<EditableContext.Provider value={contextValue}>\n\t\t\t{element}\n\t\t</EditableContext.Provider>\n\t);\n}\n\n/* -------------------------------------------------------------------------- */\n/* Editable Label                                                             */\n/* -------------------------------------------------------------------------- */\n\nexport interface EditableLabelProps extends useRender.ComponentProps<\"label\"> {}\n\nfunction EditableLabel({ className, render, ...props }: EditableLabelProps) {\n\tconst { labelId, inputId, disabled, invalid, required } = useEditable();\n\n\tconst defaultProps: useRender.ElementProps<\"label\"> &\n\t\tRecord<string, unknown> = {\n\t\tid: labelId,\n\t\thtmlFor: inputId,\n\t\t\"data-slot\": \"editable-label\",\n\t\t\"data-disabled\": disabled ? \"\" : undefined,\n\t\t\"data-invalid\": invalid ? \"\" : undefined,\n\t\t\"data-required\": required ? \"\" : undefined,\n\t\tclassName: cn(\n\t\t\t\"text-sm font-medium text-foreground select-none\",\n\t\t\t\"data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50\",\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"label\",\n\t\tprops: mergeProps<\"label\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Editable Area                                                              */\n/* -------------------------------------------------------------------------- */\n\nexport interface EditableAreaProps extends useRender.ComponentProps<\"div\"> {}\n\nfunction EditableArea({ className, render, ...props }: EditableAreaProps) {\n\tconst { editing, disabled, readOnly, invalid, isEmpty } = useEditable();\n\n\tconst defaultProps: useRender.ElementProps<\"div\"> & Record<string, unknown> =\n\t\t{\n\t\t\t\"data-slot\": \"editable-area\",\n\t\t\t\"data-editing\": editing ? \"\" : undefined,\n\t\t\t\"data-disabled\": disabled ? \"\" : undefined,\n\t\t\t\"data-readonly\": readOnly ? \"\" : undefined,\n\t\t\t\"data-invalid\": invalid ? \"\" : undefined,\n\t\t\t\"data-placeholder-shown\": isEmpty ? \"\" : undefined,\n\t\t\tclassName: cn(\"relative min-w-0 flex-1\", className),\n\t\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Editable Preview                                                           */\n/* -------------------------------------------------------------------------- */\n\nconst sizeClasses: Record<EditableSize, string> = {\n\tsm: \"min-h-7 px-2.5 text-xs\",\n\tmd: \"min-h-8 px-3 text-sm\",\n\tlg: \"min-h-9 px-3.5 text-sm\",\n};\n\nexport interface EditablePreviewProps\n\textends useRender.ComponentProps<\"span\"> {\n\t/**\n\t * Visual size of the preview.\n\t */\n\tsize?: EditableSize;\n}\n\nfunction EditablePreview({\n\tsize = \"md\",\n\tclassName,\n\trender,\n\tchildren,\n\tonClick,\n\tonDoubleClick,\n\tonFocus,\n\tonKeyDown,\n\t...props\n}: EditablePreviewProps) {\n\tconst {\n\t\tvalue,\n\t\tediting,\n\t\tisEmpty,\n\t\tdisabled,\n\t\treadOnly,\n\t\tplaceholder,\n\t\tactivationMode,\n\t\tstartEditing,\n\t} = useEditable();\n\n\tconst canActivate = !disabled && !readOnly && activationMode !== \"none\";\n\n\tconst handleClick: React.MouseEventHandler<HTMLSpanElement> = (e) => {\n\t\tonClick?.(e);\n\t\tif (e.defaultPrevented) return;\n\t\tif (activationMode === \"click\") {\n\t\t\tstartEditing();\n\t\t}\n\t};\n\n\tconst handleDoubleClick: React.MouseEventHandler<HTMLSpanElement> = (e) => {\n\t\tonDoubleClick?.(e);\n\t\tif (e.defaultPrevented) return;\n\t\tif (activationMode === \"dblclick\") {\n\t\t\tstartEditing();\n\t\t}\n\t};\n\n\tconst handleFocus: React.FocusEventHandler<HTMLSpanElement> = (e) => {\n\t\tonFocus?.(e);\n\t\tif (e.defaultPrevented) return;\n\t\tif (activationMode === \"focus\") {\n\t\t\tstartEditing();\n\t\t}\n\t};\n\n\tconst handleKeyDown: React.KeyboardEventHandler<HTMLSpanElement> = (e) => {\n\t\tonKeyDown?.(e);\n\t\tif (e.defaultPrevented || !canActivate) return;\n\t\tif (e.key === \"Enter\" || e.key === \" \" || e.key === \"F2\") {\n\t\t\te.preventDefault();\n\t\t\tstartEditing();\n\t\t}\n\t};\n\n\tconst defaultProps: useRender.ElementProps<\"span\"> &\n\t\tRecord<string, unknown> = {\n\t\thidden: editing,\n\t\ttabIndex: canActivate ? 0 : undefined,\n\t\trole: canActivate ? \"button\" : undefined,\n\t\t\"aria-disabled\": disabled || undefined,\n\t\t\"aria-readonly\": readOnly || undefined,\n\t\t\"data-slot\": \"editable-preview\",\n\t\t\"data-size\": size,\n\t\t\"data-placeholder-shown\": isEmpty ? \"\" : undefined,\n\t\t\"data-disabled\": disabled ? \"\" : undefined,\n\t\t\"data-readonly\": readOnly ? \"\" : undefined,\n\t\tonClick: handleClick,\n\t\tonDoubleClick: handleDoubleClick,\n\t\tonFocus: handleFocus,\n\t\tonKeyDown: handleKeyDown,\n\t\tclassName: cn(\n\t\t\t\"flex w-full min-w-0 items-center rounded-md border border-transparent bg-transparent py-1 text-foreground transition-colors outline-none\",\n\t\t\t\"focus-visible:ring-2 focus-visible:ring-ring/50\",\n\t\t\tcanActivate &&\n\t\t\t\t\"cursor-text hover:border-input hover:bg-muted/40\",\n\t\t\t\"data-[placeholder-shown]:text-muted-foreground\",\n\t\t\t\"data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50\",\n\t\t\t\"data-[readonly]:cursor-default\",\n\t\t\t\"group-data-[orientation=vertical]/editable:items-start group-data-[orientation=vertical]/editable:min-h-16 group-data-[orientation=vertical]/editable:py-2\",\n\t\t\t\"[[hidden]]:hidden!\",\n\t\t\tsizeClasses[size],\n\t\t\tclassName,\n\t\t),\n\t\tchildren: children ?? (isEmpty ? placeholder : value),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"span\",\n\t\tprops: mergeProps<\"span\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Editable Input                                                             */\n/* -------------------------------------------------------------------------- */\n\nexport interface EditableInputProps\n\textends Omit<useRender.ComponentProps<\"input\">, \"size\"> {\n\t/**\n\t * Visual size of the input.\n\t */\n\tsize?: EditableSize;\n\t/**\n\t * Render as a multiline textarea by default.\n\t */\n\tmultiline?: boolean;\n}\n\nfunction EditableInput({\n\tsize = \"md\",\n\tmultiline = false,\n\tclassName,\n\trender,\n\tref,\n\tonChange,\n\tonKeyDown,\n\tonBlur,\n\t\"aria-label\": ariaLabel,\n\t\"aria-labelledby\": ariaLabelledBy,\n\t...props\n}: EditableInputProps) {\n\tconst {\n\t\tdraftValue,\n\t\tsetDraftValue,\n\t\tediting,\n\t\tdisabled,\n\t\treadOnly,\n\t\trequired,\n\t\tinvalid,\n\t\tplaceholder,\n\t\tsubmitMode,\n\t\tmaxLength,\n\t\tinputId,\n\t\tlabelId,\n\t\tinputRef,\n\t\tsubmit,\n\t\tcancel,\n\t} = useEditable();\n\n\tconst handleChange = (\n\t\te: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,\n\t) => {\n\t\tonChange?.(e as React.ChangeEvent<HTMLInputElement>);\n\t\tif (e.defaultPrevented) return;\n\t\tsetDraftValue(e.target.value);\n\t};\n\n\tconst handleKeyDown = (\n\t\te: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>,\n\t) => {\n\t\tonKeyDown?.(e as React.KeyboardEvent<HTMLInputElement>);\n\t\tif (e.defaultPrevented) return;\n\n\t\tif (e.key === \"Escape\") {\n\t\t\te.preventDefault();\n\t\t\tcancel();\n\t\t\treturn;\n\t\t}\n\n\t\tconst isTextarea =\n\t\t\tmultiline || e.currentTarget.tagName.toLowerCase() === \"textarea\";\n\t\tconst shouldSubmitOnEnter =\n\t\t\tsubmitMode === \"enter\" || submitMode === \"both\";\n\n\t\tif (\n\t\t\te.key === \"Enter\" &&\n\t\t\tshouldSubmitOnEnter &&\n\t\t\t(!isTextarea || e.metaKey || e.ctrlKey)\n\t\t) {\n\t\t\te.preventDefault();\n\t\t\tsubmit();\n\t\t}\n\t};\n\n\tconst handleBlur = (\n\t\te: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>,\n\t) => {\n\t\tonBlur?.(e as React.FocusEvent<HTMLInputElement>);\n\t\tif (e.defaultPrevented) return;\n\n\t\tif (submitMode === \"blur\" || submitMode === \"both\") {\n\t\t\tsubmit();\n\t\t}\n\t};\n\n\tconst ariaProps =\n\t\tariaLabel === undefined && ariaLabelledBy === undefined\n\t\t\t? { \"aria-labelledby\": labelId }\n\t\t\t: { \"aria-label\": ariaLabel, \"aria-labelledby\": ariaLabelledBy };\n\n\tconst defaultProps: useRender.ElementProps<\"input\"> &\n\t\tRecord<string, unknown> = {\n\t\tid: inputId,\n\t\tref: mergeRefs(inputRef, ref),\n\t\thidden: !editing,\n\t\tvalue: draftValue,\n\t\tdisabled,\n\t\treadOnly,\n\t\trequired,\n\t\tmaxLength,\n\t\tplaceholder,\n\t\tautoCapitalize: \"off\",\n\t\tautoComplete: \"off\",\n\t\tautoCorrect: \"off\",\n\t\tspellCheck: false,\n\t\t\"aria-invalid\": invalid || undefined,\n\t\t\"data-slot\": \"editable-input\",\n\t\t\"data-size\": size,\n\t\tonChange: handleChange,\n\t\tonKeyDown: handleKeyDown,\n\t\tonBlur: handleBlur,\n\t\t...ariaProps,\n\t\tclassName: cn(\n\t\t\t\"flex w-full min-w-0 rounded-md border border-input bg-background py-1 text-foreground shadow-xs transition-[color,box-shadow] outline-none\",\n\t\t\t\"placeholder:text-muted-foreground\",\n\t\t\t\"focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/50\",\n\t\t\t\"aria-invalid:border-destructive aria-invalid:ring-destructive/20\",\n\t\t\t\"disabled:cursor-not-allowed disabled:opacity-50\",\n\t\t\t\"group-data-[orientation=vertical]/editable:min-h-16 group-data-[orientation=vertical]/editable:py-2\",\n\t\t\t\"[[hidden]]:hidden!\",\n\t\t\tsizeClasses[size],\n\t\t\tclassName,\n\t\t),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: multiline ? (\"textarea\" as \"input\") : \"input\",\n\t\tprops: mergeProps<\"input\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Editable Control & Triggers                                                */\n/* -------------------------------------------------------------------------- */\n\nexport interface EditableControlProps extends useRender.ComponentProps<\"div\"> {}\n\nfunction EditableControl({\n\tclassName,\n\trender,\n\t...props\n}: EditableControlProps) {\n\tconst { editing } = useEditable();\n\n\tconst defaultProps: useRender.ElementProps<\"div\"> & Record<string, unknown> =\n\t\t{\n\t\t\t\"data-slot\": \"editable-control\",\n\t\t\t\"data-editing\": editing ? \"\" : undefined,\n\t\t\tclassName: cn(\n\t\t\t\t\"flex shrink-0 items-center gap-1\",\n\t\t\t\t\"group-data-[orientation=vertical]/editable:self-end\",\n\t\t\t\tclassName,\n\t\t\t),\n\t\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergeProps<\"div\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\nexport interface EditableEditTriggerProps\n\textends useRender.ComponentProps<\"button\"> {}\n\nfunction EditableEditTrigger({\n\tclassName,\n\trender,\n\tonClick,\n\tdisabled: propDisabled,\n\t...props\n}: EditableEditTriggerProps) {\n\tconst { editing, disabled, readOnly, startEditing } = useEditable();\n\n\tconst defaultProps: useRender.ElementProps<\"button\"> &\n\t\tRecord<string, unknown> = {\n\t\ttype: \"button\",\n\t\thidden: editing,\n\t\tdisabled: propDisabled ?? (disabled || readOnly),\n\t\t\"data-slot\": \"editable-edit-trigger\",\n\t\tonClick: (e) => {\n\t\t\tonClick?.(e);\n\t\t\tif (!e.defaultPrevented) {\n\t\t\t\tstartEditing();\n\t\t\t}\n\t\t},\n\t\tclassName: cn(\"[[hidden]]:hidden!\", className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"button\",\n\t\tprops: mergeProps<\"button\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\nexport interface EditableSubmitTriggerProps\n\textends useRender.ComponentProps<\"button\"> {}\n\nfunction EditableSubmitTrigger({\n\tclassName,\n\trender,\n\tonClick,\n\tonMouseDown,\n\tdisabled: propDisabled,\n\t...props\n}: EditableSubmitTriggerProps) {\n\tconst { editing, disabled, readOnly, submit } = useEditable();\n\n\tconst defaultProps: useRender.ElementProps<\"button\"> &\n\t\tRecord<string, unknown> = {\n\t\ttype: \"button\",\n\t\thidden: !editing,\n\t\tdisabled: propDisabled ?? (disabled || readOnly),\n\t\t\"data-slot\": \"editable-submit-trigger\",\n\t\t// Prevent input blur from firing before click\n\t\tonMouseDown: (e) => {\n\t\t\te.preventDefault();\n\t\t\tonMouseDown?.(e);\n\t\t},\n\t\tonClick: (e) => {\n\t\t\tonClick?.(e);\n\t\t\tif (!e.defaultPrevented) {\n\t\t\t\tsubmit();\n\t\t\t}\n\t\t},\n\t\tclassName: cn(\"[[hidden]]:hidden!\", className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"button\",\n\t\tprops: mergeProps<\"button\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\nexport interface EditableCancelTriggerProps\n\textends useRender.ComponentProps<\"button\"> {}\n\nfunction EditableCancelTrigger({\n\tclassName,\n\trender,\n\tonClick,\n\tonMouseDown,\n\tdisabled: propDisabled,\n\t...props\n}: EditableCancelTriggerProps) {\n\tconst { editing, disabled, cancel } = useEditable();\n\n\tconst defaultProps: useRender.ElementProps<\"button\"> &\n\t\tRecord<string, unknown> = {\n\t\ttype: \"button\",\n\t\thidden: !editing,\n\t\tdisabled: propDisabled ?? disabled,\n\t\t\"data-slot\": \"editable-cancel-trigger\",\n\t\t// Prevent input blur from firing before click\n\t\tonMouseDown: (e) => {\n\t\t\te.preventDefault();\n\t\t\tonMouseDown?.(e);\n\t\t},\n\t\tonClick: (e) => {\n\t\t\tonClick?.(e);\n\t\t\tif (!e.defaultPrevented) {\n\t\t\t\tcancel();\n\t\t\t}\n\t\t},\n\t\tclassName: cn(\"[[hidden]]:hidden!\", className),\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"button\",\n\t\tprops: mergeProps<\"button\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\n/* -------------------------------------------------------------------------- */\n/* Exports                                                                    */\n/* -------------------------------------------------------------------------- */\n\nexport const Editable = Object.assign(EditableRoot, {\n\tRoot: EditableRoot,\n\tLabel: EditableLabel,\n\tArea: EditableArea,\n\tPreview: EditablePreview,\n\tInput: EditableInput,\n\tControl: EditableControl,\n\tEditTrigger: EditableEditTrigger,\n\tSubmitTrigger: EditableSubmitTrigger,\n\tCancelTrigger: EditableCancelTrigger,\n});\n\nexport type EditableProps = EditableRootProps;\n\nexport {\n\tEditableRoot,\n\tEditableLabel,\n\tEditableArea,\n\tEditablePreview,\n\tEditableInput,\n\tEditableControl,\n\tEditableEditTrigger,\n\tEditableSubmitTrigger,\n\tEditableCancelTrigger,\n\tuseEditable,\n};"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/craftui-editable',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/craftui/components/editable/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
           "craftui-particles-empty-avatar": {
             name: "craftui-particles-empty-avatar",
             description: "Empty state featuring a user avatar.",

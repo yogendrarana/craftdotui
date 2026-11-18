@@ -1,0 +1,18 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-editable",
+	"type": "registry:component",
+	"description": "Default inline editable component with edit, save, and cancel controls.",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/craftui-editable",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/editable/particles/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/editable.tsx"
+		}
+	]
+}

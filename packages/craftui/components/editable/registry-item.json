@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-editable",
+	"type": "registry:component",
+	"description": "An inline editable text component that toggles between a preview and an input with keyboard, blur, and trigger controls.",
+	"dependencies": ["@base-ui/react", "cn"],
+	"registryDependencies": [],
+	"files": [
+		{
+			"path": "packages/craftui/components/editable/index.tsx",
+			"type": "registry:component",
+			"target": "components/ui/editable.tsx"
+		}
+	]
+}
