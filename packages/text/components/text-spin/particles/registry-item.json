@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "text-particles-spin",
+	"type": "registry:component",
+	"description": "Default circular spinning text demo.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/text-spin"],
+	"files": [
+		{
+			"path": "packages/text/components/text-spin/particles/index.tsx",
+			"type": "registry:component",
+			"target": "components/text/particles/text-spin.tsx"
+		}
+	]
+}

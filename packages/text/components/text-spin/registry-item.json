@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "text-spin",
+	"type": "registry:component",
+	"description": "A circular spinning text component powered by Motion.",
+	"dependencies": ["motion", "cn"],
+	"registryDependencies": [],
+	"files": [
+		{
+			"path": "packages/text/components/text-spin/index.tsx",
+			"type": "registry:component",
+			"target": "components/text/components/text-spin.tsx"
+		}
+	]
+}

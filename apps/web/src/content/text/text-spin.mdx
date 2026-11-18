@@ -1,0 +1,97 @@
+---
+title: Text Spin
+description: A circular spinning text component powered by Motion.
+slug: /text/text-spin
+published: true
+date: 2026-11-18T00:00:00.000Z
+author:
+  name: Yogendra Rana
+  twitter: "https://twitter.com/yooogendra_rana"
+---
+
+<ComponentCodePreview name="text-particles-spin" />
+
+## Installation
+
+<Installation name="text-spin" />
+
+## Demo
+
+#### With Center Content
+
+<ComponentCodePreview name="text-particles-spin-with-center" />
+
+#### Pause On Hover
+
+<ComponentCodePreview name="text-particles-spin-pause-on-hover" />
+
+#### Custom Speed & Radius
+
+<ComponentCodePreview name="text-particles-spin-custom-speed" />
+
+#### Custom Text
+
+<ComponentCodePreview name="text-particles-spin-custom-text" />
+
+## Props
+
+#### TextSpin
+
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "string",
+      default: "undefined",
+      description: "The text string to arrange in a circle.",
+    },
+    {
+      prop: "radius",
+      type: "number",
+      default: "48",
+      description: "Radius of the circular text path in pixels.",
+    },
+    {
+      prop: "duration",
+      type: "number",
+      default: "10",
+      description: "Duration of one full 360° rotation in seconds.",
+    },
+    {
+      prop: "repeat",
+      type: "number",
+      default: "1",
+      description: "Number of times to repeat the text around the circle.",
+    },
+    {
+      prop: "separator",
+      type: "string",
+      default: '" • "',
+      description: "Separator inserted between repeated text segments when repeat > 1.",
+    },
+    {
+      prop: "reverse",
+      type: "boolean",
+      default: "false",
+      description: "Rotate counter-clockwise instead of clockwise.",
+    },
+    {
+      prop: "trigger",
+      type: "boolean",
+      default: "true",
+      description: "Whether the ring is actively spinning.",
+    },
+    {
+      prop: "pauseOnHover",
+      type: "boolean",
+      default: "false",
+      description: "Pause spinning while hovering or focusing within the component.",
+    },
+    {
+      prop: "center",
+      type: "React.ReactNode",
+      default: "undefined",
+      description: "Optional content rendered at the center of the ring.",
+    },
+  ]}
+/>

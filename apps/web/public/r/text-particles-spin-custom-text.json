@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "text-particles-spin-custom-text",
+	"description": "Circular spinning text with distinct words and no repetition.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/text-spin"],
+	"files": [
+		{
+			"path": "packages/text/components/text-spin/particles/custom-text/index.tsx",
+			"content": "\"use client\";\n\nimport TextSpin from \"@/components/text/components/text-spin\";\n\nexport function Particle() {\n\treturn (\n\t\t<TextSpin radius={64} className=\"text-sm text-foreground\">\n\t\t\t{\"eat • sleep • code • repeat • \"}\n\t\t</TextSpin>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/text/particles/text-spin-custom-text.tsx"
+		}
+	],
+	"type": "registry:component"
+}

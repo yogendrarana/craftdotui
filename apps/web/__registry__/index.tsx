@@ -17190,6 +17190,264 @@ export const Registry: Record<string, any> = {
 							return LazyComp;
 						})(),
           },
+          "text-particles-spin-custom-speed": {
+            name: "text-particles-spin-custom-speed",
+            description: "Faster circular spinning text with a larger radius.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/text-spin"],
+            files: [
+  {
+    "path": "packages/text/components/text-spin/particles/custom-speed/index.tsx",
+    "type": "registry:component",
+    "target": "components/text/particles/text-spin-custom-speed.tsx",
+    "content": "\"use client\";\n\nimport TextSpin from \"@/components/text/components/text-spin\";\n\nexport function Particle() {\n\treturn (\n\t\t<TextSpin\n\t\t\trepeat={3}\n\t\t\tduration={4}\n\t\t\tradius={60}\n\t\t\tclassName=\"text-sm text-foreground\"\n\t\t>\n\t\t\tcraftdotui\n\t\t</TextSpin>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/text-particles-spin-custom-speed',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/text/components/text-spin/particles/custom-speed/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "text-particles-spin-custom-text": {
+            name: "text-particles-spin-custom-text",
+            description: "Circular spinning text with distinct words and no repetition.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/text-spin"],
+            files: [
+  {
+    "path": "packages/text/components/text-spin/particles/custom-text/index.tsx",
+    "type": "registry:component",
+    "target": "components/text/particles/text-spin-custom-text.tsx",
+    "content": "\"use client\";\n\nimport TextSpin from \"@/components/text/components/text-spin\";\n\nexport function Particle() {\n\treturn (\n\t\t<TextSpin radius={64} className=\"text-sm text-foreground\">\n\t\t\t{\"eat • sleep • code • repeat • \"}\n\t\t</TextSpin>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/text-particles-spin-custom-text',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/text/components/text-spin/particles/custom-text/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "text-particles-spin-pause-on-hover": {
+            name: "text-particles-spin-pause-on-hover",
+            description: "Counter-clockwise circular text that pauses on hover.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/text-spin"],
+            files: [
+  {
+    "path": "packages/text/components/text-spin/particles/pause-on-hover/index.tsx",
+    "type": "registry:component",
+    "target": "components/text/particles/text-spin-pause-on-hover.tsx",
+    "content": "\"use client\";\n\nimport TextSpin from \"@/components/text/components/text-spin\";\n\nexport function Particle() {\n\treturn (\n\t\t<TextSpin\n\t\t\trepeat={2}\n\t\t\tseparator=\" • \"\n\t\t\treverse\n\t\t\tpauseOnHover\n\t\t\tradius={54}\n\t\t\tclassName=\"cursor-pointer text-sm text-muted-foreground\"\n\t\t>\n\t\t\thover to pause\n\t\t</TextSpin>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/text-particles-spin-pause-on-hover',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/text/components/text-spin/particles/pause-on-hover/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "text-particles-spin": {
+            name: "text-particles-spin",
+            description: "Default circular spinning text demo.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/text-spin"],
+            files: [
+  {
+    "path": "packages/text/components/text-spin/particles/index.tsx",
+    "type": "registry:component",
+    "target": "components/text/particles/text-spin.tsx",
+    "content": "\"use client\";\n\nimport TextSpin from \"@/components/text/components/text-spin\";\n\nexport function Particle() {\n\treturn (\n\t\t<TextSpin repeat={3} radius={54} className=\"text-sm text-foreground\">\n\t\t\tship faster\n\t\t</TextSpin>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/text-particles-spin',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/text/components/text-spin/particles/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "text-particles-spin-with-center": {
+            name: "text-particles-spin-with-center",
+            description: "Circular spinning text with a centered icon.",
+            type: "registry:component",
+            dependencies: ["lucide-react"],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/text-spin"],
+            files: [
+  {
+    "path": "packages/text/components/text-spin/particles/with-center/index.tsx",
+    "type": "registry:component",
+    "target": "components/text/particles/text-spin-with-center.tsx",
+    "content": "\"use client\";\n\nimport { ArrowUpRight } from \"lucide-react\";\nimport TextSpin from \"@/components/text/components/text-spin\";\n\nexport function Particle() {\n\treturn (\n\t\t<TextSpin\n\t\t\trepeat={3}\n\t\t\tradius={52}\n\t\t\tclassName=\"text-xs font-medium tracking-wider text-foreground uppercase\"\n\t\t\tcenter={\n\t\t\t\t<span className=\"flex size-10 items-center justify-center rounded-full border border-border bg-background text-foreground\">\n\t\t\t\t\t<ArrowUpRight className=\"size-4\" />\n\t\t\t\t</span>\n\t\t\t}\n\t\t>\n\t\t\texplore now\n\t\t</TextSpin>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/text-particles-spin-with-center',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/text/components/text-spin/particles/with-center/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "text-spin": {
+            name: "text-spin",
+            description: "A circular spinning text component powered by Motion.",
+            type: "registry:component",
+            dependencies: ["motion","cn"],
+            devDependencies: undefined,
+            registryDependencies: [],
+            files: [
+  {
+    "path": "packages/text/components/text-spin/index.tsx",
+    "type": "registry:component",
+    "target": "components/text/components/text-spin.tsx",
+    "content": "\"use client\";\n\nimport * as React from \"react\";\nimport {\n\tmotion,\n\tuseAnimationFrame,\n\tuseMotionValue,\n\tuseReducedMotion,\n} from \"motion/react\";\nimport { cn } from \"cn\";\n\nexport interface TextSpinProps\n\textends Omit<React.HTMLAttributes<HTMLDivElement>, \"children\"> {\n\t/**\n\t * The text string to arrange in a circle.\n\t */\n\tchildren: string;\n\t/**\n\t * Radius of the circular text path in pixels.\n\t */\n\tradius?: number;\n\t/**\n\t * Duration of one full 360° rotation in seconds.\n\t */\n\tduration?: number;\n\t/**\n\t * Number of times to repeat the text around the circle.\n\t */\n\trepeat?: number;\n\t/**\n\t * Separator inserted between repeated text segments when `repeat > 1`.\n\t */\n\tseparator?: string;\n\t/**\n\t * Rotate counter-clockwise instead of clockwise.\n\t */\n\treverse?: boolean;\n\t/**\n\t * Whether the ring is actively spinning.\n\t */\n\ttrigger?: boolean;\n\t/**\n\t * Pause spinning while hovering or focusing within the component.\n\t */\n\tpauseOnHover?: boolean;\n\t/**\n\t * Optional content rendered at the center of the ring.\n\t */\n\tcenter?: React.ReactNode;\n}\n\nexport function TextSpin({\n\tchildren,\n\tradius = 48,\n\tduration = 10,\n\trepeat = 1,\n\tseparator = \" • \",\n\treverse = false,\n\ttrigger = true,\n\tpauseOnHover = false,\n\tcenter,\n\tclassName,\n\tstyle,\n\tonMouseEnter,\n\tonMouseLeave,\n\tonFocus,\n\tonBlur,\n\t...props\n}: TextSpinProps) {\n\tconst prefersReducedMotion = useReducedMotion();\n\tconst [isPaused, setIsPaused] = React.useState(false);\n\tconst rotation = useMotionValue(0);\n\n\tconst fullText = React.useMemo(() => {\n\t\tif (repeat <= 1) return children;\n\t\treturn Array.from(\n\t\t\t{ length: repeat },\n\t\t\t() => `${children}${separator}`,\n\t\t).join(\"\");\n\t}, [children, repeat, separator]);\n\n\tconst characters = React.useMemo(() => Array.from(fullText), [fullText]);\n\tconst angleStep = characters.length > 0 ? 360 / characters.length : 0;\n\n\tuseAnimationFrame((_, delta) => {\n\t\tif (\n\t\t\t!trigger ||\n\t\t\tprefersReducedMotion ||\n\t\t\t(pauseOnHover && isPaused) ||\n\t\t\tduration <= 0\n\t\t) {\n\t\t\treturn;\n\t\t}\n\t\tconst direction = reverse ? -1 : 1;\n\t\tconst degreesPerSecond = 360 / duration;\n\t\trotation.set(\n\t\t\t(rotation.get() + (delta / 1000) * degreesPerSecond * direction) %\n\t\t\t\t360,\n\t\t);\n\t});\n\n\tconst size = radius * 2;\n\n\treturn (\n\t\t<div\n\t\t\trole=\"img\"\n\t\t\taria-label={children}\n\t\t\tclassName={cn(\n\t\t\t\t\"relative inline-flex shrink-0 items-center justify-center select-none\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tstyle={{\n\t\t\t\twidth: size,\n\t\t\t\theight: size,\n\t\t\t\t...style,\n\t\t\t}}\n\t\t\tonMouseEnter={(e) => {\n\t\t\t\tonMouseEnter?.(e);\n\t\t\t\tif (pauseOnHover) setIsPaused(true);\n\t\t\t}}\n\t\t\tonMouseLeave={(e) => {\n\t\t\t\tonMouseLeave?.(e);\n\t\t\t\tif (pauseOnHover) setIsPaused(false);\n\t\t\t}}\n\t\t\tonFocus={(e) => {\n\t\t\t\tonFocus?.(e);\n\t\t\t\tif (pauseOnHover) setIsPaused(true);\n\t\t\t}}\n\t\t\tonBlur={(e) => {\n\t\t\t\tonBlur?.(e);\n\t\t\t\tif (pauseOnHover) setIsPaused(false);\n\t\t\t}}\n\t\t\t{...props}\n\t\t>\n\t\t\t<motion.div\n\t\t\t\taria-hidden=\"true\"\n\t\t\t\tclassName=\"relative size-full\"\n\t\t\t\tstyle={{ rotate: rotation }}\n\t\t\t>\n\t\t\t\t{characters.map((char, index) => (\n\t\t\t\t\t<span\n\t\t\t\t\t\tkey={`${index}-${char}`}\n\t\t\t\t\t\tclassName=\"absolute top-1/2 left-1/2 inline-block whitespace-pre\"\n\t\t\t\t\t\tstyle={{\n\t\t\t\t\t\t\ttransform: `translate(-50%, -50%) rotate(${index * angleStep}deg) translateY(-${radius}px)`,\n\t\t\t\t\t\t}}\n\t\t\t\t\t>\n\t\t\t\t\t\t{char}\n\t\t\t\t\t</span>\n\t\t\t\t))}\n\t\t\t</motion.div>\n\n\t\t\t{center ? (\n\t\t\t\t<div className=\"pointer-events-none absolute inset-0 flex items-center justify-center\">\n\t\t\t\t\t{center}\n\t\t\t\t</div>\n\t\t\t) : null}\n\t\t</div>\n\t);\n}\n\nexport default TextSpin;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/text-spin',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/text/components/text-spin/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
           "text-particles-typing": {
             name: "text-particles-typing",
             description: "Basic typing effect demo",

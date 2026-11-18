@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "text-particles-spin-with-center",
+	"description": "Circular spinning text with a centered icon.",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": ["@craftdotui/text-spin"],
+	"files": [
+		{
+			"path": "packages/text/components/text-spin/particles/with-center/index.tsx",
+			"content": "\"use client\";\n\nimport { ArrowUpRight } from \"lucide-react\";\nimport TextSpin from \"@/components/text/components/text-spin\";\n\nexport function Particle() {\n\treturn (\n\t\t<TextSpin\n\t\t\trepeat={3}\n\t\t\tradius={52}\n\t\t\tclassName=\"text-xs font-medium tracking-wider text-foreground uppercase\"\n\t\t\tcenter={\n\t\t\t\t<span className=\"flex size-10 items-center justify-center rounded-full border border-border bg-background text-foreground\">\n\t\t\t\t\t<ArrowUpRight className=\"size-4\" />\n\t\t\t\t</span>\n\t\t\t}\n\t\t>\n\t\t\texplore now\n\t\t</TextSpin>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/text/particles/text-spin-with-center.tsx"
+		}
+	],
+	"type": "registry:component"
+}

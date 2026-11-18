@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "text-particles-spin-pause-on-hover",
+	"type": "registry:component",
+	"description": "Counter-clockwise circular text that pauses on hover.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/text-spin"],
+	"files": [
+		{
+			"path": "packages/text/components/text-spin/particles/pause-on-hover/index.tsx",
+			"type": "registry:component",
+			"target": "components/text/particles/text-spin-pause-on-hover.tsx"
+		}
+	]
+}
