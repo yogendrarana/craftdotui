@@ -1,0 +1,107 @@
+---
+title: Text Shimmer
+description: A shimmering text animation component powered by Motion.
+slug: /text/text-shimmer
+published: true
+date: 2026-11-18T00:00:00.000Z
+author:
+  name: Yogendra Rana
+  twitter: "https://twitter.com/yooogendra_rana"
+---
+
+<ComponentCodePreview name="text-particles-shimmer" />
+
+## Installation
+
+<Installation name="text-shimmer" />
+
+## Demo
+
+#### Custom Color
+
+<ComponentCodePreview name="text-particles-shimmer-custom-color" />
+
+#### Reverse Direction
+
+<ComponentCodePreview name="text-particles-shimmer-reverse" />
+
+#### Once
+
+<ComponentCodePreview name="text-particles-shimmer-once" hasReTrigger />
+
+#### Repeat Delay & Angle
+
+<ComponentCodePreview name="text-particles-shimmer-repeat-delay" />
+
+#### Controlled
+
+<ComponentCodePreview name="text-particles-shimmer-controlled" />
+
+## Props
+
+#### TextShimmer
+
+<PropsTable
+  data={[
+    {
+      prop: "children",
+      type: "React.ReactNode",
+      default: "undefined",
+      description: "The text or inline content to apply the shimmer effect to.",
+    },
+    {
+      prop: "as",
+      type: "React.ElementType",
+      default: '"p"',
+      description: "The HTML element or React component to render as.",
+    },
+    {
+      prop: "duration",
+      type: "number",
+      default: "2",
+      description: "Duration of one shimmer sweep in seconds.",
+    },
+    {
+      prop: "spread",
+      type: "number | string",
+      default: '"calc(3ch + 40px)"',
+      description: "Width of the shimmer highlight band (numbers map to px).",
+    },
+    {
+      prop: "angle",
+      type: "number",
+      default: "20",
+      description: "Angle offset of the shimmer gradient in degrees.",
+    },
+    {
+      prop: "color",
+      type: "string",
+      default: "undefined",
+      description: "Custom highlight color for the shimmer peak.",
+    },
+    {
+      prop: "once",
+      type: "boolean",
+      default: "false",
+      description: "Play the shimmer animation once instead of looping.",
+    },
+    {
+      prop: "reverse",
+      type: "boolean",
+      default: "false",
+      description: "Reverse the shimmer sweep direction.",
+    },
+    {
+      prop: "repeatDelay",
+      type: "number",
+      default: "0",
+      description: "Delay between shimmer loops in seconds.",
+    },
+    {
+      prop: "active",
+      type: "boolean",
+      default: "true",
+      description: "Whether the shimmer effect is active.",
+    },
+  ]}
+/>

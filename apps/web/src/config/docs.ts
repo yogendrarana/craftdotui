@@ -302,6 +302,10 @@ export const docsNavItems: Array<DocsNavItem> = [
 				href: "/docs/text/text-scramble",
 			},
 			{
+				title: "Text Shimmer",
+				href: "/docs/text/text-shimmer",
+			},
+			{
 				title: "Text Typing",
 				href: "/docs/text/text-typing",
 			},

@@ -16244,6 +16244,307 @@ export const Registry: Record<string, any> = {
 							return LazyComp;
 						})(),
           },
+          "text-particles-shimmer-controlled": {
+            name: "text-particles-shimmer-controlled",
+            description: "Controlled text shimmer toggled via the active prop.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/text-shimmer","@craftdotui/baseui-button"],
+            files: [
+  {
+    "path": "packages/text/components/text-shimmer/particles/controlled/index.tsx",
+    "type": "registry:component",
+    "target": "components/text/particles/text-shimmer-controlled.tsx",
+    "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { Button } from \"@/components/baseui/components/button\";\nimport TextShimmer from \"@/components/text/components/text-shimmer\";\n\nexport function Particle() {\n\tconst [active, setActive] = React.useState(true);\n\n\treturn (\n\t\t<div className=\"flex flex-col items-center gap-3\">\n\t\t\t<TextShimmer\n\t\t\t\tas=\"h3\"\n\t\t\t\tactive={active}\n\t\t\t\tclassName=\"text-lg text-foreground\"\n\t\t\t>\n\t\t\t\t{active ? \"Analyzing codebase...\" : \"Analysis complete\"}\n\t\t\t</TextShimmer>\n\t\t\t<Button\n\t\t\t\tvariant=\"outline\"\n\t\t\t\tsize=\"sm\"\n\t\t\t\tonClick={() => setActive((prev) => !prev)}\n\t\t\t>\n\t\t\t\t{active ? \"Stop shimmer\" : \"Start shimmer\"}\n\t\t\t</Button>\n\t\t</div>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/text-particles-shimmer-controlled',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/text/components/text-shimmer/particles/controlled/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "text-particles-shimmer-custom-color": {
+            name: "text-particles-shimmer-custom-color",
+            description: "Text shimmer with custom highlight color and duration.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/text-shimmer"],
+            files: [
+  {
+    "path": "packages/text/components/text-shimmer/particles/custom-color/index.tsx",
+    "type": "registry:component",
+    "target": "components/text/particles/text-shimmer-custom-color.tsx",
+    "content": "\"use client\";\n\nimport TextShimmer from \"@/components/text/components/text-shimmer\";\n\nexport function Particle() {\n\treturn (\n\t\t<TextShimmer\n\t\t\tcolor=\"#38bdf8\"\n\t\t\tduration={1.5}\n\t\t\tclassName=\"text-base text-foreground\"\n\t\t>\n\t\t\tThinking deeply about your request...\n\t\t</TextShimmer>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/text-particles-shimmer-custom-color',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/text/components/text-shimmer/particles/custom-color/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "text-particles-shimmer-once": {
+            name: "text-particles-shimmer-once",
+            description: "Text shimmer that plays only once.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/text-shimmer"],
+            files: [
+  {
+    "path": "packages/text/components/text-shimmer/particles/once/index.tsx",
+    "type": "registry:component",
+    "target": "components/text/particles/text-shimmer-once.tsx",
+    "content": "\"use client\";\n\nimport TextShimmer from \"@/components/text/components/text-shimmer\";\n\nexport function Particle() {\n\treturn (\n\t\t<TextShimmer once duration={1.5} className=\"text-base text-foreground\">\n\t\t\tSweep plays once on mount\n\t\t</TextShimmer>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/text-particles-shimmer-once',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/text/components/text-shimmer/particles/once/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "text-particles-shimmer": {
+            name: "text-particles-shimmer",
+            description: "Default text shimmer demo.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/text-shimmer"],
+            files: [
+  {
+    "path": "packages/text/components/text-shimmer/particles/index.tsx",
+    "type": "registry:component",
+    "target": "components/text/particles/text-shimmer.tsx",
+    "content": "\"use client\";\n\nimport TextShimmer from \"@/components/text/components/text-shimmer\";\n\nexport function Particle() {\n\treturn (\n\t\t<TextShimmer className=\"text-sm font-medium text-muted-foreground\">\n\t\t\tGenerating response...\n\t\t</TextShimmer>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/text-particles-shimmer',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/text/components/text-shimmer/particles/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "text-particles-shimmer-repeat-delay": {
+            name: "text-particles-shimmer-repeat-delay",
+            description: "Text shimmer with repeatDelay and custom angle.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/text-shimmer"],
+            files: [
+  {
+    "path": "packages/text/components/text-shimmer/particles/repeat-delay/index.tsx",
+    "type": "registry:component",
+    "target": "components/text/particles/text-shimmer-repeat-delay.tsx",
+    "content": "\"use client\";\n\nimport TextShimmer from \"@/components/text/components/text-shimmer\";\n\nexport function Particle() {\n\treturn (\n\t\t<TextShimmer\n\t\t\tduration={1.2}\n\t\t\trepeatDelay={1.5}\n\t\t\tangle={45}\n\t\t\tclassName=\"text-sm font-medium text-muted-foreground\"\n\t\t>\n\t\t\tPeriodic shimmer with 1.5s delay between sweeps\n\t\t</TextShimmer>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/text-particles-shimmer-repeat-delay',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/text/components/text-shimmer/particles/repeat-delay/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "text-particles-shimmer-reverse": {
+            name: "text-particles-shimmer-reverse",
+            description: "Text shimmer with reversed sweep direction and custom spread.",
+            type: "registry:component",
+            dependencies: [],
+            devDependencies: undefined,
+            registryDependencies: ["@craftdotui/text-shimmer"],
+            files: [
+  {
+    "path": "packages/text/components/text-shimmer/particles/reverse/index.tsx",
+    "type": "registry:component",
+    "target": "components/text/particles/text-shimmer-reverse.tsx",
+    "content": "\"use client\";\n\nimport TextShimmer from \"@/components/text/components/text-shimmer\";\n\nexport function Particle() {\n\treturn (\n\t\t<TextShimmer\n\t\t\treverse\n\t\t\tduration={2.5}\n\t\t\tspread={60}\n\t\t\tclassName=\"text-sm font-medium text-muted-foreground\"\n\t\t>\n\t\t\tReversed sweep with custom spread\n\t\t</TextShimmer>\n\t);\n}\n\nexport default Particle;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/text-particles-shimmer-reverse',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/text/components/text-shimmer/particles/reverse/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
+          "text-shimmer": {
+            name: "text-shimmer",
+            description: "A shimmering text animation component powered by Motion.",
+            type: "registry:component",
+            dependencies: ["motion","cn"],
+            devDependencies: undefined,
+            registryDependencies: [],
+            files: [
+  {
+    "path": "packages/text/components/text-shimmer/index.tsx",
+    "type": "registry:component",
+    "target": "components/text/components/text-shimmer.tsx",
+    "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { motion, type HTMLMotionProps } from \"motion/react\";\nimport { cn } from \"cn\";\n\nexport interface TextShimmerProps\n\textends Omit<React.HTMLAttributes<HTMLElement>, \"children\" | \"color\"> {\n\t/**\n\t * The text or inline content to apply the shimmer effect to.\n\t */\n\tchildren: React.ReactNode;\n\t/**\n\t * The HTML element or React component to render as.\n\t */\n\tas?: React.ElementType;\n\t/**\n\t * Duration of one shimmer sweep in seconds.\n\t */\n\tduration?: number;\n\t/**\n\t * Width of the shimmer highlight band. Numbers are treated as pixels.\n\t */\n\tspread?: number | string;\n\t/**\n\t * Angle offset of the shimmer gradient in degrees.\n\t */\n\tangle?: number;\n\t/**\n\t * Custom highlight color for the shimmer peak.\n\t */\n\tcolor?: string;\n\t/**\n\t * Whether the shimmer animation plays only once instead of looping.\n\t */\n\tonce?: boolean;\n\t/**\n\t * Reverse the shimmer sweep direction.\n\t */\n\treverse?: boolean;\n\t/**\n\t * Delay between shimmer loops in seconds.\n\t */\n\trepeatDelay?: number;\n\t/**\n\t * Whether the shimmer effect is active. When false, renders plain text.\n\t */\n\tactive?: boolean;\n}\n\nexport function TextShimmer({\n\tchildren,\n\tas: Component = \"p\",\n\tduration = 2,\n\tspread = \"calc(3ch + 40px)\",\n\tangle = 20,\n\tcolor,\n\tonce = false,\n\treverse = false,\n\trepeatDelay = 0,\n\tactive = true,\n\tclassName,\n\tstyle,\n\t...props\n}: TextShimmerProps) {\n\tconst [prefersReducedMotion, setPrefersReducedMotion] =\n\t\tReact.useState(false);\n\n\tReact.useEffect(() => {\n\t\tif (typeof window === \"undefined\") return;\n\t\tconst mediaQuery = window.matchMedia(\n\t\t\t\"(prefers-reduced-motion: reduce)\",\n\t\t);\n\t\tsetPrefersReducedMotion(mediaQuery.matches);\n\n\t\tconst handleChange = (event: MediaQueryListEvent) => {\n\t\t\tsetPrefersReducedMotion(event.matches);\n\t\t};\n\t\tmediaQuery.addEventListener(\"change\", handleChange);\n\t\treturn () => mediaQuery.removeEventListener(\"change\", handleChange);\n\t}, []);\n\n\tconst MotionComponent = React.useMemo(\n\t\t() =>\n\t\t\tmotion.create(\n\t\t\t\tComponent as React.ComponentType<\n\t\t\t\t\tReact.HTMLAttributes<HTMLElement>\n\t\t\t\t>,\n\t\t\t),\n\t\t[Component],\n\t);\n\n\tconst isShimmery = active && !prefersReducedMotion;\n\tconst resolvedSpread = typeof spread === \"number\" ? `${spread}px` : spread;\n\n\tconst shimmerStyle: React.CSSProperties & Record<string, string | number> =\n\t\tisShimmery\n\t\t\t? {\n\t\t\t\t\t\"--shimmer-spread\": resolvedSpread,\n\t\t\t\t\t...(color ? { \"--shimmer-highlight\": color } : {}),\n\t\t\t\t\tWebkitTextFillColor: \"transparent\",\n\t\t\t\t\tbackgroundImage: `linear-gradient(${90 + angle}deg, currentColor calc(50% - var(--shimmer-spread)), color-mix(in oklch, var(--shimmer-highlight), currentColor 50%) calc(50% - var(--shimmer-spread) * 0.5), var(--shimmer-highlight) 50%, color-mix(in oklch, var(--shimmer-highlight), currentColor 50%) calc(50% + var(--shimmer-spread) * 0.5), currentColor calc(50% + var(--shimmer-spread)))`,\n\t\t\t\t\tbackgroundRepeat: \"no-repeat\",\n\t\t\t\t\tbackgroundSize:\n\t\t\t\t\t\t\"calc(200% + var(--shimmer-spread) * 2) 100%\",\n\t\t\t\t\tWebkitBackgroundClip: \"text\",\n\t\t\t\t\tbackgroundClip: \"text\",\n\t\t\t\t\t...style,\n\t\t\t\t}\n\t\t\t: { ...style };\n\n\tconst motionProps = props as Omit<\n\t\tHTMLMotionProps<\"div\">,\n\t\t\"children\" | \"style\" | \"className\"\n\t>;\n\n\treturn (\n\t\t<MotionComponent\n\t\t\tclassName={cn(\n\t\t\t\t\"inline-block\",\n\t\t\t\tisShimmery &&\n\t\t\t\t\t\"[--shimmer-highlight:oklch(from_currentColor_l_c_h/calc(alpha*0.2))] dark:[--shimmer-highlight:oklch(from_currentColor_max(0.8,calc(l+0.4))_c_h/calc(alpha+0.4))]\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\tstyle={shimmerStyle}\n\t\t\tinitial={\n\t\t\t\tisShimmery\n\t\t\t\t\t? { backgroundPosition: reverse ? \"0% 0%\" : \"100% 0%\" }\n\t\t\t\t\t: undefined\n\t\t\t}\n\t\t\tanimate={\n\t\t\t\tisShimmery\n\t\t\t\t\t? { backgroundPosition: reverse ? \"100% 0%\" : \"0% 0%\" }\n\t\t\t\t\t: undefined\n\t\t\t}\n\t\t\ttransition={\n\t\t\t\tisShimmery\n\t\t\t\t\t? {\n\t\t\t\t\t\t\tduration,\n\t\t\t\t\t\t\trepeat: once ? 0 : Infinity,\n\t\t\t\t\t\t\tease: \"linear\",\n\t\t\t\t\t\t\trepeatDelay,\n\t\t\t\t\t\t}\n\t\t\t\t\t: undefined\n\t\t\t}\n\t\t\t{...motionProps}\n\t\t>\n\t\t\t{children}\n\t\t</MotionComponent>\n\t);\n}\n\nexport default TextShimmer;"
+  }
+],
+            keywords: [],
+            command: '@craftdotui/text-shimmer',
+            component: (() => {
+							const LazyComp = React.lazy(async () => {
+								const mod = await import("@craftdotui/text/components/text-shimmer/index.tsx");
+								let Comp = mod.default;
+
+								if (!Comp) {
+									const exportName =
+									Object.keys(mod).find((key) => {
+										const value = mod[key];
+										return typeof value === "function" || typeof value === "object";
+									}) || "default";
+
+									Comp = mod[exportName];
+								}
+
+								if (mod.animations) {
+									(LazyComp as any).animations = mod.animations;
+								}
+
+								return { default: Comp };
+							});
+
+						    LazyComp.demoProps = {};
+							return LazyComp;
+						})(),
+          },
           "text-particles-typing": {
             name: "text-particles-typing",
             description: "Basic typing effect demo",

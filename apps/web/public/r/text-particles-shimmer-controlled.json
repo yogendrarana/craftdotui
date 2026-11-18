@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "text-particles-shimmer-controlled",
+	"description": "Controlled text shimmer toggled via the active prop.",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/text-shimmer",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/text/components/text-shimmer/particles/controlled/index.tsx",
+			"content": "\"use client\";\n\nimport * as React from \"react\";\nimport { Button } from \"@/components/baseui/components/button\";\nimport TextShimmer from \"@/components/text/components/text-shimmer\";\n\nexport function Particle() {\n\tconst [active, setActive] = React.useState(true);\n\n\treturn (\n\t\t<div className=\"flex flex-col items-center gap-3\">\n\t\t\t<TextShimmer\n\t\t\t\tas=\"h3\"\n\t\t\t\tactive={active}\n\t\t\t\tclassName=\"text-lg text-foreground\"\n\t\t\t>\n\t\t\t\t{active ? \"Analyzing codebase...\" : \"Analysis complete\"}\n\t\t\t</TextShimmer>\n\t\t\t<Button\n\t\t\t\tvariant=\"outline\"\n\t\t\t\tsize=\"sm\"\n\t\t\t\tonClick={() => setActive((prev) => !prev)}\n\t\t\t>\n\t\t\t\t{active ? \"Stop shimmer\" : \"Start shimmer\"}\n\t\t\t</Button>\n\t\t</div>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/text/particles/text-shimmer-controlled.tsx"
+		}
+	],
+	"type": "registry:component"
+}

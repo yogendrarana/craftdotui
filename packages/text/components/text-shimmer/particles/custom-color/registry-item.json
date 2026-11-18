@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "text-particles-shimmer-custom-color",
+	"type": "registry:component",
+	"description": "Text shimmer with custom highlight color and duration.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/text-shimmer"],
+	"files": [
+		{
+			"path": "packages/text/components/text-shimmer/particles/custom-color/index.tsx",
+			"type": "registry:component",
+			"target": "components/text/particles/text-shimmer-custom-color.tsx"
+		}
+	]
+}

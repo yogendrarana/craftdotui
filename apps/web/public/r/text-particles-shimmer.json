@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "text-particles-shimmer",
+	"description": "Default text shimmer demo.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/text-shimmer"],
+	"files": [
+		{
+			"path": "packages/text/components/text-shimmer/particles/index.tsx",
+			"content": "\"use client\";\n\nimport TextShimmer from \"@/components/text/components/text-shimmer\";\n\nexport function Particle() {\n\treturn (\n\t\t<TextShimmer className=\"text-sm font-medium text-muted-foreground\">\n\t\t\tGenerating response...\n\t\t</TextShimmer>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/text/particles/text-shimmer.tsx"
+		}
+	],
+	"type": "registry:component"
+}
