@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "text-particles-loop-pause-on-hover",
+	"description": "Text loop that pauses on hover and slides downward.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/text-loop"],
+	"files": [
+		{
+			"path": "packages/text/components/text-loop/particles/pause-on-hover/index.tsx",
+			"content": "\"use client\";\n\nimport TextLoop from \"@/components/text/components/text-loop\";\n\nexport function Particle() {\n\treturn (\n\t\t<TextLoop\n\t\t\tpauseOnHover\n\t\t\tdirection=\"down\"\n\t\t\tinterval={1600}\n\t\t\tclassName=\"cursor-default text-sm text-foreground\"\n\t\t>\n\t\t\t<span>Hover to pause cycling</span>\n\t\t\t<span>Slides downward cleanly</span>\n\t\t\t<span>Resumes on mouse leave</span>\n\t\t</TextLoop>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/text/particles/text-loop-pause-on-hover.tsx"
+		}
+	],
+	"type": "registry:component"
+}

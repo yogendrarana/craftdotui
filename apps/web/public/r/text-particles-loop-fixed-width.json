@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "text-particles-loop-fixed-width",
+	"description": "Left-aligned fixed-width text loop for full sentences.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/text-loop"],
+	"files": [
+		{
+			"path": "packages/text/components/text-loop/particles/fixed-width/index.tsx",
+			"content": "\"use client\";\n\nimport TextLoop from \"@/components/text/components/text-loop\";\n\nexport function Particle() {\n\treturn (\n\t\t<TextLoop\n\t\t\tanimateWidth={false}\n\t\t\tclassName=\"w-60 text-left text-sm text-foreground\"\n\t\t>\n\t\t\t<span>Build faster with primitives</span>\n\t\t\t<span>Customize every detail</span>\n\t\t\t<span>Ship accessible components</span>\n\t\t</TextLoop>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/text/particles/text-loop-fixed-width.tsx"
+		}
+	],
+	"type": "registry:component"
+}

@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "text-particles-loop-blur",
+	"description": "Text loop with the blur preset.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/text-loop"],
+	"files": [
+		{
+			"path": "packages/text/components/text-loop/particles/blur/index.tsx",
+			"content": "\"use client\";\n\nimport TextLoop from \"@/components/text/components/text-loop\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"inline-flex items-center gap-1.5 text-sm text-foreground\">\n\t\t\t<span>Craft interfaces for</span>\n\t\t\t<TextLoop preset=\"blur\">\n\t\t\t\t<span>Developers</span>\n\t\t\t\t<span>Designers</span>\n\t\t\t\t<span>Founders</span>\n\t\t\t\t<span>Teams</span>\n\t\t\t</TextLoop>\n\t\t</div>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/text/particles/text-loop-blur.tsx"
+		}
+	],
+	"type": "registry:component"
+}

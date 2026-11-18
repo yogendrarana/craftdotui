@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-editable-sizes",
+	"description": "Editable component in small, medium, and large sizes.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-editable"],
+	"files": [
+		{
+			"path": "packages/craftui/components/editable/particles/sizes/index.tsx",
+			"content": "import {\n\tEditableArea,\n\tEditableInput,\n\tEditablePreview,\n\tEditableRoot,\n} from \"@/components/craftui/components/editable\";\n\nexport function Particle() {\n\treturn (\n\t\t<div className=\"mx-auto flex w-full max-w-sm flex-col gap-3\">\n\t\t\t<EditableRoot defaultValue=\"Small editable\">\n\t\t\t\t<EditableArea>\n\t\t\t\t\t<EditablePreview size=\"sm\" />\n\t\t\t\t\t<EditableInput size=\"sm\" />\n\t\t\t\t</EditableArea>\n\t\t\t</EditableRoot>\n\n\t\t\t<EditableRoot defaultValue=\"Medium editable\">\n\t\t\t\t<EditableArea>\n\t\t\t\t\t<EditablePreview size=\"md\" />\n\t\t\t\t\t<EditableInput size=\"md\" />\n\t\t\t\t</EditableArea>\n\t\t\t</EditableRoot>\n\n\t\t\t<EditableRoot defaultValue=\"Large editable\">\n\t\t\t\t<EditableArea>\n\t\t\t\t\t<EditablePreview size=\"lg\" />\n\t\t\t\t\t<EditableInput size=\"lg\" />\n\t\t\t\t</EditableArea>\n\t\t\t</EditableRoot>\n\t\t</div>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/particles/editable-sizes.tsx"
+		}
+	],
+	"type": "registry:component"
+}

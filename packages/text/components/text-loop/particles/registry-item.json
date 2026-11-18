@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "text-particles-loop",
+	"type": "registry:component",
+	"description": "Default inline text loop demo with smooth width transitions.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/text-loop"],
+	"files": [
+		{
+			"path": "packages/text/components/text-loop/particles/index.tsx",
+			"type": "registry:component",
+			"target": "components/text/particles/text-loop.tsx"
+		}
+	]
+}

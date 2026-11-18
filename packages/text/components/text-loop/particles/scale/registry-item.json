@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "text-particles-loop-scale",
+	"type": "registry:component",
+	"description": "Text loop with the scale preset.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/text-loop"],
+	"files": [
+		{
+			"path": "packages/text/components/text-loop/particles/scale/index.tsx",
+			"type": "registry:component",
+			"target": "components/text/particles/text-loop-scale.tsx"
+		}
+	]
+}

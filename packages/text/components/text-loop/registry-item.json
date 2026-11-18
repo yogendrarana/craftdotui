@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "text-loop",
+	"type": "registry:component",
+	"description": "An animated text loop component powered by Motion with presets and custom variants.",
+	"dependencies": ["motion", "cn"],
+	"registryDependencies": [],
+	"files": [
+		{
+			"path": "packages/text/components/text-loop/index.tsx",
+			"type": "registry:component",
+			"target": "components/text/components/text-loop.tsx"
+		}
+	]
+}

@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "text-particles-loop-once",
+	"type": "registry:component",
+	"description": "Non-looping text sequence that stops on the final item.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/text-loop"],
+	"files": [
+		{
+			"path": "packages/text/components/text-loop/particles/once/index.tsx",
+			"type": "registry:component",
+			"target": "components/text/particles/text-loop-once.tsx"
+		}
+	]
+}

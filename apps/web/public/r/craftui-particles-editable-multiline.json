@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-editable-multiline",
+	"description": "Multiline textarea editable with vertical orientation and explicit save/cancel buttons.",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/craftui-editable",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/editable/particles/multiline/index.tsx",
+			"content": "import { Button } from \"@/components/baseui/components/button\";\nimport {\n\tEditableArea,\n\tEditableCancelTrigger,\n\tEditableControl,\n\tEditableEditTrigger,\n\tEditableInput,\n\tEditableLabel,\n\tEditablePreview,\n\tEditableRoot,\n\tEditableSubmitTrigger,\n} from \"@/components/craftui/components/editable\";\n\nexport function Particle() {\n\treturn (\n\t\t<EditableRoot\n\t\t\tdefaultValue=\"Write a short bio or description here. Press Cmd/Ctrl + Enter to save, or Escape to cancel.\"\n\t\t\tplaceholder=\"Add a description...\"\n\t\t\torientation=\"vertical\"\n\t\t\tsubmitMode=\"none\"\n\t\t\tclassName=\"mx-auto w-full max-w-md\"\n\t\t>\n\t\t\t<EditableLabel>Bio</EditableLabel>\n\t\t\t<EditableArea>\n\t\t\t\t<EditablePreview className=\"whitespace-pre-wrap\" />\n\t\t\t\t<EditableInput multiline rows={3} />\n\t\t\t</EditableArea>\n\t\t\t<EditableControl>\n\t\t\t\t<EditableEditTrigger\n\t\t\t\t\trender={<Button variant=\"outline\" size=\"sm\" />}\n\t\t\t\t>\n\t\t\t\t\tEdit\n\t\t\t\t</EditableEditTrigger>\n\t\t\t\t<EditableCancelTrigger\n\t\t\t\t\trender={<Button variant=\"ghost\" size=\"sm\" />}\n\t\t\t\t>\n\t\t\t\t\tCancel\n\t\t\t\t</EditableCancelTrigger>\n\t\t\t\t<EditableSubmitTrigger render={<Button size=\"sm\" />}>\n\t\t\t\t\tSave\n\t\t\t\t</EditableSubmitTrigger>\n\t\t\t</EditableControl>\n\t\t</EditableRoot>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/particles/editable-multiline.tsx"
+		}
+	],
+	"type": "registry:component"
+}

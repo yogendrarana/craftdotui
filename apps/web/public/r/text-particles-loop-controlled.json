@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "text-particles-loop-controlled",
+	"description": "Controlled text loop with manual prev, next, and play/pause controls.",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/text-loop",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/text/components/text-loop/particles/controlled/index.tsx",
+			"content": "\"use client\";\n\nimport * as React from \"react\";\nimport { Button } from \"@/components/baseui/components/button\";\nimport TextLoop from \"@/components/text/components/text-loop\";\n\nconst items = [\n\t\"Build faster with primitives\",\n\t\"Customize every detail\",\n\t\"Ship accessible components\",\n];\n\nexport function Particle() {\n\tconst [index, setIndex] = React.useState(0);\n\tconst [playing, setPlaying] = React.useState(true);\n\n\treturn (\n\t\t<div className=\"flex flex-col items-center gap-4\">\n\t\t\t<TextLoop\n\t\t\t\tindex={index}\n\t\t\t\tonIndexChange={setIndex}\n\t\t\t\ttrigger={playing}\n\t\t\t\tclassName=\"text-sm text-foreground\"\n\t\t\t>\n\t\t\t\t{items.map((item) => (\n\t\t\t\t\t<span key={item}>{item}</span>\n\t\t\t\t))}\n\t\t\t</TextLoop>\n\n\t\t\t<div className=\"flex items-center gap-2\">\n\t\t\t\t<Button\n\t\t\t\t\tvariant=\"outline\"\n\t\t\t\t\tsize=\"sm\"\n\t\t\t\t\tonClick={() =>\n\t\t\t\t\t\tsetIndex(\n\t\t\t\t\t\t\t(prev) => (prev - 1 + items.length) % items.length,\n\t\t\t\t\t\t)\n\t\t\t\t\t}\n\t\t\t\t>\n\t\t\t\t\tPrev\n\t\t\t\t</Button>\n\t\t\t\t<Button\n\t\t\t\t\tvariant=\"outline\"\n\t\t\t\t\tsize=\"sm\"\n\t\t\t\t\tonClick={() => setPlaying((prev) => !prev)}\n\t\t\t\t>\n\t\t\t\t\t{playing ? \"Pause\" : \"Play\"}\n\t\t\t\t</Button>\n\t\t\t\t<Button\n\t\t\t\t\tvariant=\"outline\"\n\t\t\t\t\tsize=\"sm\"\n\t\t\t\t\tonClick={() =>\n\t\t\t\t\t\tsetIndex((prev) => (prev + 1) % items.length)\n\t\t\t\t\t}\n\t\t\t\t>\n\t\t\t\t\tNext\n\t\t\t\t</Button>\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/text/particles/text-loop-controlled.tsx"
+		}
+	],
+	"type": "registry:component"
+}

@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "text-particles-loop-blur",
+	"type": "registry:component",
+	"description": "Text loop with the blur preset.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/text-loop"],
+	"files": [
+		{
+			"path": "packages/text/components/text-loop/particles/blur/index.tsx",
+			"type": "registry:component",
+			"target": "components/text/particles/text-loop-blur.tsx"
+		}
+	]
+}

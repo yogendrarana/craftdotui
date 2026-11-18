@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "text-particles-loop-fixed-width",
+	"type": "registry:component",
+	"description": "Left-aligned fixed-width text loop for full sentences.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/text-loop"],
+	"files": [
+		{
+			"path": "packages/text/components/text-loop/particles/fixed-width/index.tsx",
+			"type": "registry:component",
+			"target": "components/text/particles/text-loop-fixed-width.tsx"
+		}
+	]
+}

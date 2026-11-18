@@ -1,0 +1,16 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "text-particles-loop-once",
+	"description": "Non-looping text sequence that stops on the final item.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/text-loop"],
+	"files": [
+		{
+			"path": "packages/text/components/text-loop/particles/once/index.tsx",
+			"content": "\"use client\";\n\nimport TextLoop from \"@/components/text/components/text-loop\";\n\nexport function Particle() {\n\treturn (\n\t\t<TextLoop\n\t\t\tloop={false}\n\t\t\tinterval={1400}\n\t\t\tpreset=\"blur\"\n\t\t\tclassName=\"text-sm text-muted-foreground\"\n\t\t>\n\t\t\t<span>Initializing environment...</span>\n\t\t\t<span>Connecting to workspace...</span>\n\t\t\t<span>Installing dependencies...</span>\n\t\t\t<span>Syncing components...</span>\n\t\t\t<span>Running type checks...</span>\n\t\t\t<span className=\"text-foreground\">Ready to build!</span>\n\t\t</TextLoop>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/text/particles/text-loop-once.tsx"
+		}
+	],
+	"type": "registry:component"
+}

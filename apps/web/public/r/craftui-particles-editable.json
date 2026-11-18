@@ -1,0 +1,19 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-editable",
+	"description": "Default inline editable component with edit, save, and cancel controls.",
+	"dependencies": ["lucide-react"],
+	"registryDependencies": [
+		"@craftdotui/craftui-editable",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/craftui/components/editable/particles/index.tsx",
+			"content": "import { Check, Pencil, X } from \"lucide-react\";\nimport { Button } from \"@/components/baseui/components/button\";\nimport {\n\tEditableArea,\n\tEditableCancelTrigger,\n\tEditableControl,\n\tEditableEditTrigger,\n\tEditableInput,\n\tEditablePreview,\n\tEditableRoot,\n\tEditableSubmitTrigger,\n} from \"@/components/craftui/components/editable\";\n\nexport function Particle() {\n\treturn (\n\t\t<EditableRoot\n\t\t\tdefaultValue=\"Click to edit title\"\n\t\t\tplaceholder=\"Enter a title...\"\n\t\t\tclassName=\"mx-auto w-full max-w-sm\"\n\t\t>\n\t\t\t<EditableArea>\n\t\t\t\t<EditablePreview />\n\t\t\t\t<EditableInput />\n\t\t\t</EditableArea>\n\t\t\t<EditableControl>\n\t\t\t\t<EditableEditTrigger\n\t\t\t\t\trender={<Button variant=\"ghost\" size=\"icon-sm\" />}\n\t\t\t\t\taria-label=\"Edit\"\n\t\t\t\t>\n\t\t\t\t\t<Pencil className=\"size-3.5\" />\n\t\t\t\t</EditableEditTrigger>\n\t\t\t\t<EditableSubmitTrigger\n\t\t\t\t\trender={<Button variant=\"ghost\" size=\"icon-sm\" />}\n\t\t\t\t\taria-label=\"Save\"\n\t\t\t\t>\n\t\t\t\t\t<Check className=\"size-3.5\" />\n\t\t\t\t</EditableSubmitTrigger>\n\t\t\t\t<EditableCancelTrigger\n\t\t\t\t\trender={<Button variant=\"ghost\" size=\"icon-sm\" />}\n\t\t\t\t\taria-label=\"Cancel\"\n\t\t\t\t>\n\t\t\t\t\t<X className=\"size-3.5\" />\n\t\t\t\t</EditableCancelTrigger>\n\t\t\t</EditableControl>\n\t\t</EditableRoot>\n\t);\n}\n\nexport default Particle;\n",
+			"type": "registry:component",
+			"target": "components/particles/editable.tsx"
+		}
+	],
+	"type": "registry:component"
+}

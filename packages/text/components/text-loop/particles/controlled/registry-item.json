@@ -1,0 +1,18 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "text-particles-loop-controlled",
+	"type": "registry:component",
+	"description": "Controlled text loop with manual prev, next, and play/pause controls.",
+	"dependencies": [],
+	"registryDependencies": [
+		"@craftdotui/text-loop",
+		"@craftdotui/baseui-button"
+	],
+	"files": [
+		{
+			"path": "packages/text/components/text-loop/particles/controlled/index.tsx",
+			"type": "registry:component",
+			"target": "components/text/particles/text-loop-controlled.tsx"
+		}
+	]
+}

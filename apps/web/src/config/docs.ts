@@ -302,6 +302,10 @@ export const docsNavItems: Array<DocsNavItem> = [
 		title: "Text",
 		items: [
 			{
+				title: "Text Loop",
+				href: "/docs/text/text-loop",
+			},
+			{
 				title: "Text Scramble",
 				href: "/docs/text/text-scramble",
 			},

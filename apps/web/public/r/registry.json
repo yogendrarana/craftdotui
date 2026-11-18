@@ -1085,6 +1085,82 @@
 			]
 		},
 		{
+			"name": "craftui-particles-editable-double-click",
+			"type": "registry:component",
+			"description": "Editable component activated on double-click.",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/craftui-editable"],
+			"files": [
+				{
+					"path": "packages/craftui/components/editable/particles/double-click/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/editable-double-click.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-editable-multiline",
+			"type": "registry:component",
+			"description": "Multiline textarea editable with vertical orientation and explicit save/cancel buttons.",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/craftui-editable",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/editable/particles/multiline/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/editable-multiline.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-editable",
+			"type": "registry:component",
+			"description": "Default inline editable component with edit, save, and cancel controls.",
+			"dependencies": ["lucide-react"],
+			"registryDependencies": [
+				"@craftdotui/craftui-editable",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/craftui/components/editable/particles/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/editable.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-particles-editable-sizes",
+			"type": "registry:component",
+			"description": "Editable component in small, medium, and large sizes.",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/craftui-editable"],
+			"files": [
+				{
+					"path": "packages/craftui/components/editable/particles/sizes/index.tsx",
+					"type": "registry:component",
+					"target": "components/particles/editable-sizes.tsx"
+				}
+			]
+		},
+		{
+			"name": "craftui-editable",
+			"type": "registry:component",
+			"description": "An inline editable text component that toggles between a preview and an input with keyboard, blur, and trigger controls.",
+			"dependencies": ["@base-ui/react", "cn"],
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "packages/craftui/components/editable/index.tsx",
+					"type": "registry:component",
+					"target": "components/ui/editable.tsx"
+				}
+			]
+		},
+		{
 			"name": "craftui-particles-empty-avatar",
 			"type": "registry:component",
 			"description": "Empty state featuring a user avatar.",
@@ -5557,6 +5633,149 @@
 					"path": "packages/motion/particles/confetti/index.tsx",
 					"type": "registry:component",
 					"target": "components/motion/particles/confetti.tsx"
+				}
+			]
+		},
+		{
+			"name": "text-particles-loop-blur",
+			"type": "registry:component",
+			"description": "Text loop with the blur preset.",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/text-loop"],
+			"files": [
+				{
+					"path": "packages/text/components/text-loop/particles/blur/index.tsx",
+					"type": "registry:component",
+					"target": "components/text/particles/text-loop-blur.tsx"
+				}
+			]
+		},
+		{
+			"name": "text-particles-loop-controlled",
+			"type": "registry:component",
+			"description": "Controlled text loop with manual prev, next, and play/pause controls.",
+			"dependencies": [],
+			"registryDependencies": [
+				"@craftdotui/text-loop",
+				"@craftdotui/baseui-button"
+			],
+			"files": [
+				{
+					"path": "packages/text/components/text-loop/particles/controlled/index.tsx",
+					"type": "registry:component",
+					"target": "components/text/particles/text-loop-controlled.tsx"
+				}
+			]
+		},
+		{
+			"name": "text-particles-loop-fade",
+			"type": "registry:component",
+			"description": "Text loop with the fade preset.",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/text-loop"],
+			"files": [
+				{
+					"path": "packages/text/components/text-loop/particles/fade/index.tsx",
+					"type": "registry:component",
+					"target": "components/text/particles/text-loop-fade.tsx"
+				}
+			]
+		},
+		{
+			"name": "text-particles-loop-fixed-width",
+			"type": "registry:component",
+			"description": "Left-aligned fixed-width text loop for full sentences.",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/text-loop"],
+			"files": [
+				{
+					"path": "packages/text/components/text-loop/particles/fixed-width/index.tsx",
+					"type": "registry:component",
+					"target": "components/text/particles/text-loop-fixed-width.tsx"
+				}
+			]
+		},
+		{
+			"name": "text-particles-loop-flip",
+			"type": "registry:component",
+			"description": "Text loop with the flip preset.",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/text-loop"],
+			"files": [
+				{
+					"path": "packages/text/components/text-loop/particles/flip/index.tsx",
+					"type": "registry:component",
+					"target": "components/text/particles/text-loop-flip.tsx"
+				}
+			]
+		},
+		{
+			"name": "text-particles-loop-once",
+			"type": "registry:component",
+			"description": "Non-looping text sequence that stops on the final item.",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/text-loop"],
+			"files": [
+				{
+					"path": "packages/text/components/text-loop/particles/once/index.tsx",
+					"type": "registry:component",
+					"target": "components/text/particles/text-loop-once.tsx"
+				}
+			]
+		},
+		{
+			"name": "text-particles-loop-pause-on-hover",
+			"type": "registry:component",
+			"description": "Text loop that pauses on hover and slides downward.",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/text-loop"],
+			"files": [
+				{
+					"path": "packages/text/components/text-loop/particles/pause-on-hover/index.tsx",
+					"type": "registry:component",
+					"target": "components/text/particles/text-loop-pause-on-hover.tsx"
+				}
+			]
+		},
+		{
+			"name": "text-particles-loop",
+			"type": "registry:component",
+			"description": "Default inline text loop demo with smooth width transitions.",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/text-loop"],
+			"files": [
+				{
+					"path": "packages/text/components/text-loop/particles/index.tsx",
+					"type": "registry:component",
+					"target": "components/text/particles/text-loop.tsx"
+				}
+			]
+		},
+		{
+			"name": "text-particles-loop-scale",
+			"type": "registry:component",
+			"description": "Text loop with the scale preset.",
+			"dependencies": [],
+			"registryDependencies": ["@craftdotui/text-loop"],
+			"files": [
+				{
+					"path": "packages/text/components/text-loop/particles/scale/index.tsx",
+					"type": "registry:component",
+					"target": "components/text/particles/text-loop-scale.tsx"
+				}
+			]
+		},
+		{
+			"name": "text-loop",
+			"type": "registry:component",
+			"description": "An animated text loop component powered by Motion with presets and custom variants.",
+			"dependencies": ["motion", "cn"],
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "packages/text/components/text-loop/index.tsx",
+					"type": "registry:component",
+					"target": "components/text/components/text-loop.tsx"
 				}
 			]
 		},
