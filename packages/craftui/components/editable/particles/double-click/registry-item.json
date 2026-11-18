@@ -1,0 +1,15 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "craftui-particles-editable-double-click",
+	"type": "registry:component",
+	"description": "Editable component activated on double-click.",
+	"dependencies": [],
+	"registryDependencies": ["@craftdotui/craftui-editable"],
+	"files": [
+		{
+			"path": "packages/craftui/components/editable/particles/double-click/index.tsx",
+			"type": "registry:component",
+			"target": "components/particles/editable-double-click.tsx"
+		}
+	]
+}
